@@ -1,0 +1,37 @@
+// To customize the look and feel of Ionic, you can override
+// the Sass variables found in Ionic's source scss files.
+
+
+// App Color Variables
+// ---------------------------------
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+
+);
+
+
+
+// Ionic Sass
+// ---------------------------------
+@import "ionic";
+
+
+// App Sass
+// ---------------------------------
+@import "getting-started/getting-started",
+        "login/login",
+        "signup/signup",
+        "intro/intro",
+        "tabs/tabs",
+        "grid/grid",
+        "home/home";

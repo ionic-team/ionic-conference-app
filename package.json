@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "awesome-typescript-loader": "0.12.0-rc.2",
+    "babel": "5.8.21",
+    "browser-sync": "2.8.2",
+    "del": "1.2.0",
+    "gulp": "3.9.0",
+    "gulp-autoprefixer": "2.3.1",
+    "gulp-sass": "2.0.4",
+    "gulp-watch": "4.3.4",
+    "minimist": "1.1.1",
+    "typescript": "1.5.3",
+    "webpack": "1.10.5"
+  },
+  "dependencies": {
+    "ionic-framework": "2.0.0-alpha.22",
+    "moment": "^2.10.6"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "com.ionic.keyboard"
+  ],
+  "cordovaPlatforms": [
+    "ios"
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "05/17/2016":
+  {
+    "7:00 AM": [
+      {
+        "name": "Breakfast",
+        "timestart": "05/17/2016 7:00",
+        "timeend": "05/17/2016 8:00",
+        "location": "Main hallway"
+      }
+    ],
+    "8:00 AM": [
+      {
+        "name": "Getting started with Ionic 2",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 CLI",
+        "location": "Room 2202",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 Starter templates",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      }
+    ],
+    "9:00 AM": [
+      {
+        "name": "Ionic 2 Directives",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      },
+      {
+        "name": "Ionic 2 Services",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      }
+    ]
+  },
+  "05/18/2016":
+  {
+    "7:00 AM": [
+      {
+        "name": "Breakfast",
+        "timestart": "05/17/2016 7:00",
+        "timeend": "05/17/2016 8:00",
+        "location": "Main hallway"
+      }
+    ],
+    "8:00 AM": [
+      {
+        "name": "Getting started with Ionic 2",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 CLI",
+        "location": "Room 2202",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 Starter templates",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      }
+    ],
+    "9:00 AM": [
+      {
+        "name": "Ionic 2 Directives",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      },
+      {
+        "name": "Ionic 2 Services",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      }
+    ]
+  },
+  "05/19/2016":
+  {
+    "7:00 AM": [
+      {
+        "name": "Breakfast",
+        "timestart": "05/17/2016 7:00",
+        "timeend": "05/17/2016 8:00",
+        "location": "Main hallway"
+      }
+    ],
+    "8:00 AM": [
+      {
+        "name": "Getting started with Ionic 2",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 CLI",
+        "location": "Room 2202",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      },
+      {
+        "name": "Ionic 2 Starter templates",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 8:30",
+        "timeend": "05/17/2016 9:30"
+      }
+    ],
+    "9:00 AM": [
+      {
+        "name": "Ionic 2 Directives",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      },
+      {
+        "name": "Ionic 2 Services",
+        "location": "Room 2201",
+        "timestart": "05/17/2016 9:30",
+        "timeend": "05/17/2016 10:30"
+      }
+    ]
+  }
+}

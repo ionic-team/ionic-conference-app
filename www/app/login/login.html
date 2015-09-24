@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+  <a menu-toggle>
+    <icon menu></icon>
+  </a>
+  <ion-title>Login</ion-title>
+</ion-navbar>
+
+<ion-content padding id="login">
+  <h2 class="brand">Super App</h2>
+  <form (submit)="doLogin($event)" [ng-form-model]="form">
+    <ion-list>
+      <ion-input>
+        <input ng-control="email" type="email" placeholder="Your email">
+      </ion-input>
+      <ion-input>
+        <input ng-control="password" type="password" placeholder="Your password">
+      </ion-input>
+    </ion-list>
+    <button block full type="submit">Log in</button>
+    <div class="options">
+      <a button clear dark block [nav-push]="forgotPasswordPage">Forgot Password?</a>
+      <a button clear dark block [nav-push]="signupPage">Create Account</a>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,38 @@
+.home-page {
+  .top-header {
+    background-color: lightblue;
+    padding: 16px;
+
+    .header-image {
+      float: left;
+      margin-right: 20px;
+      img {
+        height: 50px;
+      }
+    }
+
+    .header-info {
+
+    }
+  }
+
+  .home-content {
+    margin-top: 16px;
+
+    .icon-listing {
+      float: left;
+      height: 120px;
+      margin-top: 50px;
+      text-align: center;
+    }
+    img {
+      display: block;
+      height: 50px;
+      margin: 0 auto;
+    }
+    .second-icon-row {
+      padding-top: 10px;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<ion-navbar *navbar>
+  <a menu-toggle>
+    <icon menu></icon>
+  </a>
+  <ion-title>Schedule</ion-title>
+</ion-navbar>
+
+
+<ion-content padding class="home-page">
+
+  <div class="top-header">
+    Hello, Schedule
+    <div *ng-for="#scheduleDay of scheduleData">
+      {{scheduleDay}}
+      {{schedule[scheduleDay]}}
+      <div *ng-for="#time of scheduleDay | mapToIterable">
+        {{time}}
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+   "target": "ES5",
+   "allowNonTsExtensions": true,
+   "module": "commonjs",
+   "isolatedModules": true,
+   "emitDecoratorMetadata": true,
+   "experimentalDecorators": true,
+   "noEmitOnError": false,
+   "rootDir": "."
+  }
+}
