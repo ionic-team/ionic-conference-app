@@ -1,137 +1,298 @@
-{
-  "05/17/2016":
+[
   {
-    "7:00 AM": [
+    "day": "05/17/2016",
+    "timeslots": [
       {
-        "name": "Breakfast",
-        "timestart": "05/17/2016 7:00",
-        "timeend": "05/17/2016 8:00",
-        "location": "Main hallway"
-      }
-    ],
-    "8:00 AM": [
-      {
-        "name": "Getting started with Ionic 2",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "8:00 AM",
+        "talks": [
+          {
+            "name": "Breakfast",
+            "timestart": "05/17/2016 7:00",
+            "timeend": "05/17/2016 8:00",
+            "location": "Main hallway"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 CLI",
-        "location": "Room 2202",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "9:00 AM",
+        "talks": [
+          {
+            "name": "Getting started with Ionic 2",
+            "description": "We will be focused on how to install the Ionic V2 CLI, how to start a new app, and how to serve/emulate/run the application on a native device.",
+            "location": "Room 2201",
+            "speaker": "Adam Badley",
+            "timestart": "05/17/2016 8:30",
+            "timeend": "05/17/2016 9:30"
+          },
+          {
+            "name": "Ionic 2 CLI",
+            "location": "Room 2202",
+            "speaker": "Max Lynx",
+            "timestart": "05/17/2016 8:30",
+            "timeend": "05/17/2016 9:30"
+          },
+          {
+            "name": "Ionic 2 Starter templates",
+            "location": "Room 2203",
+            "speaker": "Brandy Carnegie",
+            "timestart": "05/17/2016 8:30",
+            "timeend": "05/17/2016 9:30"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 Starter templates",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
-      }
-    ],
-    "9:00 AM": [
-      {
-        "name": "Ionic 2 Directives",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
+        "time": "10:00 AM",
+        "talks": [
+          {
+            "name": "Ionic 2 Directives",
+            "location": "Room 2201",
+            "speaker": "Josh Babari",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Services",
+            "location": "Room 2202",
+            "speaker": "Ben Sparrow",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Decorators",
+            "location": "Room 2203",
+            "speaker": "Mike Hurtington",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 Services",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
+        "time": "11:00 AM",
+        "talks": [
+          {
+            "name": "Ionic 2 Components",
+            "location": "Room 2201",
+            "speaker": "Perry Governor",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 HTML",
+            "location": "Room 2202",
+            "speaker": "Eric Bobbington",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Migrations",
+            "location": "Room 2203",
+            "speaker": "Tim Lanchester",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          }
+        ]
+      },
+      {
+        "time": "12:00 PM",
+        "talks": [
+          {
+            "name": "Lunch",
+            "timestart": "05/17/2016 7:00",
+            "timeend": "05/17/2016 8:00",
+            "location": "Auditorium"
+          }
+        ]
+      },
+      {
+        "time": "1:00 PM",
+        "talks": [
+          {
+            "name": "Ionic 2 Directives",
+            "location": "Room 2201",
+            "speaker": "Brody Kiddington",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Services",
+            "location": "Room 2202",
+            "speaker": "Rudy Belfonte",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Decorators",
+            "location": "Room 2203",
+            "speaker": "Dan Dalman",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          }
+        ]
+      },
+      {
+        "time": "2:00 PM",
+        "talks": [
+          {
+            "name": "Ionic 2 Ideas",
+            "location": "Room 2201",
+            "speaker": "Katie Kinder",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Plan",
+            "location": "Room 2202",
+            "speaker": "Drew Rough",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Roadmap",
+            "location": "Room 2203",
+            "speaker": "Ben Sparrow",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          }
+        ]
+      },
+      {
+        "time": "3:00 PM",
+        "talks": [
+          {
+            "name": "Ionic 2 Documentation",
+            "location": "Room 2201",
+            "speaker": "Max Lynx",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Custom Tags",
+            "location": "Room 2202",
+            "speaker": "Tim Lanchester",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 Generators",
+            "location": "Room 2203",
+            "speaker": "Adam Badley",
+            "timestart": "05/17/2016 9:30",
+            "timeend": "05/17/2016 10:30"
+          }
+        ]
       }
     ]
   },
-  "05/18/2016":
   {
-    "7:00 AM": [
+    "day": "05/18/2016",
+    "timeslots": [
       {
-        "name": "Breakfast",
-        "timestart": "05/17/2016 7:00",
-        "timeend": "05/17/2016 8:00",
-        "location": "Main hallway"
-      }
-    ],
-    "8:00 AM": [
-      {
-        "name": "Getting started with Ionic 2",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "7:00 AM",
+        "talks": [
+          {
+            "name": "Second Day Breakfast",
+            "timestart": "05/18/2016 7:00",
+            "timeend": "05/18/2016 8:00",
+            "location": "Main hallway"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 CLI",
-        "location": "Room 2202",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "8:00 AM",
+        "talks": [
+          {
+            "name": "Ionic v2 deployments",
+            "location": "Room 2201",
+            "timestart": "05/18/2016 8:30",
+            "timeend": "05/18/2016 9:30"
+          },
+          {
+            "name": "Ionic v2 and Webpack",
+            "location": "Room 2202",
+            "timestart": "05/18/2016 8:30",
+            "timeend": "05/18/2016 9:30"
+          },
+          {
+            "name": "Using Gulp tasks with Ionic v2 CLI",
+            "location": "Room 2201",
+            "timestart": "05/18/2016 8:30",
+            "timeend": "05/18/2016 9:30"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 Starter templates",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
-      }
-    ],
-    "9:00 AM": [
-      {
-        "name": "Ionic 2 Directives",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
-      },
-      {
-        "name": "Ionic 2 Services",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
+        "time": "9:00 AM",
+        "talks": [
+          {
+            "name": "Ionic v2 and transpilation",
+            "location": "Room 2201",
+            "timestart": "05/18/2016 9:30",
+            "timeend": "05/18/2016 10:30"
+          },
+          {
+            "name": "Ionic v2 SASS and ionicons",
+            "location": "Room 2201",
+            "timestart": "05/18/2016 9:30",
+            "timeend": "05/18/2016 10:30"
+          }
+        ]
       }
     ]
   },
-  "05/19/2016":
   {
-    "7:00 AM": [
+    "day": "05/19/2016",
+    "timeslots": [
       {
-        "name": "Breakfast",
-        "timestart": "05/17/2016 7:00",
-        "timeend": "05/17/2016 8:00",
-        "location": "Main hallway"
-      }
-    ],
-    "8:00 AM": [
-      {
-        "name": "Getting started with Ionic 2",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "7:00 AM",
+        "talks": [
+          {
+            "name": "Lounge Bagels",
+            "timestart": "05/19/2016 7:00",
+            "timeend": "05/19/2016 8:00",
+            "location": "Main hallway"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 CLI",
-        "location": "Room 2202",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
+        "time": "8:00 AM",
+        "talks": [
+          {
+            "name": "Ionic v2 and babel integration",
+            "location": "Room 2201",
+            "timestart": "05/19/2016 8:30",
+            "timeend": "05/19/2016 9:30"
+          },
+          {
+            "name": "Ionic 2 - browser sync strategies",
+            "location": "Room 2202",
+            "timestart": "05/19/2016 8:30",
+            "timeend": "05/19/2016 9:30"
+          },
+          {
+            "name": "Ionic 2 on iOS",
+            "location": "Room 2201",
+            "timestart": "05/19/2016 8:30",
+            "timeend": "05/19/2016 9:30"
+          }
+        ]
       },
       {
-        "name": "Ionic 2 Starter templates",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 8:30",
-        "timeend": "05/17/2016 9:30"
-      }
-    ],
-    "9:00 AM": [
-      {
-        "name": "Ionic 2 Directives",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
-      },
-      {
-        "name": "Ionic 2 Services",
-        "location": "Room 2201",
-        "timestart": "05/17/2016 9:30",
-        "timeend": "05/17/2016 10:30"
+        "time": "9:00 AM",
+        "talks": [
+          {
+            "name": "Ionic 2 - components",
+            "location": "Room 2201",
+            "timestart": "05/19/2016 9:30",
+            "timeend": "05/19/2016 10:30"
+          },
+          {
+            "name": "Ionic 2 views, migration",
+            "location": "Room 2201",
+            "timestart": "05/19/2016 9:30",
+            "timeend": "05/19/2016 10:30"
+          }
+        ]
       }
     ]
   }
-}
+]

@@ -17,25 +17,33 @@ import {TicketsPage} from '../tickets/tickets';
 })
 
 export class HomePage {
-  constructor(nav: NavController, app: IonicApp, data: DataService) {
+  constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
     this.app = app;
-    console.log('we got app', app);
-    this.topActions = [
-      {name: 'About', component: AboutPage}, 
-      {name: 'Schedule', component: SchedulePage }, 
-      {name: 'Speakers', component: SpeakersPage }
-      ];
-    this.bottomActions = [ 
-      {name: 'Map', component: MapPage },
-      {name: 'Events', component: EventsPage },
-      {name: 'Buy Tickets', component: TicketsPage }
-    ];
-    // debugger;
-    this.conferenceInfo = data.getData();
+    this.AboutPage = AboutPage;
+    this.MapPage = MapPage;
+    this.SchedulePage = SchedulePage;
+    this.SpeakersPage = SpeakersPage;
   }
+  // constructor(nav: NavController, app: IonicApp, data: DataService) {
+  //   this.nav = nav;
+  //   this.app = app;
+  //   console.log('we got app', app);
+  //   this.topActions = [
+  //     {name: 'About', component: AboutPage}, 
+  //     {name: 'Schedule', component: SchedulePage }, 
+  //     {name: 'Speakers', component: SpeakersPage }
+  //     ];
+  //   this.bottomActions = [ 
+  //     {name: 'Map', component: MapPage },
+  //     {name: 'Events', component: EventsPage },
+  //     {name: 'Buy Tickets', component: TicketsPage }
+  //   ];
+  //   // debugger;
+  //   this.conferenceInfo = data.getData();
+  // }
 
-  openAction(action) {
-    console.log('openAction', action);
-  }
+  // openAction(action) {
+  //   console.log('openAction', action);
+  // }
 }

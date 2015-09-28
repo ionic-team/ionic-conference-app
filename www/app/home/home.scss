@@ -36,3 +36,31 @@
     }
   }
 }
+
+
+.schedule-navigation {
+  height: 50px;
+  line-height: 50px;
+  .schedule-day {
+    position: absolute;
+    left: 50%;
+  }
+
+  .next-day-schedule, .previous-day-schedule {
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    width: 50px;
+  }
+
+  .next-day-schedule {
+    left: 0;
+  }
+  
+  .previous-day-schedule {
+    right: 0;
+  }
+}

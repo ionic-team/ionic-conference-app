@@ -1,36 +1,8 @@
-
-<ion-navbar *navbar>
-  <a menu-toggle>
-    <icon menu></icon>
-  </a>
-  <ion-title>Ionic 2 Conf</ion-title>
-</ion-navbar>
-
-
-<ion-content padding class="home-page">
-
-  <div class="top-header">
-    <div class="header-image">
-      <img src="/img/appicon.png">
-    </div>
-    <div class="header-info">
-        <h4>{{conferenceInfo.name}}</h4>
-        <date-format [value]="conferenceInfo.start" format="MMM D"></date-format> - <date-format [value]="conferenceInfo.end" format="MMM D, YYYY"></date-format><br>
-        <span>{{conferenceInfo.location}}</span>
-    </div>
-  </div>
-  <div class="home-content">
-    <ion-row class="icon-listing">
-      <ion-col *ng-for="#action of topActions" [nav-push]="action.component">
-        <img src="/img/appicon.png">
-        <span>{{action.name}}</span>
-      </ion-col>
-    </ion-row>
-    <ion-row class="second-icon-row">
-      <ion-col *ng-for="#action of bottomActions" [nav-push]="action.component">
-        <img src="/img/appicon.png">
-        <span>{{action.name}}</span>
-      </ion-col>
-    </ion-row>
-  </div>
+<ion-content class="home-page">    
+  <ion-tabs id="tabs" tab-bar-placement="bottom">
+    <ion-tab tab-title="Schedule" tab-icon="globe" [root]="SchedulePage"></ion-tab>
+    <ion-tab tab-title="Speakers" tab-icon="people" [root]="SpeakersPage"></ion-tab>
+    <ion-tab tab-title="Map" tab-icon="map" [root]="MapPage"></ion-tab>
+    <ion-tab tab-title="about" tab-icon="ionic" [root]="AboutPage"></ion-tab>
+  </ion-tabs>
 </ion-content>

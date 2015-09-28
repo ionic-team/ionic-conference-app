@@ -64121,16 +64121,7 @@
 	        data.retrieveData();
 	        this.initializeApp();
 	        // used for an example of ng-for and navigation
-	        this.pages = [
-	        // { title: 'Getting Started', component: GettingStartedPage },
-	        // { title: 'Intro', component: IntroPage },
-	        // { title: 'Login', component: LoginPage },
-	        // { title: 'Signup', component: SignupPage },
-	        // { title: 'Tabs', component: TabsPage },
-	        // { title: 'List', component: ListPage },
-	        // { title: 'Grid Icons', component: GridPage },
-	        // { title: 'Playlists', component: PlaylistPage },
-	        { title: 'Home', component: home_1.HomePage }, { title: 'About', component: about_1.AboutPage }, { title: 'Schedule', component: schedule_1.SchedulePage }, { title: 'Speakers', component: speakers_1.SpeakersPage }, { title: 'Map', component: map_1.MapPage }, { title: 'Events', component: events_1.EventsPage }, { title: 'Buy Tickets', component: tickets_1.TicketsPage }];
+	        this.pages = [{ title: 'Home', component: home_1.HomePage }, { title: 'About', component: about_1.AboutPage }, { title: 'Schedule', component: schedule_1.SchedulePage }, { title: 'Speakers', component: speakers_1.SpeakersPage }, { title: 'Map', component: map_1.MapPage }, { title: 'Events', component: events_1.EventsPage }, { title: 'Buy Tickets', component: tickets_1.TicketsPage }];
 	        this.About = about_1.AboutPage;
 	        this.rootPage = home_1.HomePage;
 	    }
@@ -64205,27 +64196,21 @@
 	var schedule_1 = __webpack_require__(440);
 	var speakers_1 = __webpack_require__(441);
 	var map_1 = __webpack_require__(442);
-	var events_1 = __webpack_require__(443);
-	var tickets_1 = __webpack_require__(444);
 	var HomePage = (function () {
-	    function HomePage(nav, app, data) {
+	    function HomePage(nav, app) {
 	        this.nav = nav;
 	        this.app = app;
-	        console.log('we got app', app);
-	        this.topActions = [{ name: 'About', component: about_1.AboutPage }, { name: 'Schedule', component: schedule_1.SchedulePage }, { name: 'Speakers', component: speakers_1.SpeakersPage }];
-	        this.bottomActions = [{ name: 'Map', component: map_1.MapPage }, { name: 'Events', component: events_1.EventsPage }, { name: 'Buy Tickets', component: tickets_1.TicketsPage }];
-	        // debugger;
-	        this.conferenceInfo = data.getData();
+	        this.AboutPage = about_1.AboutPage;
+	        this.MapPage = map_1.MapPage;
+	        this.SchedulePage = schedule_1.SchedulePage;
+	        this.SpeakersPage = speakers_1.SpeakersPage;
 	    }
-	    HomePage.prototype.openAction = function (action) {
-	        console.log('openAction', action);
-	    };
 	    HomePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/home/home.html',
 	        bindings: [data_1.DataService, http_1.Http],
 	        viewBindings: [http_1.HTTP_BINDINGS],
 	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], HomePage);
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object])], HomePage);
 	    return HomePage;
 	})();
 	exports.HomePage = HomePage;
@@ -65783,7 +65768,8 @@
 	        this.formattedDate = this.test;
 	    }
 	    DateFormat.prototype.onInit = function () {
-	        var val = moment(this.value, 'MM/DD/YYYY');
+	        // let val = moment(this.value, 'MM/DD/YYYY');
+	        var val = moment(this.value);
 	        if (this.format) {
 	            this.formattedDate = val.format(this.format);
 	        } else {
@@ -77324,9 +77310,31 @@
 	var SchedulePage = (function () {
 	    function SchedulePage(nav, app, data) {
 	        this.schedule = data.getSchedule();
-	        console.log('schedule data', this.schedule);
-	        this.scheduleData = Object.keys(this.schedule);
+	        this.index = 0;
+	        this.scheduleForTheDay = this.schedule[0];
+	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
 	    }
+	    SchedulePage.prototype.nextDay = function (index) {
+	        var newIndex = index + 1;
+	        if (newIndex >= this.schedule.length) {
+	            return;
+	        }
+	        this.scheduleForTheDay = this.schedule[newIndex];
+	        this.index = newIndex;
+	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+	        //[1, 2], length = 2
+	        //0 = 1. index = 0, is passed.
+	        //if index + 1 = 1.
+	    };
+	    SchedulePage.prototype.previousDay = function (index) {
+	        var newIndex = index - 1;
+	        if (newIndex < 0) {
+	            return;
+	        }
+	        this.scheduleForTheDay = this.schedule[newIndex];
+	        this.index = newIndex;
+	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+	    };
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',
 	        bindings: [data_1.DataService, http_1.Http],

@@ -43,14 +43,6 @@ class MyApp {
 
     // used for an example of ng-for and navigation
     this.pages = [
-      // { title: 'Getting Started', component: GettingStartedPage },
-      // { title: 'Intro', component: IntroPage },
-      // { title: 'Login', component: LoginPage },
-      // { title: 'Signup', component: SignupPage },
-      // { title: 'Tabs', component: TabsPage },
-      // { title: 'List', component: ListPage },
-      // { title: 'Grid Icons', component: GridPage },
-      // { title: 'Playlists', component: PlaylistPage },
       { title: 'Home', component: HomePage },
       { title: 'About', component: AboutPage },
       { title: 'Schedule', component: SchedulePage },

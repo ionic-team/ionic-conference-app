@@ -6577,3 +6577,22 @@ icon,
   .home-page .home-content .second-icon-row {
     padding-top: 10px;
     text-align: center; }
+
+.schedule-navigation {
+  height: 50px;
+  line-height: 50px; }
+  .schedule-navigation .schedule-day {
+    position: absolute;
+    left: 50%; }
+  .schedule-navigation .next-day-schedule, .schedule-navigation .previous-day-schedule {
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    width: 50px; }
+  .schedule-navigation .next-day-schedule {
+    left: 0; }
+  .schedule-navigation .previous-day-schedule {
+    right: 0; }

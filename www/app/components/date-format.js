@@ -15,7 +15,8 @@ export class DateFormat {
     this.formattedDate = this.test;
   } 
   onInit() {
-    let val = moment(this.value, 'MM/DD/YYYY');
+    // let val = moment(this.value, 'MM/DD/YYYY');
+    let val = moment(this.value);
     if (this.format) {
       this.formattedDate = val.format(this.format);
     } else {

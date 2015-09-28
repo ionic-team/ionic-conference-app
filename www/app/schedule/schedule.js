@@ -13,7 +13,33 @@ import {DateFormat} from '../components/date-format';
 export class SchedulePage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
     this.schedule = data.getSchedule();
-    console.log('schedule data', this.schedule);
-    this.scheduleData = Object.keys(this.schedule);
+    this.index = 0;
+    this.scheduleForTheDay = this.schedule[0];
+    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+  }
+
+  nextDay(index) {
+    let newIndex = index + 1;
+    if (newIndex >= this.schedule.length) {
+      return;
+    }
+
+    this.scheduleForTheDay = this.schedule[newIndex];
+    this.index = newIndex;
+    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+    //[1, 2], length = 2
+    //0 = 1. index = 0, is passed.
+    //if index + 1 = 1. 
+  }
+
+  previousDay(index) {
+    let newIndex = index - 1;
+    if (newIndex < 0) {
+      return;
+    }
+
+    this.scheduleForTheDay = this.schedule[newIndex];
+    this.index = newIndex;
+    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
   }
 }

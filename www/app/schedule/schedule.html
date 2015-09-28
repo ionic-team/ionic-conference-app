@@ -1,21 +1,37 @@
-<ion-navbar *navbar>
-  <a menu-toggle>
-    <icon menu></icon>
-  </a>
-  <ion-title>Schedule</ion-title>
-</ion-navbar>
 
 
-<ion-content padding class="home-page">
 
-  <div class="top-header">
-    Hello, Schedule
-    <div *ng-for="#scheduleDay of scheduleData">
-      {{scheduleDay}}
-      {{schedule[scheduleDay]}}
-      <div *ng-for="#time of scheduleDay | mapToIterable">
-        {{time}}
+<ion-content padding class="schedule-page">
+  <ion-navbar *navbar>
+    <ion-nav-items primary>
+      <div class="schedule-navigation">
+        <a class="next-day-schedule" href="#" *ng-if="schedule.length > 1 && index != 0" (click)="previousDay(index)">&lt;</a>
+        <div class="schedule-day">{{scheduleForTheDay.day}}</div>
+        <a class="previous-day-schedule" href="#" *ng-if="schedule.length > 1 && index != schedule.length - 1" (click)="nextDay(index)">&gt;</a>
       </div>
-    </div>
+    </ion-nav-items>
+  </ion-navbar>
+
+  <div class="list">
+      <div class="" *ng-for="#timeSlot of timeSlotsForTheDay">
+        <span>{{timeSlot.time}}</span>
+        <ion-list>
+          <ion-card *ng-for="#time of timeSlot.talks">
+            <ion-item>
+              <span>{{time.name}}</span>
+              <span style="float: right" *ng-if="time.speaker">&nbsp;{{time.speaker}}</span>
+            </ion-item>
+            <ion-item>
+              <date-format [value]="time.timestart" format="h:mm:ss a"></date-format> - <date-format [value]="time.timeend" format="h:mm:ss a"></date-format>
+              &dash; 
+              <icon navigate></icon>
+              <span>{{time.location}}</span>
+            </ion-item>
+          </ion-card>
+        </ion-list>
+      </div>
+    <!-- </div> -->
+
+
   </div>
 </ion-content>
