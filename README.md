@@ -32,3 +32,19 @@ Session
 Speaker
   name
   Sessions
+
+Generating JSON
+http://www.json-generator.com/#generate
+Using data in /generator folder for the data
+
+Conference App Examples
+WWDC: https://itunes.apple.com/us/app/wwdc/id640199958?mt=8
+
+Apple Docs example
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/
+
+Google Maps API Key
+AIzaSyBvhp5ELJ3lgUdwq7PQIcZssUiWID8vzQ4
+
+Profile Picture url
+http://lorempixel.com/32/32/

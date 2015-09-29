@@ -6596,3 +6596,31 @@ icon,
     left: 0; }
   .schedule-navigation .previous-day-schedule {
     right: 0; }
+
+.map-page .map-content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .map-page .map-content #map {
+    height: 100%;
+    width: 100%; }
+
+.speaker-page .speaker .speaker-profile-pic {
+  border: solid 1px white;
+  border-radius: 10px;
+  display: inline-block;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle; }
+
+.speaker-page .speaker .session-tag {
+  background-color: blue;
+  border: solid 1px blue;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  margin: 3px;
+  padding: 3px; }

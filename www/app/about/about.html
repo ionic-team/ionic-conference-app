@@ -11,17 +11,6 @@
     </div>
   </div>
   <div class="home-content">
-    <ion-row class="icon-listing">
-      <ion-col *ng-for="#action of topActions" [nav-push]="action.component">
-        <img src="/img/appicon.png">
-        <span>{{action.name}}</span>
-      </ion-col>
-    </ion-row>
-    <ion-row class="second-icon-row">
-      <ion-col *ng-for="#action of bottomActions" [nav-push]="action.component">
-        <img src="/img/appicon.png">
-        <span>{{action.name}}</span>
-      </ion-col>
-    </ion-row>
+    {{conferenceInfo.about}}
   </div>
 </ion-content>

@@ -15,7 +15,7 @@ export class SchedulePage {
     this.schedule = data.getSchedule();
     this.index = 0;
     this.scheduleForTheDay = this.schedule[0];
-    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
   }
 
   nextDay(index) {
@@ -26,7 +26,7 @@ export class SchedulePage {
 
     this.scheduleForTheDay = this.schedule[newIndex];
     this.index = newIndex;
-    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
     //[1, 2], length = 2
     //0 = 1. index = 0, is passed.
     //if index + 1 = 1. 
@@ -40,6 +40,6 @@ export class SchedulePage {
 
     this.scheduleForTheDay = this.schedule[newIndex];
     this.index = newIndex;
-    this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
   }
 }

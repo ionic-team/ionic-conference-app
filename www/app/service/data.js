@@ -9,6 +9,7 @@ export class DataService {
     this.http = http;
     this.conferenceInfo = null;
     this.scheduleInfo = null;
+    this.speakers = null;
   }
 
   retrieveData() {
@@ -32,9 +33,18 @@ export class DataService {
     .subscribe(data => {
       console.log('schedule data retrieved', data);
       this.scheduleInfo = data;
-    });
+    }); 
 
-    
+    this.http.get('/app/data/speakers.json')
+    .toRx()
+    // Call map on the response observable to get the parsed people object
+    .map(res => res.json())
+    // Subscribe to the observable to get the parsed people object and attach it to the
+    // component
+    .subscribe(data => {
+      console.log('speaker data retrieved', data);
+      this.speakers = data;
+    }); 
   }
 
   getData() {
@@ -44,10 +54,8 @@ export class DataService {
   getSchedule() { 
     return this.scheduleInfo;
   }
+
+  getSpeakers() {
+    return this.speakers;
+  }
 }
-
-// bind(DataService).toClass(DataService);
-
-// export var dataServiceInjectables: Array<any> = [
-//   bind(DataService).toClass(DataService)
-// ];

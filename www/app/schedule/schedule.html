@@ -1,6 +1,4 @@
 
-
-
 <ion-content padding class="schedule-page">
   <ion-navbar *navbar>
     <ion-nav-items primary>
@@ -13,7 +11,7 @@
   </ion-navbar>
 
   <div class="list">
-      <div class="" *ng-for="#timeSlot of timeSlotsForTheDay">
+      <div class="" *ng-for="#timeSlot of sessionsForTheDay">
         <span>{{timeSlot.time}}</span>
         <ion-list>
           <ion-card *ng-for="#time of timeSlot.talks">
@@ -24,14 +22,11 @@
             <ion-item>
               <date-format [value]="time.timestart" format="h:mm:ss a"></date-format> - <date-format [value]="time.timeend" format="h:mm:ss a"></date-format>
               &dash; 
-              <icon navigate></icon>
+              <icon pin></icon>
               <span>{{time.location}}</span>
             </ion-item>
           </ion-card>
         </ion-list>
       </div>
-    <!-- </div> -->
-
-
   </div>
 </ion-content>

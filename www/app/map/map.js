@@ -12,5 +12,14 @@ import {DateFormat} from '../components/date-format';
 
 export class MapPage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
+    this.map = null;
+  }
+
+  onInit() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 36.964, lng: -122.015},
+      zoom: 18,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    });
   }
 }

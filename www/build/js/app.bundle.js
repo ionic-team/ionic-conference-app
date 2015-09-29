@@ -64251,6 +64251,7 @@
 	        this.http = http;
 	        this.conferenceInfo = null;
 	        this.scheduleInfo = null;
+	        this.speakers = null;
 	    }
 	    DataService.prototype.retrieveData = function () {
 	        var _this = this;
@@ -64266,6 +64267,12 @@
 	            console.log('schedule data retrieved', data);
 	            _this.scheduleInfo = data;
 	        });
+	        this.http.get('/app/data/speakers.json').toRx().map(function (res) {
+	            return res.json();
+	        }).subscribe(function (data) {
+	            console.log('speaker data retrieved', data);
+	            _this.speakers = data;
+	        });
 	    };
 	    DataService.prototype.getData = function () {
 	        return this.conferenceInfo;
@@ -64273,14 +64280,13 @@
 	    DataService.prototype.getSchedule = function () {
 	        return this.scheduleInfo;
 	    };
+	    DataService.prototype.getSpeakers = function () {
+	        return this.speakers;
+	    };
 	    DataService = __decorate([angular2_1.Injectable(), __metadata('design:paramtypes', [typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof http_1.Http !== 'undefined' && http_1.Http || Object])], DataService);
 	    return DataService;
 	})();
 	exports.DataService = DataService;
-	// bind(DataService).toClass(DataService);
-	// export var dataServiceInjectables: Array<any> = [
-	//   bind(DataService).toClass(DataService)
-	// ];
 	//# sourceMappingURL=data.js.map
 
 /***/ },
@@ -77312,7 +77318,7 @@
 	        this.schedule = data.getSchedule();
 	        this.index = 0;
 	        this.scheduleForTheDay = this.schedule[0];
-	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
 	    }
 	    SchedulePage.prototype.nextDay = function (index) {
 	        var newIndex = index + 1;
@@ -77321,7 +77327,7 @@
 	        }
 	        this.scheduleForTheDay = this.schedule[newIndex];
 	        this.index = newIndex;
-	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
 	        //[1, 2], length = 2
 	        //0 = 1. index = 0, is passed.
 	        //if index + 1 = 1.
@@ -77333,7 +77339,7 @@
 	        }
 	        this.scheduleForTheDay = this.schedule[newIndex];
 	        this.index = newIndex;
-	        this.timeSlotsForTheDay = this.scheduleForTheDay.timeslots;
+	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
 	    };
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',
@@ -77377,7 +77383,47 @@
 	var http_1 = __webpack_require__(335);
 	var date_format_1 = __webpack_require__(351);
 	var SpeakersPage = (function () {
-	    function SpeakersPage(nav, app, data) {}
+	    function SpeakersPage(nav, app, data) {
+	        this.speakers = null;
+	        this.scheduleInfo = null;
+	        this.dataService = data;
+	    }
+	    SpeakersPage.prototype.onInit = function () {
+	        this.scheduleInfo = this.dataService.getSchedule();
+	        var speakerList = this.speakers = this.dataService.getSpeakers();
+	        var talks = [];
+	        var speakers = [];
+	        this.scheduleInfo.map(function (dayItem) {
+	            dayItem.sessions.map(function (sessionItem) {
+	                sessionItem.talks.map(function (talkItem) {
+	                    talks.push(talkItem.name);
+	                    if (talkItem.speaker) {
+	                        var speakerSession = speakerList.find(function (x) {
+	                            return x.name == talkItem.speaker;
+	                        });
+	                        if (speakerSession) {
+	                            speakerSession.sessions = speakerSession.sessions || [];
+	                            speakerSession.sessions.push(talkItem);
+	                        }
+	                        if (speakers.indexOf(talkItem.speaker) == -1) {
+	                            speakers.push(talkItem.speaker);
+	                        }
+	                    }
+	                });
+	            });
+	        });
+	        this.talks = talks;
+	        this.speakersNames = speakers;
+	        // this.speakers = speakers;
+	        // this.talks = this.sessions.map(function(dayItem) {
+	        //   return dayItem.talks;
+	        // });
+	        //days have sessions
+	        //sessions have talks
+	        //talks have names
+	        console.log('all talks', this.talks);
+	        console.log('all speakers', speakers);
+	    };
 	    SpeakersPage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/speakers/speakers.html',
 	        bindings: [data_1.DataService, http_1.Http],
@@ -77420,7 +77466,16 @@
 	var http_1 = __webpack_require__(335);
 	var date_format_1 = __webpack_require__(351);
 	var MapPage = (function () {
-	    function MapPage(nav, app, data) {}
+	    function MapPage(nav, app, data) {
+	        this.map = null;
+	    }
+	    MapPage.prototype.onInit = function () {
+	        this.map = new google.maps.Map(document.getElementById('map'), {
+	            center: { lat: 36.964, lng: -122.015 },
+	            zoom: 18,
+	            mapTypeId: google.maps.MapTypeId.SATELLITE
+	        });
+	    };
 	    MapPage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/map/map.html',
 	        bindings: [data_1.DataService, http_1.Http],

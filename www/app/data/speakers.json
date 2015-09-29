@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "name": "Adam Badley",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "2",
+    "name": "Max Lynx",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "3",
+    "name": "Brandy Carnegie",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "4",
+    "name": "Josh Babari",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "5",
+    "name": "Ben Sparrow",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "6",
+    "name": "Mike Hurtington",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "7",
+    "name": "Perry Governor",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "8",
+    "name": "Eric Bobbington",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "9",
+    "name": "Tim Lanchester",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "10",
+    "name": "Brody Kiddington",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "11",
+    "name": "Rudy Belfonte",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "12",
+    "name": "Dan Dalman",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "13",
+    "name": "Katie Kinder",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  },
+  {
+    "id": "14",
+    "name": "Drew Rough",
+    "profile_pic": "http://lorempixel.com/32/32/",
+    "twitter": "twitter.com/ionicframework"
+  }
+]

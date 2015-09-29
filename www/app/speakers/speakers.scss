@@ -1,0 +1,22 @@
+.speaker-page {
+  .speaker {
+    .speaker-profile-pic {
+      border: solid 1px white;
+      border-radius: 10px;
+      display: inline-block;
+      line-height: 30px;
+      height: 30px;
+      width: 30px;
+      vertical-align: middle;
+    }
+    .session-tag {
+      background-color: blue;
+      border: solid 1px blue;
+      border-radius: 3px;
+      color: white;
+      display: inline-block;
+      margin: 3px;
+      padding: 3px;
+    }
+  }
+}
