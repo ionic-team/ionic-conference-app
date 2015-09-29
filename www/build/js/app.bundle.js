@@ -50,9 +50,9 @@
 	__webpack_require__(39);
 	__webpack_require__(41);
 	__webpack_require__(216);
-	__webpack_require__(331);
-	__webpack_require__(332);
-	module.exports = __webpack_require__(352);
+	__webpack_require__(335);
+	__webpack_require__(336);
+	module.exports = __webpack_require__(356);
 
 
 /***/ },
@@ -43008,15 +43008,15 @@
 
 	_defaults(exports, _interopRequireWildcard(_configModes));
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
-	_defaults(exports, _interopRequireWildcard(_configAnnotations));
+	_defaults(exports, _interopRequireWildcard(_configDecorators));
 
-	var _netHttp = __webpack_require__(261);
+	var _netHttp = __webpack_require__(265);
 
 	_defaults(exports, _interopRequireWildcard(_netHttp));
 
-	var _components = __webpack_require__(262);
+	var _components = __webpack_require__(266);
 
 	_defaults(exports, _interopRequireWildcard(_components));
 
@@ -43024,53 +43024,59 @@
 
 	_defaults(exports, _interopRequireWildcard(_platformPlatform));
 
-	var _platformRegistry = __webpack_require__(308);
+	var _platformRegistry = __webpack_require__(310);
 
 	_defaults(exports, _interopRequireWildcard(_platformRegistry));
 
-	var _storageStorage = __webpack_require__(309);
+	var _platformPlugins = __webpack_require__(311);
 
-	_defaults(exports, _interopRequireWildcard(_storageStorage));
+	_defaults(exports, _interopRequireWildcard(_platformPlugins));
 
-	var _storageLocalStorage = __webpack_require__(310);
+	var _platformStorage = __webpack_require__(326);
 
-	_defaults(exports, _interopRequireWildcard(_storageLocalStorage));
-
-	var _storageSql = __webpack_require__(311);
-
-	_defaults(exports, _interopRequireWildcard(_storageSql));
+	_defaults(exports, _interopRequireWildcard(_platformStorage));
 
 	var _utilClickBlock = __webpack_require__(249);
 
 	_defaults(exports, _interopRequireWildcard(_utilClickBlock));
 
-	var _utilFocus = __webpack_require__(312);
+	var _utilFocus = __webpack_require__(330);
 
 	_defaults(exports, _interopRequireWildcard(_utilFocus));
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _utilEvents = __webpack_require__(262);
+
+	_defaults(exports, _interopRequireWildcard(_utilEvents));
+
+	var _animationsAnimation = __webpack_require__(253);
 
 	_defaults(exports, _interopRequireWildcard(_animationsAnimation));
 
-	var _animationsBuiltins = __webpack_require__(313);
+	var _animationsBuiltins = __webpack_require__(331);
 
 	_defaults(exports, _interopRequireWildcard(_animationsBuiltins));
 
-	var _transitionsTransition = __webpack_require__(286);
+	var _transitionsTransition = __webpack_require__(288);
 
 	_defaults(exports, _interopRequireWildcard(_transitionsTransition));
 
-	var _transitionsIosTransition = __webpack_require__(314);
+	var _transitionsIosTransition = __webpack_require__(332);
 
 	_defaults(exports, _interopRequireWildcard(_transitionsIosTransition));
 
-	var _transitionsMdTransition = __webpack_require__(315);
+	var _transitionsMdTransition = __webpack_require__(333);
 
 	_defaults(exports, _interopRequireWildcard(_transitionsMdTransition));
 
-	var _pluginsPlugins = __webpack_require__(316);
+	_defaults(exports, _interopRequireWildcard(_platformPlugins));
 
-	_defaults(exports, _interopRequireWildcard(_pluginsPlugins));
+	var _translationTranslate = __webpack_require__(264);
+
+	_defaults(exports, _interopRequireWildcard(_translationTranslate));
+
+	var _translationTranslate_pipe = __webpack_require__(334);
+
+	_defaults(exports, _interopRequireWildcard(_translationTranslate_pipe));
 
 /***/ },
 /* 217 */
@@ -43532,7 +43538,6 @@
 	    actionSheetDestructiveIcon: '',
 	    backButtonText: 'Back',
 	    backButtonIcon: 'ion-ios-arrow-back',
-	    forwardIcon: 'ion-ios-arrow-forward',
 	    iconMode: 'ios',
 	    tabBarPlacement: 'bottom',
 	    viewTransition: 'ios'
@@ -43545,7 +43550,6 @@
 	    actionSheetDestructiveIcon: 'ion-md-trash',
 	    backButtonText: '',
 	    backButtonIcon: 'ion-md-arrow-back',
-	    forwardIcon: '',
 	    iconMode: 'md',
 	    tabBarPlacement: 'top',
 	    viewTransition: 'md',
@@ -43590,7 +43594,7 @@
 	 * The core Ionic directives.  Automatically available in every IonicView
 	 * template.
 	 */
-	var IonicDirectives = [
+	var IONIC_DIRECTIVES = [
 	// TODO: Why is forwardRef() required when they're already imported above????
 	// Angular
 	_angular2Angular2.CORE_DIRECTIVES, _angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgStyle,
@@ -43685,18 +43689,12 @@
 	    return _ionic.NavRouter;
 	}), (0, _angular2Angular2.forwardRef)(function () {
 	    return _ionic.IdRef;
-	}),
-	//forwardRef(() => Ref),
-	(0, _angular2Angular2.forwardRef)(function () {
+	}), (0, _angular2Angular2.forwardRef)(function () {
 	    return _ionic.ShowWhen;
 	}), (0, _angular2Angular2.forwardRef)(function () {
 	    return _ionic.HideWhen;
-	}),
-	// Material
-	(0, _angular2Angular2.forwardRef)(function () {
-	    return _ionic.MaterialButton;
 	})];
-	exports.IonicDirectives = IonicDirectives;
+	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
 
 	var IonicViewImpl = (function (_View) {
 	    _inherits(IonicViewImpl, _View);
@@ -43706,7 +43704,7 @@
 
 	        _classCallCheck(this, IonicViewImpl);
 
-	        args.directives = (args.directives || []).concat(IonicDirectives);
+	        args.directives = (args.directives || []).concat(IONIC_DIRECTIVES);
 	        _get(Object.getPrototypeOf(IonicViewImpl.prototype), 'constructor', this).call(this, args);
 	    }
 
@@ -43789,7 +43787,7 @@
 	        annotations.push(new IonicViewImpl(args));
 	        // redefine with added annotations
 	        Reflect.defineMetadata('annotations', annotations, cls);
-	        (0, _componentsAppApp.ionicBootstrap)(cls, args.config);
+	        (0, _componentsAppApp.ionicBootstrap)(cls, args.views, args.config);
 	        return cls;
 	    };
 	}
@@ -43840,6 +43838,7 @@
 	exports.isTextInput = isTextInput;
 	exports.hasFocusedTextInput = hasFocusedTextInput;
 	exports.closest = closest;
+	exports.removeElement = removeElement;
 	exports.getDimensions = getDimensions;
 	exports.windowDimensions = windowDimensions;
 	exports.flushDimensionCache = flushDimensionCache;
@@ -44027,7 +44026,7 @@
 	    return false;
 	}
 
-	function closest(el, selector) {
+	function closest(ele, selector) {
 	    var matchesFn;
 	    // find vendor prefix
 	    ['matches', 'webkitMatchesSelector', 'mozMatchesSelector', 'msMatchesSelector', 'oMatchesSelector'].some(function (fn) {
@@ -44038,14 +44037,18 @@
 	        return false;
 	    });
 	    // traverse parents
-	    while (el !== null) {
-	        parent = el.parentElement;
+	    while (ele !== null) {
+	        parent = ele.parentElement;
 	        if (parent !== null && parent[matchesFn](selector)) {
 	            return parent;
 	        }
-	        el = parent;
+	        ele = parent;
 	    }
 	    return null;
+	}
+
+	function removeElement(ele) {
+	    ele && ele.parentNode && ele.parentNode.removeChild(ele);
 	}
 
 	/**
@@ -44112,6 +44115,20 @@
 	    };
 	})();
 	exports.ionicBootstrap = ionicBootstrap;
+	function _interopRequireWildcard(obj) {
+	    if (obj && obj.__esModule) {
+	        return obj;
+	    } else {
+	        var newObj = {};
+	        if (obj != null) {
+	            for (var key in obj) {
+	                if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	            }
+	        }
+	        newObj["default"] = obj;
+	        return newObj;
+	    }
+	}
 	function _classCallCheck(instance, Constructor) {
 	    if (!(instance instanceof Constructor)) {
 	        throw new TypeError("Cannot call a class as a function");
@@ -44122,16 +44139,20 @@
 	var _configConfig = __webpack_require__(217);
 	var _platformPlatform = __webpack_require__(248);
 	var _utilClickBlock = __webpack_require__(249);
-	var _activator = __webpack_require__(250);
-	var _actionSheetActionSheet = __webpack_require__(251);
-	var _modalModal = __webpack_require__(256);
-	var _popupPopup = __webpack_require__(257);
-	var _formFocusHolder = __webpack_require__(258);
+	var _utilDom = __webpack_require__(222);
+	var dom = _interopRequireWildcard(_utilDom);
+	var _tapClickTapClick = __webpack_require__(250);
+	var _actionSheetActionSheet = __webpack_require__(254);
+	var _modalModal = __webpack_require__(257);
+	var _popupPopup = __webpack_require__(258);
+	var _formFocusHolder = __webpack_require__(259);
+	var _utilEvents = __webpack_require__(262);
+	var _navNavRegistry = __webpack_require__(263);
+	var _translationTranslate = __webpack_require__(264);
 	/**
 	 * @name IonicApp
 	 * @description
-	 * TODO(adamdbradley): IonicApp is injected, not inherited from now
-	 * The base Ionic class that your app inherits from. By inheriting from this class, you will have access to the Ionic API.
+	 * Service exposing the Ionic app level API.
 	 *
 	 * @usage
 	 * ```js
@@ -44175,7 +44196,8 @@
 	    function IonicApp() {
 	        _classCallCheck(this, IonicApp);
 	        this.overlays = [];
-	        this._disableTime = 0;
+	        this._disTime = 0;
+	        this._trnsTime = 0;
 	        // Our component registry map
 	        this.components = {};
 	    }
@@ -44193,9 +44215,9 @@
 	        key: "focusHolder",
 	        value: function focusHolder(val) {
 	            if (arguments.length) {
-	                this._focusHolder = val;
+	                this._fcsHldr = val;
 	            }
-	            return this._focusHolder;
+	            return this._fcsHldr;
 	        }
 	    }, {
 	        key: "title",
@@ -44207,13 +44229,24 @@
 	        key: "setEnabled",
 	        value: function setEnabled(isEnabled) {
 	            var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
-	            this._disableTime = isEnabled ? 0 : Date.now() + fallback;
+	            this._disTime = isEnabled ? 0 : Date.now() + fallback;
 	            (0, _utilClickBlock.ClickBlock)(!isEnabled, fallback + 100);
 	        }
 	    }, {
 	        key: "isEnabled",
 	        value: function isEnabled() {
-	            return this._disableTime < Date.now();
+	            return this._disTime < Date.now();
+	        }
+	    }, {
+	        key: "setTransitioning",
+	        value: function setTransitioning(isTransitioning) {
+	            var fallback = arguments.length <= 1 || arguments[1] === undefined ? 700 : arguments[1];
+	            this._trnsTime = isTransitioning ? Date.now() + fallback : 0;
+	        }
+	    }, {
+	        key: "isTransitioning",
+	        value: function isTransitioning() {
+	            return this._trnsTime > Date.now();
 	        }
 	    }, {
 	        key: "ref",
@@ -44341,7 +44374,7 @@
 	    config.setPlatform(platform);
 	    // config and platform settings have been figured out
 	    // apply the correct CSS to the app
-	    applyBodyCss(document.body, config, platform);
+	    applyBodyCss(document, config, platform);
 	    // prepare the ready promise to fire....when ready
 	    platform.prepareReady(config);
 	    setTimeout(function () {
@@ -44359,7 +44392,7 @@
 	 * @param {TODO} config  TODO
 	 * @return {Promise} TODO
 	 */
-	function ionicBootstrap(rootComponentType, config) {
+	function ionicBootstrap(rootComponentType, views, config) {
 	    return new Promise(function (resolve) {
 	        try {
 	            (function () {
@@ -44371,12 +44404,15 @@
 	                // create the base IonicApp
 	                var app = initApp(window, document, config, platform);
 	                // TODO: probs need a better way to inject global injectables
-	                var activator = new _activator.Activator(app, config, window, document);
+	                var tapClick = new _tapClickTapClick.TapClick(app, config, window, document);
 	                var actionSheet = new _actionSheetActionSheet.ActionSheet(app, config);
 	                var modal = new _modalModal.Modal(app, config);
 	                var popup = new _popupPopup.Popup(app, config);
+	                var events = new _utilEvents.Events();
+	                var translate = new _translationTranslate.Translate();
+	                var navRegistry = new _navNavRegistry.NavRegistry(views);
 	                // add injectables that will be available to all child components
-	                var appBindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(IonicApp).toValue(app), (0, _angular2Angular2.bind)(_configConfig.IonicConfig).toValue(config), (0, _angular2Angular2.bind)(_platformPlatform.IonicPlatform).toValue(platform), (0, _angular2Angular2.bind)(_activator.Activator).toValue(activator), (0, _angular2Angular2.bind)(_actionSheetActionSheet.ActionSheet).toValue(actionSheet), (0, _angular2Angular2.bind)(_modalModal.Modal).toValue(modal), (0, _angular2Angular2.bind)(_popupPopup.Popup).toValue(popup), _angular2Router.ROUTER_BINDINGS, (0, _angular2Angular2.bind)(_angular2Router.LocationStrategy).toClass(_angular2Router.HashLocationStrategy)]);
+	                var appBindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(IonicApp).toValue(app), (0, _angular2Angular2.bind)(_configConfig.IonicConfig).toValue(config), (0, _angular2Angular2.bind)(_platformPlatform.IonicPlatform).toValue(platform), (0, _angular2Angular2.bind)(_tapClickTapClick.TapClick).toValue(tapClick), (0, _angular2Angular2.bind)(_actionSheetActionSheet.ActionSheet).toValue(actionSheet), (0, _angular2Angular2.bind)(_modalModal.Modal).toValue(modal), (0, _angular2Angular2.bind)(_popupPopup.Popup).toValue(popup), (0, _angular2Angular2.bind)(_utilEvents.Events).toValue(events), _angular2Router.ROUTER_BINDINGS, (0, _angular2Angular2.bind)(_angular2Router.LocationStrategy).toClass(_angular2Router.HashLocationStrategy), (0, _angular2Angular2.bind)(_translationTranslate.Translate).toValue(translate), (0, _angular2Angular2.bind)(_navNavRegistry.NavRegistry).toValue(navRegistry)]);
 	                (0, _angular2Angular2.bootstrap)(rootComponentType, appBindings).then(function (appRef) {
 	                    app.load(appRef);
 	                    // Adding a anchor to add overlays off of...huh??
@@ -44404,7 +44440,13 @@
 	        }
 	    });
 	}
-	function applyBodyCss(bodyEle, config, platform) {
+	function applyBodyCss(document, config, platform) {
+	    var bodyEle = document.body;
+	    if (!bodyEle) {
+	        return dom.ready(function () {
+	            applyBodyCss(document, config, platform);
+	        });
+	    }
 	    var versions = platform.versions();
 	    platform.platforms().forEach(function (platformName) {
 	        // platform-ios
@@ -47501,47 +47543,40 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-	var _createClass = (function () {
-	    function defineProperties(target, props) {
-	        for (var i = 0; i < props.length; i++) {
-	            var descriptor = props[i];
-	            descriptor.enumerable = descriptor.enumerable || false;
-	            descriptor.configurable = true;
-	            if ('value' in descriptor) descriptor.writable = true;
-	            Object.defineProperty(target, descriptor.key, descriptor);
-	        }
-	    }return function (Constructor, protoProps, staticProps) {
-	        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	    };
-	})();
-	function _classCallCheck(instance, Constructor) {
-	    if (!(instance instanceof Constructor)) {
-	        throw new TypeError('Cannot call a class as a function');
-	    }
-	}
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 	var _utilDom = __webpack_require__(222);
-	var Activator = (function () {
-	    function Activator(app, config, window, document) {
-	        _classCallCheck(this, Activator);
+
+	var _activator = __webpack_require__(251);
+
+	var _ripple = __webpack_require__(252);
+
+	var TapClick = (function () {
+	    function TapClick(app, config, window, document) {
+	        _classCallCheck(this, TapClick);
+
 	        var self = this;
 	        self.app = app;
 	        self.config = config;
 	        self.win = window;
 	        self.doc = document;
-	        self.id = 0;
-	        self.queue = {};
-	        self.active = {};
-	        self.activatedClass = 'activated';
-	        self.deactivateTimeout = 180;
-	        self.deactivateAttempt = 0;
 	        self.pointerTolerance = 4;
-	        self.isTouch = false;
+	        self.lastTouch = 0;
 	        self.disableClick = 0;
 	        self.disableClickLimit = 2500;
-	        self.tapPolyfill = config.setting('tapPolyfill');
+	        self.tapPolyfill = config.setting('tapPolyfill') !== false;
+	        if (config.setting('mdRipple')) {
+	            self.activator = new _ripple.RippleActivator(app, config);
+	        } else {
+	            self.activator = new _activator.Activator(app, config);
+	        }
 	        function bindDom(type, listener, useCapture) {
 	            document.addEventListener(type, listener, useCapture);
 	        }
@@ -47549,15 +47584,15 @@
 	            self.click(ev);
 	        }, true);
 	        bindDom('touchstart', function (ev) {
-	            self.isTouch = true;
+	            self.lastTouch = Date.now();
 	            self.pointerStart(ev);
 	        });
 	        bindDom('touchend', function (ev) {
-	            self.isTouch = true;
+	            self.lastTouch = Date.now();
 	            self.touchEnd(ev);
 	        });
 	        bindDom('touchcancel', function (ev) {
-	            self.isTouch = true;
+	            self.lastTouch = Date.now();
 	            self.pointerCancel(ev);
 	        });
 	        bindDom('mousedown', function (ev) {
@@ -47569,7 +47604,7 @@
 	        self.pointerMove = function (ev) {
 	            var moveCoord = (0, _utilDom.pointerCoord)(ev);
 	            if ((0, _utilDom.hasPointerMoved)(10, self.start, moveCoord)) {
-	                self.pointerCancel();
+	                self.pointerCancel(ev);
 	            }
 	        };
 	        self.moveListeners = function (shouldAdd) {
@@ -47581,11 +47616,13 @@
 	            }
 	        };
 	    }
+
 	    /**
 	     * TODO
 	     * @param {TODO} ev  TODO
 	     */
-	    _createClass(Activator, [{
+
+	    _createClass(TapClick, [{
 	        key: 'touchEnd',
 	        value: function touchEnd(ev) {
 	            var self = this;
@@ -47602,6 +47639,11 @@
 	            }
 	            self.pointerEnd(ev);
 	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} ev  TODO
+	         */
 	    }, {
 	        key: 'mouseDown',
 	        value: function mouseDown(ev) {
@@ -47609,10 +47651,15 @@
 	                console.debug('mouseDown prevent');
 	                ev.preventDefault();
 	                ev.stopPropagation();
-	            } else if (!self.isTouch) {
+	            } else if (this.lastTouch + 999 < Date.now()) {
 	                this.pointerStart(ev);
 	            }
 	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} ev  TODO
+	         */
 	    }, {
 	        key: 'mouseUp',
 	        value: function mouseUp(ev) {
@@ -47621,33 +47668,46 @@
 	                ev.preventDefault();
 	                ev.stopPropagation();
 	            }
-	            if (!self.isTouch) {
+	            if (this.lastTouch + 999 < Date.now()) {
 	                this.pointerEnd(ev);
 	            }
 	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} ev  TODO
+	         */
 	    }, {
 	        key: 'pointerStart',
 	        value: function pointerStart(ev) {
-	            var targetEle = this.getActivatableTarget(ev.target);
-	            if (targetEle && this.app.isEnabled()) {
+	            var activatableEle = this.getActivatableTarget(ev.target);
+	            if (activatableEle) {
 	                this.start = (0, _utilDom.pointerCoord)(ev);
-	                this.queueActivate(targetEle);
+	                this.activator.downAction(ev, activatableEle, this.start.x, this.start.y);
 	                this.moveListeners(true);
 	            } else {
 	                this.start = null;
 	            }
 	        }
+
+	        /**
+	         * TODO
+	         */
 	    }, {
 	        key: 'pointerEnd',
 	        value: function pointerEnd(ev) {
-	            this.queueDeactivate();
+	            this.activator.upAction();
 	            this.moveListeners(false);
 	        }
+
+	        /**
+	         * TODO
+	         */
 	    }, {
 	        key: 'pointerCancel',
-	        value: function pointerCancel() {
+	        value: function pointerCancel(ev) {
 	            console.debug('pointerCancel');
-	            this.deactivate();
+	            this.activator.clearState();
 	            this.moveListeners(false);
 	            this.disableClick = Date.now();
 	        }
@@ -47656,6 +47716,12 @@
 	        value: function isDisabledClick() {
 	            return this.disableClick + this.disableClickLimit > Date.now();
 	        }
+
+	        /**
+	         * Whether the supplied click event should be allowed or not.
+	         * @param {MouseEvent} ev  The click event.
+	         * @return {boolean} True if click event should be allowed, otherwise false.
+	         */
 	    }, {
 	        key: 'allowClick',
 	        value: function allowClick(ev) {
@@ -47669,6 +47735,11 @@
 	            }
 	            return true;
 	        }
+
+	        /**
+	         * TODO
+	         * @param {MouseEvent} ev  TODO
+	         */
 	    }, {
 	        key: 'click',
 	        value: function click(ev) {
@@ -47677,7 +47748,6 @@
 	                ev.preventDefault();
 	                ev.stopPropagation();
 	            }
-	            this.isTouch = false;
 	        }
 	    }, {
 	        key: 'getActivatableTarget',
@@ -47704,570 +47774,15 @@
 	            }
 	            return false;
 	        }
-	    }, {
-	        key: 'queueActivate',
-	        value: function queueActivate(ele) {
-	            var self = this;
-	            self.queue[++self.id] = ele;
-	            if (self.id > 19) self.id = 0;
-	            (0, _utilDom.raf)(function () {
-	                // activate all elements in the queue
-	                for (var key in self.queue) {
-	                    if (self.queue[key]) {
-	                        self.queue[key].classList.add(self.activatedClass);
-	                        self.active[key] = self.queue[key];
-	                    }
-	                }
-	                self.queue = {};
-	            });
-	        }
-	    }, {
-	        key: 'queueDeactivate',
-	        value: function queueDeactivate() {
-	            var self = this;
-	            setTimeout(function () {
-	                self.deactivate();
-	            }, self.deactivateTimeout);
-	        }
-	    }, {
-	        key: 'deactivate',
-	        value: function deactivate() {
-	            var self = this;
-	            if (!self.app.isEnabled() && self.deactivateAttempt < 30) {
-	                // the app is actively disabled, so don't bother deactivating anything.
-	                // this makes it easier on the GPU so it doesn't have to redraw any
-	                // buttons during a transition. This will retry in XX milliseconds.
-	                ++self.deactivateAttempt;
-	                self.queueDeactivate();
-	            } else {
-	                // not actively transitioning, good to deactivate any elements
-	                // clear out any elements that are queued to be set to active
-	                self.queue = {};
-	                // in the next frame, remove the active class from all active elements
-	                (0, _utilDom.raf)(function () {
-	                    for (var key in self.active) {
-	                        if (self.active[key]) {
-	                            self.active[key].classList.remove(self.activatedClass);
-	                        }
-	                        delete self.active[key];
-	                    }
-	                });
-	                self.deactivateAttempt = 0;
-	            }
-	        }
 	    }]);
-	    return Activator;
+
+	    return TapClick;
 	})();
-	exports.Activator = Activator;
-	//# sourceMappingURL=activator.js.map
+
+	exports.TapClick = TapClick;
 
 /***/ },
 /* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	* @ngdoc service
-	* @name ActionSheet
-	* @module ionic
-	* @description
-	* The ActionSheet is a modal menu with options to select based on an action.
-	*/
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _iconIcon = __webpack_require__(252);
-
-	var _overlayOverlay = __webpack_require__(254);
-
-	var _animationsAnimation = __webpack_require__(255);
-
-	var _ionicUtil = __webpack_require__(221);
-
-	/**
-	 * @name ActionSheet
-	 * @description
-	 * The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
-	 *
-	 * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
-	 *
-	 * @usage
-	 * ```ts
-	 * openMenu() {
-	 *
-	 *   this.actionSheet.open({
-	 *     buttons: [
-	 *       { text: 'Share This' },
-	 *       { text: 'Move' }
-	 *     ],
-	 *     destructiveText: 'Delete',
-	 *     titleText: 'Modify your album',
-	 *     cancelText: 'Cancel',
-	 *     cancel: function() {
-	 *       console.log('Canceled');
-	 *     },
-	 *     destructiveButtonClicked: () => {
-	 *       console.log('Destructive clicked');
-	 *     },
-	 *     buttonClicked: function(index) {
-	 *       console.log('Button clicked', index);
-	 *       if(index == 1) { return false; }
-	 *       return true;
-	 *     }
-	 *
-	 *   }).then(actionSheetRef => {
-	 *     this.actionSheetRef = actionSheetRef;
-	 *   });
-	 *
-	 * }
-	 * ```
-	 */
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ActionSheetDirective = (function () {
-	    function ActionSheetDirective() {
-	        _classCallCheck(this, ActionSheetDirective);
-	    }
-
-	    _createClass(ActionSheetDirective, [{
-	        key: "_cancel",
-	        value: function _cancel() {
-	            this.cancel && this.cancel();
-	            return this.overlayRef.close();
-	        }
-	    }, {
-	        key: "_destructive",
-	        value: function _destructive() {
-	            var shouldClose = this.destructiveButtonClicked();
-	            if (shouldClose === true) {
-	                return this.overlayRef.close();
-	            }
-	        }
-	    }, {
-	        key: "_buttonClicked",
-	        value: function _buttonClicked(index) {
-	            var shouldClose = this.buttonClicked(index);
-	            if (shouldClose === true) {
-	                return this.overlayRef.close();
-	            }
-	        }
-	    }]);
-
-	    return ActionSheetDirective;
-	})();
-	ActionSheetDirective = __decorate([(0, _angular2Angular2.View)({
-	    template: '<backdrop (click)="_cancel()" tappable></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-sheet-option">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-sheet-destructive">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
-	    directives: [_angular2Angular2.NgFor, _angular2Angular2.NgIf, _iconIcon.Icon]
-	}), __metadata('design:paramtypes', [])], ActionSheetDirective);
-	var ActionSheet = (function (_Overlay) {
-	    _inherits(ActionSheet, _Overlay);
-
-	    function ActionSheet() {
-	        _classCallCheck(this, ActionSheet);
-
-	        _get(Object.getPrototypeOf(ActionSheet.prototype), "constructor", this).apply(this, arguments);
-	    }
-
-	    _createClass(ActionSheet, [{
-	        key: "open",
-
-	        /**
-	         * Create and open a new Action Sheet. This is the
-	         * public API, and most often you will only use ActionSheet.open()
-	         *
-	         * @param {Object} [opts={}]  TODO
-	         * @return {Promise} Promise that resolves when the action menu is open.
-	         */
-	        value: function open() {
-	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-	            var config = this.config;
-	            var defaults = {
-	                enterAnimation: config.setting('actionSheetEnter'),
-	                leaveAnimation: config.setting('actionSheetLeave'),
-	                cancelIcon: config.setting('actionSheetCancelIcon'),
-	                destructiveIcon: config.setting('actionSheetDestructiveIcon')
-	            };
-	            var context = util.extend(defaults, opts);
-	            return this.create(OVERLAY_TYPE, ActionSheetDirective, context, context);
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: "get",
-	        value: function get() {
-	            return this.getByType(OVERLAY_TYPE);
-	        }
-	    }]);
-
-	    return ActionSheet;
-	})(_overlayOverlay.Overlay);
-	exports.ActionSheet = ActionSheet;
-	exports.ActionSheet = ActionSheet = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], ActionSheet);
-	var OVERLAY_TYPE = 'action-sheet';
-	/**
-	 * Animations for action sheet
-	 */
-
-	var ActionSheetAnimation = (function (_Animation) {
-	    _inherits(ActionSheetAnimation, _Animation);
-
-	    function ActionSheetAnimation(element) {
-	        _classCallCheck(this, ActionSheetAnimation);
-
-	        _get(Object.getPrototypeOf(ActionSheetAnimation.prototype), "constructor", this).call(this, element);
-	        this.easing('cubic-bezier(.36, .66, .04, 1)').duration(450);
-	        this.backdrop = new _animationsAnimation.Animation(element.querySelector('backdrop'));
-	        this.wrapper = new _animationsAnimation.Animation(element.querySelector('action-sheet-wrapper'));
-	        this.add(this.backdrop, this.wrapper);
-	    }
-
-	    return ActionSheetAnimation;
-	})(_animationsAnimation.Animation);
-
-	var ActionSheetSlideIn = (function (_ActionSheetAnimation) {
-	    _inherits(ActionSheetSlideIn, _ActionSheetAnimation);
-
-	    function ActionSheetSlideIn(element) {
-	        _classCallCheck(this, ActionSheetSlideIn);
-
-	        _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, element);
-	        this.backdrop.fromTo('opacity', 0.01, 0.4);
-	        this.wrapper.fromTo('translateY', '100%', '0%');
-	    }
-
-	    return ActionSheetSlideIn;
-	})(ActionSheetAnimation);
-
-	_animationsAnimation.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
-
-	var ActionSheetSlideOut = (function (_ActionSheetAnimation2) {
-	    _inherits(ActionSheetSlideOut, _ActionSheetAnimation2);
-
-	    function ActionSheetSlideOut(element) {
-	        _classCallCheck(this, ActionSheetSlideOut);
-
-	        _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, element);
-	        this.backdrop.fromTo('opacity', 0.4, 0.01);
-	        this.wrapper.fromTo('translateY', '0%', '100%');
-	    }
-
-	    return ActionSheetSlideOut;
-	})(ActionSheetAnimation);
-
-	_animationsAnimation.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
-
-	var ActionSheetMdSlideIn = (function (_ActionSheetSlideIn) {
-	    _inherits(ActionSheetMdSlideIn, _ActionSheetSlideIn);
-
-	    function ActionSheetMdSlideIn(element) {
-	        _classCallCheck(this, ActionSheetMdSlideIn);
-
-	        _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, element);
-	        this.backdrop.fromTo('opacity', 0.01, 0.26);
-	    }
-
-	    return ActionSheetMdSlideIn;
-	})(ActionSheetSlideIn);
-
-	_animationsAnimation.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
-
-	var ActionSheetMdSlideOut = (function (_ActionSheetSlideOut) {
-	    _inherits(ActionSheetMdSlideOut, _ActionSheetSlideOut);
-
-	    function ActionSheetMdSlideOut(element) {
-	        _classCallCheck(this, ActionSheetMdSlideOut);
-
-	        _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, element);
-	        this.backdrop.fromTo('opacity', 0.26, 0.01);
-	    }
-
-	    return ActionSheetMdSlideOut;
-	})(ActionSheetSlideOut);
-
-	_animationsAnimation.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
-
-/***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _configConfig = __webpack_require__(217);
-
-	var _buttonButton = __webpack_require__(253);
-
-	/**
-	 * TODO
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
-	    return function (target, key) {
-	        decorator(target, key, paramIndex);
-	    };
-	};
-	var Icon = (function () {
-	    /**
-	     * TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {Button} hostButton  TODO
-	     * @param {IonicConfig} config  TODO
-	     * @param {Renderer} renderer  TODO
-	     */
-
-	    function Icon(elementRef, hostButton, config, renderer) {
-	        _classCallCheck(this, Icon);
-
-	        this.elementRef = elementRef;
-	        this.renderer = renderer;
-	        this.eleRef = elementRef;
-	        this.hostButton = hostButton;
-	        this.config = config;
-	        this.mode = config.setting('iconMode');
-	        this.iconLeft = this.iconRight = this.iconOnly = false;
-	        this.ariaHidden = true;
-	    }
-
-	    /**
-	     * TODO
-	     */
-
-	    _createClass(Icon, [{
-	        key: "onInit",
-	        value: function onInit() {
-	            var ele = this.eleRef.nativeElement;
-	            if (ele.hasAttribute('forward')) {
-	                this.name = this.config.setting('forwardIcon');
-	            } else if (this.mode == 'ios' && this.ios) {
-	                this.name = this.ios;
-	            } else if (this.mode == 'md' && this.md) {
-	                this.name = this.md;
-	            } else if (!this.name) {
-	                // looping through native dom attributes, eww
-	                // https://github.com/angular/angular/issues/3961
-	                for (var i = 0, l = ele.attributes.length; i < l; i++) {
-	                    if (ele.attributes[i].value === '' && /_|item-|is-active|large|small|class/.test(ele.attributes[i].name) !== true) {
-	                        this.name = ele.attributes[i].name;
-	                        break;
-	                    }
-	                }
-	            }
-	            if (!this.name) return;
-	            if (!/^ion-/.test(this.name)) {
-	                // not an exact icon being used
-	                // add mode specific prefix
-	                this.name = 'ion-' + this.mode + '-' + this.name;
-	            }
-	            if (this.hostButton) {
-	                // check if there is a sibling element (that's not aria hidden)
-	                var hasPreviousSiblingElement = !!ele.previousElementSibling;
-	                var hasNextSiblingElement = ele.nextElementSibling && ele.nextElementSibling.getAttribute('aria-hidden') !== 'true';
-	                if (!hasPreviousSiblingElement && !hasNextSiblingElement) {
-	                    // this icon is within a button, and doesn't have a sibling element
-	                    // check for text nodes to the right and left of this icon element
-	                    this.iconLeft = (ele.nextSibling && ele.nextSibling.textContent || '').trim() !== '';
-	                    this.iconRight = (ele.previousSibling && ele.previousSibling.textContent || '').trim() !== '';
-	                    this.iconOnly = !this.iconLeft && !this.iconRight;
-	                }
-	                // tell the button there's a child icon
-	                // the button will set the correct css classes on itself
-	                this.hostButton.registerIcon(this);
-	            }
-	            // hide the icon when it's within a button
-	            // and the button isn't an icon only button
-	            this.ariaHidden = this.hostButton && !this.iconOnly;
-	            this.update();
-	        }
-	    }, {
-	        key: "update",
-	        value: function update() {
-	            if (this.name && this.mode == 'ios') {
-	                if (this.isActive) {
-	                    if (/-outline/.test(this.name)) {
-	                        this.name = this.name.replace('-outline', '');
-	                    }
-	                } else if (!/-outline/.test(this.name)) {
-	                    this.name += '-outline';
-	                }
-	            }
-	            if (this._name !== this.name) {
-	                if (this._name) {
-	                    this.renderer.setElementClass(this.elementRef, this._name, false);
-	                }
-	                this._name = this.name;
-	                this.renderer.setElementClass(this.elementRef, this.name, true);
-	                if (!this.ariaHidden) {
-	                    // the icon is either not within a button
-	                    // or the icon is within a button, and its an icon only button
-	                    this.label = this.name.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' ');
-	                }
-	            }
-	        }
-	    }, {
-	        key: "isActive",
-	        get: function get() {
-	            return this._isActive === undefined || this._isActive === true || this._isActive === 'true';
-	        },
-	        set: function set(val) {
-	            this._isActive = val;
-	            this.update();
-	        }
-	    }]);
-
-	    return Icon;
-	})();
-	exports.Icon = Icon;
-	exports.Icon = Icon = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'icon',
-	    properties: ['name', 'ios', 'md', 'isActive'],
-	    host: {
-	        '[attr.aria-label]': 'label',
-	        '[attr.aria-hidden]': 'ariaHidden',
-	        'role': 'img'
-	    }
-	}), __param(1, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _buttonButton.Button !== 'undefined' && _buttonButton.Button || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], Icon);
-
-/***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	/**
-	 * TODO
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Button = (function () {
-	    function Button() {
-	        _classCallCheck(this, Button);
-
-	        this.iconLeft = this.iconRight = this.iconOnly = false;
-	    }
-
-	    /**
-	     * TODO
-	     * @param {TODO} icon  TODO
-	     */
-
-	    _createClass(Button, [{
-	        key: "registerIcon",
-	        value: function registerIcon(icon) {
-	            this.iconLeft = icon.iconLeft;
-	            this.iconRight = icon.iconRight;
-	            this.iconOnly = icon.iconOnly;
-	        }
-	    }]);
-
-	    return Button;
-	})();
-	exports.Button = Button;
-	exports.Button = Button = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'button,[button]',
-	    host: {
-	        '[class.icon-left]': 'iconLeft',
-	        '[class.icon-right]': 'iconRight',
-	        '[class.icon-only]': 'iconOnly'
-	    }
-	}), __metadata('design:paramtypes', [])], Button);
-
-/***/ },
-/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48278,202 +47793,260 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _utilDom = __webpack_require__(222);
+
+	var Activator = (function () {
+	    function Activator(app, config) {
+	        _classCallCheck(this, Activator);
+
+	        this.app = app;
+	        this.queue = [];
+	        this.active = [];
+	        this.clearStateTimeout = 180;
+	        this.clearAttempt = 0;
+	        this.activatedClass = config.setting('activatedClass') || 'activated';
+	        this.x = 0;
+	        this.y = 0;
+	    }
+
+	    _createClass(Activator, [{
+	        key: 'downAction',
+	        value: function downAction(ev, activatableEle, pointerX, pointerY, callback) {
+	            var _this = this;
+
+	            // the user just pressed down
+	            if (this.disableActivated(ev)) return;
+	            // remember where they pressed
+	            this.x = pointerX;
+	            this.y = pointerY;
+	            // queue to have this element activated
+	            this.queue.push(activatableEle);
+	            (0, _utilDom.raf)(function () {
+	                var activatableEle = undefined;
+	                for (var i = 0; i < _this.queue.length; i++) {
+	                    activatableEle = _this.queue[i];
+	                    if (activatableEle && activatableEle.parentNode) {
+	                        _this.active.push(activatableEle);
+	                        activatableEle.classList.add(_this.activatedClass);
+	                    }
+	                }
+	                _this.queue = [];
+	            });
+	        }
+	    }, {
+	        key: 'upAction',
+	        value: function upAction() {
+	            var _this2 = this;
+
+	            // the user was pressing down, then just let up
+	            setTimeout(function () {
+	                _this2.clearState();
+	            }, this.clearStateTimeout);
+	        }
+	    }, {
+	        key: 'clearState',
+	        value: function clearState() {
+	            // all states should return to normal
+	            if ((!this.app.isEnabled() || this.app.isTransitioning()) && this.clearAttempt < 30) {
+	                // the app is actively disabled, so don't bother deactivating anything.
+	                // this makes it easier on the GPU so it doesn't have to redraw any
+	                // buttons during a transition. This will retry in XX milliseconds.
+	                ++this.clearAttempt;
+	                this.upAction();
+	            } else {
+	                // not actively transitioning, good to deactivate any elements
+	                this.deactivate();
+	                this.clearAttempt = 0;
+	            }
+	        }
+	    }, {
+	        key: 'deactivate',
+	        value: function deactivate() {
+	            // remove the active class from all active elements
+	            for (var i = 0; i < this.active.length; i++) {
+	                this.active[i].classList.remove(this.activatedClass);
+	            }
+	            this.queue = [];
+	            this.active = [];
+	        }
+	    }, {
+	        key: 'disableActivated',
+	        value: function disableActivated(ev) {
+	            var targetEle = ev.target;
+	            for (var x = 0; x < 4; x++) {
+	                if (!targetEle) break;
+	                if (targetEle.hasAttribute('disable-activated')) return true;
+	                targetEle = targetEle.parentElement;
+	            }
+	            return false;
+	        }
+	    }]);
+
+	    return Activator;
+	})();
+
+	exports.Activator = Activator;
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _angular2Angular2 = __webpack_require__(41);
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _angular2SrcCoreCompilerElement_injector = __webpack_require__(113);
+	var _activator = __webpack_require__(251);
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _utilDom = __webpack_require__(222);
 
-	var _ionicUtil = __webpack_require__(221);
+	var _animationsAnimation = __webpack_require__(253);
 
-	var util = _interopRequireWildcard(_ionicUtil);
+	var RippleActivator = (function (_Activator) {
+	    _inherits(RippleActivator, _Activator);
 
-	var Overlay = (function () {
-	    function Overlay(app, config) {
-	        _classCallCheck(this, Overlay);
+	    function RippleActivator(app, config) {
+	        _classCallCheck(this, RippleActivator);
 
-	        this.app = app;
-	        this.config = config;
-	        this.mode = config.setting('mode');
+	        _get(Object.getPrototypeOf(RippleActivator.prototype), 'constructor', this).call(this, app, config);
+	        this.ripples = {};
 	    }
 
-	    _createClass(Overlay, [{
-	        key: 'create',
-	        value: function create(overlayType, componentType) {
+	    _createClass(RippleActivator, [{
+	        key: 'downAction',
+	        value: function downAction(ev, activatableEle, pointerX, pointerY) {
 	            var _this = this;
 
-	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-	            var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
-
-	            return new Promise(function (resolve, reject) {
-	                var app = _this.app;
-	                var annotation = new _angular2Angular2.Component({
-	                    selector: 'ion-' + overlayType,
-	                    host: {
-	                        '[style.z-index]': 'zIndex',
-	                        'mode': _this.mode,
-	                        'class': overlayType
-	                    }
-	                });
-	                var overlayComponentType = _angular2SrcCoreCompilerElement_injector.DirectiveBinding.createFromType(componentType, annotation);
-	                // create a unique token that works as a cache key
-	                overlayComponentType.token = overlayType + componentType.name;
-	                app.appendComponent(overlayComponentType).then(function (ref) {
-	                    var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
-	                    overlayRef._open(opts).then(function () {
-	                        resolve(overlayRef);
-	                    });
-	                })['catch'](function (err) {
-	                    console.error('Overlay appendComponent:', err);
-	                    reject(err);
-	                });
-	            })['catch'](function (err) {
-	                console.error('Overlay create:', err);
-	            });
+	            if (this.disableActivated(ev)) return;
+	            _get(Object.getPrototypeOf(RippleActivator.prototype), 'downAction', this).call(this, ev, activatableEle, pointerX, pointerY);
+	            // create a new ripple element
+	            var r = activatableEle.getBoundingClientRect();
+	            var outerRadius = Math.sqrt(r.width + r.height);
+	            var radiusDuration = 1000 * Math.sqrt(outerRadius / TOUCH_DOWN_ACCEL) + 0.5;
+	            var x = Math.max(Math.abs(r.width - pointerX), pointerX) * 2;
+	            var y = Math.max(Math.abs(r.height - pointerY), pointerY) * 2;
+	            var size = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) - 10;
+	            var rippleEle = document.createElement('md-ripple');
+	            var eleStyle = rippleEle.style;
+	            eleStyle.width = eleStyle.height = size + 'px';
+	            eleStyle.marginTop = eleStyle.marginLeft = -(size / 2) + 'px';
+	            eleStyle.left = pointerX - r.left + 'px';
+	            eleStyle.top = pointerY - r.top + 'px';
+	            activatableEle.appendChild(rippleEle);
+	            var ripple = this.ripples[Date.now()] = {
+	                ele: rippleEle,
+	                outerRadius: outerRadius,
+	                radiusDuration: radiusDuration
+	            };
+	            // expand the circle from the users starting point
+	            // start slow, and when they let up, then speed up the animation
+	            ripple.expand = new _animationsAnimation.Animation(rippleEle, { renderDelay: 0 });
+	            ripple.expand.fromTo('scale', '0.001', '1').duration(radiusDuration).playbackRate(DOWN_PLAYBACK_RATE).onFinish(function () {
+	                // finished expanding
+	                ripple.expand && ripple.expand.dispose();
+	                ripple.expand = null;
+	                ripple.expanded = true;
+	                _this.next();
+	            }).play();
+	            this.next();
 	        }
 	    }, {
-	        key: 'getByType',
-	        value: function getByType(overlayType) {
-	            if (this.app) {
-	                for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-	                    if (overlayType === this.app.overlays[i]._type) {
-	                        return this.app.overlays[i];
-	                    }
+	        key: 'upAction',
+	        value: function upAction() {
+	            var _this2 = this;
+
+	            this.deactivate();
+	            var ripple = undefined;
+	            for (var rippleId in this.ripples) {
+	                ripple = this.ripples[rippleId];
+	                if (ripple.expand) {
+	                    var currentTime = ripple.expand.getCurrentTime();
+	                    // How much more time do we need to finish the radius animation?
+	                    // Math: (radius/second) * ((total_radius_time) - current_time)
+	                    ripple.expand.remainingTime = ripple.outerRadius / ripple.radiusDuration * (ripple.radiusDuration / DOWN_PLAYBACK_RATE - currentTime);
+	                }
+	                if (!ripple.fade) {
+	                    // ripple has not been let up yet
+	                    // speed up the rate if the animation is still going
+	                    setTimeout(function () {
+	                        ripple.expand && ripple.expand.playbackRate(EXPAND_OUT_PLAYBACK_RATE);
+	                        ripple.fade = new _animationsAnimation.Animation(ripple.ele);
+	                        ripple.fade.fadeOut().duration(ripple.epxand && ripple.expand.remaingTime || OPACITY_OUT_DURATION).playbackRate(1).onFinish(function () {
+	                            ripple.fade && ripple.fade.dispose();
+	                            ripple.fade = null;
+	                            ripple.faded = true;
+	                            _this2.next();
+	                        }).play();
+	                    }, 16);
 	                }
 	            }
-	            return null;
+	            this.next();
 	        }
 	    }, {
-	        key: 'getByHandle',
-	        value: function getByHandle(handle, overlayType) {
-	            if (this.app) {
-	                for (var i = this.app.overlays.length - 1; i >= 0; i--) {
-	                    if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
-	                        return this.app.overlays[i];
-	                    }
-	                }
-	            }
-	            return null;
-	        }
-	    }]);
-
-	    return Overlay;
-	})();
-
-	exports.Overlay = Overlay;
-
-	var OverlayRef = (function () {
-	    function OverlayRef(app, overlayType, opts, ref, context) {
-	        var _this2 = this;
-
-	        _classCallCheck(this, OverlayRef);
-
-	        this.app = app;
-	        var overlayInstance = ref && ref.instance;
-	        if (!overlayInstance) return;
-	        if (context) {
-	            util.extend(ref.instance, context);
-	        }
-	        this._instance = overlayInstance;
-	        overlayInstance.viewLoaded && overlayInstance.viewLoaded();
-	        this.zIndex = ROOT_Z_INDEX;
-	        for (var i = 0; i < app.overlays.length; i++) {
-	            if (app.overlays[i].zIndex >= this.zIndex) {
-	                this.zIndex = app.overlays[i].zIndex + 1;
-	            }
-	        }
-	        overlayInstance.zIndex = this.zIndex;
-	        overlayInstance.overlayRef = this;
-	        overlayInstance.close = function (instanceOpts) {
-	            _this2.close(instanceOpts);
-	        };
-	        this._elementRef = ref.location;
-	        this._type = overlayType;
-	        this._opts = opts;
-	        this._handle = opts.handle || this.zIndex;
-	        this._dispose = function () {
-	            _this2._instance = null;
-	            ref.dispose && ref.dispose();
-	            util.array.remove(app.overlays, _this2);
-	        };
-	        app.overlays.push(this);
-	    }
-
-	    _createClass(OverlayRef, [{
-	        key: 'getElementRef',
-	        value: function getElementRef() {
-	            return this._elementRef;
-	        }
-	    }, {
-	        key: '_open',
-	        value: function _open() {
+	        key: 'next',
+	        value: function next(forceComplete) {
 	            var _this3 = this;
 
-	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	            var ripple = undefined,
+	                rippleEle = undefined;
 
-	            return new Promise(function (resolve) {
-	                var instance = _this3._instance || {};
-	                instance.viewWillEnter && instance.viewWillEnter();
-	                var animationName = opts && opts.animation || _this3._opts.enterAnimation;
-	                var animation = _animationsAnimation.Animation.create(_this3._elementRef.nativeElement, animationName);
-	                animation.before.addClass('show-overlay');
-	                _this3.app.setEnabled(false, animation.duration());
-	                _this3.app.zoneRunOutside(function () {
-	                    animation.play().then(function () {
-	                        _this3.app.zoneRun(function () {
-	                            _this3.app.setEnabled(true);
-	                            animation.dispose();
-	                            instance.viewDidEnter && instance.viewDidEnter();
-	                            resolve();
-	                        });
+	            var _loop = function (rippleId) {
+	                ripple = _this3.ripples[rippleId];
+	                if (ripple.expanded && ripple.faded && ripple.ele || forceComplete || parseInt(rippleId) + 5000 < Date.now()) {
+	                    // finished expanding and the user has lifted the pointer
+	                    (0, _utilDom.raf)(function () {
+	                        _this3.remove(rippleId);
 	                    });
-	                });
-	            })['catch'](function (err) {
-	                console.error(err);
-	            });
+	                }
+	            };
+
+	            for (var rippleId in this.ripples) {
+	                _loop(rippleId);
+	            }
 	        }
 	    }, {
-	        key: 'close',
-	        value: function close() {
-	            var _this4 = this;
-
-	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-	            return new Promise(function (resolve) {
-	                var instance = _this4._instance || {};
-	                instance.viewWillLeave && instance.viewWillLeave();
-	                instance.viewWillUnload && instance.viewWillUnload();
-	                var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
-	                var animation = _animationsAnimation.Animation.create(_this4._elementRef.nativeElement, animationName);
-	                animation.after.removeClass('show-overlay');
-	                _this4.app.setEnabled(false, animation.duration());
-	                animation.play().then(function () {
-	                    instance.viewDidLeave && instance.viewDidLeave();
-	                    instance.viewDidUnload && instance.viewDidUnload();
-	                    _this4._dispose();
-	                    _this4.app.setEnabled(true);
-	                    animation.dispose();
-	                    resolve();
-	                });
-	            })['catch'](function (err) {
-	                console.error(err);
-	            });
+	        key: 'clearState',
+	        value: function clearState() {
+	            this.deactivate();
+	            this.next(true);
+	        }
+	    }, {
+	        key: 'remove',
+	        value: function remove(rippleId) {
+	            var ripple = this.ripples[rippleId];
+	            if (ripple) {
+	                ripple.expand && ripple.expand.dispose();
+	                ripple.fade && ripple.fade.dispose();
+	                (0, _utilDom.removeElement)(ripple.ele);
+	                ripple.ele = ripple.expand = ripple.fade = null;
+	                delete this.ripples[rippleId];
+	            }
 	        }
 	    }]);
 
-	    return OverlayRef;
-	})();
+	    return RippleActivator;
+	})(_activator.Activator);
 
-	exports.OverlayRef = OverlayRef;
+	exports.RippleActivator = RippleActivator;
 
-	var ROOT_Z_INDEX = 1000;
+	var TOUCH_DOWN_ACCEL = 512;
+	var OPACITY_OUT_DURATION = 750;
+	var EXPAND_OUT_PLAYBACK_RATE = 3.5;
+	var DOWN_PLAYBACK_RATE = 0.65;
 
 /***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48490,8 +48063,6 @@
 
 	var _utilUtil = __webpack_require__(218);
 
-	var RENDER_DELAY = 36;
-	var AnimationRegistry = {};
 	/**
 	  Animation Steps/Process
 	  -----------------------
@@ -48514,11 +48085,16 @@
 
 	var Animation = (function () {
 	    function Animation(ele) {
+	        var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
 	        _classCallCheck(this, Animation);
 
 	        this._el = [];
 	        this._chld = [];
 	        this._ani = [];
+	        this._opts = (0, _utilUtil.extend)({
+	            renderDelay: 36
+	        }, opts);
 	        this._bfAdd = [];
 	        this._bfSty = {};
 	        this._bfRmv = [];
@@ -48702,10 +48278,10 @@
 	                        resolve = res;
 	                    });
 
-	                    if (_this._duration > RENDER_DELAY) {
+	                    if (self._duration > _this._opts.renderDelay) {
 	                        // begin each animation when everything is rendered in their starting point
 	                        // give the browser some time to render everything in place before starting
-	                        setTimeout(kickoff, RENDER_DELAY);
+	                        setTimeout(kickoff, _this._opts.renderDelay);
 	                    } else {
 	                        // no need to render everything in there place before animating in
 	                        // just kick it off immediately to render them in their "to" locations
@@ -48753,7 +48329,7 @@
 	                if (this._to) {
 	                    // only animate the elements if there are defined "to" effects
 	                    for (i = 0; i < this._el.length; i++) {
-	                        animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate());
+	                        animation = new Animate(this._el[i], this._from, this._to, this.duration(), this.easing(), this.playbackRate(), this._opts.renderDelay);
 	                        if (animation.shouldAnimate) {
 	                            this._ani.push(animation);
 	                        }
@@ -48853,15 +48429,32 @@
 	                this._ani[i].progress(value);
 	            }
 	        }
+
+	        /**
+	         * Get the current time of the first animation
+	         * in the list. To get a specific time of an animation, call
+	         * subAnimationInstance.getCurrentTime()
+	         */
 	    }, {
-	        key: 'progressFinish',
-	        value: function progressFinish(shouldComplete) {
+	        key: 'getCurrentTime',
+	        value: function getCurrentTime() {
+	            if (this._chld.length > 0) {
+	                return this._chld[0].getCurrentTime();
+	            }
+	            if (this._ani.length > 0) {
+	                return this._ani[0].getCurrentTime();
+	            }
+	            return 0;
+	        }
+	    }, {
+	        key: 'progressEnd',
+	        value: function progressEnd(shouldComplete) {
 	            var rate = arguments.length <= 1 || arguments[1] === undefined ? 3 : arguments[1];
 
 	            var promises = [];
 	            this.isProgress = false;
 	            for (var i = 0; i < this._chld.length; i++) {
-	                promises.push(this._chld[i].progressFinish(shouldComplete));
+	                promises.push(this._chld[i].progressEnd(shouldComplete));
 	            }
 	            this._ani.forEach(function (animation) {
 	                if (shouldComplete) {
@@ -48993,7 +48586,7 @@
 	exports.Animation = Animation;
 
 	var Animate = (function () {
-	    function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate) {
+	    function Animate(ele, fromEffect, toEffect, duration, easingConfig, playbackRate, renderDelay) {
 	        _classCallCheck(this, Animate);
 
 	        // https://w3c.github.io/web-animations/
@@ -49004,7 +48597,7 @@
 	            return console.error(ele.tagName, 'animation fromEffect required, toEffect:', toEffect);
 	        }
 	        this.toEffect = parseEffect(toEffect);
-	        this.shouldAnimate = duration > RENDER_DELAY;
+	        this.shouldAnimate = duration > renderDelay;
 	        if (!this.shouldAnimate) {
 	            return inlineStyle(ele, this.toEffect);
 	        }
@@ -49068,6 +48661,11 @@
 	                value = Math.min(0.999, Math.max(0.001, value));
 	                this.ani.currentTime = this.duration * value;
 	            }
+	        }
+	    }, {
+	        key: 'getCurrentTime',
+	        value: function getCurrentTime() {
+	            return this.ani && this.ani.currentTime;
 	        }
 	    }, {
 	        key: 'playbackRate',
@@ -49289,9 +48887,617 @@
 	        return -Math.cos(pos * Math.PI) / 2 + 0.5;
 	    }
 	};
+	var AnimationRegistry = {};
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	* @ngdoc service
+	* @name ActionSheet
+	* @module ionic
+	* @description
+	* The ActionSheet is a modal menu with options to select based on an action.
+	*/
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _iconIcon = __webpack_require__(255);
+
+	var _overlayOverlay = __webpack_require__(256);
+
+	var _animationsAnimation = __webpack_require__(253);
+
+	var _ionicUtil = __webpack_require__(221);
+
+	/**
+	 * @name ActionSheet
+	 * @description
+	 * The Action Sheet is a slide-up pane that lets the user choose from a set of options. Dangerous options are made obvious.
+	 *
+	 * There are easy ways to cancel out of the action sheet, such as tapping the backdrop or even hitting escape on the keyboard for desktop testing.
+	 *
+	 * @usage
+	 * ```ts
+	 * openMenu() {
+	 *
+	 *   this.actionSheet.open({
+	 *     buttons: [
+	 *       { text: 'Share This' },
+	 *       { text: 'Move' }
+	 *     ],
+	 *     destructiveText: 'Delete',
+	 *     titleText: 'Modify your album',
+	 *     cancelText: 'Cancel',
+	 *     cancel: function() {
+	 *       console.log('Canceled');
+	 *     },
+	 *     destructiveButtonClicked: () => {
+	 *       console.log('Destructive clicked');
+	 *     },
+	 *     buttonClicked: function(index) {
+	 *       console.log('Button clicked', index);
+	 *       if(index == 1) { return false; }
+	 *       return true;
+	 *     }
+	 *
+	 *   }).then(actionSheetRef => {
+	 *     this.actionSheetRef = actionSheetRef;
+	 *   });
+	 *
+	 * }
+	 * ```
+	 */
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ActionSheetDirective = (function () {
+	    function ActionSheetDirective() {
+	        _classCallCheck(this, ActionSheetDirective);
+	    }
+
+	    _createClass(ActionSheetDirective, [{
+	        key: "_cancel",
+	        value: function _cancel() {
+	            this.cancel && this.cancel();
+	            return this.overlayRef.close();
+	        }
+	    }, {
+	        key: "_destructive",
+	        value: function _destructive() {
+	            var shouldClose = this.destructiveButtonClicked();
+	            if (shouldClose === true) {
+	                return this.overlayRef.close();
+	            }
+	        }
+	    }, {
+	        key: "_buttonClicked",
+	        value: function _buttonClicked(index) {
+	            var shouldClose = this.buttonClicked(index);
+	            if (shouldClose === true) {
+	                return this.overlayRef.close();
+	            }
+	        }
+	    }]);
+
+	    return ActionSheetDirective;
+	})();
+	ActionSheetDirective = __decorate([(0, _angular2Angular2.View)({
+	    template: '<backdrop (click)="_cancel()" tappable disable-activated></backdrop>' + '<action-sheet-wrapper>' + '<div class="action-sheet-container">' + '<div class="action-sheet-group action-sheet-options">' + '<div class="action-sheet-title" *ng-if="titleText">{{titleText}}</div>' + '<button (click)="_buttonClicked(index)" *ng-for="#b of buttons; #index = index" class="action-sheet-option">' + '<icon [name]="b.icon" *ng-if="b.icon"></icon> ' + '{{b.text}}' + '</button>' + '<button *ng-if="destructiveText" (click)="_destructive()" class="destructive action-sheet-destructive">' + '<icon [name]="destructiveIcon" *ng-if="destructiveIcon"></icon> ' + '{{destructiveText}}</button>' + '</div>' + '<div class="action-sheet-group action-sheet-cancel" *ng-if="cancelText">' + '<button (click)="_cancel()">' + '<icon [name]="cancelIcon"></icon> ' + '{{cancelText}}</button>' + '</div>' + '</div>' + '</action-sheet-wrapper>',
+	    directives: [_angular2Angular2.NgFor, _angular2Angular2.NgIf, _iconIcon.Icon]
+	}), __metadata('design:paramtypes', [])], ActionSheetDirective);
+	var ActionSheet = (function (_Overlay) {
+	    _inherits(ActionSheet, _Overlay);
+
+	    function ActionSheet() {
+	        _classCallCheck(this, ActionSheet);
+
+	        _get(Object.getPrototypeOf(ActionSheet.prototype), "constructor", this).apply(this, arguments);
+	    }
+
+	    _createClass(ActionSheet, [{
+	        key: "open",
+
+	        /**
+	         * Create and open a new Action Sheet. This is the
+	         * public API, and most often you will only use ActionSheet.open()
+	         *
+	         * @param {Object} [opts={}]  TODO
+	         * @return {Promise} Promise that resolves when the action sheet is open.
+	         */
+	        value: function open() {
+	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	            var config = this.config;
+	            var defaults = {
+	                enterAnimation: config.setting('actionSheetEnter'),
+	                leaveAnimation: config.setting('actionSheetLeave'),
+	                cancelIcon: config.setting('actionSheetCancelIcon'),
+	                destructiveIcon: config.setting('actionSheetDestructiveIcon')
+	            };
+	            var context = util.extend(defaults, opts);
+	            return this.create(OVERLAY_TYPE, ActionSheetDirective, context, context);
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: "get",
+	        value: function get() {
+	            return this.getByType(OVERLAY_TYPE);
+	        }
+	    }]);
+
+	    return ActionSheet;
+	})(_overlayOverlay.Overlay);
+	exports.ActionSheet = ActionSheet;
+	exports.ActionSheet = ActionSheet = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], ActionSheet);
+	var OVERLAY_TYPE = 'action-sheet';
+	/**
+	 * Animations for action sheet
+	 */
+
+	var ActionSheetAnimation = (function (_Animation) {
+	    _inherits(ActionSheetAnimation, _Animation);
+
+	    function ActionSheetAnimation(element) {
+	        _classCallCheck(this, ActionSheetAnimation);
+
+	        _get(Object.getPrototypeOf(ActionSheetAnimation.prototype), "constructor", this).call(this, element);
+	        this.easing('cubic-bezier(.36, .66, .04, 1)').duration(450);
+	        this.backdrop = new _animationsAnimation.Animation(element.querySelector('backdrop'));
+	        this.wrapper = new _animationsAnimation.Animation(element.querySelector('action-sheet-wrapper'));
+	        this.add(this.backdrop, this.wrapper);
+	    }
+
+	    return ActionSheetAnimation;
+	})(_animationsAnimation.Animation);
+
+	var ActionSheetSlideIn = (function (_ActionSheetAnimation) {
+	    _inherits(ActionSheetSlideIn, _ActionSheetAnimation);
+
+	    function ActionSheetSlideIn(element) {
+	        _classCallCheck(this, ActionSheetSlideIn);
+
+	        _get(Object.getPrototypeOf(ActionSheetSlideIn.prototype), "constructor", this).call(this, element);
+	        this.backdrop.fromTo('opacity', 0.01, 0.4);
+	        this.wrapper.fromTo('translateY', '100%', '0%');
+	    }
+
+	    return ActionSheetSlideIn;
+	})(ActionSheetAnimation);
+
+	_animationsAnimation.Animation.register('action-sheet-slide-in', ActionSheetSlideIn);
+
+	var ActionSheetSlideOut = (function (_ActionSheetAnimation2) {
+	    _inherits(ActionSheetSlideOut, _ActionSheetAnimation2);
+
+	    function ActionSheetSlideOut(element) {
+	        _classCallCheck(this, ActionSheetSlideOut);
+
+	        _get(Object.getPrototypeOf(ActionSheetSlideOut.prototype), "constructor", this).call(this, element);
+	        this.backdrop.fromTo('opacity', 0.4, 0.01);
+	        this.wrapper.fromTo('translateY', '0%', '100%');
+	    }
+
+	    return ActionSheetSlideOut;
+	})(ActionSheetAnimation);
+
+	_animationsAnimation.Animation.register('action-sheet-slide-out', ActionSheetSlideOut);
+
+	var ActionSheetMdSlideIn = (function (_ActionSheetSlideIn) {
+	    _inherits(ActionSheetMdSlideIn, _ActionSheetSlideIn);
+
+	    function ActionSheetMdSlideIn(element) {
+	        _classCallCheck(this, ActionSheetMdSlideIn);
+
+	        _get(Object.getPrototypeOf(ActionSheetMdSlideIn.prototype), "constructor", this).call(this, element);
+	        this.backdrop.fromTo('opacity', 0.01, 0.26);
+	    }
+
+	    return ActionSheetMdSlideIn;
+	})(ActionSheetSlideIn);
+
+	_animationsAnimation.Animation.register('action-sheet-md-slide-in', ActionSheetMdSlideIn);
+
+	var ActionSheetMdSlideOut = (function (_ActionSheetSlideOut) {
+	    _inherits(ActionSheetMdSlideOut, _ActionSheetSlideOut);
+
+	    function ActionSheetMdSlideOut(element) {
+	        _classCallCheck(this, ActionSheetMdSlideOut);
+
+	        _get(Object.getPrototypeOf(ActionSheetMdSlideOut.prototype), "constructor", this).call(this, element);
+	        this.backdrop.fromTo('opacity', 0.26, 0.01);
+	    }
+
+	    return ActionSheetMdSlideOut;
+	})(ActionSheetSlideOut);
+
+	_animationsAnimation.Animation.register('action-sheet-md-slide-out', ActionSheetMdSlideOut);
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _configConfig = __webpack_require__(217);
+
+	/**
+	 * TODO
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Icon = (function () {
+	    /**
+	     * TODO
+	     * @param {ElementRef} elementRef  TODO
+	     * @param {IonicConfig} config  TODO
+	     * @param {Renderer} renderer  TODO
+	     */
+
+	    function Icon(elementRef, config, renderer) {
+	        _classCallCheck(this, Icon);
+
+	        this.elementRef = elementRef;
+	        this.renderer = renderer;
+	        this.eleRef = elementRef;
+	        this.config = config;
+	        this.mode = config.setting('iconMode');
+	    }
+
+	    /**
+	     * TODO
+	     */
+
+	    _createClass(Icon, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            var ele = this.eleRef.nativeElement;
+	            if (this.mode == 'ios' && this.ios) {
+	                this.name = this.ios;
+	            } else if (this.mode == 'md' && this.md) {
+	                this.name = this.md;
+	            } else if (!this.name) {
+	                // looping through native dom attributes, eww
+	                // https://github.com/angular/angular/issues/3961
+	                for (var i = 0, l = ele.attributes.length; i < l; i++) {
+	                    if (ele.attributes[i].value === '' && /_|item-|is-active|large|small|class/.test(ele.attributes[i].name) !== true) {
+	                        this.name = ele.attributes[i].name;
+	                        break;
+	                    }
+	                }
+	            }
+	            if (!this.name) return;
+	            if (!/^ion-/.test(this.name)) {
+	                // not an exact icon being used
+	                // add mode specific prefix
+	                this.name = 'ion-' + this.mode + '-' + this.name;
+	            }
+	            this.update();
+	        }
+	    }, {
+	        key: "update",
+	        value: function update() {
+	            if (this.name && this.mode == 'ios') {
+	                if (this.isActive) {
+	                    if (/-outline/.test(this.name)) {
+	                        this.name = this.name.replace('-outline', '');
+	                    }
+	                } else if (!/-outline/.test(this.name)) {
+	                    this.name += '-outline';
+	                }
+	            }
+	            if (this._name !== this.name) {
+	                if (this._name) {
+	                    this.renderer.setElementClass(this.elementRef, this._name, false);
+	                }
+	                this._name = this.name;
+	                this.renderer.setElementClass(this.elementRef, this.name, true);
+	                this.label = this.name.replace('ion-', '').replace('ios-', '').replace('md-', '').replace('-', ' ');
+	            }
+	        }
+	    }, {
+	        key: "isActive",
+	        get: function get() {
+	            return this._isActive === undefined || this._isActive === true || this._isActive === 'true';
+	        },
+	        set: function set(val) {
+	            this._isActive = val;
+	            this.update();
+	        }
+	    }]);
+
+	    return Icon;
+	})();
+	exports.Icon = Icon;
+	exports.Icon = Icon = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'icon',
+	    properties: ['name', 'ios', 'md', 'isActive'],
+	    host: {
+	        '[attr.aria-label]': 'label',
+	        'role': 'img'
+	    }
+	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], Icon);
 
 /***/ },
 /* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _angular2SrcCoreCompilerElement_injector = __webpack_require__(113);
+
+	var _animationsAnimation = __webpack_require__(253);
+
+	var _ionicUtil = __webpack_require__(221);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var Overlay = (function () {
+	    function Overlay(app, config) {
+	        _classCallCheck(this, Overlay);
+
+	        this.app = app;
+	        this.config = config;
+	        this.mode = config.setting('mode');
+	    }
+
+	    _createClass(Overlay, [{
+	        key: 'create',
+	        value: function create(overlayType, componentType) {
+	            var _this = this;
+
+	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+	            var context = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+
+	            return new Promise(function (resolve, reject) {
+	                var app = _this.app;
+	                var annotation = new _angular2Angular2.Component({
+	                    selector: 'ion-' + overlayType,
+	                    host: {
+	                        '[style.z-index]': 'zIndex',
+	                        'mode': _this.mode,
+	                        'class': overlayType
+	                    }
+	                });
+	                var overlayComponentType = _angular2SrcCoreCompilerElement_injector.DirectiveBinding.createFromType(componentType, annotation);
+	                // create a unique token that works as a cache key
+	                overlayComponentType.token = overlayType + componentType.name;
+	                app.appendComponent(overlayComponentType).then(function (ref) {
+	                    var overlayRef = new OverlayRef(app, overlayType, opts, ref, context);
+	                    overlayRef._open(opts).then(function () {
+	                        resolve(overlayRef);
+	                    });
+	                })['catch'](function (err) {
+	                    console.error('Overlay appendComponent:', err);
+	                    reject(err);
+	                });
+	            })['catch'](function (err) {
+	                console.error('Overlay create:', err);
+	            });
+	        }
+	    }, {
+	        key: 'getByType',
+	        value: function getByType(overlayType) {
+	            if (this.app) {
+	                for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+	                    if (overlayType === this.app.overlays[i]._type) {
+	                        return this.app.overlays[i];
+	                    }
+	                }
+	            }
+	            return null;
+	        }
+	    }, {
+	        key: 'getByHandle',
+	        value: function getByHandle(handle, overlayType) {
+	            if (this.app) {
+	                for (var i = this.app.overlays.length - 1; i >= 0; i--) {
+	                    if (handle === this.app.overlays[i]._handle && overlayType === this.app.overlays[i]._type) {
+	                        return this.app.overlays[i];
+	                    }
+	                }
+	            }
+	            return null;
+	        }
+	    }]);
+
+	    return Overlay;
+	})();
+
+	exports.Overlay = Overlay;
+
+	var OverlayRef = (function () {
+	    function OverlayRef(app, overlayType, opts, ref, context) {
+	        var _this2 = this;
+
+	        _classCallCheck(this, OverlayRef);
+
+	        this.app = app;
+	        var overlayInstance = ref && ref.instance;
+	        if (!overlayInstance) return;
+	        if (context) {
+	            util.extend(ref.instance, context);
+	        }
+	        this._instance = overlayInstance;
+	        overlayInstance.onViewLoaded && overlayInstance.onViewLoaded();
+	        this.zIndex = ROOT_Z_INDEX;
+	        for (var i = 0; i < app.overlays.length; i++) {
+	            if (app.overlays[i].zIndex >= this.zIndex) {
+	                this.zIndex = app.overlays[i].zIndex + 1;
+	            }
+	        }
+	        overlayInstance.zIndex = this.zIndex;
+	        overlayInstance.overlayRef = this;
+	        overlayInstance.close = function (instanceOpts) {
+	            _this2.close(instanceOpts);
+	        };
+	        this._elementRef = ref.location;
+	        this._type = overlayType;
+	        this._opts = opts;
+	        this._handle = opts.handle || this.zIndex;
+	        this._dispose = function () {
+	            _this2._instance = null;
+	            ref.dispose && ref.dispose();
+	            util.array.remove(app.overlays, _this2);
+	        };
+	        app.overlays.push(this);
+	    }
+
+	    _createClass(OverlayRef, [{
+	        key: 'getElementRef',
+	        value: function getElementRef() {
+	            return this._elementRef;
+	        }
+	    }, {
+	        key: '_open',
+	        value: function _open() {
+	            var _this3 = this;
+
+	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	            return new Promise(function (resolve) {
+	                var instance = _this3._instance || {};
+	                instance.onViewWillEnter && instance.onViewWillEnter();
+	                var animationName = opts && opts.animation || _this3._opts.enterAnimation;
+	                var animation = _animationsAnimation.Animation.create(_this3._elementRef.nativeElement, animationName);
+	                animation.before.addClass('show-overlay');
+	                _this3.app.setEnabled(false, animation.duration());
+	                _this3.app.setTransitioning(true, animation.duration());
+	                _this3.app.zoneRunOutside(function () {
+	                    animation.play().then(function () {
+	                        _this3.app.zoneRun(function () {
+	                            _this3.app.setEnabled(true);
+	                            _this3.app.setTransitioning(false);
+	                            animation.dispose();
+	                            instance.onViewDidEnter && instance.onViewDidEnter();
+	                            resolve();
+	                        });
+	                    });
+	                });
+	            })['catch'](function (err) {
+	                console.error(err);
+	            });
+	        }
+	    }, {
+	        key: 'close',
+	        value: function close() {
+	            var _this4 = this;
+
+	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	            return new Promise(function (resolve) {
+	                var instance = _this4._instance || {};
+	                instance.onViewWillLeave && instance.onViewWillLeave();
+	                instance.onViewWillUnload && instance.onViewWillUnload();
+	                var animationName = opts && opts.animation || _this4._opts.leaveAnimation;
+	                var animation = _animationsAnimation.Animation.create(_this4._elementRef.nativeElement, animationName);
+	                animation.after.removeClass('show-overlay');
+	                _this4.app.setEnabled(false, animation.duration());
+	                _this4.app.setTransitioning(true, animation.duration());
+	                animation.play().then(function () {
+	                    instance.onViewDidLeave && instance.onViewDidLeave();
+	                    instance.onViewDidUnload && instance.onViewDidUnload();
+	                    _this4._dispose();
+	                    _this4.app.setEnabled(true);
+	                    _this4.app.setTransitioning(false);
+	                    animation.dispose();
+	                    resolve();
+	                });
+	            })['catch'](function (err) {
+	                console.error(err);
+	            });
+	        }
+	    }]);
+
+	    return OverlayRef;
+	})();
+
+	exports.OverlayRef = OverlayRef;
+
+	var ROOT_Z_INDEX = 1000;
+
+/***/ },
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49312,9 +49518,9 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _overlayOverlay = __webpack_require__(254);
+	var _overlayOverlay = __webpack_require__(256);
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _animationsAnimation = __webpack_require__(253);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -49447,7 +49653,7 @@
 	_animationsAnimation.Animation.register('modal-slide-out', ModalSlideOut);
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49468,9 +49674,9 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _overlayOverlay = __webpack_require__(254);
+	var _overlayOverlay = __webpack_require__(256);
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _animationsAnimation = __webpack_require__(253);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -49755,7 +49961,7 @@
 	StandardPopup = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-popup-default'
 	}), (0, _angular2Angular2.View)({
-	    template: '<backdrop (click)="_cancel($event)" tappable></backdrop>' + '<popup-wrapper>' + '<div class="popup-head">' + '<h3 class="popup-title" [inner-html]="title"></h3>' + '<h5 class="popup-sub-title" [inner-html]="subTitle" *ng-if="subTitle"></h5>' + '</div>' + '<div class="popup-body">' + '<input type="text" *ng-if="showPrompt" placeholder="{{promptPlaceholder}}">' + '</div>' + '<div class="popup-buttons" *ng-if="buttons.length">' + '<button *ng-for="#button of buttons" (click)="buttonTapped(button, $event)" [ng-class]="button.type || \'button-default\'" [inner-html]="button.text"></button>' + '</div>' + '</popup-wrapper>',
+	    template: '<backdrop (click)="_cancel($event)" tappable disable-activated></backdrop>' + '<popup-wrapper>' + '<div class="popup-head">' + '<h3 class="popup-title" [inner-html]="title"></h3>' + '<h5 class="popup-sub-title" [inner-html]="subTitle" *ng-if="subTitle"></h5>' + '</div>' + '<div class="popup-body">' + '<input type="text" *ng-if="showPrompt" placeholder="{{promptPlaceholder}}">' + '</div>' + '<div class="popup-buttons" *ng-if="buttons.length">' + '<button *ng-for="#button of buttons" (click)="buttonTapped(button, $event)" [ng-class]="button.type || \'button-default\'" [inner-html]="button.text"></button>' + '</div>' + '</popup-wrapper>',
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgClass, _angular2Angular2.NgIf, _angular2Angular2.NgFor]
 	}), __metadata('design:paramtypes', [Popup])], StandardPopup);
 
@@ -49814,7 +50020,7 @@
 	_animationsAnimation.Animation.register('popup-pop-out', PopupPopOut);
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49829,7 +50035,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _input = __webpack_require__(259);
+	var _input = __webpack_require__(260);
 
 	/**
 	 * TODO
@@ -49965,7 +50171,7 @@
 	}), __param(1, (0, _angular2Angular2.Host)()), __param(2, (0, _angular2Angular2.Attribute)('tabindex')), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, FocusHolder, String])], FocusInput);
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49982,7 +50188,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var inputRegistry = [];
 	var inputItemIds = -1;
@@ -50094,7 +50300,7 @@
 	exports.IonInput = IonInput;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50190,7 +50396,276 @@
 	exports.Ion = Ion;
 
 /***/ },
-/* 261 */
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	/**
+	 * Events is a pub/sub style event system for sending and responding to application-level
+	 * events across your app.
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Events = (function () {
+	    function Events() {
+	        _classCallCheck(this, Events);
+
+	        this.channels = [];
+	    }
+
+	    /**
+	     * Subscribe to an event topic. Events that get posted to that topic
+	     * will trigger the provided handler.
+	     *
+	     * @param topic the topic to subscribe to
+	     * @param handler the event handler
+	     */
+
+	    _createClass(Events, [{
+	        key: "subscribe",
+	        value: function subscribe(topic) {
+	            var _this = this;
+
+	            if (!this.channels[topic]) {
+	                this.channels[topic] = [];
+	            }
+
+	            for (var _len = arguments.length, handlers = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                handlers[_key - 1] = arguments[_key];
+	            }
+
+	            handlers.forEach(function (handler) {
+	                _this.channels[topic].push(handler);
+	            });
+	        }
+
+	        /**
+	         * Unsubscribe from the given topic. Your handler will
+	         * no longer receive events published to this topic.
+	         *
+	         * @param topic the topic to unsubscribe from
+	         * @param handler the event handler
+	         *
+	         * @return true if a handler was removed
+	         */
+	    }, {
+	        key: "unsubscribe",
+	        value: function unsubscribe(topic, handler) {
+	            var t = this.channels[topic];
+	            if (!t) {
+	                // Wasn't found, wasn't removed
+	                return false;
+	            }
+	            if (!handler) {
+	                // Remove all handlers for this topic
+	                delete this.channels[topic];
+	                return true;
+	            }
+	            // We need to find and remove a specific handler
+	            var i = t.indexOf(handler);
+	            if (i < 0) {
+	                // Wasn't found, wasn't removed
+	                return false;
+	            }
+	            t.splice(i, 1);
+	            // If the channel is empty now, remove it from the channel map
+	            if (!t.length) {
+	                delete this.channels[topic];
+	            }
+	            return true;
+	        }
+
+	        /**
+	         * Publish an event to the given topic.
+	         *
+	         * @param topic the topic to publish to
+	         * @param eventData the data to send as the event
+	         */
+	    }, {
+	        key: "publish",
+	        value: function publish(topic) {
+	            for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+	                args[_key2 - 1] = arguments[_key2];
+	            }
+
+	            var t = this.channels[topic];
+	            if (!t) {
+	                return null;
+	            }
+	            var responses = [];
+	            t.forEach(function (handler) {
+	                responses.push(handler(args));
+	            });
+	            return responses;
+	        }
+	    }]);
+
+	    return Events;
+	})();
+	exports.Events = Events;
+	exports.Events = Events = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Events);
+
+/***/ },
+/* 263 */
+/***/ function(module, exports) {
+
+	/**
+	 * Map of possible views that can be navigated to using an Ionic NavController
+	 */
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var NavRegistry = (function () {
+	    function NavRegistry() {
+	        var views = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
+	        _classCallCheck(this, NavRegistry);
+
+	        this._views = new Map(views.map(function (view) {
+	            return [view.name, view];
+	        }));
+	    }
+
+	    _createClass(NavRegistry, [{
+	        key: "get",
+	        value: function get(viewName) {
+	            return this._views.get(viewName);
+	        }
+	    }, {
+	        key: "set",
+	        value: function set(view) {
+	            this._views.set(view.name, view);
+	        }
+	    }]);
+
+	    return NavRegistry;
+	})();
+
+	exports.NavRegistry = NavRegistry;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Translate = (function () {
+	    function Translate() {
+	        _classCallCheck(this, Translate);
+
+	        this._transMap = {};
+	    }
+
+	    _createClass(Translate, [{
+	        key: "translations",
+	        value: function translations(lang, map) {
+	            this._transMap[lang] = map;
+	        }
+	    }, {
+	        key: "setLanguage",
+	        value: function setLanguage(lang) {
+	            this._language = lang;
+	        }
+	    }, {
+	        key: "getTranslations",
+	        value: function getTranslations(lang) {
+	            return this._transMap[lang];
+	        }
+	    }, {
+	        key: "translate",
+	        value: function translate(key, lang) {
+	            // If the language isn't specified and we have no overridden one, return the string passed.
+	            if (!lang && !this._language) {
+	                return key;
+	            }
+	            var setLanguage = lang || this._language;
+	            var map = this.getTranslations(setLanguage);
+	            if (!map) {
+	                console.warn('I18N: No translation for key', key, 'using language', setLanguage);
+	                return '';
+	            }
+	            return this._getTranslation(map, key);
+	        }
+	    }, {
+	        key: "_getTranslation",
+	        value: function _getTranslation(map, key) {
+	            return map && map[key] || '';
+	        }
+	    }]);
+
+	    return Translate;
+	})();
+	exports.Translate = Translate;
+	exports.Translate = Translate = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [])], Translate);
+
+/***/ },
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50442,7 +50917,7 @@
 	exports.Http = Http;
 
 /***/ },
-/* 262 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50459,158 +50934,148 @@
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsAppApp));
 
-	var _ionicComponentsAppId = __webpack_require__(263);
+	var _ionicComponentsAppId = __webpack_require__(267);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsAppId));
 
-	var _ionicComponentsActionSheetActionSheet = __webpack_require__(251);
+	var _ionicComponentsActionSheetActionSheet = __webpack_require__(254);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsActionSheetActionSheet));
 
-	var _ionicComponentsButtonButton = __webpack_require__(253);
+	var _ionicComponentsButtonButton = __webpack_require__(268);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsButtonButton));
 
-	var _ionicComponentsCardCard = __webpack_require__(264);
+	var _ionicComponentsCardCard = __webpack_require__(269);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsCardCard));
 
-	var _ionicComponentsCheckboxCheckbox = __webpack_require__(265);
+	var _ionicComponentsCheckboxCheckbox = __webpack_require__(270);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsCheckboxCheckbox));
 
-	var _ionicComponentsContentContent = __webpack_require__(266);
+	var _ionicComponentsContentContent = __webpack_require__(271);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsContentContent));
 
-	var _ionicComponentsFormInput = __webpack_require__(259);
+	var _ionicComponentsFormInput = __webpack_require__(260);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsFormInput));
 
-	var _ionicComponentsIconIcon = __webpack_require__(252);
+	var _ionicComponentsIconIcon = __webpack_require__(255);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsIconIcon));
 
-	var _ionicComponentsItemItem = __webpack_require__(268);
+	var _ionicComponentsItemItem = __webpack_require__(273);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsItemItem));
 
-	var _ionicComponentsItemItemGroup = __webpack_require__(269);
+	var _ionicComponentsItemItemGroup = __webpack_require__(274);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsItemItemGroup));
 
-	var _ionicComponentsMenuMenu = __webpack_require__(270);
+	var _ionicComponentsMenuMenu = __webpack_require__(275);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsMenuMenu));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(277);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(282);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsMenuMenuTypes));
 
-	var _ionicComponentsMenuMenuToggle = __webpack_require__(278);
+	var _ionicComponentsMenuMenuToggle = __webpack_require__(283);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsMenuMenuToggle));
 
-	var _ionicComponentsTextInputTextInput = __webpack_require__(288);
+	var _ionicComponentsTextInputTextInput = __webpack_require__(292);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsTextInputTextInput));
 
-	var _ionicComponentsTextInputLabel = __webpack_require__(289);
+	var _ionicComponentsTextInputLabel = __webpack_require__(293);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsTextInputLabel));
 
-	var _ionicComponentsListList = __webpack_require__(290);
+	var _ionicComponentsListList = __webpack_require__(294);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsListList));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(292);
-
-	// Material components/effects
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(296);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsShowHideWhenShowHideWhen));
 
-	var _ionicComponentsMaterialButton = __webpack_require__(293);
-
-	_defaults(exports, _interopRequireWildcard(_ionicComponentsMaterialButton));
-
-	var _ionicComponentsMaterialRipple = __webpack_require__(294);
-
-	_defaults(exports, _interopRequireWildcard(_ionicComponentsMaterialRipple));
-
-	var _ionicComponentsModalModal = __webpack_require__(256);
+	var _ionicComponentsModalModal = __webpack_require__(257);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsModalModal));
 
-	var _ionicComponentsNavNav = __webpack_require__(295);
+	var _ionicComponentsNavNav = __webpack_require__(297);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavNav));
 
-	var _ionicComponentsNavNavController = __webpack_require__(280);
+	var _ionicComponentsNavNavController = __webpack_require__(285);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavNavController));
 
-	var _ionicComponentsNavNavPush = __webpack_require__(296);
+	var _ionicComponentsNavViewController = __webpack_require__(284);
+
+	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavViewController));
+
+	var _ionicComponentsNavNavPush = __webpack_require__(298);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavNavPush));
 
-	var _ionicComponentsNavNavRouter = __webpack_require__(297);
+	var _ionicComponentsNavNavRouter = __webpack_require__(299);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavNavRouter));
 
-	var _ionicComponentsNavBarNavBar = __webpack_require__(281);
+	var _ionicComponentsNavBarNavBar = __webpack_require__(290);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsNavBarNavBar));
 
-	var _ionicComponentsPopupPopup = __webpack_require__(257);
+	var _ionicComponentsPopupPopup = __webpack_require__(258);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsPopupPopup));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(298);
+	var _ionicComponentsSlidesSlides = __webpack_require__(300);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsSlidesSlides));
 
-	var _ionicComponentsRadioRadio = __webpack_require__(300);
+	var _ionicComponentsRadioRadio = __webpack_require__(302);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsRadioRadio));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(301);
+	var _ionicComponentsScrollScroll = __webpack_require__(303);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsScrollScroll));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(302);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(304);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsScrollPullToRefresh));
 
-	var _ionicComponentsSearchBarSearchBar = __webpack_require__(303);
+	var _ionicComponentsSearchBarSearchBar = __webpack_require__(305);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsSearchBarSearchBar));
 
-	var _ionicComponentsSegmentSegment = __webpack_require__(304);
+	var _ionicComponentsSegmentSegment = __webpack_require__(306);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsSegmentSegment));
 
-	var _ionicComponentsSwitchSwitch = __webpack_require__(305);
+	var _ionicComponentsSwitchSwitch = __webpack_require__(307);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsSwitchSwitch));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(306);
+	var _ionicComponentsTabsTabs = __webpack_require__(308);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsTabsTabs));
 
-	var _ionicComponentsTabsTab = __webpack_require__(307);
+	var _ionicComponentsTabsTab = __webpack_require__(309);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsTabsTab));
 
-	var _ionicComponentsToolbarToolbar = __webpack_require__(282);
+	var _ionicComponentsToolbarToolbar = __webpack_require__(291);
 
 	_defaults(exports, _interopRequireWildcard(_ionicComponentsToolbarToolbar));
 
-	var _ionicComponentsViewViewItem = __webpack_require__(279);
-
-	_defaults(exports, _interopRequireWildcard(_ionicComponentsViewViewItem));
-
 /***/ },
-/* 263 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50692,7 +51157,95 @@
 	//# sourceMappingURL=id.js.map
 
 /***/ },
-/* 264 */
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _configConfig = __webpack_require__(217);
+
+	/**
+	 * TODO
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Button = function Button(config, elementRef) {
+	    _classCallCheck(this, Button);
+
+	    var element = elementRef.nativeElement;
+	    if (config.setting('hoverCSS') === false) {
+	        element.classList.add('disable-hover');
+	    }
+	    if (element.hasAttribute('ion-item')) {
+	        // no need to put on these icon classes for an ion-item
+	        return;
+	    }
+	    // figure out if and where the icon lives in the button
+	    var childNodes = element.childNodes;
+	    var childNode = undefined;
+	    var nodes = [];
+	    for (var i = 0, l = childNodes.length; i < l; i++) {
+	        childNode = childNodes[i];
+	        if (childNode.nodeType === 3) {
+	            // text node
+	            if (childNode.textContent.trim() !== '') {
+	                nodes.push(TEXT);
+	            }
+	        } else if (childNode.nodeType === 1) {
+	            if (childNode.nodeName === 'ICON') {
+	                // icon element node
+	                nodes.push(ICON);
+	            } else {
+	                // element other than an <icon>
+	                nodes.push(TEXT);
+	            }
+	        }
+	    }
+	    if (nodes.length > 1) {
+	        if (nodes[0] === ICON && nodes[1] === TEXT) {
+	            element.classList.add('icon-left');
+	        } else if (nodes[0] === TEXT && nodes[1] === ICON) {
+	            element.classList.add('icon-right');
+	        }
+	    } else if (nodes.length === 1 && nodes[0] === ICON) {
+	        element.classList.add('icon-only');
+	    }
+	};
+	exports.Button = Button;
+	exports.Button = Button = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'button,[button]'
+	}), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], Button);
+	var TEXT = 1;
+	var ICON = 2;
+
+/***/ },
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50709,11 +51262,11 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	/**
 	 * TODO
@@ -50756,12 +51309,12 @@
 	    return Card;
 	})(_ion.Ion);
 	exports.Card = Card;
-	exports.Card = Card = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.Card = Card = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-card'
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Card);
 
 /***/ },
-/* 265 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50780,13 +51333,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
-	var _formInput = __webpack_require__(259);
+	var _formInput = __webpack_require__(260);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	/**
 	 * @name ionCheckbox
@@ -50924,7 +51477,7 @@
 	    return Checkbox;
 	})(_ion.Ion);
 	exports.Checkbox = Checkbox;
-	exports.Checkbox = Checkbox = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Checkbox = Checkbox = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-checkbox',
 	    properties: ['value', 'checked', 'disabled', 'id'],
 	    host: {
@@ -50937,12 +51490,12 @@
 	        '[attr.aria-labelledby]': 'labelId',
 	        '(click)': 'click($event)'
 	    }
-	}), (0, _configAnnotations.IonicView)({
-	    template: '<div item-left class="item-media media-checkbox">' + '<div class="checkbox-icon"></div>' + '</div>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
+	}), (0, _configDecorators.IonicView)({
+	    template: '<media-checkbox disable-activated>' + '<checkbox-icon></checkbox-icon>' + '</media-checkbox>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>'
 	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object])], Checkbox);
 
 /***/ },
-/* 266 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50961,13 +51514,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
 	var _platformPlatform = __webpack_require__(248);
 
-	var _animationsScrollTo = __webpack_require__(267);
+	var _animationsScrollTo = __webpack_require__(272);
 
 	/**
 	 * @name ionContent
@@ -51169,7 +51722,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object])], Content);
 
 /***/ },
-/* 267 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51280,7 +51833,7 @@
 	exports.ScrollTo = ScrollTo;
 
 /***/ },
-/* 268 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51440,7 +51993,7 @@
 	};
 
 /***/ },
-/* 269 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51517,7 +52070,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], ItemGroupTitle);
 
 /***/ },
-/* 270 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -51538,15 +52091,17 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _appApp = __webpack_require__(223);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
-	var _menuGestures = __webpack_require__(271);
+	var _platformPlatform = __webpack_require__(248);
+
+	var _menuGestures = __webpack_require__(276);
 
 	/**
 	 * Menu is a side-menu navigation that can be dragged out or toggled to show.
@@ -51585,11 +52140,12 @@
 	var Menu = (function (_Ion) {
 	    _inherits(Menu, _Ion);
 
-	    function Menu(app, elementRef, config) {
+	    function Menu(app, elementRef, config, platform) {
 	        _classCallCheck(this, Menu);
 
 	        _get(Object.getPrototypeOf(Menu.prototype), "constructor", this).call(this, elementRef, config);
 	        this.app = app;
+	        this.platform = platform;
 	        this.opening = new _angular2Angular2.EventEmitter('opening');
 	        this.isOpen = false;
 	        this._disableTime = 0;
@@ -51599,8 +52155,8 @@
 	        key: "onInit",
 	        value: function onInit() {
 	            _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
-	            this.contentElement = this.content instanceof Node ? this.content : this.content.getNativeElement();
-	            if (!this.contentElement) {
+	            this._cntEle = this.content instanceof Node ? this.content : this.content.getNativeElement();
+	            if (!this._cntEle) {
 	                return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-content #content></ion-content>');
 	            }
 	            if (!this.id) {
@@ -51610,8 +52166,8 @@
 	            }
 	            this._initGesture();
 	            this._initType(this.type);
-	            this.contentElement.classList.add('menu-content');
-	            this.contentElement.classList.add('menu-content-' + this.type);
+	            this._cntEle.classList.add('menu-content');
+	            this._cntEle.classList.add('menu-content-' + this.type);
 	            var self = this;
 	            this.onContentClick = function (ev) {
 	                ev.preventDefault();
@@ -51677,17 +52233,18 @@
 	        value: function setProgess(value) {
 	            // user actively dragging the menu
 	            this._disable();
-	            this.app.setEnabled(false);
+	            this.app.setTransitioning(true);
 	            this._type.setProgess(value);
 	        }
 	    }, {
-	        key: "setProgressFinish",
-	        value: function setProgressFinish(shouldComplete) {
+	        key: "setProgressEnd",
+	        value: function setProgressEnd(shouldComplete) {
 	            var _this2 = this;
 
 	            // user has finished dragging the menu
 	            this._disable();
-	            this._type.setProgressFinish(shouldComplete).then(function (isOpen) {
+	            this.app.setTransitioning(true);
+	            this._type.setProgressEnd(shouldComplete).then(function (isOpen) {
 	                _this2._after(isOpen);
 	            });
 	        }
@@ -51699,16 +52256,19 @@
 	            this.getNativeElement().classList.add('show-menu');
 	            this.getBackdropElement().classList.add('show-backdrop');
 	            this._disable();
+	            this.app.setTransitioning(true);
 	        }
 	    }, {
 	        key: "_after",
 	        value: function _after(isOpen) {
+	            // keep opening/closing the menu disabled for a touch more yet
 	            this._disable();
+	            this.app.setTransitioning(false);
 	            this.isOpen = isOpen;
-	            this.contentElement.classList[isOpen ? 'add' : 'remove']('menu-content-open');
-	            this.contentElement.removeEventListener('click', this.onContentClick);
+	            this._cntEle.classList[isOpen ? 'add' : 'remove']('menu-content-open');
+	            this._cntEle.removeEventListener('click', this.onContentClick);
 	            if (isOpen) {
-	                this.contentElement.addEventListener('click', this.onContentClick);
+	                this._cntEle.addEventListener('click', this.onContentClick);
 	            } else {
 	                this.getNativeElement().classList.remove('show-menu');
 	                this.getBackdropElement().classList.remove('show-backdrop');
@@ -51719,7 +52279,7 @@
 	        value: function _disable() {
 	            // used to prevent unwanted opening/closing after swiping open/close
 	            // or swiping open the menu while pressing down on the menu-toggle
-	            this._disableTime = Date.now() + 300;
+	            this._disableTime = Date.now() + 20;
 	        }
 	    }, {
 	        key: "_isDisabled",
@@ -51774,7 +52334,7 @@
 	    }, {
 	        key: "getContentElement",
 	        value: function getContentElement() {
-	            return this.contentElement;
+	            return this._cntEle;
 	        }
 
 	        /**
@@ -51792,7 +52352,7 @@
 	            this.app.unregister(this.id);
 	            this._gesture && this._gesture.destroy();
 	            this._type && this._type.onDestroy();
-	            this.contentElement = null;
+	            this._cntEle = null;
 	        }
 	    }], [{
 	        key: "register",
@@ -51804,7 +52364,7 @@
 	    return Menu;
 	})(_ion.Ion);
 	exports.Menu = Menu;
-	exports.Menu = Menu = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Menu = Menu = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-menu',
 	    properties: ['content', 'dragThreshold', 'id'],
 	    defaultProperties: {
@@ -51820,7 +52380,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return MenuBackdrop;
 	    })]
-	}), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Menu);
+	}), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object])], Menu);
 	var menuTypes = {};
 	var FALLBACK_MENU_TYPE = 'reveal';
 	/**
@@ -51864,7 +52424,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Menu, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], MenuBackdrop);
 
 /***/ },
-/* 271 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51881,26 +52441,31 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(272);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(277);
 
-	var MenuGenericGestureHandler = (function (_SlideEdgeGesture) {
-	    _inherits(MenuGenericGestureHandler, _SlideEdgeGesture);
+	var MenuContentGesture = (function (_SlideEdgeGesture) {
+	    _inherits(MenuContentGesture, _SlideEdgeGesture);
 
-	    function MenuGenericGestureHandler(menu, targetElement, threshold) {
-	        _classCallCheck(this, MenuGenericGestureHandler);
+	    function MenuContentGesture(menu) {
+	        _classCallCheck(this, MenuContentGesture);
 
-	        _get(Object.getPrototypeOf(MenuGenericGestureHandler.prototype), 'constructor', this).call(this, targetElement, {
+	        _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, menu.getContentElement(), {
 	            direction: menu.side === 'left' || menu.side === 'right' ? 'x' : 'y',
 	            edge: menu.side,
-	            threshold: threshold
+	            threshold: 75
 	        });
 	        this.menu = menu;
 	        this.listen();
 	    }
 
-	    // Set CSS, then wait one frame for it to apply before sliding starts
+	    _createClass(MenuContentGesture, [{
+	        key: 'canStart',
+	        value: function canStart(ev) {
+	            return this.menu.isOpen ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
+	        }
 
-	    _createClass(MenuGenericGestureHandler, [{
+	        // Set CSS, then wait one frame for it to apply before sliding starts
+	    }, {
 	        key: 'onSlideBeforeStart',
 	        value: function onSlideBeforeStart(slide, ev) {
 	            this.menu.setProgressStart();
@@ -51914,7 +52479,7 @@
 	        key: 'onSlideEnd',
 	        value: function onSlideEnd(slide, ev) {
 	            var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
-	            this.menu.setProgressFinish(shouldComplete);
+	            this.menu.setProgressEnd(shouldComplete);
 	        }
 	    }, {
 	        key: 'getElementStartPos',
@@ -51931,29 +52496,8 @@
 	        }
 	    }]);
 
-	    return MenuGenericGestureHandler;
-	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
-
-	var MenuContentGesture = (function (_MenuGenericGestureHandler) {
-	    _inherits(MenuContentGesture, _MenuGenericGestureHandler);
-
-	    function MenuContentGesture(menu) {
-	        _classCallCheck(this, MenuContentGesture);
-
-	        _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'constructor', this).call(this, menu, menu.getContentElement(), 75);
-	    }
-
-	    _createClass(MenuContentGesture, [{
-	        key: 'canStart',
-	        value: function canStart(ev) {
-	            return this.menu.isOpen ? true : _get(Object.getPrototypeOf(MenuContentGesture.prototype), 'canStart', this).call(this, ev);
-	        }
-	    }]);
-
 	    return MenuContentGesture;
-	})(MenuGenericGestureHandler);
-
-	exports.MenuContentGesture = MenuContentGesture;
+	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
 
 	var LeftMenuGesture = (function (_MenuContentGesture) {
 	    _inherits(LeftMenuGesture, _MenuContentGesture);
@@ -51969,8 +52513,8 @@
 
 	exports.LeftMenuGesture = LeftMenuGesture;
 
-	var RightMenuGesture = (function (_LeftMenuGesture) {
-	    _inherits(RightMenuGesture, _LeftMenuGesture);
+	var RightMenuGesture = (function (_MenuContentGesture2) {
+	    _inherits(RightMenuGesture, _MenuContentGesture2);
 
 	    function RightMenuGesture(menu) {
 	        _classCallCheck(this, RightMenuGesture);
@@ -51979,6 +52523,11 @@
 	    }
 
 	    _createClass(RightMenuGesture, [{
+	        key: 'onSlide',
+	        value: function onSlide(slide, ev) {
+	            this.menu.setProgess(slide.distance / slide.min);
+	        }
+	    }, {
 	        key: 'getElementStartPos',
 	        value: function getElementStartPos(slide, ev) {
 	            return this.menu.isOpen ? slide.min : slide.max;
@@ -51994,12 +52543,12 @@
 	    }]);
 
 	    return RightMenuGesture;
-	})(LeftMenuGesture);
+	})(MenuContentGesture);
 
 	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 272 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52016,7 +52565,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideGesture = __webpack_require__(273);
+	var _ionicGesturesSlideGesture = __webpack_require__(278);
 
 	var _utilUtil = __webpack_require__(218);
 
@@ -52045,7 +52594,7 @@
 	        value: function canStart(ev) {
 	            var _this = this;
 
-	            this._containerRect = this.getContainerDimensions();
+	            this._d = this.getContainerDimensions();
 	            return this.edges.every(function (edge) {
 	                return _this._checkEdge(edge, ev.center);
 	            });
@@ -52065,13 +52614,13 @@
 	        value: function _checkEdge(edge, pos) {
 	            switch (edge) {
 	                case 'left':
-	                    return pos.x <= this._containerRect.left + this.threshold;
+	                    return pos.x <= this._d.left + this.threshold;
 	                case 'right':
-	                    return pos.x >= this._containerRect.width - this.threshold;
+	                    return pos.x >= this._d.width - this.threshold;
 	                case 'top':
-	                    return pos.y <= this._containerRect.top + this.threshold;
+	                    return pos.y <= this._d.top + this.threshold;
 	                case 'bottom':
-	                    return pos.y >= this._containerRect.height - this.threshold;
+	                    return pos.y >= this._d.height - this.threshold;
 	            }
 	        }
 	    }]);
@@ -52082,7 +52631,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 273 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52101,7 +52650,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _ionicGesturesDragGesture = __webpack_require__(274);
+	var _ionicGesturesDragGesture = __webpack_require__(279);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -52208,7 +52757,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 274 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52227,7 +52776,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _ionicGesturesGesture = __webpack_require__(275);
+	var _ionicGesturesGesture = __webpack_require__(280);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -52288,7 +52837,7 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 275 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52307,7 +52856,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _ionicGesturesHammer = __webpack_require__(276);
+	var _ionicGesturesHammer = __webpack_require__(281);
 
 	/**
 	 * A gesture recognizer class.
@@ -52382,7 +52931,7 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 276 */
+/* 281 */
 /***/ function(module, exports) {
 
 	/*! Hammer.JS - v2.0.4 - 2014-09-28
@@ -54517,7 +55066,7 @@
 	//})(window, document, 'Hammer');
 
 /***/ },
-/* 277 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54534,9 +55083,9 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _menu = __webpack_require__(270);
+	var _menu = __webpack_require__(275);
 
-	var _ionicAnimationsAnimation = __webpack_require__(255);
+	var _ionicAnimationsAnimation = __webpack_require__(253);
 
 	/**
 	 * Menu Type
@@ -54546,7 +55095,7 @@
 	 */
 
 	var MenuType = (function () {
-	    function MenuType(menu) {
+	    function MenuType() {
 	        _classCallCheck(this, MenuType);
 
 	        this.open = new _ionicAnimationsAnimation.Animation();
@@ -54590,8 +55139,8 @@
 	            this.seek.progress(value);
 	        }
 	    }, {
-	        key: 'setProgressFinish',
-	        value: function setProgressFinish(shouldComplete) {
+	        key: 'setProgressEnd',
+	        value: function setProgressEnd(shouldComplete) {
 	            var _this2 = this;
 
 	            var resolve = undefined;
@@ -54602,7 +55151,7 @@
 	            if (!this.isOpening && !shouldComplete) {
 	                isOpen = true;
 	            }
-	            this.seek.progressFinish(shouldComplete).then(function () {
+	            this.seek.progressEnd(shouldComplete).then(function () {
 	                _this2.isOpening = false;
 	                resolve(isOpen);
 	            });
@@ -54638,13 +55187,14 @@
 	        var easing = 'ease';
 	        var duration = 250;
 	        var openedX = menu.width() * (menu.side == 'right' ? -1 : 1) + 'px';
+	        var closedX = '0px';
 	        this.open.easing(easing).duration(duration);
 	        this.close.easing(easing).duration(duration);
 	        var contentOpen = new _ionicAnimationsAnimation.Animation(menu.getContentElement());
-	        contentOpen.fromTo(TRANSLATE_X, CENTER, openedX);
+	        contentOpen.fromTo(TRANSLATE_X, closedX, openedX);
 	        this.open.add(contentOpen);
 	        var contentClose = new _ionicAnimationsAnimation.Animation(menu.getContentElement());
-	        contentClose.fromTo(TRANSLATE_X, openedX, CENTER);
+	        contentClose.fromTo(TRANSLATE_X, openedX, closedX);
 	        this.close.add(contentClose);
 	    }
 
@@ -54668,17 +55218,27 @@
 	        var easing = 'ease';
 	        var duration = 250;
 	        var backdropOpacity = 0.5;
-	        var closedX = menu.width() * (menu.side == 'right' ? 1 : -1) + 'px';
+	        var closedX = undefined,
+	            openedX = undefined;
+	        if (menu.side == 'right') {
+	            // right side
+	            closedX = menu.platform.width() + 'px';
+	            openedX = menu.platform.width() - menu.width() - 8 + 'px';
+	        } else {
+	            // left side
+	            closedX = -menu.width() + 'px';
+	            openedX = '8px';
+	        }
 	        this.open.easing(easing).duration(duration);
 	        this.close.easing(easing).duration(duration);
 	        var menuOpen = new _ionicAnimationsAnimation.Animation(menu.getMenuElement());
-	        menuOpen.fromTo(TRANSLATE_X, closedX, CENTER);
+	        menuOpen.fromTo(TRANSLATE_X, closedX, openedX);
 	        this.open.add(menuOpen);
 	        var backdropOpen = new _ionicAnimationsAnimation.Animation(menu.getBackdropElement());
 	        backdropOpen.fromTo(OPACITY, 0.01, backdropOpacity);
 	        this.open.add(backdropOpen);
 	        var menuClose = new _ionicAnimationsAnimation.Animation(menu.getMenuElement());
-	        menuClose.fromTo(TRANSLATE_X, CENTER, closedX);
+	        menuClose.fromTo(TRANSLATE_X, openedX, closedX);
 	        this.close.add(menuClose);
 	        var backdropClose = new _ionicAnimationsAnimation.Animation(menu.getBackdropElement());
 	        backdropClose.fromTo(OPACITY, backdropOpacity, 0.01);
@@ -54691,10 +55251,9 @@
 	_menu.Menu.register('overlay', MenuOverlayType);
 	var OPACITY = 'opacity';
 	var TRANSLATE_X = 'translateX';
-	var CENTER = '0px';
 
 /***/ },
-/* 278 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54713,13 +55272,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _appApp = __webpack_require__(223);
 
-	var _viewViewItem = __webpack_require__(279);
+	var _navViewController = __webpack_require__(284);
 
-	var _navBarNavBar = __webpack_require__(281);
+	var _navBarNavBar = __webpack_require__(290);
 
 	/**
 	* TODO
@@ -54752,12 +55311,12 @@
 	var MenuToggle = (function (_Ion) {
 	    _inherits(MenuToggle, _Ion);
 
-	    function MenuToggle(app, elementRef, item, navbar) {
+	    function MenuToggle(app, elementRef, viewCtrl, navbar) {
 	        _classCallCheck(this, MenuToggle);
 
 	        _get(Object.getPrototypeOf(MenuToggle.prototype), "constructor", this).call(this, elementRef, null);
 	        this.app = app;
-	        this.item = item;
+	        this.viewCtrl = viewCtrl;
 	        this.withinNavbar = !!navbar;
 	    }
 
@@ -54777,8 +55336,8 @@
 	    }, {
 	        key: "isHidden",
 	        get: function get() {
-	            if (this.withinNavbar && this.item) {
-	                return !this.item.isRoot();
+	            if (this.withinNavbar && this.viewCtrl) {
+	                return !this.viewCtrl.isRoot();
 	            }
 	            return false;
 	        }
@@ -54794,10 +55353,10 @@
 	        '(click)': 'toggle($event)',
 	        '[hidden]': 'isHidden'
 	    }
-	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _viewViewItem.ViewItem !== 'undefined' && _viewViewItem.ViewItem || Object, typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar || Object])], MenuToggle);
+	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar || Object])], MenuToggle);
 
 /***/ },
-/* 279 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54814,21 +55373,21 @@
 
 	var _angular2SrcCoreCompilerElement_injector = __webpack_require__(113);
 
-	var _navNavController = __webpack_require__(280);
+	var _navController = __webpack_require__(285);
 
 	/**
 	 * TODO
 	 */
 
-	var ViewItem = (function () {
-	    function ViewItem(viewCtrl, componentType) {
+	var ViewController = (function () {
+	    function ViewController(navCtrl, componentType) {
 	        var params = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 
-	        _classCallCheck(this, ViewItem);
+	        _classCallCheck(this, ViewController);
 
-	        this.viewCtrl = viewCtrl;
+	        this.navCtrl = navCtrl;
 	        this.componentType = componentType;
-	        this.params = new _navNavController.NavParams(params);
+	        this.params = new _navController.NavParams(params);
 	        this.instance = null;
 	        this.state = 0;
 	        this.disposals = [];
@@ -54844,7 +55403,7 @@
 	     * @param {TODO} protoViewRef  TODO
 	     */
 
-	    _createClass(ViewItem, [{
+	    _createClass(ViewController, [{
 	        key: 'addProtoViewRef',
 	        value: function addProtoViewRef(name, protoViewRef) {
 	            this.protos[name] = protoViewRef;
@@ -54871,8 +55430,8 @@
 	        value: function stage(callback) {
 	            var _this = this;
 
-	            var viewCtrl = this.viewCtrl;
-	            if (this.instance || !viewCtrl) {
+	            var navCtrl = this.navCtrl;
+	            if (this.instance || !navCtrl) {
 	                // already compiled this view
 	                return callback();
 	            }
@@ -54886,21 +55445,21 @@
 	            // create a unique token that works as a cache key
 	            ionViewComponentType.token = 'ionView' + this.componentType.name;
 	            // compile the Component
-	            viewCtrl.compiler.compileInHost(ionViewComponentType).then(function (hostProtoViewRef) {
+	            navCtrl.compiler.compileInHost(ionViewComponentType).then(function (hostProtoViewRef) {
 	                // figure out the sturcture of this Component
 	                // does it have a navbar? Is it tabs? Should it not have a navbar or any toolbars?
 	                var itemStructure = _this.sturcture = _this.inspectStructure(hostProtoViewRef);
-	                // get the appropriate Pane which this ViewItem will fit into
-	                viewCtrl.panes.get(itemStructure, function (pane) {
+	                // get the appropriate Pane which this ViewController will fit into
+	                navCtrl.panes.get(itemStructure, function (pane) {
 	                    _this.pane = pane;
-	                    var bindings = viewCtrl.bindings.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_navNavController.NavParams).toValue(_this.params), (0, _angular2Angular2.bind)(ViewItem).toValue(_this)]));
+	                    var bindings = navCtrl.bindings.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_navController.NavParams).toValue(_this.params), (0, _angular2Angular2.bind)(ViewController).toValue(_this)]));
 	                    // add the content of the view to the content area
 	                    // it will already have the correct context
 	                    var contentContainer = pane.contentContainerRef;
 	                    // the same guts as DynamicComponentLoader.loadNextToLocation
 	                    var hostViewRef = contentContainer.createHostView(hostProtoViewRef, -1, bindings);
-	                    var newLocation = viewCtrl.viewMngr.getHostElement(hostViewRef);
-	                    var newComponent = viewCtrl.viewMngr.getComponent(newLocation);
+	                    var newLocation = navCtrl.viewMngr.getHostElement(hostViewRef);
+	                    var newComponent = navCtrl.viewMngr.getComponent(newLocation);
 	                    pane.totalItems++;
 	                    var dispose = function dispose() {
 	                        var index = contentContainer.indexOf(hostViewRef);
@@ -54915,11 +55474,11 @@
 	                    };
 	                    _this.disposals.push(dispose);
 	                    var viewComponetRef = new _angular2Angular2.ComponentRef(newLocation, newComponent, dispose);
-	                    // get the component's instance, and set it to the this ViewItem
+	                    // get the component's instance, and set it to the this ViewController
 	                    _this.setInstance(viewComponetRef.instance);
 	                    _this.viewElementRef(viewComponetRef.location);
 	                    // // get the item container's nav bar
-	                    var navbarViewContainer = viewCtrl.navbarViewContainer();
+	                    var navbarViewContainer = navCtrl.navbarViewContainer();
 	                    // // get the item's navbar protoview
 	                    var navbarTemplateRef = _this.templateRefs.navbar;
 	                    // add a navbar view if the pane has a navbar container, and the
@@ -54988,7 +55547,7 @@
 	                    }
 	                });
 	            });
-	            if (this.viewCtrl.childNavbar()) {
+	            if (this.navCtrl.childNavbar()) {
 	                navbar = false;
 	            }
 	            if (navbar) key += 'n';
@@ -55006,8 +55565,8 @@
 	        key: 'enableBack',
 	        value: function enableBack() {
 	            // update if it's possible to go back from this nav item
-	            if (this.viewCtrl) {
-	                var previousItem = this.viewCtrl.getPrevious(this);
+	            if (this.navCtrl) {
+	                var previousItem = this.navCtrl.getPrevious(this);
 	                // the previous view may exist, but if it's about to be destroyed
 	                // it shouldn't be able to go back to
 	                return !!(previousItem && !previousItem.shouldDestroy);
@@ -55023,7 +55582,6 @@
 	        key: 'setInstance',
 	        value: function setInstance(instance) {
 	            this.instance = instance;
-	            this.instance._viewItem = this;
 	        }
 	    }, {
 	        key: 'isRoot',
@@ -55146,6 +55704,19 @@
 	         * @returns {TODO} TODO
 	         */
 	    }, {
+	        key: 'navbarBackgroundRef',
+	        value: function navbarBackgroundRef() {
+	            var navbarView = this.navbarView();
+	            if (navbarView) {
+	                return navbarView.getNativeElement().querySelector('.toolbar-background');
+	            }
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
 	        key: 'postRender',
 	        value: function postRender() {}
 	        // the elements are in the DOM and the browser
@@ -55162,7 +55733,7 @@
 	    }, {
 	        key: 'loaded',
 	        value: function loaded() {
-	            this.instance && this.instance.viewLoaded && this.instance.viewLoaded();
+	            this.instance && this.instance.onViewLoaded && this.instance.onViewLoaded();
 	        }
 
 	        /**
@@ -55171,7 +55742,7 @@
 	    }, {
 	        key: 'willEnter',
 	        value: function willEnter() {
-	            this.instance && this.instance.viewWillEnter && this.instance.viewWillEnter();
+	            this.instance && this.instance.onViewWillEnter && this.instance.onViewWillEnter();
 	        }
 
 	        /**
@@ -55185,7 +55756,7 @@
 	            if (navbarView) {
 	                navbarView.didEnter();
 	            }
-	            this.instance && this.instance.viewDidEnter && this.instance.viewDidEnter();
+	            this.instance && this.instance.onViewDidEnter && this.instance.onViewDidEnter();
 	        }
 
 	        /**
@@ -55194,7 +55765,7 @@
 	    }, {
 	        key: 'willLeave',
 	        value: function willLeave() {
-	            this.instance && this.instance.viewWillLeave && this.instance.viewWillLeave();
+	            this.instance && this.instance.onViewWillLeave && this.instance.onViewWillLeave();
 	        }
 
 	        /**
@@ -55204,7 +55775,7 @@
 	    }, {
 	        key: 'didLeave',
 	        value: function didLeave() {
-	            this.instance && this.instance.viewDidLeave && this.instance.viewDidLeave();
+	            this.instance && this.instance.onViewDidLeave && this.instance.onViewDidLeave();
 	        }
 
 	        /**
@@ -55213,7 +55784,7 @@
 	    }, {
 	        key: 'willUnload',
 	        value: function willUnload() {
-	            this.instance && this.instance.viewWillUnload && this.instance.viewWillUnload();
+	            this.instance && this.instance.onViewWillUnload && this.instance.onViewWillUnload();
 	        }
 
 	        /**
@@ -55222,136 +55793,1363 @@
 	    }, {
 	        key: 'didUnload',
 	        value: function didUnload() {
-	            this.instance && this.instance.viewDidUnload && this.instance.viewDidUnload();
+	            this.instance && this.instance.onViewDidUnload && this.instance.onViewDidUnload();
 	        }
 	    }, {
 	        key: 'index',
 	        get: function get() {
-	            return this.viewCtrl ? this.viewCtrl.indexOf(this) : -1;
+	            return this.navCtrl ? this.navCtrl.indexOf(this) : -1;
 	        }
 	    }]);
 
-	    return ViewItem;
+	    return ViewController;
 	})();
 
-	exports.ViewItem = ViewItem;
+	exports.ViewController = ViewController;
 
 	function isComponent(elementBinder, id) {
 	    return elementBinder && elementBinder.componentDirective && elementBinder.componentDirective.metadata.id == id;
 	}
 
 /***/ },
-/* 280 */
-/***/ function(module, exports) {
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * TODO
-	 */
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var _get = function get(_x7, _x8, _x9) { var _again = true; _function: while (_again) { var object = _x7, property = _x8, receiver = _x9; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x7 = parent; _x8 = property; _x9 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	var NavController = (function () {
-	  /**
-	   * TODO
-	   * @param {TODO} nav  TODO
-	   */
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	  function NavController(nav) {
-	    _classCallCheck(this, NavController);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	    this._nav = nav;
-	  }
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	  /**
-	   * Set the history stack to match the list of component items.
-	   * @param {TODO} items  TODO
-	   * @return {TODO} TODO
-	   */
+	var _angular2Angular2 = __webpack_require__(41);
 
-	  _createClass(NavController, [{
-	    key: "setItems",
-	    value: function setItems(items) {
-	      return this._nav.setItems(items);
-	    }
+	var _angular2SrcCoreCompilerDynamic_component_loader = __webpack_require__(141);
 
-	    /**
-	     * Clear the history stack.
-	     * @return {TODO} TODO
-	     */
-	  }, {
-	    key: "clear",
-	    value: function clear() {
-	      return this._nav.clear();
-	    }
+	var _angular2SrcCoreCompilerView_manager = __webpack_require__(114);
 
-	    /**
-	     * Push a new component onto the history stack.
-	     * @return {TODO} TODO
-	     */
-	  }, {
-	    key: "push",
-	    value: function push() {
-	      return this._nav.push.apply(this._nav, arguments);
-	    }
+	var _ion = __webpack_require__(261);
 
-	    /**
-	     * Pop the top most (visible) component off the history stack.
-	     * @return {TODO} TODO
-	     */
-	  }, {
-	    key: "pop",
-	    value: function pop() {
-	      return this._nav.pop.apply(this._nav, arguments);
-	    }
-	  }]);
+	var _configConfig = __webpack_require__(217);
 
-	  return NavController;
-	})()
+	var _appApp = __webpack_require__(223);
+
+	var _viewController = __webpack_require__(284);
+
+	var _pane = __webpack_require__(286);
+
+	var _transitionsTransition = __webpack_require__(288);
+
+	var _swipeBack = __webpack_require__(289);
+
+	var _ionicUtil = __webpack_require__(221);
+
 	/**
 	 * TODO
 	 */
-	;
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var NavController = (function (_Ion) {
+	    _inherits(NavController, _Ion);
+
+	    function NavController(parentnavCtrl, injector, elementRef, zone) {
+	        _classCallCheck(this, NavController);
+
+	        var config = injector.get(_configConfig.IonicConfig);
+	        _get(Object.getPrototypeOf(NavController.prototype), 'constructor', this).call(this, elementRef, config);
+	        this.parent = parentnavCtrl;
+	        this.compiler = injector.get(_angular2Angular2.Compiler);
+	        this.loader = injector.get(_angular2SrcCoreCompilerDynamic_component_loader.DynamicComponentLoader);
+	        this.viewMngr = injector.get(_angular2SrcCoreCompilerView_manager.AppViewManager);
+	        this.app = injector.get(_appApp.IonicApp);
+	        this.config = config;
+	        this.zone = zone;
+	        this.views = [];
+	        this.panes = new _pane.PaneController(this);
+	        this._sbTrans = null;
+	        this._sbEnabled = config.setting('swipeBackEnabled') || false;
+	        this._sbThreshold = config.setting('swipeBackThreshold') || 40;
+	        this.id = ++ctrlIds;
+	        this._ids = -1;
+	        this.zIndexes = -1;
+	        // build a new injector for child ViewControllers to use
+	        this.bindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(NavController).toValue(this)]);
+	    }
+
+	    /**
+	     * TODO
+	     * @param {TODO} componentType  TODO
+	     * @param {TODO} [params={}]  TODO
+	     * @param {TODO} [opts={}]  TODO
+	     * @returns {Promise} TODO
+	     */
+
+	    _createClass(NavController, [{
+	        key: 'push',
+	        value: function push(componentType) {
+	            var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+	            if (!componentType) {
+	                return Promise.reject();
+	            }
+	            if (typeof componentType !== 'function') {
+	                throw 'Loading component must be a component class, not "' + componentType.toString() + '"';
+	            }
+	            var resolve = undefined;
+	            var promise = new Promise(function (res) {
+	                resolve = res;
+	            });
+	            // do not animate if this is the first in the stack
+	            if (!this.views.length) {
+	                opts.animation = 'none';
+	            }
+	            // default the direction to "forward"
+	            opts.direction = opts.direction || 'forward';
+	            // the active view is going to be the leaving one (if one exists)
+	            var leavingView = this.getActive() || new _viewController.ViewController();
+	            leavingView.shouldCache = util.isBoolean(opts.cacheleavingView) ? opts.cacheleavingView : true;
+	            leavingView.shouldDestroy = !leavingView.shouldCache;
+	            if (leavingView.shouldDestroy) {
+	                leavingView.willUnload();
+	            }
+	            // create a new ViewController
+	            var enteringView = new _viewController.ViewController(this, componentType, params);
+	            // add the view to the stack
+	            this.add(enteringView);
+	            if (this.router) {
+	                // notify router of the state change
+	                this.router.stateChange('push', enteringView, params);
+	            }
+	            // start the transition
+	            this.transition(enteringView, leavingView, opts, function () {
+	                resolve();
+	            });
+	            return promise;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} [opts={}]  TODO
+	         * @returns {Promise} TODO
+	         */
+	    }, {
+	        key: 'pop',
+	        value: function pop() {
+	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+	            if (!this.canGoBack()) {
+	                return Promise.reject();
+	            }
+	            var resolve = undefined;
+	            var promise = new Promise(function (res) {
+	                resolve = res;
+	            });
+	            // default the direction to "back"
+	            opts.direction = opts.direction || 'back';
+	            // get the active view and set that it is staged to be leaving
+	            // was probably the one popped from the stack
+	            var leavingView = this.getActive() || new _viewController.ViewController();
+	            leavingView.shouldCache = util.isBoolean(opts.cacheleavingView) ? opts.cacheleavingView : false;
+	            leavingView.shouldDestroy = !leavingView.shouldCache;
+	            if (leavingView.shouldDestroy) {
+	                leavingView.willUnload();
+	            }
+	            // the entering view is now the new last view
+	            // Note: we might not have an entering view if this is the
+	            // only view on the history stack.
+	            var enteringView = this.getPrevious(leavingView);
+	            if (enteringView) {
+	                if (this.router) {
+	                    // notify router of the state change
+	                    this.router.stateChange('pop', enteringView);
+	                }
+	                // start the transition
+	                this.transition(enteringView, leavingView, opts, function () {
+	                    // transition completed, destroy the leaving view
+	                    resolve();
+	                });
+	            } else {
+	                this._transComplete();
+	                resolve();
+	            }
+	            return promise;
+	        }
+
+	        /**
+	         * Inserts a view into the nav stack at the specified index.
+	         * @param {TODO} componentType  TODO
+	         * @param {TODO} index TODO
+	         * @returns {Promise} TODO
+	         */
+	    }, {
+	        key: 'insert',
+	        value: function insert(componentType, index) {
+	            if (!componentType || index < 0) {
+	                return Promise.reject();
+	            }
+	            // push it onto the end
+	            if (index >= this.views.length) {
+	                return this.push(componentType);
+	            }
+	            // create new ViewController, but don't render yet
+	            var viewCtrl = new _viewController.ViewController(this, componentType);
+	            viewCtrl.state = CACHED_STATE;
+	            viewCtrl.shouldDestroy = false;
+	            viewCtrl.shouldCache = false;
+	            this._incrementId(viewCtrl);
+	            this.views.splice(index, 0, viewCtrl);
+	        }
+
+	        /**
+	         * Set the view stack to reflect the given component classes.
+	         * @param {TODO} components  TODO
+	         * @param {TODO} [opts={}]  TODO
+	         * @returns {Promise} TODO
+	         */
+	    }, {
+	        key: 'setViews',
+	        value: function setViews(components) {
+	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	            if (!components || !components.length) {
+	                return Promise.resolve();
+	            }
+	            // if animate has not been set then default to false
+	            opts.animate = opts.animate || false;
+	            // ensure leaving views are not cached, and should be destroyed
+	            opts.cacheleavingView = false;
+	            // get the views to auto remove without having to do a transiton for each
+	            // the last view (the currently active one) will do a normal transition out
+	            if (this.views.length > 1) {
+	                var autoRemoveItems = this.views.slice(0, this.views.length - 1);
+	                for (var i = 0; i < autoRemoveItems.length; i++) {
+	                    autoRemoveItems[i].shouldDestroy = true;
+	                    autoRemoveItems[i].shouldCache = false;
+	                    autoRemoveItems[i].willUnload();
+	                }
+	            }
+	            var componentObj = null;
+	            var componentType = null;
+	            var viewCtrl = null;
+	            // create the ViewControllers that go before the new active ViewController in the stack
+	            // but the previous views won't should render yet
+	            if (components.length > 1) {
+	                var newBeforeItems = components.slice(0, components.length - 1);
+	                for (var j = 0; j < newBeforeItems.length; j++) {
+	                    componentObj = newBeforeItems[j];
+	                    if (componentObj) {
+	                        // could be an object with a componentType property, or it is a componentType
+	                        componentType = componentObj.componentType || componentObj;
+	                        viewCtrl = new _viewController.ViewController(this, componentType, componentObj.params);
+	                        viewCtrl.state = CACHED_STATE;
+	                        viewCtrl.shouldDestroy = false;
+	                        viewCtrl.shouldCache = false;
+	                        // add the item to the stack
+	                        this.add(viewCtrl);
+	                    }
+	                }
+	            }
+	            // get the component that will become the active item
+	            // it'll be the last one in the given components array
+	            componentObj = components[components.length - 1];
+	            componentType = componentObj.componentType || componentObj;
+	            // transition the leaving and entering
+	            return this.push(componentType, componentObj.params, opts);
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} componentType  TODO
+	         * @param {TODO} [params={}]  TODO
+	         * @param {TODO} [opts={}]  TODO
+	         * @returns {Promise} TODO
+	         */
+	    }, {
+	        key: 'setRoot',
+	        value: function setRoot(componentType) {
+	            var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
+
+	            return this.setViews([{
+	                componentType: componentType,
+	                params: params
+	            }], opts);
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} enteringView  TODO
+	         * @param {TODO} leavingView  TODO
+	         * @param {TODO} opts  TODO
+	         * @param {Function} callback  TODO
+	         * @returns {any} TODO
+	         */
+	    }, {
+	        key: 'transition',
+	        value: function transition(enteringView, leavingView, opts, callback) {
+	            var _this = this;
+
+	            if (!enteringView || enteringView === leavingView) {
+	                return callback();
+	            }
+	            if (opts.animate === false) {
+	                opts.animation = 'none';
+	            } else if (!opts.animation) {
+	                opts.animation = this.config.setting('viewTransition');
+	            }
+	            opts.animate = opts.animation !== 'none';
+	            // wait for the new view to complete setup
+	            enteringView.stage(function () {
+	                _this.zone.runOutsideAngular(function () {
+	                    enteringView.shouldDestroy = false;
+	                    enteringView.shouldCache = false;
+	                    enteringView.willEnter();
+	                    leavingView.willLeave();
+	                    // set that the new view pushed on the stack is staged to be entering/leaving
+	                    // staged state is important for the transition to find the correct view
+	                    enteringView.state = STAGED_ENTERING_STATE;
+	                    leavingView.state = STAGED_LEAVING_STATE;
+	                    // init the transition animation
+	                    var transAnimation = _transitionsTransition.Transition.create(_this, opts);
+	                    if (!opts.animate) {
+	                        // force it to not animate the elements, just apply the "to" styles
+	                        transAnimation.duration(0);
+	                    }
+	                    var duration = transAnimation.duration();
+	                    if (duration > 64) {
+	                        // block any clicks during the transition and provide a
+	                        // fallback to remove the clickblock if something goes wrong
+	                        _this.app.setEnabled(false, duration);
+	                        _this.app.setTransitioning(true, duration);
+	                    }
+	                    // start the transition
+	                    transAnimation.play().then(function () {
+	                        // transition has completed, update each view's state
+	                        enteringView.state = ACTIVE_STATE;
+	                        leavingView.state = CACHED_STATE;
+	                        // dispose any views that shouldn't stay around
+	                        transAnimation.dispose();
+	                        enteringView.didEnter();
+	                        leavingView.didLeave();
+	                        // all done!
+	                        _this.zone.run(function () {
+	                            _this._transComplete();
+	                            callback();
+	                        });
+	                    });
+	                });
+	            });
+	        }
+
+	        /**
+	         * TODO
+	         */
+	    }, {
+	        key: 'swipeBackStart',
+	        value: function swipeBackStart() {
+	            var _this2 = this;
+
+	            if (!this.app.isEnabled() || !this.canSwipeBack()) {
+	                return;
+	            }
+	            // disables the app during the transition
+	            this.app.setEnabled(false);
+	            this.app.setTransitioning(true);
+	            // default the direction to "back"
+	            var opts = {
+	                direction: 'back'
+	            };
+	            // get the active view and set that it is staged to be leaving
+	            // was probably the one popped from the stack
+	            var leavingView = this.getActive() || new _viewController.ViewController();
+	            leavingView.shouldDestroy = true;
+	            leavingView.shouldCache = false;
+	            leavingView.willLeave();
+	            leavingView.willUnload();
+	            // the entering view is now the new last view
+	            var enteringView = this.getPrevious(leavingView);
+	            enteringView.shouldDestroy = false;
+	            enteringView.shouldCache = false;
+	            enteringView.willEnter();
+	            // wait for the new view to complete setup
+	            enteringView.stage(function () {
+	                _this2.zone.runOutsideAngular(function () {
+	                    // set that the new view pushed on the stack is staged to be entering/leaving
+	                    // staged state is important for the transition to find the correct view
+	                    enteringView.state = STAGED_ENTERING_STATE;
+	                    leavingView.state = STAGED_LEAVING_STATE;
+	                    // init the swipe back transition animation
+	                    _this2._sbTrans = _transitionsTransition.Transition.create(_this2, opts);
+	                    _this2._sbTrans.easing('linear').progressStart();
+	                });
+	            });
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} progress  TODO
+	         */
+	    }, {
+	        key: 'swipeBackProgress',
+	        value: function swipeBackProgress(value) {
+	            if (this._sbTrans) {
+	                // continue to disable the app while actively dragging
+	                this.app.setEnabled(false, 4000);
+	                this.app.setTransitioning(true, 4000);
+	                // set the transition animation's progress
+	                this._sbTrans.progress(value);
+	            }
+	        }
+
+	        /**
+	         * @private
+	         * @param {TODO} completeSwipeBack  Should the swipe back complete or not.
+	         * @param {number} rate  How fast it closes
+	         */
+	    }, {
+	        key: 'swipeBackEnd',
+	        value: function swipeBackEnd(completeSwipeBack, rate) {
+	            var _this3 = this;
+
+	            if (!this._sbTrans) return;
+	            // disables the app during the transition
+	            this.app.setEnabled(false);
+	            this.app.setTransitioning(true);
+	            this._sbTrans.progressEnd(completeSwipeBack, rate).then(function () {
+	                _this3.zone.run(function () {
+	                    // find the views that were entering and leaving
+	                    var enteringView = _this3.getStagedEnteringView();
+	                    var leavingView = _this3.getStagedLeavingView();
+	                    if (enteringView && leavingView) {
+	                        // finish up the animation
+	                        if (completeSwipeBack) {
+	                            // swipe back has completed navigating back
+	                            // update each view's state
+	                            enteringView.state = ACTIVE_STATE;
+	                            leavingView.state = CACHED_STATE;
+	                            enteringView.didEnter();
+	                            leavingView.didLeave();
+	                            if (_this3.router) {
+	                                // notify router of the pop state change
+	                                _this3.router.stateChange('pop', enteringView);
+	                            }
+	                        } else {
+	                            // cancelled the swipe back, they didn't end up going back
+	                            // return views to their original state
+	                            leavingView.state = ACTIVE_STATE;
+	                            enteringView.state = CACHED_STATE;
+	                            leavingView.willEnter();
+	                            leavingView.didEnter();
+	                            enteringView.didLeave();
+	                            leavingView.shouldDestroy = false;
+	                            enteringView.shouldDestroy = false;
+	                        }
+	                    }
+	                    // empty out and dispose the swipe back transition animation
+	                    _this3._sbTrans && _this3._sbTrans.dispose();
+	                    _this3._sbTrans = null;
+	                    // all done!
+	                    _this3._transComplete();
+	                });
+	            });
+	        }
+	    }, {
+	        key: '_runSwipeBack',
+	        value: function _runSwipeBack() {
+	            if (this.canSwipeBack()) {
+	                // it is possible to swipe back
+	                if (this.sbGesture) {
+	                    // this is already an active gesture, don't create another one
+	                    return;
+	                }
+	                var opts = {
+	                    edge: 'left',
+	                    threshold: this._sbThreshold
+	                };
+	                this.sbGesture = new _swipeBack.SwipeBackGesture(this.getNativeElement(), opts, this);
+	                console.debug('SwipeBackGesture listen');
+	                this.sbGesture.listen();
+	            } else if (this.sbGesture) {
+	                // it is not possible to swipe back and there is an
+	                // active sbGesture, so unlisten it
+	                console.debug('SwipeBackGesture unlisten');
+	                this.sbGesture.unlisten();
+	                this.sbGesture = null;
+	            }
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} val  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'isSwipeBackEnabled',
+	        value: function isSwipeBackEnabled(val) {
+	            if (arguments.length) {
+	                this._sbEnabled = !!val;
+	            }
+	            return this._sbEnabled;
+	        }
+
+	        /**
+	         * If it's possible to use swipe back or not. If it's not possible
+	         * to go back, or swipe back is not enable then this will return false.
+	         * If it is possible to go back, and swipe back is enabled, then this
+	         * will return true.
+	         * @returns {boolean}
+	         */
+	    }, {
+	        key: 'canSwipeBack',
+	        value: function canSwipeBack() {
+	            return this._sbEnabled && this.canGoBack();
+	        }
+
+	        /**
+	         * Returns `true` if there's a valid previous view that we can pop back to.
+	         * Otherwise returns false.
+	         * @returns {boolean}
+	         */
+	    }, {
+	        key: 'canGoBack',
+	        value: function canGoBack() {
+	            var activeView = this.getActive();
+	            if (activeView) {
+	                return activeView.enableBack();
+	            }
+	            return false;
+	        }
+
+	        /**
+	         * @private
+	         */
+	    }, {
+	        key: '_transComplete',
+	        value: function _transComplete() {
+	            var _this4 = this;
+
+	            var destroys = [];
+	            this.views.forEach(function (view) {
+	                if (view) {
+	                    if (view.shouldDestroy) {
+	                        destroys.push(view);
+	                    } else if (view.state === CACHED_STATE && view.shouldCache) {
+	                        view.shouldCache = false;
+	                    }
+	                }
+	            });
+	            destroys.forEach(function (view) {
+	                _this4.remove(view);
+	                view.destroy();
+	            });
+	            // allow clicks again, but still set an enable time
+	            // meaning nothing with this view controller can happen for XXms
+	            this.app.setEnabled(true);
+	            this.app.setTransitioning(false);
+	            if (this.views.length === 1) {
+	                this.elementRef.nativeElement.classList.add('has-views');
+	            }
+	            this._runSwipeBack();
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getActive',
+	        value: function getActive() {
+	            for (var i = 0, ii = this.views.length; i < ii; i++) {
+	                if (this.views[i].state === ACTIVE_STATE) {
+	                    return this.views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} instance  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getByInstance',
+	        value: function getByInstance(instance) {
+	            if (instance) {
+	                for (var i = 0, ii = this.views.length; i < ii; i++) {
+	                    if (this.views[i].instance === instance) {
+	                        return this.views[i];
+	                    }
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} index  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getByIndex',
+	        value: function getByIndex(index) {
+	            if (index < this.views.length && index > -1) {
+	                return this.views[index];
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getPrevious',
+	        value: function getPrevious(view) {
+	            if (view) {
+	                return this.views[this.views.indexOf(view) - 1];
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getStagedEnteringView',
+	        value: function getStagedEnteringView() {
+	            for (var i = 0, ii = this.views.length; i < ii; i++) {
+	                if (this.views[i].state === STAGED_ENTERING_STATE) {
+	                    return this.views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getStagedLeavingView',
+	        value: function getStagedLeavingView() {
+	            for (var i = 0, ii = this.views.length; i < ii; i++) {
+	                if (this.views[i].state === STAGED_LEAVING_STATE) {
+	                    return this.views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} nbContainer  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'navbarViewContainer',
+	        value: function navbarViewContainer(nbContainer) {
+	            if (nbContainer) {
+	                this._nbContainer = nbContainer;
+	            }
+	            if (this._nbContainer) {
+	                return this._nbContainer;
+	            }
+	            if (this.parent) {
+	                return this.parent.navbarViewContainer();
+	            }
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'anchorElementRef',
+	        value: function anchorElementRef() {
+	            if (arguments.length) {
+	                this._anchorER = arguments[0];
+	            }
+	            return this._anchorER;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'anchorViewContainerRef',
+	        value: function anchorViewContainerRef() {
+	            if (arguments.length) {
+	                this._anchorVC = arguments[0];
+	            }
+	            return this._anchorVC;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'childNavbar',
+	        value: function childNavbar() {
+	            if (arguments.length) {
+	                this._childNavbar = arguments[0];
+	            }
+	            return this._childNavbar;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'add',
+	        value: function add(view) {
+	            this._incrementId(view);
+	            this.views.push(view);
+	        }
+	    }, {
+	        key: '_incrementId',
+	        value: function _incrementId(view) {
+	            view.id = this.id + '-' + ++this._ids;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} viewOrIndex  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'remove',
+	        value: function remove(viewOrIndex) {
+	            util.array.remove(this.views, viewOrIndex);
+	        }
+
+	        /**
+	         * First view in this nav controller's stack. This would
+	         * not return an view which is about to be destroyed.
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'first',
+	        value: function first() {
+	            for (var i = 0, l = this.views.length; i < l; i++) {
+	                if (!this.views[i].shouldDestroy) {
+	                    return this.views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * Last view in this nav controller's stack. This would
+	         * not return an view which is about to be destroyed.
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'last',
+	        value: function last() {
+	            for (var i = this.views.length - 1; i >= 0; i--) {
+	                if (!this.views[i].shouldDestroy) {
+	                    return this.views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'indexOf',
+	        value: function indexOf(view) {
+	            return this.views.indexOf(view);
+	        }
+
+	        /**
+	         * Number of sibling views in the nav controller. This does
+	         * not include views which are about to be destroyed.
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'length',
+	        value: function length() {
+	            var len = 0;
+	            for (var i = 0, l = this.views.length; i < l; i++) {
+	                if (!this.views[i].shouldDestroy) {
+	                    len++;
+	                }
+	            }
+	            return len;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'instances',
+	        value: function instances() {
+	            var instances = [];
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = this.views[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var view = _step.value;
+
+	                    if (view.instance) {
+	                        instances.push(view.instance);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator['return']) {
+	                        _iterator['return']();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            return instances;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'isActive',
+	        value: function isActive(view) {
+	            return view && view.state === ACTIVE_STATE;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'isStagedEntering',
+	        value: function isStagedEntering(view) {
+	            return view && view.state === STAGED_ENTERING_STATE;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} router  TODO
+	         */
+	    }, {
+	        key: 'registerRouter',
+	        value: function registerRouter(router) {
+	            this.router = router;
+	        }
+	    }]);
+
+	    return NavController;
+	})(_ion.Ion);
 
 	exports.NavController = NavController;
 
+	var ACTIVE_STATE = 1;
+	var CACHED_STATE = 2;
+	var STAGED_ENTERING_STATE = 3;
+	var STAGED_LEAVING_STATE = 4;
+	var ctrlIds = -1;
+	/**
+	 * TODO
+	 */
+
 	var NavParams = (function () {
-	  /**
-	   * TODO
-	   * @param {TODO} data  TODO
-	   */
+	    /**
+	     * TODO
+	     * @param {TODO} data  TODO
+	     */
 
-	  function NavParams(data) {
-	    _classCallCheck(this, NavParams);
+	    function NavParams(data) {
+	        _classCallCheck(this, NavParams);
 
-	    this.data = data || {};
-	  }
-
-	  /**
-	   * TODO
-	   * @param {TODO} param  TODO
-	   */
-
-	  _createClass(NavParams, [{
-	    key: "get",
-	    value: function get(param) {
-	      return this.data[param];
+	        this.data = data || {};
 	    }
-	  }]);
 
-	  return NavParams;
+	    /**
+	     * TODO
+	     * @param {TODO} param  TODO
+	     */
+
+	    _createClass(NavParams, [{
+	        key: 'get',
+	        value: function get(param) {
+	            return this.data[param];
+	        }
+	    }]);
+
+	    return NavParams;
 	})();
 
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 281 */
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _ion = __webpack_require__(261);
+
+	var _configConfig = __webpack_require__(217);
+
+	var _navController = __webpack_require__(285);
+
+	var _configDecorators = __webpack_require__(220);
+
+	var _anchors = __webpack_require__(287);
+
+	/**
+	 * TODO
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
+	    return function (target, key) {
+	        decorator(target, key, paramIndex);
+	    };
+	};
+
+	var PaneController = (function () {
+	    /**
+	     * TODO
+	     * @param {NavController} navCtrl  TODO
+	     */
+
+	    function PaneController(navCtrl) {
+	        _classCallCheck(this, PaneController);
+
+	        this.panes = [];
+	        this.navCtrl = navCtrl;
+	        this.bindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_navController.NavController).toValue(navCtrl)]);
+	    }
+
+	    /**
+	     * TODO
+	     * @param {TODO} nav  TODO
+	     * @param {Function} nav  TODO
+	     */
+
+	    _createClass(PaneController, [{
+	        key: "get",
+	        value: function get(itemStructure, callback) {
+	            var _this = this;
+
+	            // this gets or creates the Pane which similar nav items live in
+	            // Nav items with just a navbar/content would all use the same Pane
+	            // Tabs and view's without a navbar would get a different Panes
+	            var key = itemStructure.key;
+	            var navCtrl = this.navCtrl;
+	            var pane = this.panes[this.panes.length - 1];
+	            if (pane && pane.key === key) {
+	                // the last pane's structure is the same as the one the item needs to go in
+	                callback(pane);
+	            } else {
+	                // create a new nav pane
+	                navCtrl.loader.loadNextToLocation(Pane, navCtrl.anchorElementRef(), this.bindings).then(function (componentRef) {
+	                    // get the pane reference
+	                    pane = _this.newPane;
+	                    _this.newPane = null;
+	                    var sectionAnchorElementRef = pane && pane.sectionAnchorElementRef;
+	                    if (!sectionAnchorElementRef) {
+	                        return callback();
+	                    }
+	                    pane.key = key;
+	                    pane.dispose = function () {
+	                        componentRef.dispose();
+	                        _this.panes.splice(_this.panes.indexOf(pane), 1);
+	                    };
+	                    _this.panes.push(pane);
+	                    var promises = [];
+	                    var sectionsToAdd = [];
+	                    // decide which sections should be added to this Pane, ie: nav bars, footers, etc.
+	                    // add only the sections it needs
+	                    if (itemStructure.navbar) {
+	                        sectionsToAdd.push(_anchors.NavBarContainer);
+	                    }
+	                    // add the sections which this type of Pane requires
+	                    sectionsToAdd.forEach(function (SectionClass) {
+	                        // as each section is compiled and added to the Pane
+	                        // the section will add a reference to itself in the Pane's sections object
+	                        promises.push(navCtrl.loader.loadNextToLocation(SectionClass, sectionAnchorElementRef));
+	                    });
+	                    // wait for all of the sections to resolve
+	                    Promise.all(promises).then(function () {
+	                        callback(pane);
+	                    }, function (err) {
+	                        console.error(err);
+	                    });
+	                }, function (loaderErr) {
+	                    console.error(loaderErr);
+	                })["catch"](function (err) {
+	                    console.error(err);
+	                });
+	            }
+	        }
+	    }, {
+	        key: "add",
+	        value: function add(pane) {
+	            this.newPane = pane;
+	        }
+	    }]);
+
+	    return PaneController;
+	})();
+
+	exports.PaneController = PaneController;
+	var Pane = (function (_Ion) {
+	    _inherits(Pane, _Ion);
+
+	    function Pane(navCtrl, elementRef, ionicConfig) {
+	        _classCallCheck(this, Pane);
+
+	        _get(Object.getPrototypeOf(Pane.prototype), "constructor", this).call(this, elementRef, ionicConfig);
+	        navCtrl.panes.add(this);
+	        this.totalItems = 0;
+	        this.zIndex = ++navCtrl.zIndexes;
+	    }
+
+	    return Pane;
+	})(_ion.Ion);
+	exports.Pane = Pane;
+	exports.Pane = Pane = __decorate([(0, _configDecorators.IonicComponent)({
+	    selector: 'ion-pane',
+	    classId: 'nav',
+	    host: {
+	        '[style.z-index]': 'zIndex'
+	    }
+	}), (0, _angular2Angular2.View)({
+	    template: "\n    <template pane-anchor></template>\n    <section class=\"content-container\">\n      <template content-anchor></template>\n    </section>\n  ",
+	    directives: [_anchors.PaneAnchor, _anchors.PaneContentAnchor]
+	}), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	    return _navController.NavController;
+	}))), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Pane);
+
+/***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _angular2SrcCoreCompilerView_container_ref = __webpack_require__(121);
+
+	var _pane = __webpack_require__(286);
+
+	var _navController = __webpack_require__(285);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
+	    return function (target, key) {
+	        decorator(target, key, paramIndex);
+	    };
+	};
+	var PaneAnchor = function PaneAnchor(pane, elementRef) {
+	    _classCallCheck(this, PaneAnchor);
+
+	    pane.sectionAnchorElementRef = elementRef;
+	};
+	exports.PaneAnchor = PaneAnchor;
+	exports.PaneAnchor = PaneAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[pane-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	    return _pane.Pane;
+	}))), __metadata('design:paramtypes', [typeof _pane.Pane !== 'undefined' && _pane.Pane || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], PaneAnchor);
+	var PaneContentAnchor = function PaneContentAnchor(pane, viewContainerRef) {
+	    _classCallCheck(this, PaneContentAnchor);
+
+	    pane.contentContainerRef = viewContainerRef;
+	};
+	exports.PaneContentAnchor = PaneContentAnchor;
+	exports.PaneContentAnchor = PaneContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	    return _pane.Pane;
+	}))), __metadata('design:paramtypes', [typeof _pane.Pane !== 'undefined' && _pane.Pane || Object, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], PaneContentAnchor);
+	var NavBarAnchor = function NavBarAnchor(navCtrl, viewContainerRef) {
+	    _classCallCheck(this, NavBarAnchor);
+
+	    navCtrl.navbarViewContainer(viewContainerRef);
+	};
+	NavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'template[navbar-anchor]'
+	}), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
+	    return _navController.NavController;
+	}))), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], NavBarAnchor);
+	var NavBarContainer = function NavBarContainer() {
+	    _classCallCheck(this, NavBarContainer);
+	};
+	exports.NavBarContainer = NavBarContainer;
+	exports.NavBarContainer = NavBarContainer = __decorate([(0, _angular2Angular2.Component)({
+	    selector: 'section',
+	    host: {
+	        'class': 'navbar-container'
+	    }
+	}), (0, _angular2Angular2.View)({
+	    template: '<template navbar-anchor></template>',
+	    directives: [NavBarAnchor]
+	}), __metadata('design:paramtypes', [])], NavBarContainer);
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _animationsAnimation = __webpack_require__(253);
+
+	var SHOW_NAVBAR_CSS = 'show-navbar';
+	var SHOW_VIEW_CSS = 'show-view';
+	var SHOW_BACK_BUTTON = 'show-back-button';
+	var TransitionRegistry = {};
+
+	var Transition = (function (_Animation) {
+	    _inherits(Transition, _Animation);
+
+	    function Transition(nav, opts) {
+	        _classCallCheck(this, Transition);
+
+	        _get(Object.getPrototypeOf(Transition.prototype), 'constructor', this).call(this);
+	        // get the entering and leaving items
+	        var enteringView = this.entering = nav.getStagedEnteringView();
+	        var leavingView = this.leaving = nav.getStagedLeavingView();
+	        // create animation for the entering item's "ion-view" element
+	        this.enteringView = new _animationsAnimation.Animation(enteringView.viewElementRef());
+	        this.enteringView.before.addClass(SHOW_VIEW_CSS);
+	        this.enteringView.onPlay(function () {
+	            enteringView.postRender();
+	        });
+	        this.add(this.enteringView);
+	        if (opts.navbar !== false) {
+	            var enteringNavbar = this.enteringNavbar = new _animationsAnimation.Animation(enteringView.navbarRef());
+	            enteringNavbar.before.addClass(SHOW_NAVBAR_CSS);
+	            if (enteringView.enableBack()) {
+	                // only animate in the back button if the entering view has it enabled
+	                var enteringBackButton = this.enteringBackButton = new _animationsAnimation.Animation(enteringView.backBtnRef());
+	                enteringBackButton.before.addClass(SHOW_BACK_BUTTON).fadeIn();
+	                enteringNavbar.add(enteringBackButton);
+	            }
+	            this.enteringTitle = new _animationsAnimation.Animation(enteringView.titleRef());
+	            enteringNavbar.add(this.enteringTitle);
+	            this.add(enteringNavbar);
+	            this.enteringNavbarItems = new _animationsAnimation.Animation(enteringView.navbarItemRefs());
+	            enteringNavbar.add(this.enteringNavbarItems.fadeIn());
+	            this.enteringNavbarBackground = new _animationsAnimation.Animation(enteringView.navbarBackgroundRef());
+	            enteringNavbar.add(this.enteringNavbarBackground);
+	        }
+	        if (leavingView) {
+	            // setup the leaving item if one exists (initial viewing wouldn't have a leaving item)
+	            this.leavingView = new _animationsAnimation.Animation(leavingView.viewElementRef());
+	            this.leavingView.after.removeClass(SHOW_VIEW_CSS);
+	            var leavingNavbar = this.leavingNavbar = new _animationsAnimation.Animation(leavingView.navbarRef());
+	            leavingNavbar.after.removeClass(SHOW_NAVBAR_CSS);
+	            var leavingBackButton = this.leavingBackButton = new _animationsAnimation.Animation(leavingView.backBtnRef());
+	            leavingBackButton.after.removeClass(SHOW_BACK_BUTTON).fadeOut();
+	            leavingNavbar.add(leavingBackButton);
+	            this.leavingTitle = new _animationsAnimation.Animation(leavingView.titleRef());
+	            leavingNavbar.add(this.leavingTitle);
+	            this.leavingNavbarItems = new _animationsAnimation.Animation(leavingView.navbarItemRefs());
+	            leavingNavbar.add(this.leavingNavbarItems.fadeOut());
+	            this.leavingNavbarBackground = new _animationsAnimation.Animation(leavingView.navbarBackgroundRef());
+	            leavingNavbar.add(this.leavingNavbarBackground);
+	            this.add(this.leavingView, leavingNavbar);
+	        }
+	    }
+
+	    _createClass(Transition, [{
+	        key: 'viewWidth',
+	        value: function viewWidth() {
+	            // TODO: MAKE MORE BETTER
+	            return this._w || (this._w = this.leaving && this.leaving.viewElementRef().nativeElement.offsetWidth);
+	        }
+
+	        /*
+	         STATIC CLASSES
+	         */
+	    }], [{
+	        key: 'create',
+	        value: function create(nav) {
+	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	            var name = opts.animation || 'ios';
+	            var TransitionClass = TransitionRegistry[name];
+	            if (!TransitionClass) {
+	                // transition wasn't found, default to a 'none' transition
+	                // which doesn't animate anything, just shows and hides
+	                TransitionClass = Transition;
+	            }
+	            return new TransitionClass(nav, opts);
+	        }
+	    }, {
+	        key: 'register',
+	        value: function register(name, TransitionClass) {
+	            TransitionRegistry[name] = TransitionClass;
+	        }
+	    }]);
+
+	    return Transition;
+	})(_animationsAnimation.Animation);
+
+	exports.Transition = Transition;
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(277);
+
+	var SwipeBackGesture = (function (_SlideEdgeGesture) {
+	    _inherits(SwipeBackGesture, _SlideEdgeGesture);
+
+	    function SwipeBackGesture(element, opts, navCtrl) {
+	        if (opts === undefined) opts = {};
+
+	        _classCallCheck(this, SwipeBackGesture);
+
+	        _get(Object.getPrototypeOf(SwipeBackGesture.prototype), 'constructor', this).call(this, element, opts);
+	        // Can check corners through use of eg 'left top'
+	        this.edges = opts.edge.split(' ');
+	        this.threshold = opts.threshold;
+	        this.navCtrl = navCtrl;
+	    }
+
+	    _createClass(SwipeBackGesture, [{
+	        key: 'onSlideStart',
+	        value: function onSlideStart() {
+	            this.navCtrl.swipeBackStart();
+	        }
+	    }, {
+	        key: 'onSlide',
+	        value: function onSlide(slide, ev) {
+	            this.navCtrl.swipeBackProgress(slide.distance / slide.max);
+	        }
+	    }, {
+	        key: 'onSlideEnd',
+	        value: function onSlideEnd(slide, ev) {
+	            var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
+	            // TODO: calculate a better playback rate depending on velocity and distance
+	            this.navCtrl.swipeBackEnd(shouldComplete, 1);
+	        }
+	    }]);
+
+	    return SwipeBackGesture;
+	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
+
+	exports.SwipeBackGesture = SwipeBackGesture;
+
+/***/ },
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55370,19 +57168,19 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
-	var _toolbarToolbar = __webpack_require__(282);
+	var _toolbarToolbar = __webpack_require__(291);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	var _appApp = __webpack_require__(223);
 
-	var _viewViewItem = __webpack_require__(279);
+	var _navViewController = __webpack_require__(284);
 
-	var _viewViewController = __webpack_require__(283);
+	var _navNavController = __webpack_require__(285);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -55413,11 +57211,11 @@
 	var BackButton = (function (_Ion) {
 	    _inherits(BackButton, _Ion);
 
-	    function BackButton(viewCtrl, elementRef, navbar) {
+	    function BackButton(navCtrl, elementRef, navbar) {
 	        _classCallCheck(this, BackButton);
 
 	        _get(Object.getPrototypeOf(BackButton.prototype), "constructor", this).call(this, elementRef, null);
-	        this.viewCtrl = viewCtrl;
+	        this.navCtrl = navCtrl;
 	        navbar && navbar.setBackButtonRef(elementRef);
 	    }
 
@@ -55426,7 +57224,7 @@
 	        value: function goBack(ev) {
 	            ev.stopPropagation();
 	            ev.preventDefault();
-	            this.viewCtrl && this.viewCtrl.pop();
+	            this.navCtrl && this.navCtrl.pop();
 	        }
 	    }]);
 
@@ -55439,7 +57237,7 @@
 	    }
 	}), __param(0, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Optional)()), __param(2, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Navbar;
-	}))), __metadata('design:paramtypes', [typeof _viewViewController.ViewController !== 'undefined' && _viewViewController.ViewController || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, Navbar])], BackButton);
+	}))), __metadata('design:paramtypes', [typeof _navNavController.NavController !== 'undefined' && _navNavController.NavController || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, Navbar])], BackButton);
 	var BackButtonText = (function (_Ion2) {
 	    _inherits(BackButtonText, _Ion2);
 
@@ -55460,12 +57258,12 @@
 	var Navbar = (function (_ToolbarBase) {
 	    _inherits(Navbar, _ToolbarBase);
 
-	    function Navbar(app, item, elementRef, config) {
+	    function Navbar(app, viewCtrl, elementRef, config) {
 	        _classCallCheck(this, Navbar);
 
 	        _get(Object.getPrototypeOf(Navbar.prototype), "constructor", this).call(this, elementRef, config);
 	        this.app = app;
-	        item && item.navbarView(this);
+	        viewCtrl && viewCtrl.navbarView(this);
 	        this.bbIcon = config.setting('backButtonIcon');
 	        this.bbDefault = config.setting('backButtonText');
 	    }
@@ -55505,27 +57303,27 @@
 	    host: {
 	        'class': 'toolbar'
 	    }
-	}), (0, _configAnnotations.IonicView)({
-	    template: '<div class="toolbar-inner">' + '<button class="back-button">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>',
+	}), (0, _configDecorators.IonicView)({
+	    template: '<div class="toolbar-inner">' + '<button class="back-button">' + '<icon class="back-button-icon" [name]="bbIcon"></icon>' + '<span class="back-button-text">' + '<span class="back-default">{{bbDefault}}</span>' + '</span>' + '</button>' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>',
 	    directives: [BackButton, BackButtonText]
-	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _viewViewItem.ViewItem !== 'undefined' && _viewViewItem.ViewItem || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Navbar);
+	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Navbar);
 	/*
 	  Used to find and register headers in a view, and this directive's
 	  content will be moved up to the common navbar location, and created
 	  using the same context as the view's content area.
 	*/
-	var NavbarTemplate = function NavbarTemplate(item, templateRef) {
+	var NavbarTemplate = function NavbarTemplate(viewCtrl, templateRef) {
 	    _classCallCheck(this, NavbarTemplate);
 
-	    item && item.addTemplateRef('navbar', templateRef);
+	    viewCtrl && viewCtrl.addTemplateRef('navbar', templateRef);
 	};
 	exports.NavbarTemplate = NavbarTemplate;
 	exports.NavbarTemplate = NavbarTemplate = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'template[navbar]'
-	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _viewViewItem.ViewItem !== 'undefined' && _viewViewItem.ViewItem || Object, typeof _angular2Angular2.TemplateRef !== 'undefined' && _angular2Angular2.TemplateRef || Object])], NavbarTemplate);
+	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _angular2Angular2.TemplateRef !== 'undefined' && _angular2Angular2.TemplateRef || Object])], NavbarTemplate);
 
 /***/ },
-/* 282 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55544,13 +57342,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
-	var _navBarNavBar = __webpack_require__(281);
+	var _navBarNavBar = __webpack_require__(290);
 
 	/**
 	 * TODO
@@ -55655,8 +57453,8 @@
 	    host: {
 	        'class': 'toolbar'
 	    }
-	}), (0, _configAnnotations.IonicView)({
-	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>'
+	}), (0, _configDecorators.IonicView)({
+	    template: '<div class="toolbar-inner">' + '<ng-content select="[menu-toggle]"></ng-content>' + '<ng-content select="ion-title"></ng-content>' + '<ng-content select="ion-nav-items[primary]"></ng-content>' + '<ng-content select="ion-nav-items[secondary]"></ng-content>' + '</div>' + '<div class="toolbar-background"></div>'
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Toolbar);
 	var ToolbarTitle = (function (_Ion2) {
 	    _inherits(ToolbarTitle, _Ion2);
@@ -55707,1274 +57505,7 @@
 	}))), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, Toolbar, typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar || Object])], ToolbarItem);
 
 /***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x7, _x8, _x9) { var _again = true; _function: while (_again) { var object = _x7, property = _x8, receiver = _x9; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x7 = parent; _x8 = property; _x9 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _angular2SrcCoreCompilerDynamic_component_loader = __webpack_require__(141);
-
-	var _angular2SrcCoreCompilerView_manager = __webpack_require__(114);
-
-	var _ion = __webpack_require__(260);
-
-	var _configConfig = __webpack_require__(217);
-
-	var _appApp = __webpack_require__(223);
-
-	var _viewItem = __webpack_require__(279);
-
-	var _navNavController = __webpack_require__(280);
-
-	var _navPane = __webpack_require__(284);
-
-	var _transitionsTransition = __webpack_require__(286);
-
-	var _swipeBack = __webpack_require__(287);
-
-	var _ionicUtil = __webpack_require__(221);
-
-	/**
-	 * TODO
-	 */
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var ViewController = (function (_Ion) {
-	    _inherits(ViewController, _Ion);
-
-	    function ViewController(parentViewCtrl, injector, elementRef, zone) {
-	        _classCallCheck(this, ViewController);
-
-	        var config = injector.get(_configConfig.IonicConfig);
-	        _get(Object.getPrototypeOf(ViewController.prototype), 'constructor', this).call(this, elementRef, config);
-	        this.parent = parentViewCtrl;
-	        this.compiler = injector.get(_angular2Angular2.Compiler);
-	        this.loader = injector.get(_angular2SrcCoreCompilerDynamic_component_loader.DynamicComponentLoader);
-	        this.viewMngr = injector.get(_angular2SrcCoreCompilerView_manager.AppViewManager);
-	        this.app = injector.get(_appApp.IonicApp);
-	        this.config = config;
-	        this.zone = zone;
-	        this.items = [];
-	        this.panes = new _navPane.PaneController(this);
-	        this._sbTrans = null;
-	        this.sbEnabled = config.setting('swipeBackEnabled') || false;
-	        this.sbThreshold = config.setting('swipeBackThreshold') || 40;
-	        this.id = ++ctrlIds;
-	        this._ids = -1;
-	        this.zIndexes = -1;
-	        // build a new injector for child ViewItems to use
-	        this.bindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(ViewController).toValue(this), (0, _angular2Angular2.bind)(_navNavController.NavController).toValue(new _navNavController.NavController(this))]);
-	    }
-
-	    /**
-	     * TODO
-	     * @param {TODO} componentType  TODO
-	     * @param {TODO} [params={}]  TODO
-	     * @param {TODO} [opts={}]  TODO
-	     * @returns {Promise} TODO
-	     */
-
-	    _createClass(ViewController, [{
-	        key: 'push',
-	        value: function push(componentType) {
-	            var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            if (!componentType || !this.app.isEnabled()) {
-	                return Promise.reject();
-	            }
-	            var resolve = undefined;
-	            var promise = new Promise(function (res) {
-	                resolve = res;
-	            });
-	            // do not animate if this is the first in the stack
-	            if (!this.items.length) {
-	                opts.animation = 'none';
-	            }
-	            // default the direction to "forward"
-	            opts.direction = opts.direction || 'forward';
-	            // the active item is going to be the leaving one (if one exists)
-	            var leavingItem = this.getActive() || new _viewItem.ViewItem();
-	            leavingItem.shouldCache = util.isBoolean(opts.cacheLeavingItem) ? opts.cacheLeavingItem : true;
-	            leavingItem.shouldDestroy = !leavingItem.shouldCache;
-	            if (leavingItem.shouldDestroy) {
-	                leavingItem.willUnload();
-	            }
-	            // create a new ViewItem
-	            var enteringItem = new _viewItem.ViewItem(this, componentType, params);
-	            // add the item to the stack
-	            this.add(enteringItem);
-	            if (this.router) {
-	                // notify router of the state change
-	                this.router.stateChange('push', enteringItem, params);
-	            }
-	            // start the transition
-	            this.transition(enteringItem, leavingItem, opts, function () {
-	                resolve();
-	            });
-	            return promise;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} [opts={}]  TODO
-	         * @returns {Promise} TODO
-	         */
-	    }, {
-	        key: 'pop',
-	        value: function pop() {
-	            var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-	            if (!this.app.isEnabled() || !this.canGoBack()) {
-	                return Promise.reject();
-	            }
-	            var resolve = undefined;
-	            var promise = new Promise(function (res) {
-	                resolve = res;
-	            });
-	            // default the direction to "back"
-	            opts.direction = opts.direction || 'back';
-	            // get the active item and set that it is staged to be leaving
-	            // was probably the one popped from the stack
-	            var leavingItem = this.getActive() || new _viewItem.ViewItem();
-	            leavingItem.shouldCache = util.isBoolean(opts.cacheLeavingItem) ? opts.cacheLeavingItem : false;
-	            leavingItem.shouldDestroy = !leavingItem.shouldCache;
-	            if (leavingItem.shouldDestroy) {
-	                leavingItem.willUnload();
-	            }
-	            // the entering item is now the new last item
-	            // Note: we might not have an entering item if this is the
-	            // only item on the history stack.
-	            var enteringItem = this.getPrevious(leavingItem);
-	            if (enteringItem) {
-	                if (this.router) {
-	                    // notify router of the state change
-	                    this.router.stateChange('pop', enteringItem);
-	                }
-	                // start the transition
-	                this.transition(enteringItem, leavingItem, opts, function () {
-	                    // transition completed, destroy the leaving item
-	                    resolve();
-	                });
-	            } else {
-	                this._transComplete();
-	                resolve();
-	            }
-	            return promise;
-	        }
-
-	        /**
-	         * Set the item stack to reflect the given component classes.
-	         * @param {TODO} components  TODO
-	         * @param {TODO} [opts={}]  TODO
-	         * @returns {Promise} TODO
-	         */
-	    }, {
-	        key: 'setItems',
-	        value: function setItems(components) {
-	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	            if (!components || !components.length) {
-	                return Promise.resolve();
-	            }
-	            // if animate has not been set then default to false
-	            opts.animate = opts.animate || false;
-	            // ensure leaving items are not cached, and should be destroyed
-	            opts.cacheLeavingItem = false;
-	            // get the items to auto remove without having to do a transiton for each
-	            // the last item (the currently active one) will do a normal transition out
-	            if (this.items.length > 1) {
-	                var autoRemoveItems = this.items.slice(0, this.items.length - 1);
-	                for (var i = 0; i < autoRemoveItems.length; i++) {
-	                    autoRemoveItems[i].shouldDestroy = true;
-	                    autoRemoveItems[i].shouldCache = false;
-	                    autoRemoveItems[i].willUnload();
-	                }
-	            }
-	            var componentObj = null;
-	            var componentType = null;
-	            var viewItem = null;
-	            // create the ViewItems that go before the new active ViewItem in the stack
-	            // but the previous views won't should render yet
-	            if (components.length > 1) {
-	                var newBeforeItems = components.slice(0, components.length - 1);
-	                for (var j = 0; j < newBeforeItems.length; j++) {
-	                    componentObj = newBeforeItems[j];
-	                    if (componentObj) {
-	                        // could be an object with a componentType property, or it is a componentType
-	                        componentType = componentObj.componentType || componentObj;
-	                        viewItem = new _viewItem.ViewItem(this, componentType, componentObj.params);
-	                        viewItem.state = CACHED_STATE;
-	                        viewItem.shouldDestroy = false;
-	                        viewItem.shouldCache = false;
-	                        // add the item to the stack
-	                        this.add(viewItem);
-	                    }
-	                }
-	            }
-	            // get the component that will become the active item
-	            // it'll be the last one in the given components array
-	            componentObj = components[components.length - 1];
-	            componentType = componentObj.componentType || componentObj;
-	            // transition the leaving and entering
-	            return this.push(componentType, componentObj.params, opts);
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} componentType  TODO
-	         * @param {TODO} [params={}]  TODO
-	         * @param {TODO} [opts={}]  TODO
-	         * @returns {Promise} TODO
-	         */
-	    }, {
-	        key: 'setRoot',
-	        value: function setRoot(componentType) {
-	            var params = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-	            var opts = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
-
-	            return this.setItems([{
-	                componentType: componentType,
-	                params: params
-	            }], opts);
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} enteringItem  TODO
-	         * @param {TODO} leavingItem  TODO
-	         * @param {TODO} opts  TODO
-	         * @param {Function} callback  TODO
-	         * @returns {any} TODO
-	         */
-	    }, {
-	        key: 'transition',
-	        value: function transition(enteringItem, leavingItem, opts, callback) {
-	            var _this = this;
-
-	            if (!enteringItem || enteringItem === leavingItem) {
-	                return callback();
-	            }
-	            if (opts.animate === false) {
-	                opts.animation = 'none';
-	            } else if (!opts.animation) {
-	                opts.animation = this.config.setting('viewTransition');
-	            }
-	            opts.animate = opts.animation !== 'none';
-	            // wait for the new item to complete setup
-	            enteringItem.stage(function () {
-	                _this.zone.runOutsideAngular(function () {
-	                    enteringItem.shouldDestroy = false;
-	                    enteringItem.shouldCache = false;
-	                    enteringItem.willEnter();
-	                    leavingItem.willLeave();
-	                    // set that the new item pushed on the stack is staged to be entering/leaving
-	                    // staged state is important for the transition to find the correct item
-	                    enteringItem.state = STAGED_ENTERING_STATE;
-	                    leavingItem.state = STAGED_LEAVING_STATE;
-	                    // init the transition animation
-	                    var transAnimation = _transitionsTransition.Transition.create(_this, opts);
-	                    if (!opts.animate) {
-	                        // force it to not animate the elements, just apply the "to" styles
-	                        transAnimation.duration(0);
-	                    }
-	                    var duration = transAnimation.duration();
-	                    if (duration > 64) {
-	                        // block any clicks during the transition and provide a
-	                        // fallback to remove the clickblock if something goes wrong
-	                        _this.app.setEnabled(false, duration);
-	                    }
-	                    // start the transition
-	                    transAnimation.play().then(function () {
-	                        // transition has completed, update each item's state
-	                        enteringItem.state = ACTIVE_STATE;
-	                        leavingItem.state = CACHED_STATE;
-	                        // dispose any items that shouldn't stay around
-	                        transAnimation.dispose();
-	                        enteringItem.didEnter();
-	                        leavingItem.didLeave();
-	                        // all done!
-	                        _this.zone.run(function () {
-	                            _this._transComplete();
-	                            callback();
-	                        });
-	                    });
-	                });
-	            });
-	        }
-
-	        /**
-	         * TODO
-	         */
-	    }, {
-	        key: 'swipeBackStart',
-	        value: function swipeBackStart() {
-	            var _this2 = this;
-
-	            if (!this.app.isEnabled() || !this.canSwipeBack()) {
-	                return;
-	            }
-	            // disables the app during the transition
-	            this.app.setEnabled(false);
-	            // default the direction to "back"
-	            var opts = {
-	                direction: 'back'
-	            };
-	            // get the active item and set that it is staged to be leaving
-	            // was probably the one popped from the stack
-	            var leavingItem = this.getActive() || new _viewItem.ViewItem();
-	            leavingItem.shouldDestroy = true;
-	            leavingItem.shouldCache = false;
-	            leavingItem.willLeave();
-	            leavingItem.willUnload();
-	            // the entering item is now the new last item
-	            var enteringItem = this.getPrevious(leavingItem);
-	            enteringItem.shouldDestroy = false;
-	            enteringItem.shouldCache = false;
-	            enteringItem.willEnter();
-	            // wait for the new item to complete setup
-	            enteringItem.stage(function () {
-	                _this2.zone.runOutsideAngular(function () {
-	                    // set that the new item pushed on the stack is staged to be entering/leaving
-	                    // staged state is important for the transition to find the correct item
-	                    enteringItem.state = STAGED_ENTERING_STATE;
-	                    leavingItem.state = STAGED_LEAVING_STATE;
-	                    // init the swipe back transition animation
-	                    _this2._sbTrans = _transitionsTransition.Transition.create(_this2, opts);
-	                    _this2._sbTrans.easing('linear').progressStart();
-	                });
-	            });
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} progress  TODO
-	         */
-	    }, {
-	        key: 'swipeBackProgress',
-	        value: function swipeBackProgress(value) {
-	            if (this._sbTrans) {
-	                // continue to disable the app while actively dragging
-	                this.app.setEnabled(false, 4000);
-	                // set the transition animation's progress
-	                this._sbTrans.progress(value);
-	            }
-	        }
-
-	        /**
-	         * @private
-	         * @param {TODO} completeSwipeBack  Should the swipe back complete or not.
-	         * @param {number} rate  How fast it closes
-	         */
-	    }, {
-	        key: 'swipeBackFinish',
-	        value: function swipeBackFinish(completeSwipeBack, rate) {
-	            var _this3 = this;
-
-	            if (!this._sbTrans) return;
-	            // disables the app during the transition
-	            this.app.setEnabled(false);
-	            this._sbTrans.progressFinish(completeSwipeBack, rate).then(function () {
-	                _this3.zone.run(function () {
-	                    // find the items that were entering and leaving
-	                    var enteringItem = _this3.getStagedEnteringItem();
-	                    var leavingItem = _this3.getStagedLeavingItem();
-	                    if (enteringItem && leavingItem) {
-	                        // finish up the animation
-	                        if (completeSwipeBack) {
-	                            // swipe back has completed navigating back
-	                            // update each item's state
-	                            enteringItem.state = ACTIVE_STATE;
-	                            leavingItem.state = CACHED_STATE;
-	                            enteringItem.didEnter();
-	                            leavingItem.didLeave();
-	                            if (_this3.router) {
-	                                // notify router of the pop state change
-	                                _this3.router.stateChange('pop', enteringItem);
-	                            }
-	                        } else {
-	                            // cancelled the swipe back, they didn't end up going back
-	                            // return items to their original state
-	                            leavingItem.state = ACTIVE_STATE;
-	                            enteringItem.state = CACHED_STATE;
-	                            leavingItem.willEnter();
-	                            leavingItem.didEnter();
-	                            enteringItem.didLeave();
-	                            leavingItem.shouldDestroy = false;
-	                            enteringItem.shouldDestroy = false;
-	                        }
-	                    }
-	                    // empty out and dispose the swipe back transition animation
-	                    _this3._sbTrans && _this3._sbTrans.dispose();
-	                    _this3._sbTrans = null;
-	                    // all done!
-	                    _this3._transComplete();
-	                });
-	            });
-	        }
-	    }, {
-	        key: '_runSwipeBack',
-	        value: function _runSwipeBack() {
-	            if (this.canSwipeBack()) {
-	                // it is possible to swipe back
-	                if (this.sbGesture) {
-	                    // this is already an active gesture, don't create another one
-	                    return;
-	                }
-	                var opts = {
-	                    edge: 'left',
-	                    threshold: this.sbThreshold
-	                };
-	                this.sbGesture = new _swipeBack.SwipeBackGesture(this.getNativeElement(), opts, this);
-	                console.debug('SwipeBackGesture listen');
-	                this.sbGesture.listen();
-	            } else if (this.sbGesture) {
-	                // it is not possible to swipe back and there is an
-	                // active sbGesture, so unlisten it
-	                console.debug('SwipeBackGesture unlisten');
-	                this.sbGesture.unlisten();
-	                this.sbGesture = null;
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} val  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'isSwipeBackEnabled',
-	        value: function isSwipeBackEnabled(val) {
-	            if (arguments.length) {
-	                this.sbEnabled = !!val;
-	            }
-	            return this.sbEnabled;
-	        }
-
-	        /**
-	         * If it's possible to use swipe back or not. If it's not possible
-	         * to go back, or swipe back is not enable then this will return false.
-	         * If it is possible to go back, and swipe back is enabled, then this
-	         * will return true.
-	         * @returns {boolean}
-	         */
-	    }, {
-	        key: 'canSwipeBack',
-	        value: function canSwipeBack() {
-	            return this.sbEnabled && this.canGoBack();
-	        }
-
-	        /**
-	         * Returns `true` if there's a valid previous view that we can pop back to.
-	         * Otherwise returns false.
-	         * @returns {boolean}
-	         */
-	    }, {
-	        key: 'canGoBack',
-	        value: function canGoBack() {
-	            var activeItem = this.getActive();
-	            if (activeItem) {
-	                return activeItem.enableBack();
-	            }
-	            return false;
-	        }
-
-	        /**
-	         * @private
-	         */
-	    }, {
-	        key: '_transComplete',
-	        value: function _transComplete() {
-	            var _this4 = this;
-
-	            var destroys = [];
-	            this.items.forEach(function (item) {
-	                if (item) {
-	                    if (item.shouldDestroy) {
-	                        destroys.push(item);
-	                    } else if (item.state === CACHED_STATE && item.shouldCache) {
-	                        item.shouldCache = false;
-	                    }
-	                }
-	            });
-	            destroys.forEach(function (item) {
-	                _this4.remove(item);
-	                item.destroy();
-	            });
-	            // allow clicks again, but still set an enable time
-	            // meaning nothing with this view controller can happen for XXms
-	            this.app.setEnabled(true);
-	            if (this.items.length === 1) {
-	                this.elementRef.nativeElement.classList.add('has-views');
-	            }
-	            this._runSwipeBack();
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getActive',
-	        value: function getActive() {
-	            for (var i = 0, ii = this.items.length; i < ii; i++) {
-	                if (this.items[i].state === ACTIVE_STATE) {
-	                    return this.items[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} instance  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getByInstance',
-	        value: function getByInstance(instance) {
-	            if (instance) {
-	                for (var i = 0, ii = this.items.length; i < ii; i++) {
-	                    if (this.items[i].instance === instance) {
-	                        return this.items[i];
-	                    }
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} index  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getByIndex',
-	        value: function getByIndex(index) {
-	            if (index < this.items.length && index > -1) {
-	                return this.items[index];
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getPrevious',
-	        value: function getPrevious(item) {
-	            if (item) {
-	                return this.items[this.items.indexOf(item) - 1];
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getStagedEnteringItem',
-	        value: function getStagedEnteringItem() {
-	            for (var i = 0, ii = this.items.length; i < ii; i++) {
-	                if (this.items[i].state === STAGED_ENTERING_STATE) {
-	                    return this.items[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getStagedLeavingItem',
-	        value: function getStagedLeavingItem() {
-	            for (var i = 0, ii = this.items.length; i < ii; i++) {
-	                if (this.items[i].state === STAGED_LEAVING_STATE) {
-	                    return this.items[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} nbContainer  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'navbarViewContainer',
-	        value: function navbarViewContainer(nbContainer) {
-	            if (nbContainer) {
-	                this._nbContainer = nbContainer;
-	            }
-	            if (this._nbContainer) {
-	                return this._nbContainer;
-	            }
-	            if (this.parent) {
-	                return this.parent.navbarViewContainer();
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'anchorElementRef',
-	        value: function anchorElementRef() {
-	            if (arguments.length) {
-	                this._anchorER = arguments[0];
-	            }
-	            return this._anchorER;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'anchorViewContainerRef',
-	        value: function anchorViewContainerRef() {
-	            if (arguments.length) {
-	                this._anchorVC = arguments[0];
-	            }
-	            return this._anchorVC;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'childNavbar',
-	        value: function childNavbar() {
-	            if (arguments.length) {
-	                this._childNavbar = arguments[0];
-	            }
-	            return this._childNavbar;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'add',
-	        value: function add(item) {
-	            item.id = this.id + '-' + ++this._ids;
-	            this.items.push(item);
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} itemOrIndex  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'remove',
-	        value: function remove(itemOrIndex) {
-	            util.array.remove(this.items, itemOrIndex);
-	        }
-
-	        /**
-	         * First view item in this view controller's stack. This would
-	         * not return an item which is about to be destroyed.
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'first',
-	        value: function first() {
-	            for (var i = 0, l = this.items.length; i < l; i++) {
-	                if (!this.items[i].shouldDestroy) {
-	                    return this.items[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * Last view item in this view controller's stack. This would
-	         * not return an item which is about to be destroyed.
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'last',
-	        value: function last() {
-	            for (var i = this.items.length - 1; i >= 0; i--) {
-	                if (!this.items[i].shouldDestroy) {
-	                    return this.items[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'indexOf',
-	        value: function indexOf(item) {
-	            return this.items.indexOf(item);
-	        }
-
-	        /**
-	         * Number of sibling view items in the view controller. This does
-	         * not include items which are about to be destroyed.
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'length',
-	        value: function length() {
-	            var len = 0;
-	            for (var i = 0, l = this.items.length; i < l; i++) {
-	                if (!this.items[i].shouldDestroy) {
-	                    len++;
-	                }
-	            }
-	            return len;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'instances',
-	        value: function instances() {
-	            var instances = [];
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = this.items[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var item = _step.value;
-
-	                    if (item.instance) {
-	                        instances.push(item.instance);
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator['return']) {
-	                        _iterator['return']();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            return instances;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'isActive',
-	        value: function isActive(item) {
-	            return item && item.state === ACTIVE_STATE;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'isStagedEntering',
-	        value: function isStagedEntering(item) {
-	            return item && item.state === STAGED_ENTERING_STATE;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} router  TODO
-	         */
-	    }, {
-	        key: 'registerRouter',
-	        value: function registerRouter(router) {
-	            this.router = router;
-	        }
-	    }]);
-
-	    return ViewController;
-	})(_ion.Ion);
-
-	exports.ViewController = ViewController;
-
-	var ACTIVE_STATE = 1;
-	var CACHED_STATE = 2;
-	var STAGED_ENTERING_STATE = 3;
-	var STAGED_LEAVING_STATE = 4;
-	var ctrlIds = -1;
-
-/***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _ion = __webpack_require__(260);
-
-	var _configConfig = __webpack_require__(217);
-
-	var _viewViewController = __webpack_require__(283);
-
-	var _configAnnotations = __webpack_require__(220);
-
-	var _anchors = __webpack_require__(285);
-
-	/**
-	 * TODO
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
-	    return function (target, key) {
-	        decorator(target, key, paramIndex);
-	    };
-	};
-
-	var PaneController = (function () {
-	    /**
-	     * TODO
-	     * @param {ViewController} viewCtrl  TODO
-	     */
-
-	    function PaneController(viewCtrl) {
-	        _classCallCheck(this, PaneController);
-
-	        this.panes = [];
-	        this.viewCtrl = viewCtrl;
-	        this.bindings = _angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_viewViewController.ViewController).toValue(viewCtrl)]);
-	    }
-
-	    /**
-	     * TODO
-	     * @param {TODO} nav  TODO
-	     * @param {Function} nav  TODO
-	     */
-
-	    _createClass(PaneController, [{
-	        key: "get",
-	        value: function get(itemStructure, callback) {
-	            var _this = this;
-
-	            // this gets or creates the Pane which similar nav items live in
-	            // Nav items with just a navbar/content would all use the same Pane
-	            // Tabs and view's without a navbar would get a different Panes
-	            var key = itemStructure.key;
-	            var viewCtrl = this.viewCtrl;
-	            var pane = this.panes[this.panes.length - 1];
-	            if (pane && pane.key === key) {
-	                // the last pane's structure is the same as the one the item needs to go in
-	                callback(pane);
-	            } else {
-	                // create a new nav pane
-	                viewCtrl.loader.loadNextToLocation(Pane, viewCtrl.anchorElementRef(), this.bindings).then(function (componentRef) {
-	                    // get the pane reference
-	                    pane = _this.newPane;
-	                    _this.newPane = null;
-	                    var sectionAnchorElementRef = pane && pane.sectionAnchorElementRef;
-	                    if (!sectionAnchorElementRef) {
-	                        return callback();
-	                    }
-	                    pane.key = key;
-	                    pane.dispose = function () {
-	                        componentRef.dispose();
-	                        _this.panes.splice(_this.panes.indexOf(pane), 1);
-	                    };
-	                    _this.panes.push(pane);
-	                    var promises = [];
-	                    var sectionsToAdd = [];
-	                    // decide which sections should be added to this Pane, ie: nav bars, footers, etc.
-	                    // add only the sections it needs
-	                    if (itemStructure.navbar) {
-	                        sectionsToAdd.push(_anchors.NavBarContainer);
-	                    }
-	                    // add the sections which this type of Pane requires
-	                    sectionsToAdd.forEach(function (SectionClass) {
-	                        // as each section is compiled and added to the Pane
-	                        // the section will add a reference to itself in the Pane's sections object
-	                        promises.push(viewCtrl.loader.loadNextToLocation(SectionClass, sectionAnchorElementRef));
-	                    });
-	                    // wait for all of the sections to resolve
-	                    Promise.all(promises).then(function () {
-	                        callback(pane);
-	                    }, function (err) {
-	                        console.error(err);
-	                    });
-	                }, function (loaderErr) {
-	                    console.error(loaderErr);
-	                })["catch"](function (err) {
-	                    console.error(err);
-	                });
-	            }
-	        }
-	    }, {
-	        key: "add",
-	        value: function add(pane) {
-	            this.newPane = pane;
-	        }
-	    }]);
-
-	    return PaneController;
-	})();
-
-	exports.PaneController = PaneController;
-	var Pane = (function (_Ion) {
-	    _inherits(Pane, _Ion);
-
-	    function Pane(viewCtrl, elementRef, ionicConfig) {
-	        _classCallCheck(this, Pane);
-
-	        _get(Object.getPrototypeOf(Pane.prototype), "constructor", this).call(this, elementRef, ionicConfig);
-	        viewCtrl.panes.add(this);
-	        this.totalItems = 0;
-	        this.zIndex = ++viewCtrl.zIndexes;
-	    }
-
-	    return Pane;
-	})(_ion.Ion);
-	exports.Pane = Pane;
-	exports.Pane = Pane = __decorate([(0, _configAnnotations.IonicComponent)({
-	    selector: 'ion-pane',
-	    classId: 'nav',
-	    host: {
-	        '[style.z-index]': 'zIndex'
-	    }
-	}), (0, _angular2Angular2.View)({
-	    template: "\n    <template pane-anchor></template>\n    <section class=\"content-container\">\n      <template content-anchor></template>\n    </section>\n  ",
-	    directives: [_anchors.PaneAnchor, _anchors.PaneContentAnchor]
-	}), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _viewViewController.ViewController;
-	}))), __metadata('design:paramtypes', [typeof _viewViewController.ViewController !== 'undefined' && _viewViewController.ViewController || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Pane);
-
-/***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _angular2SrcCoreCompilerView_container_ref = __webpack_require__(121);
-
-	var _pane = __webpack_require__(284);
-
-	var _viewViewController = __webpack_require__(283);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
-	    return function (target, key) {
-	        decorator(target, key, paramIndex);
-	    };
-	};
-	var PaneAnchor = function PaneAnchor(pane, elementRef) {
-	    _classCallCheck(this, PaneAnchor);
-
-	    pane.sectionAnchorElementRef = elementRef;
-	};
-	exports.PaneAnchor = PaneAnchor;
-	exports.PaneAnchor = PaneAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[pane-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _pane.Pane;
-	}))), __metadata('design:paramtypes', [typeof _pane.Pane !== 'undefined' && _pane.Pane || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], PaneAnchor);
-	var PaneContentAnchor = function PaneContentAnchor(pane, viewContainerRef) {
-	    _classCallCheck(this, PaneContentAnchor);
-
-	    pane.contentContainerRef = viewContainerRef;
-	};
-	exports.PaneContentAnchor = PaneContentAnchor;
-	exports.PaneContentAnchor = PaneContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _pane.Pane;
-	}))), __metadata('design:paramtypes', [typeof _pane.Pane !== 'undefined' && _pane.Pane || Object, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], PaneContentAnchor);
-	var NavBarAnchor = function NavBarAnchor(viewCtrl, viewContainerRef) {
-	    _classCallCheck(this, NavBarAnchor);
-
-	    viewCtrl.navbarViewContainer(viewContainerRef);
-	};
-	NavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'template[navbar-anchor]'
-	}), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
-	    return _viewViewController.ViewController;
-	}))), __metadata('design:paramtypes', [typeof _viewViewController.ViewController !== 'undefined' && _viewViewController.ViewController || Object, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], NavBarAnchor);
-	var NavBarContainer = function NavBarContainer() {
-	    _classCallCheck(this, NavBarContainer);
-	};
-	exports.NavBarContainer = NavBarContainer;
-	exports.NavBarContainer = NavBarContainer = __decorate([(0, _angular2Angular2.Component)({
-	    selector: 'section',
-	    host: {
-	        'class': 'navbar-container'
-	    }
-	}), (0, _angular2Angular2.View)({
-	    template: '<template navbar-anchor></template>',
-	    directives: [NavBarAnchor]
-	}), __metadata('design:paramtypes', [])], NavBarContainer);
-
-/***/ },
-/* 286 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _animationsAnimation = __webpack_require__(255);
-
-	var SHOW_NAVBAR_CSS = 'show-navbar';
-	var SHOW_VIEW_CSS = 'show-view';
-	var SHOW_BACK_BUTTON = 'show-back-button';
-	var TransitionRegistry = {};
-
-	var Transition = (function (_Animation) {
-	    _inherits(Transition, _Animation);
-
-	    function Transition(nav, opts) {
-	        _classCallCheck(this, Transition);
-
-	        _get(Object.getPrototypeOf(Transition.prototype), 'constructor', this).call(this);
-	        // get the entering and leaving items
-	        var enteringItem = this.entering = nav.getStagedEnteringItem();
-	        var leavingItem = this.leaving = nav.getStagedLeavingItem();
-	        // create animation for the entering item's "ion-view" element
-	        this.enteringView = new _animationsAnimation.Animation(enteringItem.viewElementRef());
-	        this.enteringView.before.addClass(SHOW_VIEW_CSS);
-	        this.enteringView.onPlay(function () {
-	            enteringItem.postRender();
-	        });
-	        this.add(this.enteringView);
-	        if (opts.navbar !== false) {
-	            var enteringNavbar = this.enteringNavbar = new _animationsAnimation.Animation(enteringItem.navbarRef());
-	            enteringNavbar.before.addClass(SHOW_NAVBAR_CSS);
-	            if (enteringItem.enableBack()) {
-	                // only animate in the back button if the entering view has it enabled
-	                var enteringBackButton = this.enteringBackButton = new _animationsAnimation.Animation(enteringItem.backBtnRef());
-	                enteringBackButton.before.addClass(SHOW_BACK_BUTTON).fadeIn();
-	                enteringNavbar.add(enteringBackButton);
-	            }
-	            this.enteringTitle = new _animationsAnimation.Animation(enteringItem.titleRef());
-	            enteringNavbar.add(this.enteringTitle);
-	            this.add(enteringNavbar);
-	            this.enteringNavbarItems = new _animationsAnimation.Animation(enteringItem.navbarItemRefs());
-	            this.enteringNavbarItems.fadeIn();
-	            enteringNavbar.add(this.enteringNavbarItems);
-	        }
-	        if (leavingItem) {
-	            // setup the leaving item if one exists (initial viewing wouldn't have a leaving item)
-	            this.leavingView = new _animationsAnimation.Animation(leavingItem.viewElementRef());
-	            this.leavingView.after.removeClass(SHOW_VIEW_CSS);
-	            var leavingNavbar = this.leavingNavbar = new _animationsAnimation.Animation(leavingItem.navbarRef());
-	            leavingNavbar.after.removeClass(SHOW_NAVBAR_CSS);
-	            var leavingBackButton = this.leavingBackButton = new _animationsAnimation.Animation(leavingItem.backBtnRef());
-	            leavingBackButton.after.removeClass(SHOW_BACK_BUTTON).fadeOut();
-	            leavingNavbar.add(leavingBackButton);
-	            this.leavingTitle = new _animationsAnimation.Animation(leavingItem.titleRef());
-	            leavingNavbar.add(this.leavingTitle);
-	            this.leavingNavbarItems = new _animationsAnimation.Animation(leavingItem.navbarItemRefs());
-	            this.leavingNavbarItems.fadeOut();
-	            leavingNavbar.add(this.leavingNavbarItems);
-	            this.add(this.leavingView, leavingNavbar);
-	        }
-	    }
-
-	    _createClass(Transition, [{
-	        key: 'viewWidth',
-	        value: function viewWidth() {
-	            // TODO: MAKE MORE BETTER
-	            return this._w || (this._w = this.leaving && this.leaving.viewElementRef().nativeElement.offsetWidth);
-	        }
-
-	        /*
-	         STATIC CLASSES
-	         */
-	    }], [{
-	        key: 'create',
-	        value: function create(nav) {
-	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	            var name = opts.animation || 'ios';
-	            var TransitionClass = TransitionRegistry[name];
-	            if (!TransitionClass) {
-	                // transition wasn't found, default to a 'none' transition
-	                // which doesn't animate anything, just shows and hides
-	                TransitionClass = Transition;
-	            }
-	            return new TransitionClass(nav, opts);
-	        }
-	    }, {
-	        key: 'register',
-	        value: function register(name, TransitionClass) {
-	            TransitionRegistry[name] = TransitionClass;
-	        }
-	    }]);
-
-	    return Transition;
-	})(_animationsAnimation.Animation);
-
-	exports.Transition = Transition;
-
-/***/ },
-/* 287 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(272);
-
-	var SwipeBackGesture = (function (_SlideEdgeGesture) {
-	    _inherits(SwipeBackGesture, _SlideEdgeGesture);
-
-	    function SwipeBackGesture(element, opts, viewCtrl) {
-	        if (opts === undefined) opts = {};
-
-	        _classCallCheck(this, SwipeBackGesture);
-
-	        _get(Object.getPrototypeOf(SwipeBackGesture.prototype), 'constructor', this).call(this, element, opts);
-	        // Can check corners through use of eg 'left top'
-	        this.edges = opts.edge.split(' ');
-	        this.threshold = opts.threshold;
-	        this.viewCtrl = viewCtrl;
-	    }
-
-	    _createClass(SwipeBackGesture, [{
-	        key: 'onSlideStart',
-	        value: function onSlideStart() {
-	            this.viewCtrl.swipeBackStart();
-	        }
-	    }, {
-	        key: 'onSlide',
-	        value: function onSlide(slide, ev) {
-	            this.viewCtrl.swipeBackProgress(slide.distance / slide.max);
-	        }
-	    }, {
-	        key: 'onSlideEnd',
-	        value: function onSlideEnd(slide, ev) {
-	            var shouldComplete = Math.abs(ev.velocityX) > 0.2 || Math.abs(slide.delta) > Math.abs(slide.max) * 0.5;
-	            // TODO: calculate a better playback rate depending on velocity and distance
-	            this.viewCtrl.swipeBackFinish(shouldComplete, 1);
-	        }
-	    }]);
-
-	    return SwipeBackGesture;
-	})(_ionicGesturesSlideEdgeGesture.SlideEdgeGesture);
-
-	exports.SwipeBackGesture = SwipeBackGesture;
-
-/***/ },
-/* 288 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56995,19 +57526,19 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _formInput = __webpack_require__(259);
+	var _formInput = __webpack_require__(260);
 
-	var _label = __webpack_require__(289);
+	var _label = __webpack_require__(293);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _appApp = __webpack_require__(223);
 
-	var _contentContent = __webpack_require__(266);
+	var _contentContent = __webpack_require__(271);
 
 	var _utilDom = __webpack_require__(222);
 
@@ -57240,6 +57771,7 @@
 	                // manually scroll the text input to the top
 	                // do not allow any clicks while it's scrolling
 	                this.app.setEnabled(false, SCROLL_INTO_VIEW_DURATION);
+	                this.app.setTransitioning(true, SCROLL_INTO_VIEW_DURATION);
 	                // temporarily move the focus to the focus holder so the browser
 	                // doesn't freak out while it's trying to get the input in place
 	                // at this point the native text input still does not have focus
@@ -57251,6 +57783,7 @@
 	                    _this2.setFocus();
 	                    // all good, allow clicks again
 	                    _this2.app.setEnabled(true);
+	                    _this2.app.setTransitioning(false);
 	                });
 	            } else {
 	                // not inside of a scroll view, just focus it
@@ -57436,7 +57969,7 @@
 	    return TextInput;
 	})(_ion.Ion);
 	exports.TextInput = _TextInput;
-	_TextInput = __decorate([(0, _configAnnotations.IonicDirective)({
+	_TextInput = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-input',
 	    classId: 'item-input',
 	    properties: ['tabIndex'],
@@ -57455,7 +57988,7 @@
 	var SCROLL_INTO_VIEW_DURATION = 400;
 
 /***/ },
-/* 289 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57561,7 +58094,7 @@
 	}), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Label);
 
 /***/ },
-/* 290 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57582,13 +58115,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
-	var _virtual = __webpack_require__(291);
+	var _virtual = __webpack_require__(295);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -57687,7 +58220,7 @@
 	    return List;
 	})(_ion.Ion);
 	exports.List = List;
-	exports.List = List = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.List = List = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-list',
 	    properties: ['items', 'virtual', 'content']
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], List);
@@ -57707,7 +58240,7 @@
 	}), __metadata('design:paramtypes', [])], ListHeader);
 
 /***/ },
-/* 291 */
+/* 295 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57822,7 +58355,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57988,320 +58521,7 @@
 	}), __param(0, (0, _angular2Angular2.Attribute)('hide-when')), __metadata('design:paramtypes', [String, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], HideWhen);
 
 /***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _configConfig = __webpack_require__(217);
-
-	/**
-	 * TODO
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var MaterialButton = (function () {
-	    /**
-	     * TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
-	     */
-
-	    function MaterialButton(elementRef, config) {
-	        _classCallCheck(this, MaterialButton);
-
-	        this.elementRef = elementRef;
-	        this.config = config;
-	    }
-
-	    _createClass(MaterialButton, [{
-	        key: "onInit",
-	        value: function onInit() {
-	            if (this.config.setting('mdRipple')) {}
-	        }
-	    }]);
-
-	    return MaterialButton;
-	})();
-	exports.MaterialButton = MaterialButton;
-	exports.MaterialButton = MaterialButton = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'button,[button]'
-	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], MaterialButton);
-
-/***/ },
-/* 294 */
-/***/ function(module, exports) {
-
-	/**
-	 * Lovingly Adapted from Material Design Lite
-	 * Copyright Google, 2015, Licensed under the Apache 2 license.
-	 * https://github.com/google/material-design-lite
-	 */
-	/**
-	 * TODO
-	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var MaterialRippleEffect = (function () {
-	    /**
-	     * TODO
-	     * @param {MaterialButton} button  TODO
-	     */
-
-	    function MaterialRippleEffect(button) {
-	        _classCallCheck(this, MaterialRippleEffect);
-
-	        this.elementRef = button.elementRef;
-	        this.element = this.elementRef.nativeElement;
-	        var rippleContainer = document.createElement('span');
-	        rippleContainer.classList.add('md-ripple-container');
-	        rippleContainer.setAttribute('aria-hidden', 'true');
-	        this.rippleElement = document.createElement('span');
-	        this.rippleElement.classList.add('md-ripple');
-	        rippleContainer.appendChild(this.rippleElement);
-	        this.recentering = false; //this.element.classList.contains(this.CssClasses_.RIPPLE_CENTER);
-	        this.INITIAL_SCALE = 'scale(0.0001, 0.0001)';
-	        this.INITIAL_SIZE = '1px';
-	        this.INITIAL_OPACITY = '0.4';
-	        this.FINAL_OPACITY = '0';
-	        this.FINAL_SCALE = '';
-	        //this.boundRippleBlurHandler = this.blurHandler.bind(this);
-	        //this.rippleElement_.addEventListener('mouseup', this.boundRippleBlurHandler);
-	        this.elementRef.nativeElement.appendChild(rippleContainer);
-	        this._initRipple();
-	    }
-
-	    /**
-	     * @private
-	     * TODO
-	     */
-
-	    _createClass(MaterialRippleEffect, [{
-	        key: '_initRipple',
-	        value: function _initRipple() {
-	            this.frameCount = 0;
-	            this.rippleSize = 0;
-	            this.x = 0;
-	            this.y = 0;
-	            // Touch start produces a compat mouse down event, which would cause a
-	            // second ripples. To avoid that, we use this property to ignore the first
-	            // mouse down after a touch start.
-	            this.ignoringMouseDown = false;
-	            this.boundDownHandler = this.downHandler.bind(this);
-	            this.element.addEventListener('mousedown', this.boundDownHandler);
-	            this.element.addEventListener('touchstart', this.boundDownHandler);
-	            this.boundUpHandler = this.upHandler.bind(this);
-	            this.element.addEventListener('mouseup', this.boundUpHandler);
-	            this.element.addEventListener('mouseleave', this.boundUpHandler);
-	            this.element.addEventListener('touchend', this.boundUpHandler);
-	            this.element.addEventListener('blur', this.boundUpHandler);
-	        }
-
-	        /**
-	         * Handle mouse / finger down on element.
-	         * @param {Event} event The event that fired.
-	         * @private
-	         */
-	    }, {
-	        key: 'downHandler',
-	        value: function downHandler(event) {
-	            'use strict';
-	            if (!this.rippleElement.style.width && !this.rippleElement.style.height) {
-	                var rect = this.element.getBoundingClientRect();
-	                this.boundHeight = rect.height;
-	                this.boundWidth = rect.width;
-	                this.rippleSize = Math.sqrt(rect.width * rect.width + rect.height * rect.height) * 2 + 2;
-	                this.rippleElement.style.width = this.rippleSize + 'px';
-	                this.rippleElement.style.height = this.rippleSize + 'px';
-	            }
-	            this.rippleElement.classList.add('is-visible');
-	            if (event.type === 'mousedown' && this.ignoringMouseDown) {
-	                this.ignoringMouseDown = false;
-	            } else {
-	                if (event.type === 'touchstart') {
-	                    this.ignoringMouseDown = true;
-	                }
-	                var frameCount = this.getFrameCount();
-	                if (frameCount > 0) {
-	                    return;
-	                }
-	                this.setFrameCount(1);
-	                var bound = event.currentTarget.getBoundingClientRect();
-	                var x;
-	                var y;
-	                // Check if we are handling a keyboard click.
-	                if (event.clientX === 0 && event.clientY === 0) {
-	                    x = Math.round(bound.width / 2);
-	                    y = Math.round(bound.height / 2);
-	                } else {
-	                    var clientX = event.clientX ? event.clientX : event.touches[0].clientX;
-	                    var clientY = event.clientY ? event.clientY : event.touches[0].clientY;
-	                    x = Math.round(clientX - bound.left);
-	                    y = Math.round(clientY - bound.top);
-	                }
-	                this.setRippleXY(x, y);
-	                this.setRippleStyles(true);
-	                window.requestAnimationFrame(this.animFrameHandler.bind(this));
-	            }
-	        }
-
-	        /**
-	         * Handle mouse / finger up on element.
-	         * @param {Event} event The event that fired.
-	         * @private
-	         */
-	    }, {
-	        key: 'upHandler',
-	        value: function upHandler(event) {
-	            'use strict';
-	            // Don't fire for the artificial "mouseup" generated by a double-click.
-	            if (event && event.detail !== 2) {
-	                setTimeout((function () {
-	                    this.rippleElement.classList.remove('is-visible');
-	                }).bind(this), 150);
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getFrameCount',
-	        value: function getFrameCount() {
-	            return this.frameCount;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} fC TODO
-	         */
-	    }, {
-	        key: 'setFrameCount',
-	        value: function setFrameCount(fC) {
-	            this.frameCount = fC;
-	        }
-
-	        /**
-	         * TODO
-	         * @return {Element} TODO
-	         */
-	    }, {
-	        key: 'getRippleElement',
-	        value: function getRippleElement() {
-	            return this.rippleElement;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {number} newX  TODO
-	         * @param {number} newY  TODO
-	         */
-	    }, {
-	        key: 'setRippleXY',
-	        value: function setRippleXY(newX, newY) {
-	            this.x = newX;
-	            this.y = newY;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} start  TODO
-	         */
-	    }, {
-	        key: 'setRippleStyles',
-	        value: function setRippleStyles(start) {
-	            if (this.rippleElement !== null) {
-	                var transformString;
-	                var scale;
-	                var size;
-	                var offset = 'translate(' + this.x + 'px, ' + this.y + 'px)';
-	                if (start) {
-	                    scale = this.INITIAL_SCALE;
-	                    size = this.INITIAL_SIZE;
-	                } else {
-	                    scale = this.FINAL_SCALE;
-	                    size = this.rippleSize + 'px';
-	                    if (this.recentering) {
-	                        offset = 'translate(' + this.boundWidth / 2 + 'px, ' + this.boundHeight / 2 + 'px)';
-	                    }
-	                }
-	                transformString = 'translate(-50%, -50%) ' + offset + scale;
-	                this.rippleElement.style.webkitTransform = transformString;
-	                this.rippleElement.style.msTransform = transformString;
-	                this.rippleElement.style.transform = transformString;
-	                if (start) {
-	                    this.rippleElement.classList.remove('md-ripple-animating');
-	                } else {
-	                    this.rippleElement.classList.add('md-ripple-animating');
-	                }
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         */
-	    }, {
-	        key: 'animFrameHandler',
-	        value: function animFrameHandler() {
-	            if (this.frameCount-- > 0) {
-	                window.requestAnimationFrame(this.animFrameHandler.bind(this));
-	            } else {
-	                this.setRippleStyles(false);
-	            }
-	        }
-
-	        /**
-	         * TODO
-	         */
-	    }, {
-	        key: 'elementClicked',
-	        value: function elementClicked(event) {}
-	    }]);
-
-	    return MaterialRippleEffect;
-	})();
-
-	exports.MaterialRippleEffect = MaterialRippleEffect;
-
-/***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58320,9 +58540,9 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
-	var _viewViewController = __webpack_require__(283);
+	var _navController = __webpack_require__(285);
 
 	/**
 	 * TODO
@@ -58352,21 +58572,21 @@
 	        decorator(target, key, paramIndex);
 	    };
 	};
-	var Nav = (function (_ViewController) {
-	    _inherits(Nav, _ViewController);
+	var Nav = (function (_NavController) {
+	    _inherits(Nav, _NavController);
 
 	    /**
 	     * TODO
-	     * @param {ViewController} hostViewCtrl  TODO
+	     * @param {NavController} hostnavCtrl  TODO
 	     * @param {Injector} injector  TODO
 	     * @param {ElementRef} elementRef  TODO
 	     * @param {NgZone} zone  TODO
 	     */
 
-	    function Nav(hostViewCtrl, injector, elementRef, zone) {
+	    function Nav(hostnavCtrl, injector, elementRef, zone) {
 	        _classCallCheck(this, Nav);
 
-	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostViewCtrl, injector, elementRef, zone);
+	        _get(Object.getPrototypeOf(Nav.prototype), "constructor", this).call(this, hostnavCtrl, injector, elementRef, zone);
 	    }
 
 	    /**
@@ -58378,6 +58598,9 @@
 	        value: function onInit() {
 	            _get(Object.getPrototypeOf(Nav.prototype), "onInit", this).call(this);
 	            if (this.root) {
+	                if (typeof this.root !== 'function') {
+	                    throw 'The [root] property in <ion-nav> must be given a reference to a component class from within the constructor.';
+	                }
 	                this.push(this.root);
 	            }
 	            // default the swipe back to be enabled
@@ -58387,9 +58610,9 @@
 	    }]);
 
 	    return Nav;
-	})(_viewViewController.ViewController);
+	})(_navController.NavController);
 	exports.Nav = Nav;
-	exports.Nav = Nav = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Nav = Nav = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-nav',
 	    properties: ['root'],
 	    defaultProperties: {
@@ -58400,7 +58623,7 @@
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return NavPaneAnchor;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _viewViewController.ViewController !== 'undefined' && _viewViewController.ViewController || Object, typeof _angular2Angular2.Injector !== 'undefined' && _angular2Angular2.Injector || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Nav);
+	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object, typeof _angular2Angular2.Injector !== 'undefined' && _angular2Angular2.Injector || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Nav);
 	var NavPaneAnchor = function NavPaneAnchor(nav, elementRef) {
 	    _classCallCheck(this, NavPaneAnchor);
 
@@ -58409,7 +58632,7 @@
 	NavPaneAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[pane-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Nav, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], NavPaneAnchor);
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58424,7 +58647,9 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _navController = __webpack_require__(280);
+	var _navController = __webpack_require__(285);
+
+	var _navRegistry = __webpack_require__(263);
 
 	/**
 	 * TODO
@@ -58455,16 +58680,32 @@
 	     * @param {NavController} nav  TODO
 	     */
 
-	    function NavPush(nav) {
+	    function NavPush(nav, registry) {
 	        _classCallCheck(this, NavPush);
 
 	        this.nav = nav;
+	        this.registry = registry;
 	    }
 
 	    _createClass(NavPush, [{
 	        key: "onClick",
 	        value: function onClick(event) {
-	            this.nav.push(this.navPush, this.pushData);
+	            var destination = undefined,
+	                params = undefined;
+	            if (this.instruction instanceof Array) {
+	                if (this.instruction.length > 2) {
+	                    throw 'Too many [nav-push] arguments, expects [View, { params }]';
+	                }
+	                destination = this.instruction[0];
+	                params = this.instruction[1] || this.params;
+	            } else {
+	                destination = this.instruction;
+	                params = this.params;
+	            }
+	            if (typeof destination === "string") {
+	                destination = this.registry.get(destination);
+	            }
+	            this.nav.push(destination, params);
 	        }
 	    }]);
 
@@ -58473,12 +58714,12 @@
 	exports.NavPush = NavPush;
 	exports.NavPush = NavPush = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: '[nav-push]',
-	    properties: ['navPush', 'pushData'],
+	    properties: ['instruction: navPush', 'params: navParams'],
 	    host: {
 	        '(click)': 'onClick($event)',
 	        'role': 'link'
 	    }
-	}), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object])], NavPush);
+	}), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object, typeof _navRegistry.NavRegistry !== 'undefined' && _navRegistry.NavRegistry || Object])], NavPush);
 	/**
 	 * TODO
 	 */
@@ -58513,7 +58754,7 @@
 	}), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object])], NavPop);
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58534,7 +58775,7 @@
 
 	var _angular2Router = __webpack_require__(224);
 
-	var _nav = __webpack_require__(295);
+	var _nav = __webpack_require__(297);
 
 	/**
 	 * TODO
@@ -58580,11 +58821,11 @@
 	        _classCallCheck(this, NavRouter);
 
 	        _get(Object.getPrototypeOf(NavRouter.prototype), "constructor", this).call(this, _elementRef, _loader, _parentRouter, nameAttr);
-	        // Nav is Ionic's ViewController, which we injected into this class
+	        // Nav is Ionic's NavController, which we injected into this class
 	        this.nav = nav;
-	        // register this router with Ionic's ViewController
-	        // Ionic's ViewController will call this NavRouter's "stateChange"
-	        // method when the ViewController has...changed its state
+	        // register this router with Ionic's NavController
+	        // Ionic's NavController will call this NavRouter's "stateChange"
+	        // method when the NavController has...changed its state
 	        nav.registerRouter(this);
 	    }
 
@@ -58606,7 +58847,7 @@
 	            if (lastView && lastView.componentType === componentType && lastView.params.data === nextInstruction.params) {
 	                return Promise.resolve();
 	            }
-	            // tell the ViewController which componentType, and it's params, to navigate to
+	            // tell the NavController which componentType, and it's params, to navigate to
 	            return this.nav.push(componentType, nextInstruction.params);
 	        }
 	    }, {
@@ -58618,22 +58859,22 @@
 	        /**
 	         * TODO
 	         * @param {TODO} type  TODO
-	         * @param {TODO} viewItem  TODO
+	         * @param {TODO} viewCtrl  TODO
 	         */
 	    }, {
 	        key: "stateChange",
-	        value: function stateChange(type, viewItem) {
-	            // stateChange is called by Ionic's ViewController
+	        value: function stateChange(type, viewCtrl) {
+	            // stateChange is called by Ionic's NavController
 	            // type could be "push" or "pop"
-	            // viewItem is Ionic's ViewItem class, which has the properties "componentType" and "params"
+	            // viewCtrl is Ionic's ViewController class, which has the properties "componentType" and "params"
 	            // only do an update if there's an actual view change
-	            if (!viewItem || this._activeViewId === viewItem.id) return;
-	            this._activeViewId = viewItem.id;
+	            if (!viewCtrl || this._activeViewId === viewCtrl.id) return;
+	            this._activeViewId = viewCtrl.id;
 	            // get the best PathRecognizer for this view's componentType
-	            var pathRecognizer = this.getPathRecognizerByComponent(viewItem.componentType);
+	            var pathRecognizer = this.getPathRecognizerByComponent(viewCtrl.componentType);
 	            if (pathRecognizer) {
 	                // generate a componentInstruction from the view's PathRecognizer and params
-	                var componentInstruction = pathRecognizer.generate(viewItem.params.data);
+	                var componentInstruction = pathRecognizer.generate(viewCtrl.params.data);
 	                // create an Instruction from the componentInstruction
 	                var instruction = new _angular2Router.Instruction(componentInstruction, null);
 	                // update the browser's URL
@@ -58669,7 +58910,7 @@
 	}), __param(3, (0, _angular2Angular2.Attribute)('name')), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader || Object, typeof _angular2Router.Router !== 'undefined' && _angular2Router.Router || Object, String, typeof _nav.Nav !== 'undefined' && _nav.Nav || Object])], NavRouter);
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58690,13 +58931,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
-	var _ionicAnimationsAnimation = __webpack_require__(255);
+	var _ionicAnimationsAnimation = __webpack_require__(253);
 
-	var _ionicGesturesGesture = __webpack_require__(275);
+	var _ionicGesturesGesture = __webpack_require__(280);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	var _configConfig = __webpack_require__(217);
 
@@ -58706,7 +58947,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(299);
+	var _swiperWidget = __webpack_require__(301);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -59113,7 +59354,7 @@
 	    return Slides;
 	})(_ion.Ion);
 	exports.Slides = Slides;
-	exports.Slides = Slides = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Slides = Slides = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-slides',
 	    properties: ['loop', 'index', 'bounce', 'pager', 'options', 'zoom', 'zoomDuration', 'zoomMax']
 	}), (0, _angular2Angular2.View)({
@@ -59137,7 +59378,7 @@
 	    slides.rapidUpdate();
 	};
 	exports.Slide = Slide;
-	exports.Slide = Slide = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Slide = Slide = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-slide',
 	    properties: ['zoom']
 	}), (0, _angular2Angular2.View)({
@@ -59149,12 +59390,12 @@
 	    elementRef.getNativeElement().classList.add('swiper-lazy');
 	};
 	exports.SlideLazy = SlideLazy;
-	exports.SlideLazy = SlideLazy = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.SlideLazy = SlideLazy = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'slide-lazy'
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], SlideLazy);
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports) {
 
 	/**
@@ -59446,7 +59687,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59465,13 +59706,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
-	var _listList = __webpack_require__(290);
+	var _listList = __webpack_require__(294);
 
 	/**
 	 * @name ionRadioGroup
@@ -59689,7 +59930,7 @@
 	    return RadioGroup;
 	})(_ion.Ion);
 	exports.RadioGroup = RadioGroup;
-	exports.RadioGroup = RadioGroup = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.RadioGroup = RadioGroup = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-radio-group',
 	    host: {
 	        'class': 'list',
@@ -59761,7 +60002,7 @@
 	    return RadioButton;
 	})(_ion.Ion);
 	exports.RadioButton = RadioButton;
-	exports.RadioButton = RadioButton = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.RadioButton = RadioButton = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-radio',
 	    properties: ['value', 'checked', 'disabled', 'id'],
 	    host: {
@@ -59775,13 +60016,13 @@
 	        '[attr.aria-labelledby]': 'labelId',
 	        '(click)': 'click($event)'
 	    }
-	}), (0, _configAnnotations.IonicView)({
-	    template: '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<div item-right class="item-media media-radio">' + '<div class="radio-icon"></div>' + '</div>'
+	}), (0, _configDecorators.IonicView)({
+	    template: '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<media-radio>' + '<radio-icon></radio-icon>' + '</media-radio>'
 	}), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [RadioGroup, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], RadioButton);
 	var radioGroupIds = -1;
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59800,11 +60041,11 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	/**
 	 * ion-scroll is a non-flexboxed scroll area that can
@@ -59877,7 +60118,7 @@
 	    return Scroll;
 	})(_ion.Ion);
 	exports.Scroll = Scroll;
-	exports.Scroll = Scroll = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Scroll = Scroll = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-scroll',
 	    properties: ['scrollX', 'scrollY', 'zoom', 'maxZoom'],
 	    host: {
@@ -59889,7 +60130,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Scroll);
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59906,7 +60147,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _contentContent = __webpack_require__(266);
+	var _contentContent = __webpack_require__(271);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -60346,7 +60587,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _contentContent.Content !== 'undefined' && _contentContent.Content || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], Refresher);
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60365,11 +60606,11 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	/**
 	 * TODO
@@ -60448,14 +60689,14 @@
 	    return SearchBar;
 	})(_ion.Ion);
 	exports.SearchBar = SearchBar;
-	exports.SearchBar = SearchBar = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.SearchBar = SearchBar = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-search-bar',
 	    properties: ['list', 'query'],
 	    defaultProperties: {
 	        'cancelText': 'Cancel',
 	        'placeholder': 'Search'
 	    }
-	}), (0, _configAnnotations.IonicView)({
+	}), (0, _configDecorators.IonicView)({
 	    template: "\n  <div class=\"search-bar-input-container\" [class.left-align]=\"shouldLeftAlign\">\n    <div class=\"search-bar-icon\"></div>\n    <input (focus)=\"inputFocused()\" (blur)=\"inputBlurred()\"\n    (input)=\"inputChanged($event)\" class=\"search-bar-input\" type=\"search\" [attr.placeholder]=\"placeholder\">\n  </div>\n  <button class=\"search-bar-cancel\">{{cancelText}}</button>"
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], SearchBar);
 	/*
@@ -60483,7 +60724,7 @@
 	*/
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60504,11 +60745,11 @@
 
 	var _angular2Forms = __webpack_require__(151);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	/**
 	 * TODO
@@ -60667,7 +60908,7 @@
 	    return Segment;
 	})(_ion.Ion);
 	exports.Segment = Segment;
-	exports.Segment = Segment = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Segment = Segment = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-segment',
 	    appInjector: [_angular2Forms.NgControl],
 	    properties: ['value'],
@@ -60730,7 +60971,7 @@
 	    return SegmentControlValueAccessor;
 	})();
 	exports.SegmentControlValueAccessor = SegmentControlValueAccessor;
-	exports.SegmentControlValueAccessor = SegmentControlValueAccessor = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.SegmentControlValueAccessor = SegmentControlValueAccessor = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-segment',
 	    //properties: ['value'],
 	    host: {
@@ -60772,7 +61013,7 @@
 	    return SegmentButton;
 	})();
 	exports.SegmentButton = SegmentButton;
-	exports.SegmentButton = SegmentButton = __decorate([(0, _configAnnotations.IonicDirective)({
+	exports.SegmentButton = SegmentButton = __decorate([(0, _configDecorators.IonicDirective)({
 	    selector: 'ion-segment-button',
 	    properties: ['value'],
 	    host: {
@@ -60782,7 +61023,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Segment, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], SegmentButton);
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60801,13 +61042,13 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _ion = __webpack_require__(260);
+	var _ion = __webpack_require__(261);
 
-	var _formInput = __webpack_require__(259);
+	var _formInput = __webpack_require__(260);
 
 	var _configConfig = __webpack_require__(217);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
 
 	var _utilDom = __webpack_require__(222);
 
@@ -60854,12 +61095,9 @@
 	    this.swtch = swtch;
 	};
 	MediaSwitch = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: '.media-switch',
+	    selector: 'media-switch',
 	    host: {
-	        'tappable': 'true',
-	        '(touchstart)': 'swtch.pointerDown($event)',
-	        '(mousedown)': 'swtch.pointerDown($event)',
-	        '[class.activated]': 'swtch.isActivated'
+	        '[class.switch-activated]': 'swtch.isActivated'
 	    }
 	}), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Switch;
@@ -60917,6 +61155,8 @@
 	        var self = this;
 	        self.id = _formInput.IonInput.nextId();
 	        self.tabIndex = 0;
+	        self.lastTouch = 0;
+	        self.mode = config.setting('mode');
 	        self.onChange = function (_) {};
 	        self.onTouched = function (_) {};
 	        if (ngControl) ngControl.valueAccessor = this;
@@ -60924,11 +61164,11 @@
 	            var currentX = (0, _utilDom.pointerCoord)(ev).x;
 	            if (self.checked) {
 	                if (currentX + 15 < self.startX) {
-	                    self.toggle();
+	                    self.toggle(ev);
 	                    self.startX = currentX;
 	                }
 	            } else if (currentX - 15 > self.startX) {
-	                self.toggle();
+	                self.toggle(ev);
 	                self.startX = currentX;
 	            }
 	        }
@@ -60972,15 +61212,10 @@
 	         */
 	    }, {
 	        key: "toggle",
-	        value: function toggle() {
-	            this.check(!this.checked);
-	        }
-	    }, {
-	        key: "click",
-	        value: function click(ev) {
+	        value: function toggle(ev) {
 	            ev.preventDefault();
 	            ev.stopPropagation();
-	            this.toggle();
+	            this.check(!this.checked);
 	        }
 	    }, {
 	        key: "writeValue",
@@ -60991,11 +61226,9 @@
 	        key: "pointerDown",
 	        value: function pointerDown(ev) {
 	            if (/touch/.test(ev.type)) {
-	                this.isTouch = true;
+	                this.lastTouch = Date.now();
 	            }
-	            if (this.isTouch && /mouse/.test(ev.type)) {
-	                return;
-	            }
+	            if (this.isDisabled(ev)) return;
 	            this.startX = (0, _utilDom.pointerCoord)(ev).x;
 	            this.removeMoveListener();
 	            this.addMoveListener();
@@ -61004,20 +61237,17 @@
 	    }, {
 	        key: "pointerUp",
 	        value: function pointerUp(ev) {
-	            if (this.isTouch && /mouse/.test(ev.type)) {
-	                return;
-	            }
+	            if (this.isDisabled(ev)) return;
 	            var endX = (0, _utilDom.pointerCoord)(ev).x;
 	            if (this.checked) {
 	                if (this.startX + 4 > endX) {
-	                    this.toggle();
+	                    this.toggle(ev);
 	                }
 	            } else if (this.startX - 4 < endX) {
-	                this.toggle();
+	                this.toggle(ev);
 	            }
 	            this.removeMoveListener();
 	            this.isActivated = false;
-	            this.isTouch = false;
 	        }
 
 	        // Used by the view to update the model (Control)
@@ -61038,31 +61268,39 @@
 	            this.removeMoveListener();
 	            this.switchEle = this.addMoveListener = this.removeMoveListener = null;
 	        }
+	    }, {
+	        key: "isDisabled",
+	        value: function isDisabled(ev) {
+	            return this.lastTouch + 999 > Date.now() && /mouse/.test(ev.type) || this.mode == 'ios' && ev.target.tagName == 'ION-SWITCH';
+	        }
 	    }]);
 
 	    return Switch;
 	})(_ion.Ion);
 	exports.Switch = Switch;
-	exports.Switch = Switch = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Switch = Switch = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-switch',
 	    properties: ['value', 'checked', 'disabled', 'id'],
 	    host: {
 	        'class': 'item',
 	        'role': 'checkbox',
+	        'tappable': 'true',
 	        '[attr.tab-index]': 'tabIndex',
 	        '[attr.aria-checked]': 'checked',
 	        '[attr.aria-disabled]': 'disabled',
 	        '[attr.aria-labelledby]': 'labelId',
+	        '(touchstart)': 'pointerDown($event)',
+	        '(mousedown)': 'pointerDown($event)',
 	        '(touchend)': 'pointerUp($event)',
 	        '(mouseup)': 'pointerUp($event)'
 	    }
-	}), (0, _configAnnotations.IonicView)({
-	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<div item-right class="item-media media-switch">' + '<div class="switch-icon"></div>' + '</div>',
+	}), (0, _configDecorators.IonicView)({
+	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-content id="{{labelId}}">' + '<ng-content></ng-content>' + '</ion-item-content>' + '<media-switch disable-activated>' + '<switch-icon></switch-icon>' + '</media-switch>',
 	    directives: [MediaSwitch]
 	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object])], Switch);
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61083,20 +61321,25 @@
 
 	var _appApp = __webpack_require__(223);
 
-	var _viewViewController = __webpack_require__(283);
+	var _navNavController = __webpack_require__(285);
 
-	var _viewViewItem = __webpack_require__(279);
+	var _navViewController = __webpack_require__(284);
 
-	var _configAnnotations = __webpack_require__(220);
+	var _configDecorators = __webpack_require__(220);
+
+	var _configConfig = __webpack_require__(217);
 
 	/**
 	 * @name ionTabs
 	 * @description
-	 * Powers a multi-tabbed interface with a Tab Bar and a set of "pages" that can be tabbed through.
+	 * Powers a multi-tabbed interface with a Tab Bar and a set of "pages"
+	 * that can be tabbed through.
 	 *
 	 * Assign any tabs attribute to the element to define its look and feel.
 	 *
-	 * For iOS, tabs will appear at the bottom of the screen. For Android, tabs will be at the top of the screen, below the nav-bar. This follows each OS's design specification, but can be configured with the ionicConfig.
+	 * For iOS, tabs will appear at the bottom of the screen. For Android, tabs
+	 * will be at the top of the screen, below the nav-bar. This follows each platform's
+	 * design specification, but can be configured with IonicConfig.
 	 *
 	 * See the ionTab component's documentation for more details on individual tabs.
 	 *
@@ -61135,38 +61378,38 @@
 	        decorator(target, key, paramIndex);
 	    };
 	};
-	var Tabs = (function (_ViewController) {
-	    _inherits(Tabs, _ViewController);
+	var Tabs = (function (_NavController) {
+	    _inherits(Tabs, _NavController);
 
 	    /**
 	     * TODO
 	     */
 
-	    function Tabs(hostViewCtrl, viewItem, app, injector, elementRef, zone) {
+	    function Tabs(hostNavCtrl, viewCtrl, app, injector, elementRef, zone) {
 	        var _this = this;
 
 	        _classCallCheck(this, Tabs);
 
-	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, hostViewCtrl, injector, elementRef, zone);
+	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, hostNavCtrl, injector, elementRef, zone);
 	        this.app = app;
-	        // Tabs may also be an actual ViewItem which was navigated to
-	        // if Tabs is static and not navigated to within a ViewController
-	        // then skip this and don't treat it as it's own ViewItem
-	        if (viewItem) {
-	            this.item = viewItem;
-	            // special overrides for the Tabs ViewItem
-	            // the Tabs ViewItem does not have it's own navbar
+	        // Tabs may also be an actual ViewController which was navigated to
+	        // if Tabs is static and not navigated to within a NavController
+	        // then skip this and don't treat it as it's own ViewController
+	        if (viewCtrl) {
+	            this.viewCtrl = viewCtrl;
+	            // special overrides for the Tabs ViewController
+	            // the Tabs ViewController does not have it's own navbar
 	            // so find the navbar it should use within it's active Tab
-	            viewItem.navbarView = function () {
+	            viewCtrl.navbarView = function () {
 	                var activeTab = _this.getActive();
 	                if (activeTab && activeTab.instance) {
 	                    return activeTab.instance.navbarView();
 	                }
 	            };
-	            // a Tabs ViewItem should not have a back button
+	            // a Tabs ViewController should not have a back button
 	            // enableBack back button will later be determined
-	            // by the active ViewItem that has a navbar
-	            viewItem.enableBack = function () {
+	            // by the active ViewController that has a navbar
+	            viewCtrl.enableBack = function () {
 	                return false;
 	            };
 	        }
@@ -61180,13 +61423,13 @@
 	    _createClass(Tabs, [{
 	        key: "addTab",
 	        value: function addTab(tab) {
-	            // tab.item refers to the ViewItem of the individual Tab being added to Tabs (ViewController)
-	            // this.item refers to the ViewItem instsance on Tabs
-	            this.add(tab.item);
+	            // tab.viewCtrl refers to the ViewController of the individual Tab being added to Tabs (NavController)
+	            // this.viewCtrl refers to the ViewController instsance on Tabs
+	            this.add(tab.viewCtrl);
 	            if (this.length() === 1) {
 	                // this was the first tab added, queue this one to be loaded and selected
 	                var promise = tab.queueInitial();
-	                this.item && this.item.addPromise(promise);
+	                this.viewCtrl && this.viewCtrl.addPromise(promise);
 	            }
 	        }
 
@@ -61200,24 +61443,24 @@
 	        value: function select(tab) {
 	            var _this2 = this;
 
-	            var enteringItem = null;
+	            var enteringView = null;
 	            if (typeof tab === 'number') {
-	                enteringItem = this.getByIndex(tab);
+	                enteringView = this.getByIndex(tab);
 	            } else {
-	                enteringItem = this.getByInstance(tab);
+	                enteringView = this.getByInstance(tab);
 	            }
-	            if (!enteringItem || !enteringItem.instance || !this.app.isEnabled()) {
+	            if (!enteringView || !enteringView.instance || !this.app.isEnabled()) {
 	                return Promise.reject();
 	            }
 	            return new Promise(function (resolve) {
-	                enteringItem.instance.load(function () {
+	                enteringView.instance.load(function () {
 	                    var opts = {
 	                        animate: false
 	                    };
-	                    var leavingItem = _this2.getActive() || new _viewViewItem.ViewItem();
-	                    leavingItem.shouldDestroy = false;
-	                    leavingItem.shouldCache = true;
-	                    _this2.transition(enteringItem, leavingItem, opts, function () {
+	                    var leavingView = _this2.getActive() || new _navViewController.ViewController();
+	                    leavingView.shouldDestroy = false;
+	                    leavingView.shouldCache = true;
+	                    _this2.transition(enteringView, leavingView, opts, function () {
 	                        resolve();
 	                    });
 	                });
@@ -61231,34 +61474,37 @@
 	    }]);
 
 	    return Tabs;
-	})(_viewViewController.ViewController);
+	})(_navNavController.NavController);
 	exports.Tabs = Tabs;
-	exports.Tabs = Tabs = __decorate([(0, _configAnnotations.IonicComponent)({
+	exports.Tabs = Tabs = __decorate([(0, _configDecorators.IonicComponent)({
 	    selector: 'ion-tabs',
 	    defaultProperties: {
 	        'tabBarPlacement': 'bottom',
 	        'tabBarIcons': 'top'
 	    }
-	}), (0, _configAnnotations.IonicView)({
+	}), (0, _configDecorators.IonicView)({
 	    template: '' + '<nav class="tab-bar-container">' + '<div class="tab-bar" role="tablist">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '</div>' + '</nav>' + '<section class="content-container">' + '<ng-content></ng-content>' + '</section>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return TabButton;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _viewViewController.ViewController !== 'undefined' && _viewViewController.ViewController || Object, typeof _viewViewItem.ViewItem !== 'undefined' && _viewViewItem.ViewItem || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.Injector !== 'undefined' && _angular2Angular2.Injector || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Tabs);
+	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navNavController.NavController !== 'undefined' && _navNavController.NavController || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.Injector !== 'undefined' && _angular2Angular2.Injector || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Tabs);
 	/**
 	 * TODO
 	 */
 	var TabButton = (function () {
-	    function TabButton(tabs) {
+	    function TabButton(tabs, config, elementRef) {
 	        _classCallCheck(this, TabButton);
 
 	        this.tabs = tabs;
+	        if (config.setting('hoverCSS') === false) {
+	            elementRef.nativeElement.classList.add('disable-hover');
+	        }
 	    }
 
 	    _createClass(TabButton, [{
 	        key: "onInit",
 	        value: function onInit() {
-	            var id = this.tab.item.id;
+	            var id = this.tab.viewCtrl.id;
 	            this.btnId = 'tab-button-' + id;
 	            this.panelId = 'tab-panel-' + id;
 	            this.hasTitle = !!this.tab.tabTitle;
@@ -61290,10 +61536,10 @@
 	        '[class.icon-only]': 'hasIconOnly',
 	        '(click)': 'onClick($event)'
 	    }
-	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs])], TabButton);
+	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], TabButton);
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61312,11 +61558,11 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _viewViewController = __webpack_require__(283);
+	var _navNavController = __webpack_require__(285);
 
-	var _viewViewItem = __webpack_require__(279);
+	var _navViewController = __webpack_require__(284);
 
-	var _tabs = __webpack_require__(306);
+	var _tabs = __webpack_require__(308);
 
 	/**
 	 * @name ionTab
@@ -61354,8 +61600,8 @@
 	        decorator(target, key, paramIndex);
 	    };
 	};
-	var Tab = (function (_ViewController) {
-	    _inherits(Tab, _ViewController);
+	var Tab = (function (_NavController) {
+	    _inherits(Tab, _NavController);
 
 	    /**
 	     * TODO
@@ -61371,27 +61617,27 @@
 	        _classCallCheck(this, Tab);
 
 	        // A Tab is both a container of many views, and is a view itself.
-	        // A Tab is one ViewItem within it's Host Tabs (which extends ViewController)
-	        // A Tab is a ViewController for its child ViewItems
+	        // A Tab is one ViewController within it's Host Tabs (which extends NavController)
+	        // A Tab is a NavController for its child ViewControllers
 	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, injector, elementRef, zone);
 	        this.tabs = tabs;
 	        this.childNavbar(true);
-	        var item = this.item = new _viewViewItem.ViewItem(tabs.Host);
-	        item.setInstance(this);
-	        item.viewElementRef(elementRef);
+	        var viewCtrl = this.viewCtrl = new _navViewController.ViewController(tabs.Host);
+	        viewCtrl.setInstance(this);
+	        viewCtrl.viewElementRef(elementRef);
 	        tabs.addTab(this);
-	        this.navbarView = item.navbarView = function () {
-	            var activeItem = _this.getActive();
-	            return activeItem && activeItem.navbarView();
+	        this.navbarView = viewCtrl.navbarView = function () {
+	            var activeView = _this.getActive();
+	            return activeView && activeView.navbarView();
 	        };
-	        item.enableBack = function () {
-	            // override ViewItem's enableBack(), should use the
+	        viewCtrl.enableBack = function () {
+	            // override ViewController's enableBack(), should use the
 	            // active child nav item's enableBack() instead
-	            var activeItem = _this.getActive();
-	            return activeItem && activeItem.enableBack();
+	            var activeView = _this.getActive();
+	            return activeView && activeView.enableBack();
 	        };
-	        this.panelId = 'tab-panel-' + item.id;
-	        this.labeledBy = 'tab-button-' + item.id;
+	        this.panelId = 'tab-panel-' + viewCtrl.id;
+	        this.labeledBy = 'tab-button-' + viewCtrl.id;
 	    }
 
 	    _createClass(Tab, [{
@@ -61445,17 +61691,17 @@
 	    }, {
 	        key: "isSelected",
 	        get: function get() {
-	            return this.tabs.isActive(this.item);
+	            return this.tabs.isActive(this.viewCtrl);
 	        }
 	    }, {
 	        key: "isNotSelected",
 	        get: function get() {
-	            return !this.tabs.isActive(this.item);
+	            return !this.tabs.isActive(this.viewCtrl);
 	        }
 	    }]);
 
 	    return Tab;
-	})(_viewViewController.ViewController);
+	})(_navNavController.NavController);
 	exports.Tab = Tab;
 	exports.Tab = Tab = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-tab',
@@ -61492,7 +61738,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], TabPaneAnchor);
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61551,9 +61797,6 @@
 	    subsets: ['ipad', 'iphone'],
 	    settings: {
 	        mode: 'ios',
-	        tapPolyfill: function tapPolyfill(p) {
-	            return /iphone|ipad|ipod/i.test(p.navigatorPlatform());
-	        },
 	        keyboardScrollAssist: function keyboardScrollAssist(p) {
 	            return /iphone|ipad|ipod/i.test(p.navigatorPlatform());
 	        },
@@ -61594,7 +61837,7 @@
 	    superset: 'mobile',
 	    subsets: ['phablet', 'tablet'],
 	    settings: {
-	        mode: 'wp'
+	        mode: 'md'
 	    },
 	    isMatch: function isMatch(p) {
 	        return p.isPlatform('windowsphone', 'windows phone');
@@ -61623,7 +61866,1798 @@
 	});
 
 /***/ },
-/* 309 */
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+	var _plugin = __webpack_require__(312);
+
+	_defaults(exports, _interopRequireWildcard(_plugin));
+
+	var _applinksApplinks = __webpack_require__(313);
+
+	_defaults(exports, _interopRequireWildcard(_applinksApplinks));
+
+	var _barcodeBarcode = __webpack_require__(314);
+
+	_defaults(exports, _interopRequireWildcard(_barcodeBarcode));
+
+	var _batteryBattery = __webpack_require__(315);
+
+	_defaults(exports, _interopRequireWildcard(_batteryBattery));
+
+	var _cameraCamera = __webpack_require__(316);
+
+	_defaults(exports, _interopRequireWildcard(_cameraCamera));
+
+	var _contactsContacts = __webpack_require__(317);
+
+	_defaults(exports, _interopRequireWildcard(_contactsContacts));
+
+	var _dialogsDialogs = __webpack_require__(318);
+
+	_defaults(exports, _interopRequireWildcard(_dialogsDialogs));
+
+	var _deviceDevice = __webpack_require__(319);
+
+	_defaults(exports, _interopRequireWildcard(_deviceDevice));
+
+	var _deviceMotionDeviceMotion = __webpack_require__(320);
+
+	_defaults(exports, _interopRequireWildcard(_deviceMotionDeviceMotion));
+
+	var _deviceOrientationDeviceOrientation = __webpack_require__(321);
+
+	_defaults(exports, _interopRequireWildcard(_deviceOrientationDeviceOrientation));
+
+	var _geolocationGeolocation = __webpack_require__(322);
+
+	_defaults(exports, _interopRequireWildcard(_geolocationGeolocation));
+
+	var _keyboardKeyboard = __webpack_require__(323);
+
+	_defaults(exports, _interopRequireWildcard(_keyboardKeyboard));
+
+	var _statusbarStatusbar = __webpack_require__(324);
+
+	_defaults(exports, _interopRequireWildcard(_statusbarStatusbar));
+
+	var _vibrationVibration = __webpack_require__(325);
+
+	_defaults(exports, _interopRequireWildcard(_vibrationVibration));
+
+/***/ },
+/* 312 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	exports.NativePlugin = NativePlugin;
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var NativePluginDecorator = function NativePluginDecorator(cls, config) {
+	    var _this = this;
+
+	    _classCallCheck(this, NativePluginDecorator);
+
+	    this.cls = cls;
+	    this.config = config;
+	    cls.ifPlugin = function (cb) {
+	        var returnType = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
+
+	        // Convert to boolean the plugin param
+	        var exists = !!check;
+	        if (typeof _this.config.pluginCheck === 'function') {
+	            exists = _this.config.pluginCheck();
+	        }
+	        if (exists) {
+	            return cb();
+	        }
+	        // We don't have the plugin, so print a warning message
+	        cls.pluginWarn();
+	        // If the user supplied a default return value, return it here.
+	        if (returnType) {
+	            return typeof returnType === 'function' ? returnType() : returnType;
+	        }
+	        return false;
+	    };
+	    cls.pluginWarn = function () {
+	        if (cls._pluginWarned) {
+	            // Only warn once
+	            return;
+	        }
+	        var platformString = [];
+	        for (var k in _this.config.engines) {
+	            platformString.push('\t' + k + ': ' + _this.config.engines[k]);
+	        }
+	        console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
+	        // Set a flag so we don't warn again
+	        cls._pluginWarned = true;
+	    };
+	};
+
+	exports.NativePluginDecorator = NativePluginDecorator;
+
+	function NativePlugin(config) {
+	    return function (cls) {
+	        var annotations = Reflect.getMetadata('annotations', cls) || [];
+	        annotations.push(new NativePluginDecorator(cls, config));
+	        Reflect.defineMetadata('annotations', annotations, cls);
+	        return cls;
+	    };
+	}
+
+/***/ },
+/* 313 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	/**
+	 * Open installed apps on the device. Note: Android and iOS have different ways of
+	 * opening and specifying launch params, so they have separate launch functions.
+	 *
+	 * Example:
+	 *
+	 * if(platform.is('ios') {
+	 *   AppLinks.check('twitter://').then((installed) => {
+	 *     AppLinks.openIOS('twitter://user?screen_name=ionicframework')
+	 *   }, (err) => {
+	 *
+	 *   })
+	 * } else if(platform.is('android') {
+	 *   AppLinks.check('com.twitter.android').then((installed) => {
+	 *     AppLinks.openAndroid([["action", "VIEW"], ['twitter://user?screen_name=ionicframework']])
+	 *   })
+	 * }
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var AppLinks = (function () {
+	    function AppLinks() {
+	        _classCallCheck(this, AppLinks);
+	    }
+
+	    _createClass(AppLinks, null, [{
+	        key: "openIOS",
+
+	        /**
+	         * Open app on iOS with a given URL (iOS), or scheme (Android)
+	         */
+	        value: function openIOS(url) {
+	            this.ifPlugin(function () {
+	                navigator.startApp.start(url);
+	            });
+	        }
+
+	        /**
+	         * Open app on Android with a given scheme and params.
+	         */
+	    }, {
+	        key: "openAndroid",
+	        value: function openAndroid(args) {
+	            this.ifPlugin(function () {
+	                var _navigator$startApp;
+
+	                (_navigator$startApp = navigator.startApp).start.apply(_navigator$startApp, _toConsumableArray(args));
+	            });
+	        }
+
+	        /**
+	         * Check if an installed app can be opened from the given URL.
+	         */
+	    }, {
+	        key: "canOpen",
+	        value: function canOpen(urlOrScheme) {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                var hasPlugin = _this.ifPlugin(function () {
+	                    navigator.startApp.check(urlOrScheme, function (message) {
+	                        resolve(message);
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                });
+	                if (!hasPlugin) {
+	                    reject('Plugin not installed');
+	                }
+	            });
+	        }
+	    }]);
+
+	    return AppLinks;
+	})();
+	exports.AppLinks = AppLinks;
+	exports.AppLinks = AppLinks = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'AppLinks',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'cordova-plugin-statusbar'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return !!navigator.startApp;
+	    }
+	}), __metadata('design:paramtypes', [])], AppLinks);
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Barcode = (function () {
+	    function Barcode() {
+	        _classCallCheck(this, Barcode);
+	    }
+
+	    _createClass(Barcode, null, [{
+	        key: "scan",
+
+	        /**
+	         * Scan a barcode.
+	         *
+	         * @return Promise that resolves with an object of the format: {
+	         *   text: text that was scanned,
+	         *   format: format of barcode,
+	         *   cancelled: was it canceled?
+	         * }
+	         */
+	        value: function scan() {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                var hasPlugin = _this.ifPlugin(function () {
+	                    window.cordova.plugins.barcodeScanner.scan(function (result) {
+	                        resolve(result);
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                });
+	                if (!hasPlugin) {
+	                    reject('No scanner available');
+	                }
+	            });
+	        }
+
+	        /**
+	         * Encode the given data in a barcode.
+	         *
+	         * @param type the type to use for encoding (if in doubt, use TYPE_TEXT).
+	         * @param data the data to encode
+	         * @return Promise
+	         */
+	    }, {
+	        key: "encode",
+	        value: function encode(type, data) {
+	            var _this2 = this;
+
+	            return new Promise(function (resolve, reject) {
+	                var hasPlugin = _this2.ifPlugin(function () {
+	                    window.cordova.plugins.barcodeScanner.encode(type, data, function (result) {
+	                        resolve(result);
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                });
+	                if (!hasPlugin) {
+	                    reject('No scanner available');
+	                }
+	            });
+	        }
+	    }]);
+
+	    return Barcode;
+	})();
+	exports.Barcode = Barcode;
+	Barcode.TEXT_TYPE = "TEXT_TYPE";
+	Barcode.EMAIL_TYPE = "EMAIL_TYPE";
+	Barcode.PHONE_TYPE = "PHONE_TYPE";
+	Barcode.SMS_TYPE = "SMS_TYPE";
+	exports.Barcode = Barcode = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Barcode',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'phonegap-plugin-barcodescanner'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return window.cordova && window.cordova.plugins && window.cordova.plugins.barcodeScanner;
+	    }
+	}), __metadata('design:paramtypes', [])], Barcode);
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicUtil = __webpack_require__(221);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var _Battery = (function () {
+	    function Battery() {
+	        _classCallCheck(this, Battery);
+	    }
+
+	    _createClass(Battery, null, [{
+	        key: "getStatus",
+	        value: function getStatus() {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (navigator.getBattery) {
+	                    navigator.getBattery().then(function (battery) {
+	                        _this.battery = battery;
+	                        resolve(_Battery._format(battery));
+	                    });
+	                } else {
+	                    var fnCb = function fnCb(battery) {
+	                        resolve(battery);
+	                        window.removeEventListener('batterystatus', fnCb);
+	                    };
+	                    window.addEventListener('batterystatus', fnCb);
+	                }
+	            });
+	        }
+	    }, {
+	        key: "_format",
+	        value: function _format(batteryObj) {
+	            if (typeof batteryObj.isPlugged !== 'undefined') {
+	                // This is the old format, map it to the new format
+	                util.extend(batteryObj, {
+	                    charging: batteryObj.isPlugged,
+	                    level: batteryObj.level / 100,
+	                    chargingTime: 0,
+	                    dischargingTime: 0 //not provided
+	                });
+	            }
+	            return batteryObj;
+	        }
+	    }]);
+
+	    return Battery;
+	})();
+	exports.Battery = _Battery;
+	_Battery = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Battery',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-battery-status'
+	    }
+	}), __metadata('design:paramtypes', [])], _Battery);
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _ionicUtil = __webpack_require__(221);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Camera = (function () {
+	    function Camera() {
+	        _classCallCheck(this, Camera);
+	    }
+
+	    _createClass(Camera, null, [{
+	        key: "getPicture",
+	        value: function getPicture(options) {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.camera) {
+	                    _this.pluginWarn();
+	                    resolve(null);
+	                    return;
+	                }
+	                var options = util.defaults({
+	                    quality: 80,
+	                    destinationType: window.Camera.DestinationType.DATA_URL,
+	                    sourceType: window.Camera.PictureSourceType.CAMERA,
+	                    allowEdit: true,
+	                    encodingType: window.Camera.EncodingType.JPEG,
+	                    popoverOptions: window.CameraPopoverOptions,
+	                    saveToPhotoAlbum: false
+	                }, options);
+	                navigator.camera.getPicture(function (imageData) {
+	                    resolve(imageData);
+	                }, function (err) {
+	                    reject(err);
+	                }, options);
+	            });
+	        }
+	    }, {
+	        key: "cleanup",
+	        value: function cleanup() {
+	            return new Promise(function (resolve, reject) {
+	                navigator.camera.cleanup(function () {
+	                    resolve();
+	                }, function (err) {
+	                    reject(err);
+	                });
+	            });
+	        }
+	    }]);
+
+	    return Camera;
+	})();
+	exports.Camera = Camera;
+	exports.Camera = Camera = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Camera',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'cordova-plugin-camera'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return !!navigator.camera;
+	    }
+	}), __metadata('design:paramtypes', [])], Camera);
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Contacts = (function () {
+	    function Contacts() {
+	        _classCallCheck(this, Contacts);
+	    }
+
+	    _createClass(Contacts, null, [{
+	        key: "save",
+	        value: function save(contact) {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.contacts) {
+	                    _this.pluginWarn();
+	                    reject('Contacts plugin not installed');
+	                }
+	                var deviceContact = navigator.contacts.create(contact);
+	                deviceContact.save(function (result) {
+	                    resolve(result);
+	                }, function (err) {
+	                    reject(err);
+	                });
+	            });
+	        }
+	    }, {
+	        key: "remove",
+	        value: function remove(contact) {
+	            var _this2 = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.contacts) {
+	                    _this2.pluginWarn();
+	                    reject('Contacts plugin not installed');
+	                }
+	                var deviceContact = navigator.contacts.create(contact);
+	                deviceContact.remove(function (result) {
+	                    resolve(result);
+	                }, function (err) {
+	                    reject(err);
+	                });
+	            });
+	        }
+	    }, {
+	        key: "clone",
+	        value: function clone(contact) {
+	            if (!navigator.contacts) {
+	                this.pluginWarn();
+	                return null;
+	            }
+	            var deviceContact = navigator.contacts.create(contact);
+	            return deviceContact.clone(contact);
+	        }
+	    }, {
+	        key: "find",
+	        value: function find(options) {
+	            return new Promise(function (resolve, reject) {
+	                var fields = options.fields || ['id', 'displayName'];
+	                delete options.fields;
+	                if (Object.keys(options).length === 0) {
+	                    navigator.contacts.find(fields, function (results) {
+	                        resolve(results);
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                } else {
+	                    navigator.contacts.find(fields, function (results) {
+	                        resolve(results);
+	                    }, function (err) {
+	                        reject(err);
+	                    }, options);
+	                }
+	            });
+	        }
+	    }, {
+	        key: "pickContact",
+	        value: function pickContact() {
+	            return new Promise(function (resolve, reject) {
+	                navigator.contacts.pickContact(function (contact) {
+	                    resolve(contact);
+	                }, function (err) {
+	                    reject(err);
+	                });
+	            });
+	        }
+	    }]);
+
+	    return Contacts;
+	})();
+	exports.Contacts = Contacts;
+	exports.Contacts = Contacts = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Contacts',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'cordova-plugin-contacts'
+	    }
+	}), __metadata('design:paramtypes', [])], Contacts);
+
+/***/ },
+/* 318 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	/**
+	 * A native dialogs system. Native dialogs can give you a bit more
+	 * control over the UI than the browser built-ins, though the Dialogs
+	 * plugin will fall back to the built-ins when necessary.
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Dialogs = (function () {
+	    function Dialogs() {
+	        _classCallCheck(this, Dialogs);
+	    }
+
+	    _createClass(Dialogs, null, [{
+	        key: "alert",
+
+	        /**
+	         * Trigger an alert prompt.
+	         *
+	         * @param message the message to show
+	         * @param title the title to show
+	         * @param buttonName the button label to use (not available on browser fallback)
+	         * @return Promise
+	         */
+	        value: (function (_alert) {
+	            function alert(_x, _x2, _x3) {
+	                return _alert.apply(this, arguments);
+	            }
+
+	            alert.toString = function () {
+	                return _alert.toString();
+	            };
+
+	            return alert;
+	        })(function (message, title, buttonName) {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.notification) {
+	                    _this.pluginWarn();
+	                    alert(message);
+	                    resolve();
+	                } else {
+	                    navigator.notification.alert(message, function () {
+	                        resolve();
+	                    }, title, buttonName);
+	                }
+	            });
+	        })
+
+	        /**
+	         * Trigger a confirm prompt.
+	         *
+	         * @param message the message to show
+	         * @param title the title to show
+	         * @param buttonLabels the button labels to use (not available on browser fallback)
+	         * @return Promise that resolves with the index of the button selected (zero indexed). 1 is OK on browser fallback
+	         */
+	    }, {
+	        key: "confirm",
+	        value: (function (_confirm) {
+	            function confirm(_x4, _x5, _x6) {
+	                return _confirm.apply(this, arguments);
+	            }
+
+	            confirm.toString = function () {
+	                return _confirm.toString();
+	            };
+
+	            return confirm;
+	        })(function (message, title, buttonLabels) {
+	            var _this2 = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.notification) {
+	                    _this2.pluginWarn();
+	                    var ok = confirm(message);
+	                    // Use 2 as OK
+	                    resolve(ok ? 2 : 0);
+	                } else {
+	                    navigator.notification.confirm(message, function (buttonIndex) {
+	                        resolve(buttonIndex - 1);
+	                    }, title, buttonLabels);
+	                }
+	            });
+	        })
+	    }, {
+	        key: "prompt",
+	        value: (function (_prompt) {
+	            function prompt(_x7, _x8, _x9, _x10) {
+	                return _prompt.apply(this, arguments);
+	            }
+
+	            prompt.toString = function () {
+	                return _prompt.toString();
+	            };
+
+	            return prompt;
+	        })(function (message, title, buttonLabels, defaultText) {
+	            var _this3 = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (!navigator.notification) {
+	                    _this3.pluginWarn();
+	                    var response = prompt(message);
+	                    // Use 1 as OK
+	                    resolve(response);
+	                } else {
+	                    navigator.notification.prompt(message, function (results) {
+	                        resolve(results.input1, buttonIndex - 1);
+	                    }, title, buttonLabels, defaultText);
+	                }
+	            });
+	        })
+
+	        /**
+	         * Beep n times. Not available on browser.
+	         * @param times the number of times to beep
+	         */
+	    }, {
+	        key: "beep",
+	        value: function beep(times) {
+	            navigator.notification && navigator.notification.beep(times);
+	        }
+	    }]);
+
+	    return Dialogs;
+	})();
+	exports.Dialogs = Dialogs;
+	exports.Dialogs = Dialogs = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Dialogs',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-dialogs'
+	    }
+	}), __metadata('design:paramtypes', [])], Dialogs);
+
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var _Device = (function () {
+	    function Device() {
+	        _classCallCheck(this, Device);
+	    }
+
+	    _createClass(Device, null, [{
+	        key: "getDevice",
+
+	        /**
+	         * Returns the whole device object.
+	         * @see https://github.com/apache/cordova-plugin-device
+	         * @returns {Object} The device object.
+	         */
+	        value: function getDevice() {
+	            return this.ifPlugin(function () {
+	                return device;
+	            }, function () {
+	                return {
+	                    name: _Device.getName(),
+	                    model: _Device.getModel(),
+	                    platform: _Device.getPlatform(),
+	                    uuid: _Device.getUUID(),
+	                    version: _Device.getVersion()
+	                };
+	            });
+	        }
+
+	        /**
+	         * Returns the Cordova version.
+	         * @see https://github.com/apache/cordova-plugin-device#devicecordova
+	         * @returns {String} The Cordova version.
+	         */
+	    }, {
+	        key: "getCordova",
+	        value: function getCordova() {
+	            this.ifPlugin(function () {
+	                return device.cordova;
+	            });
+	        }
+
+	        /**
+	         * Returns the name of the device's model or product.
+	         * @see https://github.com/apache/cordova-plugin-device#devicemodel
+	         * @returns {String} The name of the device's model or product.
+	         */
+	    }, {
+	        key: "getModel",
+	        value: function getModel() {
+	            this.ifPlugin(function () {
+	                return device.model;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+
+	        /**
+	         * @deprecated device.name is deprecated as of version 2.3.0. Use device.model instead.
+	         * @returns {String}
+	         */
+	    }, {
+	        key: "getName",
+	        value: function getName() {
+	            this.ifPlugin(function () {
+	                return device.name;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+
+	        /**
+	         * Returns the device's operating system name.
+	         * @see https://github.com/apache/cordova-plugin-device#deviceplatform
+	         * @returns {String} The device's operating system name.
+	         */
+	    }, {
+	        key: "getPlatform",
+	        value: function getPlatform() {
+	            this.ifPlugin(function () {
+	                return device.name;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+
+	        /**
+	         * Returns the device's Universally Unique Identifier.
+	         * @see https://github.com/apache/cordova-plugin-device#deviceuuid
+	         * @returns {String} The device's Universally Unique Identifier
+	         */
+	    }, {
+	        key: "getUUID",
+	        value: function getUUID() {
+	            this.ifPlugin(function () {
+	                return device.uuid;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+
+	        /**
+	         * Returns the operating system version.
+	         * @see https://github.com/apache/cordova-plugin-device#deviceversion
+	         * @returns {String}
+	         */
+	    }, {
+	        key: "getVersion",
+	        value: function getVersion() {
+	            this.ifPlugin(function () {
+	                return device.version;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+
+	        /**
+	         * Returns the device manufacturer.
+	         * @returns {String}
+	         */
+	    }, {
+	        key: "getManufacturer",
+	        value: function getManufacturer() {
+	            this.ifPlugin(function () {
+	                return device.manufacturer;
+	            }, function () {
+	                return 'unknown';
+	            });
+	        }
+	    }]);
+
+	    return Device;
+	})();
+	exports.Device = _Device;
+	_Device = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Device',
+	    plugins: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-device'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return !!window.device;
+	    }
+	}), __metadata('design:paramtypes', [])], _Device);
+
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _rx = __webpack_require__(106);
+
+	var Rx = _interopRequireWildcard(_rx);
+
+	var _ionicUtil = __webpack_require__(221);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var _DeviceMotion = (function () {
+	    function DeviceMotion() {
+	        _classCallCheck(this, DeviceMotion);
+	    }
+
+	    _createClass(DeviceMotion, null, [{
+	        key: "_wrap",
+	        value: function _wrap(result) {
+	            // Mimic the DeviceMotionEvent
+	            return util.extend({
+	                acceleration: result,
+	                accelerationIncludingGravity: result,
+	                rotationRate: 0,
+	                interval: 0,
+	                native: true
+	            }, result);
+	        }
+	    }, {
+	        key: "getCurrentAcceleration",
+	        value: function getCurrentAcceleration() {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
+	                    var fnCb = function fnCb(eventData) {
+	                        resolve(_DeviceMotion._wrap(eventData));
+	                        window.removeEventListener('devicemotion', fnCb);
+	                    };
+	                    window.addEventListener('devicemotion', fnCb);
+	                } else if (navigator.accelerometer) {
+	                    navigator.accelerometer.getCurrentAcceleration(function (result) {
+	                        resolve(_DeviceMotion._wrap(result));
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                } else {
+	                    _this.pluginWarn();
+	                    reject('The Device does not support device motion events.');
+	                    return;
+	                }
+	            });
+	        }
+	    }, {
+	        key: "watchAcceleration",
+	        value: function watchAcceleration(options) {
+	            if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
+	                var watchID = undefined;
+	                var source = Rx.Observable.create(function (observer) {
+	                    var fnCb = function fnCb(eventData) {
+	                        observer.onNext(_DeviceMotion._wrap(eventData));
+	                    };
+	                    window.addEventListener('devicemotion', fnCb);
+	                });
+	                return {
+	                    source: source,
+	                    watchID: watchID,
+	                    clear: function clear() {
+	                        window.removeEventListener('devicemotion', fnCb);
+	                    }
+	                };
+	            } else if (navigator.accelerometer) {
+	                var _ret = (function () {
+	                    var watchID = undefined;
+	                    var source = Rx.Observable.create(function (observer) {
+	                        watchID = navigator.accelerometer.watchAcceleration(function (result) {
+	                            observer.onNext(_DeviceMotion._wrap(result));
+	                        }, function (err) {
+	                            observer.onError(err, observer);
+	                        }, options);
+	                    });
+	                    return {
+	                        v: {
+	                            source: source,
+	                            watchID: watchID,
+	                            clear: function clear() {
+	                                navigator.accelerometer.clearWatch(watchID);
+	                            }
+	                        }
+	                    };
+	                })();
+
+	                if (typeof _ret === "object") return _ret.v;
+	            }
+	        }
+	    }]);
+
+	    return DeviceMotion;
+	})();
+	exports.DeviceMotion = _DeviceMotion;
+	_DeviceMotion = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Device Motion',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-device-motion'
+	    }
+	}), __metadata('design:paramtypes', [])], _DeviceMotion);
+
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _rx = __webpack_require__(106);
+
+	var Rx = _interopRequireWildcard(_rx);
+
+	var _ionicUtil = __webpack_require__(221);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var _DeviceOrientation = (function () {
+	    function DeviceOrientation() {
+	        _classCallCheck(this, DeviceOrientation);
+	    }
+
+	    _createClass(DeviceOrientation, null, [{
+	        key: "_wrap",
+	        value: function _wrap(result) {
+	            return util.extend({
+	                alpha: result.magneticHeading,
+	                magneticHeading: result.webkitCompassHeading || result.alpha
+	            }, result);
+	        }
+	    }, {
+	        key: "getCurrentHeading",
+	        value: function getCurrentHeading() {
+	            var _this = this;
+
+	            return new Promise(function (resolve, reject) {
+	                if (window.DeviceOrientationEvent) {
+	                    var fnCb = function fnCb(eventData) {
+	                        resolve(_DeviceOrientation._wrap(eventData));
+	                        window.removeEventListener('deviceorientation', fnCb);
+	                    };
+	                    window.addEventListener('deviceorientation', fnCb);
+	                } else if (navigator.compass) {
+	                    navigator.compass.getCurrentHeading(function (result) {
+	                        resolve(_DeviceOrientation._wrap(result));
+	                    }, function (err) {
+	                        reject(err);
+	                    });
+	                } else {
+	                    _this.pluginWarn();
+	                    reject('The Device does not support device orientation events.');
+	                    return;
+	                }
+	            });
+	        }
+	    }, {
+	        key: "watchHeading",
+	        value: function watchHeading(options) {
+	            if (window.DeviceOrientationEvent) {
+	                var watchID = undefined;
+	                var source = Rx.Observable.create(function (observer) {
+	                    var fnCb = function fnCb(eventData) {
+	                        observer.onNext(_DeviceOrientation._wrap(eventData));
+	                    };
+	                    window.addEventListener('deviceorientation', fnCb);
+	                });
+	                return {
+	                    source: source,
+	                    watchID: watchID,
+	                    clear: function clear() {
+	                        window.removeEventListener('deviceorientation', fnCb);
+	                    }
+	                };
+	            } else if (navigator.accelerometer) {
+	                var _ret = (function () {
+	                    var watchID = undefined;
+	                    var source = Rx.Observable.create(function (observer) {
+	                        watchID = navigator.compass.watchHeading(function (result) {
+	                            observer.onNext(_DeviceOrientation._wrap(result));
+	                        }, function (err) {
+	                            observer.onError(err, observer);
+	                        }, options);
+	                    });
+	                    return {
+	                        v: {
+	                            source: source,
+	                            watchID: watchID,
+	                            clear: function clear() {
+	                                navigator.compass.clearWatch(watchID);
+	                            }
+	                        }
+	                    };
+	                })();
+
+	                if (typeof _ret === "object") return _ret.v;
+	            }
+	        }
+	    }]);
+
+	    return DeviceOrientation;
+	})();
+	exports.DeviceOrientation = _DeviceOrientation;
+	_DeviceOrientation = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Device Orientation',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-device-orientation'
+	    }
+	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
+
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _rx = __webpack_require__(106);
+
+	var Rx = _interopRequireWildcard(_rx);
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Geolocation = (function () {
+	    function Geolocation() {
+	        _classCallCheck(this, Geolocation);
+	    }
+
+	    _createClass(Geolocation, null, [{
+	        key: "getCurrentPosition",
+	        value: function getCurrentPosition(options) {
+	            return new Promise(function (resolve, reject) {
+	                navigator.geolocation.getCurrentPosition(function (result) {
+	                    resolve(result);
+	                }, function (err) {
+	                    reject(err);
+	                }, options);
+	            });
+	        }
+	    }, {
+	        key: "watchPosition",
+	        value: function watchPosition(options) {
+	            var watchID = undefined;
+	            var source = Rx.Observable.create(function (observer) {
+	                watchID = navigator.geolocation.watchPosition(function (result) {
+	                    observer.onNext(result);
+	                }, function (err) {
+	                    observer.onError(err, observer);
+	                }, options);
+	            });
+	            return {
+	                source: source,
+	                watchID: watchID,
+	                clear: function clear() {
+	                    navigator.geolocation.clearWatch(watchID);
+	                }
+	            };
+	        }
+	    }, {
+	        key: "clearWatch",
+	        value: function clearWatch(watchID) {
+	            return navigator.geolocation.clearWatch(watchID);
+	        }
+	    }]);
+
+	    return Geolocation;
+	})();
+	exports.Geolocation = Geolocation;
+	exports.Geolocation = Geolocation = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Geolocation',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-geolocation'
+	    }
+	}), __metadata('design:paramtypes', [])], Geolocation);
+
+/***/ },
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	/**
+	 * Manage the native keyboard. Note: this plugin performs mainly in the native
+	 * app context. Most operations are non-functional in a normal web browser as
+	 * keyboard control is limited.
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Keyboard = (function () {
+	    function Keyboard() {
+	        _classCallCheck(this, Keyboard);
+	    }
+
+	    _createClass(Keyboard, null, [{
+	        key: "setAccessoryBarVisible",
+
+	        /**
+	         * Set whether the accessory bar is visible.
+	         *
+	         * Note: this only works while running natively (accessory bar cannot be removed
+	         * in most web browsers), and by default the bar is hidden when running natively.
+	         *
+	         * @param isVisible whether the accessory bar is visible
+	         */
+	        value: function setAccessoryBarVisible(isVisible) {
+	            this.ifPlugin(function () {
+	                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(!isVisible);
+	            });
+	        }
+
+	        /**
+	         * Close the keyboard.
+	         */
+	    }, {
+	        key: "close",
+	        value: function close() {
+	            this.ifPlugin(function () {
+	                cordova.plugins.Keyboard.close();
+	            });
+	        }
+
+	        /**
+	         * Show the keyboard. Does nothing on iOS (has to be triggered from an input)
+	         */
+	    }, {
+	        key: "show",
+	        value: function show() {
+	            this.ifPlugin(function () {
+	                cordova.plugins.Keyboard.show();
+	            });
+	        }
+
+	        /**
+	         * @return the visibility of the keyboard.
+	         */
+	    }, {
+	        key: "isVisible",
+	        value: function isVisible() {
+	            return this.ifPlugin(function () {
+	                return cordova.plugins.Keyboard.isVisible;
+	            });
+	        }
+	    }]);
+
+	    return Keyboard;
+	})();
+	exports.Keyboard = Keyboard;
+	exports.Keyboard = Keyboard = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Keyboard',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'ionic-plugin-keyboard'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard;
+	    }
+	}), __metadata('design:paramtypes', [])], Keyboard);
+
+/***/ },
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	/**
+	 * Manage the appearance of the native status bar.
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var _StatusBar = (function () {
+	    function StatusBar() {
+	        _classCallCheck(this, StatusBar);
+	    }
+
+	    _createClass(StatusBar, null, [{
+	        key: "show",
+
+	        /**
+	         * Show the StatusBar
+	         */
+	        value: function show() {
+	            this.ifPlugin(function () {
+	                window.StatusBar.show();
+	            });
+	        }
+
+	        /**
+	         * Hide the StatusBar
+	         */
+	    }, {
+	        key: "hide",
+	        value: function hide() {
+	            this.ifPlugin(function () {
+	                window.StatusBar.hide();
+	            });
+	        }
+
+	        /**
+	         * Hide the StatusBar
+	         *
+	         * Options:
+	         *
+	         * StatusBar.DEFAULT
+	         * StatusBar.LIGHT_CONTENT
+	         * StatusBar.BLACK_TRANSLUCENT
+	         * StatusBar.BLACK_OPAQUE
+	         *
+	         * @param style the style from above
+	         */
+	    }, {
+	        key: "setStyle",
+	        value: function setStyle(style) {
+	            this.ifPlugin(function () {
+	                switch (style) {
+	                    case _StatusBar.DEFAULT:
+	                        window.StatusBar.styleDefault();
+	                        break;
+	                    case _StatusBar.LIGHT_CONTENT:
+	                        window.StatusBar.styleLightContent();
+	                        break;
+	                    case _StatusBar.BLACK_TRANSLUCENT:
+	                        window.StatusBar.styleBlackTranslucent();
+	                        break;
+	                    case _StatusBar.BLACK_OPAQUE:
+	                        window.StatusBar.styleBlackOpaque();
+	                        break;
+	                }
+	            });
+	        }
+
+	        /**
+	         * Set the status bar to a specific hex color (CSS shorthand supported!).
+	         *
+	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+	         *
+	         * @param hex the hex value of the color.
+	         */
+	    }, {
+	        key: "setHexColor",
+	        value: function setHexColor(hex) {
+	            this.ifPlugin(function () {
+	                window.StatusBar.backgroundColorByHexName(hex);
+	            });
+	        }
+
+	        /**
+	         * Set the status bar to a specific named color. Valid options:
+	         * black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
+	         *
+	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
+	         *
+	         * @param name the name of the color (from above)
+	         */
+	    }, {
+	        key: "setNamedColor",
+	        value: function setNamedColor(name) {
+	            this.ifPlugin(function () {
+	                window.StatusBar.backgroundColorByName(name);
+	            });
+	        }
+
+	        /**
+	         * Set whether the status bar overlays the main app view. The default
+	         * is true.
+	         *
+	         * @param doesOverlay whether the status bar overlays the main app view.
+	         */
+	    }, {
+	        key: "setOverlays",
+	        value: function setOverlays(doesOverlay) {
+	            this.ifPlugin(function () {
+	                window.StatusBar.overlaysWebView(doesOverlay);
+	            });
+	        }
+	    }]);
+
+	    return StatusBar;
+	})();
+	exports.StatusBar = _StatusBar;
+	_StatusBar.DEFAULT = 0;
+	_StatusBar.LIGHT_CONTENT = 1;
+	_StatusBar.BLACK_TRANSLUCENT = 2;
+	_StatusBar.BLACK_OPAQUE = 3;
+	_StatusBar = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'StatusBar',
+	    platforms: ['ios', 'android'],
+	    engines: {
+	        cordova: 'cordova-plugin-statusbar'
+	    },
+	    pluginCheck: function pluginCheck() {
+	        return !!window.StatusBar;
+	    }
+	}), __metadata('design:paramtypes', [])], _StatusBar);
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _plugin = __webpack_require__(312);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Vibration = (function () {
+	    function Vibration() {
+	        _classCallCheck(this, Vibration);
+	    }
+
+	    _createClass(Vibration, null, [{
+	        key: "vibrate",
+	        value: function vibrate(pattern) {
+	            if (!navigator.vibrate) {
+	                this.pluginWarn();
+	                console.log('Vibrate (dev): ', pattern);
+	            } else {
+	                navigator.vibrate(pattern);
+	            }
+	        }
+	    }]);
+
+	    return Vibration;
+	})();
+	exports.Vibration = Vibration;
+	exports.Vibration = Vibration = __decorate([(0, _plugin.NativePlugin)({
+	    name: 'Vibration',
+	    platforms: ['ios', 'android', 'web'],
+	    engines: {
+	        cordova: 'cordova-plugin-vibration'
+	    }
+	}), __metadata('design:paramtypes', [])], Vibration);
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+	var _storageStorage = __webpack_require__(327);
+
+	_defaults(exports, _interopRequireWildcard(_storageStorage));
+
+	var _storageLocalStorage = __webpack_require__(328);
+
+	_defaults(exports, _interopRequireWildcard(_storageLocalStorage));
+
+	var _storageSql = __webpack_require__(329);
+
+	_defaults(exports, _interopRequireWildcard(_storageSql));
+
+/***/ },
+/* 327 */
 /***/ function(module, exports) {
 
 	/**
@@ -61722,7 +63756,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 310 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61739,7 +63773,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(309);
+	var _storage = __webpack_require__(327);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -61805,7 +63839,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 311 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61824,7 +63858,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(309);
+	var _storage = __webpack_require__(327);
 
 	var _ionicUtil = __webpack_require__(221);
 
@@ -62028,7 +64062,7 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 312 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62068,7 +64102,7 @@
 	});
 
 /***/ },
-/* 313 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62079,7 +64113,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _animation = __webpack_require__(255);
+	var _animation = __webpack_require__(253);
 
 	var SlideIn = (function (_Animation) {
 	    _inherits(SlideIn, _Animation);
@@ -62142,7 +64176,7 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 314 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62153,9 +64187,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(286);
+	var _transition = __webpack_require__(288);
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _animationsAnimation = __webpack_require__(253);
 
 	var DURATION = 550;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
@@ -62178,17 +64212,20 @@
 	        // entering item moves to center
 	        this.enteringView.to(TRANSLATEX, CENTER).to(OPACITY, 1).before.setStyles({ zIndex: this.entering.index });
 	        this.enteringTitle.fadeIn().to(TRANSLATEX, CENTER);
+	        this.enteringNavbarBackground.to(TRANSLATEX, CENTER);
 	        // leaving view moves off screen
 	        this.leavingView.from(TRANSLATEX, CENTER).from(OPACITY, 1).before.setStyles({ zIndex: this.leaving.index });
 	        this.leavingTitle.from(TRANSLATEX, CENTER).from(OPACITY, 1);
+	        this.leavingNavbarBackground.from(TRANSLATEX, CENTER);
 	        // set properties depending on direction
 	        if (opts.direction === 'back') {
 	            // back direction
 	            this.enteringView.from(TRANSLATEX, OFF_LEFT).from(OPACITY, OFF_OPACITY).to(OPACITY, 1);
 	            this.enteringTitle.from(TRANSLATEX, OFF_LEFT);
-	            this.leavingNavbar.before.addClass('transparent-navbar').after.removeClass('transparent-navbar');
+	            this.enteringNavbarBackground.from(TRANSLATEX, OFF_LEFT);
 	            this.leavingView.to(TRANSLATEX, '100%').to(OPACITY, 1);
 	            this.leavingTitle.to(TRANSLATEX, '100%').to(OPACITY, 0);
+	            this.leavingNavbarBackground.to(TRANSLATEX, '100%');
 	            if (this.leaving.enableBack() && this.viewWidth() > 200) {
 	                var leavingBackButtonText = new _animationsAnimation.Animation(this.leaving.backBtnTextRef());
 	                leavingBackButtonText.fromTo(TRANSLATEX, CENTER, this.viewWidth() / 2 + 'px');
@@ -62197,10 +64234,11 @@
 	        } else {
 	            // forward direction
 	            this.enteringView.from(TRANSLATEX, '99.5%').from(OPACITY, 1);
-	            this.enteringNavbar.before.addClass('transparent-navbar').after.removeClass('transparent-navbar');
 	            this.enteringTitle.from(TRANSLATEX, '99.5%');
+	            this.enteringNavbarBackground.from(TRANSLATEX, '99.5%');
 	            this.leavingView.to(TRANSLATEX, OFF_LEFT).to(OPACITY, OFF_OPACITY);
 	            this.leavingTitle.to(TRANSLATEX, OFF_LEFT).to(OPACITY, 0);
+	            this.leavingNavbarBackground.to(TRANSLATEX, OFF_LEFT);
 	            if (this.entering.enableBack() && this.viewWidth() > 200) {
 	                var enteringBackButtonText = new _animationsAnimation.Animation(this.entering.backBtnTextRef());
 	                enteringBackButtonText.fromTo(TRANSLATEX, this.viewWidth() / 2 + 'px', CENTER);
@@ -62215,7 +64253,7 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 315 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62226,9 +64264,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(286);
+	var _transition = __webpack_require__(288);
 
-	var _animationsAnimation = __webpack_require__(255);
+	var _animationsAnimation = __webpack_require__(253);
 
 	var DURATION = 300;
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
@@ -62287,142 +64325,7 @@
 	_transition.Transition.register('md', MaterialTransition);
 
 /***/ },
-/* 316 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
-
-	var _plugin = __webpack_require__(317);
-
-	_defaults(exports, _interopRequireWildcard(_plugin));
-
-	var _applinksApplinks = __webpack_require__(318);
-
-	_defaults(exports, _interopRequireWildcard(_applinksApplinks));
-
-	var _barcodeBarcode = __webpack_require__(319);
-
-	_defaults(exports, _interopRequireWildcard(_barcodeBarcode));
-
-	var _batteryBattery = __webpack_require__(320);
-
-	_defaults(exports, _interopRequireWildcard(_batteryBattery));
-
-	var _cameraCamera = __webpack_require__(321);
-
-	_defaults(exports, _interopRequireWildcard(_cameraCamera));
-
-	var _contactsContacts = __webpack_require__(322);
-
-	_defaults(exports, _interopRequireWildcard(_contactsContacts));
-
-	var _dialogsDialogs = __webpack_require__(323);
-
-	_defaults(exports, _interopRequireWildcard(_dialogsDialogs));
-
-	var _deviceDevice = __webpack_require__(324);
-
-	_defaults(exports, _interopRequireWildcard(_deviceDevice));
-
-	var _deviceMotionDeviceMotion = __webpack_require__(325);
-
-	_defaults(exports, _interopRequireWildcard(_deviceMotionDeviceMotion));
-
-	var _deviceOrientationDeviceOrientation = __webpack_require__(326);
-
-	_defaults(exports, _interopRequireWildcard(_deviceOrientationDeviceOrientation));
-
-	var _geolocationGeolocation = __webpack_require__(327);
-
-	_defaults(exports, _interopRequireWildcard(_geolocationGeolocation));
-
-	var _keyboardKeyboard = __webpack_require__(328);
-
-	_defaults(exports, _interopRequireWildcard(_keyboardKeyboard));
-
-	var _statusbarStatusbar = __webpack_require__(329);
-
-	_defaults(exports, _interopRequireWildcard(_statusbarStatusbar));
-
-	var _vibrationVibration = __webpack_require__(330);
-
-	_defaults(exports, _interopRequireWildcard(_vibrationVibration));
-
-/***/ },
-/* 317 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	exports.NativePlugin = NativePlugin;
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var NativePluginDecorator = function NativePluginDecorator(cls, config) {
-	    var _this = this;
-
-	    _classCallCheck(this, NativePluginDecorator);
-
-	    this.cls = cls;
-	    this.config = config;
-	    cls.ifPlugin = function (cb) {
-	        var returnType = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
-
-	        // Convert to boolean the plugin param
-	        var exists = !!check;
-	        if (typeof _this.config.pluginCheck === 'function') {
-	            exists = _this.config.pluginCheck();
-	        }
-	        if (exists) {
-	            return cb();
-	        }
-	        // We don't have the plugin, so print a warning message
-	        cls.pluginWarn();
-	        // If the user supplied a default return value, return it here.
-	        if (returnType) {
-	            return typeof returnType === 'function' ? returnType() : returnType;
-	        }
-	        return false;
-	    };
-	    cls.pluginWarn = function () {
-	        if (cls._pluginWarned) {
-	            // Only warn once
-	            return;
-	        }
-	        var platformString = [];
-	        for (var k in _this.config.engines) {
-	            platformString.push('\t' + k + ': ' + _this.config.engines[k]);
-	        }
-	        console.warn('Plugin for ' + _this.config.name + ' not installed. For native functionality, please install the correct plugin for your platform:\n' + platformString.join('\n'));
-	        // Set a flag so we don't warn again
-	        cls._pluginWarned = true;
-	    };
-	};
-
-	exports.NativePluginDecorator = NativePluginDecorator;
-
-	function NativePlugin(config) {
-	    return function (cls) {
-	        var annotations = Reflect.getMetadata('annotations', cls) || [];
-	        annotations.push(new NativePluginDecorator(cls, config));
-	        Reflect.defineMetadata('annotations', annotations, cls);
-	        return cls;
-	    };
-	}
-
-/***/ },
-/* 318 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62433,29 +64336,21 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(317);
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _translate = __webpack_require__(264);
 
 	/**
-	 * Open installed apps on the device. Note: Android and iOS have different ways of
-	 * opening and specifying launch params, so they have separate launch functions.
+	 * The Translate pipe makes it easy to translate strings.
 	 *
-	 * Example:
+	 * @usage
+	 * Translate using the current language or language set through Translate.setLanguage
+	 * {{ 'Please enter your location' | translate }}
 	 *
-	 * if(platform.is('ios') {
-	 *   AppLinks.check('twitter://').then((installed) => {
-	 *     AppLinks.openIOS('twitter://user?screen_name=ionicframework')
-	 *   }, (err) => {
-	 *
-	 *   })
-	 * } else if(platform.is('android') {
-	 *   AppLinks.check('com.twitter.android').then((installed) => {
-	 *     AppLinks.openAndroid([["action", "VIEW"], ['twitter://user?screen_name=ionicframework']])
-	 *   })
-	 * }
+	 * Translate using a specific language
+	 * {{ 'Please enter your location' | translate:"de" }}
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -62477,1582 +64372,36 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var AppLinks = (function () {
-	    function AppLinks() {
-	        _classCallCheck(this, AppLinks);
+	var TranslatePipe = (function () {
+	    function TranslatePipe(translate) {
+	        _classCallCheck(this, TranslatePipe);
+
+	        this.translate = translate;
 	    }
 
-	    _createClass(AppLinks, null, [{
-	        key: "openIOS",
-
-	        /**
-	         * Open app on iOS with a given URL (iOS), or scheme (Android)
-	         */
-	        value: function openIOS(url) {
-	            this.ifPlugin(function () {
-	                navigator.startApp.start(url);
-	            });
-	        }
-
-	        /**
-	         * Open app on Android with a given scheme and params.
-	         */
-	    }, {
-	        key: "openAndroid",
-	        value: function openAndroid(args) {
-	            this.ifPlugin(function () {
-	                var _navigator$startApp;
-
-	                (_navigator$startApp = navigator.startApp).start.apply(_navigator$startApp, _toConsumableArray(args));
-	            });
-	        }
-
-	        /**
-	         * Check if an installed app can be opened from the given URL.
-	         */
-	    }, {
-	        key: "canOpen",
-	        value: function canOpen(urlOrScheme) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this.ifPlugin(function () {
-	                    navigator.startApp.check(urlOrScheme, function (message) {
-	                        resolve(message);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('Plugin not installed');
-	                }
-	            });
-	        }
-	    }]);
-
-	    return AppLinks;
-	})();
-	exports.AppLinks = AppLinks;
-	exports.AppLinks = AppLinks = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'AppLinks',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-statusbar'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!navigator.startApp;
-	    }
-	}), __metadata('design:paramtypes', [])], AppLinks);
-
-/***/ },
-/* 319 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Barcode = (function () {
-	    function Barcode() {
-	        _classCallCheck(this, Barcode);
-	    }
-
-	    _createClass(Barcode, null, [{
-	        key: "scan",
-
-	        /**
-	         * Scan a barcode.
-	         *
-	         * @return Promise that resolves with an object of the format: {
-	         *   text: text that was scanned,
-	         *   format: format of barcode,
-	         *   cancelled: was it canceled?
-	         * }
-	         */
-	        value: function scan() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this.ifPlugin(function () {
-	                    window.cordova.plugins.barcodeScanner.scan(function (result) {
-	                        resolve(result);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('No scanner available');
-	                }
-	            });
-	        }
-
-	        /**
-	         * Encode the given data in a barcode.
-	         *
-	         * @param type the type to use for encoding (if in doubt, use TYPE_TEXT).
-	         * @param data the data to encode
-	         * @return Promise
-	         */
-	    }, {
-	        key: "encode",
-	        value: function encode(type, data) {
-	            var _this2 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                var hasPlugin = _this2.ifPlugin(function () {
-	                    window.cordova.plugins.barcodeScanner.encode(type, data, function (result) {
-	                        resolve(result);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                });
-	                if (!hasPlugin) {
-	                    reject('No scanner available');
-	                }
-	            });
-	        }
-	    }]);
-
-	    return Barcode;
-	})();
-	exports.Barcode = Barcode;
-	Barcode.TEXT_TYPE = "TEXT_TYPE";
-	Barcode.EMAIL_TYPE = "EMAIL_TYPE";
-	Barcode.PHONE_TYPE = "PHONE_TYPE";
-	Barcode.SMS_TYPE = "SMS_TYPE";
-	exports.Barcode = Barcode = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Barcode',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'phonegap-plugin-barcodescanner'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return window.cordova && window.cordova.plugins && window.cordova.plugins.barcodeScanner;
-	    }
-	}), __metadata('design:paramtypes', [])], Barcode);
-
-/***/ },
-/* 320 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(221);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _Battery = (function () {
-	    function Battery() {
-	        _classCallCheck(this, Battery);
-	    }
-
-	    _createClass(Battery, null, [{
-	        key: "getStatus",
-	        value: function getStatus() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (navigator.getBattery) {
-	                    navigator.getBattery().then(function (battery) {
-	                        _this.battery = battery;
-	                        resolve(_Battery._format(battery));
-	                    });
-	                } else {
-	                    var fnCb = function fnCb(battery) {
-	                        resolve(battery);
-	                        window.removeEventListener('batterystatus', fnCb);
-	                    };
-	                    window.addEventListener('batterystatus', fnCb);
-	                }
-	            });
-	        }
-	    }, {
-	        key: "_format",
-	        value: function _format(batteryObj) {
-	            if (typeof batteryObj.isPlugged !== 'undefined') {
-	                // This is the old format, map it to the new format
-	                util.extend(batteryObj, {
-	                    charging: batteryObj.isPlugged,
-	                    level: batteryObj.level / 100,
-	                    chargingTime: 0,
-	                    dischargingTime: 0 //not provided
-	                });
+	    _createClass(TranslatePipe, [{
+	        key: "transform",
+	        value: function transform(value, args) {
+	            var lang = undefined;
+	            if (args.length > 0) {
+	                lang = args[0];
 	            }
-	            return batteryObj;
+	            return this.translate.translate(value, lang);
+	        }
+	    }, {
+	        key: "supports",
+	        value: function supports(obj) {
+	            return true;
 	        }
 	    }]);
 
-	    return Battery;
+	    return TranslatePipe;
 	})();
-	exports.Battery = _Battery;
-	_Battery = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Battery',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-battery-status'
-	    }
-	}), __metadata('design:paramtypes', [])], _Battery);
+	exports.TranslatePipe = TranslatePipe;
+	exports.TranslatePipe = TranslatePipe = __decorate([(0, _angular2Angular2.Pipe)({ name: 'translate' }), (0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof _translate.Translate !== 'undefined' && _translate.Translate || Object])], TranslatePipe);
 
 /***/ },
-/* 321 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _ionicUtil = __webpack_require__(221);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Camera = (function () {
-	    function Camera() {
-	        _classCallCheck(this, Camera);
-	    }
-
-	    _createClass(Camera, null, [{
-	        key: "getPicture",
-	        value: function getPicture(options) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.camera) {
-	                    _this.pluginWarn();
-	                    resolve(null);
-	                    return;
-	                }
-	                var options = util.defaults({
-	                    quality: 80,
-	                    destinationType: window.Camera.DestinationType.DATA_URL,
-	                    sourceType: window.Camera.PictureSourceType.CAMERA,
-	                    allowEdit: true,
-	                    encodingType: window.Camera.EncodingType.JPEG,
-	                    popoverOptions: window.CameraPopoverOptions,
-	                    saveToPhotoAlbum: false
-	                }, options);
-	                navigator.camera.getPicture(function (imageData) {
-	                    resolve(imageData);
-	                }, function (err) {
-	                    reject(err);
-	                }, options);
-	            });
-	        }
-	    }, {
-	        key: "cleanup",
-	        value: function cleanup() {
-	            return new Promise(function (resolve, reject) {
-	                navigator.camera.cleanup(function () {
-	                    resolve();
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }]);
-
-	    return Camera;
-	})();
-	exports.Camera = Camera;
-	exports.Camera = Camera = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Camera',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-camera'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!navigator.camera;
-	    }
-	}), __metadata('design:paramtypes', [])], Camera);
-
-/***/ },
-/* 322 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Contacts = (function () {
-	    function Contacts() {
-	        _classCallCheck(this, Contacts);
-	    }
-
-	    _createClass(Contacts, null, [{
-	        key: "save",
-	        value: function save(contact) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.contacts) {
-	                    _this.pluginWarn();
-	                    reject('Contacts plugin not installed');
-	                }
-	                var deviceContact = navigator.contacts.create(contact);
-	                deviceContact.save(function (result) {
-	                    resolve(result);
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }, {
-	        key: "remove",
-	        value: function remove(contact) {
-	            var _this2 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.contacts) {
-	                    _this2.pluginWarn();
-	                    reject('Contacts plugin not installed');
-	                }
-	                var deviceContact = navigator.contacts.create(contact);
-	                deviceContact.remove(function (result) {
-	                    resolve(result);
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }, {
-	        key: "clone",
-	        value: function clone(contact) {
-	            if (!navigator.contacts) {
-	                this.pluginWarn();
-	                return null;
-	            }
-	            var deviceContact = navigator.contacts.create(contact);
-	            return deviceContact.clone(contact);
-	        }
-	    }, {
-	        key: "find",
-	        value: function find(options) {
-	            return new Promise(function (resolve, reject) {
-	                var fields = options.fields || ['id', 'displayName'];
-	                delete options.fields;
-	                if (Object.keys(options).length === 0) {
-	                    navigator.contacts.find(fields, function (results) {
-	                        resolve(results);
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                } else {
-	                    navigator.contacts.find(fields, function (results) {
-	                        resolve(results);
-	                    }, function (err) {
-	                        reject(err);
-	                    }, options);
-	                }
-	            });
-	        }
-	    }, {
-	        key: "pickContact",
-	        value: function pickContact() {
-	            return new Promise(function (resolve, reject) {
-	                navigator.contacts.pickContact(function (contact) {
-	                    resolve(contact);
-	                }, function (err) {
-	                    reject(err);
-	                });
-	            });
-	        }
-	    }]);
-
-	    return Contacts;
-	})();
-	exports.Contacts = Contacts;
-	exports.Contacts = Contacts = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Contacts',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-contacts'
-	    }
-	}), __metadata('design:paramtypes', [])], Contacts);
-
-/***/ },
-/* 323 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	/**
-	 * A native dialogs system. Native dialogs can give you a bit more
-	 * control over the UI than the browser built-ins, though the Dialogs
-	 * plugin will fall back to the built-ins when necessary.
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Dialogs = (function () {
-	    function Dialogs() {
-	        _classCallCheck(this, Dialogs);
-	    }
-
-	    _createClass(Dialogs, null, [{
-	        key: "alert",
-
-	        /**
-	         * Trigger an alert prompt.
-	         *
-	         * @param message the message to show
-	         * @param title the title to show
-	         * @param buttonName the button label to use (not available on browser fallback)
-	         * @return Promise
-	         */
-	        value: (function (_alert) {
-	            function alert(_x, _x2, _x3) {
-	                return _alert.apply(this, arguments);
-	            }
-
-	            alert.toString = function () {
-	                return _alert.toString();
-	            };
-
-	            return alert;
-	        })(function (message, title, buttonName) {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this.pluginWarn();
-	                    alert(message);
-	                    resolve();
-	                } else {
-	                    navigator.notification.alert(message, function () {
-	                        resolve();
-	                    }, title, buttonName);
-	                }
-	            });
-	        })
-
-	        /**
-	         * Trigger a confirm prompt.
-	         *
-	         * @param message the message to show
-	         * @param title the title to show
-	         * @param buttonLabels the button labels to use (not available on browser fallback)
-	         * @return Promise that resolves with the index of the button selected (zero indexed). 1 is OK on browser fallback
-	         */
-	    }, {
-	        key: "confirm",
-	        value: (function (_confirm) {
-	            function confirm(_x4, _x5, _x6) {
-	                return _confirm.apply(this, arguments);
-	            }
-
-	            confirm.toString = function () {
-	                return _confirm.toString();
-	            };
-
-	            return confirm;
-	        })(function (message, title, buttonLabels) {
-	            var _this2 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this2.pluginWarn();
-	                    var ok = confirm(message);
-	                    // Use 2 as OK
-	                    resolve(ok ? 2 : 0);
-	                } else {
-	                    navigator.notification.confirm(message, function (buttonIndex) {
-	                        resolve(buttonIndex - 1);
-	                    }, title, buttonLabels);
-	                }
-	            });
-	        })
-	    }, {
-	        key: "prompt",
-	        value: (function (_prompt) {
-	            function prompt(_x7, _x8, _x9, _x10) {
-	                return _prompt.apply(this, arguments);
-	            }
-
-	            prompt.toString = function () {
-	                return _prompt.toString();
-	            };
-
-	            return prompt;
-	        })(function (message, title, buttonLabels, defaultText) {
-	            var _this3 = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (!navigator.notification) {
-	                    _this3.pluginWarn();
-	                    var response = prompt(message);
-	                    // Use 1 as OK
-	                    resolve(response);
-	                } else {
-	                    navigator.notification.prompt(message, function (results) {
-	                        resolve(results.input1, buttonIndex - 1);
-	                    }, title, buttonLabels, defaultText);
-	                }
-	            });
-	        })
-
-	        /**
-	         * Beep n times. Not available on browser.
-	         * @param times the number of times to beep
-	         */
-	    }, {
-	        key: "beep",
-	        value: function beep(times) {
-	            navigator.notification && navigator.notification.beep(times);
-	        }
-	    }]);
-
-	    return Dialogs;
-	})();
-	exports.Dialogs = Dialogs;
-	exports.Dialogs = Dialogs = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Dialogs',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-dialogs'
-	    }
-	}), __metadata('design:paramtypes', [])], Dialogs);
-
-/***/ },
-/* 324 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _Device = (function () {
-	    function Device() {
-	        _classCallCheck(this, Device);
-	    }
-
-	    _createClass(Device, null, [{
-	        key: "getDevice",
-
-	        /**
-	         * Returns the whole device object.
-	         * @see https://github.com/apache/cordova-plugin-device
-	         * @returns {Object} The device object.
-	         */
-	        value: function getDevice() {
-	            return this.ifPlugin(function () {
-	                return device;
-	            }, function () {
-	                return {
-	                    name: _Device.getName(),
-	                    model: _Device.getModel(),
-	                    platform: _Device.getPlatform(),
-	                    uuid: _Device.getUUID(),
-	                    version: _Device.getVersion()
-	                };
-	            });
-	        }
-
-	        /**
-	         * Returns the Cordova version.
-	         * @see https://github.com/apache/cordova-plugin-device#devicecordova
-	         * @returns {String} The Cordova version.
-	         */
-	    }, {
-	        key: "getCordova",
-	        value: function getCordova() {
-	            this.ifPlugin(function () {
-	                return device.cordova;
-	            });
-	        }
-
-	        /**
-	         * Returns the name of the device's model or product.
-	         * @see https://github.com/apache/cordova-plugin-device#devicemodel
-	         * @returns {String} The name of the device's model or product.
-	         */
-	    }, {
-	        key: "getModel",
-	        value: function getModel() {
-	            this.ifPlugin(function () {
-	                return device.model;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * @deprecated device.name is deprecated as of version 2.3.0. Use device.model instead.
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getName",
-	        value: function getName() {
-	            this.ifPlugin(function () {
-	                return device.name;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device's operating system name.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceplatform
-	         * @returns {String} The device's operating system name.
-	         */
-	    }, {
-	        key: "getPlatform",
-	        value: function getPlatform() {
-	            this.ifPlugin(function () {
-	                return device.name;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device's Universally Unique Identifier.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceuuid
-	         * @returns {String} The device's Universally Unique Identifier
-	         */
-	    }, {
-	        key: "getUUID",
-	        value: function getUUID() {
-	            this.ifPlugin(function () {
-	                return device.uuid;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the operating system version.
-	         * @see https://github.com/apache/cordova-plugin-device#deviceversion
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getVersion",
-	        value: function getVersion() {
-	            this.ifPlugin(function () {
-	                return device.version;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-
-	        /**
-	         * Returns the device manufacturer.
-	         * @returns {String}
-	         */
-	    }, {
-	        key: "getManufacturer",
-	        value: function getManufacturer() {
-	            this.ifPlugin(function () {
-	                return device.manufacturer;
-	            }, function () {
-	                return 'unknown';
-	            });
-	        }
-	    }]);
-
-	    return Device;
-	})();
-	exports.Device = _Device;
-	_Device = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device',
-	    plugins: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!window.device;
-	    }
-	}), __metadata('design:paramtypes', [])], _Device);
-
-/***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _rx = __webpack_require__(106);
-
-	var Rx = _interopRequireWildcard(_rx);
-
-	var _ionicUtil = __webpack_require__(221);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _DeviceMotion = (function () {
-	    function DeviceMotion() {
-	        _classCallCheck(this, DeviceMotion);
-	    }
-
-	    _createClass(DeviceMotion, null, [{
-	        key: "_wrap",
-	        value: function _wrap(result) {
-	            // Mimic the DeviceMotionEvent
-	            return util.extend({
-	                acceleration: result,
-	                accelerationIncludingGravity: result,
-	                rotationRate: 0,
-	                interval: 0,
-	                native: true
-	            }, result);
-	        }
-	    }, {
-	        key: "getCurrentAcceleration",
-	        value: function getCurrentAcceleration() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-	                    var fnCb = function fnCb(eventData) {
-	                        resolve(_DeviceMotion._wrap(eventData));
-	                        window.removeEventListener('devicemotion', fnCb);
-	                    };
-	                    window.addEventListener('devicemotion', fnCb);
-	                } else if (navigator.accelerometer) {
-	                    navigator.accelerometer.getCurrentAcceleration(function (result) {
-	                        resolve(_DeviceMotion._wrap(result));
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                } else {
-	                    _this.pluginWarn();
-	                    reject('The Device does not support device motion events.');
-	                    return;
-	                }
-	            });
-	        }
-	    }, {
-	        key: "watchAcceleration",
-	        value: function watchAcceleration(options) {
-	            if (window.DeviceMotionEvent || 'listenForDeviceMovement' in window) {
-	                var watchID = undefined;
-	                var source = Rx.Observable.create(function (observer) {
-	                    var fnCb = function fnCb(eventData) {
-	                        observer.onNext(_DeviceMotion._wrap(eventData));
-	                    };
-	                    window.addEventListener('devicemotion', fnCb);
-	                });
-	                return {
-	                    source: source,
-	                    watchID: watchID,
-	                    clear: function clear() {
-	                        window.removeEventListener('devicemotion', fnCb);
-	                    }
-	                };
-	            } else if (navigator.accelerometer) {
-	                var _ret = (function () {
-	                    var watchID = undefined;
-	                    var source = Rx.Observable.create(function (observer) {
-	                        watchID = navigator.accelerometer.watchAcceleration(function (result) {
-	                            observer.onNext(_DeviceMotion._wrap(result));
-	                        }, function (err) {
-	                            observer.onError(err, observer);
-	                        }, options);
-	                    });
-	                    return {
-	                        v: {
-	                            source: source,
-	                            watchID: watchID,
-	                            clear: function clear() {
-	                                navigator.accelerometer.clearWatch(watchID);
-	                            }
-	                        }
-	                    };
-	                })();
-
-	                if (typeof _ret === "object") return _ret.v;
-	            }
-	        }
-	    }]);
-
-	    return DeviceMotion;
-	})();
-	exports.DeviceMotion = _DeviceMotion;
-	_DeviceMotion = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device Motion',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device-motion'
-	    }
-	}), __metadata('design:paramtypes', [])], _DeviceMotion);
-
-/***/ },
-/* 326 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _rx = __webpack_require__(106);
-
-	var Rx = _interopRequireWildcard(_rx);
-
-	var _ionicUtil = __webpack_require__(221);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _DeviceOrientation = (function () {
-	    function DeviceOrientation() {
-	        _classCallCheck(this, DeviceOrientation);
-	    }
-
-	    _createClass(DeviceOrientation, null, [{
-	        key: "_wrap",
-	        value: function _wrap(result) {
-	            return util.extend({
-	                alpha: result.magneticHeading,
-	                magneticHeading: result.webkitCompassHeading || result.alpha
-	            }, result);
-	        }
-	    }, {
-	        key: "getCurrentHeading",
-	        value: function getCurrentHeading() {
-	            var _this = this;
-
-	            return new Promise(function (resolve, reject) {
-	                if (window.DeviceOrientationEvent) {
-	                    var fnCb = function fnCb(eventData) {
-	                        resolve(_DeviceOrientation._wrap(eventData));
-	                        window.removeEventListener('deviceorientation', fnCb);
-	                    };
-	                    window.addEventListener('deviceorientation', fnCb);
-	                } else if (navigator.compass) {
-	                    navigator.compass.getCurrentHeading(function (result) {
-	                        resolve(_DeviceOrientation._wrap(result));
-	                    }, function (err) {
-	                        reject(err);
-	                    });
-	                } else {
-	                    _this.pluginWarn();
-	                    reject('The Device does not support device orientation events.');
-	                    return;
-	                }
-	            });
-	        }
-	    }, {
-	        key: "watchHeading",
-	        value: function watchHeading(options) {
-	            if (window.DeviceOrientationEvent) {
-	                var watchID = undefined;
-	                var source = Rx.Observable.create(function (observer) {
-	                    var fnCb = function fnCb(eventData) {
-	                        observer.onNext(_DeviceOrientation._wrap(eventData));
-	                    };
-	                    window.addEventListener('deviceorientation', fnCb);
-	                });
-	                return {
-	                    source: source,
-	                    watchID: watchID,
-	                    clear: function clear() {
-	                        window.removeEventListener('deviceorientation', fnCb);
-	                    }
-	                };
-	            } else if (navigator.accelerometer) {
-	                var _ret = (function () {
-	                    var watchID = undefined;
-	                    var source = Rx.Observable.create(function (observer) {
-	                        watchID = navigator.compass.watchHeading(function (result) {
-	                            observer.onNext(_DeviceOrientation._wrap(result));
-	                        }, function (err) {
-	                            observer.onError(err, observer);
-	                        }, options);
-	                    });
-	                    return {
-	                        v: {
-	                            source: source,
-	                            watchID: watchID,
-	                            clear: function clear() {
-	                                navigator.compass.clearWatch(watchID);
-	                            }
-	                        }
-	                    };
-	                })();
-
-	                if (typeof _ret === "object") return _ret.v;
-	            }
-	        }
-	    }]);
-
-	    return DeviceOrientation;
-	})();
-	exports.DeviceOrientation = _DeviceOrientation;
-	_DeviceOrientation = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Device Orientation',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-device-orientation'
-	    }
-	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
-
-/***/ },
-/* 327 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _rx = __webpack_require__(106);
-
-	var Rx = _interopRequireWildcard(_rx);
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Geolocation = (function () {
-	    function Geolocation() {
-	        _classCallCheck(this, Geolocation);
-	    }
-
-	    _createClass(Geolocation, null, [{
-	        key: "getCurrentPosition",
-	        value: function getCurrentPosition(options) {
-	            return new Promise(function (resolve, reject) {
-	                navigator.geolocation.getCurrentPosition(function (result) {
-	                    resolve(result);
-	                }, function (err) {
-	                    reject(err);
-	                }, options);
-	            });
-	        }
-	    }, {
-	        key: "watchPosition",
-	        value: function watchPosition(options) {
-	            var watchID = undefined;
-	            var source = Rx.Observable.create(function (observer) {
-	                watchID = navigator.geolocation.watchPosition(function (result) {
-	                    observer.onNext(result);
-	                }, function (err) {
-	                    observer.onError(err, observer);
-	                }, options);
-	            });
-	            return {
-	                source: source,
-	                watchID: watchID,
-	                clear: function clear() {
-	                    navigator.geolocation.clearWatch(watchID);
-	                }
-	            };
-	        }
-	    }, {
-	        key: "clearWatch",
-	        value: function clearWatch(watchID) {
-	            return navigator.geolocation.clearWatch(watchID);
-	        }
-	    }]);
-
-	    return Geolocation;
-	})();
-	exports.Geolocation = Geolocation;
-	exports.Geolocation = Geolocation = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Geolocation',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-geolocation'
-	    }
-	}), __metadata('design:paramtypes', [])], Geolocation);
-
-/***/ },
-/* 328 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	/**
-	 * Manage the native keyboard. Note: this plugin performs mainly in the native
-	 * app context. Most operations are non-functional in a normal web browser as
-	 * keyboard control is limited.
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Keyboard = (function () {
-	    function Keyboard() {
-	        _classCallCheck(this, Keyboard);
-	    }
-
-	    _createClass(Keyboard, null, [{
-	        key: "setAccessoryBarVisible",
-
-	        /**
-	         * Set whether the accessory bar is visible.
-	         *
-	         * Note: this only works while running natively (accessory bar cannot be removed
-	         * in most web browsers), and by default the bar is hidden when running natively.
-	         *
-	         * @param isVisible whether the accessory bar is visible
-	         */
-	        value: function setAccessoryBarVisible(isVisible) {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(!isVisible);
-	            });
-	        }
-
-	        /**
-	         * Close the keyboard.
-	         */
-	    }, {
-	        key: "close",
-	        value: function close() {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.close();
-	            });
-	        }
-
-	        /**
-	         * Show the keyboard. Does nothing on iOS (has to be triggered from an input)
-	         */
-	    }, {
-	        key: "show",
-	        value: function show() {
-	            this.ifPlugin(function () {
-	                cordova.plugins.Keyboard.show();
-	            });
-	        }
-
-	        /**
-	         * @return the visibility of the keyboard.
-	         */
-	    }, {
-	        key: "isVisible",
-	        value: function isVisible() {
-	            return this.ifPlugin(function () {
-	                return cordova.plugins.Keyboard.isVisible;
-	            });
-	        }
-	    }]);
-
-	    return Keyboard;
-	})();
-	exports.Keyboard = Keyboard;
-	exports.Keyboard = Keyboard = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Keyboard',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'ionic-plugin-keyboard'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard;
-	    }
-	}), __metadata('design:paramtypes', [])], Keyboard);
-
-/***/ },
-/* 329 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	/**
-	 * Manage the appearance of the native status bar.
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var _StatusBar = (function () {
-	    function StatusBar() {
-	        _classCallCheck(this, StatusBar);
-	    }
-
-	    _createClass(StatusBar, null, [{
-	        key: "show",
-
-	        /**
-	         * Show the StatusBar
-	         */
-	        value: function show() {
-	            this.ifPlugin(function () {
-	                window.StatusBar.show();
-	            });
-	        }
-
-	        /**
-	         * Hide the StatusBar
-	         */
-	    }, {
-	        key: "hide",
-	        value: function hide() {
-	            this.ifPlugin(function () {
-	                window.StatusBar.hide();
-	            });
-	        }
-
-	        /**
-	         * Hide the StatusBar
-	         *
-	         * Options:
-	         *
-	         * StatusBar.DEFAULT
-	         * StatusBar.LIGHT_CONTENT
-	         * StatusBar.BLACK_TRANSLUCENT
-	         * StatusBar.BLACK_OPAQUE
-	         *
-	         * @param style the style from above
-	         */
-	    }, {
-	        key: "setStyle",
-	        value: function setStyle(style) {
-	            this.ifPlugin(function () {
-	                switch (style) {
-	                    case _StatusBar.DEFAULT:
-	                        window.StatusBar.styleDefault();
-	                        break;
-	                    case _StatusBar.LIGHT_CONTENT:
-	                        window.StatusBar.styleLightContent();
-	                        break;
-	                    case _StatusBar.BLACK_TRANSLUCENT:
-	                        window.StatusBar.styleBlackTranslucent();
-	                        break;
-	                    case _StatusBar.BLACK_OPAQUE:
-	                        window.StatusBar.styleBlackOpaque();
-	                        break;
-	                }
-	            });
-	        }
-
-	        /**
-	         * Set the status bar to a specific hex color (CSS shorthand supported!).
-	         *
-	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-	         *
-	         * @param hex the hex value of the color.
-	         */
-	    }, {
-	        key: "setHexColor",
-	        value: function setHexColor(hex) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.backgroundColorByHexName(hex);
-	            });
-	        }
-
-	        /**
-	         * Set the status bar to a specific named color. Valid options:
-	         * black, darkGray, lightGray, white, gray, red, green, blue, cyan, yellow, magenta, orange, purple, brown.
-	         *
-	         * iOS note: you must call StatusBar.setOverlay(false) to enable color changing.
-	         *
-	         * @param name the name of the color (from above)
-	         */
-	    }, {
-	        key: "setNamedColor",
-	        value: function setNamedColor(name) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.backgroundColorByName(name);
-	            });
-	        }
-
-	        /**
-	         * Set whether the status bar overlays the main app view. The default
-	         * is true.
-	         *
-	         * @param doesOverlay whether the status bar overlays the main app view.
-	         */
-	    }, {
-	        key: "setOverlays",
-	        value: function setOverlays(doesOverlay) {
-	            this.ifPlugin(function () {
-	                window.StatusBar.overlaysWebView(doesOverlay);
-	            });
-	        }
-	    }]);
-
-	    return StatusBar;
-	})();
-	exports.StatusBar = _StatusBar;
-	_StatusBar.DEFAULT = 0;
-	_StatusBar.LIGHT_CONTENT = 1;
-	_StatusBar.BLACK_TRANSLUCENT = 2;
-	_StatusBar.BLACK_OPAQUE = 3;
-	_StatusBar = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'StatusBar',
-	    platforms: ['ios', 'android'],
-	    engines: {
-	        cordova: 'cordova-plugin-statusbar'
-	    },
-	    pluginCheck: function pluginCheck() {
-	        return !!window.StatusBar;
-	    }
-	}), __metadata('design:paramtypes', [])], _StatusBar);
-
-/***/ },
-/* 330 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var _plugin = __webpack_require__(317);
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var Vibration = (function () {
-	    function Vibration() {
-	        _classCallCheck(this, Vibration);
-	    }
-
-	    _createClass(Vibration, null, [{
-	        key: "vibrate",
-	        value: function vibrate(pattern) {
-	            if (!navigator.vibrate) {
-	                this.pluginWarn();
-	                console.log('Vibrate (dev): ', pattern);
-	            } else {
-	                navigator.vibrate(pattern);
-	            }
-	        }
-	    }]);
-
-	    return Vibration;
-	})();
-	exports.Vibration = Vibration;
-	exports.Vibration = Vibration = __decorate([(0, _plugin.NativePlugin)({
-	    name: 'Vibration',
-	    platforms: ['ios', 'android', 'web'],
-	    engines: {
-	        cordova: 'cordova-plugin-vibration'
-	    }
-	}), __metadata('design:paramtypes', [])], Vibration);
-
-/***/ },
-/* 331 */
+/* 335 */
 /***/ function(module, exports) {
 
 	// Copyright 2014 Google Inc. All rights reserved.
@@ -64073,7 +64422,7 @@
 	//# sourceMappingURL=web-animations.min.js.map
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64099,30 +64448,15 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var home_1 = __webpack_require__(333);
-	var about_1 = __webpack_require__(439);
-	var schedule_1 = __webpack_require__(440);
-	var speakers_1 = __webpack_require__(441);
-	var map_1 = __webpack_require__(442);
-	var events_1 = __webpack_require__(443);
-	var tickets_1 = __webpack_require__(444);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var home_1 = __webpack_require__(354);
 	var MyApp = (function () {
 	    function MyApp(app, platform, data) {
 	        this.app = app;
 	        this.platform = platform;
-	        this.conferenceInfo = {
-	            end: '05/21/2016',
-	            location: 'Madison, WI',
-	            name: 'Ionic 2 Conf',
-	            start: '05/19/2016'
-	        };
 	        data.retrieveData();
 	        this.initializeApp();
-	        // used for an example of ng-for and navigation
-	        this.pages = [{ title: 'Home', component: home_1.HomePage }, { title: 'About', component: about_1.AboutPage }, { title: 'Schedule', component: schedule_1.SchedulePage }, { title: 'Speakers', component: speakers_1.SpeakersPage }, { title: 'Map', component: map_1.MapPage }, { title: 'Events', component: events_1.EventsPage }, { title: 'Buy Tickets', component: tickets_1.TicketsPage }];
-	        this.About = about_1.AboutPage;
 	        this.rootPage = home_1.HomePage;
 	    }
 	    MyApp.prototype.initializeApp = function () {
@@ -64163,61 +64497,7 @@
 	//# sourceMappingURL=app.js.map
 
 /***/ },
-/* 333 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
-	var about_1 = __webpack_require__(439);
-	var schedule_1 = __webpack_require__(440);
-	var speakers_1 = __webpack_require__(441);
-	var map_1 = __webpack_require__(442);
-	var HomePage = (function () {
-	    function HomePage(nav, app) {
-	        this.nav = nav;
-	        this.app = app;
-	        this.AboutPage = about_1.AboutPage;
-	        this.MapPage = map_1.MapPage;
-	        this.SchedulePage = schedule_1.SchedulePage;
-	        this.SpeakersPage = speakers_1.SpeakersPage;
-	    }
-	    HomePage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/home/home.html',
-	        bindings: [data_1.DataService, http_1.Http],
-	        viewBindings: [http_1.HTTP_BINDINGS],
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object])], HomePage);
-	    return HomePage;
-	})();
-	exports.HomePage = HomePage;
-	//# sourceMappingURL=home.js.map
-
-/***/ },
-/* 334 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64244,7 +64524,7 @@
 	};
 	var ionic_1 = __webpack_require__(216);
 	var angular2_1 = __webpack_require__(41);
-	var http_1 = __webpack_require__(335);
+	var http_1 = __webpack_require__(338);
 	var DataService = (function () {
 	    function DataService(app, http) {
 	        this.app = app;
@@ -64290,7 +64570,7 @@
 	//# sourceMappingURL=data.js.map
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -64300,50 +64580,50 @@
 	 * class.
 	 */
 	var di_1 = __webpack_require__(47);
-	var http_1 = __webpack_require__(336);
-	var xhr_backend_1 = __webpack_require__(343);
-	var jsonp_backend_1 = __webpack_require__(348);
-	var browser_xhr_1 = __webpack_require__(347);
-	var browser_jsonp_1 = __webpack_require__(349);
-	var base_request_options_1 = __webpack_require__(341);
-	var base_response_options_1 = __webpack_require__(346);
-	var mock_backend_1 = __webpack_require__(350);
+	var http_1 = __webpack_require__(339);
+	var xhr_backend_1 = __webpack_require__(346);
+	var jsonp_backend_1 = __webpack_require__(351);
+	var browser_xhr_1 = __webpack_require__(350);
+	var browser_jsonp_1 = __webpack_require__(352);
+	var base_request_options_1 = __webpack_require__(344);
+	var base_response_options_1 = __webpack_require__(349);
+	var mock_backend_1 = __webpack_require__(353);
 	exports.MockConnection = mock_backend_1.MockConnection;
 	exports.MockBackend = mock_backend_1.MockBackend;
-	var static_request_1 = __webpack_require__(339);
+	var static_request_1 = __webpack_require__(342);
 	exports.Request = static_request_1.Request;
-	var static_response_1 = __webpack_require__(344);
+	var static_response_1 = __webpack_require__(347);
 	exports.Response = static_response_1.Response;
-	var interfaces_1 = __webpack_require__(337);
+	var interfaces_1 = __webpack_require__(340);
 	exports.Connection = interfaces_1.Connection;
 	exports.ConnectionBackend = interfaces_1.ConnectionBackend;
-	var browser_xhr_2 = __webpack_require__(347);
+	var browser_xhr_2 = __webpack_require__(350);
 	exports.BrowserXhr = browser_xhr_2.BrowserXhr;
-	var base_request_options_2 = __webpack_require__(341);
+	var base_request_options_2 = __webpack_require__(344);
 	exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
 	exports.RequestOptions = base_request_options_2.RequestOptions;
-	var base_response_options_2 = __webpack_require__(346);
+	var base_response_options_2 = __webpack_require__(349);
 	exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
 	exports.ResponseOptions = base_response_options_2.ResponseOptions;
-	var xhr_backend_2 = __webpack_require__(343);
+	var xhr_backend_2 = __webpack_require__(346);
 	exports.XHRBackend = xhr_backend_2.XHRBackend;
 	exports.XHRConnection = xhr_backend_2.XHRConnection;
-	var jsonp_backend_2 = __webpack_require__(348);
+	var jsonp_backend_2 = __webpack_require__(351);
 	exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
 	exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
-	var http_2 = __webpack_require__(336);
+	var http_2 = __webpack_require__(339);
 	exports.Http = http_2.Http;
 	exports.Jsonp = http_2.Jsonp;
-	var headers_1 = __webpack_require__(340);
+	var headers_1 = __webpack_require__(343);
 	exports.Headers = headers_1.Headers;
-	var enums_1 = __webpack_require__(342);
+	var enums_1 = __webpack_require__(345);
 	exports.ResponseTypes = enums_1.ResponseTypes;
 	exports.ReadyStates = enums_1.ReadyStates;
 	exports.RequestMethods = enums_1.RequestMethods;
 	exports.RequestCredentialsOpts = enums_1.RequestCredentialsOpts;
 	exports.RequestCacheOpts = enums_1.RequestCacheOpts;
 	exports.RequestModesOpts = enums_1.RequestModesOpts;
-	var url_search_params_1 = __webpack_require__(338);
+	var url_search_params_1 = __webpack_require__(341);
 	exports.URLSearchParams = url_search_params_1.URLSearchParams;
 	/**
 	 * Provides a basic set of injectables to use the {@link Http} service in any application.
@@ -64385,7 +64665,7 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -64407,10 +64687,10 @@
 	};
 	var lang_1 = __webpack_require__(45);
 	var decorators_1 = __webpack_require__(48);
-	var interfaces_1 = __webpack_require__(337);
-	var static_request_1 = __webpack_require__(339);
-	var base_request_options_1 = __webpack_require__(341);
-	var enums_1 = __webpack_require__(342);
+	var interfaces_1 = __webpack_require__(340);
+	var static_request_1 = __webpack_require__(342);
+	var base_request_options_1 = __webpack_require__(344);
+	var enums_1 = __webpack_require__(345);
 	function httpRequest(backend, request) {
 	    return backend.createConnection(request).response;
 	}
@@ -64603,12 +64883,12 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 337 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/// <reference path="../../typings/rx/rx.d.ts" />
 	var lang_1 = __webpack_require__(45);
-	var url_search_params_1 = __webpack_require__(338);
+	var url_search_params_1 = __webpack_require__(341);
 	// Work around Dartanalyzer problem :(
 	var URLSearchParams_UnionFixer = url_search_params_1.URLSearchParamsUnionFixer;
 	/**
@@ -64637,7 +64917,7 @@
 	//# sourceMappingURL=interfaces.js.map
 
 /***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -64773,10 +65053,10 @@
 	//# sourceMappingURL=url_search_params.js.map
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var headers_1 = __webpack_require__(340);
+	'use strict';var headers_1 = __webpack_require__(343);
 	var lang_1 = __webpack_require__(45);
 	// TODO(jeffbcross): properly implement body accessors
 	/**
@@ -64825,7 +65105,7 @@
 	//# sourceMappingURL=static_request.js.map
 
 /***/ },
-/* 340 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -64917,7 +65197,7 @@
 	//# sourceMappingURL=headers.js.map
 
 /***/ },
-/* 341 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -64938,10 +65218,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(45);
-	var headers_1 = __webpack_require__(340);
-	var enums_1 = __webpack_require__(342);
+	var headers_1 = __webpack_require__(343);
+	var enums_1 = __webpack_require__(345);
 	var di_1 = __webpack_require__(47);
-	var url_search_params_1 = __webpack_require__(338);
+	var url_search_params_1 = __webpack_require__(341);
 	/**
 	 * Creates a request options object similar to the `RequestInit` description
 	 * in the [Fetch
@@ -65020,7 +65300,7 @@
 	//# sourceMappingURL=base_request_options.js.map
 
 /***/ },
-/* 342 */
+/* 345 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -65098,7 +65378,7 @@
 	//# sourceMappingURL=enums.js.map
 
 /***/ },
-/* 343 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -65112,11 +65392,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var enums_1 = __webpack_require__(342);
-	var static_response_1 = __webpack_require__(344);
-	var base_response_options_1 = __webpack_require__(346);
+	var enums_1 = __webpack_require__(345);
+	var static_response_1 = __webpack_require__(347);
+	var base_response_options_1 = __webpack_require__(349);
 	var di_1 = __webpack_require__(47);
-	var browser_xhr_1 = __webpack_require__(347);
+	var browser_xhr_1 = __webpack_require__(350);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	/**
@@ -65220,11 +65500,11 @@
 	//# sourceMappingURL=xhr_backend.js.map
 
 /***/ },
-/* 344 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
-	var http_utils_1 = __webpack_require__(345);
+	var http_utils_1 = __webpack_require__(348);
 	/**
 	 * Creates `Response` instances from provided values.
 	 *
@@ -65287,7 +65567,7 @@
 	//# sourceMappingURL=static_response.js.map
 
 /***/ },
-/* 345 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -65295,7 +65575,7 @@
 	//# sourceMappingURL=http_utils.js.map
 
 /***/ },
-/* 346 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -65317,8 +65597,8 @@
 	};
 	var di_1 = __webpack_require__(47);
 	var lang_1 = __webpack_require__(45);
-	var headers_1 = __webpack_require__(340);
-	var enums_1 = __webpack_require__(342);
+	var headers_1 = __webpack_require__(343);
+	var enums_1 = __webpack_require__(345);
 	/**
 	 * Creates a response options object similar to the
 	 * [ResponseInit](https://fetch.spec.whatwg.org/#responseinit) description
@@ -65370,7 +65650,7 @@
 	//# sourceMappingURL=base_response_options.js.map
 
 /***/ },
-/* 347 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -65400,7 +65680,7 @@
 	//# sourceMappingURL=browser_xhr.js.map
 
 /***/ },
-/* 348 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -65414,11 +65694,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var enums_1 = __webpack_require__(342);
-	var static_response_1 = __webpack_require__(344);
-	var base_response_options_1 = __webpack_require__(346);
+	var enums_1 = __webpack_require__(345);
+	var static_response_1 = __webpack_require__(347);
+	var base_response_options_1 = __webpack_require__(349);
 	var di_1 = __webpack_require__(47);
-	var browser_jsonp_1 = __webpack_require__(349);
+	var browser_jsonp_1 = __webpack_require__(352);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	var JSONPConnection = (function () {
@@ -65508,7 +65788,7 @@
 	//# sourceMappingURL=jsonp_backend.js.map
 
 /***/ },
-/* 349 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -65571,7 +65851,7 @@
 	//# sourceMappingURL=browser_jsonp.js.map
 
 /***/ },
-/* 350 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -65586,8 +65866,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(47);
-	var static_request_1 = __webpack_require__(339);
-	var enums_1 = __webpack_require__(342);
+	var static_request_1 = __webpack_require__(342);
+	var enums_1 = __webpack_require__(345);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	var lang_2 = __webpack_require__(45);
@@ -65742,7 +66022,61 @@
 	//# sourceMappingURL=mock_backend.js.map
 
 /***/ },
-/* 351 */
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(216);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(355);
+	var about_1 = __webpack_require__(443);
+	var schedule_1 = __webpack_require__(444);
+	var speakers_1 = __webpack_require__(445);
+	var map_1 = __webpack_require__(446);
+	var HomePage = (function () {
+	    function HomePage(nav, app) {
+	        this.nav = nav;
+	        this.app = app;
+	        this.AboutPage = about_1.AboutPage;
+	        this.MapPage = map_1.MapPage;
+	        this.SchedulePage = schedule_1.SchedulePage;
+	        this.SpeakersPage = speakers_1.SpeakersPage;
+	    }
+	    HomePage = __decorate([ionic_1.IonicView({
+	        templateUrl: 'app/home/home.html',
+	        bindings: [data_1.DataService, http_1.Http],
+	        viewBindings: [http_1.HTTP_BINDINGS],
+	        directives: [date_format_1.DateFormat]
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object])], HomePage);
+	    return HomePage;
+	})();
+	exports.HomePage = HomePage;
+	//# sourceMappingURL=home.js.map
+
+/***/ },
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65768,7 +66102,7 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var angular2_1 = __webpack_require__(41);
-	var moment = __webpack_require__(352);
+	var moment = __webpack_require__(356);
 	var DateFormat = (function () {
 	    function DateFormat() {
 	        this.formattedDate = this.test;
@@ -65794,7 +66128,7 @@
 	//# sourceMappingURL=date-format.js.map
 
 /***/ },
-/* 352 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -66065,7 +66399,7 @@
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(353)("./" + name);
+	                __webpack_require__(357)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -68995,180 +69329,180 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(107)(module)))
 
 /***/ },
-/* 353 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 354,
-		"./af.js": 354,
-		"./ar": 355,
-		"./ar-ma": 356,
-		"./ar-ma.js": 356,
-		"./ar-sa": 357,
-		"./ar-sa.js": 357,
-		"./ar-tn": 358,
-		"./ar-tn.js": 358,
-		"./ar.js": 355,
-		"./az": 359,
-		"./az.js": 359,
-		"./be": 360,
-		"./be.js": 360,
-		"./bg": 361,
-		"./bg.js": 361,
-		"./bn": 362,
-		"./bn.js": 362,
-		"./bo": 363,
-		"./bo.js": 363,
-		"./br": 364,
-		"./br.js": 364,
-		"./bs": 365,
-		"./bs.js": 365,
-		"./ca": 366,
-		"./ca.js": 366,
-		"./cs": 367,
-		"./cs.js": 367,
-		"./cv": 368,
-		"./cv.js": 368,
-		"./cy": 369,
-		"./cy.js": 369,
-		"./da": 370,
-		"./da.js": 370,
-		"./de": 371,
-		"./de-at": 372,
-		"./de-at.js": 372,
-		"./de.js": 371,
-		"./el": 373,
-		"./el.js": 373,
-		"./en-au": 374,
-		"./en-au.js": 374,
-		"./en-ca": 375,
-		"./en-ca.js": 375,
-		"./en-gb": 376,
-		"./en-gb.js": 376,
-		"./eo": 377,
-		"./eo.js": 377,
-		"./es": 378,
-		"./es.js": 378,
-		"./et": 379,
-		"./et.js": 379,
-		"./eu": 380,
-		"./eu.js": 380,
-		"./fa": 381,
-		"./fa.js": 381,
-		"./fi": 382,
-		"./fi.js": 382,
-		"./fo": 383,
-		"./fo.js": 383,
-		"./fr": 384,
-		"./fr-ca": 385,
-		"./fr-ca.js": 385,
-		"./fr.js": 384,
-		"./fy": 386,
-		"./fy.js": 386,
-		"./gl": 387,
-		"./gl.js": 387,
-		"./he": 388,
-		"./he.js": 388,
-		"./hi": 389,
-		"./hi.js": 389,
-		"./hr": 390,
-		"./hr.js": 390,
-		"./hu": 391,
-		"./hu.js": 391,
-		"./hy-am": 392,
-		"./hy-am.js": 392,
-		"./id": 393,
-		"./id.js": 393,
-		"./is": 394,
-		"./is.js": 394,
-		"./it": 395,
-		"./it.js": 395,
-		"./ja": 396,
-		"./ja.js": 396,
-		"./jv": 397,
-		"./jv.js": 397,
-		"./ka": 398,
-		"./ka.js": 398,
-		"./km": 399,
-		"./km.js": 399,
-		"./ko": 400,
-		"./ko.js": 400,
-		"./lb": 401,
-		"./lb.js": 401,
-		"./lt": 402,
-		"./lt.js": 402,
-		"./lv": 403,
-		"./lv.js": 403,
-		"./me": 404,
-		"./me.js": 404,
-		"./mk": 405,
-		"./mk.js": 405,
-		"./ml": 406,
-		"./ml.js": 406,
-		"./mr": 407,
-		"./mr.js": 407,
-		"./ms": 408,
-		"./ms-my": 409,
-		"./ms-my.js": 409,
-		"./ms.js": 408,
-		"./my": 410,
-		"./my.js": 410,
-		"./nb": 411,
-		"./nb.js": 411,
-		"./ne": 412,
-		"./ne.js": 412,
-		"./nl": 413,
-		"./nl.js": 413,
-		"./nn": 414,
-		"./nn.js": 414,
-		"./pl": 415,
-		"./pl.js": 415,
-		"./pt": 416,
-		"./pt-br": 417,
-		"./pt-br.js": 417,
-		"./pt.js": 416,
-		"./ro": 418,
-		"./ro.js": 418,
-		"./ru": 419,
-		"./ru.js": 419,
-		"./si": 420,
-		"./si.js": 420,
-		"./sk": 421,
-		"./sk.js": 421,
-		"./sl": 422,
-		"./sl.js": 422,
-		"./sq": 423,
-		"./sq.js": 423,
-		"./sr": 424,
-		"./sr-cyrl": 425,
-		"./sr-cyrl.js": 425,
-		"./sr.js": 424,
-		"./sv": 426,
-		"./sv.js": 426,
-		"./ta": 427,
-		"./ta.js": 427,
-		"./th": 428,
-		"./th.js": 428,
-		"./tl-ph": 429,
-		"./tl-ph.js": 429,
-		"./tr": 430,
-		"./tr.js": 430,
-		"./tzl": 431,
-		"./tzl.js": 431,
-		"./tzm": 432,
-		"./tzm-latn": 433,
-		"./tzm-latn.js": 433,
-		"./tzm.js": 432,
-		"./uk": 434,
-		"./uk.js": 434,
-		"./uz": 435,
-		"./uz.js": 435,
-		"./vi": 436,
-		"./vi.js": 436,
-		"./zh-cn": 437,
-		"./zh-cn.js": 437,
-		"./zh-tw": 438,
-		"./zh-tw.js": 438
+		"./af": 358,
+		"./af.js": 358,
+		"./ar": 359,
+		"./ar-ma": 360,
+		"./ar-ma.js": 360,
+		"./ar-sa": 361,
+		"./ar-sa.js": 361,
+		"./ar-tn": 362,
+		"./ar-tn.js": 362,
+		"./ar.js": 359,
+		"./az": 363,
+		"./az.js": 363,
+		"./be": 364,
+		"./be.js": 364,
+		"./bg": 365,
+		"./bg.js": 365,
+		"./bn": 366,
+		"./bn.js": 366,
+		"./bo": 367,
+		"./bo.js": 367,
+		"./br": 368,
+		"./br.js": 368,
+		"./bs": 369,
+		"./bs.js": 369,
+		"./ca": 370,
+		"./ca.js": 370,
+		"./cs": 371,
+		"./cs.js": 371,
+		"./cv": 372,
+		"./cv.js": 372,
+		"./cy": 373,
+		"./cy.js": 373,
+		"./da": 374,
+		"./da.js": 374,
+		"./de": 375,
+		"./de-at": 376,
+		"./de-at.js": 376,
+		"./de.js": 375,
+		"./el": 377,
+		"./el.js": 377,
+		"./en-au": 378,
+		"./en-au.js": 378,
+		"./en-ca": 379,
+		"./en-ca.js": 379,
+		"./en-gb": 380,
+		"./en-gb.js": 380,
+		"./eo": 381,
+		"./eo.js": 381,
+		"./es": 382,
+		"./es.js": 382,
+		"./et": 383,
+		"./et.js": 383,
+		"./eu": 384,
+		"./eu.js": 384,
+		"./fa": 385,
+		"./fa.js": 385,
+		"./fi": 386,
+		"./fi.js": 386,
+		"./fo": 387,
+		"./fo.js": 387,
+		"./fr": 388,
+		"./fr-ca": 389,
+		"./fr-ca.js": 389,
+		"./fr.js": 388,
+		"./fy": 390,
+		"./fy.js": 390,
+		"./gl": 391,
+		"./gl.js": 391,
+		"./he": 392,
+		"./he.js": 392,
+		"./hi": 393,
+		"./hi.js": 393,
+		"./hr": 394,
+		"./hr.js": 394,
+		"./hu": 395,
+		"./hu.js": 395,
+		"./hy-am": 396,
+		"./hy-am.js": 396,
+		"./id": 397,
+		"./id.js": 397,
+		"./is": 398,
+		"./is.js": 398,
+		"./it": 399,
+		"./it.js": 399,
+		"./ja": 400,
+		"./ja.js": 400,
+		"./jv": 401,
+		"./jv.js": 401,
+		"./ka": 402,
+		"./ka.js": 402,
+		"./km": 403,
+		"./km.js": 403,
+		"./ko": 404,
+		"./ko.js": 404,
+		"./lb": 405,
+		"./lb.js": 405,
+		"./lt": 406,
+		"./lt.js": 406,
+		"./lv": 407,
+		"./lv.js": 407,
+		"./me": 408,
+		"./me.js": 408,
+		"./mk": 409,
+		"./mk.js": 409,
+		"./ml": 410,
+		"./ml.js": 410,
+		"./mr": 411,
+		"./mr.js": 411,
+		"./ms": 412,
+		"./ms-my": 413,
+		"./ms-my.js": 413,
+		"./ms.js": 412,
+		"./my": 414,
+		"./my.js": 414,
+		"./nb": 415,
+		"./nb.js": 415,
+		"./ne": 416,
+		"./ne.js": 416,
+		"./nl": 417,
+		"./nl.js": 417,
+		"./nn": 418,
+		"./nn.js": 418,
+		"./pl": 419,
+		"./pl.js": 419,
+		"./pt": 420,
+		"./pt-br": 421,
+		"./pt-br.js": 421,
+		"./pt.js": 420,
+		"./ro": 422,
+		"./ro.js": 422,
+		"./ru": 423,
+		"./ru.js": 423,
+		"./si": 424,
+		"./si.js": 424,
+		"./sk": 425,
+		"./sk.js": 425,
+		"./sl": 426,
+		"./sl.js": 426,
+		"./sq": 427,
+		"./sq.js": 427,
+		"./sr": 428,
+		"./sr-cyrl": 429,
+		"./sr-cyrl.js": 429,
+		"./sr.js": 428,
+		"./sv": 430,
+		"./sv.js": 430,
+		"./ta": 431,
+		"./ta.js": 431,
+		"./th": 432,
+		"./th.js": 432,
+		"./tl-ph": 433,
+		"./tl-ph.js": 433,
+		"./tr": 434,
+		"./tr.js": 434,
+		"./tzl": 435,
+		"./tzl.js": 435,
+		"./tzm": 436,
+		"./tzm-latn": 437,
+		"./tzm-latn.js": 437,
+		"./tzm.js": 436,
+		"./uk": 438,
+		"./uk.js": 438,
+		"./uz": 439,
+		"./uz.js": 439,
+		"./vi": 440,
+		"./vi.js": 440,
+		"./zh-cn": 441,
+		"./zh-cn.js": 441,
+		"./zh-tw": 442,
+		"./zh-tw.js": 442
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -69181,11 +69515,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 353;
+	webpackContext.id = 357;
 
 
 /***/ },
-/* 354 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69193,7 +69527,7 @@
 	//! author : Werner Mollentze : https://github.com/wernerm
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69262,7 +69596,7 @@
 	}));
 
 /***/ },
-/* 355 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69272,7 +69606,7 @@
 	//! Native plural forms: forabi https://github.com/forabi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69402,7 +69736,7 @@
 	}));
 
 /***/ },
-/* 356 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69411,7 +69745,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69465,7 +69799,7 @@
 	}));
 
 /***/ },
-/* 357 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69473,7 +69807,7 @@
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69572,14 +69906,14 @@
 	}));
 
 /***/ },
-/* 358 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale  : Tunisian Arabic (ar-tn)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69633,7 +69967,7 @@
 	}));
 
 /***/ },
-/* 359 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69641,7 +69975,7 @@
 	//! author : topchiyev : https://github.com/topchiyev
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69741,7 +70075,7 @@
 	}));
 
 /***/ },
-/* 360 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69751,7 +70085,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69892,7 +70226,7 @@
 	}));
 
 /***/ },
-/* 361 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69900,7 +70234,7 @@
 	//! author : Krasen Borisov : https://github.com/kraz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69986,7 +70320,7 @@
 	}));
 
 /***/ },
-/* 362 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69994,7 +70328,7 @@
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70103,7 +70437,7 @@
 	}));
 
 /***/ },
-/* 363 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70111,7 +70445,7 @@
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70217,7 +70551,7 @@
 	}));
 
 /***/ },
-/* 364 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70225,7 +70559,7 @@
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70328,7 +70662,7 @@
 	}));
 
 /***/ },
-/* 365 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70337,7 +70671,7 @@
 	//! based on (hr) translation by Bojan Marković
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70473,7 +70807,7 @@
 	}));
 
 /***/ },
-/* 366 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70481,7 +70815,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70556,7 +70890,7 @@
 	}));
 
 /***/ },
-/* 367 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70564,7 +70898,7 @@
 	//! author : petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70717,7 +71051,7 @@
 	}));
 
 /***/ },
-/* 368 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70725,7 +71059,7 @@
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70784,7 +71118,7 @@
 	}));
 
 /***/ },
-/* 369 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70792,7 +71126,7 @@
 	//! author : Robert Allen
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70867,7 +71201,7 @@
 	}));
 
 /***/ },
-/* 370 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70875,7 +71209,7 @@
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70931,7 +71265,7 @@
 	}));
 
 /***/ },
-/* 371 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70940,7 +71274,7 @@
 	//! author: Menelion Elensúle: https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71010,7 +71344,7 @@
 	}));
 
 /***/ },
-/* 372 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71020,7 +71354,7 @@
 	//! author : Martin Groller : https://github.com/MadMG
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71090,7 +71424,7 @@
 	}));
 
 /***/ },
-/* 373 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71098,7 +71432,7 @@
 	//! author : Aggelos Karalias : https://github.com/mehiel
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71188,14 +71522,14 @@
 	}));
 
 /***/ },
-/* 374 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : australian english (en-au)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71258,7 +71592,7 @@
 	}));
 
 /***/ },
-/* 375 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71266,7 +71600,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71325,7 +71659,7 @@
 	}));
 
 /***/ },
-/* 376 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71333,7 +71667,7 @@
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71396,7 +71730,7 @@
 	}));
 
 /***/ },
-/* 377 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71406,7 +71740,7 @@
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71473,7 +71807,7 @@
 	}));
 
 /***/ },
-/* 378 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71481,7 +71815,7 @@
 	//! author : Julio Napurí : https://github.com/julionc
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71556,7 +71890,7 @@
 	}));
 
 /***/ },
-/* 379 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71565,7 +71899,7 @@
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71640,7 +71974,7 @@
 	}));
 
 /***/ },
-/* 380 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71648,7 +71982,7 @@
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71708,7 +72042,7 @@
 	}));
 
 /***/ },
-/* 381 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71716,7 +72050,7 @@
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71817,7 +72151,7 @@
 	}));
 
 /***/ },
-/* 382 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71825,7 +72159,7 @@
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71928,7 +72262,7 @@
 	}));
 
 /***/ },
-/* 383 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71936,7 +72270,7 @@
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71992,7 +72326,7 @@
 	}));
 
 /***/ },
-/* 384 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72000,7 +72334,7 @@
 	//! author : John Fischer : https://github.com/jfroffice
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72058,7 +72392,7 @@
 	}));
 
 /***/ },
-/* 385 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72066,7 +72400,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72120,7 +72454,7 @@
 	}));
 
 /***/ },
-/* 386 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72128,7 +72462,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72195,7 +72529,7 @@
 	}));
 
 /***/ },
-/* 387 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72203,7 +72537,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72274,7 +72608,7 @@
 	}));
 
 /***/ },
-/* 388 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72284,7 +72618,7 @@
 	//! author : Tal Ater : https://github.com/TalAter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72360,7 +72694,7 @@
 	}));
 
 /***/ },
-/* 389 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72368,7 +72702,7 @@
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72487,7 +72821,7 @@
 	}));
 
 /***/ },
-/* 390 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72495,7 +72829,7 @@
 	//! author : Bojan Marković : https://github.com/bmarkovic
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72631,7 +72965,7 @@
 	}));
 
 /***/ },
-/* 391 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72639,7 +72973,7 @@
 	//! author : Adam Brunner : https://github.com/adambrunner
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72744,7 +73078,7 @@
 	}));
 
 /***/ },
-/* 392 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72752,7 +73086,7 @@
 	//! author : Armendarabyan : https://github.com/armendarabyan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72859,7 +73193,7 @@
 	}));
 
 /***/ },
-/* 393 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72868,7 +73202,7 @@
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72946,7 +73280,7 @@
 	}));
 
 /***/ },
-/* 394 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72954,7 +73288,7 @@
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73077,7 +73411,7 @@
 	}));
 
 /***/ },
-/* 395 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73086,7 +73420,7 @@
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73151,7 +73485,7 @@
 	}));
 
 /***/ },
-/* 396 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73159,7 +73493,7 @@
 	//! author : LI Long : https://github.com/baryon
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73220,7 +73554,7 @@
 	}));
 
 /***/ },
-/* 397 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73229,7 +73563,7 @@
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73307,7 +73641,7 @@
 	}));
 
 /***/ },
-/* 398 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73315,7 +73649,7 @@
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73414,7 +73748,7 @@
 	}));
 
 /***/ },
-/* 399 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73422,7 +73756,7 @@
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73476,7 +73810,7 @@
 	}));
 
 /***/ },
-/* 400 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73488,7 +73822,7 @@
 	//! - Jeeeyul Lee <jeeeyul@gmail.com>
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73548,7 +73882,7 @@
 	}));
 
 /***/ },
-/* 401 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73556,7 +73890,7 @@
 	//! author : mweimerskirch : https://github.com/mweimerskirch, David Raison : https://github.com/kwisatz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73686,7 +74020,7 @@
 	}));
 
 /***/ },
-/* 402 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73694,7 +74028,7 @@
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73815,7 +74149,7 @@
 	}));
 
 /***/ },
-/* 403 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73824,7 +74158,7 @@
 	//! author : Jānis Elmeris : https://github.com/JanisE
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73915,7 +74249,7 @@
 	}));
 
 /***/ },
-/* 404 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73923,7 +74257,7 @@
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74028,7 +74362,7 @@
 	}));
 
 /***/ },
-/* 405 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74036,7 +74370,7 @@
 	//! author : Borislav Mickov : https://github.com/B0k0
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74122,7 +74456,7 @@
 	}));
 
 /***/ },
-/* 406 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74130,7 +74464,7 @@
 	//! author : Floyd Pink : https://github.com/floydpink
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74197,7 +74531,7 @@
 	}));
 
 /***/ },
-/* 407 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74205,7 +74539,7 @@
 	//! author : Harshad Kale : https://github.com/kalehv
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74322,7 +74656,7 @@
 	}));
 
 /***/ },
-/* 408 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74330,7 +74664,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74408,7 +74742,7 @@
 	}));
 
 /***/ },
-/* 409 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74416,7 +74750,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74494,7 +74828,7 @@
 	}));
 
 /***/ },
-/* 410 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74502,7 +74836,7 @@
 	//! author : Squar team, mysquar.com
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74591,7 +74925,7 @@
 	}));
 
 /***/ },
-/* 411 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74600,7 +74934,7 @@
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74656,7 +74990,7 @@
 	}));
 
 /***/ },
-/* 412 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74664,7 +74998,7 @@
 	//! author : suvash : https://github.com/suvash
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74783,7 +75117,7 @@
 	}));
 
 /***/ },
-/* 413 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74791,7 +75125,7 @@
 	//! author : Joris Röling : https://github.com/jjupiter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74858,7 +75192,7 @@
 	}));
 
 /***/ },
-/* 414 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74866,7 +75200,7 @@
 	//! author : https://github.com/mechuwind
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74922,7 +75256,7 @@
 	}));
 
 /***/ },
-/* 415 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74930,7 +75264,7 @@
 	//! author : Rafal Hirsz : https://github.com/evoL
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75031,7 +75365,7 @@
 	}));
 
 /***/ },
-/* 416 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75039,7 +75373,7 @@
 	//! author : Jefferson : https://github.com/jalex79
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75099,7 +75433,7 @@
 	}));
 
 /***/ },
-/* 417 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75107,7 +75441,7 @@
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75163,7 +75497,7 @@
 	}));
 
 /***/ },
-/* 418 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75172,7 +75506,7 @@
 	//! author : Valentin Agachi : https://github.com/avaly
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75241,7 +75575,7 @@
 	}));
 
 /***/ },
-/* 419 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75250,7 +75584,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75409,7 +75743,7 @@
 	}));
 
 /***/ },
-/* 420 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75417,7 +75751,7 @@
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75478,7 +75812,7 @@
 	}));
 
 /***/ },
-/* 421 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75487,7 +75821,7 @@
 	//! based on work of petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75640,7 +75974,7 @@
 	}));
 
 /***/ },
-/* 422 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75648,7 +75982,7 @@
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75804,7 +76138,7 @@
 	}));
 
 /***/ },
-/* 423 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75814,7 +76148,7 @@
 	//! author : Oerd Cukalla : https://github.com/oerd (fixes)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75877,7 +76211,7 @@
 	}));
 
 /***/ },
-/* 424 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75885,7 +76219,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75989,7 +76323,7 @@
 	}));
 
 /***/ },
-/* 425 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75997,7 +76331,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76101,7 +76435,7 @@
 	}));
 
 /***/ },
-/* 426 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76109,7 +76443,7 @@
 	//! author : Jens Alm : https://github.com/ulmus
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76172,7 +76506,7 @@
 	}));
 
 /***/ },
-/* 427 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76180,7 +76514,7 @@
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76271,7 +76605,7 @@
 	}));
 
 /***/ },
-/* 428 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76279,7 +76613,7 @@
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76340,7 +76674,7 @@
 	}));
 
 /***/ },
-/* 429 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76348,7 +76682,7 @@
 	//! author : Dan Hagman
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76406,7 +76740,7 @@
 	}));
 
 /***/ },
-/* 430 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76415,7 +76749,7 @@
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76500,7 +76834,7 @@
 	}));
 
 /***/ },
-/* 431 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76508,7 +76842,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v with the help of Iustì Canun
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76589,7 +76923,7 @@
 	}));
 
 /***/ },
-/* 432 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76597,7 +76931,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76651,7 +76985,7 @@
 	}));
 
 /***/ },
-/* 433 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76659,7 +76993,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76713,7 +77047,7 @@
 	}));
 
 /***/ },
-/* 434 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76722,7 +77056,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76870,7 +77204,7 @@
 	}));
 
 /***/ },
-/* 435 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76878,7 +77212,7 @@
 	//! author : Sardor Muminov : https://github.com/muminoff
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76932,7 +77266,7 @@
 	}));
 
 /***/ },
-/* 436 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76940,7 +77274,7 @@
 	//! author : Bang Nguyen : https://github.com/bangnk
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -77002,7 +77336,7 @@
 	}));
 
 /***/ },
-/* 437 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -77011,7 +77345,7 @@
 	//! author : Zeno Zeng : https://github.com/zenozeng
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -77133,7 +77467,7 @@
 	}));
 
 /***/ },
-/* 438 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -77141,7 +77475,7 @@
 	//! author : Ben : https://github.com/ben-lin
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(352)) :
+	    true ? factory(__webpack_require__(356)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -77238,7 +77572,7 @@
 	}));
 
 /***/ },
-/* 439 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77264,9 +77598,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(355);
 	var AboutPage = (function () {
 	    function AboutPage(nav, app, data) {
 	        // debugger;
@@ -77284,7 +77618,7 @@
 	//# sourceMappingURL=about.js.map
 
 /***/ },
-/* 440 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77310,9 +77644,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(355);
 	var SchedulePage = (function () {
 	    function SchedulePage(nav, app, data) {
 	        this.schedule = data.getSchedule();
@@ -77353,7 +77687,7 @@
 	//# sourceMappingURL=schedule.js.map
 
 /***/ },
-/* 441 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77379,9 +77713,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(355);
 	var SpeakersPage = (function () {
 	    function SpeakersPage(nav, app, data) {
 	        this.speakers = null;
@@ -77414,15 +77748,12 @@
 	        });
 	        this.talks = talks;
 	        this.speakersNames = speakers;
-	        // this.speakers = speakers;
-	        // this.talks = this.sessions.map(function(dayItem) {
-	        //   return dayItem.talks;
-	        // });
-	        //days have sessions
-	        //sessions have talks
-	        //talks have names
-	        console.log('all talks', this.talks);
-	        console.log('all speakers', speakers);
+	        console.log('Speakers page');
+	        this.openSession('val');
+	    };
+	    SpeakersPage.prototype.openSession = function (session) {
+	        debugger;
+	        console.log('Open up session', session);
 	    };
 	    SpeakersPage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/speakers/speakers.html',
@@ -77436,7 +77767,7 @@
 	//# sourceMappingURL=speakers.js.map
 
 /***/ },
-/* 442 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77462,9 +77793,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
+	var data_1 = __webpack_require__(337);
+	var http_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(355);
 	var MapPage = (function () {
 	    function MapPage(nav, app, data) {
 	        this.map = null;
@@ -77486,92 +77817,6 @@
 	})();
 	exports.MapPage = MapPage;
 	//# sourceMappingURL=map.js.map
-
-/***/ },
-/* 443 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
-	var EventsPage = (function () {
-	    function EventsPage(nav, app, data) {}
-	    EventsPage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/events/events.html',
-	        bindings: [data_1.DataService, http_1.Http],
-	        viewBindings: [http_1.HTTP_BINDINGS],
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], EventsPage);
-	    return EventsPage;
-	})();
-	exports.EventsPage = EventsPage;
-	//# sourceMappingURL=events.js.map
-
-/***/ },
-/* 444 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(334);
-	var http_1 = __webpack_require__(335);
-	var date_format_1 = __webpack_require__(351);
-	var TicketsPage = (function () {
-	    function TicketsPage(nav, app, data) {}
-	    TicketsPage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/tickets/tickets.html',
-	        bindings: [data_1.DataService, http_1.Http],
-	        viewBindings: [http_1.HTTP_BINDINGS],
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], TicketsPage);
-	    return TicketsPage;
-	})();
-	exports.TicketsPage = TicketsPage;
-	//# sourceMappingURL=tickets.js.map
 
 /***/ }
 /******/ ]);

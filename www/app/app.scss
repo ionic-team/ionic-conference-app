@@ -28,12 +28,6 @@ $colors: (
 
 // App Sass
 // ---------------------------------
-@import "getting-started/getting-started",
-        "login/login",
-        "signup/signup",
-        "intro/intro",
-        "tabs/tabs",
-        "grid/grid",
-        "home/home",
+@import "home/home",
         "map/map",
         "speakers/speakers";

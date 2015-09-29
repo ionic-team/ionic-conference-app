@@ -13,7 +13,7 @@
         </ion-item>
         <ion-item>
           <span>Sessions:</span>
-          <span class="session-tag" *ng-for="#session of speaker.sessions">{{session.name}}</span>
+          <a href="#" class="session-tag" *ng-for="#session of speaker.sessions" (click)="openSession(session)">{{session.name}}</a>
         </ion-item>
       </ion-card>
     </ion-list>

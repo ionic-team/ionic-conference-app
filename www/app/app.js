@@ -1,23 +1,8 @@
 import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
-
-import {GettingStartedPage} from './getting-started/getting-started';
-import {IntroPage} from './intro/intro';
-import {LoginPage} from './login/login';
-import {SignupPage} from './signup/signup';
-import {TabsPage} from './tabs/tabs';
-import {ListPage} from './list/list';
-import {GridPage} from './grid/grid';
-import {PlaylistPage} from './playlist/playlists';
-import {HomePage} from './home/home';
-import {AboutPage} from './about/about';
-import {SchedulePage} from './schedule/schedule';
-import {SpeakersPage} from './speakers/speakers';
-import {MapPage} from './map/map';
-import {EventsPage} from './events/events';
-import {TicketsPage} from './tickets/tickets';
-
 import {DataService} from './service/data';
-import {Http, HTTP_BINDINGS} from "angular2/http";
+import {Http, HTTP_BINDINGS} from 'angular2/http';
+import {HomePage} from './home/home';
+
 
 @App({
   templateUrl: 'app/app.html',
@@ -29,31 +14,8 @@ class MyApp {
   constructor(app: IonicApp, platform: IonicPlatform, data: DataService) {
     this.app = app;
     this.platform = platform;
-
-    this.conferenceInfo = {
-      end: '05/21/2016',
-      location: 'Madison, WI',
-      name: 'Ionic 2 Conf',
-      start: '05/19/2016'
-    };
-
     data.retrieveData();
-
     this.initializeApp();
-
-    // used for an example of ng-for and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'About', component: AboutPage },
-      { title: 'Schedule', component: SchedulePage },
-      { title: 'Speakers', component: SpeakersPage }
-      { title: 'Map', component: MapPage },
-      { title: 'Events', component: EventsPage },
-      { title: 'Buy Tickets', component: TicketsPage }
-    ];
-
-    this.About = AboutPage;
-
     this.rootPage = HomePage;
   }
 

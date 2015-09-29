@@ -35,22 +35,18 @@ export class SpeakersPage {
             if (speakers.indexOf(talkItem.speaker) == -1) {
               speakers.push(talkItem.speaker);          
             }
-
+          }
         });
       });
     });
     this.talks = talks;
     this.speakersNames = speakers;
-    // this.speakers = speakers;
-    // this.talks = this.sessions.map(function(dayItem) {
-    //   return dayItem.talks;
-    // });
+    console.log('Speakers page');
+    this.openSession('val');
+  }
 
-    //days have sessions
-    //sessions have talks
-    //talks have names
-
-    console.log('all talks', this.talks);
-    console.log('all speakers', speakers);
+  openSession(session) {
+    debugger;
+    console.log('Open up session', session);
   }
 }
