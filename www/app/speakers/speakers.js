@@ -4,6 +4,9 @@ import {Http, HTTP_BINDINGS} from "angular2/http";
 import {DateFormat} from '../components/date-format';
 import {SpeakerDetailPage} from '../speakerDetail/speakerDetail';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
+import {PageNavigator} from '../service/pageNavigator';
+
+console.log('speakers page pageNavigator', PageNavigator);
 
 @IonicView({
   templateUrl: 'app/speakers/speakers.html',
@@ -11,9 +14,11 @@ import {SessionDetailPage} from '../sessionDetail/sessionDetail';
   directives: [DateFormat]
 })
 
-export class SpeakersPage {
+export class SpeakersPage extends PageNavigator {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
-    this.nav = nav;
+    // this.nav = nav;
+    super(nav);
+    console.log('this.nav', this.nav);
     this.speakers = null;
     this.scheduleInfo = null;
     this.dataService = data;
@@ -43,16 +48,5 @@ export class SpeakersPage {
     });
     this.talks = talks;
     this.speakersNames = speakers;
-    // console.log('Speakers page');
-    // this.openSession('val');
-  }
-
-  openSession(session) {
-    console.log('Open up session', session);
-    this.nav.push(SessionDetailPage, session);
-  }
-
-  openSpeakerDetail(speaker) {
-    this.nav.push(SpeakerDetailPage, speaker);
   }
 }
