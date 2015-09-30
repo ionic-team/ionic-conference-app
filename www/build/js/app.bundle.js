@@ -66529,7 +66529,7 @@
 	var date_format_1 = __webpack_require__(356);
 	var about_1 = __webpack_require__(444);
 	var schedule_1 = __webpack_require__(445);
-	var speakers_1 = __webpack_require__(446);
+	var speakers_1 = __webpack_require__(447);
 	var map_1 = __webpack_require__(449);
 	var HomePage = (function () {
 	    function HomePage(nav, app) {
@@ -78120,8 +78120,10 @@
 	var ionic_1 = __webpack_require__(216);
 	var data_1 = __webpack_require__(338);
 	var date_format_1 = __webpack_require__(356);
+	var sessionDetail_1 = __webpack_require__(446);
 	var SchedulePage = (function () {
 	    function SchedulePage(nav, app, data) {
+	        this.nav = nav;
 	        this.schedule = data.getSchedule();
 	        this.index = 0;
 	        this.scheduleForTheDay = this.schedule[0];
@@ -78148,6 +78150,9 @@
 	        this.index = newIndex;
 	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
 	    };
+	    SchedulePage.prototype.openSession = function (session) {
+	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	    };
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',
 	        bindings: [data_1.DataService],
@@ -78160,134 +78165,6 @@
 
 /***/ },
 /* 446 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(338);
-	var date_format_1 = __webpack_require__(356);
-	var speakerDetail_1 = __webpack_require__(447);
-	var sessionDetail_1 = __webpack_require__(448);
-	var SpeakersPage = (function () {
-	    function SpeakersPage(nav, app, data) {
-	        this.nav = nav;
-	        this.speakers = null;
-	        this.scheduleInfo = null;
-	        this.dataService = data;
-	    }
-	    SpeakersPage.prototype.onInit = function () {
-	        this.scheduleInfo = this.dataService.getSchedule();
-	        var speakerList = this.speakers = this.dataService.getSpeakers();
-	        var talks = [];
-	        var speakers = [];
-	        this.scheduleInfo.map(function (dayItem) {
-	            dayItem.sessions.map(function (sessionItem) {
-	                sessionItem.talks.map(function (talkItem) {
-	                    talks.push(talkItem.name);
-	                    if (talkItem.speaker) {
-	                        var speakerSession = speakerList.find(function (x) {
-	                            return x.name == talkItem.speaker;
-	                        });
-	                        if (speakerSession) {
-	                            speakerSession.sessions = speakerSession.sessions || [];
-	                            speakerSession.sessions.push(talkItem);
-	                        }
-	                        if (speakers.indexOf(talkItem.speaker) == -1) {
-	                            speakers.push(talkItem.speaker);
-	                        }
-	                    }
-	                });
-	            });
-	        });
-	        this.talks = talks;
-	        this.speakersNames = speakers;
-	        // console.log('Speakers page');
-	        // this.openSession('val');
-	    };
-	    SpeakersPage.prototype.openSession = function (session) {
-	        console.log('Open up session', session);
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
-	    };
-	    SpeakersPage.prototype.openSpeakerDetail = function (speaker) {
-	        this.nav.push(speakerDetail_1.SpeakerDetailPage, speaker);
-	    };
-	    SpeakersPage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/speakers/speakers.html',
-	        bindings: [data_1.DataService],
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], SpeakersPage);
-	    return SpeakersPage;
-	})();
-	exports.SpeakersPage = SpeakersPage;
-	//# sourceMappingURL=speakers.js.map
-
-/***/ },
-/* 447 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var SpeakerDetailPage = (function () {
-	    function SpeakerDetailPage(nav, app, navParams) {
-	        this.nav = nav;
-	        this.navParams = navParams;
-	        this.speaker = this.navParams.data;
-	    }
-	    SpeakerDetailPage.prototype.onInit = function () {
-	        console.log('SpeakerDetailPage init', this.navParams);
-	    };
-	    SpeakerDetailPage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/speakerDetail/speakerDetail.html'
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams || Object])], SpeakerDetailPage);
-	    return SpeakerDetailPage;
-	})();
-	exports.SpeakerDetailPage = SpeakerDetailPage;
-	//# sourceMappingURL=speakerDetail.js.map
-
-/***/ },
-/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78329,6 +78206,136 @@
 	})();
 	exports.SessionDetailPage = SessionDetailPage;
 	//# sourceMappingURL=sessionDetail.js.map
+
+/***/ },
+/* 447 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(216);
+	var data_1 = __webpack_require__(338);
+	var date_format_1 = __webpack_require__(356);
+	var speakerDetail_1 = __webpack_require__(448);
+	var sessionDetail_1 = __webpack_require__(446);
+	var SpeakersPage = (function () {
+	    function SpeakersPage(nav, app, data) {
+	        this.nav = nav;
+	        console.log('this.nav', this.nav);
+	        this.speakers = null;
+	        this.scheduleInfo = null;
+	        this.dataService = data;
+	    }
+	    SpeakersPage.prototype.onInit = function () {
+	        this.scheduleInfo = this.dataService.getSchedule();
+	        var speakerList = this.speakers = this.dataService.getSpeakers();
+	        var talks = [];
+	        var speakers = [];
+	        this.scheduleInfo.map(function (dayItem) {
+	            dayItem.sessions.map(function (sessionItem) {
+	                sessionItem.talks.map(function (talkItem) {
+	                    talks.push(talkItem.name);
+	                    if (talkItem.speaker) {
+	                        var speakerSession = speakerList.find(function (x) {
+	                            return x.name == talkItem.speaker;
+	                        });
+	                        if (speakerSession) {
+	                            speakerSession.sessions = speakerSession.sessions || [];
+	                            speakerSession.sessions.push(talkItem);
+	                        }
+	                        if (speakers.indexOf(talkItem.speaker) == -1) {
+	                            speakers.push(talkItem.speaker);
+	                        }
+	                    }
+	                });
+	            });
+	        });
+	        this.talks = talks;
+	        this.speakersNames = speakers;
+	    };
+	    SpeakersPage.prototype.openSession = function (session) {
+	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	    };
+	    SpeakersPage.prototype.openSpeakerDetail = function (speaker) {
+	        this.nav.push(speakerDetail_1.SpeakerDetailPage, speaker);
+	    };
+	    SpeakersPage = __decorate([ionic_1.IonicView({
+	        templateUrl: 'app/speakers/speakers.html',
+	        bindings: [data_1.DataService],
+	        directives: [date_format_1.DateFormat]
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], SpeakersPage);
+	    return SpeakersPage;
+	})();
+	exports.SpeakersPage = SpeakersPage;
+	//# sourceMappingURL=speakers.js.map
+
+/***/ },
+/* 448 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	// import {PageNavigator} from '../service/pageNavigator';
+	var ionic_1 = __webpack_require__(216);
+	var sessionDetail_1 = __webpack_require__(446);
+	var SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = (function () {
+	    function SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */(nav, app, navParams) {
+	        this.nav = nav;
+	        this.navParams = navParams;
+	        this.speaker = this.navParams.data;
+	    }
+	    SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */.prototype.openSession = function (session) {
+	        console.log('Open up session', session);
+	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	    };
+	    SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = __decorate([ionic_1.IonicView({
+	        templateUrl: 'app/speakerDetail/speakerDetail.html'
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams || Object])], SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */);
+	    return SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */;
+	})();
+	exports.SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = SpeakerDetailPage;
+	//# sourceMappingURL=speakerDetail.js.map
+	/*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */
 
 /***/ },
 /* 449 */
