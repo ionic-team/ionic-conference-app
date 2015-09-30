@@ -1,7 +1,6 @@
 import {IonicView, NavController, IonicApp} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
-import {PageNavigator} from '../service/pageNavigator';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 @IonicView({
   templateUrl: 'app/schedule/schedule.html',
@@ -9,9 +8,9 @@ import {SessionDetailPage} from '../sessionDetail/sessionDetail';
   directives: [DateFormat]
 })
 
-export class SchedulePage extends PageNavigator {
+export class SchedulePage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
-    super(nav);
+    this.nav = nav;
     this.schedule = data.getSchedule();
     this.index = 0;
     this.scheduleForTheDay = this.schedule[0];
