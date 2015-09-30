@@ -70,10 +70,6 @@ Speaker
   name
   Sessions
 
-Generating JSON
-http://www.json-generator.com/#generate
-Using data in /generator folder for the data
-
 Conference App Examples
 WWDC: https://itunes.apple.com/us/app/wwdc/id640199958?mt=8
 
