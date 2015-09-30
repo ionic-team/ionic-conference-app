@@ -10,8 +10,6 @@ import {MapPage} from '../map/map';
 
 @IonicView({
   templateUrl: 'app/home/home.html',
-  bindings: [DataService, Http],
-  viewBindings: [HTTP_BINDINGS],
   directives: [DateFormat]
 })
 
