@@ -5,8 +5,7 @@ import {DateFormat} from '../components/date-format';
 
 @IonicView({
   templateUrl: 'app/speakers/speakers.html',
-  bindings: [DataService, Http],
-  viewBindings: [HTTP_BINDINGS],
+  bindings: [DataService],
   directives: [DateFormat]
 })
 
