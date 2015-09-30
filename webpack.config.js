@@ -20,9 +20,15 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "awesome-typescript-loader?doTypeCheck=false&useBabel=true&useWebpackText=true",
-        include: /app\//
+        include: /www\/app\//,
+        exclude: /node_modules/
       },
-      { test: /\.ts$/, loader: "awesome-typescript-loader", include: /app\// }
+      {
+        test: /\.ts$/,
+        loader: "awesome-typescript-loader",
+        include: /www\/app\//,
+        exclude: /node_modules/
+       }
     ]
   },
   resolve: {
