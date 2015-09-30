@@ -14,16 +14,16 @@
       <div class="" *ng-for="#timeSlot of sessionsForTheDay">
         <span>{{timeSlot.time}}</span>
         <ion-list>
-          <ion-card *ng-for="#time of timeSlot.talks">
+          <ion-card *ng-for="#session of timeSlot.talks" (click)="openSession(session)">
             <ion-item>
-              <span>{{time.name}}</span>
-              <span style="float: right" *ng-if="time.speaker">&nbsp;{{time.speaker}}</span>
+              <span>{{session.name}}</span>
+              <span style="float: right" *ng-if="session.speaker">&nbsp;{{session.speaker}}</span>
             </ion-item>
             <ion-item>
-              <date-format [value]="time.timestart" format="h:mm:ss a"></date-format> - <date-format [value]="time.timeend" format="h:mm:ss a"></date-format>
+              <date-format [value]="session.timestart" format="h:mm:ss a"></date-format> - <date-format [value]="session.timeend" format="h:mm:ss a"></date-format>
               &dash; 
               <icon pin></icon>
-              <span>{{time.location}}</span>
+              <span>{{session.location}}</span>
             </ion-item>
           </ion-card>
         </ion-list>
