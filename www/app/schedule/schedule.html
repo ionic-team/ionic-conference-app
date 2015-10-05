@@ -1,32 +1,37 @@
-
-<ion-content padding class="schedule-page">
+<ion-content class="schedule-page">
   <ion-navbar *navbar>
     <ion-nav-items primary>
-      <div class="schedule-navigation">
-        <a class="next-day-schedule" href="#" *ng-if="schedule.length > 1 && index != 0" (click)="previousDay(index)">&lt;</a>
-        <div class="schedule-day">{{scheduleForTheDay.day}}</div>
-        <a class="previous-day-schedule" href="#" *ng-if="schedule.length > 1 && index != schedule.length - 1" (click)="nextDay(index)">&gt;</a>
-      </div>
+      <button>
+      Filter
+      </button>
     </ion-nav-items>
-  </ion-navbar>
-
-  <div class="list">
-      <div class="" *ng-for="#timeSlot of sessionsForTheDay">
-        <span>{{timeSlot.time}}</span>
-        <ion-list>
-          <ion-card *ng-for="#session of timeSlot.talks" (click)="openSession(session)">
-            <ion-item>
-              <span>{{session.name}}</span>
-              <span style="float: right" *ng-if="session.speaker">&nbsp;{{session.speaker}}</span>
-            </ion-item>
-            <ion-item>
-              <date-format [value]="session.timestart" format="h:mm:ss a"></date-format> - <date-format [value]="session.timeend" format="h:mm:ss a"></date-format>
-              &dash; 
-              <icon pin></icon>
-              <span>{{session.location}}</span>
-            </ion-item>
-          </ion-card>
-        </ion-list>
+    <ion-nav-items secondary>
+    </ion-nav-items>
+    <ion-title>
+      <div class="segments">
+        <form [ng-form-model]="scheduleForm">
+          <ion-segment ng-control="scheduleShowing">
+            <ion-segment-button value="all">
+              All
+            </ion-segment-button>
+            <ion-segment-button value="favorites">
+              Favorites
+            </ion-segment-button>
+          </ion-segment>
+        </form>
       </div>
-  </div>
+    </ion-toolbar>
+  </ion-navbar>
+  <ion-list inset class="outer-content" *ng-for="#timeSlot of sessionsForTheDay">
+    <ion-header>
+      {{timeSlot.time}}
+    </ion-header>
+    <ion-item *ng-for="#session of timeSlot.talks" (click)="openSession(session)">
+      <span>{{session.name}}</span>
+      <div item-right>
+        <icon pin></icon>
+        <span>{{session.location}}</span>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>

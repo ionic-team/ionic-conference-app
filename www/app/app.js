@@ -2,11 +2,12 @@ import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
 import {DataService} from './service/data';
 import {Http, HTTP_BINDINGS} from 'angular2/http';
 import {HomePage} from './home/home';
+import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
 
 
 @App({
   templateUrl: 'app/app.html',
-  bindings: [DataService, Http],
+  bindings: [DataService, Http, FormBuilder],
   viewBindings: [HTTP_BINDINGS]
 })
 

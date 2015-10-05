@@ -2,19 +2,26 @@ import {IonicView, NavController, IonicApp} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
+import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
+import {NgControl} from 'angular2/angular2';
+
 @IonicView({
   templateUrl: 'app/schedule/schedule.html',
-  bindings: [DataService],
-  directives: [DateFormat]
+  bindings: [DataService, NgControl],
+  directives: [DateFormat, FORM_DIRECTIVES]
 })
 
 export class SchedulePage {
-  constructor(nav: NavController, app: IonicApp, data: DataService) {
+  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder) {
     this.nav = nav;
     this.schedule = data.getSchedule();
     this.index = 0;
     this.scheduleForTheDay = this.schedule[0];
     this.sessionsForTheDay = this.scheduleForTheDay.sessions;
+
+    this.scheduleForm = fb.group({
+      scheduleShowing: ['all', Validators.required]
+    });
   }
 
   nextDay(index) {
