@@ -4,11 +4,12 @@ import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
 import {NgControl} from 'angular2/angular2';
+import {ScheduleList} from '../components/schedule-list';
 
 @IonicView({
   templateUrl: 'app/schedule/schedule.html',
   bindings: [DataService, NgControl],
-  directives: [DateFormat, FORM_DIRECTIVES]
+  directives: [DateFormat, FORM_DIRECTIVES, ScheduleList]
 })
 
 export class SchedulePage {

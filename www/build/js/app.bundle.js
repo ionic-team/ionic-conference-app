@@ -78713,8 +78713,8 @@
 	var date_format_1 = __webpack_require__(441);
 	var about_1 = __webpack_require__(442);
 	var schedule_1 = __webpack_require__(443);
-	var speakers_1 = __webpack_require__(445);
-	var map_1 = __webpack_require__(447);
+	var speakers_1 = __webpack_require__(446);
+	var map_1 = __webpack_require__(448);
 	var HomePage = (function () {
 	    function HomePage(nav, app) {
 	        this.nav = nav;
@@ -78871,6 +78871,7 @@
 	var sessionDetail_1 = __webpack_require__(444);
 	var forms_1 = __webpack_require__(151);
 	var angular2_1 = __webpack_require__(41);
+	var schedule_list_1 = __webpack_require__(445);
 	var SchedulePage = (function () {
 	    function SchedulePage(nav, app, data, fb) {
 	        this.nav = nav;
@@ -78932,7 +78933,7 @@
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',
 	        bindings: [data_1.DataService, angular2_1.NgControl],
-	        directives: [date_format_1.DateFormat, forms_1.FORM_DIRECTIVES]
+	        directives: [date_format_1.DateFormat, forms_1.FORM_DIRECTIVES, schedule_list_1.ScheduleList]
 	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object, typeof forms_1.FormBuilder !== 'undefined' && forms_1.FormBuilder || Object])], SchedulePage);
 	    return SchedulePage;
 	})();
@@ -79009,10 +79010,82 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var angular2_1 = __webpack_require__(41);
+	var ionic_1 = __webpack_require__(216);
+	var ScheduleList = (function () {
+	    function ScheduleList() {
+	        console.log('this.data', this.data);
+	    }
+	    ScheduleList.prototype.onInit = function () {
+	        console.log('onInit ScheduleList');
+	    };
+	    ScheduleList.prototype.addFavorite = function (timeSlot, session, event) {
+	        console.log('timeslot:', timeSlot, 'add session', session, event);
+	        // this.favorites.push(session);
+	        var currTimeSlot;
+	        this.favorites.forEach(function (t) {
+	            if (t.time == timeSlot.time) {
+	                currTimeSlot = t;
+	            }
+	        });
+	        if (!currTimeSlot) {
+	            currTimeSlot = { time: timeSlot.time, talks: [] };
+	            currTimeSlot.talks.push(session);
+	            this.favorites.push(currTimeSlot);
+	        } else {
+	            console.log('we had timeslot');
+	            currTimeSlot.talks.push(session);
+	        }
+	        console.log('currTimeSlot', currTimeSlot);
+	        console.log('favorites', this.favorites);
+	        event.preventDefault();
+	        return false;
+	    };
+	    ScheduleList.prototype.openSession = function (session) {
+	        this.nav.push(SessionDetailPage, session);
+	    };
+	    ScheduleList = __decorate([angular2_1.Component({
+	        selector: 'schedule-list',
+	        properties: ['data', 'favorites']
+	    }), angular2_1.View({
+	        template: '<div *ng-if="data.length > 0">' + '<ion-list class="outer-content" *ng-for="#timeSlot of data">' + '<ion-header>' + '{{timeSlot.time}}' + '</ion-header>' + '<ion-item *ng-for="#session of timeSlot.talks">' + '<span>{{session.name}}</span>' + '<button item-right (click)="addFavorite(timeSlot, session, $event)">+</button>' + '<button item-right (click)="openSession(session)">V</button>' + '<div item-right>' + '<icon pin></icon>' + '<span>&nbsp;{{session.location}}</span>' + '</div>' + '</ion-item>' + '</ion-list>' + '</div>' + '<div *ng-if="data.length == 0"><h4>No favorites</h4></div>',
+	        directives: [ionic_1.Icon, ionic_1.Item, ionic_1.List, ionic_1.ListHeader, angular2_1.NgFor, angular2_1.NgIf]
+	    }), __metadata('design:paramtypes', [])], ScheduleList);
+	    return ScheduleList;
+	})();
+	exports.ScheduleList = ScheduleList;
+	//# sourceMappingURL=schedule-list.js.map
+
+/***/ },
+/* 446 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var ionic_1 = __webpack_require__(216);
 	var data_1 = __webpack_require__(423);
 	var date_format_1 = __webpack_require__(441);
-	var speakerDetail_1 = __webpack_require__(446);
+	var speakerDetail_1 = __webpack_require__(447);
 	var sessionDetail_1 = __webpack_require__(444);
 	var SpeakersPage = (function () {
 	    function SpeakersPage(nav, app, data) {
@@ -79066,7 +79139,7 @@
 	//# sourceMappingURL=speakers.js.map
 
 /***/ },
-/* 446 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79114,7 +79187,7 @@
 	/*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */
 
 /***/ },
-/* 447 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
