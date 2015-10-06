@@ -1,4 +1,4 @@
-<ion-content class="schedule-page">
+<ion-content class="schedule-page outer-content">
   <ion-navbar *navbar>
     <ion-nav-items primary>
       <button>
@@ -22,7 +22,7 @@
       </div>
     </ion-toolbar>
   </ion-navbar>
-  <ion-list inset class="outer-content" *ng-for="#timeSlot of sessionsForTheDay">
+  <ion-list class="outer-content" *ng-for="#timeSlot of sessionsForTheDay">
     <ion-header>
       {{timeSlot.time}}
     </ion-header>
