@@ -22,16 +22,36 @@
       </div>
     </ion-toolbar>
   </ion-navbar>
-  <ion-list class="outer-content" *ng-for="#timeSlot of sessionsForTheDay">
-    <ion-header>
-      {{timeSlot.time}}
-    </ion-header>
-    <ion-item *ng-for="#session of timeSlot.talks" (click)="openSession(session)">
-      <span>{{session.name}}</span>
-      <div item-right>
-        <icon pin></icon>
-        <span>{{session.location}}</span>
-      </div>
-    </ion-item>
-  </ion-list>
+  <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
+    <div *ng-switch-when="'favorites'">
+      <ion-list class="outer-content" *ng-for="#timeSlot of favorites">
+        <ion-header>
+          {{timeSlot.time}}
+        </ion-header>
+        <ion-item *ng-for="#session of timeSlot.talks" (click)="openSession(session)">
+          <span>{{session.name}}</span>
+          <div item-right>
+            <icon pin></icon>
+            <span>{{session.location}}</span>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ng-switch-when="'all'">
+      <ion-list class="outer-content" *ng-for="#timeSlot of sessionsForTheDay">
+        <ion-header>
+          {{timeSlot.time}}
+        </ion-header>
+        <ion-item *ng-for="#session of timeSlot.talks">
+          <span>{{session.name}}</span>
+          <button item-right (click)="addFavorite(timeSlot, session, $event)">+</button>
+          <button item-right (click)="openSession(session)">V</button>
+          <div item-right>
+            <icon pin></icon>
+            <span>{{session.location}}</span>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

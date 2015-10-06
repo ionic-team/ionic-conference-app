@@ -78876,11 +78876,12 @@
 	        this.nav = nav;
 	        this.schedule = data.getSchedule();
 	        this.index = 0;
-	        this.scheduleForTheDay = this.schedule[0];
-	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
+	        // this.scheduleForTheDay = this.schedule[0];
+	        this.sessionsForTheDay = this.schedule[0].sessions;
 	        this.scheduleForm = fb.group({
 	            scheduleShowing: ['all', forms_1.Validators.required]
 	        });
+	        this.favorites = [];
 	    }
 	    SchedulePage.prototype.nextDay = function (index) {
 	        var newIndex = index + 1;
@@ -78905,6 +78906,28 @@
 	    };
 	    SchedulePage.prototype.openSession = function (session) {
 	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	    };
+	    SchedulePage.prototype.addFavorite = function (timeSlot, session, event) {
+	        console.log('timeslot:', timeSlot, 'add session', session, event);
+	        // this.favorites.push(session);
+	        var currTimeSlot;
+	        this.favorites.forEach(function (t) {
+	            if (t.time == timeSlot.time) {
+	                currTimeSlot = t;
+	            }
+	        });
+	        if (!currTimeSlot) {
+	            currTimeSlot = { time: timeSlot.time, talks: [] };
+	            currTimeSlot.talks.push(session);
+	            this.favorites.push(currTimeSlot);
+	        } else {
+	            console.log('we had timeslot');
+	            currTimeSlot.talks.push(session);
+	        }
+	        console.log('currTimeSlot', currTimeSlot);
+	        console.log('favorites', this.favorites);
+	        event.preventDefault();
+	        return false;
 	    };
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',

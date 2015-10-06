@@ -16,12 +16,14 @@ export class SchedulePage {
     this.nav = nav;
     this.schedule = data.getSchedule();
     this.index = 0;
-    this.scheduleForTheDay = this.schedule[0];
-    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
+    // this.scheduleForTheDay = this.schedule[0];
+    this.sessionsForTheDay = this.schedule[0].sessions;
 
     this.scheduleForm = fb.group({
       scheduleShowing: ['all', Validators.required]
     });
+
+    this.favorites = [];
   }
 
   nextDay(index) {
@@ -51,5 +53,31 @@ export class SchedulePage {
 
   openSession(session) {
     this.nav.push(SessionDetailPage, session);
+  }
+
+  addFavorite(timeSlot, session, event) {
+    console.log('timeslot:', timeSlot, 'add session', session, event);
+    // this.favorites.push(session);
+    var currTimeSlot;
+    this.favorites.forEach(function(t) {
+      if (t.time == timeSlot.time) {
+        currTimeSlot = t;
+      }
+    });
+    if (!currTimeSlot) {
+      currTimeSlot = { time: timeSlot.time, talks:[] };
+      currTimeSlot.talks.push(session);
+      this.favorites.push(currTimeSlot);
+    } else {
+      console.log('we had timeslot');
+      currTimeSlot.talks.push(session);
+    }
+
+
+    console.log('currTimeSlot', currTimeSlot);
+    console.log('favorites', this.favorites);
+    event.preventDefault();
+    return false;
+
   }
 }
