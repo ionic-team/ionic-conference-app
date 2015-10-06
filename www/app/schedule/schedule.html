@@ -1,7 +1,7 @@
 <ion-content class="schedule-page outer-content">
   <ion-navbar *navbar>
     <ion-nav-items primary>
-      <button>
+      <button (click)="openPopup()">
       Filter
       </button>
     </ion-nav-items>
@@ -20,8 +20,11 @@
           </ion-segment>
         </form>
       </div>
-    </ion-toolbar>
+    </ion-title>
   </ion-navbar>
+    <form [ng-form-model]="searchForm">
+      <ion-search-bar ng-control="searchQuery" placeholder="Search Schedule"></ion-search-bar>
+    </form>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
     <div *ng-switch-when="'favorites'">
       <schedule-list [data]="favorites"></schedule-list>

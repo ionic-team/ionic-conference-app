@@ -1,4 +1,4 @@
-import {IonicView, NavController, IonicApp} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, Popup, SearchBar} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
@@ -9,12 +9,13 @@ import {ScheduleList} from '../components/schedule-list';
 @IonicView({
   templateUrl: 'app/schedule/schedule.html',
   bindings: [DataService, NgControl],
-  directives: [DateFormat, FORM_DIRECTIVES, ScheduleList]
+  directives: [DateFormat, FORM_DIRECTIVES, ScheduleList, SearchBar]
 })
 
 export class SchedulePage {
-  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder) {
+  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, popup: Popup) {
     this.nav = nav;
+    this.popup = popup;
     this.schedule = data.getSchedule();
     this.index = 0;
     // this.scheduleForTheDay = this.schedule[0];
@@ -22,6 +23,10 @@ export class SchedulePage {
 
     this.scheduleForm = fb.group({
       scheduleShowing: ['all', Validators.required]
+    });
+
+    this.searchForm = fb.group({
+      searchQuery: ['', Validators.required]
     });
 
     this.favorites = [];
@@ -80,5 +85,21 @@ export class SchedulePage {
     event.preventDefault();
     return false;
 
+  }
+
+  openPopup() {
+    this.popup.prompt({
+      title: "Filter",
+      template: "Enter a session name or category",
+      inputPlaceholder: "Name",
+      okText: "Filter"
+    }).then((name) => {
+      console.log('entry', name);
+      // this.promptResult = name;
+      // this.promptOpen = false;
+    }, () => {
+      console.error('Prompt closed');
+      // this.promptOpen = false;
+    });
   }
 }

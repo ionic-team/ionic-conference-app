@@ -1,5 +1,6 @@
 import {View, Component, NgIf, NgFor} from 'angular2/angular2';
-import {Icon, Item, List, ListHeader} from 'ionic/ionic';
+import {Icon, Item, List, ListHeader, NavController} from 'ionic/ionic';
+import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 
 @Component({
   selector: 'schedule-list',
@@ -28,8 +29,9 @@ import {Icon, Item, List, ListHeader} from 'ionic/ionic';
 })
 
 export class ScheduleList {
-  constructor() {
+  constructor(nav: NavController) {
     console.log('this.data', this.data);
+    this.nav = nav;
   } 
 
   onInit() {
