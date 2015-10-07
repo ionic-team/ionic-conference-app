@@ -50,9 +50,9 @@
 	__webpack_require__(39);
 	__webpack_require__(41);
 	__webpack_require__(216);
-	__webpack_require__(334);
-	__webpack_require__(335);
-	module.exports = __webpack_require__(422);
+	__webpack_require__(336);
+	__webpack_require__(337);
+	module.exports = __webpack_require__(424);
 
 
 /***/ },
@@ -43022,15 +43022,15 @@
 
 	_defaults(exports, _interopExportWildcard(_platformPlatform, _defaults));
 
-	var _platformRegistry = __webpack_require__(309);
+	var _platformRegistry = __webpack_require__(311);
 
 	_defaults(exports, _interopExportWildcard(_platformRegistry, _defaults));
 
-	var _platformPlugins = __webpack_require__(310);
+	var _platformPlugins = __webpack_require__(312);
 
 	_defaults(exports, _interopExportWildcard(_platformPlugins, _defaults));
 
-	var _platformStorage = __webpack_require__(325);
+	var _platformStorage = __webpack_require__(327);
 
 	_defaults(exports, _interopExportWildcard(_platformStorage, _defaults));
 
@@ -43038,7 +43038,7 @@
 
 	_defaults(exports, _interopExportWildcard(_utilClickBlock, _defaults));
 
-	var _utilFocus = __webpack_require__(329);
+	var _utilFocus = __webpack_require__(331);
 
 	_defaults(exports, _interopExportWildcard(_utilFocus, _defaults));
 
@@ -43050,19 +43050,19 @@
 
 	_defaults(exports, _interopExportWildcard(_animationsAnimation, _defaults));
 
-	var _animationsBuiltins = __webpack_require__(330);
+	var _animationsBuiltins = __webpack_require__(332);
 
 	_defaults(exports, _interopExportWildcard(_animationsBuiltins, _defaults));
 
-	var _transitionsTransition = __webpack_require__(275);
+	var _transitionsTransition = __webpack_require__(276);
 
 	_defaults(exports, _interopExportWildcard(_transitionsTransition, _defaults));
 
-	var _transitionsIosTransition = __webpack_require__(331);
+	var _transitionsIosTransition = __webpack_require__(333);
 
 	_defaults(exports, _interopExportWildcard(_transitionsIosTransition, _defaults));
 
-	var _transitionsMdTransition = __webpack_require__(332);
+	var _transitionsMdTransition = __webpack_require__(334);
 
 	_defaults(exports, _interopExportWildcard(_transitionsMdTransition, _defaults));
 
@@ -43072,7 +43072,7 @@
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate, _defaults));
 
-	var _translationTranslate_pipe = __webpack_require__(333);
+	var _translationTranslate_pipe = __webpack_require__(335);
 
 	_defaults(exports, _interopExportWildcard(_translationTranslate_pipe, _defaults));
 
@@ -43080,6 +43080,13 @@
 /* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	* @ngdoc service
+	* @name Config
+	* @module ionic
+	* @description
+	* IonicConfig allows you to set the modes of your components
+	*/
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -43116,6 +43123,28 @@
 	    /**
 	     * For setting and getting multiple config values
 	     */
+	    /**
+	    * @name settings()
+	    * @description
+	    * IonicConfig lets you change multiple or a single value in an apps mode configuration. Things such as tab placement, icon changes, and view animations can be set here.
+	    *
+	    *
+	    * @usage
+	    * ```ts
+	    * import {IonicConfig} from 'ionic/ionic';
+	    * @App({
+	    *   template: `<ion-nav [root]="root"></ion-nav>`
+	    *   config: {
+	    *     backButtonText: 'Go Back',
+	    *     iconMode: 'ios',
+	    *     modalEnter: 'modal-slide-in',
+	    *     modalLeave: 'modal-slide-out',
+	    *     tabBarPlacement: 'bottom',
+	    *     viewTransition: 'ios',
+	    *   }
+	    * })
+	    * ```
+	    */
 
 	    _createClass(IonicConfig, [{
 	        key: 'settings',
@@ -43273,6 +43302,13 @@
 /* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	+* @ngdoc service
+	+* @name platform
+	+* @module ionic
+	+* @description
+	+* IonicPlatform returns the availble information about your current platform
+	+*/
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -43316,9 +43352,21 @@
 	    // Methods
 	    // **********************************************
 	    /**
-	     * TODO
-	     * @param {TODO} platformName  TODO
-	     * @returns {TODO} TODO
+	     * @param {string} platformName
+	     * @returns {bool}
+	     *
+	     * ```
+	     * import {IonicPlatform} 'ionic/ionic';
+	     * export MyClass {
+	     *    constructor(platform: IonicPlatform){
+	     *      this.platform = platform;
+	     *      if(this.platform.is('ios'){
+	     *        // what ever you need to do for
+	     *        // if the platfomr is ios
+	     *      }
+	     *    }
+	     * }
+	     * ```
 	     */
 
 	    _createClass(IonicPlatform, [{
@@ -43328,8 +43376,23 @@
 	        }
 
 	        /**
-	         * TODO
-	         * @returns {TODO} TODO
+	         * @returns {array} the array of platforms
+	         * @description
+	         * Depending on what device you are on, `platforms` can return multiple values.
+	         * Each possible value is a hierarchy of platforms. For example, on an iPhone,
+	         * it would return mobile, ios, and iphone.
+	         *
+	         * ```
+	         * import {IonicPlatform} 'ionic/ionic';
+	         * export MyClass {
+	         *    constructor(platform: IonicPlatform){
+	         *      this.platform = platform;
+	         *      console.log(this.platform.platforms());
+	         *      // This will return an array of all the availble platforms
+	         *      // From if your on mobile, to mobile os, and device name
+	         *    }
+	         * }
+	         * ```
 	         */
 	    }, {
 	        key: 'platforms',
@@ -43341,8 +43404,24 @@
 
 	        /**
 	         * TODO
-	         * @param {TODO} platformName  TODO
-	         * @returns {TODO} TODO
+	         * @param {string} platformName
+	         * @returns {object}
+	         * @description
+	         * Returns an object containing the os version
+	         *
+	         * ```
+	         * import {IonicPlatform} 'ionic/ionic';
+	         * export MyClass {
+	         *    constructor(platform: IonicPlatform){
+	         *      this.platform = platform;
+	         *      console.log(this.platform.versions('android'));
+	         *      // Returns an object with the os version as a string,
+	         *      // The Major version as a string
+	         *      // The Minor version as a string
+	         *    }
+	         * }
+	         * ```
+	         *
 	         */
 	    }, {
 	        key: 'versions',
@@ -43357,7 +43436,22 @@
 
 	        /**
 	         * TODO
-	         * @returns {TODO} TODO
+	         * @returns {promise}
+	         * @description
+	         * Returns a promise when the platform is ready and native functionality can be called
+	         *
+	         * ```
+	         * import {IonicPlatform} 'ionic/ionic';
+	         * export MyClass {
+	         *    constructor(platform: IonicPlatform){
+	         *      this.platform = platform;
+	         *      this.platform.ready().then(() => {
+	         *        console.log('Platform ready');
+	         *        // The platform is now ready, execute any native code you want
+	         *       });
+	         *    }
+	         * }
+	         * ```
 	         */
 	    }, {
 	        key: 'ready',
@@ -44609,6 +44703,8 @@
 	    return _ionic.ItemGroup;
 	}), (0, _angular2Angular2.forwardRef)(function () {
 	    return _ionic.ItemGroupTitle;
+	}), (0, _angular2Angular2.forwardRef)(function () {
+	    return _ionic.ItemSliding;
 	}),
 	// Slides
 	(0, _angular2Angular2.forwardRef)(function () {
@@ -44679,6 +44775,10 @@
 	    return _ionic.ShowWhen;
 	}), (0, _angular2Angular2.forwardRef)(function () {
 	    return _ionic.HideWhen;
+	}),
+	// Random effects
+	(0, _angular2Angular2.forwardRef)(function () {
+	    return _ionic.Blur;
 	})];
 	exports.IONIC_DIRECTIVES = IONIC_DIRECTIVES;
 	/**
@@ -51562,19 +51662,23 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsActionSheetActionSheet, _defaults));
 
+	var _ionicComponentsBlurBlur = __webpack_require__(270);
+
+	_defaults(exports, _interopExportWildcard(_ionicComponentsBlurBlur, _defaults));
+
 	var _ionicComponentsButtonButton = __webpack_require__(260);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsButtonButton, _defaults));
 
-	var _ionicComponentsCardCard = __webpack_require__(270);
+	var _ionicComponentsCardCard = __webpack_require__(271);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsCardCard, _defaults));
 
-	var _ionicComponentsCheckboxCheckbox = __webpack_require__(271);
+	var _ionicComponentsCheckboxCheckbox = __webpack_require__(272);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsCheckboxCheckbox, _defaults));
 
-	var _ionicComponentsContentContent = __webpack_require__(272);
+	var _ionicComponentsContentContent = __webpack_require__(273);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsContentContent, _defaults));
 
@@ -51586,43 +51690,47 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsIconIcon, _defaults));
 
-	var _ionicComponentsItemItem = __webpack_require__(282);
+	var _ionicComponentsItemItem = __webpack_require__(283);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItem, _defaults));
 
-	var _ionicComponentsItemItemGroup = __webpack_require__(283);
+	var _ionicComponentsItemItemGroup = __webpack_require__(284);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemGroup, _defaults));
 
-	var _ionicComponentsMenuMenu = __webpack_require__(284);
+	var _ionicComponentsItemItemSliding = __webpack_require__(285);
+
+	_defaults(exports, _interopExportWildcard(_ionicComponentsItemItemSliding, _defaults));
+
+	var _ionicComponentsMenuMenu = __webpack_require__(288);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenu, _defaults));
 
-	var _ionicComponentsMenuMenuTypes = __webpack_require__(286);
+	var _ionicComponentsMenuMenuTypes = __webpack_require__(290);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuTypes, _defaults));
 
-	var _ionicComponentsMenuMenuToggle = __webpack_require__(287);
+	var _ionicComponentsMenuMenuToggle = __webpack_require__(291);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuToggle, _defaults));
 
-	var _ionicComponentsMenuMenuClose = __webpack_require__(290);
+	var _ionicComponentsMenuMenuClose = __webpack_require__(294);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsMenuMenuClose, _defaults));
 
-	var _ionicComponentsTextInputTextInput = __webpack_require__(291);
+	var _ionicComponentsTextInputTextInput = __webpack_require__(295);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputTextInput, _defaults));
 
-	var _ionicComponentsTextInputLabel = __webpack_require__(292);
+	var _ionicComponentsTextInputLabel = __webpack_require__(296);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTextInputLabel, _defaults));
 
-	var _ionicComponentsListList = __webpack_require__(293);
+	var _ionicComponentsListList = __webpack_require__(286);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsListList, _defaults));
 
-	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(295);
+	var _ionicComponentsShowHideWhenShowHideWhen = __webpack_require__(297);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsShowHideWhenShowHideWhen, _defaults));
 
@@ -51630,27 +51738,27 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsModalModal, _defaults));
 
-	var _ionicComponentsNavNav = __webpack_require__(296);
+	var _ionicComponentsNavNav = __webpack_require__(298);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNav, _defaults));
 
-	var _ionicComponentsNavNavController = __webpack_require__(274);
+	var _ionicComponentsNavNavController = __webpack_require__(275);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavController, _defaults));
 
-	var _ionicComponentsNavViewController = __webpack_require__(273);
+	var _ionicComponentsNavViewController = __webpack_require__(274);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavViewController, _defaults));
 
-	var _ionicComponentsNavNavPush = __webpack_require__(297);
+	var _ionicComponentsNavNavPush = __webpack_require__(299);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavPush, _defaults));
 
-	var _ionicComponentsNavNavRouter = __webpack_require__(298);
+	var _ionicComponentsNavNavRouter = __webpack_require__(300);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavNavRouter, _defaults));
 
-	var _ionicComponentsNavBarNavBar = __webpack_require__(288);
+	var _ionicComponentsNavBarNavBar = __webpack_require__(292);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsNavBarNavBar, _defaults));
 
@@ -51658,43 +51766,43 @@
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsPopupPopup, _defaults));
 
-	var _ionicComponentsSlidesSlides = __webpack_require__(299);
+	var _ionicComponentsSlidesSlides = __webpack_require__(301);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSlidesSlides, _defaults));
 
-	var _ionicComponentsRadioRadio = __webpack_require__(301);
+	var _ionicComponentsRadioRadio = __webpack_require__(303);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsRadioRadio, _defaults));
 
-	var _ionicComponentsScrollScroll = __webpack_require__(302);
+	var _ionicComponentsScrollScroll = __webpack_require__(304);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollScroll, _defaults));
 
-	var _ionicComponentsScrollPullToRefresh = __webpack_require__(303);
+	var _ionicComponentsScrollPullToRefresh = __webpack_require__(305);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsScrollPullToRefresh, _defaults));
 
-	var _ionicComponentsSearchBarSearchBar = __webpack_require__(304);
+	var _ionicComponentsSearchBarSearchBar = __webpack_require__(306);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSearchBarSearchBar, _defaults));
 
-	var _ionicComponentsSegmentSegment = __webpack_require__(305);
+	var _ionicComponentsSegmentSegment = __webpack_require__(307);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSegmentSegment, _defaults));
 
-	var _ionicComponentsSwitchSwitch = __webpack_require__(306);
+	var _ionicComponentsSwitchSwitch = __webpack_require__(308);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsSwitchSwitch, _defaults));
 
-	var _ionicComponentsTabsTabs = __webpack_require__(307);
+	var _ionicComponentsTabsTabs = __webpack_require__(309);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTabs, _defaults));
 
-	var _ionicComponentsTabsTab = __webpack_require__(308);
+	var _ionicComponentsTabsTab = __webpack_require__(310);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsTabsTab, _defaults));
 
-	var _ionicComponentsToolbarToolbar = __webpack_require__(289);
+	var _ionicComponentsToolbarToolbar = __webpack_require__(293);
 
 	_defaults(exports, _interopExportWildcard(_ionicComponentsToolbarToolbar, _defaults));
 
@@ -51782,6 +51890,52 @@
 	    value: true
 	});
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var Blur = function Blur(elementRef, renderer) {
+	    _classCallCheck(this, Blur);
+
+	    this.elementRef = elementRef;
+	    this.renderer = renderer;
+	    renderer.setElementStyle(elementRef, '-webkit-backdrop-filter', 'blur(10px)');
+	};
+	exports.Blur = Blur;
+	exports.Blur = Blur = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: '[ion-blur]'
+	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], Blur);
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51842,7 +51996,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Card);
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52023,7 +52177,7 @@
 	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object])], Checkbox);
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -52048,7 +52202,7 @@
 
 	var _platformPlatform = __webpack_require__(218);
 
-	var _navViewController = __webpack_require__(273);
+	var _navViewController = __webpack_require__(274);
 
 	var _animationsScrollTo = __webpack_require__(250);
 
@@ -52269,7 +52423,7 @@
 	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object])], Content);
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52282,7 +52436,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _navController = __webpack_require__(274);
+	var _navController = __webpack_require__(275);
 
 	/**
 	 * TODO
@@ -52602,7 +52756,7 @@
 	exports.ViewController = ViewController;
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52635,11 +52789,11 @@
 
 	var _appApp = __webpack_require__(224);
 
-	var _viewController = __webpack_require__(273);
+	var _viewController = __webpack_require__(274);
 
-	var _transitionsTransition = __webpack_require__(275);
+	var _transitionsTransition = __webpack_require__(276);
 
-	var _swipeBack = __webpack_require__(276);
+	var _swipeBack = __webpack_require__(277);
 
 	var _ionicUtil = __webpack_require__(223);
 
@@ -53688,7 +53842,7 @@
 	exports.NavParams = NavParams;
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53796,7 +53950,7 @@
 	exports.Transition = Transition;
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53813,7 +53967,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(277);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(278);
 
 	var SwipeBackGesture = (function (_SlideEdgeGesture) {
 	    _inherits(SwipeBackGesture, _SlideEdgeGesture);
@@ -53855,7 +54009,7 @@
 	exports.SwipeBackGesture = SwipeBackGesture;
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53872,7 +54026,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideGesture = __webpack_require__(278);
+	var _ionicGesturesSlideGesture = __webpack_require__(279);
 
 	var _utilUtil = __webpack_require__(219);
 
@@ -53938,7 +54092,7 @@
 	exports.SlideEdgeGesture = SlideEdgeGesture;
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53957,7 +54111,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesDragGesture = __webpack_require__(279);
+	var _ionicGesturesDragGesture = __webpack_require__(280);
 
 	var _ionicUtil = __webpack_require__(223);
 
@@ -54064,7 +54218,7 @@
 	exports.SlideGesture = SlideGesture;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54083,7 +54237,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesGesture = __webpack_require__(280);
+	var _ionicGesturesGesture = __webpack_require__(281);
 
 	var _ionicUtil = __webpack_require__(223);
 
@@ -54144,7 +54298,7 @@
 	exports.DragGesture = DragGesture;
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54163,7 +54317,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _ionicGesturesHammer = __webpack_require__(281);
+	var _ionicGesturesHammer = __webpack_require__(282);
 
 	/**
 	 * A gesture recognizer class.
@@ -54238,7 +54392,7 @@
 	exports.Gesture = Gesture;
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports) {
 
 	/*! Hammer.JS - v2.0.4 - 2014-09-28
@@ -56373,7 +56527,7 @@
 	//})(window, document, 'Hammer');
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56382,13 +56536,9 @@
 	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _angular2Angular2 = __webpack_require__(41);
-
-	var _ionicUtil = __webpack_require__(223);
 
 	/**
 	 * @name ionItem
@@ -56401,9 +56551,9 @@
 	 * <ion-list>
 	 *   <ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">
 	 *     {{item.title}}
-	 *     <div class="item-note" item-right>
+	 *     <ion-note item-right>
 	 *       {{item.note}}
-	 *     </div>
+	 *     </ion-note>
 	 *   </ion-item>
 	 * </ion-list>
 	 *  ```
@@ -56451,89 +56601,12 @@
 	        'class': 'item'
 	    }
 	}), (0, _angular2Angular2.View)({
-	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '<ng-content select="[item-right]"></ng-content>',
+	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '<ng-content select="ion-item-options"></ng-content>' + '<ng-content select="[item-right]"></ng-content>',
 	    directives: [_angular2Angular2.NgIf]
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], Item);
 
-	var Slideable = (function () {
-	    function Slideable(slideElement) {
-	        _classCallCheck(this, Slideable);
-	    }
-
-	    // override
-
-	    _createClass(Slideable, [{
-	        key: "onTransform",
-	        value: function onTransform(str) {}
-
-	        // override
-	    }, {
-	        key: "onTransitionActive",
-	        value: function onTransitionActive(active) {}
-
-	        //override
-	    }, {
-	        key: "onSlideActive",
-	        value: function onSlideActive(active) {}
-	    }, {
-	        key: "transform",
-	        value: function transform(str) {
-	            if (arguments.length && str !== this._transform) {
-	                this.onTransform();
-	            }
-	        }
-	    }, {
-	        key: "isTransitionActive",
-	        value: function isTransitionActive(active) {
-	            if (arguments.length && active !== this._isTransitionActive) {
-	                this._isTransitionActive = active;
-	                this.onSetTransitionActive(active);
-	            }
-	            return this._isTransitioning;
-	        }
-	    }, {
-	        key: "isSlideActive",
-	        value: function isSlideActive(active) {
-	            if (arguments.length && active !== this._isSlideActive) {
-	                this._isSlideActive = active;
-	                this.onSetDragActive(active);
-	            }
-	            return this._isSlideActive;
-	        }
-	    }, {
-	        key: "isOpen",
-	        value: (function (_isOpen) {
-	            function isOpen(_x) {
-	                return _isOpen.apply(this, arguments);
-	            }
-
-	            isOpen.toString = function () {
-	                return _isOpen.toString();
-	            };
-
-	            return isOpen;
-	        })(function (open) {
-	            var _this = this;
-
-	            if (arguments.length && open !== this._isOpen) {
-	                this.isTransitionActive(true);
-	                _ionicUtil.dom.raf(function () {
-	                    _this.isOpen = isOpen;
-	                    _this.onSetIsOpen(open);
-	                });
-	            }
-	        })
-	    }]);
-
-	    return Slideable;
-	})();
-
-	var ItemSlideGesture = function ItemSlideGesture() {
-	    _classCallCheck(this, ItemSlideGesture);
-	};
-
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56548,7 +56621,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _contentContent = __webpack_require__(272);
+	var _contentContent = __webpack_require__(273);
 
 	var _utilUtil = __webpack_require__(219);
 
@@ -56741,7 +56814,592 @@
 	}), __param(2, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _contentContent.Content !== 'undefined' && _contentContent.Content || Object])], ItemGroupTitle);
 
 /***/ },
-/* 284 */
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _ionicGesturesDragGesture = __webpack_require__(280);
+
+	var _ionicGesturesHammer = __webpack_require__(282);
+
+	var _ionicComponentsListList = __webpack_require__(286);
+
+	var _ionicUtilDom = __webpack_require__(220);
+
+	/**
+	 * @name ionItem
+	 * @description
+	 * Creates a list-item that can easily be swiped,
+	 * deleted, reordered, edited, and more.
+	 *
+	 * @usage
+	 * ```html
+	 * <ion-list>
+	 *   <ion-item-sliding *ng-for="#item of items" (click)="itemTapped($event, item)">
+	 *     {{item.title}}
+	 *     <div class="item-note" item-right>
+	 *       {{item.note}}
+	 *     </div>
+	 *   </ion-item>
+	 * </ion-list>
+	 *  ```
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var __param = undefined && undefined.__param || function (paramIndex, decorator) {
+	    return function (target, key) {
+	        decorator(target, key, paramIndex);
+	    };
+	};
+	var ItemSliding = (function () {
+	    /**
+	     * TODO
+	     * @param {ElementRef} elementRef  A reference to the component's DOM element.
+	     */
+
+	    function ItemSliding(elementRef, list) {
+	        _classCallCheck(this, ItemSliding);
+
+	        this._isOpen = false;
+	        this._isSlideActive = false;
+	        this._isTransitioning = false;
+	        this._transform = '';
+	        this.list = list;
+	        this.ele = elementRef.nativeElement;
+	        this.swipeButtons = {};
+	        this.optionButtons = {};
+	        console.log('here');
+	    }
+
+	    _createClass(ItemSliding, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            this._initSliding();
+	        }
+	    }, {
+	        key: "_initSliding",
+	        value: function _initSliding() {
+	            var _this = this;
+
+	            var itemSlidingContent = this.ele.querySelector('ion-item-sliding-content');
+	            var itemOptionsContent = this.ele.querySelector('ion-item-options');
+	            this.itemSlidingContent = itemSlidingContent;
+	            this.itemOptions = itemOptionsContent;
+	            this.itemWidth = itemSlidingContent.offsetWidth;
+	            this.itemOptionsWidth = itemOptionsContent && itemOptionsContent.offsetWidth || 0;
+	            setTimeout(function () {
+	                console.log('timeout width', itemOptionsContent.offsetWidth);
+	                _this.itemOptionsWidth = itemOptionsContent && itemOptionsContent.offsetWidth || 0;
+	            });
+	            console.log('item width', this.itemWidth, 'this.itemOptionsWidth', this.itemOptionsWidth);
+	            this.openAmount = 0;
+	            this.gesture = new ItemSlideGesture(this, itemSlidingContent);
+	        }
+	    }, {
+	        key: "close",
+	        value: function close(andStopDrag) {
+	            var _this2 = this;
+
+	            this.openAmount = 0;
+	            // Enable it once, it'll get disabled on the next drag
+	            (0, _ionicUtilDom.raf)(function () {
+	                _this2.enableAnimation();
+	                if (_this2.itemSlidingContent) {
+	                    _this2.itemSlidingContent.style[_ionicUtilDom.CSS.transform] = 'translateX(0)';
+	                }
+	            });
+	        }
+	    }, {
+	        key: "open",
+	        value: function open(amt) {
+	            var el = this.itemSlidingContent;
+	            this.openAmount = amt || 0;
+	            if (this.list) {
+	                this.list.setOpenItem(this);
+	            }
+	            if (amt === '') {
+	                el.style[_ionicUtilDom.CSS.transform] = '';
+	            } else {
+	                el.style[_ionicUtilDom.CSS.transform] = 'translateX(' + -amt + 'px)';
+	            }
+	        }
+	    }, {
+	        key: "isOpen",
+	        value: function isOpen() {
+	            return this.openAmount > 0;
+	        }
+	    }, {
+	        key: "getOpenAmt",
+	        value: function getOpenAmt() {
+	            return this.openAmount;
+	        }
+	    }, {
+	        key: "getItemWidth",
+	        value: function getItemWidth() {
+	            return this.itemWidth;
+	        }
+	    }, {
+	        key: "disableAnimation",
+	        value: function disableAnimation() {
+	            this.itemSlidingContent.style[_ionicUtilDom.CSS.transition] = 'none';
+	        }
+	    }, {
+	        key: "enableAnimation",
+	        value: function enableAnimation() {
+	            // Clear the explicit transition, allow for CSS one to take over
+	            this.itemSlidingContent.style[_ionicUtilDom.CSS.transition] = '';
+	        }
+
+	        /**
+	         * User did a touchstart
+	         */
+	    }, {
+	        key: "didTouch",
+	        value: function didTouch() {
+	            if (this.isOpen()) {
+	                this.close();
+	                this.didClose = true;
+	            } else {
+	                var openItem = this.list.getOpenItem();
+	                if (openItem && openItem !== this) {
+	                    this.didClose = true;
+	                }
+	                if (this.list) {
+	                    this.list.closeOpenItem();
+	                }
+	            }
+	        }
+	    }]);
+
+	    return ItemSliding;
+	})();
+	exports.ItemSliding = ItemSliding;
+	exports.ItemSliding = ItemSliding = __decorate([(0, _angular2Angular2.Component)({
+	    selector: 'ion-item-sliding,[ion-item-sliding]',
+	    host: {
+	        'class': 'item'
+	    },
+	    properties: ['sliding']
+	}), (0, _angular2Angular2.View)({
+	    template: '<ng-content select="[item-left]"></ng-content>' + '<ion-item-sliding-content>' + '<ion-item-content>' + '<ng-content></ng-content>' + '</ion-item-content>' + '<ng-content select="[item-right]"></ng-content>' + '</ion-item-sliding-content>' + '<ng-content select="ion-item-options"></ng-content>',
+	    directives: [_angular2Angular2.NgIf]
+	}), __param(1, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _ionicComponentsListList.List !== 'undefined' && _ionicComponentsListList.List || Object])], ItemSliding);
+
+	var ItemSlideGesture = (function (_DragGesture) {
+	    _inherits(ItemSlideGesture, _DragGesture);
+
+	    function ItemSlideGesture(item, el) {
+	        var _this3 = this;
+
+	        _classCallCheck(this, ItemSlideGesture);
+
+	        _get(Object.getPrototypeOf(ItemSlideGesture.prototype), "constructor", this).call(this, el, {
+	            direction: 'x',
+	            threshold: el.offsetWidth
+	        });
+	        this.el = el;
+	        this.item = item;
+	        this.canDrag = true;
+	        this.listen();
+	        this.el.addEventListener('touchstart', function (e) {
+	            _this3.item.didTouch();
+	        });
+	        this.el.addEventListener('touchend', function (e) {
+	            _this3.item.didClose = false;
+	        });
+	        this.el.addEventListener('touchcancel', function (e) {
+	            _this3.item.didClose = false;
+	        });
+	    }
+
+	    _createClass(ItemSlideGesture, [{
+	        key: "onDragStart",
+	        value: function onDragStart(ev) {
+	            if (this.item.didClose) {
+	                return;
+	            }
+	            this.slide = {};
+	            this.slide.offsetX = this.item.getOpenAmt();
+	            this.slide.startX = ev.center[this.direction];
+	            this.slide.started = true;
+	            this.item.disableAnimation();
+	        }
+	    }, {
+	        key: "onDrag",
+	        value: function onDrag(ev) {
+	            if (!this.slide || !this.slide.started) return;
+	            this.slide.x = ev.center[this.direction];
+	            this.slide.delta = this.slide.x - this.slide.startX;
+	            var newX = Math.max(0, this.slide.offsetX - this.slide.delta);
+	            var buttonsWidth = this.item.itemOptionsWidth;
+	            if (newX > this.item.itemOptionsWidth) {
+	                // Calculate the new X position, capped at the top of the buttons
+	                newX = -Math.min(-buttonsWidth, -buttonsWidth + (this.slide.delta + buttonsWidth) * 0.4);
+	            }
+	            this.item.open(newX);
+	        }
+	    }, {
+	        key: "onDragEnd",
+	        value: function onDragEnd(ev) {
+	            var _this4 = this;
+
+	            if (!this.slide || !this.slide.started) return;
+	            var buttonsWidth = this.item.itemOptionsWidth;
+	            // If we are currently dragging, we want to snap back into place
+	            // The final resting point X will be the width of the exposed buttons
+	            var restingPoint = this.item.itemOptionsWidth;
+	            // Check if the drag didn't clear the buttons mid-point
+	            // and we aren't moving fast enough to swipe open
+	            if (this.item.openAmount < buttonsWidth / 2) {
+	                // If we are going left but too slow, or going right, go back to resting
+	                if (ev.direction & _ionicGesturesHammer.Hammer.DIRECTION_RIGHT) {
+	                    // Left
+	                    restingPoint = 0;
+	                } else if (Math.abs(ev.velocityX) < 0.3) {
+	                    // Right
+	                    restingPoint = 0;
+	                }
+	            }
+	            (0, _ionicUtilDom.raf)(function () {
+	                if (restingPoint === 0) {
+	                    console.log('reset to 0');
+	                    // Reset to zero
+	                    _this4.item.open('');
+	                    var buttons = _this4.item.itemOptions;
+	                    clearTimeout(_this4.hideButtonsTimeout);
+	                    _this4.hideButtonsTimeout = setTimeout(function () {
+	                        buttons && buttons.classList.add('invisible');
+	                    }, 250);
+	                } else {
+	                    console.log('open');
+	                    _this4.item.open(restingPoint);
+	                }
+	                _this4.item.enableAnimation();
+	                _this4.slide = null;
+	            });
+	        }
+	    }]);
+
+	    return ItemSlideGesture;
+	})(_ionicGesturesDragGesture.DragGesture);
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _angular2Angular2 = __webpack_require__(41);
+
+	var _ion = __webpack_require__(263);
+
+	var _configConfig = __webpack_require__(217);
+
+	var _configDecorators = __webpack_require__(222);
+
+	var _virtual = __webpack_require__(287);
+
+	var _ionicUtil = __webpack_require__(223);
+
+	var util = _interopRequireWildcard(_ionicUtil);
+
+	/**
+	 * @name ionList
+	 * @description
+	 * The List is a widely used interface element in almost any mobile app, and can include
+	 * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
+	 *
+	 * Both the list, which contains items, and the list items themselves can be any HTML
+	 * element.
+	 *
+	 * Using the ionList and ionItem components make it easy to support various
+	 * interaction modes such as swipe to edit, drag to reorder, and removing items.
+	 *
+	 */
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var List = (function (_Ion) {
+	    _inherits(List, _Ion);
+
+	    /**
+	     * TODO
+	     * @param {ElementRef} elementRef  TODO
+	     * @param {IonicConfig} config  TODO
+	     */
+
+	    function List(elementRef, config) {
+	        _classCallCheck(this, List);
+
+	        _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
+	        this.ele = elementRef.nativeElement;
+	    }
+
+	    /**
+	     * TODO
+	     */
+
+	    _createClass(List, [{
+	        key: "onInit",
+	        value: function onInit() {
+	            _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
+	            if (util.isDefined(this.virtual)) {
+	                console.log('Content', this.content);
+	                console.log('Virtual?', this.virtual);
+	                console.log('Items?', this.items.length, 'of \'em');
+	                this._initVirtualScrolling();
+	            }
+	        }
+
+	        /**
+	         * @private
+	         * TODO
+	         */
+	    }, {
+	        key: "_initVirtualScrolling",
+	        value: function _initVirtualScrolling() {
+	            if (!this.content) {
+	                return;
+	            }
+	            this._virtualScrollingManager = new _virtual.ListVirtualScroll(this);
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} item  TODO
+	         */
+	    }, {
+	        key: "setItemTemplate",
+	        value: function setItemTemplate(item) {
+	            this.itemTemplate = item;
+	        }
+
+	        /**
+	         * Keeps track of any open item (a sliding item, for example), to close it later
+	         */
+	    }, {
+	        key: "setOpenItem",
+	        value: function setOpenItem(item) {
+	            this.openItem = item;
+	        }
+	    }, {
+	        key: "closeOpenItem",
+	        value: function closeOpenItem() {
+	            if (this.openItem) {
+	                this.openItem.close(true);
+	                this.openItem = null;
+	            }
+	        }
+	    }, {
+	        key: "getOpenItem",
+	        value: function getOpenItem() {
+	            return this.openItem;
+	        }
+	    }]);
+
+	    return List;
+	})(_ion.Ion);
+	exports.List = List;
+	exports.List = List = __decorate([(0, _configDecorators.IonicDirective)({
+	    selector: 'ion-list',
+	    properties: ['items', 'virtual', 'content']
+	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], List);
+	/**
+	 * TODO
+	 */
+	var ListHeader = function ListHeader() {
+	    _classCallCheck(this, ListHeader);
+	};
+	exports.ListHeader = ListHeader;
+	exports.ListHeader = ListHeader = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: 'ion-header',
+	    properties: ['id'],
+	    host: {
+	        '[attr.id]': 'id'
+	    }
+	}), __metadata('design:paramtypes', [])], ListHeader);
+
+/***/ },
+/* 287 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var ListVirtualScroll = (function () {
+	    function ListVirtualScroll(list) {
+	        var _this = this;
+
+	        _classCallCheck(this, ListVirtualScroll);
+
+	        this.list = list;
+	        this.content = this.list.content;
+	        this.viewportHeight = this.content.height();
+	        this.viewContainer = this.list.itemTemplate.viewContainer;
+	        this.itemHeight = 60;
+	        this.shownItems = {};
+	        this.enteringItems = [];
+	        this.leavingItems = [];
+	        // Compute the initial sizes
+	        setTimeout(function () {
+	            _this.resize();
+	            // Simulate the first event to start layout
+	            _this._handleVirtualScroll({
+	                target: _this.content.scrollElement
+	            });
+	        });
+	        this.content.addScrollEventListener(function (event) {
+	            _this._handleVirtualScroll(event);
+	        });
+	    }
+
+	    _createClass(ListVirtualScroll, [{
+	        key: 'resize',
+	        value: function resize() {
+	            this.viewportHeight = this.content.height();
+	            this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
+	            this.virtualHeight = this.list.items.length * this.itemHeight;
+	            this.itemsPerScreen = this.viewportHeight / this.itemHeight;
+	            console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
+	        }
+	    }, {
+	        key: '_handleVirtualScroll',
+	        value: function _handleVirtualScroll(event) {
+	            var item = undefined;
+	            var shownItemRef = undefined;
+	            var st = event.target.scrollTop;
+	            var sh = event.target.scrollHeight;
+	            var topIndex = Math.floor(st / this.itemHeight);
+	            var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
+	            var items = this.list.items;
+	            // Key iterate the shown items map
+	            // and compare the index to our index range,
+	            // pushing the items to remove to our leaving
+	            // list if they're ouside this range.
+	            for (var i in this.shownItems) {
+	                if (i < topIndex || i > bottomIndex) {
+	                    this.leavingItems.push(this.shownItems[i]);
+	                    delete this.shownItems[i];
+	                }
+	            }
+	            var realIndex = 0;
+	            // Iterate the set of items that will be rendered, using the
+	            // index from the actual items list as the map for the
+	            // virtual items we draw
+	            for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
+	                item = items[i];
+	                console.log('Drawing item', i, item.title);
+	                shownItemRef = this.shownItems[i];
+	                // Is this a new item?
+	                if (!shownItemRef) {
+	                    var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
+	                    itemView.setLocal('\$implicit', item);
+	                    itemView.setLocal('\$item', item);
+	                    shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
+	                    this.shownItems[i] = shownItemRef;
+	                    this.enteringItems.push(shownItemRef);
+	                }
+	            }
+	            while (this.leavingItems.length) {
+	                var itemRef = this.leavingItems.pop();
+	                console.log('Removing item', itemRef.item, itemRef.realIndex);
+	                this.viewContainer.remove(itemRef.realIndex);
+	            }
+	            console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
+	            console.log('Container has', this.list.getNativeElement().children.length, 'children');
+	        }
+	    }, {
+	        key: 'cellAtIndex',
+	        value: function cellAtIndex(index) {}
+	    }]);
+
+	    return ListVirtualScroll;
+	})();
+
+	exports.ListVirtualScroll = ListVirtualScroll;
+
+	var VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
+	    _classCallCheck(this, VirtualItemRef);
+
+	    this.item = item;
+	    this.index = index;
+	    this.realIndex = realIndex;
+	    this.view = view;
+	};
+
+/***/ },
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56772,7 +57430,7 @@
 
 	var _platformPlatform = __webpack_require__(218);
 
-	var _menuGestures = __webpack_require__(285);
+	var _menuGestures = __webpack_require__(289);
 
 	var gestures = _interopRequireWildcard(_menuGestures);
 
@@ -56825,9 +57483,10 @@
 	        key: "onInit",
 	        value: function onInit() {
 	            _get(Object.getPrototypeOf(Menu.prototype), "onInit", this).call(this);
-	            this._cntEle = this.content instanceof Node ? this.content : this.content.getNativeElement();
+	            var content = this.content;
+	            this._cntEle = content instanceof Node ? content : content && content.getNativeElement && content.getNativeElement();
 	            if (!this._cntEle) {
-	                return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-content #content></ion-content>');
+	                return console.error('Menu: must have a [content] element to listen for drag events on. Example:\n\n<ion-menu [content]="content"></ion-menu>\n\n<ion-nav #content></ion-nav>');
 	            }
 	            if (!this.id) {
 	                // Auto register
@@ -57095,7 +57754,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Menu, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], MenuBackdrop);
 
 /***/ },
-/* 285 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57112,7 +57771,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _ionicGesturesSlideEdgeGesture = __webpack_require__(277);
+	var _ionicGesturesSlideEdgeGesture = __webpack_require__(278);
 
 	var MenuContentGesture = (function (_SlideEdgeGesture) {
 	    _inherits(MenuContentGesture, _SlideEdgeGesture);
@@ -57219,7 +57878,7 @@
 	exports.RightMenuGesture = RightMenuGesture;
 
 /***/ },
-/* 286 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57236,7 +57895,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _menu = __webpack_require__(284);
+	var _menu = __webpack_require__(288);
 
 	var _ionicAnimationsAnimation = __webpack_require__(254);
 
@@ -57317,8 +57976,8 @@
 	            return promise;
 	        }
 	    }, {
-	        key: 'onDestory',
-	        value: function onDestory() {
+	        key: 'onDestroy',
+	        value: function onDestroy() {
 	            this.open && this.open.dispose();
 	            this.close && this.close.dispose();
 	            this.seek && this.seek.dispose();
@@ -57406,7 +58065,7 @@
 	var TRANSLATE_X = 'translateX';
 
 /***/ },
-/* 287 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57429,9 +58088,9 @@
 
 	var _appApp = __webpack_require__(224);
 
-	var _navViewController = __webpack_require__(273);
+	var _navViewController = __webpack_require__(274);
 
-	var _navBarNavBar = __webpack_require__(288);
+	var _navBarNavBar = __webpack_require__(292);
 
 	/**
 	* TODO
@@ -57507,7 +58166,7 @@
 	}), __param(2, (0, _angular2Angular2.Optional)()), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar || Object])], MenuToggle);
 
 /***/ },
-/* 288 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57528,7 +58187,7 @@
 
 	var _ion = __webpack_require__(263);
 
-	var _toolbarToolbar = __webpack_require__(289);
+	var _toolbarToolbar = __webpack_require__(293);
 
 	var _configConfig = __webpack_require__(217);
 
@@ -57536,9 +58195,9 @@
 
 	var _appApp = __webpack_require__(224);
 
-	var _navViewController = __webpack_require__(273);
+	var _navViewController = __webpack_require__(274);
 
-	var _navNavController = __webpack_require__(274);
+	var _navNavController = __webpack_require__(275);
 
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -57681,7 +58340,7 @@
 	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _angular2Angular2.TemplateRef !== 'undefined' && _angular2Angular2.TemplateRef || Object])], NavbarTemplate);
 
 /***/ },
-/* 289 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57706,7 +58365,7 @@
 
 	var _configDecorators = __webpack_require__(222);
 
-	var _navBarNavBar = __webpack_require__(288);
+	var _navBarNavBar = __webpack_require__(292);
 
 	/**
 	 * TODO
@@ -57863,7 +58522,7 @@
 	}))), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, Toolbar, typeof _navBarNavBar.Navbar !== 'undefined' && _navBarNavBar.Navbar || Object])], ToolbarItem);
 
 /***/ },
-/* 290 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57939,7 +58598,7 @@
 	}), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], MenuClose);
 
 /***/ },
-/* 291 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57966,13 +58625,13 @@
 
 	var _formInput = __webpack_require__(262);
 
-	var _label = __webpack_require__(292);
+	var _label = __webpack_require__(296);
 
 	var _ion = __webpack_require__(263);
 
 	var _appApp = __webpack_require__(224);
 
-	var _contentContent = __webpack_require__(272);
+	var _contentContent = __webpack_require__(273);
 
 	var _utilDom = __webpack_require__(220);
 
@@ -58422,7 +59081,7 @@
 	var SCROLL_INTO_VIEW_DURATION = 400;
 
 /***/ },
-/* 292 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58528,267 +59187,7 @@
 	}), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Label);
 
 /***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _angular2Angular2 = __webpack_require__(41);
-
-	var _ion = __webpack_require__(263);
-
-	var _configConfig = __webpack_require__(217);
-
-	var _configDecorators = __webpack_require__(222);
-
-	var _virtual = __webpack_require__(294);
-
-	var _ionicUtil = __webpack_require__(223);
-
-	var util = _interopRequireWildcard(_ionicUtil);
-
-	/**
-	 * @name ionList
-	 * @description
-	 * The List is a widely used interface element in almost any mobile app, and can include
-	 * content ranging from basic text all the way to buttons, toggles, icons, and thumbnails.
-	 *
-	 * Both the list, which contains items, and the list items themselves can be any HTML
-	 * element.
-	 *
-	 * Using the ionList and ionItem components make it easy to support various
-	 * interaction modes such as swipe to edit, drag to reorder, and removing items.
-	 *
-	 */
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var List = (function (_Ion) {
-	    _inherits(List, _Ion);
-
-	    /**
-	     * TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
-	     */
-
-	    function List(elementRef, config) {
-	        _classCallCheck(this, List);
-
-	        _get(Object.getPrototypeOf(List.prototype), "constructor", this).call(this, elementRef, config);
-	        this.ele = elementRef.nativeElement;
-	    }
-
-	    /**
-	     * TODO
-	     */
-
-	    _createClass(List, [{
-	        key: "onInit",
-	        value: function onInit() {
-	            _get(Object.getPrototypeOf(List.prototype), "onInit", this).call(this);
-	            if (util.isDefined(this.virtual)) {
-	                console.log('Content', this.content);
-	                console.log('Virtual?', this.virtual);
-	                console.log('Items?', this.items.length, 'of \'em');
-	                this._initVirtualScrolling();
-	            }
-	        }
-
-	        /**
-	         * @private
-	         * TODO
-	         */
-	    }, {
-	        key: "_initVirtualScrolling",
-	        value: function _initVirtualScrolling() {
-	            if (!this.content) {
-	                return;
-	            }
-	            this._virtualScrollingManager = new _virtual.ListVirtualScroll(this);
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} item  TODO
-	         */
-	    }, {
-	        key: "setItemTemplate",
-	        value: function setItemTemplate(item) {
-	            this.itemTemplate = item;
-	        }
-	    }]);
-
-	    return List;
-	})(_ion.Ion);
-	exports.List = List;
-	exports.List = List = __decorate([(0, _configDecorators.IonicDirective)({
-	    selector: 'ion-list',
-	    properties: ['items', 'virtual', 'content']
-	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], List);
-	/**
-	 * TODO
-	 */
-	var ListHeader = function ListHeader() {
-	    _classCallCheck(this, ListHeader);
-	};
-	exports.ListHeader = ListHeader;
-	exports.ListHeader = ListHeader = __decorate([(0, _angular2Angular2.Directive)({
-	    selector: 'ion-header',
-	    properties: ['id'],
-	    host: {
-	        '[attr.id]': 'id'
-	    }
-	}), __metadata('design:paramtypes', [])], ListHeader);
-
-/***/ },
-/* 294 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var ListVirtualScroll = (function () {
-	    function ListVirtualScroll(list) {
-	        var _this = this;
-
-	        _classCallCheck(this, ListVirtualScroll);
-
-	        this.list = list;
-	        this.content = this.list.content;
-	        this.viewportHeight = this.content.height();
-	        this.viewContainer = this.list.itemTemplate.viewContainer;
-	        this.itemHeight = 60;
-	        this.shownItems = {};
-	        this.enteringItems = [];
-	        this.leavingItems = [];
-	        // Compute the initial sizes
-	        setTimeout(function () {
-	            _this.resize();
-	            // Simulate the first event to start layout
-	            _this._handleVirtualScroll({
-	                target: _this.content.scrollElement
-	            });
-	        });
-	        this.content.addScrollEventListener(function (event) {
-	            _this._handleVirtualScroll(event);
-	        });
-	    }
-
-	    _createClass(ListVirtualScroll, [{
-	        key: 'resize',
-	        value: function resize() {
-	            this.viewportHeight = this.content.height();
-	            this.viewportScrollHeight = this.content.scrollElement.scrollHeight;
-	            this.virtualHeight = this.list.items.length * this.itemHeight;
-	            this.itemsPerScreen = this.viewportHeight / this.itemHeight;
-	            console.log('VIRTUAL: resize(viewportHeight:', this.viewportHeight, 'viewportScrollHeight:', this.viewportScrollHeight, 'virtualHeight:', this.virtualHeight, ', itemsPerScreen:', this.itemsPerScreen, ')');
-	        }
-	    }, {
-	        key: '_handleVirtualScroll',
-	        value: function _handleVirtualScroll(event) {
-	            var item = undefined;
-	            var shownItemRef = undefined;
-	            var st = event.target.scrollTop;
-	            var sh = event.target.scrollHeight;
-	            var topIndex = Math.floor(st / this.itemHeight);
-	            var bottomIndex = Math.floor(st / this.itemHeight + this.itemsPerScreen);
-	            var items = this.list.items;
-	            // Key iterate the shown items map
-	            // and compare the index to our index range,
-	            // pushing the items to remove to our leaving
-	            // list if they're ouside this range.
-	            for (var i in this.shownItems) {
-	                if (i < topIndex || i > bottomIndex) {
-	                    this.leavingItems.push(this.shownItems[i]);
-	                    delete this.shownItems[i];
-	                }
-	            }
-	            var realIndex = 0;
-	            // Iterate the set of items that will be rendered, using the
-	            // index from the actual items list as the map for the
-	            // virtual items we draw
-	            for (var i = topIndex, _realIndex = 0; i < bottomIndex && i < items.length; i++, _realIndex++) {
-	                item = items[i];
-	                console.log('Drawing item', i, item.title);
-	                shownItemRef = this.shownItems[i];
-	                // Is this a new item?
-	                if (!shownItemRef) {
-	                    var itemView = this.viewContainer.create(this.list.itemTemplate.protoViewRef, _realIndex);
-	                    itemView.setLocal('\$implicit', item);
-	                    itemView.setLocal('\$item', item);
-	                    shownItemRef = new VirtualItemRef(item, i, _realIndex, itemView);
-	                    this.shownItems[i] = shownItemRef;
-	                    this.enteringItems.push(shownItemRef);
-	                }
-	            }
-	            while (this.leavingItems.length) {
-	                var itemRef = this.leavingItems.pop();
-	                console.log('Removing item', itemRef.item, itemRef.realIndex);
-	                this.viewContainer.remove(itemRef.realIndex);
-	            }
-	            console.log('VIRTUAL SCROLL: scroll(scrollTop:', st, 'topIndex:', topIndex, 'bottomIndex:', bottomIndex, ')');
-	            console.log('Container has', this.list.getNativeElement().children.length, 'children');
-	        }
-	    }, {
-	        key: 'cellAtIndex',
-	        value: function cellAtIndex(index) {}
-	    }]);
-
-	    return ListVirtualScroll;
-	})();
-
-	exports.ListVirtualScroll = ListVirtualScroll;
-
-	var VirtualItemRef = function VirtualItemRef(item, index, realIndex, view) {
-	    _classCallCheck(this, VirtualItemRef);
-
-	    this.item = item;
-	    this.index = index;
-	    this.realIndex = realIndex;
-	    this.view = view;
-	};
-
-/***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58954,7 +59353,7 @@
 	}), __param(0, (0, _angular2Angular2.Attribute)('hide-when')), __metadata('design:paramtypes', [String, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], HideWhen);
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58977,7 +59376,7 @@
 
 	var _configDecorators = __webpack_require__(222);
 
-	var _navController = __webpack_require__(274);
+	var _navController = __webpack_require__(275);
 
 	/**
 	 * Nav is a basic navigation controller component.  As a subclass of [NavController](../NavController/)
@@ -59407,7 +59806,7 @@
 	}), __metadata('design:paramtypes', [Nav, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], Pane);
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59422,7 +59821,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _navController = __webpack_require__(274);
+	var _navController = __webpack_require__(275);
 
 	var _navRegistry = __webpack_require__(265);
 
@@ -59540,7 +59939,7 @@
 	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object])], NavPop);
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59561,7 +59960,7 @@
 
 	var _angular2Router = __webpack_require__(225);
 
-	var _nav = __webpack_require__(296);
+	var _nav = __webpack_require__(298);
 
 	/**
 	 * TODO
@@ -59696,7 +60095,7 @@
 	}), __param(3, (0, _angular2Angular2.Attribute)('name')), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader || Object, typeof _angular2Router.Router !== 'undefined' && _angular2Router.Router || Object, String, typeof _nav.Nav !== 'undefined' && _nav.Nav || Object])], NavRouter);
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -59721,7 +60120,7 @@
 
 	var _ionicAnimationsAnimation = __webpack_require__(254);
 
-	var _ionicGesturesGesture = __webpack_require__(280);
+	var _ionicGesturesGesture = __webpack_require__(281);
 
 	var _configDecorators = __webpack_require__(222);
 
@@ -59733,7 +60132,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _swiperWidget = __webpack_require__(300);
+	var _swiperWidget = __webpack_require__(302);
 
 	/**
 	 * Slides is a slide box implementation based on Swiper.js
@@ -60181,7 +60580,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], SlideLazy);
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports) {
 
 	/**
@@ -60473,7 +60872,7 @@
 	===========================*/function addLibraryPlugin(lib){lib.fn.swiper = function(params){var firstInstance;lib(this).each(function(){var s=new Swiper(this,params);if(!firstInstance)firstInstance = s;});return firstInstance;};}if(domLib){if(!('transitionEnd' in domLib.fn)){domLib.fn.transitionEnd = function(callback){var events=['webkitTransitionEnd','transitionend','oTransitionEnd','MSTransitionEnd','msTransitionEnd'],i,j,dom=this;function fireCallBack(e){ /*jshint validthis:true */if(e.target !== this)return;callback.call(this,e);for(i = 0;i < events.length;i++) {dom.off(events[i],fireCallBack);}}if(callback){for(i = 0;i < events.length;i++) {dom.on(events[i],fireCallBack);}}return this;};}if(!('transform' in domLib.fn)){domLib.fn.transform = function(transform){for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransform = elStyle.MsTransform = elStyle.msTransform = elStyle.MozTransform = elStyle.OTransform = elStyle.transform = transform;}return this;};}if(!('transition' in domLib.fn)){domLib.fn.transition = function(duration){if(typeof duration !== 'string'){duration = duration + 'ms';}for(var i=0;i < this.length;i++) {var elStyle=this[i].style;elStyle.webkitTransitionDuration = elStyle.MsTransitionDuration = elStyle.msTransitionDuration = elStyle.MozTransitionDuration = elStyle.OTransitionDuration = elStyle.transitionDuration = duration;}return this;};}}
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60498,7 +60897,7 @@
 
 	var _ion = __webpack_require__(263);
 
-	var _listList = __webpack_require__(293);
+	var _listList = __webpack_require__(286);
 
 	/**
 	 * @name ionRadioGroup
@@ -60808,7 +61207,7 @@
 	var radioGroupIds = -1;
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60916,7 +61315,7 @@
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object])], Scroll);
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -60933,7 +61332,7 @@
 
 	var _angular2Angular2 = __webpack_require__(41);
 
-	var _contentContent = __webpack_require__(272);
+	var _contentContent = __webpack_require__(273);
 
 	var _ionicUtil = __webpack_require__(223);
 
@@ -61373,7 +61772,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _contentContent.Content !== 'undefined' && _contentContent.Content || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], Refresher);
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61399,7 +61798,14 @@
 	var _configDecorators = __webpack_require__(222);
 
 	/**
-	 * TODO
+	 * @name Search Bar
+	 * @description
+	 * The Search Bar service adds an input field which can be used to search or filter items.
+	 *
+	 * @usage
+	 * ```html
+	 * <ion-search-bar ng-control="searchQuery"></ion-search-bar>
+	 * ```
 	 */
 	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
@@ -61454,30 +61860,20 @@
 	        key: "writeValue",
 	        value: function writeValue(value) {
 	            this.value = value;
-	            console.log('writeValue', value);
 	            this.renderer.setElementProperty(this.elementRef, 'value', this.value);
 	        }
 	    }, {
 	        key: "registerOnChange",
-	        value: function registerOnChange(val) {
-	            console.log('registerONChange', val);
-	        }
+	        value: function registerOnChange(val) {}
 	    }, {
 	        key: "registerOnTouched",
-	        value: function registerOnTouched(val) {
-	            console.log('register on touched', val);
-	        }
+	        value: function registerOnTouched(val) {}
 	    }, {
 	        key: "inputChanged",
 	        value: function inputChanged(event) {
 	            this.value = event.target.value;
-	            console.log('Search changed', this.value);
 	            this.ngControl.valueAccessor.writeValue(this.value);
 	            this.ngControl.control.updateValue(this.value);
-	            // this.ngControl.valueAccessor.updateValue(this.value);
-	            // this.ngControl.updateValue(this.value);
-	            // TODO: Better way to do this?
-	            //this.controlDirective._control().updateValue(event.target.value);
 	        }
 	    }, {
 	        key: "inputFocused",
@@ -61491,6 +61887,12 @@
 	            this.isFocused = false;
 	            this.shouldLeftAlign = this.value.trim() != '';
 	        }
+	    }, {
+	        key: "clearInput",
+	        value: function clearInput() {
+	            this.value = '';
+	            this.ngControl.control.updateValue('');
+	        }
 	    }]);
 
 	    return SearchBar;
@@ -61501,11 +61903,21 @@
 	    appInjector: [_angular2Angular2.NgControl],
 	    properties: ['list', 'query'],
 	    defaultProperties: {
+	        'showCancel': false,
 	        'cancelText': 'Cancel',
-	        'placeholder': 'Search'
+	        'placeholder': 'Search',
+	        'cancelAction': function cancelAction() {
+	            // TODO user will override this if they pass a function
+	            // need to allow user to call these
+	            console.log('Default Cancel');
+	            this.isFocused = false;
+	            this.shouldLeftAlign = this.value.trim() != '';
+	            this.element = this.elementRef.nativeElement.querySelector('input');
+	            this.element.blur();
+	        }
 	    }
 	}), (0, _configDecorators.IonicView)({
-	    template: "\n  <div class=\"search-bar-input-container\" [class.left-align]=\"shouldLeftAlign\">\n    <div class=\"search-bar-search-icon\"></div>\n    <input (focus)=\"inputFocused()\" (blur)=\"inputBlurred()\"\n    (input)=\"inputChanged($event)\" class=\"search-bar-input\" type=\"search\" [attr.placeholder]=\"placeholder\">\n    <div class=\"search-bar-close-icon\"></div>\n  </div>\n  <button class=\"search-bar-cancel\">{{cancelText}}</button>"
+	    template: "\n  <div class=\"search-bar-input-container\" [class.left-align]=\"shouldLeftAlign\">\n    <div class=\"search-bar-search-icon\"></div>\n    <input (focus)=\"inputFocused()\" (blur)=\"inputBlurred()\"\n    (input)=\"inputChanged($event)\" class=\"search-bar-input\" type=\"search\" [attr.placeholder]=\"placeholder\" [(ng-model)]=\"value\">\n    <div class=\"search-bar-close-icon\" (click)=\"clearInput()\"></div>\n  </div>\n  <button *ng-if=\"showCancel\" (click)=\"cancelAction()\" class=\"search-bar-cancel\" [class.left-align]=\"shouldLeftAlign\">{{cancelText}}</button>"
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], SearchBar);
 	/*
 	export class SearchPipe extends Pipe {
@@ -61519,20 +61931,18 @@
 	  }
 
 	  transform(value, ...args) {
-	    console.log('Transforming', value, args);
 	    return value;
 	    //return `${value} state:${this.state ++}`;
 	  }
 
 	  create(cdRef) {
-	    console.log('REF', cdRef);
 	    return new SearchPipe(cdRef);
 	  }
 	}
 	*/
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -61842,7 +62252,7 @@
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Segment, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], SegmentButton);
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62117,7 +62527,7 @@
 	}), __param(2, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object])], Switch);
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62142,9 +62552,9 @@
 
 	var _appApp = __webpack_require__(224);
 
-	var _navNavController = __webpack_require__(274);
+	var _navNavController = __webpack_require__(275);
 
-	var _navViewController = __webpack_require__(273);
+	var _navViewController = __webpack_require__(274);
 
 	var _configDecorators = __webpack_require__(222);
 
@@ -62466,7 +62876,7 @@
 	TabNavBarAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[navbar-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tabs, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], TabNavBarAnchor);
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62487,11 +62897,11 @@
 
 	var _angular2SrcCoreCompilerView_container_ref = __webpack_require__(121);
 
-	var _navNavController = __webpack_require__(274);
+	var _navNavController = __webpack_require__(275);
 
-	var _navViewController = __webpack_require__(273);
+	var _navViewController = __webpack_require__(274);
 
-	var _tabs = __webpack_require__(307);
+	var _tabs = __webpack_require__(309);
 
 	/**
 	 * Tab components are basic navigation controllers used with [Tabs]().  Much like
@@ -62686,7 +63096,7 @@
 	TabContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof _angular2SrcCoreCompilerView_container_ref.ViewContainerRef !== 'undefined' && _angular2SrcCoreCompilerView_container_ref.ViewContainerRef || Object])], TabContentAnchor);
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62816,7 +63226,7 @@
 	});
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62829,64 +63239,64 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	_defaults(exports, _interopExportWildcard(_plugin, _defaults));
 
-	var _applinksApplinks = __webpack_require__(312);
+	var _applinksApplinks = __webpack_require__(314);
 
 	_defaults(exports, _interopExportWildcard(_applinksApplinks, _defaults));
 
-	var _barcodeBarcode = __webpack_require__(313);
+	var _barcodeBarcode = __webpack_require__(315);
 
 	_defaults(exports, _interopExportWildcard(_barcodeBarcode, _defaults));
 
-	var _batteryBattery = __webpack_require__(314);
+	var _batteryBattery = __webpack_require__(316);
 
 	_defaults(exports, _interopExportWildcard(_batteryBattery, _defaults));
 
-	var _cameraCamera = __webpack_require__(315);
+	var _cameraCamera = __webpack_require__(317);
 
 	_defaults(exports, _interopExportWildcard(_cameraCamera, _defaults));
 
-	var _contactsContacts = __webpack_require__(316);
+	var _contactsContacts = __webpack_require__(318);
 
 	_defaults(exports, _interopExportWildcard(_contactsContacts, _defaults));
 
-	var _dialogsDialogs = __webpack_require__(317);
+	var _dialogsDialogs = __webpack_require__(319);
 
 	_defaults(exports, _interopExportWildcard(_dialogsDialogs, _defaults));
 
-	var _deviceDevice = __webpack_require__(318);
+	var _deviceDevice = __webpack_require__(320);
 
 	_defaults(exports, _interopExportWildcard(_deviceDevice, _defaults));
 
-	var _deviceMotionDeviceMotion = __webpack_require__(319);
+	var _deviceMotionDeviceMotion = __webpack_require__(321);
 
 	_defaults(exports, _interopExportWildcard(_deviceMotionDeviceMotion, _defaults));
 
-	var _deviceOrientationDeviceOrientation = __webpack_require__(320);
+	var _deviceOrientationDeviceOrientation = __webpack_require__(322);
 
 	_defaults(exports, _interopExportWildcard(_deviceOrientationDeviceOrientation, _defaults));
 
-	var _geolocationGeolocation = __webpack_require__(321);
+	var _geolocationGeolocation = __webpack_require__(323);
 
 	_defaults(exports, _interopExportWildcard(_geolocationGeolocation, _defaults));
 
-	var _keyboardKeyboard = __webpack_require__(322);
+	var _keyboardKeyboard = __webpack_require__(324);
 
 	_defaults(exports, _interopExportWildcard(_keyboardKeyboard, _defaults));
 
-	var _statusbarStatusbar = __webpack_require__(323);
+	var _statusbarStatusbar = __webpack_require__(325);
 
 	_defaults(exports, _interopExportWildcard(_statusbarStatusbar, _defaults));
 
-	var _vibrationVibration = __webpack_require__(324);
+	var _vibrationVibration = __webpack_require__(326);
 
 	_defaults(exports, _interopExportWildcard(_vibrationVibration, _defaults));
 
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -62954,7 +63364,7 @@
 	}
 
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -62969,7 +63379,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Open installed apps on the device. Note: Android and iOS have different ways of
@@ -63079,7 +63489,7 @@
 	}), __metadata('design:paramtypes', [])], AppLinks);
 
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63092,7 +63502,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Scan barcodes and QR codes.
@@ -63214,7 +63624,7 @@
 	}), __metadata('design:paramtypes', [])], Barcode);
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63233,7 +63643,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Track battery status. Uses the HTMl5 Battery API if available or
@@ -63329,7 +63739,7 @@
 	}), __metadata('design:paramtypes', [])], _Battery);
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63348,7 +63758,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Take a photo or capture video.
@@ -63467,7 +63877,7 @@
 	}), __metadata('design:paramtypes', [])], Camera);
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63480,7 +63890,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Access and manage Contacts on the device.
@@ -63650,7 +64060,7 @@
 	}), __metadata('design:paramtypes', [])], Contacts);
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63663,7 +64073,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * A native dialogs system. Native dialogs can give you a bit more
@@ -63820,7 +64230,7 @@
 	}), __metadata('design:paramtypes', [])], Dialogs);
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -63833,7 +64243,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Access information about the underlying device and platform.
@@ -64008,7 +64418,7 @@
 	}), __metadata('design:paramtypes', [])], _Device);
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64031,7 +64441,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Respond to device movement in the x/y/z axes.
@@ -64177,7 +64587,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceMotion);
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64200,7 +64610,7 @@
 
 	var util = _interopRequireWildcard(_ionicUtil);
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Respond to device orientation changes (compass).
@@ -64329,7 +64739,7 @@
 	}), __metadata('design:paramtypes', [])], _DeviceOrientation);
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64348,7 +64758,7 @@
 
 	var Rx = _interopRequireWildcard(_rx);
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Get geolocation data.
@@ -64454,7 +64864,7 @@
 	}), __metadata('design:paramtypes', [])], Geolocation);
 
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64467,7 +64877,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Manage the native keyboard. Note: this plugin performs mainly in the native
@@ -64573,7 +64983,7 @@
 	}), __metadata('design:paramtypes', [])], Keyboard);
 
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64586,7 +64996,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	 * Manage the appearance of the native status bar.
@@ -64744,7 +65154,7 @@
 	}), __metadata('design:paramtypes', [])], _StatusBar);
 
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -64757,7 +65167,7 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _plugin = __webpack_require__(311);
+	var _plugin = __webpack_require__(313);
 
 	/**
 	* Vibrate the device. Uses the HTMl5 Vibration API or the `cordova-plugin-vibration` plugin (preferred)
@@ -64822,7 +65232,7 @@
 	}), __metadata('design:paramtypes', [])], Vibration);
 
 /***/ },
-/* 325 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64835,20 +65245,20 @@
 
 	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
-	var _storageStorage = __webpack_require__(326);
+	var _storageStorage = __webpack_require__(328);
 
 	_defaults(exports, _interopExportWildcard(_storageStorage, _defaults));
 
-	var _storageLocalStorage = __webpack_require__(327);
+	var _storageLocalStorage = __webpack_require__(329);
 
 	_defaults(exports, _interopExportWildcard(_storageLocalStorage, _defaults));
 
-	var _storageSql = __webpack_require__(328);
+	var _storageSql = __webpack_require__(330);
 
 	_defaults(exports, _interopExportWildcard(_storageSql, _defaults));
 
 /***/ },
-/* 326 */
+/* 328 */
 /***/ function(module, exports) {
 
 	/**
@@ -64947,7 +65357,7 @@
 	exports.StorageEngine = StorageEngine;
 
 /***/ },
-/* 327 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64964,7 +65374,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(326);
+	var _storage = __webpack_require__(328);
 
 	/**
 	 * The LocalStorage storage engine uses the browser's local storage system for
@@ -65030,7 +65440,7 @@
 	exports.LocalStorage = LocalStorage;
 
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65049,7 +65459,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _storage = __webpack_require__(326);
+	var _storage = __webpack_require__(328);
 
 	var _ionicUtil = __webpack_require__(223);
 
@@ -65281,7 +65691,7 @@
 	SqlStorage.BACKUP_DOCUMENTS = 0;
 
 /***/ },
-/* 329 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65321,7 +65731,7 @@
 	});
 
 /***/ },
-/* 330 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65395,7 +65805,7 @@
 	_animation.Animation.register('fade-out', FadeOut);
 
 /***/ },
-/* 331 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65406,7 +65816,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(275);
+	var _transition = __webpack_require__(276);
 
 	var _animationsAnimation = __webpack_require__(254);
 
@@ -65472,7 +65882,7 @@
 	_transition.Transition.register('ios', IOSTransition);
 
 /***/ },
-/* 332 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65483,7 +65893,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _transition = __webpack_require__(275);
+	var _transition = __webpack_require__(276);
 
 	var _animationsAnimation = __webpack_require__(254);
 
@@ -65542,7 +65952,7 @@
 	_transition.Transition.register('md', MaterialTransition);
 
 /***/ },
-/* 333 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -65618,7 +66028,7 @@
 	exports.TranslatePipe = TranslatePipe = __decorate([(0, _angular2Angular2.Pipe)({ name: 'translate' }), (0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof _translate.Translate !== 'undefined' && _translate.Translate || Object])], TranslatePipe);
 
 /***/ },
-/* 334 */
+/* 336 */
 /***/ function(module, exports) {
 
 	// Copyright 2014 Google Inc. All rights reserved.
@@ -65639,7 +66049,7 @@
 	//# sourceMappingURL=web-animations.min.js.map
 
 /***/ },
-/* 335 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -65910,7 +66320,7 @@
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(336)("./" + name);
+	                __webpack_require__(338)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -68840,180 +69250,180 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(107)(module)))
 
 /***/ },
-/* 336 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 337,
-		"./af.js": 337,
-		"./ar": 338,
-		"./ar-ma": 339,
-		"./ar-ma.js": 339,
-		"./ar-sa": 340,
-		"./ar-sa.js": 340,
-		"./ar-tn": 341,
-		"./ar-tn.js": 341,
-		"./ar.js": 338,
-		"./az": 342,
-		"./az.js": 342,
-		"./be": 343,
-		"./be.js": 343,
-		"./bg": 344,
-		"./bg.js": 344,
-		"./bn": 345,
-		"./bn.js": 345,
-		"./bo": 346,
-		"./bo.js": 346,
-		"./br": 347,
-		"./br.js": 347,
-		"./bs": 348,
-		"./bs.js": 348,
-		"./ca": 349,
-		"./ca.js": 349,
-		"./cs": 350,
-		"./cs.js": 350,
-		"./cv": 351,
-		"./cv.js": 351,
-		"./cy": 352,
-		"./cy.js": 352,
-		"./da": 353,
-		"./da.js": 353,
-		"./de": 354,
-		"./de-at": 355,
-		"./de-at.js": 355,
-		"./de.js": 354,
-		"./el": 356,
-		"./el.js": 356,
-		"./en-au": 357,
-		"./en-au.js": 357,
-		"./en-ca": 358,
-		"./en-ca.js": 358,
-		"./en-gb": 359,
-		"./en-gb.js": 359,
-		"./eo": 360,
-		"./eo.js": 360,
-		"./es": 361,
-		"./es.js": 361,
-		"./et": 362,
-		"./et.js": 362,
-		"./eu": 363,
-		"./eu.js": 363,
-		"./fa": 364,
-		"./fa.js": 364,
-		"./fi": 365,
-		"./fi.js": 365,
-		"./fo": 366,
-		"./fo.js": 366,
-		"./fr": 367,
-		"./fr-ca": 368,
-		"./fr-ca.js": 368,
-		"./fr.js": 367,
-		"./fy": 369,
-		"./fy.js": 369,
-		"./gl": 370,
-		"./gl.js": 370,
-		"./he": 371,
-		"./he.js": 371,
-		"./hi": 372,
-		"./hi.js": 372,
-		"./hr": 373,
-		"./hr.js": 373,
-		"./hu": 374,
-		"./hu.js": 374,
-		"./hy-am": 375,
-		"./hy-am.js": 375,
-		"./id": 376,
-		"./id.js": 376,
-		"./is": 377,
-		"./is.js": 377,
-		"./it": 378,
-		"./it.js": 378,
-		"./ja": 379,
-		"./ja.js": 379,
-		"./jv": 380,
-		"./jv.js": 380,
-		"./ka": 381,
-		"./ka.js": 381,
-		"./km": 382,
-		"./km.js": 382,
-		"./ko": 383,
-		"./ko.js": 383,
-		"./lb": 384,
-		"./lb.js": 384,
-		"./lt": 385,
-		"./lt.js": 385,
-		"./lv": 386,
-		"./lv.js": 386,
-		"./me": 387,
-		"./me.js": 387,
-		"./mk": 388,
-		"./mk.js": 388,
-		"./ml": 389,
-		"./ml.js": 389,
-		"./mr": 390,
-		"./mr.js": 390,
-		"./ms": 391,
-		"./ms-my": 392,
-		"./ms-my.js": 392,
-		"./ms.js": 391,
-		"./my": 393,
-		"./my.js": 393,
-		"./nb": 394,
-		"./nb.js": 394,
-		"./ne": 395,
-		"./ne.js": 395,
-		"./nl": 396,
-		"./nl.js": 396,
-		"./nn": 397,
-		"./nn.js": 397,
-		"./pl": 398,
-		"./pl.js": 398,
-		"./pt": 399,
-		"./pt-br": 400,
-		"./pt-br.js": 400,
-		"./pt.js": 399,
-		"./ro": 401,
-		"./ro.js": 401,
-		"./ru": 402,
-		"./ru.js": 402,
-		"./si": 403,
-		"./si.js": 403,
-		"./sk": 404,
-		"./sk.js": 404,
-		"./sl": 405,
-		"./sl.js": 405,
-		"./sq": 406,
-		"./sq.js": 406,
-		"./sr": 407,
-		"./sr-cyrl": 408,
-		"./sr-cyrl.js": 408,
-		"./sr.js": 407,
-		"./sv": 409,
-		"./sv.js": 409,
-		"./ta": 410,
-		"./ta.js": 410,
-		"./th": 411,
-		"./th.js": 411,
-		"./tl-ph": 412,
-		"./tl-ph.js": 412,
-		"./tr": 413,
-		"./tr.js": 413,
-		"./tzl": 414,
-		"./tzl.js": 414,
-		"./tzm": 415,
-		"./tzm-latn": 416,
-		"./tzm-latn.js": 416,
-		"./tzm.js": 415,
-		"./uk": 417,
-		"./uk.js": 417,
-		"./uz": 418,
-		"./uz.js": 418,
-		"./vi": 419,
-		"./vi.js": 419,
-		"./zh-cn": 420,
-		"./zh-cn.js": 420,
-		"./zh-tw": 421,
-		"./zh-tw.js": 421
+		"./af": 339,
+		"./af.js": 339,
+		"./ar": 340,
+		"./ar-ma": 341,
+		"./ar-ma.js": 341,
+		"./ar-sa": 342,
+		"./ar-sa.js": 342,
+		"./ar-tn": 343,
+		"./ar-tn.js": 343,
+		"./ar.js": 340,
+		"./az": 344,
+		"./az.js": 344,
+		"./be": 345,
+		"./be.js": 345,
+		"./bg": 346,
+		"./bg.js": 346,
+		"./bn": 347,
+		"./bn.js": 347,
+		"./bo": 348,
+		"./bo.js": 348,
+		"./br": 349,
+		"./br.js": 349,
+		"./bs": 350,
+		"./bs.js": 350,
+		"./ca": 351,
+		"./ca.js": 351,
+		"./cs": 352,
+		"./cs.js": 352,
+		"./cv": 353,
+		"./cv.js": 353,
+		"./cy": 354,
+		"./cy.js": 354,
+		"./da": 355,
+		"./da.js": 355,
+		"./de": 356,
+		"./de-at": 357,
+		"./de-at.js": 357,
+		"./de.js": 356,
+		"./el": 358,
+		"./el.js": 358,
+		"./en-au": 359,
+		"./en-au.js": 359,
+		"./en-ca": 360,
+		"./en-ca.js": 360,
+		"./en-gb": 361,
+		"./en-gb.js": 361,
+		"./eo": 362,
+		"./eo.js": 362,
+		"./es": 363,
+		"./es.js": 363,
+		"./et": 364,
+		"./et.js": 364,
+		"./eu": 365,
+		"./eu.js": 365,
+		"./fa": 366,
+		"./fa.js": 366,
+		"./fi": 367,
+		"./fi.js": 367,
+		"./fo": 368,
+		"./fo.js": 368,
+		"./fr": 369,
+		"./fr-ca": 370,
+		"./fr-ca.js": 370,
+		"./fr.js": 369,
+		"./fy": 371,
+		"./fy.js": 371,
+		"./gl": 372,
+		"./gl.js": 372,
+		"./he": 373,
+		"./he.js": 373,
+		"./hi": 374,
+		"./hi.js": 374,
+		"./hr": 375,
+		"./hr.js": 375,
+		"./hu": 376,
+		"./hu.js": 376,
+		"./hy-am": 377,
+		"./hy-am.js": 377,
+		"./id": 378,
+		"./id.js": 378,
+		"./is": 379,
+		"./is.js": 379,
+		"./it": 380,
+		"./it.js": 380,
+		"./ja": 381,
+		"./ja.js": 381,
+		"./jv": 382,
+		"./jv.js": 382,
+		"./ka": 383,
+		"./ka.js": 383,
+		"./km": 384,
+		"./km.js": 384,
+		"./ko": 385,
+		"./ko.js": 385,
+		"./lb": 386,
+		"./lb.js": 386,
+		"./lt": 387,
+		"./lt.js": 387,
+		"./lv": 388,
+		"./lv.js": 388,
+		"./me": 389,
+		"./me.js": 389,
+		"./mk": 390,
+		"./mk.js": 390,
+		"./ml": 391,
+		"./ml.js": 391,
+		"./mr": 392,
+		"./mr.js": 392,
+		"./ms": 393,
+		"./ms-my": 394,
+		"./ms-my.js": 394,
+		"./ms.js": 393,
+		"./my": 395,
+		"./my.js": 395,
+		"./nb": 396,
+		"./nb.js": 396,
+		"./ne": 397,
+		"./ne.js": 397,
+		"./nl": 398,
+		"./nl.js": 398,
+		"./nn": 399,
+		"./nn.js": 399,
+		"./pl": 400,
+		"./pl.js": 400,
+		"./pt": 401,
+		"./pt-br": 402,
+		"./pt-br.js": 402,
+		"./pt.js": 401,
+		"./ro": 403,
+		"./ro.js": 403,
+		"./ru": 404,
+		"./ru.js": 404,
+		"./si": 405,
+		"./si.js": 405,
+		"./sk": 406,
+		"./sk.js": 406,
+		"./sl": 407,
+		"./sl.js": 407,
+		"./sq": 408,
+		"./sq.js": 408,
+		"./sr": 409,
+		"./sr-cyrl": 410,
+		"./sr-cyrl.js": 410,
+		"./sr.js": 409,
+		"./sv": 411,
+		"./sv.js": 411,
+		"./ta": 412,
+		"./ta.js": 412,
+		"./th": 413,
+		"./th.js": 413,
+		"./tl-ph": 414,
+		"./tl-ph.js": 414,
+		"./tr": 415,
+		"./tr.js": 415,
+		"./tzl": 416,
+		"./tzl.js": 416,
+		"./tzm": 417,
+		"./tzm-latn": 418,
+		"./tzm-latn.js": 418,
+		"./tzm.js": 417,
+		"./uk": 419,
+		"./uk.js": 419,
+		"./uz": 420,
+		"./uz.js": 420,
+		"./vi": 421,
+		"./vi.js": 421,
+		"./zh-cn": 422,
+		"./zh-cn.js": 422,
+		"./zh-tw": 423,
+		"./zh-tw.js": 423
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -69026,11 +69436,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 336;
+	webpackContext.id = 338;
 
 
 /***/ },
-/* 337 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69038,7 +69448,7 @@
 	//! author : Werner Mollentze : https://github.com/wernerm
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69107,7 +69517,7 @@
 	}));
 
 /***/ },
-/* 338 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69117,7 +69527,7 @@
 	//! Native plural forms: forabi https://github.com/forabi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69247,7 +69657,7 @@
 	}));
 
 /***/ },
-/* 339 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69256,7 +69666,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69310,7 +69720,7 @@
 	}));
 
 /***/ },
-/* 340 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69318,7 +69728,7 @@
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69417,14 +69827,14 @@
 	}));
 
 /***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale  : Tunisian Arabic (ar-tn)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69478,7 +69888,7 @@
 	}));
 
 /***/ },
-/* 342 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69486,7 +69896,7 @@
 	//! author : topchiyev : https://github.com/topchiyev
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69586,7 +69996,7 @@
 	}));
 
 /***/ },
-/* 343 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69596,7 +70006,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69737,7 +70147,7 @@
 	}));
 
 /***/ },
-/* 344 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69745,7 +70155,7 @@
 	//! author : Krasen Borisov : https://github.com/kraz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69831,7 +70241,7 @@
 	}));
 
 /***/ },
-/* 345 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69839,7 +70249,7 @@
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -69948,7 +70358,7 @@
 	}));
 
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -69956,7 +70366,7 @@
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70062,7 +70472,7 @@
 	}));
 
 /***/ },
-/* 347 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70070,7 +70480,7 @@
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70173,7 +70583,7 @@
 	}));
 
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70182,7 +70592,7 @@
 	//! based on (hr) translation by Bojan Marković
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70318,7 +70728,7 @@
 	}));
 
 /***/ },
-/* 349 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70326,7 +70736,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70401,7 +70811,7 @@
 	}));
 
 /***/ },
-/* 350 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70409,7 +70819,7 @@
 	//! author : petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70562,7 +70972,7 @@
 	}));
 
 /***/ },
-/* 351 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70570,7 +70980,7 @@
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70629,7 +71039,7 @@
 	}));
 
 /***/ },
-/* 352 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70637,7 +71047,7 @@
 	//! author : Robert Allen
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70712,7 +71122,7 @@
 	}));
 
 /***/ },
-/* 353 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70720,7 +71130,7 @@
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70776,7 +71186,7 @@
 	}));
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70785,7 +71195,7 @@
 	//! author: Menelion Elensúle: https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70855,7 +71265,7 @@
 	}));
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70865,7 +71275,7 @@
 	//! author : Martin Groller : https://github.com/MadMG
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -70935,7 +71345,7 @@
 	}));
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -70943,7 +71353,7 @@
 	//! author : Aggelos Karalias : https://github.com/mehiel
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71033,14 +71443,14 @@
 	}));
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : australian english (en-au)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71103,7 +71513,7 @@
 	}));
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71111,7 +71521,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71170,7 +71580,7 @@
 	}));
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71178,7 +71588,7 @@
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71241,7 +71651,7 @@
 	}));
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71251,7 +71661,7 @@
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71318,7 +71728,7 @@
 	}));
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71326,7 +71736,7 @@
 	//! author : Julio Napurí : https://github.com/julionc
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71401,7 +71811,7 @@
 	}));
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71410,7 +71820,7 @@
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71485,7 +71895,7 @@
 	}));
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71493,7 +71903,7 @@
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71553,7 +71963,7 @@
 	}));
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71561,7 +71971,7 @@
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71662,7 +72072,7 @@
 	}));
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71670,7 +72080,7 @@
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71773,7 +72183,7 @@
 	}));
 
 /***/ },
-/* 366 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71781,7 +72191,7 @@
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71837,7 +72247,7 @@
 	}));
 
 /***/ },
-/* 367 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71845,7 +72255,7 @@
 	//! author : John Fischer : https://github.com/jfroffice
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71903,7 +72313,7 @@
 	}));
 
 /***/ },
-/* 368 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71911,7 +72321,7 @@
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -71965,7 +72375,7 @@
 	}));
 
 /***/ },
-/* 369 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -71973,7 +72383,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72040,7 +72450,7 @@
 	}));
 
 /***/ },
-/* 370 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72048,7 +72458,7 @@
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72119,7 +72529,7 @@
 	}));
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72129,7 +72539,7 @@
 	//! author : Tal Ater : https://github.com/TalAter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72205,7 +72615,7 @@
 	}));
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72213,7 +72623,7 @@
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72332,7 +72742,7 @@
 	}));
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72340,7 +72750,7 @@
 	//! author : Bojan Marković : https://github.com/bmarkovic
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72476,7 +72886,7 @@
 	}));
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72484,7 +72894,7 @@
 	//! author : Adam Brunner : https://github.com/adambrunner
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72589,7 +72999,7 @@
 	}));
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72597,7 +73007,7 @@
 	//! author : Armendarabyan : https://github.com/armendarabyan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72704,7 +73114,7 @@
 	}));
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72713,7 +73123,7 @@
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72791,7 +73201,7 @@
 	}));
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72799,7 +73209,7 @@
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72922,7 +73332,7 @@
 	}));
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -72931,7 +73341,7 @@
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -72996,7 +73406,7 @@
 	}));
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73004,7 +73414,7 @@
 	//! author : LI Long : https://github.com/baryon
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73065,7 +73475,7 @@
 	}));
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73074,7 +73484,7 @@
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73152,7 +73562,7 @@
 	}));
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73160,7 +73570,7 @@
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73259,7 +73669,7 @@
 	}));
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73267,7 +73677,7 @@
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73321,7 +73731,7 @@
 	}));
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73333,7 +73743,7 @@
 	//! - Jeeeyul Lee <jeeeyul@gmail.com>
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73393,7 +73803,7 @@
 	}));
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73401,7 +73811,7 @@
 	//! author : mweimerskirch : https://github.com/mweimerskirch, David Raison : https://github.com/kwisatz
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73531,7 +73941,7 @@
 	}));
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73539,7 +73949,7 @@
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73660,7 +74070,7 @@
 	}));
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73669,7 +74079,7 @@
 	//! author : Jānis Elmeris : https://github.com/JanisE
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73760,7 +74170,7 @@
 	}));
 
 /***/ },
-/* 387 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73768,7 +74178,7 @@
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73873,7 +74283,7 @@
 	}));
 
 /***/ },
-/* 388 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73881,7 +74291,7 @@
 	//! author : Borislav Mickov : https://github.com/B0k0
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -73967,7 +74377,7 @@
 	}));
 
 /***/ },
-/* 389 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -73975,7 +74385,7 @@
 	//! author : Floyd Pink : https://github.com/floydpink
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74042,7 +74452,7 @@
 	}));
 
 /***/ },
-/* 390 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74050,7 +74460,7 @@
 	//! author : Harshad Kale : https://github.com/kalehv
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74167,7 +74577,7 @@
 	}));
 
 /***/ },
-/* 391 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74175,7 +74585,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74253,7 +74663,7 @@
 	}));
 
 /***/ },
-/* 392 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74261,7 +74671,7 @@
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74339,7 +74749,7 @@
 	}));
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74347,7 +74757,7 @@
 	//! author : Squar team, mysquar.com
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74436,7 +74846,7 @@
 	}));
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74445,7 +74855,7 @@
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74501,7 +74911,7 @@
 	}));
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74509,7 +74919,7 @@
 	//! author : suvash : https://github.com/suvash
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74628,7 +75038,7 @@
 	}));
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74636,7 +75046,7 @@
 	//! author : Joris Röling : https://github.com/jjupiter
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74703,7 +75113,7 @@
 	}));
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74711,7 +75121,7 @@
 	//! author : https://github.com/mechuwind
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74767,7 +75177,7 @@
 	}));
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74775,7 +75185,7 @@
 	//! author : Rafal Hirsz : https://github.com/evoL
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74876,7 +75286,7 @@
 	}));
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74884,7 +75294,7 @@
 	//! author : Jefferson : https://github.com/jalex79
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -74944,7 +75354,7 @@
 	}));
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -74952,7 +75362,7 @@
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75008,7 +75418,7 @@
 	}));
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75017,7 +75427,7 @@
 	//! author : Valentin Agachi : https://github.com/avaly
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75086,7 +75496,7 @@
 	}));
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75095,7 +75505,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75254,7 +75664,7 @@
 	}));
 
 /***/ },
-/* 403 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75262,7 +75672,7 @@
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75323,7 +75733,7 @@
 	}));
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75332,7 +75742,7 @@
 	//! based on work of petrbela : https://github.com/petrbela
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75485,7 +75895,7 @@
 	}));
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75493,7 +75903,7 @@
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75649,7 +76059,7 @@
 	}));
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75659,7 +76069,7 @@
 	//! author : Oerd Cukalla : https://github.com/oerd (fixes)
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75722,7 +76132,7 @@
 	}));
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75730,7 +76140,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75834,7 +76244,7 @@
 	}));
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75842,7 +76252,7 @@
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -75946,7 +76356,7 @@
 	}));
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -75954,7 +76364,7 @@
 	//! author : Jens Alm : https://github.com/ulmus
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76017,7 +76427,7 @@
 	}));
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76025,7 +76435,7 @@
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76116,7 +76526,7 @@
 	}));
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76124,7 +76534,7 @@
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76185,7 +76595,7 @@
 	}));
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76193,7 +76603,7 @@
 	//! author : Dan Hagman
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76251,7 +76661,7 @@
 	}));
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76260,7 +76670,7 @@
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76345,7 +76755,7 @@
 	}));
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76353,7 +76763,7 @@
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v with the help of Iustì Canun
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76434,7 +76844,7 @@
 	}));
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76442,7 +76852,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76496,7 +76906,7 @@
 	}));
 
 /***/ },
-/* 416 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76504,7 +76914,7 @@
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76558,7 +76968,7 @@
 	}));
 
 /***/ },
-/* 417 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76567,7 +76977,7 @@
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76715,7 +77125,7 @@
 	}));
 
 /***/ },
-/* 418 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76723,7 +77133,7 @@
 	//! author : Sardor Muminov : https://github.com/muminoff
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76777,7 +77187,7 @@
 	}));
 
 /***/ },
-/* 419 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76785,7 +77195,7 @@
 	//! author : Bang Nguyen : https://github.com/bangnk
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76847,7 +77257,7 @@
 	}));
 
 /***/ },
-/* 420 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76856,7 +77266,7 @@
 	//! author : Zeno Zeng : https://github.com/zenozeng
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -76978,7 +77388,7 @@
 	}));
 
 /***/ },
-/* 421 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -76986,7 +77396,7 @@
 	//! author : Ben : https://github.com/ben-lin
 
 	(function (global, factory) {
-	    true ? factory(__webpack_require__(335)) :
+	    true ? factory(__webpack_require__(337)) :
 	   typeof define === 'function' && define.amd ? define(['moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -77083,7 +77493,7 @@
 	}));
 
 /***/ },
-/* 422 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77109,9 +77519,9 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(423);
-	var http_1 = __webpack_require__(424);
-	var home_1 = __webpack_require__(440);
+	var data_1 = __webpack_require__(425);
+	var http_1 = __webpack_require__(426);
+	var home_1 = __webpack_require__(442);
 	var forms_1 = __webpack_require__(151);
 	var MyApp = (function () {
 	    function MyApp(app, platform, data) {
@@ -77159,7 +77569,7 @@
 	//# sourceMappingURL=app.js.map
 
 /***/ },
-/* 423 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77186,7 +77596,7 @@
 	};
 	var ionic_1 = __webpack_require__(216);
 	var angular2_1 = __webpack_require__(41);
-	var http_1 = __webpack_require__(424);
+	var http_1 = __webpack_require__(426);
 	var DataService = (function () {
 	    function DataService(app, http) {
 	        this.app = app;
@@ -77232,7 +77642,7 @@
 	//# sourceMappingURL=data.js.map
 
 /***/ },
-/* 424 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/**
@@ -77242,50 +77652,50 @@
 	 * class.
 	 */
 	var di_1 = __webpack_require__(47);
-	var http_1 = __webpack_require__(425);
-	var xhr_backend_1 = __webpack_require__(432);
-	var jsonp_backend_1 = __webpack_require__(437);
-	var browser_xhr_1 = __webpack_require__(436);
-	var browser_jsonp_1 = __webpack_require__(438);
-	var base_request_options_1 = __webpack_require__(430);
-	var base_response_options_1 = __webpack_require__(435);
-	var mock_backend_1 = __webpack_require__(439);
+	var http_1 = __webpack_require__(427);
+	var xhr_backend_1 = __webpack_require__(434);
+	var jsonp_backend_1 = __webpack_require__(439);
+	var browser_xhr_1 = __webpack_require__(438);
+	var browser_jsonp_1 = __webpack_require__(440);
+	var base_request_options_1 = __webpack_require__(432);
+	var base_response_options_1 = __webpack_require__(437);
+	var mock_backend_1 = __webpack_require__(441);
 	exports.MockConnection = mock_backend_1.MockConnection;
 	exports.MockBackend = mock_backend_1.MockBackend;
-	var static_request_1 = __webpack_require__(428);
+	var static_request_1 = __webpack_require__(430);
 	exports.Request = static_request_1.Request;
-	var static_response_1 = __webpack_require__(433);
+	var static_response_1 = __webpack_require__(435);
 	exports.Response = static_response_1.Response;
-	var interfaces_1 = __webpack_require__(426);
+	var interfaces_1 = __webpack_require__(428);
 	exports.Connection = interfaces_1.Connection;
 	exports.ConnectionBackend = interfaces_1.ConnectionBackend;
-	var browser_xhr_2 = __webpack_require__(436);
+	var browser_xhr_2 = __webpack_require__(438);
 	exports.BrowserXhr = browser_xhr_2.BrowserXhr;
-	var base_request_options_2 = __webpack_require__(430);
+	var base_request_options_2 = __webpack_require__(432);
 	exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
 	exports.RequestOptions = base_request_options_2.RequestOptions;
-	var base_response_options_2 = __webpack_require__(435);
+	var base_response_options_2 = __webpack_require__(437);
 	exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
 	exports.ResponseOptions = base_response_options_2.ResponseOptions;
-	var xhr_backend_2 = __webpack_require__(432);
+	var xhr_backend_2 = __webpack_require__(434);
 	exports.XHRBackend = xhr_backend_2.XHRBackend;
 	exports.XHRConnection = xhr_backend_2.XHRConnection;
-	var jsonp_backend_2 = __webpack_require__(437);
+	var jsonp_backend_2 = __webpack_require__(439);
 	exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
 	exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
-	var http_2 = __webpack_require__(425);
+	var http_2 = __webpack_require__(427);
 	exports.Http = http_2.Http;
 	exports.Jsonp = http_2.Jsonp;
-	var headers_1 = __webpack_require__(429);
+	var headers_1 = __webpack_require__(431);
 	exports.Headers = headers_1.Headers;
-	var enums_1 = __webpack_require__(431);
+	var enums_1 = __webpack_require__(433);
 	exports.ResponseTypes = enums_1.ResponseTypes;
 	exports.ReadyStates = enums_1.ReadyStates;
 	exports.RequestMethods = enums_1.RequestMethods;
 	exports.RequestCredentialsOpts = enums_1.RequestCredentialsOpts;
 	exports.RequestCacheOpts = enums_1.RequestCacheOpts;
 	exports.RequestModesOpts = enums_1.RequestModesOpts;
-	var url_search_params_1 = __webpack_require__(427);
+	var url_search_params_1 = __webpack_require__(429);
 	exports.URLSearchParams = url_search_params_1.URLSearchParams;
 	/**
 	 * Provides a basic set of injectables to use the {@link Http} service in any application.
@@ -77327,7 +77737,7 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 425 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -77349,10 +77759,10 @@
 	};
 	var lang_1 = __webpack_require__(45);
 	var decorators_1 = __webpack_require__(48);
-	var interfaces_1 = __webpack_require__(426);
-	var static_request_1 = __webpack_require__(428);
-	var base_request_options_1 = __webpack_require__(430);
-	var enums_1 = __webpack_require__(431);
+	var interfaces_1 = __webpack_require__(428);
+	var static_request_1 = __webpack_require__(430);
+	var base_request_options_1 = __webpack_require__(432);
+	var enums_1 = __webpack_require__(433);
 	function httpRequest(backend, request) {
 	    return backend.createConnection(request).response;
 	}
@@ -77545,12 +77955,12 @@
 	//# sourceMappingURL=http.js.map
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';/// <reference path="../../typings/rx/rx.d.ts" />
 	var lang_1 = __webpack_require__(45);
-	var url_search_params_1 = __webpack_require__(427);
+	var url_search_params_1 = __webpack_require__(429);
 	// Work around Dartanalyzer problem :(
 	var URLSearchParams_UnionFixer = url_search_params_1.URLSearchParamsUnionFixer;
 	/**
@@ -77579,7 +77989,7 @@
 	//# sourceMappingURL=interfaces.js.map
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -77715,10 +78125,10 @@
 	//# sourceMappingURL=url_search_params.js.map
 
 /***/ },
-/* 428 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';var headers_1 = __webpack_require__(429);
+	'use strict';var headers_1 = __webpack_require__(431);
 	var lang_1 = __webpack_require__(45);
 	// TODO(jeffbcross): properly implement body accessors
 	/**
@@ -77767,7 +78177,7 @@
 	//# sourceMappingURL=static_request.js.map
 
 /***/ },
-/* 429 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -77859,7 +78269,7 @@
 	//# sourceMappingURL=headers.js.map
 
 /***/ },
-/* 430 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -77880,10 +78290,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var lang_1 = __webpack_require__(45);
-	var headers_1 = __webpack_require__(429);
-	var enums_1 = __webpack_require__(431);
+	var headers_1 = __webpack_require__(431);
+	var enums_1 = __webpack_require__(433);
 	var di_1 = __webpack_require__(47);
-	var url_search_params_1 = __webpack_require__(427);
+	var url_search_params_1 = __webpack_require__(429);
 	/**
 	 * Creates a request options object similar to the `RequestInit` description
 	 * in the [Fetch
@@ -77962,7 +78372,7 @@
 	//# sourceMappingURL=base_request_options.js.map
 
 /***/ },
-/* 431 */
+/* 433 */
 /***/ function(module, exports) {
 
 	'use strict';/**
@@ -78040,7 +78450,7 @@
 	//# sourceMappingURL=enums.js.map
 
 /***/ },
-/* 432 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78054,11 +78464,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var enums_1 = __webpack_require__(431);
-	var static_response_1 = __webpack_require__(433);
-	var base_response_options_1 = __webpack_require__(435);
+	var enums_1 = __webpack_require__(433);
+	var static_response_1 = __webpack_require__(435);
+	var base_response_options_1 = __webpack_require__(437);
 	var di_1 = __webpack_require__(47);
-	var browser_xhr_1 = __webpack_require__(436);
+	var browser_xhr_1 = __webpack_require__(438);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	/**
@@ -78162,11 +78572,11 @@
 	//# sourceMappingURL=xhr_backend.js.map
 
 /***/ },
-/* 433 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
-	var http_utils_1 = __webpack_require__(434);
+	var http_utils_1 = __webpack_require__(436);
 	/**
 	 * Creates `Response` instances from provided values.
 	 *
@@ -78229,7 +78639,7 @@
 	//# sourceMappingURL=static_response.js.map
 
 /***/ },
-/* 434 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var lang_1 = __webpack_require__(45);
@@ -78237,7 +78647,7 @@
 	//# sourceMappingURL=http_utils.js.map
 
 /***/ },
-/* 435 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __extends = (this && this.__extends) || function (d, b) {
@@ -78259,8 +78669,8 @@
 	};
 	var di_1 = __webpack_require__(47);
 	var lang_1 = __webpack_require__(45);
-	var headers_1 = __webpack_require__(429);
-	var enums_1 = __webpack_require__(431);
+	var headers_1 = __webpack_require__(431);
+	var enums_1 = __webpack_require__(433);
 	/**
 	 * Creates a response options object similar to the
 	 * [ResponseInit](https://fetch.spec.whatwg.org/#responseinit) description
@@ -78312,7 +78722,7 @@
 	//# sourceMappingURL=base_response_options.js.map
 
 /***/ },
-/* 436 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78342,7 +78752,7 @@
 	//# sourceMappingURL=browser_xhr.js.map
 
 /***/ },
-/* 437 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78356,11 +78766,11 @@
 	var __metadata = (this && this.__metadata) || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
-	var enums_1 = __webpack_require__(431);
-	var static_response_1 = __webpack_require__(433);
-	var base_response_options_1 = __webpack_require__(435);
+	var enums_1 = __webpack_require__(433);
+	var static_response_1 = __webpack_require__(435);
+	var base_response_options_1 = __webpack_require__(437);
 	var di_1 = __webpack_require__(47);
-	var browser_jsonp_1 = __webpack_require__(438);
+	var browser_jsonp_1 = __webpack_require__(440);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	var JSONPConnection = (function () {
@@ -78450,7 +78860,7 @@
 	//# sourceMappingURL=jsonp_backend.js.map
 
 /***/ },
-/* 438 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78513,7 +78923,7 @@
 	//# sourceMappingURL=browser_jsonp.js.map
 
 /***/ },
-/* 439 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -78528,8 +78938,8 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var di_1 = __webpack_require__(47);
-	var static_request_1 = __webpack_require__(428);
-	var enums_1 = __webpack_require__(431);
+	var static_request_1 = __webpack_require__(430);
+	var enums_1 = __webpack_require__(433);
 	var async_1 = __webpack_require__(105);
 	var lang_1 = __webpack_require__(45);
 	var lang_2 = __webpack_require__(45);
@@ -78684,108 +79094,6 @@
 	//# sourceMappingURL=mock_backend.js.map
 
 /***/ },
-/* 440 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(216);
-	var date_format_1 = __webpack_require__(441);
-	var about_1 = __webpack_require__(442);
-	var schedule_1 = __webpack_require__(443);
-	var speakers_1 = __webpack_require__(446);
-	var map_1 = __webpack_require__(448);
-	var HomePage = (function () {
-	    function HomePage(nav, app) {
-	        this.nav = nav;
-	        this.app = app;
-	        this.AboutPage = about_1.AboutPage;
-	        this.MapPage = map_1.MapPage;
-	        this.SchedulePage = schedule_1.SchedulePage;
-	        this.SpeakersPage = speakers_1.SpeakersPage;
-	    }
-	    HomePage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/home/home.html',
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object])], HomePage);
-	    return HomePage;
-	})();
-	exports.HomePage = HomePage;
-	//# sourceMappingURL=home.js.map
-
-/***/ },
-/* 441 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var angular2_1 = __webpack_require__(41);
-	var moment = __webpack_require__(335);
-	var DateFormat = (function () {
-	    function DateFormat() {
-	        this.formattedDate = this.test;
-	    }
-	    DateFormat.prototype.onInit = function () {
-	        // let val = moment(this.value, 'MM/DD/YYYY');
-	        var val = moment(this.value);
-	        if (this.format) {
-	            this.formattedDate = val.format(this.format);
-	        } else {
-	            this.formattedDate = val;
-	        }
-	    };
-	    DateFormat = __decorate([angular2_1.Component({
-	        selector: 'date-format',
-	        properties: ['value', 'format']
-	    }), angular2_1.View({
-	        template: '<span>{{formattedDate}}</span>'
-	    }), __metadata('design:paramtypes', [])], DateFormat);
-	    return DateFormat;
-	})();
-	exports.DateFormat = DateFormat;
-	//# sourceMappingURL=date-format.js.map
-
-/***/ },
 /* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -78812,32 +79120,28 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(423);
-	var http_1 = __webpack_require__(424);
-	var date_format_1 = __webpack_require__(441);
-	var ionic_2 = __webpack_require__(216);
-	var AboutPage = (function () {
-	    function AboutPage(nav, app, data) {
-	        // debugger;
-	        this.conferenceInfo = data.getData();
+	var date_format_1 = __webpack_require__(443);
+	var about_1 = __webpack_require__(444);
+	var schedule_1 = __webpack_require__(445);
+	var speakers_1 = __webpack_require__(448);
+	var map_1 = __webpack_require__(450);
+	var HomePage = (function () {
+	    function HomePage(nav, app) {
+	        this.nav = nav;
+	        this.app = app;
+	        this.AboutPage = about_1.AboutPage;
+	        this.MapPage = map_1.MapPage;
+	        this.SchedulePage = schedule_1.SchedulePage;
+	        this.SpeakersPage = speakers_1.SpeakersPage;
 	    }
-	    AboutPage.prototype.takePicture = function () {
-	        ionic_2.Camera.getPicture({}).then(function (data) {
-	            console.log('Data', data);
-	        }, function (err) {
-	            alert('Unable to take picture');
-	        });
-	    };
-	    AboutPage = __decorate([ionic_1.IonicView({
-	        templateUrl: 'app/about/about.html',
-	        bindings: [data_1.DataService, http_1.Http],
-	        viewBindings: [http_1.HTTP_BINDINGS],
+	    HomePage = __decorate([ionic_1.IonicView({
+	        templateUrl: 'app/home/home.html',
 	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], AboutPage);
-	    return AboutPage;
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object])], HomePage);
+	    return HomePage;
 	})();
-	exports.AboutPage = AboutPage;
-	//# sourceMappingURL=about.js.map
+	exports.HomePage = HomePage;
+	//# sourceMappingURL=home.js.map
 
 /***/ },
 /* 443 */
@@ -78865,16 +79169,115 @@
 	var __metadata = undefined && undefined.__metadata || function (k, v) {
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
+	var angular2_1 = __webpack_require__(41);
+	var moment = __webpack_require__(337);
+	var DateFormat = (function () {
+	    function DateFormat() {
+	        this.formattedDate = this.test;
+	    }
+	    DateFormat.prototype.onInit = function () {
+	        // let val = moment(this.value, 'MM/DD/YYYY');
+	        var val = moment(this.value);
+	        if (this.format) {
+	            this.formattedDate = val.format(this.format);
+	        } else {
+	            this.formattedDate = val;
+	        }
+	    };
+	    DateFormat = __decorate([angular2_1.Component({
+	        selector: 'date-format',
+	        properties: ['value', 'format']
+	    }), angular2_1.View({
+	        template: '<span>{{formattedDate}}</span>'
+	    }), __metadata('design:paramtypes', [])], DateFormat);
+	    return DateFormat;
+	})();
+	exports.DateFormat = DateFormat;
+	//# sourceMappingURL=date-format.js.map
+
+/***/ },
+/* 444 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(423);
-	var date_format_1 = __webpack_require__(441);
-	var sessionDetail_1 = __webpack_require__(444);
+	var data_1 = __webpack_require__(425);
+	var http_1 = __webpack_require__(426);
+	var date_format_1 = __webpack_require__(443);
+	var AboutPage = (function () {
+	    function AboutPage(nav, app, data) {
+	        // debugger;
+	        this.conferenceInfo = data.getData();
+	    }
+	    AboutPage = __decorate([ionic_1.IonicView({
+	        templateUrl: 'app/about/about.html',
+	        bindings: [data_1.DataService, http_1.Http],
+	        viewBindings: [http_1.HTTP_BINDINGS],
+	        directives: [date_format_1.DateFormat]
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], AboutPage);
+	    return AboutPage;
+	})();
+	exports.AboutPage = AboutPage;
+	//# sourceMappingURL=about.js.map
+
+/***/ },
+/* 445 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
+	    switch (arguments.length) {
+	        case 2:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(o) || o;
+	            }, target);
+	        case 3:
+	            return decorators.reduceRight(function (o, d) {
+	                return (d && d(target, key), void 0);
+	            }, void 0);
+	        case 4:
+	            return decorators.reduceRight(function (o, d) {
+	                return d && d(target, key, o) || o;
+	            }, desc);
+	    }
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var ionic_1 = __webpack_require__(216);
+	var data_1 = __webpack_require__(425);
+	var date_format_1 = __webpack_require__(443);
+	var sessionDetail_1 = __webpack_require__(446);
 	var forms_1 = __webpack_require__(151);
 	var angular2_1 = __webpack_require__(41);
-	var schedule_list_1 = __webpack_require__(445);
+	var schedule_list_1 = __webpack_require__(447);
 	var SchedulePage = (function () {
-	    function SchedulePage(nav, app, data, fb) {
+	    function SchedulePage(nav, app, data, fb, popup) {
 	        this.nav = nav;
+	        this.popup = popup;
 	        this.schedule = data.getSchedule();
 	        this.index = 0;
 	        // this.scheduleForTheDay = this.schedule[0];
@@ -78882,6 +79285,12 @@
 	        this.scheduleForm = fb.group({
 	            scheduleShowing: ['all', forms_1.Validators.required]
 	        });
+	        this.searchForm = fb.group({
+	            searchQuery: ['', forms_1.Validators.required]
+	        });
+	        this.searchForm.controls.searchQuery.registerOnChanged = function (c) {
+	            console.log('changed', c);
+	        };
 	        this.favorites = [];
 	    }
 	    SchedulePage.prototype.nextDay = function (index) {
@@ -78930,18 +79339,36 @@
 	        event.preventDefault();
 	        return false;
 	    };
+	    SchedulePage.prototype.openPopup = function () {
+	        this.popup.prompt({
+	            title: "Filter",
+	            template: "Enter a session name or category",
+	            inputPlaceholder: "Name",
+	            okText: "Filter"
+	        }).then(function (name) {
+	            console.log('entry', name);
+	            // this.promptResult = name;
+	            // this.promptOpen = false;
+	        }, function () {
+	            console.error('Prompt closed');
+	            // this.promptOpen = false;
+	        });
+	    };
+	    SchedulePage.prototype.cancelSearch = function () {
+	        console.log('cancelSearch stuffs');
+	    };
 	    SchedulePage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/schedule/schedule.html',
 	        bindings: [data_1.DataService, angular2_1.NgControl],
-	        directives: [date_format_1.DateFormat, forms_1.FORM_DIRECTIVES, schedule_list_1.ScheduleList]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object, typeof forms_1.FormBuilder !== 'undefined' && forms_1.FormBuilder || Object])], SchedulePage);
+	        directives: [date_format_1.DateFormat, forms_1.FORM_DIRECTIVES, schedule_list_1.ScheduleList, ionic_1.SearchBar]
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object, typeof forms_1.FormBuilder !== 'undefined' && forms_1.FormBuilder || Object, typeof ionic_1.Popup !== 'undefined' && ionic_1.Popup || Object])], SchedulePage);
 	    return SchedulePage;
 	})();
 	exports.SchedulePage = SchedulePage;
 	//# sourceMappingURL=schedule.js.map
 
 /***/ },
-/* 444 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -78985,7 +79412,7 @@
 	//# sourceMappingURL=sessionDetail.js.map
 
 /***/ },
-/* 445 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79012,9 +79439,11 @@
 	};
 	var angular2_1 = __webpack_require__(41);
 	var ionic_1 = __webpack_require__(216);
+	var sessionDetail_1 = __webpack_require__(446);
 	var ScheduleList = (function () {
-	    function ScheduleList() {
+	    function ScheduleList(nav) {
 	        console.log('this.data', this.data);
+	        this.nav = nav;
 	    }
 	    ScheduleList.prototype.onInit = function () {
 	        console.log('onInit ScheduleList');
@@ -79042,22 +79471,22 @@
 	        return false;
 	    };
 	    ScheduleList.prototype.openSession = function (session) {
-	        this.nav.push(SessionDetailPage, session);
+	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
 	    };
 	    ScheduleList = __decorate([angular2_1.Component({
 	        selector: 'schedule-list',
 	        properties: ['data', 'favorites']
 	    }), angular2_1.View({
-	        template: '<div *ng-if="data.length > 0">' + '<ion-list class="outer-content" *ng-for="#timeSlot of data">' + '<ion-header>' + '{{timeSlot.time}}' + '</ion-header>' + '<ion-item *ng-for="#session of timeSlot.talks">' + '<span>{{session.name}}</span>' + '<button item-right (click)="addFavorite(timeSlot, session, $event)">+</button>' + '<button item-right (click)="openSession(session)">V</button>' + '<div item-right>' + '<icon pin></icon>' + '<span>&nbsp;{{session.location}}</span>' + '</div>' + '</ion-item>' + '</ion-list>' + '</div>' + '<div *ng-if="data.length == 0"><h4>No favorites</h4></div>',
-	        directives: [ionic_1.Icon, ionic_1.Item, ionic_1.List, ionic_1.ListHeader, angular2_1.NgFor, angular2_1.NgIf]
-	    }), __metadata('design:paramtypes', [])], ScheduleList);
+	        template: "<div *ng-if=\"data.length > 0\">\n              <ion-list class=\"outer-content\" *ng-for=\"#timeSlot of data\">\n                <ion-header>\n                  {{timeSlot.time}}\n                </ion-header>\n                <ion-item-sliding *ng-for=\"#session of timeSlot.talks\">\n                  <span>{{session.name}}</span>\n                  <div item-right>\n                    <icon pin></icon>\n                    <span>&nbsp;{{session.location}}</span>\n                  </div>\n                  <ion-item-options>\n                    <button primary (click)=\"openSession(session)\">Speaker Info</button>\n                    <button primary (click)=\"addFavorite(timeSlot, session, $event)\">Add to <br>Favorites</button>\n                  </ion-item-options>\n                </ion-item-sliding>\n              </ion-list>\n            </div>\n            <div *ng-if=\"data.length == 0\"><h4>No favorites</h4></div>",
+	        directives: [ionic_1.Icon, ionic_1.Item, ionic_1.ItemSliding, ionic_1.List, ionic_1.ListHeader, angular2_1.NgFor, angular2_1.NgIf]
+	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object])], ScheduleList);
 	    return ScheduleList;
 	})();
 	exports.ScheduleList = ScheduleList;
 	//# sourceMappingURL=schedule-list.js.map
 
 /***/ },
-/* 446 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79083,10 +79512,10 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(423);
-	var date_format_1 = __webpack_require__(441);
-	var speakerDetail_1 = __webpack_require__(447);
-	var sessionDetail_1 = __webpack_require__(444);
+	var data_1 = __webpack_require__(425);
+	var date_format_1 = __webpack_require__(443);
+	var speakerDetail_1 = __webpack_require__(449);
+	var sessionDetail_1 = __webpack_require__(446);
 	var SpeakersPage = (function () {
 	    function SpeakersPage(nav, app, data) {
 	        this.nav = nav;
@@ -79139,7 +79568,7 @@
 	//# sourceMappingURL=speakers.js.map
 
 /***/ },
-/* 447 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79166,7 +79595,7 @@
 	};
 	// import {PageNavigator} from '../service/pageNavigator';
 	var ionic_1 = __webpack_require__(216);
-	var sessionDetail_1 = __webpack_require__(444);
+	var sessionDetail_1 = __webpack_require__(446);
 	var SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = (function () {
 	    function SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */(nav, app, navParams) {
 	        this.nav = nav;
@@ -79187,7 +79616,7 @@
 	/*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */
 
 /***/ },
-/* 448 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79213,19 +79642,38 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var ionic_1 = __webpack_require__(216);
-	var data_1 = __webpack_require__(423);
-	var http_1 = __webpack_require__(424);
-	var date_format_1 = __webpack_require__(441);
+	var data_1 = __webpack_require__(425);
+	var http_1 = __webpack_require__(426);
+	var date_format_1 = __webpack_require__(443);
 	var MapPage = (function () {
 	    function MapPage(nav, app, data) {
 	        this.map = null;
 	    }
-	    MapPage.prototype.onInit = function () {
-	        this.map = new google.maps.Map(document.getElementById('map'), {
-	            center: { lat: 36.964, lng: -122.015 },
-	            zoom: 18,
-	            mapTypeId: google.maps.MapTypeId.SATELLITE
+	    MapPage.prototype.addMarkerAndInfo = function (latLng, infoContent) {
+	        debugger;
+	        var infowindow = new google.maps.InfoWindow({
+	            content: ['<h5>', infoContent, '</h5>'].join('')
 	        });
+	        var marker = new google.maps.Marker({
+	            position: latLng,
+	            map: this.map,
+	            title: infoContent
+	        });
+	        marker.addListener('click', function () {
+	            infowindow.open(this.map, marker);
+	        });
+	    };
+	    MapPage.prototype.onInit = function () {
+	        var ionicHqLatLng = { lat: 43.07421, lng: -89.38119 };
+	        var afterPartyLatLng = { lat: 43.07336, lng: -89.38335 };
+	        var conferenceCenterLatLng = { lat: 43.07276, lng: -89.38076 };
+	        this.map = new google.maps.Map(document.getElementById('map'), {
+	            center: ionicHqLatLng,
+	            zoom: 18
+	        });
+	        this.addMarkerAndInfo(ionicHqLatLng, 'Ionic HQ');
+	        this.addMarkerAndInfo(conferenceCenterLatLng, 'Conference Center');
+	        this.addMarkerAndInfo(afterPartyLatLng, 'Afterparty - Brocach Irish Pub');
 	    };
 	    MapPage = __decorate([ionic_1.IonicView({
 	        templateUrl: 'app/map/map.html',

@@ -1,5 +1,5 @@
 import {View, Component, NgIf, NgFor} from 'angular2/angular2';
-import {Icon, Item, List, ListHeader, NavController} from 'ionic/ionic';
+import {Icon, Item, ItemSliding, List, ListHeader, NavController} from 'ionic/ionic';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 
 @Component({
@@ -8,24 +8,26 @@ import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 })
 
 @View({
-  template: '<div *ng-if="data.length > 0">' +
-              '<ion-list class="outer-content" *ng-for="#timeSlot of data">' +
-                '<ion-header>' +
-                  '{{timeSlot.time}}' +
-                '</ion-header>' +
-                '<ion-item *ng-for="#session of timeSlot.talks">' +
-                  '<span>{{session.name}}</span>' +
-                  '<button item-right (click)="addFavorite(timeSlot, session, $event)">+</button>' +
-                  '<button item-right (click)="openSession(session)">V</button>' +
-                  '<div item-right>' +
-                    '<icon pin></icon>' +
-                    '<span>&nbsp;{{session.location}}</span>' +
-                  '</div>' +
-                '</ion-item>' +
-              '</ion-list>' +
-            '</div>' +
-            '<div *ng-if="data.length == 0"><h4>No favorites</h4></div>',
-  directives: [Icon, Item, List, ListHeader, NgFor, NgIf]
+  template: `<div *ng-if="data.length > 0">
+              <ion-list class="outer-content" *ng-for="#timeSlot of data">
+                <ion-header>
+                  {{timeSlot.time}}
+                </ion-header>
+                <ion-item-sliding *ng-for="#session of timeSlot.talks">
+                  <span>{{session.name}}</span>
+                  <div item-right>
+                    <icon pin></icon>
+                    <span>&nbsp;{{session.location}}</span>
+                  </div>
+                  <ion-item-options>
+                    <button primary (click)="openSession(session)">Speaker Info</button>
+                    <button primary (click)="addFavorite(timeSlot, session, $event)">Add to <br>Favorites</button>
+                  </ion-item-options>
+                </ion-item-sliding>
+              </ion-list>
+            </div>
+            <div *ng-if="data.length == 0"><h4>No favorites</h4></div>`,
+  directives: [Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf]
 })
 
 export class ScheduleList {

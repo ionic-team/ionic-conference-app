@@ -28,6 +28,9 @@ export class SchedulePage {
     this.searchForm = fb.group({
       searchQuery: ['', Validators.required]
     });
+    this.searchForm.controls.searchQuery.registerOnChanged = function(c) {
+      console.log('changed', c);
+    }
 
     this.favorites = [];
   }
@@ -101,5 +104,9 @@ export class SchedulePage {
       console.error('Prompt closed');
       // this.promptOpen = false;
     });
+  }
+
+  cancelSearch() {
+    console.log('cancelSearch stuffs');
   }
 }
