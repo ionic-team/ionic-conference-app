@@ -1,4 +1,4 @@
-import {Validators, Control, ControlGroup} from 'angular2/forms';
+import {Validators, Control, ControlGroup} from 'angular2/angular2';
 import {IonicApp, IonicView, NavController} from 'ionic/ionic';
 
 import {LoginPage} from '../login/login';

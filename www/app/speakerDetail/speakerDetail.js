@@ -1,8 +1,8 @@
 // import {PageNavigator} from '../service/pageNavigator';
-import {IonicView, NavController, IonicApp, NavParams} from 'ionic/ionic';
+import {IonicView, NavController, IonicApp, NavParams, Page} from 'ionic/ionic';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 
-@IonicView({
+@Page({
   templateUrl: 'app/speakerDetail/speakerDetail.html',
 })
 

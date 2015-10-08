@@ -1,9 +1,9 @@
-import {IonicView, NavController, IonicApp} from 'ionic/ionic';
+import {NavController, Page, IonicApp} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {Http, HTTP_BINDINGS} from "angular2/http";
 import {DateFormat} from '../components/date-format';
 
-@IonicView({
+@Page({
   templateUrl: 'app/about/about.html',
   bindings: [DataService, Http],
   viewBindings: [HTTP_BINDINGS],

@@ -1,12 +1,12 @@
-import {IonicApp, IonicView, NavController, Popup, SearchBar} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, Page, Popup, SearchBar} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
-import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
+import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/angular2';
 import {NgControl} from 'angular2/angular2';
 import {ScheduleList} from '../components/schedule-list';
 
-@IonicView({
+@Page({
   templateUrl: 'app/schedule/schedule.html',
   bindings: [DataService, NgControl],
   directives: [DateFormat, FORM_DIRECTIVES, ScheduleList, SearchBar]

@@ -1,11 +1,11 @@
-import {IonicView, NavController, IonicApp} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {Http, HTTP_BINDINGS} from "angular2/http";
 import {DateFormat} from '../components/date-format';
 import {SpeakerDetailPage} from '../speakerDetail/speakerDetail';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 
-@IonicView({
+@Page({
   templateUrl: 'app/speakers/speakers.html',
   bindings: [DataService],
   directives: [DateFormat]

@@ -1,35 +1,15 @@
 import {View, Component, NgIf, NgFor} from 'angular2/angular2';
 import {Icon, Item, ItemSliding, List, ListHeader, NavController} from 'ionic/ionic';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
-
+import {DateFormat} from '../components/date-format';
 @Component({
   selector: 'schedule-list',
   properties: ['data', 'favorites']
 })
 
 @View({
-  template: 
-    `<div *ng-if="data.length > 0">
-      <ion-list class="outer-content" *ng-for="#timeSlot of data">
-        <ion-header>
-          {{timeSlot.time}}
-        </ion-header>
-        <ion-item-sliding *ng-for="#session of timeSlot.talks">
-          <span>{{session.name}}</span>
-          <div item-right>
-            <icon pin></icon>
-            <span>&nbsp;{{session.location}}</span>
-          </div>
-          <ion-item-options>
-            <button primary (click)="openSession(session)">Speaker Info</button>
-            <button primary (click)="addFavorite(timeSlot, session, $event)">Add to <br>Favorites</button>
-          </ion-item-options>
-        </ion-item-sliding>
-      </ion-list>
-    </div>
-    <div *ng-if="data.length == 0"><h4>No favorites</h4></div>
-  `,
-  directives: [Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf]
+  templateUrl: 'app/components/schedule-list.html',
+  directives: [DateFormat, Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf]
 })
 
 export class ScheduleList {
@@ -67,7 +47,8 @@ export class ScheduleList {
     return false;
   }
 
-  openSession(session) {
+  openSession(session, val) {
+    console.log('val for this', val);
     this.nav.push(SessionDetailPage, session);
   }
 }

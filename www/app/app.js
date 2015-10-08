@@ -1,13 +1,15 @@
 import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
 import {DataService} from './service/data';
+import {forwardRef, FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/angular2';
 import {Http, HTTP_BINDINGS} from 'angular2/http';
 import {HomePage} from './home/home';
-import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
-
+// import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
+import {ScheduleList} from './components/schedule-list';
 
 @App({
   templateUrl: 'app/app.html',
-  bindings: [DataService, Http, FormBuilder],
+  bindings: [DataService, Http, FormBuilder, HTTP_BINDINGS],
+  directives: [forwardRef(() => ScheduleList)],
   viewBindings: [HTTP_BINDINGS]
 })
 

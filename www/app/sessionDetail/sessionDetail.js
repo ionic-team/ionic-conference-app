@@ -1,6 +1,6 @@
-import {IonicView, NavController, IonicApp, NavParams} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, NavParams, Page} from 'ionic/ionic';
 
-@IonicView({
+@Page({
   templateUrl: 'app/sessionDetail/sessionDetail.html',
 })
 

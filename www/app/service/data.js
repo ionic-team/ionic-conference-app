@@ -14,7 +14,7 @@ export class DataService {
 
   retrieveData() {
     this.http.get('/app/data/info.json')
-    .toRx()
+    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the
@@ -25,7 +25,7 @@ export class DataService {
     });
 
     this.http.get('/app/data/schedule.json')
-    .toRx()
+    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the
@@ -36,7 +36,7 @@ export class DataService {
     }); 
 
     this.http.get('/app/data/speakers.json')
-    .toRx()
+    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the

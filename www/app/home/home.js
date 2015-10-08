@@ -1,4 +1,4 @@
-import {IonicView, NavController, IonicApp} from 'ionic/ionic';
+import {Page, NavController, IonicApp} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {Http, HTTP_BINDINGS} from "angular2/http";
 import {DateFormat} from '../components/date-format';
@@ -8,7 +8,7 @@ import {SchedulePage} from '../schedule/schedule';
 import {SpeakersPage} from '../speakers/speakers';
 import {MapPage} from '../map/map';
 
-@IonicView({
+@Page({
   templateUrl: 'app/home/home.html',
   directives: [DateFormat]
 })
@@ -21,5 +21,7 @@ export class HomePage {
     this.MapPage = MapPage;
     this.SchedulePage = SchedulePage;
     this.SpeakersPage = SpeakersPage;
+
+    console.log('Home page!');
   }
 }
