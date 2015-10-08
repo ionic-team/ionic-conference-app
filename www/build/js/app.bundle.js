@@ -56912,18 +56912,12 @@
 	    }, {
 	        key: "_initSliding",
 	        value: function _initSliding() {
-	            var _this = this;
-
 	            var itemSlidingContent = this.ele.querySelector('ion-item-sliding-content');
 	            var itemOptionsContent = this.ele.querySelector('ion-item-options');
 	            this.itemSlidingContent = itemSlidingContent;
 	            this.itemOptions = itemOptionsContent;
 	            this.itemWidth = itemSlidingContent.offsetWidth;
 	            this.itemOptionsWidth = itemOptionsContent && itemOptionsContent.offsetWidth || 0;
-	            setTimeout(function () {
-	                console.log('timeout width', itemOptionsContent.offsetWidth);
-	                _this.itemOptionsWidth = itemOptionsContent && itemOptionsContent.offsetWidth || 0;
-	            });
 	            console.log('item width', this.itemWidth, 'this.itemOptionsWidth', this.itemOptionsWidth);
 	            this.openAmount = 0;
 	            this.gesture = new ItemSlideGesture(this, itemSlidingContent);
@@ -56931,14 +56925,14 @@
 	    }, {
 	        key: "close",
 	        value: function close(andStopDrag) {
-	            var _this2 = this;
+	            var _this = this;
 
 	            this.openAmount = 0;
 	            // Enable it once, it'll get disabled on the next drag
 	            (0, _ionicUtilDom.raf)(function () {
-	                _this2.enableAnimation();
-	                if (_this2.itemSlidingContent) {
-	                    _this2.itemSlidingContent.style[_ionicUtilDom.CSS.transform] = 'translateX(0)';
+	                _this.enableAnimation();
+	                if (_this.itemSlidingContent) {
+	                    _this.itemSlidingContent.style[_ionicUtilDom.CSS.transform] = 'translateX(0)';
 	                }
 	            });
 	        }
@@ -57022,7 +57016,7 @@
 	    _inherits(ItemSlideGesture, _DragGesture);
 
 	    function ItemSlideGesture(item, el) {
-	        var _this3 = this;
+	        var _this2 = this;
 
 	        _classCallCheck(this, ItemSlideGesture);
 
@@ -57035,13 +57029,13 @@
 	        this.canDrag = true;
 	        this.listen();
 	        this.el.addEventListener('touchstart', function (e) {
-	            _this3.item.didTouch();
+	            _this2.item.didTouch();
 	        });
 	        this.el.addEventListener('touchend', function (e) {
-	            _this3.item.didClose = false;
+	            _this2.item.didClose = false;
 	        });
 	        this.el.addEventListener('touchcancel', function (e) {
-	            _this3.item.didClose = false;
+	            _this2.item.didClose = false;
 	        });
 	    }
 
@@ -57074,7 +57068,7 @@
 	    }, {
 	        key: "onDragEnd",
 	        value: function onDragEnd(ev) {
-	            var _this4 = this;
+	            var _this3 = this;
 
 	            if (!this.slide || !this.slide.started) return;
 	            var buttonsWidth = this.item.itemOptionsWidth;
@@ -57097,18 +57091,18 @@
 	                if (restingPoint === 0) {
 	                    console.log('reset to 0');
 	                    // Reset to zero
-	                    _this4.item.open('');
-	                    var buttons = _this4.item.itemOptions;
-	                    clearTimeout(_this4.hideButtonsTimeout);
-	                    _this4.hideButtonsTimeout = setTimeout(function () {
+	                    _this3.item.open('');
+	                    var buttons = _this3.item.itemOptions;
+	                    clearTimeout(_this3.hideButtonsTimeout);
+	                    _this3.hideButtonsTimeout = setTimeout(function () {
 	                        buttons && buttons.classList.add('invisible');
 	                    }, 250);
 	                } else {
 	                    console.log('open');
-	                    _this4.item.open(restingPoint);
+	                    _this3.item.open(restingPoint);
 	                }
-	                _this4.item.enableAnimation();
-	                _this4.slide = null;
+	                _this3.item.enableAnimation();
+	                _this3.slide = null;
 	            });
 	        }
 	    }]);
@@ -79477,7 +79471,7 @@
 	        selector: 'schedule-list',
 	        properties: ['data', 'favorites']
 	    }), angular2_1.View({
-	        template: "<div *ng-if=\"data.length > 0\">\n              <ion-list class=\"outer-content\" *ng-for=\"#timeSlot of data\">\n                <ion-header>\n                  {{timeSlot.time}}\n                </ion-header>\n                <ion-item-sliding *ng-for=\"#session of timeSlot.talks\">\n                  <span>{{session.name}}</span>\n                  <div item-right>\n                    <icon pin></icon>\n                    <span>&nbsp;{{session.location}}</span>\n                  </div>\n                  <ion-item-options>\n                    <button primary (click)=\"openSession(session)\">Speaker Info</button>\n                    <button primary (click)=\"addFavorite(timeSlot, session, $event)\">Add to <br>Favorites</button>\n                  </ion-item-options>\n                </ion-item-sliding>\n              </ion-list>\n            </div>\n            <div *ng-if=\"data.length == 0\"><h4>No favorites</h4></div>",
+	        template: "<div *ng-if=\"data.length > 0\">\n      <ion-list class=\"outer-content\" *ng-for=\"#timeSlot of data\">\n        <ion-header>\n          {{timeSlot.time}}\n        </ion-header>\n        <ion-item-sliding *ng-for=\"#session of timeSlot.talks\">\n          <span>{{session.name}}</span>\n          <div item-right>\n            <icon pin></icon>\n            <span>&nbsp;{{session.location}}</span>\n          </div>\n          <ion-item-options>\n            <button primary (click)=\"openSession(session)\">Speaker Info</button>\n            <button primary (click)=\"addFavorite(timeSlot, session, $event)\">Add to <br>Favorites</button>\n          </ion-item-options>\n        </ion-item-sliding>\n      </ion-list>\n    </div>\n    <div *ng-if=\"data.length == 0\"><h4>No favorites</h4></div>\n  ",
 	        directives: [ionic_1.Icon, ionic_1.Item, ionic_1.ItemSliding, ionic_1.List, ionic_1.ListHeader, angular2_1.NgFor, angular2_1.NgIf]
 	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object])], ScheduleList);
 	    return ScheduleList;
