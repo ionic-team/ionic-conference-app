@@ -185,7 +185,7 @@ ion-view {
     display: -ms-flexbox;
     display: flex; }
 
-.no-navbar > .navbar-container {
+[no-navbar] > .navbar-container {
   display: none; }
 
 .navbar-container {
@@ -1146,7 +1146,7 @@ ion-item-content {
   ion-item-content button {
     pointer-events: auto; }
 
-.item-text-wrap ion-item-content {
+[text-wrap] ion-item-content {
   white-space: normal; }
 
 .list .item {
@@ -1221,6 +1221,12 @@ ion-item-options {
   right: 0;
   z-index: 1;
   height: 100%; }
+
+[item-right] {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1; }
 
 .item > icon:first-child {
   min-width: 24px;
@@ -2525,11 +2531,6 @@ input[type="search"].search-bar-input {
   line-height: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none; }
-
-.search-bar-cancel {
-  visibility: hidden;
-  margin-right: -200px;
-  min-height: 0; }
 
 ion-segment {
   display: block; }
@@ -5578,16 +5579,16 @@ icon,
   .ios .list button[ion-item]:not([detail-none]),
   .ios .list a[ion-item]:not([detail-none]),
   .ios .list [detail-push]:not(ion-item-sliding),
-  .ios .card button[ion-item]:not([detail-none]),
-  .ios .card a[ion-item]:not([detail-none]),
-  .ios .card [detail-push]:not(ion-item-sliding) {
+  .ios ion-card button[ion-item]:not([detail-none]),
+  .ios ion-card a[ion-item]:not([detail-none]),
+  .ios ion-card [detail-push]:not(ion-item-sliding) {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
     background-repeat: no-repeat;
     background-position: right 14px center;
     background-size: 14px 14px;
     padding-right: 32px; }
   .ios .list ion-item-sliding[detail-push] ion-item-sliding-content,
-  .ios .card ion-item-sliding[detail-push] ion-item-sliding-content {
+  .ios ion-card ion-item-sliding[detail-push] ion-item-sliding-content {
     background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='#c8c7cc'/></svg>");
     background-repeat: no-repeat;
     background-position: right 14px center;
@@ -6041,8 +6042,8 @@ icon,
     left: 10px;
     top: 8px;
     margin-left: calc(50% - 60px);
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
   .ios .search-bar-input {
     height: 28px;
     padding: 0 28px;
@@ -6054,8 +6055,8 @@ icon,
     background-repeat: no-repeat;
     background-position: 8px center;
     padding-left: calc(50% - 28px);
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
     .ios .search-bar-input::-webkit-input-placeholder {
       color: #9D9D9D; }
     .ios .search-bar-input::-moz-placeholder {
@@ -6078,13 +6079,17 @@ icon,
   .ios .search-bar-input-container.left-align .search-bar-input {
     padding-left: 28px; }
   .ios .search-bar-cancel {
-    padding-left: 8px;
-    padding-right: 0;
-    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1);
-    transition: all 0.3s cubic-bezier(0.25, 0.45, 0.05, 1); }
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    -webkit-transition-duration: 3s !important;
+    transition-duration: 3s !important;
+    margin-right: calc(-100%);
+    min-height: 0; }
   .ios .search-bar-cancel.left-align {
+    max-width: initial;
     margin-right: 0;
-    visibility: visible; }
+    padding-left: 8px;
+    padding-right: 0; }
   .ios.hairlines .search-bar {
     border-bottom-width: 0.55px; }
   .ios .ion-segment button,
@@ -6488,15 +6493,15 @@ icon,
   .md .list [item-right].icon-right icon {
     margin-right: 0;
     margin-bottom: 1px; }
-  .md .list .item-text-wrap ion-item-content {
+  .md .list [text-wrap] ion-item-content {
     font-size: 1.4rem;
     line-height: 1.5; }
   .md .list ion-note {
     color: #c4c4c4; }
   .md .list .item[actions] ion-item-content {
     margin: 4px; }
-  .md .list icon + ion-item-content,
-  .md .list icon + .text-input {
+  .md .list icon[item-left] + ion-item-content,
+  .md .list icon[item-left] + .text-input {
     margin-left: 24px; }
   .md .list ion-avatar {
     min-width: 4rem; }
