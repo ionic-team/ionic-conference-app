@@ -1,9 +1,9 @@
 <div *ng-if="data.length > 0">
-  <ion-list class="outer-content" *ng-for="#timeSlot of data">
-    <ion-header>
+  <ion-item-group class="outer-content" *ng-for="#timeSlot of data">
+    <ion-item-group-title>
       {{timeSlot.time}}
-    </ion-header>
-    <ion-item-sliding *ng-for="#session of timeSlot.talks">
+    </ion-item-group-title>
+    <ion-item *ng-for="#session of timeSlot.talks">
       <h3>{{session.name}}</h3>
       <p>
         <date-format [value]="session.timestart" format="h:mm"></date-format>
@@ -16,7 +16,7 @@
         <button primary (click)="openSession(session, $this)">Speaker Info</button>
         <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to <br>Favorites</button>
       </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+    </ion-item>
+  </ion-item-group>
 </div>
 <div *ng-if="data.length == 0"><h4>No favorites</h4></div>

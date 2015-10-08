@@ -1,5 +1,5 @@
 import {View, Component, NgIf, NgFor} from 'angular2/angular2';
-import {Icon, Item, ItemSliding, List, ListHeader, NavController} from 'ionic/ionic';
+import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController} from 'ionic/ionic';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
 import {DateFormat} from '../components/date-format';
 @Component({
@@ -9,7 +9,7 @@ import {DateFormat} from '../components/date-format';
 
 @View({
   templateUrl: 'app/components/schedule-list.html',
-  directives: [DateFormat, Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf]
+  directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf]
 })
 
 export class ScheduleList {
