@@ -7115,20 +7115,23 @@ icon,
     height: 100%;
     width: 100%; }
 
-.speaker-page .speaker .speaker-profile-pic {
-  border: solid 1px white;
-  border-radius: 10px;
-  display: inline-block;
-  line-height: 30px;
-  height: 30px;
-  width: 30px;
-  vertical-align: middle; }
+ion-card.speaker ion-card-header {
+  padding: 0; }
+  ion-card.speaker ion-card-header .item {
+    padding: 16px; }
+    ion-card.speaker ion-card-header .item a {
+      color: #666; }
 
-.speaker-page .speaker .session-tag {
-  background-color: blue;
-  border: solid 1px blue;
-  border-radius: 3px;
-  color: white;
-  display: inline-block;
-  margin: 3px;
-  padding: 3px; }
+ion-card.speaker img[item-left] {
+  border-radius: 20px;
+  width: 40px;
+  margin: 0 10px 0 0; }
+
+ion-card.speaker ion-card-content {
+  padding: 0; }
+  ion-card.speaker ion-card-content .list {
+    margin: 0; }
+  ion-card.speaker ion-card-content .list ion-header {
+    background-color: #f5f5f5; }
+  ion-card.speaker ion-card-content .list ion-item-content {
+    padding: 0; }

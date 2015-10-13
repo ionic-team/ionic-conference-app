@@ -78598,7 +78598,7 @@
 	var date_format_1 = __webpack_require__(591);
 	var about_1 = __webpack_require__(592);
 	var schedule_1 = __webpack_require__(593);
-	var speakers_1 = __webpack_require__(597);
+	var speakers_1 = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../speakers/speakers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var map_1 = __webpack_require__(598);
 	var HomePage = (function () {
 	    function HomePage(nav, app) {
@@ -79054,88 +79054,7 @@
 	/*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */
 
 /***/ },
-/* 597 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-	    switch (arguments.length) {
-	        case 2:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(o) || o;
-	            }, target);
-	        case 3:
-	            return decorators.reduceRight(function (o, d) {
-	                return (d && d(target, key), void 0);
-	            }, void 0);
-	        case 4:
-	            return decorators.reduceRight(function (o, d) {
-	                return d && d(target, key, o) || o;
-	            }, desc);
-	    }
-	};
-	var __metadata = undefined && undefined.__metadata || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var ionic_1 = __webpack_require__(247);
-	var data_1 = __webpack_require__(456);
-	var date_format_1 = __webpack_require__(591);
-	var speaker_detail_1 = __webpack_require__(596);
-	var sessionDetail_1 = __webpack_require__(594);
-	var SpeakersPage = (function () {
-	    function SpeakersPage(nav, app, data) {
-	        this.nav = nav;
-	        console.log('this.nav', this.nav);
-	        this.speakers = null;
-	        this.scheduleInfo = null;
-	        this.dataService = data;
-	    }
-	    SpeakersPage.prototype.onInit = function () {
-	        this.scheduleInfo = this.dataService.getSchedule();
-	        var speakerList = this.speakers = this.dataService.getSpeakers();
-	        var talks = [];
-	        var speakers = [];
-	        this.scheduleInfo.map(function (dayItem) {
-	            dayItem.sessions.map(function (sessionItem) {
-	                sessionItem.talks.map(function (talkItem) {
-	                    talks.push(talkItem.name);
-	                    if (talkItem.speaker) {
-	                        var speakerSession = speakerList.find(function (x) {
-	                            return x.name == talkItem.speaker;
-	                        });
-	                        if (speakerSession) {
-	                            speakerSession.sessions = speakerSession.sessions || [];
-	                            speakerSession.sessions.push(talkItem);
-	                        }
-	                        if (speakers.indexOf(talkItem.speaker) == -1) {
-	                            speakers.push(talkItem.speaker);
-	                        }
-	                    }
-	                });
-	            });
-	        });
-	        this.talks = talks;
-	        this.speakersNames = speakers;
-	    };
-	    SpeakersPage.prototype.openSession = function (session) {
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
-	    };
-	    SpeakersPage.prototype.openSpeakerDetail = function (speaker) {
-	        this.nav.push(speaker_detail_1.SpeakerDetailPage, speaker);
-	    };
-	    SpeakersPage = __decorate([ionic_1.Page({
-	        templateUrl: 'app/speakers/speakers.html',
-	        bindings: [data_1.DataService],
-	        directives: [date_format_1.DateFormat]
-	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof data_1.DataService !== 'undefined' && data_1.DataService || Object])], SpeakersPage);
-	    return SpeakersPage;
-	})();
-	exports.SpeakersPage = SpeakersPage;
-	//# sourceMappingURL=speakers.js.map
-
-/***/ },
+/* 597 */,
 /* 598 */
 /***/ function(module, exports, __webpack_require__) {
 

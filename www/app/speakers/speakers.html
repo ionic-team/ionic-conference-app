@@ -1,21 +1,45 @@
-<ion-content padding class="speaker-page">
+<ion-content class="speaker-page">
   <ion-navbar *navbar>
     <ion-title>Speakers</ion-title>
   </ion-navbar>
 
-  <div class="">
-    <ion-list>
-      <ion-card class="speaker" *ng-for="#speaker of speakers">
-        <ion-item>
-          <img class="speaker-profile-pic" src="{{speaker.profile_pic}}?id={{speaker.id}}">
-          <a href="#" (click)="openSpeakerDetail(speaker)">{{speaker.name}}</a>
-          <!-- <a href="{{speaker.twitter}}">{{speaker.twitter}}</a> -->
+
+  <ion-card *ng-for="#speaker of speakers" class="speaker">
+    <ion-card-header>
+      <ion-item href="#" detail-push (click)="openSpeakerDetail(speaker)">
+        <img item-left src="{{speaker.profile_pic}}"></icon>
+        <a>{{speaker.name}}</a>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-header>
+          Sessions
+        </ion-header>
+        <ion-item href="#" *ng-for="#session of speaker.sessions" detail-push (click)="openSession(session)">
+          <h3>{{session.name}}</h3>
+          <p>
+            <date-format [value]="session.timestart" format="h:mm"></date-format>
+            &dash;
+            <date-format [value]="session.timeend" format="h:mm"></date-format>
+            &mdash;
+            <span>{{session.location}}</span>
+          </p>
         </ion-item>
-        <ion-item>
-          <span>Sessions:</span>
-          <a href="#" class="session-tag" *ng-for="#session of speaker.sessions" (click)="openSession(session)">{{session.name}}</a>
-        </ion-item>
-      </ion-card>
-    </ion-list>
-  </div>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-item actions>
+      <button (click)="openSpeakerTwitter(speaker)" clear item-left>
+        <icon ion-social-twitter></icon>
+        Tweet
+      </button>
+      <button clear item-right>
+        <icon share></icon>
+        Share
+      </button>
+    </ion-item>
+
+  </ion-card>
 </ion-content>
