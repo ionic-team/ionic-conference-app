@@ -1,6 +1,7 @@
 import {View, Component, NgIf, NgFor} from 'angular2/angular2';
 import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController} from 'ionic/ionic';
 import {SessionDetailPage} from '../sessionDetail/sessionDetail';
+import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DateFormat} from '../components/date-format';
 @Component({
   selector: 'schedule-list',
@@ -55,6 +56,14 @@ export class ScheduleList {
     if (event) {
       event.preventDefault();
     }
+    return false;
+  }
+
+  openSpeakerDetail(speaker, event) {
+    console.log('open speaker detail', speaker, event);
+    event.stopPropagation();
+    event.preventDefault();
+    this.nav.push(SpeakerDetailPage, speaker);
     return false;
   }
 }
