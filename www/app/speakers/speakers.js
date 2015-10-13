@@ -47,7 +47,7 @@ export class SpeakersPage {
   }
 
   openSession(session) {
-    this.nav.push(SessionDetailPage, session.speaker);
+    this.nav.push(SessionDetailPage, session);
   }
 
   openSpeakerDetail(speakerName) {
