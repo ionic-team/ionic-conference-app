@@ -1,7 +1,7 @@
 import {IonicApp, IonicView, NavController, NavParams, Page} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/sessionDetail/sessionDetail.html',
+  templateUrl: 'app/session-detail/session-detail.html',
 })
 
 export class SessionDetailPage {

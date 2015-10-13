@@ -1,7 +1,7 @@
 import {IonicApp, IonicView, NavController, Page, Popup, SearchBar} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
-import {SessionDetailPage} from '../sessionDetail/sessionDetail';
+import {SessionDetailPage} from '../session-detail/session-detail';
 import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/angular2';
 import {NgControl} from 'angular2/angular2';
 import {ScheduleList} from '../components/schedule-list';
@@ -13,23 +13,19 @@ import {ScheduleList} from '../components/schedule-list';
 })
 
 export class SchedulePage {
+  previousSearchQuery: string = '';
+  searchQuery: string = '';
+  favorites: array<any> = [];
+  index: number = 0;
+
   constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, popup: Popup) {
     this.nav = nav;
     this.popup = popup;
     this.schedule = data.getSchedule();
-    this.index = 0;
-    // this.scheduleForTheDay = this.schedule[0];
     this.sessionsForTheDay = this.schedule[0].sessions;
-
     this.scheduleForm = fb.group({
       scheduleShowing: ['all', Validators.required]
     });
-    this.searchQuery = '';
-    // this.searchForm = fb.group({
-    //   searchQuery: ['', Validators.required]
-    // });
-
-    this.favorites = [];
   }
 
   nextDay(index) {
@@ -41,9 +37,6 @@ export class SchedulePage {
     this.scheduleForTheDay = this.schedule[newIndex];
     this.index = newIndex;
     this.sessionsForTheDay = this.scheduleForTheDay.sessions;
-    //[1, 2], length = 2
-    //0 = 1. index = 0, is passed.
-    //if index + 1 = 1. 
   }
 
   previousDay(index) {

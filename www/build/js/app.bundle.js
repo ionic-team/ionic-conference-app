@@ -2287,20 +2287,22 @@
 	 */
 	Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
 	  ? global.TYPED_ARRAY_SUPPORT
-	  : (function () {
-	      function Bar () {}
-	      try {
-	        var arr = new Uint8Array(1)
-	        arr.foo = function () { return 42 }
-	        arr.constructor = Bar
-	        return arr.foo() === 42 && // typed array instances can be augmented
-	            arr.constructor === Bar && // constructor can be set
-	            typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
-	            arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
-	      } catch (e) {
-	        return false
-	      }
-	    })()
+	  : typedArraySupport()
+
+	function typedArraySupport () {
+	  function Bar () {}
+	  try {
+	    var arr = new Uint8Array(1)
+	    arr.foo = function () { return 42 }
+	    arr.constructor = Bar
+	    return arr.foo() === 42 && // typed array instances can be augmented
+	        arr.constructor === Bar && // constructor can be set
+	        typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
+	        arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
+	  } catch (e) {
+	    return false
+	  }
+	}
 
 	function kMaxLength () {
 	  return Buffer.TYPED_ARRAY_SUPPORT
@@ -3254,7 +3256,7 @@
 	  offset = offset | 0
 	  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
 	  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
-	  this[offset] = value
+	  this[offset] = (value & 0xff)
 	  return offset + 1
 	}
 
@@ -3271,7 +3273,7 @@
 	  offset = offset | 0
 	  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
 	  if (Buffer.TYPED_ARRAY_SUPPORT) {
-	    this[offset] = value
+	    this[offset] = (value & 0xff)
 	    this[offset + 1] = (value >>> 8)
 	  } else {
 	    objectWriteUInt16(this, value, offset, true)
@@ -3285,7 +3287,7 @@
 	  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
 	  if (Buffer.TYPED_ARRAY_SUPPORT) {
 	    this[offset] = (value >>> 8)
-	    this[offset + 1] = value
+	    this[offset + 1] = (value & 0xff)
 	  } else {
 	    objectWriteUInt16(this, value, offset, false)
 	  }
@@ -3307,7 +3309,7 @@
 	    this[offset + 3] = (value >>> 24)
 	    this[offset + 2] = (value >>> 16)
 	    this[offset + 1] = (value >>> 8)
-	    this[offset] = value
+	    this[offset] = (value & 0xff)
 	  } else {
 	    objectWriteUInt32(this, value, offset, true)
 	  }
@@ -3322,7 +3324,7 @@
 	    this[offset] = (value >>> 24)
 	    this[offset + 1] = (value >>> 16)
 	    this[offset + 2] = (value >>> 8)
-	    this[offset + 3] = value
+	    this[offset + 3] = (value & 0xff)
 	  } else {
 	    objectWriteUInt32(this, value, offset, false)
 	  }
@@ -3375,7 +3377,7 @@
 	  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
 	  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
 	  if (value < 0) value = 0xff + value + 1
-	  this[offset] = value
+	  this[offset] = (value & 0xff)
 	  return offset + 1
 	}
 
@@ -3384,7 +3386,7 @@
 	  offset = offset | 0
 	  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
 	  if (Buffer.TYPED_ARRAY_SUPPORT) {
-	    this[offset] = value
+	    this[offset] = (value & 0xff)
 	    this[offset + 1] = (value >>> 8)
 	  } else {
 	    objectWriteUInt16(this, value, offset, true)
@@ -3398,7 +3400,7 @@
 	  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
 	  if (Buffer.TYPED_ARRAY_SUPPORT) {
 	    this[offset] = (value >>> 8)
-	    this[offset + 1] = value
+	    this[offset + 1] = (value & 0xff)
 	  } else {
 	    objectWriteUInt16(this, value, offset, false)
 	  }
@@ -3410,7 +3412,7 @@
 	  offset = offset | 0
 	  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
 	  if (Buffer.TYPED_ARRAY_SUPPORT) {
-	    this[offset] = value
+	    this[offset] = (value & 0xff)
 	    this[offset + 1] = (value >>> 8)
 	    this[offset + 2] = (value >>> 16)
 	    this[offset + 3] = (value >>> 24)
@@ -3429,7 +3431,7 @@
 	    this[offset] = (value >>> 24)
 	    this[offset + 1] = (value >>> 16)
 	    this[offset + 2] = (value >>> 8)
-	    this[offset + 3] = value
+	    this[offset + 3] = (value & 0xff)
 	  } else {
 	    objectWriteUInt32(this, value, offset, false)
 	  }
@@ -78746,26 +78748,23 @@
 	var ionic_1 = __webpack_require__(247);
 	var data_1 = __webpack_require__(456);
 	var date_format_1 = __webpack_require__(591);
-	var sessionDetail_1 = __webpack_require__(594);
+	var session_detail_1 = __webpack_require__(594);
 	var angular2_1 = __webpack_require__(40);
 	var angular2_2 = __webpack_require__(40);
 	var schedule_list_1 = __webpack_require__(595);
 	var SchedulePage = (function () {
 	    function SchedulePage(nav, app, data, fb, popup) {
+	        this.previousSearchQuery = '';
+	        this.searchQuery = '';
+	        this.favorites = [];
+	        this.index = 0;
 	        this.nav = nav;
 	        this.popup = popup;
 	        this.schedule = data.getSchedule();
-	        this.index = 0;
-	        // this.scheduleForTheDay = this.schedule[0];
 	        this.sessionsForTheDay = this.schedule[0].sessions;
 	        this.scheduleForm = fb.group({
 	            scheduleShowing: ['all', angular2_1.Validators.required]
 	        });
-	        this.searchQuery = '';
-	        // this.searchForm = fb.group({
-	        //   searchQuery: ['', Validators.required]
-	        // });
-	        this.favorites = [];
 	    }
 	    SchedulePage.prototype.nextDay = function (index) {
 	        var newIndex = index + 1;
@@ -78775,9 +78774,6 @@
 	        this.scheduleForTheDay = this.schedule[newIndex];
 	        this.index = newIndex;
 	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
-	        //[1, 2], length = 2
-	        //0 = 1. index = 0, is passed.
-	        //if index + 1 = 1.
 	    };
 	    SchedulePage.prototype.previousDay = function (index) {
 	        var newIndex = index - 1;
@@ -78789,7 +78785,7 @@
 	        this.sessionsForTheDay = this.scheduleForTheDay.sessions;
 	    };
 	    SchedulePage.prototype.openSession = function (session) {
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	        this.nav.push(session_detail_1.SessionDetailPage, session);
 	    };
 	    SchedulePage.prototype.addFavorite = function (timeSlot, session, event) {
 	        console.log('timeslot:', timeSlot, 'add session', session, event);
@@ -78899,12 +78895,12 @@
 	        console.log('SessionDetailPage init', this.navParams);
 	    };
 	    SessionDetailPage = __decorate([ionic_1.Page({
-	        templateUrl: 'app/sessionDetail/sessionDetail.html'
+	        templateUrl: 'app/session-detail/session-detail.html'
 	    }), __metadata('design:paramtypes', [typeof ionic_1.NavController !== 'undefined' && ionic_1.NavController || Object, typeof ionic_1.IonicApp !== 'undefined' && ionic_1.IonicApp || Object, typeof ionic_1.NavParams !== 'undefined' && ionic_1.NavParams || Object])], SessionDetailPage);
 	    return SessionDetailPage;
 	})();
 	exports.SessionDetailPage = SessionDetailPage;
-	//# sourceMappingURL=sessionDetail.js.map
+	//# sourceMappingURL=session-detail.js.map
 
 /***/ },
 /* 595 */
@@ -78934,7 +78930,7 @@
 	};
 	var angular2_1 = __webpack_require__(40);
 	var ionic_1 = __webpack_require__(247);
-	var sessionDetail_1 = __webpack_require__(594);
+	var session_detail_1 = __webpack_require__(594);
 	var speaker_detail_1 = __webpack_require__(596);
 	var date_format_1 = __webpack_require__(591);
 	var ScheduleList = (function () {
@@ -78971,7 +78967,7 @@
 	    };
 	    ScheduleList.prototype.openSession = function (session, val, event) {
 	        console.log('val for this', val, session, event);
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	        this.nav.push(session_detail_1.SessionDetailPage, session);
 	        if (event) {
 	            event.preventDefault();
 	        }
@@ -79024,7 +79020,7 @@
 	};
 	// import {PageNavigator} from '../service/pageNavigator';
 	var ionic_1 = __webpack_require__(247);
-	var sessionDetail_1 = __webpack_require__(594);
+	var session_detail_1 = __webpack_require__(594);
 	var data_1 = __webpack_require__(456);
 	var SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = (function () {
 	    function SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */(nav, app, navParams, dataService) {
@@ -79042,7 +79038,7 @@
 	    }
 	    SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */.prototype.openSession = function (session) {
 	        console.log('Open up session', session);
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	        this.nav.push(session_detail_1.SessionDetailPage, session);
 	    };
 	    SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ = __decorate([ionic_1.Page({
 	        templateUrl: 'app/speaker-detail/speaker-detail.html'
@@ -79083,7 +79079,7 @@
 	var data_1 = __webpack_require__(456);
 	var date_format_1 = __webpack_require__(591);
 	var speaker_detail_1 = __webpack_require__(596);
-	var sessionDetail_1 = __webpack_require__(594);
+	var session_detail_1 = __webpack_require__(594);
 	var SpeakersPage = (function () {
 	    function SpeakersPage(nav, app, data) {
 	        this.nav = nav;
@@ -79120,7 +79116,7 @@
 	        this.speakersNames = speakers;
 	    };
 	    SpeakersPage.prototype.openSession = function (session) {
-	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	        this.nav.push(session_detail_1.SessionDetailPage, session);
 	    };
 	    SpeakersPage.prototype.openSpeakerDetail = function (speaker) {
 	        this.nav.push(speaker_detail_1.SpeakerDetailPage, speaker);

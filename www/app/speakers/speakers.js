@@ -3,7 +3,7 @@ import {DataService} from '../service/data';
 import {Http, HTTP_BINDINGS} from "angular2/http";
 import {DateFormat} from '../components/date-format';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
-import {SessionDetailPage} from '../sessionDetail/sessionDetail';
+import {SessionDetailPage} from '../session-detail/session-detail';
 
 @Page({
   templateUrl: 'app/speakers/speakers.html',
