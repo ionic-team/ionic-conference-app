@@ -13,7 +13,8 @@ export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to wor
     this.navParams = navParams;
     this.dataService = dataService;
 
-    let speakerName = this.navParams.data.speaker;
+    let speakerName = this.navParams.data;
+    console.log('this.navParams', this.navParams);
     let speakerList = this.dataService.getSpeakers();
 
     this.speaker = speakerList.find( (v) => {

@@ -47,11 +47,11 @@ export class SpeakersPage {
   }
 
   openSession(session) {
-    this.nav.push(SessionDetailPage, session);
+    this.nav.push(SessionDetailPage, session.speaker);
   }
 
-  openSpeakerDetail(speaker) {
-    this.nav.push(SpeakerDetailPage, speaker);
+  openSpeakerDetail(speakerName) {
+    this.nav.push(SpeakerDetailPage, speakerName);
   }
 
   openSpeakerTwitter(speaker) {
