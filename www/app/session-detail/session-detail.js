@@ -1,7 +1,7 @@
 import {IonicApp, IonicView, NavController, NavParams, Page} from 'ionic/ionic';
 
 @Page({
-  templateUrl: 'app/sessionDetail/sessionDetail.html',
+  templateUrl: 'app/session-detail/session-detail.html',
 })
 
 export class SessionDetailPage {
@@ -11,7 +11,7 @@ export class SessionDetailPage {
     this.session = this.navParams.data;
   }
 
-  onInit() { 
+  onInit() {
     console.log('SessionDetailPage init', this.navParams);
   }
 }
