@@ -40939,6 +40939,14 @@
 	            return this._duration || this._parent && this._parent.duration() || 0;
 	        }
 	    }, {
+	        key: 'clearDuration',
+	        value: function clearDuration() {
+	            this._duration = null;
+	            for (var i = 0, l = this._chld.length; i < l; i++) {
+	                this._chld[i].clearDuration();
+	            }
+	        }
+	    }, {
 	        key: 'easing',
 	        value: function easing(name, opts) {
 	            if (arguments.length) {
@@ -41313,6 +41321,7 @@
 	                },
 	                setStyles: function setStyles(styles) {
 	                    _this2._bfSty = styles;
+	                    return _this2;
 	                }
 	            };
 	        }
@@ -41704,12 +41713,8 @@
 
 	var _configConfig = __webpack_require__(277);
 
-	var _dom = __webpack_require__(280);
-
 	/**
 	 * The Input component is used to focus text input elements.
-	 *
-	 * The `focusNext()` and  `focusPrevious()` methods make it easy to focus input elements across all devices.
 	 *
 	 * @usage
 	 * ```html
@@ -41748,137 +41753,20 @@
 	        this._config = config;
 	        this._zone = zone;
 	        this._inputs = [];
-	        this._ids = -1;
 	        this._focused = null;
 	        zone.runOutsideAngular(function () {
-	            _this.initHolders(document, _this._config.get('keyboardScrollAssist'));
-	            if (_this._config.get('keyboardInputListener') !== false) {
-	                _this.initKeyInput(document);
-	            }
+	            _this.focusCtrl(document);
 	        });
 	    }
 
 	    _createClass(IonicForm, [{
-	        key: "initKeyInput",
-	        value: function initKeyInput(document) {
-	            /* Focus Outline
-	             * --------------------------------------------------
-	             * When a keydown event happens, from a tab key, then the
-	             * 'key-input' class is added to the body element so focusable
-	             * elements have an outline. On a mousedown or touchstart
-	             * event then the 'key-input' class is removed.
-	             */
-	            var isKeyInputEnabled = false;
-	            function keyDown(ev) {
-	                if (!isKeyInputEnabled && ev.keyCode == 9) {
-	                    isKeyInputEnabled = true;
-	                    (0, _dom.raf)(enableKeyInput);
-	                }
-	            }
-	            function pointerDown() {
-	                isKeyInputEnabled = false;
-	                (0, _dom.raf)(enableKeyInput);
-	            }
-	            function enableKeyInput() {
-	                document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('key-input');
-	                document.removeEventListener('mousedown', pointerDown);
-	                document.removeEventListener('touchstart', pointerDown);
-	                if (isKeyInputEnabled) {
-	                    document.addEventListener('mousedown', pointerDown);
-	                    document.addEventListener('touchstart', pointerDown);
-	                }
-	            }
-	            document.addEventListener('keydown', keyDown);
-	        }
-	    }, {
-	        key: "initHolders",
-	        value: function initHolders(document, scrollAssist) {
-	            var _this2 = this;
-
-	            // raw DOM fun
-	            this._ctrl = document.createElement('focus-ctrl');
-	            this._ctrl.setAttribute('aria-hidden', true);
-	            if (scrollAssist) {
-	                this._prev = document.createElement('input');
-	                this._prev.tabIndex = NO_FOCUS_TAB_INDEX;
-	                this._ctrl.appendChild(this._prev);
-	                this._next = document.createElement('input');
-	                this._next.tabIndex = NO_FOCUS_TAB_INDEX;
-	                this._ctrl.appendChild(this._next);
-	                this._temp = document.createElement('input');
-	                this._temp.tabIndex = NO_FOCUS_TAB_INDEX;
-	                this._ctrl.appendChild(this._temp);
-	            }
-	            this._blur = document.createElement('button');
-	            this._blur.tabIndex = NO_FOCUS_TAB_INDEX;
-	            this._ctrl.appendChild(this._blur);
-	            document.body.appendChild(this._ctrl);
-	            function preventDefault(ev) {
-	                ev.preventDefault();
-	                ev.stopPropagation();
-	            }
-	            if (scrollAssist) {
-	                (function () {
-	                    var queueReset = function queueReset() {
-	                        clearTimeout(resetTimer);
-	                        resetTimer = setTimeout(function () {
-	                            self._zone.run(function () {
-	                                self.resetInputs();
-	                            });
-	                        }, 100);
-	                    };
-
-	                    _this2._prev.addEventListener('keydown', preventDefault);
-	                    _this2._next.addEventListener('keydown', preventDefault);
-	                    _this2._temp.addEventListener('keydown', preventDefault);
-	                    _this2._prev.addEventListener('focus', function () {
-	                        _this2.focusPrevious();
-	                    });
-	                    _this2._next.addEventListener('focus', function () {
-	                        _this2.focusNext();
-	                    });
-	                    var self = _this2;
-	                    var resetTimer = undefined;
-
-	                    document.addEventListener('focusin', queueReset);
-	                    document.addEventListener('focusout', queueReset);
-	                })();
-	            }
-	        }
-	    }, {
-	        key: "focusOut",
-	        value: function focusOut() {
-	            console.debug('focusOut');
-	            this._blur.tabIndex = NORMAL_FOCUS_TAB_INDEX;
-	            this._blur.focus();
-	            this._blur.tabIndex = NO_FOCUS_TAB_INDEX;
-	        }
-	    }, {
-	        key: "setFocusHolder",
-	        value: function setFocusHolder(type) {
-	            if (this._temp) {
-	                this._temp.tabIndex = TEMP_TAB_INDEX;
-	                this._temp.type = type || 'text';
-	                console.debug('setFocusHolder', this._temp.type);
-	                this._temp.focus();
-	            }
-	        }
-
-	        /**
-	         * @param {TODO} input  TODO
-	         */
-	    }, {
 	        key: "register",
 	        value: function register(input) {
-	            console.debug('register input', input);
-	            input.inputId = ++this._ids;
-	            input.tabIndex = NORMAL_FOCUS_TAB_INDEX;
 	            this._inputs.push(input);
 	        }
 	    }, {
 	        key: "deregister",
 	        value: function deregister(input) {
-	            console.debug('deregister input', input);
 	            var index = this._inputs.indexOf(input);
 	            if (index > -1) {
 	                this._inputs.splice(index, 1);
@@ -41888,37 +41776,47 @@
 	            }
 	        }
 	    }, {
-	        key: "resetInputs",
-	        value: function resetInputs() {
-	            this._focused = null;
-	            for (var i = 0, ii = this._inputs.length; i < ii; i++) {
-	                if (!this._focused && this._inputs[i].hasFocus) {
-	                    this._focused = this._inputs[i];
-	                    this._focused.tabIndex = ACTIVE_FOCUS_TAB_INDEX;
-	                } else {
-	                    this._inputs[i].tabIndex = NORMAL_FOCUS_TAB_INDEX;
-	                }
+	        key: "focusCtrl",
+	        value: function focusCtrl(document) {
+	            var scrollAssist = this._config.get('scrollAssist');
+	            // raw DOM fun
+	            var focusCtrl = document.createElement('focus-ctrl');
+	            focusCtrl.setAttribute('aria-hidden', true);
+	            if (scrollAssist) {
+	                this._tmp = document.createElement('input');
+	                this._tmp.tabIndex = -1;
+	                focusCtrl.appendChild(this._tmp);
 	            }
-	            if (this._temp) {
-	                this._temp.tabIndex = NO_FOCUS_TAB_INDEX;
-	                if (this._focused) {
-	                    // there's a focused input
-	                    this._prev.tabIndex = PREV_TAB_INDEX;
-	                    this._next.tabIndex = NEXT_TAB_INDEX;
-	                } else {
-	                    this._prev.tabIndex = this._next.tabIndex = NO_FOCUS_TAB_INDEX;
-	                }
+	            this._blur = document.createElement('button');
+	            this._blur.tabIndex = -1;
+	            focusCtrl.appendChild(this._blur);
+	            document.body.appendChild(focusCtrl);
+	            if (scrollAssist) {
+	                this._tmp.addEventListener('keydown', function (ev) {
+	                    ev.preventDefault();
+	                    ev.stopPropagation();
+	                });
 	            }
 	        }
-
-	        /**
-	         * Focuses the previous input element, if it exists.
-	         */
 	    }, {
-	        key: "focusPrevious",
-	        value: function focusPrevious() {
-	            console.debug('focusPrevious');
-	            this.focusMove(-1);
+	        key: "focusOut",
+	        value: function focusOut() {
+	            console.debug('focusOut');
+	            this._blur.focus();
+	        }
+	    }, {
+	        key: "setFocusHolder",
+	        value: function setFocusHolder(type) {
+	            if (this._tmp && this._config.get('scrollAssist')) {
+	                this._tmp.type = type;
+	                console.debug('setFocusHolder', this._tmp.type);
+	                this._tmp.focus();
+	            }
+	        }
+	    }, {
+	        key: "setAsFocused",
+	        value: function setAsFocused(input) {
+	            this._focused = input;
 	        }
 
 	        /**
@@ -41926,27 +41824,21 @@
 	         */
 	    }, {
 	        key: "focusNext",
-	        value: function focusNext() {
+	        value: function focusNext(currentInput) {
 	            console.debug('focusNext');
-	            this.focusMove(1);
-	        }
-
-	        /**
-	         * @param {Number} inc TODO
-	         */
-	    }, {
-	        key: "focusMove",
-	        value: function focusMove(inc) {
-	            var input = this._focused;
-	            if (input) {
-	                var index = this._inputs.indexOf(input);
-	                if (index > -1 && index + inc < this._inputs.length) {
-	                    var siblingInput = this._inputs[index + inc];
-	                    if (siblingInput) {
-	                        return siblingInput.initFocus();
-	                    }
+	            var index = this._inputs.indexOf(currentInput);
+	            if (index > -1 && index + 1 < this._inputs.length) {
+	                var nextInput = this._inputs[index + 1];
+	                if (nextInput !== this._focused) {
+	                    return nextInput.initFocus();
 	                }
-	                this._focused.initFocus();
+	            }
+	            index = this._inputs.indexOf(this._focused);
+	            if (index > 0) {
+	                var previousInput = this._inputs[index - 1];
+	                if (previousInput) {
+	                    previousInput.initFocus();
+	                }
 	            }
 	        }
 	    }]);
@@ -41955,12 +41847,6 @@
 	})();
 	exports.IonicForm = IonicForm;
 	exports.IonicForm = IonicForm = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], IonicForm);
-	var NO_FOCUS_TAB_INDEX = -1;
-	var NORMAL_FOCUS_TAB_INDEX = 0;
-	var PREV_TAB_INDEX = 999;
-	var ACTIVE_FOCUS_TAB_INDEX = 1000;
-	var NEXT_TAB_INDEX = 1001;
-	var TEMP_TAB_INDEX = 2000;
 
 /***/ },
 /* 285 */
@@ -41979,6 +41865,8 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var _angular2Angular2 = __webpack_require__(43);
+
+	var _configConfig = __webpack_require__(277);
 
 	var _form = __webpack_require__(284);
 
@@ -42007,10 +41895,16 @@
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var IonicKeyboard = (function () {
-	    function IonicKeyboard(form) {
+	    function IonicKeyboard(config, form, zone) {
+	        var _this = this;
+
 	        _classCallCheck(this, IonicKeyboard);
 
 	        this.form = form;
+	        this.zone = zone;
+	        zone.runOutsideAngular(function () {
+	            _this.focusOutline(config.get('focusOutline'), document);
+	        });
 	    }
 
 	    _createClass(IonicKeyboard, [{
@@ -42029,34 +41923,88 @@
 	                    callback = resolve;
 	                });
 	            }
-	            function checkKeyboard() {
-	                if (!self.isOpen()) {
-	                    callback();
-	                } else {
-	                    setTimeout(checkKeyboard, 500);
+	            self.zone.runOutsideAngular(function () {
+	                function checkKeyboard() {
+	                    if (!self.isOpen()) {
+	                        self.zone.run(function () {
+	                            console.debug('keyboard closed');
+	                            callback();
+	                        });
+	                    } else {
+	                        setTimeout(checkKeyboard, KEYBOARD_CLOSE_POLLING);
+	                    }
 	                }
-	            }
-	            setTimeout(checkKeyboard, 100);
+	                setTimeout(checkKeyboard, KEYBOARD_CLOSE_POLLING);
+	            });
 	            return promise;
 	        }
 	    }, {
 	        key: "close",
 	        value: function close() {
-	            var _this = this;
+	            var _this2 = this;
 
 	            dom.raf(function () {
 	                if (dom.hasFocusedTextInput()) {
 	                    // only focus out when a text input has focus
-	                    _this.form.focusOut();
+	                    _this2.form.focusOut();
 	                }
 	            });
+	        }
+	    }, {
+	        key: "focusOutline",
+	        value: function focusOutline(setting, document) {
+	            /* Focus Outline
+	             * --------------------------------------------------
+	             * By default, when a keydown event happens from a tab key, then
+	             * the 'focus-outline' css class is added to the body element
+	             * so focusable elements have an outline. On a mousedown or
+	             * touchstart event, then the 'focus-outline' css class is removed.
+	             *
+	             * Config default overrides:
+	             * focusOutline: true     - Always add the focus-outline
+	             * focusOutline: false    - Do not add the focus-outline
+	             */
+	            var isKeyInputEnabled = false;
+	            function cssClass() {
+	                dom.raf(function () {
+	                    document.body.classList[isKeyInputEnabled ? 'add' : 'remove']('focus-outline');
+	                });
+	            }
+	            if (setting === true) {
+	                isKeyInputEnabled = true;
+	                return cssClass();
+	            } else if (setting === false) {
+	                return;
+	            }
+	            // default is to add the focus-outline when the tab key is used
+	            function keyDown(ev) {
+	                if (!isKeyInputEnabled && ev.keyCode == 9) {
+	                    isKeyInputEnabled = true;
+	                    enableKeyInput();
+	                }
+	            }
+	            function pointerDown() {
+	                isKeyInputEnabled = false;
+	                enableKeyInput();
+	            }
+	            function enableKeyInput() {
+	                cssClass();
+	                document.removeEventListener('mousedown', pointerDown);
+	                document.removeEventListener('touchstart', pointerDown);
+	                if (isKeyInputEnabled) {
+	                    document.addEventListener('mousedown', pointerDown);
+	                    document.addEventListener('touchstart', pointerDown);
+	                }
+	            }
+	            document.addEventListener('keydown', keyDown);
 	        }
 	    }]);
 
 	    return IonicKeyboard;
 	})();
 	exports.IonicKeyboard = IonicKeyboard;
-	exports.IonicKeyboard = IonicKeyboard = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof _form.IonicForm !== 'undefined' && _form.IonicForm || Object])], IonicKeyboard);
+	exports.IonicKeyboard = IonicKeyboard = __decorate([(0, _angular2Angular2.Injectable)(), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _form.IonicForm !== 'undefined' && _form.IonicForm || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], IonicKeyboard);
+	var KEYBOARD_CLOSE_POLLING = 150;
 
 /***/ },
 /* 286 */
@@ -46239,7 +46187,6 @@
 	        this.instance = null;
 	        this.state = 0;
 	        this.disposals = [];
-	        this.navbarTemplateRef = null;
 	    }
 
 	    _createClass(ViewController, [{
@@ -46262,12 +46209,13 @@
 	            var _this = this;
 
 	            var navCtrl = this.navCtrl;
-	            if (this.instance || !navCtrl) {
+	            if (this.instance || !navCtrl || this.shouldDestroy) {
 	                // already compiled this view
 	                return done();
 	            }
 	            // compile the component and create a ProtoViewRef
 	            navCtrl.compileView(this.componentType).then(function (hostProtoViewRef) {
+	                if (_this.shouldDestroy) return done();
 	                // get the pane the NavController wants to use
 	                // the pane is where all this content will be placed into
 	                navCtrl.loadContainer(_this.componentType, hostProtoViewRef, _this, function () {
@@ -46323,13 +46271,6 @@
 	            for (var i = 0; i < this.disposals.length; i++) {
 	                this.disposals[i]();
 	            }
-	            this.didUnload();
-	            // just to help prevent any possible memory leaks
-	            for (var _name in this) {
-	                if (this.hasOwnProperty(_name)) {
-	                    this[_name] = null;
-	                }
-	            }
 	        }
 
 	        /**
@@ -46338,7 +46279,7 @@
 	    }, {
 	        key: 'setNavbarTemplateRef',
 	        value: function setNavbarTemplateRef(templateRef) {
-	            this.navbarTemplateRef = templateRef;
+	            this._nbTmpRef = templateRef;
 	        }
 
 	        /**
@@ -46347,21 +46288,7 @@
 	    }, {
 	        key: 'getNavbarTemplateRef',
 	        value: function getNavbarTemplateRef() {
-	            return this.navbarTemplateRef;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} val  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'viewElementRef',
-	        value: function viewElementRef(val) {
-	            if (arguments.length) {
-	                this._vwEle = val;
-	            }
-	            return this._vwEle;
+	            return this._nbTmpRef;
 	        }
 
 	        /**
@@ -46369,12 +46296,44 @@
 	         * @returns {TODO} TODO
 	         */
 	    }, {
-	        key: 'navbarView',
-	        value: function navbarView() {
-	            if (arguments.length) {
-	                this._nbView = arguments[0];
-	            }
-	            return this._nbView;
+	        key: 'setContentRef',
+	        value: function setContentRef(contentElementRef) {
+	            this._cntRef = contentElementRef;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'contentRef',
+	        value: function contentRef() {
+	            return this._cntRef;
+	        }
+	    }, {
+	        key: 'setNavbar',
+	        value: function setNavbar(navbarView) {
+	            this._nbVw = navbarView;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getNavbar',
+	        value: function getNavbar() {
+	            return this._nbVw;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'hasNavbar',
+	        value: function hasNavbar() {
+	            return !!this.getNavbar();
 	        }
 
 	        /**
@@ -46384,10 +46343,8 @@
 	    }, {
 	        key: 'navbarRef',
 	        value: function navbarRef() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getElementRef();
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getElementRef();
 	        }
 
 	        /**
@@ -46397,10 +46354,8 @@
 	    }, {
 	        key: 'titleRef',
 	        value: function titleRef() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getTitleRef();
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getTitleRef();
 	        }
 
 	        /**
@@ -46410,10 +46365,8 @@
 	    }, {
 	        key: 'navbarItemRefs',
 	        value: function navbarItemRefs() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getItemRefs();
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getItemRefs();
 	        }
 
 	        /**
@@ -46423,10 +46376,8 @@
 	    }, {
 	        key: 'backBtnRef',
 	        value: function backBtnRef() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getBackButtonRef();
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getBackButtonRef();
 	        }
 
 	        /**
@@ -46436,10 +46387,8 @@
 	    }, {
 	        key: 'backBtnTextRef',
 	        value: function backBtnTextRef() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getBackButtonTextRef();
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getBackButtonTextRef();
 	        }
 
 	        /**
@@ -46449,10 +46398,8 @@
 	    }, {
 	        key: 'navbarBgRef',
 	        value: function navbarBgRef() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                return navbarView.getNativeElement().querySelector('.toolbar-background');
-	            }
+	            var navbar = this.getNavbar();
+	            return navbar && navbar.getNativeElement().querySelector('.toolbar-background');
 	        }
 
 	        /**
@@ -46465,7 +46412,9 @@
 	    }, {
 	        key: 'loaded',
 	        value: function loaded() {
-	            this.instance && this.instance.onPageLoaded && this.instance.onPageLoaded();
+	            if (!this.shouldDestroy) {
+	                this.instance && this.instance.onPageLoaded && this.instance.onPageLoaded();
+	            }
 	        }
 
 	        /**
@@ -46474,7 +46423,9 @@
 	    }, {
 	        key: 'willEnter',
 	        value: function willEnter() {
-	            this.instance && this.instance.onPageWillEnter && this.instance.onPageWillEnter();
+	            if (!this.shouldDestroy) {
+	                this.instance && this.instance.onPageWillEnter && this.instance.onPageWillEnter();
+	            }
 	        }
 
 	        /**
@@ -46484,10 +46435,8 @@
 	    }, {
 	        key: 'didEnter',
 	        value: function didEnter() {
-	            var navbarView = this.navbarView();
-	            if (navbarView) {
-	                navbarView.didEnter();
-	            }
+	            var navbar = this.getNavbar();
+	            navbar && navbar.didEnter();
 	            this.instance && this.instance.onPageDidEnter && this.instance.onPageDidEnter();
 	        }
 
@@ -46526,6 +46475,21 @@
 	        key: 'didUnload',
 	        value: function didUnload() {
 	            this.instance && this.instance.onPageDidUnload && this.instance.onPageDidUnload();
+	        }
+	    }, {
+	        key: 'domCache',
+	        value: function domCache(isActiveView, isPreviousView) {
+	            var renderInDom = isActiveView || isPreviousView;
+	            var contentRef = this.contentRef();
+	            if (contentRef) {
+	                // the active view, and the previous view should have the 'show-view' css class
+	                // all others, like a cached page 2 back, should now have 'show-view' so it's not rendered
+	                contentRef.nativeElement.classList[renderInDom ? 'add' : 'remove']('show-view');
+	            }
+	            var navbarRef = this.getNavbar();
+	            if (navbarRef) {
+	                navbarRef.elementRef.nativeElement.classList[renderInDom ? 'add' : 'remove']('show-navbar');
+	            }
 	        }
 	    }, {
 	        key: 'index',
@@ -46574,6 +46538,8 @@
 	var _ionicUtil = __webpack_require__(283);
 
 	var util = _interopRequireWildcard(_ionicUtil);
+
+	var _utilDom = __webpack_require__(280);
 
 	/**
 	 * _For examples on the basic usage of NavController, check out the [Navigation section](../../../../components/#navigation)
@@ -46742,6 +46708,8 @@
 	            }
 	            // create a new ViewController
 	            var enteringView = new _viewController.ViewController(this, componentType, params);
+	            enteringView.shouldDestroy = false;
+	            enteringView.shouldCache = false;
 	            // add the view to the stack
 	            this._add(enteringView);
 	            if (this.router) {
@@ -46901,11 +46869,10 @@
 	            var viewToRemove = this._views[index];
 	            if (this.isActive(viewToRemove)) {
 	                return this.pop();
-	            } else {
-	                this._remove(index);
-	                viewToRemove.destroy();
-	                return Promise.resolve();
 	            }
+	            viewToRemove.shouldDestroy = true;
+	            this._cleanup();
+	            return Promise.resolve();
 	        }
 
 	        /**
@@ -47005,6 +46972,10 @@
 	            }
 	            // wait for the new view to complete setup
 	            enteringView.stage(function () {
+	                if (enteringView.shouldDestroy) {
+	                    // already marked as a view that will be destroyed, don't continue
+	                    return callback();
+	                }
 	                _this._zone.runOutsideAngular(function () {
 	                    enteringView.shouldDestroy = false;
 	                    enteringView.shouldCache = false;
@@ -47018,6 +46989,7 @@
 	                    var transAnimation = _transitionsTransition.Transition.create(_this, opts);
 	                    if (opts.animate === false) {
 	                        // force it to not animate the elements, just apply the "to" styles
+	                        transAnimation.clearDuration();
 	                        transAnimation.duration(0);
 	                    }
 	                    var duration = transAnimation.duration();
@@ -47069,37 +47041,10 @@
 	         * TODO
 	         */
 	    }, {
-	        key: 'createViewComponentRef',
-	        value: function createViewComponentRef(type, hostProtoViewRef, viewContainer, viewCtrlBindings) {
-	            var bindings = this.bindings.concat(viewCtrlBindings);
-	            // the same guts as DynamicComponentLoader.loadNextToLocation
-	            var hostViewRef = viewContainer.createHostView(hostProtoViewRef, viewContainer.length, bindings);
-	            var newLocation = this._viewManager.getHostElement(hostViewRef);
-	            var component = this._viewManager.getComponent(newLocation);
-	            var dispose = function dispose() {
-	                var index = viewContainer.indexOf(hostViewRef);
-	                if (index !== -1) {
-	                    viewContainer.remove(index);
-	                }
-	            };
-	            // TODO: make-shift ComponentRef_, this is pretty much going to
-	            // break in future versions of ng2, keep an eye on it
-	            return {
-	                location: newLocation,
-	                instance: component,
-	                dispose: dispose
-	            };
-	        }
-
-	        /**
-	         * @private
-	         * TODO
-	         */
-	    }, {
-	        key: 'getBindings',
-	        value: function getBindings(viewCtrl) {
-	            // create bindings to this ViewController and its NavParams
-	            return this.bindings.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_viewController.ViewController).toValue(viewCtrl), (0, _angular2Angular2.bind)(NavParams).toValue(viewCtrl.params)]));
+	        key: 'loadNextToAnchor',
+	        value: function loadNextToAnchor(type, location, viewCtrl) {
+	            var bindings = this.bindings.concat(_angular2Angular2.Injector.resolve([(0, _angular2Angular2.bind)(_viewController.ViewController).toValue(viewCtrl), (0, _angular2Angular2.bind)(NavParams).toValue(viewCtrl.params)]));
+	            return this._loader.loadNextToLocation(type, location, bindings);
 	        }
 
 	        /**
@@ -47222,8 +47167,8 @@
 	         * TODO
 	         */
 	    }, {
-	        key: '_runSwipeBack',
-	        value: function _runSwipeBack() {
+	        key: '_sbComplete',
+	        value: function _sbComplete() {
 	            if (this.canSwipeBack()) {
 	                // it is possible to swipe back
 	                if (this.sbGesture) {
@@ -47296,119 +47241,51 @@
 	        value: function _transComplete() {
 	            var _this4 = this;
 
-	            var destroys = [];
 	            this._views.forEach(function (view) {
 	                if (view) {
 	                    if (view.shouldDestroy) {
-	                        destroys.push(view);
+	                        view.didUnload();
 	                    } else if (view.state === CACHED_STATE && view.shouldCache) {
 	                        view.shouldCache = false;
 	                    }
 	                }
 	            });
-	            destroys.forEach(function (view) {
-	                _this4._remove(view);
-	                view.destroy();
-	            });
 	            // allow clicks again, but still set an enable time
 	            // meaning nothing with this view controller can happen for XXms
 	            this.app.setEnabled(true);
 	            this.app.setTransitioning(false);
-	            if (this._views.length === 1) {
-	                this.elementRef.nativeElement.classList.add('has-views');
-	            }
-	            this._runSwipeBack();
+	            this._sbComplete();
+	            (0, _utilDom.raf)(function () {
+	                _this4._cleanup();
+	            });
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
-	        key: 'getActive',
-	        value: function getActive() {
-	            for (var i = 0, ii = this._views.length; i < ii; i++) {
-	                if (this._views[i].state === ACTIVE_STATE) {
-	                    return this._views[i];
-	                }
-	            }
-	            return null;
-	        }
+	        key: '_cleanup',
+	        value: function _cleanup() {
+	            var _this5 = this;
 
-	        /**
-	         * TODO
-	         * @param {TODO} instance  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getByInstance',
-	        value: function getByInstance(instance) {
-	            if (instance) {
-	                for (var i = 0, ii = this._views.length; i < ii; i++) {
-	                    if (this._views[i].instance === instance) {
-	                        return this._views[i];
+	            // the active view, and the previous view, should be rendered in dom and ready to go
+	            // all others, like a cached page 2 back, should be display: none and not rendered
+	            var destroys = [];
+	            var activeView = this.getActive();
+	            var previousView = this.getPrevious(activeView);
+	            this._views.forEach(function (view) {
+	                if (view) {
+	                    if (view.shouldDestroy) {
+	                        destroys.push(view);
+	                    } else {
+	                        var isActiveView = view === activeView;
+	                        var isPreviousView = view === previousView;
+	                        view.domCache(isActiveView, isPreviousView);
 	                    }
 	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} index  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getByIndex',
-	        value: function getByIndex(index) {
-	            if (index < this._views.length && index > -1) {
-	                return this._views[index];
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @param {TODO} view  TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getPrevious',
-	        value: function getPrevious(view) {
-	            if (view) {
-	                return this._views[this._views.indexOf(view) - 1];
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getStagedEnteringView',
-	        value: function getStagedEnteringView() {
-	            for (var i = 0, ii = this._views.length; i < ii; i++) {
-	                if (this._views[i].state === STAGED_ENTERING_STATE) {
-	                    return this._views[i];
-	                }
-	            }
-	            return null;
-	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
-	    }, {
-	        key: 'getStagedLeavingView',
-	        value: function getStagedLeavingView() {
-	            for (var i = 0, ii = this._views.length; i < ii; i++) {
-	                if (this._views[i].state === STAGED_LEAVING_STATE) {
-	                    return this._views[i];
-	                }
-	            }
-	            return null;
+	            });
+	            // all views being destroyed should be removed from the list of views
+	            // and completely removed from the dom
+	            destroys.forEach(function (view) {
+	                _this5._remove(view);
+	                view.destroy();
+	            });
 	        }
 
 	        /**
@@ -47471,6 +47348,84 @@
 	        key: '_remove',
 	        value: function _remove(viewOrIndex) {
 	            util.array.remove(this._views, viewOrIndex);
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getActive',
+	        value: function getActive() {
+	            for (var i = this._views.length - 1; i >= 0; i--) {
+	                if (this._views[i].state === ACTIVE_STATE && !this._views[i].shouldDestroy) {
+	                    return this._views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} index  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getByIndex',
+	        value: function getByIndex(index) {
+	            if (index < this._views.length && index > -1) {
+	                return this._views[index];
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} view  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getPrevious',
+	        value: function getPrevious(view) {
+	            if (view) {
+	                var viewIndex = this._views.indexOf(view);
+	                for (var i = viewIndex - 1; i >= 0; i--) {
+	                    if (!this._views[i].shouldDestroy) {
+	                        return this._views[i];
+	                    }
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getStagedEnteringView',
+	        value: function getStagedEnteringView() {
+	            for (var i = 0, ii = this._views.length; i < ii; i++) {
+	                if (this._views[i].state === STAGED_ENTERING_STATE) {
+	                    return this._views[i];
+	                }
+	            }
+	            return null;
+	        }
+
+	        /**
+	         * TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: 'getStagedLeavingView',
+	        value: function getStagedLeavingView() {
+	            for (var i = 0, ii = this._views.length; i < ii; i++) {
+	                if (this._views[i].state === STAGED_LEAVING_STATE) {
+	                    return this._views[i];
+	                }
+	            }
+	            return null;
 	        }
 
 	        /**
@@ -47649,7 +47604,7 @@
 
 /***/ },
 /* 303 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 
@@ -47659,101 +47614,38 @@
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _animationsAnimation = __webpack_require__(282);
-
-	var SHOW_NAVBAR_CSS = 'show-navbar';
-	var SHOW_VIEW_CSS = 'show-view';
-	var SHOW_BACK_BUTTON = 'show-back-button';
-	var TransitionRegistry = {};
-
-	var Transition = (function (_Animation) {
-	    _inherits(Transition, _Animation);
-
-	    function Transition(nav, opts) {
+	var Transition = (function () {
+	    function Transition() {
 	        _classCallCheck(this, Transition);
-
-	        _get(Object.getPrototypeOf(Transition.prototype), 'constructor', this).call(this, null, opts);
-	        // get the entering and leaving items
-	        var entering = this.entering = nav.getStagedEnteringView();
-	        var leaving = this.leaving = nav.getStagedLeavingView();
-	        this.enteringZ = entering.index;
-	        this.leavingZ = leaving && leaving.index || 0;
-	        // create animation for the entering view's content area
-	        this.enteringContent = new _animationsAnimation.Animation(entering.viewElementRef());
-	        this.enteringContent.before.addClass(SHOW_VIEW_CSS);
-	        this.add(this.enteringContent);
-	        var enteringNavbar = this.enteringNavbar = new _animationsAnimation.Animation(entering.navbarRef());
-	        this.enteringBackButton = new _animationsAnimation.Animation(entering.backBtnRef());
-	        this.enteringTitle = new _animationsAnimation.Animation(entering.titleRef());
-	        this.enteringNavbarItems = new _animationsAnimation.Animation(entering.navbarItemRefs());
-	        this.enteringNavbarBg = new _animationsAnimation.Animation(entering.navbarBgRef());
-	        if (opts.navbar !== false) {
-	            enteringNavbar.before.addClass(SHOW_NAVBAR_CSS);
-	            if (entering.enableBack()) {
-	                // only animate in the back button if the entering view has it enabled
-	                this.enteringBackButton.before.addClass(SHOW_BACK_BUTTON).fadeIn();
-	                enteringNavbar.add(this.enteringBackButton);
-	            }
-	            enteringNavbar.add(this.enteringTitle).add(this.enteringNavbarItems.fadeIn()).add(this.enteringNavbarBg);
-	            this.add(enteringNavbar);
-	        }
-	        this.leavingContent = new _animationsAnimation.Animation(leaving && leaving.viewElementRef());
-	        var leavingNavbar = this.leavingNavbar = new _animationsAnimation.Animation(leaving && leaving.navbarRef());
-	        this.leavingBackButton = new _animationsAnimation.Animation(leaving && leaving.backBtnRef());
-	        this.leavingTitle = new _animationsAnimation.Animation(leaving && leaving.titleRef());
-	        this.leavingNavbarItems = new _animationsAnimation.Animation(leaving && leaving.navbarItemRefs());
-	        this.leavingNavbarBg = new _animationsAnimation.Animation(leaving && leaving.navbarBgRef());
-	        if (leaving) {
-	            // setup the leaving item if one exists (initial viewing wouldn't have a leaving item)
-	            this.leavingContent.after.removeClass(SHOW_VIEW_CSS);
-	            leavingNavbar.after.removeClass(SHOW_NAVBAR_CSS);
-	            this.leavingBackButton.after.removeClass(SHOW_BACK_BUTTON).fadeOut();
-	            leavingNavbar.add(this.leavingBackButton).add(this.leavingTitle).add(this.leavingNavbarItems.fadeOut()).add(this.leavingNavbarBg);
-	            this.add(this.leavingContent, leavingNavbar);
-	        }
 	    }
 
-	    _createClass(Transition, [{
-	        key: 'viewWidth',
-	        value: function viewWidth() {
-	            // TODO: MAKE MORE BETTER
-	            return this._w || (this._w = this.leaving && this.leaving.viewElementRef().nativeElement.offsetWidth);
-	        }
-
-	        /*
-	         STATIC CLASSES
-	         */
-	    }], [{
+	    _createClass(Transition, null, [{
 	        key: 'create',
-	        value: function create(nav) {
+	        value: function create(navCtrl) {
 	            var opts = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
 	            var name = opts.animation || 'ios';
-	            var TransitionClass = TransitionRegistry[name];
+	            var TransitionClass = transitionRegistry[name];
 	            if (!TransitionClass) {
-	                // transition wasn't found, default to a 'none' transition
-	                // which doesn't animate anything, just shows and hides
-	                TransitionClass = Transition;
+	                TransitionClass = transitionRegistry.ios;
 	            }
-	            return new TransitionClass(nav, opts);
+	            return new TransitionClass(navCtrl, opts);
 	        }
 	    }, {
 	        key: 'register',
 	        value: function register(name, TransitionClass) {
-	            TransitionRegistry[name] = TransitionClass;
+	            transitionRegistry[name] = TransitionClass;
 	        }
 	    }]);
 
 	    return Transition;
-	})(_animationsAnimation.Animation);
+	})();
 
 	exports.Transition = Transition;
+
+	var transitionRegistry = {};
 
 /***/ },
 /* 304 */
@@ -47930,7 +47822,7 @@
 	        _get(Object.getPrototypeOf(Navbar.prototype), "constructor", this).call(this, elementRef, config);
 	        renderer.setElementClass(elementRef, 'toolbar', true);
 	        this.app = app;
-	        viewCtrl && viewCtrl.navbarView(this);
+	        viewCtrl && viewCtrl.setNavbar(this);
 	        this.bbIcon = config.get('backButtonIcon');
 	        this.bbDefault = config.get('backButtonText');
 	    }
@@ -48407,6 +48299,8 @@
 
 	var _navViewController = __webpack_require__(301);
 
+	var _animationsAnimation = __webpack_require__(282);
+
 	var _animationsScrollTo = __webpack_require__(311);
 
 	/**
@@ -48593,18 +48487,24 @@
 	         * so content below the keyboard can be scrolled into view.
 	         */
 	    }, {
-	        key: "addKeyboardPadding",
-	        value: function addKeyboardPadding(addPadding) {
+	        key: "addScrollPadding",
+	        value: function addScrollPadding(newScrollPadding) {
 	            var _this3 = this;
 
-	            if (addPadding > this.scrollPadding) {
-	                this.scrollPadding = addPadding;
-	                this.scrollElement.style.paddingBottom = addPadding + 'px';
+	            if (newScrollPadding > this.scrollPadding) {
+	                console.debug('addScrollPadding', newScrollPadding);
+	                this.scrollPadding = newScrollPadding;
+	                this.scrollElement.style.paddingBottom = newScrollPadding + 'px';
 	                if (!this.keyboardPromise) {
+	                    console.debug('add scroll keyboard close callback', newScrollPadding);
 	                    this.keyboardPromise = this.keyboard.onClose(function () {
+	                        console.debug('scroll keyboard closed', newScrollPadding);
 	                        if (_this3) {
+	                            if (_this3.scrollPadding && _this3.scrollElement) {
+	                                var _close = new _animationsAnimation.Animation(_this3.scrollElement);
+	                                _close.duration(150).fromTo('paddingBottom', _this3.scrollPadding + 'px', '0px').play();
+	                            }
 	                            _this3.scrollPadding = 0;
-	                            if (_this3.scrollElement) _this3.scrollElement.style.paddingBottom = '';
 	                            _this3.keyboardPromise = null;
 	                        }
 	                    });
@@ -48618,8 +48518,7 @@
 	exports.Content = Content;
 	exports.Content = Content = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-content',
-	    inputs: ['parallax'],
-	    template: '<scroll-content><ng-content></ng-content></scroll-content>'
+	    template: '<scroll-content>' + '<ng-content></ng-content>' + '</scroll-content>'
 	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _utilKeyboard.IonicKeyboard !== 'undefined' && _utilKeyboard.IonicKeyboard || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object])], Content);
 
 /***/ },
@@ -50091,8 +49990,6 @@
 
 	var _configConfig = __webpack_require__(277);
 
-	var _navNavController = __webpack_require__(302);
-
 	var _navViewController = __webpack_require__(301);
 
 	var _configDecorators = __webpack_require__(289);
@@ -50174,42 +50071,34 @@
 	        decorator(target, key, paramIndex);
 	    };
 	};
-	var Tabs = (function (_NavController) {
-	    _inherits(Tabs, _NavController);
+	var Tabs = (function (_Ion) {
+	    _inherits(Tabs, _Ion);
 
 	    /**
-	     * TODO
+	     * Hi, I'm "Tabs". I'm really just another Page, with a few special features.
+	     * "Tabs" can be a sibling to other pages that can be navigated to, which those
+	     * sibling pages may or may not have their own tab bars (doesn't matter). The fact
+	     * that "Tabs" can happen to have children "Tab" classes, and each "Tab" can have
+	     * children pages with their own "ViewController" instance, as nothing to do with the
+	     * point that "Tabs" is itself is just a page with its own instance of ViewController.
 	     */
 
-	    function Tabs(hostNavCtrl, viewCtrl, app, config, elementRef, compiler, loader, viewManager, zone) {
+	    function Tabs(app, config, elementRef, viewCtrl) {
 	        var _this = this;
 
 	        _classCallCheck(this, Tabs);
 
-	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, hostNavCtrl, app, config, elementRef, compiler, loader, viewManager, zone);
-	        this._ready = new Promise(function (res) {
-	            _this._isReady = res;
-	        });
+	        _get(Object.getPrototypeOf(Tabs.prototype), "constructor", this).call(this, elementRef, config);
+	        this.app = app;
+	        // collection of children "Tab" instances, which extends NavController
+	        this._tabs = [];
 	        // Tabs may also be an actual ViewController which was navigated to
 	        // if Tabs is static and not navigated to within a NavController
 	        // then skip this and don't treat it as it's own ViewController
 	        if (viewCtrl) {
-	            this.viewCtrl = viewCtrl;
-	            // special overrides for the Tabs ViewController
-	            // the Tabs ViewController does not have it's own navbar
-	            // so find the navbar it should use within it's active Tab
-	            viewCtrl.navbarView = function () {
-	                var activeTab = _this.getActive();
-	                if (activeTab && activeTab.instance) {
-	                    return activeTab.instance.navbarView();
-	                }
-	            };
-	            // a Tabs ViewController should not have a back button
-	            // enableBack back button will later be determined
-	            // by the active ViewController that has a navbar
-	            viewCtrl.enableBack = function () {
-	                return false;
-	            };
+	            this._ready = new Promise(function (res) {
+	                _this._isReady = res;
+	            });
 	            viewCtrl.onReady = function () {
 	                return _this._ready;
 	            };
@@ -50218,15 +50107,16 @@
 
 	    /**
 	     * @private
-	     * TODO
 	     */
 
 	    _createClass(Tabs, [{
-	        key: "addTab",
-	        value: function addTab(tab) {
-	            this._add(tab.viewCtrl);
-	            // return true/false if it's the initial tab
-	            return this.length() === 1;
+	        key: "add",
+	        value: function add(tab) {
+	            tab.id = ++_tabIds;
+	            tab.btnId = 'tab-' + tab.id;
+	            tab.panelId = 'tabpanel-' + tab.id;
+	            this._tabs.push(tab);
+	            return this._tabs.length === 1;
 	        }
 
 	        /**
@@ -50236,38 +50126,61 @@
 	         */
 	    }, {
 	        key: "select",
-	        value: function select(tab) {
+	        value: function select(tabOrIndex) {
 	            var _this2 = this;
 
-	            var enteringView = null;
-	            if (typeof tab === 'number') {
-	                enteringView = this.getByIndex(tab);
+	            var selectedTab = null;
+	            if (typeof tabOrIndex === 'number') {
+	                selectedTab = this.getByIndex(tabOrIndex);
 	            } else {
-	                enteringView = this.getByInstance(tab);
+	                selectedTab = tabOrIndex;
 	            }
-	            // If we select the same tab as the active one, do some magic.
-	            if (enteringView === this.getActive()) {
-	                this._touchActive(tab);
-	                return;
-	            }
-	            if (!enteringView || !enteringView.instance || !this.app.isEnabled()) {
+	            if (!selectedTab || !this.app.isEnabled()) {
 	                return Promise.reject();
 	            }
-	            return new Promise(function (resolve) {
-	                enteringView.instance.load(function () {
-	                    var opts = {
-	                        animate: false
-	                    };
-	                    var leavingView = _this2.getActive() || new _navViewController.ViewController();
-	                    leavingView.shouldDestroy = false;
-	                    leavingView.shouldCache = true;
-	                    _this2.transition(enteringView, leavingView, opts, function () {
-	                        _this2.highlight && _this2.highlight.select(tab);
-	                        _this2._isReady();
-	                        resolve();
-	                    });
+	            var deselectedTab = this.getSelected();
+	            if (selectedTab === deselectedTab) {
+	                // no change
+	                return this._touchActive(selectedTab);
+	            }
+	            console.debug('select tab', selectedTab.id);
+	            selectedTab.load(function () {
+	                _this2._isReady && _this2._isReady();
+	            });
+	            this._tabs.forEach(function (tab) {
+	                tab.isSelected = tab === selectedTab;
+	                tab._views.forEach(function (viewCtrl) {
+	                    var navbarRef = viewCtrl.navbarRef();
+	                    if (navbarRef) {
+	                        navbarRef.nativeElement.classList[tab.isSelected ? 'remove' : 'add']('deselected-tab');
+	                    }
 	                });
 	            });
+	            this.highlight && this.highlight.select(selectedTab);
+	        }
+
+	        /**
+	         * TODO
+	         * @param {TODO} index  TODO
+	         * @returns {TODO} TODO
+	         */
+	    }, {
+	        key: "getByIndex",
+	        value: function getByIndex(index) {
+	            if (index < this._tabs.length && index > -1) {
+	                return this._tabs[index];
+	            }
+	            return null;
+	        }
+	    }, {
+	        key: "getSelected",
+	        value: function getSelected() {
+	            for (var i = 0; i < this._tabs.length; i++) {
+	                if (this._tabs[i].isSelected) {
+	                    return this._tabs[i];
+	                }
+	            }
+	            return null;
 	        }
 
 	        /**
@@ -50281,23 +50194,14 @@
 	            var stateLen = tab.length();
 	            if (stateLen > 1) {
 	                // Pop to the root view
-	                tab.popToRoot();
+	                return tab.popToRoot();
 	            }
-	        }
-
-	        /**
-	         * TODO
-	         * @return TODO
-	         */
-	    }, {
-	        key: "tabs",
-	        get: function get() {
-	            return this.instances();
+	            return Promise.resolve();
 	        }
 	    }]);
 
 	    return Tabs;
-	})(_navNavController.NavController);
+	})(_ion.Ion);
 	exports.Tabs = Tabs;
 	exports.Tabs = Tabs = __decorate([(0, _configDecorators.ConfigComponent)({
 	    selector: 'ion-tabs',
@@ -50305,7 +50209,7 @@
 	        'tabBarPlacement': 'bottom',
 	        'tabBarIcons': 'top'
 	    },
-	    template: '<section class="navbar-container">' + '<template navbar-anchor></template>' + '</section>' + '<nav class="tab-bar-container">' + '<tab-bar role="tablist">' + '<a *ng-for="#t of tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tab-bar>' + '</nav>' + '<section class="content-container">' + '<ng-content></ng-content>' + '</section>',
+	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-tab-bar-section>' + '<tab-bar role="tablist">' + '<a *ng-for="#t of _tabs" [tab]="t" class="tab-button" role="tab">' + '<icon [name]="t.tabIcon" [is-active]="t.isSelected" class="tab-button-icon"></icon>' + '<span class="tab-button-text">{{t.tabTitle}}</span>' + '</a>' + '<tab-highlight></tab-highlight>' + '</tab-bar>' + '</ion-tab-bar-section>' + '<ion-content-section>' + '<ng-content></ng-content>' + '</ion-content-section>',
 	    directives: [_iconIcon.Icon, _angular2Angular2.NgFor, (0, _angular2Angular2.forwardRef)(function () {
 	        return TabButton;
 	    }), (0, _angular2Angular2.forwardRef)(function () {
@@ -50313,13 +50217,14 @@
 	    }), (0, _angular2Angular2.forwardRef)(function () {
 	        return TabNavBarAnchor;
 	    })]
-	}), __param(0, (0, _angular2Angular2.Optional)()), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navNavController.NavController !== 'undefined' && _navNavController.NavController || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler || Object, typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader || Object, typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Tabs);
+	}), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _navViewController.ViewController !== 'undefined' && _navViewController.ViewController || Object])], Tabs);
+	var _tabIds = -1;
 	/**
 	 * @private
 	 * TODO
 	 */
-	var TabButton = (function (_Ion) {
-	    _inherits(TabButton, _Ion);
+	var TabButton = (function (_Ion2) {
+	    _inherits(TabButton, _Ion2);
 
 	    function TabButton(tabs, config, elementRef) {
 	        _classCallCheck(this, TabButton);
@@ -50335,9 +50240,6 @@
 	        key: "onInit",
 	        value: function onInit() {
 	            this.tab.btn = this;
-	            var id = this.tab.viewCtrl.id;
-	            this.btnId = 'tab-button-' + id;
-	            this.panelId = 'tab-panel-' + id;
 	            this.hasTitle = !!this.tab.tabTitle;
 	            this.hasIcon = !!this.tab.tabIcon;
 	            this.hasTitleOnly = this.hasTitle && !this.hasIcon;
@@ -50358,8 +50260,8 @@
 	    selector: '.tab-button',
 	    inputs: ['tab'],
 	    host: {
-	        '[attr.id]': 'btnId',
-	        '[attr.aria-controls]': 'panelId',
+	        '[attr.id]': 'tab.btnId',
+	        '[attr.aria-controls]': 'tab.panelId',
 	        '[attr.aria-selected]': 'tab.isSelected',
 	        '[class.has-title]': 'hasTitle',
 	        '[class.has-icon]': 'hasIcon',
@@ -50443,8 +50345,6 @@
 
 	var _navNavController = __webpack_require__(302);
 
-	var _navViewController = __webpack_require__(301);
-
 	var _tabs = __webpack_require__(316);
 
 	/**
@@ -50519,49 +50419,22 @@
 	var Tab = (function (_NavController) {
 	    _inherits(Tab, _NavController);
 
-	    /**
-	     * TODO
-	     * @param {Tabs} tabs  TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {Injector} injector  TODO
-	     * @param {NgZone} zone  TODO
-	     */
-
 	    function Tab(tabs, app, config, elementRef, compiler, loader, viewManager, zone) {
-	        var _this = this;
-
 	        _classCallCheck(this, Tab);
 
-	        // A Tab is both a container of many pages, and is a page itself.
-	        // A Tab is one page within it's Host Tabs (which also extends NavController)
 	        // A Tab is a NavController for its child pages
 	        _get(Object.getPrototypeOf(Tab.prototype), "constructor", this).call(this, tabs, app, config, elementRef, compiler, loader, viewManager, zone);
 	        this.tabs = tabs;
-	        var viewCtrl = this.viewCtrl = new _navViewController.ViewController(tabs.Host);
-	        viewCtrl.setInstance(this);
-	        viewCtrl.viewElementRef(elementRef);
-	        this._initTab = tabs.addTab(this);
-	        this.navbarView = viewCtrl.navbarView = function () {
-	            var activeView = _this.getActive();
-	            return activeView && activeView.navbarView();
-	        };
-	        viewCtrl.enableBack = function () {
-	            // override ViewController's enableBack(), should use the
-	            // active child nav item's enableBack() instead
-	            var activeView = _this.getActive();
-	            return activeView && activeView.enableBack();
-	        };
-	        this.panelId = 'tab-panel-' + viewCtrl.id;
-	        this.labeledBy = 'tab-button-' + viewCtrl.id;
+	        this._isInitial = tabs.add(this);
 	    }
 
 	    _createClass(Tab, [{
 	        key: "onInit",
 	        value: function onInit() {
-	            console.log('Tab onInit');
-	            if (this._initTab) {
+	            console.debug('Tab onInit');
+	            if (this._isInitial) {
 	                this.tabs.select(this);
-	            } else {}
+	            }
 	        }
 	    }, {
 	        key: "load",
@@ -50571,56 +50444,47 @@
 	                    animate: false,
 	                    navbar: false
 	                };
-	                this.push(this.root, null, opts).then(function () {
-	                    callback && callback();
-	                });
+	                this.push(this.root, null, opts).then(callback);
 	                this._loaded = true;
 	            } else {
-	                callback && callback();
+	                callback();
 	            }
 	        }
 	    }, {
 	        key: "loadContainer",
 	        value: function loadContainer(componentType, hostProtoViewRef, viewCtrl, done) {
-	            var viewComponentRef = this.createViewComponentRef(componentType, hostProtoViewRef, this.contentContainerRef, this.getBindings(viewCtrl));
-	            viewCtrl.disposals.push(function () {
-	                viewComponentRef.dispose();
+	            var _this = this;
+
+	            this.loadNextToAnchor(componentType, this.contentAnchorRef, viewCtrl).then(function (componentRef) {
+	                viewCtrl.disposals.push(function () {
+	                    componentRef.dispose();
+	                });
+	                // a new ComponentRef has been created
+	                // set the ComponentRef's instance to this ViewController
+	                viewCtrl.setInstance(componentRef.instance);
+	                // remember the ElementRef to the content that was just created
+	                viewCtrl.setContentRef(componentRef.location);
+	                // get the NavController's container for navbars, which is
+	                // the place this NavController will add each ViewController's navbar
+	                var navbarContainerRef = _this.tabs.navbarContainerRef;
+	                // get this ViewController's navbar TemplateRef, which may not
+	                // exist if the ViewController's template didn't have an <ion-navbar *navbar>
+	                var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
+	                // create the navbar view if the pane has a navbar container, and the
+	                // ViewController's instance has a navbar TemplateRef to go to inside of it
+	                if (navbarContainerRef && navbarTemplateRef) {
+	                    (function () {
+	                        var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef, -1);
+	                        viewCtrl.disposals.push(function () {
+	                            var index = navbarContainerRef.indexOf(navbarView);
+	                            if (index > -1) {
+	                                navbarContainerRef.remove(index);
+	                            }
+	                        });
+	                    })();
+	                }
+	                done();
 	            });
-	            // a new ComponentRef has been created
-	            // set the ComponentRef's instance to this ViewController
-	            viewCtrl.setInstance(viewComponentRef.instance);
-	            // remember the ElementRef to the content that was just created
-	            viewCtrl.viewElementRef(viewComponentRef.location);
-	            // get the NavController's container for navbars, which is
-	            // the place this NavController will add each ViewController's navbar
-	            var navbarContainerRef = this.tabs.navbarContainerRef;
-	            // get this ViewController's navbar TemplateRef, which may not
-	            // exist if the ViewController's template didn't have an <ion-navbar *navbar>
-	            var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
-	            // create the navbar view if the pane has a navbar container, and the
-	            // ViewController's instance has a navbar TemplateRef to go to inside of it
-	            if (navbarContainerRef && navbarTemplateRef) {
-	                (function () {
-	                    var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef, -1);
-	                    viewCtrl.disposals.push(function () {
-	                        var index = navbarContainerRef.indexOf(navbarView);
-	                        if (index > -1) {
-	                            navbarContainerRef.remove(index);
-	                        }
-	                    });
-	                })();
-	            }
-	            done();
-	        }
-	    }, {
-	        key: "isSelected",
-	        get: function get() {
-	            return this.tabs.isActive(this.viewCtrl);
-	        }
-	    }, {
-	        key: "isNotSelected",
-	        get: function get() {
-	            return !this.tabs.isActive(this.viewCtrl);
 	        }
 	    }]);
 
@@ -50632,8 +50496,8 @@
 	    inputs: ['root', 'tabTitle', 'tabIcon'],
 	    host: {
 	        '[attr.id]': 'panelId',
-	        '[attr.aria-labelledby]': 'labeledBy',
-	        '[attr.aria-hidden]': 'isNotSelected',
+	        '[attr.aria-labelledby]': 'btnId',
+	        '[class.show-tab]': 'isSelected',
 	        'role': 'tabpanel'
 	    },
 	    template: '<template content-anchor></template><ng-content></ng-content>',
@@ -50641,12 +50505,12 @@
 	        return TabContentAnchor;
 	    })]
 	}), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _tabs.Tabs !== 'undefined' && _tabs.Tabs || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler || Object, typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader || Object, typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Tab);
-	var TabContentAnchor = function TabContentAnchor(tab, viewContainerRef) {
+	var TabContentAnchor = function TabContentAnchor(tab, elementRef) {
 	    _classCallCheck(this, TabContentAnchor);
 
-	    tab.contentContainerRef = viewContainerRef;
+	    tab.contentAnchorRef = elementRef;
 	};
-	TabContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef || Object])], TabContentAnchor);
+	TabContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [Tab, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], TabContentAnchor);
 
 /***/ },
 /* 318 */
@@ -51974,29 +51838,21 @@
 	    };
 	};
 	var _TextInput = (function () {
-	    /**
-	     * TODO
-	     * @param {ElementRef} elementRef  TODO
-	     * @param {IonicConfig} config  TODO
-	     * @param {IonicApp} app  TODO
-	     * @param {NgZone} ngZone  TODO
-	     * @param {Content=} scrollView  The parent scroll view.
-	     * @param {QueryList<TextInputElement>} inputQry  TODO
-	     * @param {QueryList<Label>} labelQry  TODO
-	     */
-
 	    function TextInput(form, elementRef, config, renderer, app, zone, platform, scrollView) {
 	        _classCallCheck(this, TextInput);
 
 	        renderer.setElementClass(elementRef, 'item', true);
+	        this.renderer = renderer;
 	        this.form = form;
 	        form.register(this);
+	        this.type = 'text';
+	        this.lastTouch = 0;
 	        this.app = app;
 	        this.elementRef = elementRef;
 	        this.zone = zone;
 	        this.platform = platform;
 	        this.scrollView = scrollView;
-	        this.scrollAssist = config.get('keyboardScrollAssist');
+	        this.scrollAssist = config.get('scrollAssist');
 	        this.keyboardHeight = config.get('keyboardHeight');
 	    }
 
@@ -52004,37 +51860,31 @@
 	        key: "registerInput",
 	        value: function registerInput(textInputElement) {
 	            this.input = textInputElement;
-	            this.type = textInputElement.type;
+	            this.type = textInputElement.type || 'text';
 	        }
 	    }, {
 	        key: "registerLabel",
 	        value: function registerLabel(label) {
 	            this.label = label;
 	        }
-
-	        /**
-	         * TODO
-	         */
 	    }, {
 	        key: "onInit",
 	        value: function onInit() {
 	            if (this.input && this.label) {
-	                this.label.id = this.label.id || 'label-' + this.inputId;
+	                // if there is an input and an label
+	                // then give the label an ID
+	                // and tell the input the ID of who it's labelled by
 	                this.input.labelledBy(this.label.id);
 	            }
 	            var self = this;
 	            self.scrollMove = function (ev) {
+	                console.debug('content scrollMove');
 	                self.deregListeners();
 	                if (self.hasFocus) {
 	                    self.tempFocusMove();
 	                }
 	            };
 	        }
-
-	        /**
-	         * TODO
-	         * @param {Event} ev  TODO
-	         */
 	    }, {
 	        key: "pointerStart",
 	        value: function pointerStart(ev) {
@@ -52043,11 +51893,6 @@
 	                this.startCoord = dom.pointerCoord(ev);
 	            }
 	        }
-
-	        /**
-	         * TODO
-	         * @param {Event} ev TODO
-	         */
 	    }, {
 	        key: "pointerEnd",
 	        value: function pointerEnd(ev) {
@@ -52067,31 +51912,21 @@
 	                    this.zone.runOutsideAngular(function () {
 	                        _this.initFocus();
 	                        // temporarily prevent mouseup's from focusing
-	                        _this.preventMouse = true;
-	                        clearTimeout(_this.mouseTimer);
-	                        _this.mouseTimer = setTimeout(function () {
-	                            _this.preventMouse = false;
-	                        }, 500);
+	                        _this.lastTouch = Date.now();
 	                    });
 	                }
-	            } else if (!this.preventMouse) {
+	            } else if (this.lastTouch + 500 < Date.now()) {
 	                ev.preventDefault();
 	                ev.stopPropagation();
-	                this.zone.runOutsideAngular(function () {
-	                    _this.setFocus();
-	                });
+	                this.setFocus();
 	            }
 	        }
-
-	        /**
-	         * TODO
-	         * @returns {TODO} TODO
-	         */
 	    }, {
 	        key: "initFocus",
 	        value: function initFocus() {
 	            var _this2 = this;
 
+	            // begin the process of setting focus to the inner input element
 	            var scrollView = this.scrollView;
 	            if (scrollView && this.scrollAssist) {
 	                // this input is inside of a scroll view
@@ -52104,7 +51939,7 @@
 	                    return this.setFocus();
 	                }
 	                // add padding to the bottom of the scroll view (if needed)
-	                scrollView.addKeyboardPadding(scrollData.scrollPadding);
+	                scrollView.addScrollPadding(scrollData.scrollPadding);
 	                // manually scroll the text input to the top
 	                // do not allow any clicks while it's scrolling
 	                this.app.setEnabled(false, SCROLL_INTO_VIEW_DURATION);
@@ -52137,54 +51972,45 @@
 	         * @returns {TODO} TODO
 	         */
 	    }, {
-	        key: "deregListeners",
-
-	        /**
-	         * TODO
-	         */
-	        value: function deregListeners() {
-	            this.deregScroll && this.deregScroll();
+	        key: "focusChange",
+	        value: function focusChange(hasFocus) {
+	            this.renderer.setElementClass(this.elementRef, 'has-focus', hasFocus);
 	        }
-
-	        /**
-	         * TODO
-	         */
+	    }, {
+	        key: "hasValue",
+	        value: function hasValue(inputValue) {
+	            this.renderer.setElementClass(this.elementRef, 'has-value', inputValue && inputValue !== '');
+	        }
 	    }, {
 	        key: "setFocus",
 	        value: function setFocus() {
 	            var _this3 = this;
 
-	            this.zone.run(function () {
-	                // set focus on the input element
-	                _this3.input && _this3.input.initFocus();
-	                // ensure the body hasn't scrolled down
-	                document.body.scrollTop = 0;
-	            });
+	            if (this.input) {
+	                this.zone.run(function () {
+	                    _this3.form.setAsFocused(_this3);
+	                    // set focus on the actual input element
+	                    _this3.input.setFocus();
+	                    // ensure the body hasn't scrolled down
+	                    document.body.scrollTop = 0;
+	                });
+	            }
 	            if (this.scrollAssist && this.scrollView) {
-	                setTimeout(function () {
+	                this.zone.runOutsideAngular(function () {
 	                    _this3.deregListeners();
 	                    _this3.deregScroll = _this3.scrollView.addScrollEventListener(_this3.scrollMove);
-	                }, 100);
+	                });
 	            }
+	        }
+	    }, {
+	        key: "deregListeners",
+	        value: function deregListeners() {
+	            this.deregScroll && this.deregScroll();
 	        }
 	    }, {
 	        key: "tempFocusMove",
 	        value: function tempFocusMove() {
 	            this.form.setFocusHolder(this.type);
-	        }
-	    }, {
-	        key: "receivedFocus",
-
-	        /**
-	         * TODO
-	         * @param {boolean} receivedFocus  TODO
-	         */
-	        value: function receivedFocus(_receivedFocus) {
-	            if (_receivedFocus && !this.hasFocus) {
-	                this.initFocus();
-	            } else {
-	                this.deregListeners();
-	            }
 	        }
 	    }, {
 	        key: "onDestroy",
@@ -52196,21 +52022,6 @@
 	        key: "hasFocus",
 	        get: function get() {
 	            return !!this.input && this.input.hasFocus;
-	        }
-	    }, {
-	        key: "hasValue",
-	        get: function get() {
-	            return !!this.input && this.input.hasValue;
-	        }
-	    }, {
-	        key: "tabIndex",
-	        get: function get() {
-	            return this.input && this.input.tabIndex;
-	        },
-	        set: function set(val) {
-	            if (this.input) {
-	                this.input.tabIndex = val;
-	            }
 	        }
 	    }], [{
 	        key: "getScollData",
@@ -52310,75 +52121,62 @@
 	    return TextInput;
 	})();
 	exports.TextInput = _TextInput;
-	_TextInput = __decorate([(0, _angular2Angular2.Directive)({
+	_TextInput = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-input',
 	    host: {
-	        '(focus)': 'receivedFocus(true)',
-	        '(blur)': 'receivedFocus(false)',
 	        '(touchstart)': 'pointerStart($event)',
 	        '(touchend)': 'pointerEnd($event)',
-	        '(mouseup)': 'pointerEnd($event)',
-	        '[class.has-focus]': 'hasFocus',
-	        '[class.has-value]': 'hasValue'
-	    }
+	        '(mouseup)': 'pointerEnd($event)'
+	    },
+	    template: '<ng-content></ng-content>' + '<input [type]="type" aria-hidden="true" scroll-assist *ng-if="scrollAssist">',
+	    directives: [_angular2Angular2.NgIf, (0, _angular2Angular2.forwardRef)(function () {
+	        return InputScrollAssist;
+	    })]
 	}), __param(7, (0, _angular2Angular2.Optional)()), __param(7, (0, _angular2Angular2.Host)()), __metadata('design:paramtypes', [typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object, typeof _platformPlatform.IonicPlatform !== 'undefined' && _platformPlatform.IonicPlatform || Object, typeof _contentContent.Content !== 'undefined' && _contentContent.Content || Object])], _TextInput);
-	/**
-
-	 * TODO
-	 */
 	var TextInputElement = (function () {
-	    function TextInputElement(form, type, elementRef, renderer, textInputWrapper) {
+	    function TextInputElement(type, elementRef, renderer, wrapper) {
 	        _classCallCheck(this, TextInputElement);
 
-	        this.form = form;
 	        this.type = type;
 	        this.elementRef = elementRef;
-	        this.tabIndex = 0;
+	        this.wrapper = wrapper;
 	        this.renderer = renderer;
 	        renderer.setElementAttribute(this.elementRef, 'text-input', '');
-	        if (textInputWrapper) {
+	        if (wrapper) {
 	            // it's within ionic's ion-input, let ion-input handle what's up
-	            textInputWrapper.registerInput(this);
-	        } else {
-	            // not within ion-input
-	            form.register(this);
+	            wrapper.registerInput(this);
 	        }
 	    }
 
 	    _createClass(TextInputElement, [{
+	        key: "onKeyup",
+	        value: function onKeyup(ev) {
+	            this.wrapper.hasValue(ev.target.value);
+	        }
+	    }, {
+	        key: "onInit",
+	        value: function onInit() {
+	            this.wrapper.hasValue(this.value);
+	        }
+	    }, {
 	        key: "labelledBy",
 	        value: function labelledBy(val) {
 	            this.renderer.setElementAttribute(this.elementRef, 'aria-labelledby', val);
 	        }
 	    }, {
-	        key: "initFocus",
-	        value: function initFocus() {
-	            this.elementRef.nativeElement.focus();
+	        key: "setFocus",
+	        value: function setFocus() {
+	            this.getNativeElement().focus();
 	        }
-
-	        /**
-	         * Whether the input has focus or not.
-	         * @returns {boolean}  true if the input has focus, otherwise false.
-	         */
 	    }, {
-	        key: "onDestroy",
-	        value: function onDestroy() {
-	            this.form.deregister(this);
+	        key: "getNativeElement",
+	        value: function getNativeElement() {
+	            return this.elementRef.nativeElement;
 	        }
 	    }, {
 	        key: "hasFocus",
 	        get: function get() {
-	            return dom.hasFocus(this.elementRef.nativeElement);
-	        }
-
-	        /**
-	         * Whether the input has a value.
-	         * @returns {boolean}  true if the input has a value, otherwise false.
-	         */
-	    }, {
-	        key: "hasValue",
-	        get: function get() {
-	            return this.elementRef.nativeElement.value !== '';
+	            return dom.hasFocus(this.getNativeElement());
 	        }
 	    }]);
 
@@ -52387,11 +52185,36 @@
 	exports.TextInputElement = TextInputElement;
 	exports.TextInputElement = TextInputElement = __decorate([(0, _angular2Angular2.Directive)({
 	    selector: 'textarea,input[type=text],input[type=password],input[type=number],input[type=search],input[type=email],input[type=url],input[type=tel]',
-	    inputs: ['tabIndex'],
+	    inputs: ['value'],
 	    host: {
-	        '[tabIndex]': 'tabIndex'
+	        '(focus)': 'wrapper.focusChange(true)',
+	        '(blur)': 'wrapper.focusChange(false)',
+	        '(keyup)': 'onKeyup($event)'
 	    }
-	}), __param(1, (0, _angular2Angular2.Attribute)('type')), __param(4, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm || Object, String, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object, _TextInput])], TextInputElement);
+	}), __param(0, (0, _angular2Angular2.Attribute)('type')), __param(3, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [String, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object, _TextInput])], TextInputElement);
+	var InputScrollAssist = (function () {
+	    function InputScrollAssist(form, textInput) {
+	        _classCallCheck(this, InputScrollAssist);
+
+	        this.form = form;
+	        this.textInput = textInput;
+	    }
+
+	    _createClass(InputScrollAssist, [{
+	        key: "receivedFocus",
+	        value: function receivedFocus(ev) {
+	            this.form.focusNext(this.textInput);
+	        }
+	    }]);
+
+	    return InputScrollAssist;
+	})();
+	InputScrollAssist = __decorate([(0, _angular2Angular2.Directive)({
+	    selector: '[scroll-assist]',
+	    host: {
+	        '(focus)': 'receivedFocus($event)'
+	    }
+	}), __metadata('design:paramtypes', [typeof _utilForm.IonicForm !== 'undefined' && _utilForm.IonicForm || Object, _TextInput])], InputScrollAssist);
 	var SCROLL_INTO_VIEW_DURATION = 400;
 
 /***/ },
@@ -52450,11 +52273,15 @@
 	     * @param {IonicConfig} config
 	     */
 
-	    function Label(config, textInput) {
+	    function Label(config, container) {
 	        _classCallCheck(this, Label);
 
-	        this.scrollAssist = config.get('keyboardScrollAssist');
-	        textInput && textInput.registerLabel(this);
+	        this.scrollAssist = config.get('scrollAssist');
+	        if (!this.id) {
+	            this.id = 'lbl-' + ++labelIds;
+	        }
+	        this.container = container;
+	        container && container.registerLabel(this);
 	    }
 
 	    /**
@@ -52485,7 +52312,7 @@
 	                if (!(0, _utilDom.hasPointerMoved)(20, this.startCoord, endCoord)) {
 	                    ev.preventDefault();
 	                    ev.stopPropagation();
-	                    this.container.focus();
+	                    this.container.initFocus();
 	                }
 	                this.startCoord = null;
 	            }
@@ -52506,6 +52333,7 @@
 	        '(mouseup)': 'pointerEnd($event)'
 	    }
 	}), __param(1, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _textInput.TextInput !== 'undefined' && _textInput.TextInput || Object])], Label);
+	var labelIds = -1;
 
 /***/ },
 /* 327 */
@@ -53217,8 +53045,7 @@
 	            return;
 	        }
 	        this.ngControl = ngControl;
-	        ngControl.valueAccessor = this;
-	        this.query = '';
+	        this.ngControl.valueAccessor = this;
 	    }
 
 	    // Add the margin for iOS
@@ -53231,6 +53058,9 @@
 	                this.cancelWidth = this.cancelButton.offsetWidth;
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
+	            // If the user passes in a value to the model we should left align
+	            this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
+	            this.query = this.ngControl.value || '';
 	        }
 
 	        /**
@@ -53240,21 +53070,23 @@
 	    }, {
 	        key: "writeValue",
 	        value: function writeValue(value) {
-	            this.value = value;
-	            this.renderer.setElementProperty(this.elementRef, 'value', this.value);
+	            this.query = value;
 	        }
 	    }, {
 	        key: "registerOnChange",
-	        value: function registerOnChange(val) {}
+	        value: function registerOnChange(fn) {
+	            this.onChange = fn;
+	        }
 	    }, {
 	        key: "registerOnTouched",
-	        value: function registerOnTouched(val) {}
+	        value: function registerOnTouched(fn) {
+	            this.onTouched = fn;
+	        }
 	    }, {
 	        key: "inputChanged",
 	        value: function inputChanged(event) {
-	            this.value = event.target.value;
-	            this.ngControl.valueAccessor.writeValue(this.value);
-	            this.ngControl.control.updateValue(this.value);
+	            this.writeValue(event.target.value);
+	            this.onChange(event.target.value);
 	        }
 	    }, {
 	        key: "inputFocused",
@@ -53269,16 +53101,16 @@
 	        key: "inputBlurred",
 	        value: function inputBlurred() {
 	            this.isFocused = false;
-	            this.shouldLeftAlign = this.value.trim() != '';
+	            this.shouldLeftAlign = this.ngControl.value && this.ngControl.value.trim() != '';
 	            if (this.cancelButton) {
 	                this.cancelButton.style.marginRight = "-" + this.cancelWidth + "px";
 	            }
 	        }
 	    }, {
 	        key: "clearInput",
-	        value: function clearInput() {
-	            this.value = '';
-	            this.ngControl.control.updateValue('');
+	        value: function clearInput(event) {
+	            this.writeValue('');
+	            this.onChange('');
 	        }
 	    }]);
 
@@ -53287,22 +53119,16 @@
 	exports.SearchBar = SearchBar;
 	exports.SearchBar = SearchBar = __decorate([(0, _configDecorators.ConfigComponent)({
 	    selector: 'ion-search-bar',
-	    inputs: ['list', 'query'],
 	    defaultInputs: {
 	        'showCancel': false,
 	        'cancelText': 'Cancel',
 	        'placeholder': 'Search',
-	        'cancelAction': function cancelAction() {
-	            // TODO user will override this if they pass a function
-	            // need to allow user to call these
+	        'cancelAction': function cancelAction(event, model) {
+	            // The cancel button now works on its own to blur the input
 	            console.log('Default Cancel');
-	            this.isFocused = false;
-	            this.shouldLeftAlign = this.value.trim() != '';
-	            this.element = this.elementRef.nativeElement.querySelector('input');
-	            this.element.blur();
 	        }
 	    },
-	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder" [(ng-model)]="value">' + '<div class="search-bar-close-icon" (click)="clearInput()"></div>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction()" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
+	    template: '<div class="search-bar-input-container" [class.left-align]="shouldLeftAlign">' + '<div class="search-bar-search-icon"></div>' + '<input [(value)]="query" (focus)="inputFocused()" (blur)="inputBlurred()" ' + '(input)="inputChanged($event)" class="search-bar-input" type="search" [attr.placeholder]="placeholder">' + '<button clear *ng-if="query" class="search-bar-close-icon" (click)="clearInput($event)"></button>' + '</div>' + '<button *ng-if="showCancel" (click)="cancelAction($event, model)" class="search-bar-cancel" [class.left-align]="shouldLeftAlign">{{cancelText}}</button>',
 	    directives: [_angular2Angular2.FORM_DIRECTIVES, _angular2Angular2.NgIf, _angular2Angular2.NgClass]
 	}), __metadata('design:paramtypes', [typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.NgControl !== 'undefined' && _angular2Angular2.NgControl || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], SearchBar);
 	/*
@@ -53553,59 +53379,58 @@
 	            // Tabs and view's without a navbar would get a different Panes
 	            var structure = this.getStructure(hostProtoViewRef);
 	            if (structure.tabs) {
-	                (function () {
-	                    // the component being loaded is an <ion-tabs>
-	                    // Tabs is essentially a pane, cuz it has its own navbar and content containers
-	                    var contentContainerRef = _this._viewManager.getViewContainer(_this.anchorElementRef());
-	                    var viewComponentRef = _this.createViewComponentRef(componentType, hostProtoViewRef, contentContainerRef, _this.getBindings(viewCtrl));
-	                    viewComponentRef.instance._paneView = true;
+	                // the component being loaded is an <ion-tabs>
+	                // Tabs is essentially a pane, cuz it has its own navbar and content containers
+	                this.loadNextToAnchor(componentType, this.anchorElementRef(), viewCtrl).then(function (componentRef) {
+	                    componentRef.instance._paneView = true;
 	                    viewCtrl.disposals.push(function () {
-	                        viewComponentRef.dispose();
+	                        componentRef.dispose();
 	                    });
 	                    viewCtrl.onReady().then(function () {
 	                        done();
 	                    });
-	                })();
+	                });
 	            } else {
 	                // normal ion-view going into pane
 	                this.getPane(structure, viewCtrl, function (pane) {
 	                    // add the content of the view into the pane's content area
-	                    var viewComponentRef = _this.createViewComponentRef(componentType, hostProtoViewRef, pane.contentContainerRef, _this.getBindings(viewCtrl));
-	                    viewCtrl.disposals.push(function () {
-	                        viewComponentRef.dispose();
-	                        // remove the pane if there are no view items left
-	                        pane.totalViews--;
-	                        if (pane.totalViews === 0) {
-	                            pane.dispose && pane.dispose();
+	                    _this.loadNextToAnchor(componentType, pane.contentAnchorRef, viewCtrl).then(function (componentRef) {
+	                        viewCtrl.disposals.push(function () {
+	                            componentRef.dispose();
+	                            // remove the pane if there are no view items left
+	                            pane.totalViews--;
+	                            if (pane.totalViews === 0) {
+	                                pane.dispose && pane.dispose();
+	                            }
+	                        });
+	                        // count how many ViewControllers are in this pane
+	                        pane.totalViews++;
+	                        // a new ComponentRef has been created
+	                        // set the ComponentRef's instance to this ViewController
+	                        viewCtrl.setInstance(componentRef.instance);
+	                        // remember the ElementRef to the content that was just created
+	                        viewCtrl.setContentRef(componentRef.location);
+	                        // get the NavController's container for navbars, which is
+	                        // the place this NavController will add each ViewController's navbar
+	                        var navbarContainerRef = pane.navbarContainerRef;
+	                        // get this ViewController's navbar TemplateRef, which may not
+	                        // exist if the ViewController's template didn't have an <ion-navbar *navbar>
+	                        var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
+	                        // create the navbar view if the pane has a navbar container, and the
+	                        // ViewController's instance has a navbar TemplateRef to go to inside of it
+	                        if (navbarContainerRef && navbarTemplateRef) {
+	                            (function () {
+	                                var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef, -1);
+	                                viewCtrl.disposals.push(function () {
+	                                    var index = navbarContainerRef.indexOf(navbarView);
+	                                    if (index > -1) {
+	                                        navbarContainerRef.remove(index);
+	                                    }
+	                                });
+	                            })();
 	                        }
+	                        done();
 	                    });
-	                    // count how many ViewControllers are in this pane
-	                    pane.totalViews++;
-	                    // a new ComponentRef has been created
-	                    // set the ComponentRef's instance to this ViewController
-	                    viewCtrl.setInstance(viewComponentRef.instance);
-	                    // remember the ElementRef to the content that was just created
-	                    viewCtrl.viewElementRef(viewComponentRef.location);
-	                    // get the NavController's container for navbars, which is
-	                    // the place this NavController will add each ViewController's navbar
-	                    var navbarContainerRef = pane.navbarContainerRef;
-	                    // get this ViewController's navbar TemplateRef, which may not
-	                    // exist if the ViewController's template didn't have an <ion-navbar *navbar>
-	                    var navbarTemplateRef = viewCtrl.getNavbarTemplateRef();
-	                    // create the navbar view if the pane has a navbar container, and the
-	                    // ViewController's instance has a navbar TemplateRef to go to inside of it
-	                    if (navbarContainerRef && navbarTemplateRef) {
-	                        (function () {
-	                            var navbarView = navbarContainerRef.createEmbeddedView(navbarTemplateRef, -1);
-	                            viewCtrl.disposals.push(function () {
-	                                var index = navbarContainerRef.indexOf(navbarView);
-	                                if (index > -1) {
-	                                    navbarContainerRef.remove(index);
-	                                }
-	                            });
-	                        })();
-	                    }
-	                    done();
 	                });
 	            }
 	        }
@@ -53630,7 +53455,7 @@
 	                done(pane);
 	            } else {
 	                // create a new nav pane
-	                this._loader.loadNextToLocation(Pane, this.anchorElementRef(), this.getBindings(viewCtrl)).then(function (componentRef) {
+	                this._loader.loadNextToLocation(Pane, this.anchorElementRef(), this.bindings).then(function (componentRef) {
 	                    // get the pane reference
 	                    pane = _this2.newPane;
 	                    _this2.newPane = null;
@@ -53712,21 +53537,14 @@
 	    defaultInputs: {
 	        'swipeBackEnabled': true
 	    },
+	    host: {
+	        '[class.has-views]': '_views.length > 0'
+	    },
 	    template: '<template pane-anchor></template>',
 	    directives: [(0, _angular2Angular2.forwardRef)(function () {
 	        return NavPaneAnchor;
 	    })]
 	}), __param(0, (0, _angular2Angular2.Optional)()), __metadata('design:paramtypes', [typeof _navController.NavController !== 'undefined' && _navController.NavController || Object, typeof _appApp.IonicApp !== 'undefined' && _appApp.IonicApp || Object, typeof _configConfig.IonicConfig !== 'undefined' && _configConfig.IonicConfig || Object, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Compiler !== 'undefined' && _angular2Angular2.Compiler || Object, typeof _angular2Angular2.DynamicComponentLoader !== 'undefined' && _angular2Angular2.DynamicComponentLoader || Object, typeof _angular2Angular2.AppViewManager !== 'undefined' && _angular2Angular2.AppViewManager || Object, typeof _angular2Angular2.NgZone !== 'undefined' && _angular2Angular2.NgZone || Object])], Nav);
-	/**
-	 * @private
-	 * TODO
-	 * @param  {TODO} elementBinder TODO
-	 * @param  {TODO} id            TODO
-	 * @return {TODO}               TODO
-	 */
-	function isComponent(elementBinder, id) {
-	    return elementBinder && elementBinder.componentDirective && elementBinder.componentDirective.metadata.id == id;
-	}
 	/**
 	 * @private
 	 */
@@ -53750,14 +53568,14 @@
 	/**
 	 * @private
 	 */
-	var ContentAnchor = function ContentAnchor(pane, viewContainerRef) {
+	var ContentAnchor = function ContentAnchor(pane, elementRef) {
 	    _classCallCheck(this, ContentAnchor);
 
-	    pane.contentContainerRef = viewContainerRef;
+	    pane.contentAnchorRef = elementRef;
 	};
 	ContentAnchor = __decorate([(0, _angular2Angular2.Directive)({ selector: 'template[content-anchor]' }), __param(0, (0, _angular2Angular2.Host)()), __param(0, (0, _angular2Angular2.Inject)((0, _angular2Angular2.forwardRef)(function () {
 	    return Pane;
-	}))), __metadata('design:paramtypes', [Pane, typeof _angular2Angular2.ViewContainerRef !== 'undefined' && _angular2Angular2.ViewContainerRef || Object])], ContentAnchor);
+	}))), __metadata('design:paramtypes', [Pane, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object])], ContentAnchor);
 	/**
 	 * @private
 	 */
@@ -53785,7 +53603,7 @@
 	})();
 	Pane = __decorate([(0, _angular2Angular2.Component)({
 	    selector: 'ion-pane',
-	    template: '<section class="navbar-container">' + '<template navbar-anchor></template>' + '</section>' + '<section class="content-container">' + '<template content-anchor></template>' + '</section>',
+	    template: '<ion-navbar-section>' + '<template navbar-anchor></template>' + '</ion-navbar-section>' + '<ion-content-section>' + '<template content-anchor></template>' + '</ion-content-section>',
 	    directives: [NavBarAnchor, ContentAnchor]
 	}), __metadata('design:paramtypes', [Nav, typeof _angular2Angular2.ElementRef !== 'undefined' && _angular2Angular2.ElementRef || Object, typeof _angular2Angular2.Renderer !== 'undefined' && _angular2Angular2.Renderer || Object])], Pane);
 
@@ -56353,7 +56171,7 @@
 	    settings: {
 	        mode: 'md',
 	        keyboardHeight: 290,
-	        keyboardScrollAssist: true,
+	        scrollAssist: true,
 	        hoverCSS: false
 	    },
 	    isMatch: function isMatch(p) {
@@ -56369,7 +56187,7 @@
 	    subsets: ['ipad', 'iphone'],
 	    settings: {
 	        mode: 'ios',
-	        keyboardScrollAssist: function keyboardScrollAssist(p) {
+	        scrollAssist: function scrollAssist(p) {
 	            return (/iphone|ipad|ipod/i.test(p.navigatorPlatform())
 	            );
 	        },
@@ -58993,60 +58811,116 @@
 	var EASING = 'cubic-bezier(0.36,0.66,0.04,1)';
 	var OPACITY = 'opacity';
 	var TRANSLATEX = 'translateX';
+	var OFF_RIGHT = '99.5%';
 	var OFF_LEFT = '-33%';
 	var CENTER = '0%';
 	var OFF_OPACITY = 0.8;
+	var SHOW_NAVBAR_CSS = 'show-navbar';
+	var SHOW_VIEW_CSS = 'show-view';
+	var SHOW_BACK_BTN_CSS = 'show-back-button';
 
-	var IOSTransition = (function (_Transition) {
-	    _inherits(IOSTransition, _Transition);
+	var IOSTransition = (function (_Animation) {
+	    _inherits(IOSTransition, _Animation);
 
-	    function IOSTransition(nav, opts) {
+	    function IOSTransition(navCtrl, opts) {
 	        _classCallCheck(this, IOSTransition);
 
-	        _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, nav, opts);
-	        // global duration and easing for all child animations
+	        _get(Object.getPrototypeOf(IOSTransition.prototype), 'constructor', this).call(this, null, opts);
 	        this.duration(DURATION);
 	        this.easing(EASING);
-	        // entering item moves to center
-	        this.enteringContent.to(TRANSLATEX, CENTER).to(OPACITY, 1).before.setStyles({ zIndex: this.enteringZ });
-	        this.enteringTitle.fadeIn().to(TRANSLATEX, CENTER);
-	        this.enteringNavbarBg.to(TRANSLATEX, CENTER);
-	        // leaving view moves off screen
-	        this.leavingContent.from(TRANSLATEX, CENTER).from(OPACITY, 1).before.setStyles({ zIndex: this.leavingZ });
-	        this.leavingTitle.from(TRANSLATEX, CENTER).from(OPACITY, 1);
-	        this.leavingNavbarBg.from(TRANSLATEX, CENTER);
-	        // set properties depending on direction
-	        if (opts.direction === 'back') {
+	        // what direction is the transition going
+	        var backDirection = opts.direction === 'back';
+	        // get entering/leaving views
+	        var enteringView = navCtrl.getStagedEnteringView();
+	        var leavingView = navCtrl.getStagedLeavingView();
+	        // do they have navbars?
+	        var enteringHasNavbar = enteringView.hasNavbar();
+	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+	        // entering content
+	        var enteringContent = new _animationsAnimation.Animation(enteringView.contentRef());
+	        enteringContent.before.addClass(SHOW_VIEW_CSS).before.setStyles({ zIndex: enteringView.index });
+	        this.add(enteringContent);
+	        if (backDirection) {
 	            // back direction
-	            this.enteringContent.from(TRANSLATEX, OFF_LEFT).from(OPACITY, OFF_OPACITY).to(OPACITY, 1);
-	            this.enteringTitle.from(TRANSLATEX, OFF_LEFT);
-	            this.enteringNavbarBg.from(TRANSLATEX, OFF_LEFT);
-	            this.leavingContent.to(TRANSLATEX, '100%').to(OPACITY, 1);
-	            this.leavingTitle.to(TRANSLATEX, '100%').to(OPACITY, 0);
-	            this.leavingNavbarBg.to(TRANSLATEX, '100%');
-	            if (this.leaving && this.leaving.enableBack() && this.viewWidth() > 200) {
-	                var leavingBackButtonText = new _animationsAnimation.Animation(this.leaving.backBtnTextRef());
-	                leavingBackButtonText.fromTo(TRANSLATEX, CENTER, this.viewWidth() / 2 + 'px');
-	                this.leavingNavbar.add(leavingBackButtonText);
-	            }
+	            enteringContent.fromTo(TRANSLATEX, OFF_LEFT, CENTER).fromTo(OPACITY, OFF_OPACITY, 1);
 	        } else {
 	            // forward direction
-	            this.enteringContent.from(TRANSLATEX, '99.5%').from(OPACITY, 1);
-	            this.enteringTitle.from(TRANSLATEX, '99.5%');
-	            this.enteringNavbarBg.from(TRANSLATEX, '99.5%');
-	            this.leavingContent.to(TRANSLATEX, OFF_LEFT).to(OPACITY, OFF_OPACITY);
-	            this.leavingTitle.to(TRANSLATEX, OFF_LEFT).to(OPACITY, 0);
-	            this.leavingNavbarBg.to(TRANSLATEX, OFF_LEFT);
-	            if (this.entering.enableBack() && this.viewWidth() > 200) {
-	                var enteringBackButtonText = new _animationsAnimation.Animation(this.entering.backBtnTextRef());
-	                enteringBackButtonText.fromTo(TRANSLATEX, this.viewWidth() / 2 + 'px', CENTER);
-	                this.enteringNavbar.add(enteringBackButtonText);
+	            enteringContent.fromTo(TRANSLATEX, OFF_RIGHT, CENTER).fromTo(OPACITY, 1, 1);
+	        }
+	        // entering navbar
+	        if (enteringHasNavbar) {
+	            var enteringNavBar = new _animationsAnimation.Animation(enteringView.navbarRef());
+	            enteringNavBar.before.addClass(SHOW_NAVBAR_CSS);
+	            this.add(enteringNavBar);
+	            var enteringTitle = new _animationsAnimation.Animation(enteringView.titleRef());
+	            var enteringNavbarItems = new _animationsAnimation.Animation(enteringView.navbarItemRefs());
+	            var enteringNavbarBg = new _animationsAnimation.Animation(enteringView.navbarBgRef());
+	            var enteringBackButton = new _animationsAnimation.Animation(enteringView.backBtnRef());
+	            enteringNavBar.add(enteringTitle).add(enteringNavbarItems).add(enteringNavbarBg).add(enteringBackButton);
+	            enteringTitle.fadeIn();
+	            enteringNavbarItems.fadeIn();
+	            // set properties depending on direction
+	            if (backDirection) {
+	                // back direction
+	                enteringTitle.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+	                enteringNavbarBg.fromTo(TRANSLATEX, OFF_LEFT, CENTER);
+	                if (enteringView.enableBack()) {
+	                    enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+	                    enteringBackButton.fadeIn();
+	                }
+	            } else {
+	                // forward direction
+	                enteringTitle.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
+	                enteringNavbarBg.fromTo(TRANSLATEX, OFF_RIGHT, CENTER);
+	                if (enteringView.enableBack()) {
+	                    enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+	                    enteringBackButton.fadeIn();
+	                    var enteringBackBtnText = new _animationsAnimation.Animation(enteringView.backBtnTextRef());
+	                    enteringBackBtnText.fromTo(TRANSLATEX, '150px', '0px');
+	                    enteringNavBar.add(enteringBackBtnText);
+	                }
+	            }
+	        }
+	        // setup leaving view
+	        if (leavingView) {
+	            // leaving content
+	            var leavingContent = new _animationsAnimation.Animation(leavingView.contentRef());
+	            this.add(leavingContent);
+	            leavingContent.before.addClass(SHOW_VIEW_CSS).before.setStyles({ zIndex: leavingView.index });
+	            if (backDirection) {
+	                leavingContent.fromTo(TRANSLATEX, CENTER, '100%').fromTo(OPACITY, 1, 1);
+	            } else {
+	                leavingContent.fromTo(TRANSLATEX, CENTER, OFF_LEFT).fromTo(OPACITY, 1, OFF_OPACITY);
+	            }
+	            if (leavingHasNavbar) {
+	                var leavingNavBar = new _animationsAnimation.Animation(leavingView.navbarRef());
+	                var leavingBackButton = new _animationsAnimation.Animation(leavingView.backBtnRef());
+	                var leavingTitle = new _animationsAnimation.Animation(leavingView.titleRef());
+	                var leavingNavbarItems = new _animationsAnimation.Animation(leavingView.navbarItemRefs());
+	                var leavingNavbarBg = new _animationsAnimation.Animation(leavingView.navbarBgRef());
+	                leavingNavBar.add(leavingBackButton).add(leavingTitle).add(leavingNavbarItems).add(leavingNavbarBg);
+	                this.add(leavingNavBar);
+	                leavingBackButton.after.removeClass(SHOW_BACK_BTN_CSS).fadeOut();
+	                leavingTitle.fadeOut();
+	                leavingNavbarItems.fadeOut();
+	                // set properties depending on direction
+	                if (backDirection) {
+	                    // back direction
+	                    leavingTitle.fromTo(TRANSLATEX, CENTER, '100%');
+	                    leavingNavbarBg.fromTo(TRANSLATEX, CENTER, '100%');
+	                    var leavingBackBtnText = new _animationsAnimation.Animation(leavingView.backBtnTextRef());
+	                    leavingBackBtnText.fromTo(TRANSLATEX, CENTER, 300 + 'px');
+	                    leavingNavBar.add(leavingBackBtnText);
+	                } else {
+	                    // forward direction
+	                    leavingTitle.fromTo(TRANSLATEX, CENTER, OFF_LEFT);
+	                }
 	            }
 	        }
 	    }
 
 	    return IOSTransition;
-	})(_transition.Transition);
+	})(_animationsAnimation.Animation);
 
 	_transition.Transition.register('ios', IOSTransition);
 
@@ -59069,56 +58943,89 @@
 	var TRANSLATEY = 'translateY';
 	var OFF_BOTTOM = '40px';
 	var CENTER = '0px';
+	var SHOW_NAVBAR_CSS = 'show-navbar';
+	var SHOW_VIEW_CSS = 'show-view';
+	var SHOW_BACK_BTN_CSS = 'show-back-button';
+	var TABBAR_HEIGHT = '69px';
 
-	var MaterialTransition = (function (_Transition) {
-	    _inherits(MaterialTransition, _Transition);
+	var MDTransition = (function (_Animation) {
+	    _inherits(MDTransition, _Animation);
 
-	    function MaterialTransition(nav, opts) {
-	        _classCallCheck(this, MaterialTransition);
+	    function MDTransition(navCtrl, opts) {
+	        _classCallCheck(this, MDTransition);
 
 	        opts.renderDelay = 160;
-	        _get(Object.getPrototypeOf(MaterialTransition.prototype), 'constructor', this).call(this, nav, opts);
-	        // entering item moves in bottom to center
-	        this.enteringContent.to(TRANSLATEY, CENTER).before.setStyles({ zIndex: this.enteringZ });
-	        // entering item moves in bottom to center
-	        this.enteringNavbar.to(TRANSLATEY, CENTER).before.setStyles({ zIndex: this.enteringZ + 10 });
-	        // leaving view stays put
-	        this.leavingContent.before.setStyles({ zIndex: this.leavingZ });
-	        this.leavingNavbar.before.setStyles({ zIndex: this.leavingZ + 10 });
-	        // set properties depending on direction
-	        if (opts.direction === 'back') {
+	        _get(Object.getPrototypeOf(MDTransition.prototype), 'constructor', this).call(this, null, opts);
+	        // what direction is the transition going
+	        var backDirection = opts.direction === 'back';
+	        // get entering/leaving views
+	        var enteringView = navCtrl.getStagedEnteringView();
+	        var leavingView = navCtrl.getStagedLeavingView();
+	        // do they have navbars?
+	        var enteringHasNavbar = enteringView.hasNavbar();
+	        var leavingHasNavbar = leavingView && leavingView.hasNavbar();
+	        // entering content item moves in bottom to center
+	        var enteringContent = new _animationsAnimation.Animation(enteringView.contentRef());
+	        enteringContent.before.addClass(SHOW_VIEW_CSS).before.setStyles({ zIndex: enteringView.index });
+	        this.add(enteringContent);
+	        if (backDirection) {
 	            this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
-	            // back direction
-	            this.enteringContent.from(TRANSLATEY, CENTER);
-	            this.enteringNavbar.from(TRANSLATEY, CENTER);
-	            // leaving view goes center to bottom
-	            this.leavingContent.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut();
-	            this.leavingNavbar.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut();
+	            enteringContent.fromTo(TRANSLATEY, CENTER, CENTER);
 	        } else {
-	            // forward direction
 	            this.duration(280).easing('cubic-bezier(0.36,0.66,0.04,1)');
-	            this.enteringContent.from(TRANSLATEY, OFF_BOTTOM).fadeIn();
-	            this.enteringNavbar.from(TRANSLATEY, OFF_BOTTOM).fadeIn();
+	            enteringContent.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
 	        }
-	        var viewLength = nav.length();
-	        if (nav.tabs && (viewLength === 1 || viewLength === 2)) {
-	            var tabBarEle = nav.tabs.elementRef.nativeElement.querySelector('.tab-bar-container');
+	        // entering navbar
+	        if (enteringHasNavbar) {
+	            var enteringNavBar = new _animationsAnimation.Animation(enteringView.navbarRef());
+	            enteringNavBar.before.addClass(SHOW_NAVBAR_CSS).before.setStyles({ zIndex: enteringView.index + 10 });
+	            this.add(enteringNavBar);
+	            if (backDirection) {
+	                enteringNavBar.fromTo(TRANSLATEY, CENTER, CENTER);
+	            } else {
+	                enteringNavBar.fromTo(TRANSLATEY, OFF_BOTTOM, CENTER).fadeIn();
+	            }
+	            if (enteringView.enableBack()) {
+	                var enteringBackButton = new _animationsAnimation.Animation(enteringView.backBtnRef());
+	                enteringBackButton.before.addClass(SHOW_BACK_BTN_CSS);
+	                enteringNavBar.add(enteringBackButton);
+	            }
+	        }
+	        // setup leaving view
+	        if (leavingView) {
+	            // leaving content
+	            var leavingContent = new _animationsAnimation.Animation(leavingView.contentRef());
+	            this.add(leavingContent);
+	            leavingContent.before.addClass(SHOW_VIEW_CSS).before.setStyles({ zIndex: leavingView.index });
+	            if (backDirection) {
+	                this.duration(200).easing('cubic-bezier(0.47,0,0.745,0.715)');
+	                leavingContent.fromTo(TRANSLATEY, CENTER, OFF_BOTTOM).fadeOut();
+	            }
+	            if (leavingHasNavbar) {
+	                if (backDirection) {
+	                    var leavingNavBar = new _animationsAnimation.Animation(leavingView.navbarRef());
+	                    this.add(leavingNavBar);
+	                    leavingNavBar.before.setStyles({ zIndex: leavingView.index + 10 }).fadeOut();
+	                }
+	            }
+	        }
+	        var viewLength = navCtrl.length();
+	        if ((viewLength === 1 || viewLength === 2) && navCtrl.tabs) {
+	            var tabBarEle = navCtrl.tabs.elementRef.nativeElement.querySelector('ion-tab-bar-section');
 	            var tabBar = new _animationsAnimation.Animation(tabBarEle);
-	            if (viewLength === 1 && opts.direction == 'back') {
-	                tabBar.fromTo('height', '0px', '69px');
-	                tabBar.fadeIn();
-	            } else if (viewLength === 2 && opts.direction == 'forward') {
-	                tabBar.fromTo('height', '69px', '0px');
-	                tabBar.fadeOut();
+	            if (viewLength === 1 && backDirection) {
+	                tabBar.fromTo('height', '0px', TABBAR_HEIGHT).fadeIn();
+	            } else if (viewLength === 2 && !backDirection) {
+	                tabBar.fromTo('height', TABBAR_HEIGHT, '0px').fadeOut();
 	            }
 	            this.add(tabBar);
 	        }
 	    }
 
-	    return MaterialTransition;
-	})(_transition.Transition);
+	    return MDTransition;
+	})(_animationsAnimation.Animation);
 
-	_transition.Transition.register('md', MaterialTransition);
+	_transition.Transition.register('md', MDTransition);
 
 /***/ },
 /* 369 */
@@ -70780,19 +70687,19 @@
 	    }
 	    DataService.prototype.retrieveData = function () {
 	        var _this = this;
-	        this.http.get('/app/data/info.json').map(function (res) {
+	        this.http.get('app/data/info.json').map(function (res) {
 	            return res.json();
 	        }).subscribe(function (data) {
 	            console.log('data retrieved', data);
 	            _this.conferenceInfo = data;
 	        });
-	        this.http.get('/app/data/schedule.json').map(function (res) {
+	        this.http.get('app/data/schedule.json').map(function (res) {
 	            return res.json();
 	        }).subscribe(function (data) {
 	            console.log('schedule data retrieved', data);
 	            _this.scheduleInfo = data;
 	        });
-	        this.http.get('/app/data/speakers.json').map(function (res) {
+	        this.http.get('app/data/speakers.json').map(function (res) {
 	            return res.json();
 	        }).subscribe(function (data) {
 	            console.log('speaker data retrieved', data);
@@ -81549,12 +81456,10 @@
 	        this.scheduleForm = fb.group({
 	            scheduleShowing: ['all', angular2_1.Validators.required]
 	        });
-	        this.searchForm = fb.group({
-	            searchQuery: ['', angular2_1.Validators.required]
-	        });
-	        this.searchForm.controls.searchQuery.registerOnChanged = function (c) {
-	            console.log('changed', c);
-	        };
+	        this.searchQuery = '';
+	        // this.searchForm = fb.group({
+	        //   searchQuery: ['', Validators.required]
+	        // });
 	        this.favorites = [];
 	    }
 	    SchedulePage.prototype.nextDay = function (index) {
@@ -81620,6 +81525,27 @@
 	    };
 	    SchedulePage.prototype.cancelSearch = function () {
 	        console.log('cancelSearch stuffs');
+	    };
+	    SchedulePage.prototype.getSessionsForTheDay = function () {
+	        var _this = this;
+	        console.log('getSessionsForTheDay this.searchQuery', this.searchQuery);
+	        if (!this.searchQuery || this.searchQuery.trim() == '') {
+	            return this.sessionsForTheDay;
+	        }
+	        var talks = [];
+	        this.sessionsForTheDay.forEach(function (session) {
+	            var matched = session.talks.filter(function (v) {
+	                if (v.name.toLowerCase().indexOf(_this.searchQuery.toLowerCase()) >= 0) {
+	                    return true;
+	                }
+	                return false;
+	            });
+	            if (matched.length > 0) {
+	                session.talks = matched;
+	                talks.push(session);
+	            }
+	        });
+	        return talks;
 	    };
 	    SchedulePage = __decorate([ionic_1.Page({
 	        templateUrl: 'app/schedule/schedule.html',
@@ -81715,6 +81641,7 @@
 	    };
 	    ScheduleList.prototype.addFavorite = function (timeSlot, session, event) {
 	        console.log('timeslot:', timeSlot, 'add session', session, event);
+	        // debugger;
 	        // this.favorites.push(session);
 	        var currTimeSlot;
 	        this.favorites.forEach(function (t) {
@@ -81733,11 +81660,16 @@
 	        console.log('currTimeSlot', currTimeSlot);
 	        console.log('favorites', this.favorites);
 	        event.preventDefault();
+	        event.stopPropagation();
 	        return false;
 	    };
-	    ScheduleList.prototype.openSession = function (session, val) {
-	        console.log('val for this', val);
+	    ScheduleList.prototype.openSession = function (session, val, event) {
+	        console.log('val for this', val, session, event);
 	        this.nav.push(sessionDetail_1.SessionDetailPage, session);
+	        if (event) {
+	            event.preventDefault();
+	        }
+	        return false;
 	    };
 	    ScheduleList = __decorate([angular2_1.Component({
 	        selector: 'schedule-list',
@@ -81916,7 +81848,6 @@
 	        this.map = null;
 	    }
 	    MapPage.prototype.addMarkerAndInfo = function (latLng, infoContent) {
-	        debugger;
 	        var infowindow = new google.maps.InfoWindow({
 	            content: ['<h5>', infoContent, '</h5>'].join('')
 	        });
