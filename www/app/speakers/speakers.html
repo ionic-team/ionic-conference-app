@@ -19,13 +19,6 @@
         </ion-header>
         <ion-item href="#" *ng-for="#session of speaker.sessions" detail-push (click)="openSession(session)">
           <h3>{{session.name}}</h3>
-          <p>
-            <date-format [value]="session.timestart" format="h:mm"></date-format>
-            &dash;
-            <date-format [value]="session.timeend" format="h:mm"></date-format>
-            &mdash;
-            <span>{{session.location}}</span>
-          </p>
         </ion-item>
       </ion-list>
     </ion-card-content>
