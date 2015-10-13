@@ -13,7 +13,7 @@ export class DataService {
   }
 
   retrieveData() {
-    this.http.get('/app/data/info.json')
+    this.http.get('app/data/info.json')
     // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
@@ -24,7 +24,7 @@ export class DataService {
       this.conferenceInfo = data;
     });
 
-    this.http.get('/app/data/schedule.json')
+    this.http.get('app/data/schedule.json')
     // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
@@ -35,7 +35,7 @@ export class DataService {
       this.scheduleInfo = data;
     }); 
 
-    this.http.get('/app/data/speakers.json')
+    this.http.get('app/data/speakers.json')
     // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())

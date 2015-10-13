@@ -24,13 +24,10 @@ export class SchedulePage {
     this.scheduleForm = fb.group({
       scheduleShowing: ['all', Validators.required]
     });
-
-    this.searchForm = fb.group({
-      searchQuery: ['', Validators.required]
-    });
-    this.searchForm.controls.searchQuery.registerOnChanged = function(c) {
-      console.log('changed', c);
-    }
+    this.searchQuery = '';
+    // this.searchForm = fb.group({
+    //   searchQuery: ['', Validators.required]
+    // });
 
     this.favorites = [];
   }
@@ -108,5 +105,26 @@ export class SchedulePage {
 
   cancelSearch() {
     console.log('cancelSearch stuffs');
+  }
+
+  getSessionsForTheDay() {
+    console.log('getSessionsForTheDay this.searchQuery', this.searchQuery);
+    if (!this.searchQuery || this.searchQuery.trim() == '') {
+      return this.sessionsForTheDay;
+    }
+    var talks = [];
+    this.sessionsForTheDay.forEach((session) => {
+      var matched = session.talks.filter((v) => {
+        if(v.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0) {
+          return true;
+        }
+        return false;
+      });
+      if (matched.length > 0) {
+        session.talks = matched;
+        talks.push(session);
+      }
+    });
+    return talks;
   }
 }

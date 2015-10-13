@@ -16,7 +16,6 @@ export class MapPage {
   }
 
   addMarkerAndInfo(latLng, infoContent) {
-    debugger;
     var infowindow = new google.maps.InfoWindow({
       content: ['<h5>', infoContent, '</h5>'].join('')
     });

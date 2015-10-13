@@ -305,6 +305,16 @@ sub {
   outline-offset: -2px;
   outline: 2px solid red; }
 
+focus-ctrl {
+  position: fixed; }
+  focus-ctrl input,
+  focus-ctrl button {
+    position: fixed;
+    top: 1px;
+    width: 9px;
+    left: -9999px;
+    z-index: 9999; }
+
 backdrop {
   position: absolute;
   z-index: 1;
@@ -746,8 +756,8 @@ button,
 a[button] {
   text-decoration: none; }
 
-.padding > button[block]:first-child,
-.padding > [button][block]:first-child {
+[padding] > button[block]:first-child,
+[padding] > [button][block]:first-child {
   margin-top: 0; }
 
 button[primary],
@@ -1042,29 +1052,27 @@ scroll-content {
   -webkit-overflow-scrolling: touch;
   will-change: scroll-position; }
 
-.padding,
 [padding],
-.padding > scroll-content,
 [padding] > scroll-content {
   padding: 16px; }
 
-.padding-top {
+[padding-top] {
   padding-top: 16px; }
 
-.padding-right {
+[padding-right] {
   padding-right: 16px; }
 
-.padding-bottom {
+[padding-bottom] {
   padding-bottom: 16px; }
 
-.padding-left {
+[padding-left] {
   padding-left: 16px; }
 
-.padding-vertical {
+[padding-vertical] {
   padding-top: 16px;
   padding-bottom: 16px; }
 
-.padding-horizontal {
+[padding-horizontal] {
   padding-right: 16px;
   padding-left: 16px; }
 
@@ -1251,79 +1259,6 @@ ion-thumbnail {
   ion-thumbnail img {
     display: block; }
 
-ion-input textarea,
-ion-input input[type="text"],
-ion-input input[type="password"],
-ion-input input[type="datetime"],
-ion-input input[type="datetime-local"],
-ion-input input[type="date"],
-ion-input input[type="month"],
-ion-input input[type="time"],
-ion-input input[type="week"],
-ion-input input[type="number"],
-ion-input input[type="email"],
-ion-input input[type="url"],
-ion-input input[type="search"],
-ion-input input[type="tel"],
-ion-input input[type="color"] {
-  display: block;
-  background: transparent;
-  border: 0;
-  width: 100%; }
-
-textarea {
-  margin: 0;
-  padding: 0;
-  height: auto;
-  overflow: auto;
-  font: inherit;
-  color: inherit; }
-
-.platform-mobile textarea {
-  resize: none; }
-
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #999; }
-
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #999; }
-
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #999;
-  text-indent: 0; }
-
-input[disabled],
-select[disabled],
-textarea[disabled],
-select[readonly] {
-  cursor: not-allowed; }
-
-focus-holder input {
-  position: fixed;
-  top: 1px;
-  width: 9px;
-  left: -9999px;
-  z-index: 9999; }
-
-/*focus-holder input[tabindex="999"] {
-  left: 0px;
-}
-
-focus-holder input[tabindex="1001"] {
-  left: 20px;
-}
-
-focus-holder input[tabindex="1002"] {
-  left: auto;
-  right: 10px;
-}
-
-focus-holder input:focus {
-  background: red;
-}*/
 /**
  * Grid
  * --------------------------------------------------
@@ -1553,6 +1488,26 @@ ion-col {
       max-width: 100%;
       width: 100%; } }
 
+ion-input textarea,
+ion-input input[type="text"],
+ion-input input[type="password"],
+ion-input input[type="datetime"],
+ion-input input[type="datetime-local"],
+ion-input input[type="date"],
+ion-input input[type="month"],
+ion-input input[type="time"],
+ion-input input[type="week"],
+ion-input input[type="number"],
+ion-input input[type="email"],
+ion-input input[type="url"],
+ion-input input[type="search"],
+ion-input input[type="tel"],
+ion-input input[type="color"] {
+  display: block;
+  background: transparent;
+  border: 0;
+  width: 100%; }
+
 ion-input.item {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
@@ -1566,7 +1521,7 @@ ion-input.item {
 .key-input ion-input :focus {
   outline: none; }
 
-ion-input .text-input {
+ion-input [text-input] {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -ms-flex: 1;
@@ -1574,11 +1529,35 @@ ion-input .text-input {
   background-color: #fff;
   pointer-events: none; }
 
-ion-input.has-focus .text-input {
+ion-input.has-focus [text-input] {
   pointer-events: auto; }
 
 ion-input textarea {
   padding-top: 9px; }
+
+textarea {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow: auto;
+  font: inherit;
+  color: inherit; }
+
+.platform-mobile textarea {
+  resize: none; }
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999; }
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999; }
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999;
+  text-indent: 0; }
 
 ion-label {
   display: block;
@@ -1612,8 +1591,8 @@ ion-input[floating-label] {
   margin-bottom: 0;
   max-width: 100%; }
 
-[stacked-label] .text-input,
-[floating-label] .text-input {
+[stacked-label] [text-input],
+[floating-label] [text-input] {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -2499,7 +2478,7 @@ ion-scroll {
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position; }
 
-.search-bar {
+ion-search-bar {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5851,12 +5830,12 @@ icon,
         border-top: none; }
   .ios .list[inset] + .list[inset] {
     margin-top: 0; }
-  .ios .list .text-input,
-  .ios ion-card .text-input {
+  .ios .list [text-input],
+  .ios ion-card [text-input] {
     margin: 13px 8px 14px 8px;
     padding: 0; }
-  .ios .list ion-input[inset] .text-input,
-  .ios ion-card ion-input[inset] .text-input {
+  .ios .list ion-input[inset] [text-input],
+  .ios ion-card ion-input[inset] [text-input] {
     margin: 6.5px 16px 7px 16px;
     padding: 6.5px 8px 7px 8px; }
   .ios .list ion-label,
@@ -5867,10 +5846,10 @@ icon,
   .ios ion-card [stacked-label] ion-label {
     font-size: 1.2rem;
     margin-bottom: 4px; }
-  .ios .list [stacked-label] .text-input,
-  .ios .list [floating-label] .text-input,
-  .ios ion-card [stacked-label] .text-input,
-  .ios ion-card [floating-label] .text-input {
+  .ios .list [stacked-label] [text-input],
+  .ios .list [floating-label] [text-input],
+  .ios ion-card [stacked-label] [text-input],
+  .ios ion-card [floating-label] [text-input] {
     margin-top: 8px;
     margin-bottom: 8px; }
   .ios .list [floating-label] ion-label,
@@ -5888,7 +5867,7 @@ icon,
   .ios ion-card [floating-label].has-value ion-label {
     -webkit-transform: translate3d(0, 0, 0) scale(0.8);
     transform: translate3d(0, 0, 0) scale(0.8); }
-  .ios .nav .navbar-container {
+  .ios .navbar-container {
     min-height: 4.4rem; }
   .ios ion-popup {
     background: transparent; }
@@ -6027,7 +6006,7 @@ icon,
     border-color: #222; }
   .ios ion-radio[dark][aria-checked=true] {
     color: #222; }
-  .ios .search-bar {
+  .ios ion-search-bar {
     padding: 0 8px;
     background: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -6042,8 +6021,8 @@ icon,
     left: 10px;
     top: 8px;
     margin-left: calc(50% - 60px);
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear; }
+    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
   .ios .search-bar-input {
     height: 28px;
     padding: 0 28px;
@@ -6055,8 +6034,8 @@ icon,
     background-repeat: no-repeat;
     background-position: 8px center;
     padding-left: calc(50% - 28px);
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear; }
+    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1); }
     .ios .search-bar-input::-webkit-input-placeholder {
       color: #9D9D9D; }
     .ios .search-bar-input::-moz-placeholder {
@@ -6074,23 +6053,25 @@ icon,
     position: absolute;
     right: 10px;
     top: 6px; }
+  .ios .search-bar-cancel {
+    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+    min-height: 0;
+    padding-left: 8px;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: -100%; }
   .ios .search-bar-input-container.left-align .search-bar-search-icon {
     margin-left: 0; }
   .ios .search-bar-input-container.left-align .search-bar-input {
     padding-left: 28px; }
   .ios .search-bar-cancel {
-    -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
-    -webkit-transition-duration: 3s !important;
-    transition-duration: 3s !important;
-    margin-right: calc(-100%);
-    min-height: 0; }
-  .ios .search-bar-cancel.left-align {
-    max-width: initial;
-    margin-right: 0;
+    -webkit-transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
+    transition: all 400ms cubic-bezier(0.25, 0.45, 0.05, 1);
     padding-left: 8px;
+    min-height: 0;
     padding-right: 0; }
-  .ios.hairlines .search-bar {
+  .ios.hairlines ion-search-bar {
     border-bottom-width: 0.55px; }
   .ios .ion-segment button,
   .ios .ion-segment [button] {
@@ -6406,23 +6387,21 @@ icon,
     .md button[dark][outline].activated md-ripple,
     .md [button][dark][outline].activated md-ripple {
       background: rgba(0, 0, 0, 0.1); }
-  .md .padding,
   .md [padding],
-  .md .padding > scroll-content,
   .md [padding] > scroll-content {
     padding: 16px; }
-  .md .padding-top {
+  .md [padding-top] {
     padding-top: 16px; }
-  .md .padding-right {
+  .md [padding-right] {
     padding-right: 16px; }
-  .md .padding-bottom {
+  .md [padding-bottom] {
     padding-bottom: 16px; }
-  .md .padding-left {
+  .md [padding-left] {
     padding-left: 16px; }
-  .md .padding-vertical {
+  .md [padding-vertical] {
     padding-top: 16px;
     padding-bottom: 16px; }
-  .md .padding-horizontal {
+  .md [padding-horizontal] {
     padding-right: 16px;
     padding-left: 16px; }
   .md .list .item-group-title {
@@ -6501,7 +6480,7 @@ icon,
   .md .list .item[actions] ion-item-content {
     margin: 4px; }
   .md .list icon[item-left] + ion-item-content,
-  .md .list icon[item-left] + .text-input {
+  .md .list icon[item-left] + [text-input] {
     margin-left: 24px; }
   .md .list ion-avatar {
     min-width: 4rem; }
@@ -6726,8 +6705,8 @@ icon,
   .md ion-checkbox[dark][aria-checked=true] checkbox-icon {
     background-color: #222;
     border-color: #222; }
-  .md .list .text-input,
-  .md ion-card .text-input {
+  .md .list [text-input],
+  .md ion-card [text-input] {
     margin: 13px 8px 13px 8px;
     padding: 0; }
   .md .list ion-input.item:before,
@@ -6735,8 +6714,8 @@ icon,
   .md ion-card ion-input.item:before,
   .md ion-card ion-input.item:after {
     left: 0; }
-  .md .list ion-input[inset] .text-input,
-  .md ion-card ion-input[inset] .text-input {
+  .md .list ion-input[inset] [text-input],
+  .md ion-card ion-input[inset] [text-input] {
     margin: 6.5px 16px 6.5px 16px;
     padding: 6.5px 8px 6.5px 8px; }
   .md .list ion-label,
@@ -6759,10 +6738,10 @@ icon,
   .md ion-card [stacked-label].has-focus ion-label,
   .md ion-card [floating-label].has-focus ion-label {
     color: #387ef5; }
-  .md .list [stacked-label] .text-input,
-  .md .list [floating-label] .text-input,
-  .md ion-card [stacked-label] .text-input,
-  .md ion-card [floating-label] .text-input {
+  .md .list [stacked-label] [text-input],
+  .md .list [floating-label] [text-input],
+  .md ion-card [stacked-label] [text-input],
+  .md ion-card [floating-label] [text-input] {
     margin-bottom: 8px;
     margin-top: 8px; }
   .md .list [floating-label] ion-label,
@@ -6783,12 +6762,12 @@ icon,
   .md .list[inset] ion-input.item {
     padding-right: 0;
     padding-left: 0; }
-  .md .nav .navbar-container {
+  .md .navbar-container {
     min-height: 5.6rem; }
-  .md .nav .back-button {
+  .md .toolbar .back-button {
     margin: 0 0 0 12px;
     box-shadow: none; }
-  .md .nav .back-button-icon {
+  .md .toolbar .back-button-icon {
     margin: 0;
     min-width: 44px;
     font-size: 2.4rem;
@@ -6881,7 +6860,7 @@ icon,
     background: #222; }
   .md ion-radio[dark][aria-checked=true] {
     color: #222; }
-  .md .search-bar {
+  .md ion-search-bar {
     padding: 8px;
     background: inherit; }
   .md .search-bar-search-icon {
@@ -6921,6 +6900,8 @@ icon,
     position: absolute;
     right: 13px;
     top: 13px; }
+  .md .search-bar-cancel {
+    display: none; }
   .md ion-switch media-switch {
     padding: 12px 8px 12px 16px; }
   .md ion-switch switch-icon {

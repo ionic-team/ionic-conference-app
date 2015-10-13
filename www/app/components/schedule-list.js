@@ -24,6 +24,7 @@ export class ScheduleList {
 
   addFavorite(timeSlot, session, event) {
     console.log('timeslot:', timeSlot, 'add session', session, event);
+    // debugger;
     // this.favorites.push(session);
     var currTimeSlot;
     this.favorites.forEach(function(t) {
@@ -44,11 +45,16 @@ export class ScheduleList {
     console.log('currTimeSlot', currTimeSlot);
     console.log('favorites', this.favorites);
     event.preventDefault();
+    event.stopPropagation();
     return false;
   }
 
-  openSession(session, val) {
-    console.log('val for this', val);
+  openSession(session, val, event) {
+    console.log('val for this', val, session, event);
     this.nav.push(SessionDetailPage, session);
+    if (event) {
+      event.preventDefault();
+    }
+    return false;
   }
 }

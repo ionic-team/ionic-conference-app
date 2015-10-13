@@ -1,22 +1,24 @@
-<div *ng-if="data.length > 0">
-  <ion-item-group class="outer-content" *ng-for="#timeSlot of data">
-    <ion-item-group-title>
-      {{timeSlot.time}}
-    </ion-item-group-title>
-    <ion-item *ng-for="#session of timeSlot.talks">
-      <h3>{{session.name}}</h3>
-      <p>
-        <date-format [value]="session.timestart" format="h:mm"></date-format>
-        &dash;
-        <date-format [value]="session.timeend" format="h:mm"></date-format>
-        &mdash;
-        <span>{{session.location}}</span>
-      </p>
-      <ion-item-options>
-        <button primary (click)="openSession(session, $this)">Speaker Info</button>
-        <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to <br>Favorites</button>
-      </ion-item-options>
-    </ion-item>
-  </ion-item-group>
+<div [class.hide]="data.length == 0">
+  <ion-list>
+    <ion-item-group class="outer-content" *ng-for="#timeSlot of data">
+      <ion-item-group-title>
+        {{timeSlot.time}}
+      </ion-item-group-title>
+      <ion-item-sliding *ng-for="#session of timeSlot.talks" detail-push (click)="openSession(session)">
+        <h3>{{session.name}}</h3>
+        <p>
+          <date-format [value]="session.timestart" format="h:mm"></date-format>
+          &dash;
+          <date-format [value]="session.timeend" format="h:mm"></date-format>
+          &mdash;
+          <span>{{session.location}}</span>
+        </p>
+        <ion-item-options>
+          <button primary (click)="openSession(session, $this, $event)">Speaker<br>Info</button>
+          <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to<br>Favorites</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
 </div>
-<div *ng-if="data.length == 0"><h4>No favorites</h4></div>
+<div [class.hide]="data.length > 0"><h4>No favorites</h4></div>

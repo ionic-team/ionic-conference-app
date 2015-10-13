@@ -22,16 +22,13 @@
       </div>
     </ion-title>
   </ion-navbar>
-  <form [ng-form-model]="searchForm">
-    <ion-search-bar ng-control="searchQuery" placeholder="Search Schedule" show-cancel="true" [cancel-action]="cancelSearch"></ion-search-bar>
-  </form>
-
+  <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search Schedule" [cancel-action]="cancelSearch"></ion-search-bar>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
     <div *ng-switch-when="'favorites'">
       <schedule-list [data]="favorites"></schedule-list>
     </div>
     <div *ng-switch-when="'all'">
-      <schedule-list [data]="sessionsForTheDay" [favorites]="favorites"></schedule-list>
+      <schedule-list [data]="getSessionsForTheDay()" [favorites]="favorites"></schedule-list>
     </div>
   </div>
 </ion-content>
