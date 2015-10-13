@@ -55,7 +55,6 @@ export class SpeakersPage {
   }
 
   openSpeakerTwitter(speaker) {
-    console.log(speaker.twitter);
     window.open(speaker.twitter);
   }
 }

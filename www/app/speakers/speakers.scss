@@ -1,35 +1,43 @@
-ion-card.speaker {
-  ion-card-header {
-    padding: 0;
+.speaker-page {
+  ion-card.speaker {
+    ion-card-header {
+      padding: 0;
 
-    .item {
-      padding: 16px;
+      .item {
+        padding: 16px;
 
-      a {
-        color: #666;
+        a {
+          color: #666;
+        }
+      }
+    }
+
+    img[item-left] {
+      border-radius: 20px;
+      width: 40px;
+      margin: 0 10px 0 0;
+    }
+
+    ion-card-content {
+      padding: 0;
+
+      .list {
+        margin: 0;
+
+        ion-item-content {
+          padding: 0;
+        }
       }
     }
   }
 
-  img[item-left] {
-    border-radius: 20px;
-    width: 40px;
-    margin: 0 10px 0 0;
-  }
-
-  ion-card-content {
-    padding: 0;
-
-    .list {
-      margin: 0;
-    }
-
-    .list ion-header {
-      background-color: #f5f5f5;
-    }
-
-    .list ion-item-content {
-      padding: 0;
+  .speaker-detail {
+    img {
+      max-width: 100%;
     }
   }
+}
+
+.ios .speaker-page .list ion-header {
+  background-color: #f5f5f5;
 }
