@@ -8,7 +8,7 @@ import {ScheduleList} from './components/schedule-list';
 
 @App({
   templateUrl: 'app/app.html',
-  bindings: [DataService, Http, FormBuilder, HTTP_BINDINGS],
+  providers: [DataService, Http, FormBuilder, HTTP_BINDINGS],
   directives: [forwardRef(() => ScheduleList)]
 })
 

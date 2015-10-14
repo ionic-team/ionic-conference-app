@@ -8,7 +8,7 @@ import {ScheduleList} from '../components/schedule-list';
 
 @Page({
   templateUrl: 'app/schedule/schedule.html',
-  bindings: [DataService, NgControl],
+  providers: [DataService, NgControl],
   directives: [DateFormat, FORM_DIRECTIVES, ScheduleList, SearchBar]
 })
 

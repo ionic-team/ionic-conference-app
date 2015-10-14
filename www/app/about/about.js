@@ -5,7 +5,7 @@ import {DateFormat} from '../components/date-format';
 
 @Page({
   templateUrl: 'app/about/about.html',
-  bindings: [DataService, Http],
+  providers: [DataService, Http],
   viewBindings: [HTTP_BINDINGS],
   directives: [DateFormat]
 })

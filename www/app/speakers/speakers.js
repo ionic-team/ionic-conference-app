@@ -7,7 +7,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 
 @Page({
   templateUrl: 'app/speakers/speakers.html',
-  bindings: [DataService],
+  providers: [DataService],
   directives: [DateFormat]
 })
 

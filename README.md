@@ -42,9 +42,9 @@ Create an Angular HTTP service to get data
 Scenarios to cover - examples
 
 Application wide variables
-Service with bindings/injection - to get data from server
+Service with providers/injection - to get data from server
 
-How to inject bindings - error with type casting?
+How to inject providers - error with type casting?
 Using HTTP - how to? 
 
 Promises?
