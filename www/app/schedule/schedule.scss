@@ -6,13 +6,28 @@
   margin-top: 3px;
 }
 
-span[badge] {
-  background-color: color(primary);
-  color: white;
-  padding: 1px 4px;
-  margin-left: 4px;
+$categories: (
+  ionic: color(primary),
+  angular: #AC282B,
+  communication: #8E8D93,
+  tooling: #FE4C52,
+  services: #FD8B2D,
+  design: #FED035,
+  workshop: #69BB7B,
+  food: #3BC7C4,
+  documentation: #B16BE3,
+  navigation: #6600CC,
+);
+
+@function auxiliary-categories() {
+  // get a map of all the colors, except "primary"
+  @return map-remove($categories, primary);
 }
 
-.ios span[badge] {
-  border-radius: 4px;
+@each $category, $value in auxiliary-categories() {
+  .item[category=#{$category}] ion-item-content {
+    border-left: 2px solid $value;
+    padding-left: 10px;
+  }
+
 }
