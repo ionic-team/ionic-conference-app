@@ -4,7 +4,7 @@
       {{timeSlot.time}}
     </ion-item-group-title>
     <ion-item-sliding *ng-for="#session of timeSlot.talks" detail-push (click)="openSession(session)">
-      <h3>{{session.name}}</h3>
+      <h3>{{session.name}} <span badge>{{session.category}}</span></h3>
       <p>
         <date-format [value]="session.timestart" format="h:mm"></date-format>
         &dash;
@@ -21,7 +21,7 @@
 
   <ion-item-group [class.hide]="data.length > 0">
     <ion-item-group-title class="no-results">
-      No Sessions Found 
+      No Sessions Found
     </ion-item-group-title>
   </ion-item-group>
 </ion-list>

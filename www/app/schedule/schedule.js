@@ -108,7 +108,7 @@ export class SchedulePage {
   }
 
   getSessionsForTheDay() {
-    console.log('getSessionsForTheDay this.searchQuery', this.searchQuery);
+    //console.log('getSessionsForTheDay this.searchQuery', this.searchQuery);
     if (!this.searchQuery || this.searchQuery.trim() == '') {
       return this.sessionsForTheDay;
     }

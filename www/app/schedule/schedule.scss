@@ -1,3 +1,18 @@
 .item-group-title.no-results {
   background-color: transparent;
 }
+
+.item h3 {
+  margin-top: 3px;
+}
+
+span[badge] {
+  background-color: color(primary);
+  color: white;
+  padding: 1px 4px;
+  margin-left: 4px;
+}
+
+.ios span[badge] {
+  border-radius: 4px;
+}
