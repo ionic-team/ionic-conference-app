@@ -1,24 +1,27 @@
-<div [class.hide]="data.length == 0">
-  <ion-list>
-    <ion-item-group class="outer-content" *ng-for="#timeSlot of data">
-      <ion-item-group-title>
-        {{timeSlot.time}}
-      </ion-item-group-title>
-      <ion-item-sliding *ng-for="#session of timeSlot.talks" detail-push (click)="openSession(session)">
-        <h3>{{session.name}}</h3>
-        <p>
-          <date-format [value]="session.timestart" format="h:mm"></date-format>
-          &dash;
-          <date-format [value]="session.timeend" format="h:mm"></date-format>
-          &mdash;
-          <span>{{session.location}}</span>
-        </p>
-        <ion-item-options>
-          <button primary *ng-if="session.speaker" (click)="openSpeakerDetail(session.speaker, $event)">Speaker<br>Info</button>
-          <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to<br>Favorites</button>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-item-group>
-  </ion-list>
-</div>
-<div [class.hide]="data.length > 0"><h4>No favorites</h4></div>
+<ion-list>
+  <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of data">
+    <ion-item-group-title>
+      {{timeSlot.time}}
+    </ion-item-group-title>
+    <ion-item-sliding *ng-for="#session of timeSlot.talks" detail-push (click)="openSession(session)">
+      <h3>{{session.name}}</h3>
+      <p>
+        <date-format [value]="session.timestart" format="h:mm"></date-format>
+        &dash;
+        <date-format [value]="session.timeend" format="h:mm"></date-format>
+        &mdash;
+        <span>{{session.location}}</span>
+      </p>
+      <ion-item-options>
+        <button primary *ng-if="session.speaker" (click)="openSpeakerDetail(session.speaker, $event)">Speaker<br>Info</button>
+        <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to<br>Favorites</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-item-group>
+
+  <ion-item-group [class.hide]="data.length > 0">
+    <ion-item-group-title class="no-results">
+      No Sessions Found 
+    </ion-item-group-title>
+  </ion-item-group>
+</ion-list>
