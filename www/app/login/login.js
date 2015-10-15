@@ -1,9 +1,9 @@
 import {Validators, Control, ControlGroup} from 'angular2/angular2';
-import {IonicApp, IonicView, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController} from 'ionic/ionic';
 
 import {SignupPage} from '../signup/signup';
 
-@IonicView({
+@Page({
   templateUrl: 'app/login/login.html'
 })
 export class LoginPage {
@@ -30,7 +30,7 @@ export class LoginPage {
   }
 }
 
-@IonicView({
+@Page({
   templateUrl: 'app/login/forgot-password.html'
 })
 export class ForgotPasswordPage {

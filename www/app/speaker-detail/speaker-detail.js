@@ -1,5 +1,4 @@
-// import {PageNavigator} from '../service/pageNavigator';
-import {IonicView, NavController, IonicApp, NavParams, Page} from 'ionic/ionic';
+import {NavController, IonicApp, NavParams, Page} from 'ionic/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {DataService} from '../service/data';
 

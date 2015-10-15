@@ -1,9 +1,9 @@
 import {Validators, Control, ControlGroup} from 'angular2/angular2';
-import {IonicApp, IonicView, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController} from 'ionic/ionic';
 
 import {LoginPage} from '../login/login';
 
-@IonicView({
+@Page({
   templateUrl: 'app/signup/signup.html'
 })
 export class SignupPage {
