@@ -4,16 +4,20 @@
 
 <ion-content class="about-page">
   <div class="top-header">
-    <div padding-top class="header-image">
-      <img src="/img/appicon.png">
-    </div>
-    <div padding-top class="header-info">
-        <h4>{{conferenceInfo.name}}</h4>
-        <date-format [value]="conferenceInfo.start" format="MMM D"></date-format> - <date-format [value]="conferenceInfo.end" format="MMM D, YYYY"></date-format><br>
-        <span>{{conferenceInfo.location}}</span>
-    </div>
+    <img src="/img/ionic-logo-white.svg">
   </div>
-  <div padding>
-    {{conferenceInfo.about}}
+  <div padding class="info">
+    <h4>{{conferenceInfo.name}}</h4>
+
+    <div class="important">
+      <icon calendar></icon>
+      <date-format [value]="conferenceInfo.start" format="MMM D, YYYY"></date-format>
+    </div>
+    <div class="important">
+      <icon pin></icon>
+      <span>{{conferenceInfo.location}}</span>
+    </div>
+
+    <p>{{conferenceInfo.about}}</p>
   </div>
 </ion-content>

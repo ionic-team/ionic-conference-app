@@ -1,19 +1,44 @@
 .about-page {
   .top-header {
-    background-color: #F5F5F5;
+    background-color: #444;
     padding: 16px;
+    width: 100%;
+    text-align: center;
 
-    .header-image {
-      width: 100%;
-      text-align: center;
-
-      img {
-        height: 150px;
-      }
+    img {
+      width: 70%;
+      margin-left: -15px;
+      padding: 25px 0 20px 0;
     }
+  }
 
-    .header-info {
+  p {
+    color: #697072;
+  }
 
+  .important {
+    padding: 5px;
+    text-align: left;
+    font-size: 1.5rem;
+
+    icon {
+      color: color(primary);
+      width: 20px;
     }
+  }
+}
+
+.ios {
+  .important {
+    display: inline-block;
+
+    icon {
+      width: auto;
+      margin-right: 10px;
+    }
+  }
+
+  .about-page .info {
+    text-align: center;
   }
 }

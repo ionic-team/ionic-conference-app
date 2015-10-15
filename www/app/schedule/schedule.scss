@@ -20,8 +20,7 @@ $categories: (
 );
 
 @function auxiliary-categories() {
-  // get a map of all the colors, except "primary"
-  @return map-remove($categories, primary);
+  @return map-remove($categories);
 }
 
 @each $category, $value in auxiliary-categories() {
