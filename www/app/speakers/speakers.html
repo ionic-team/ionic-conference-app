@@ -7,8 +7,10 @@
   <ion-card *ng-for="#speaker of speakers" class="speaker">
     <ion-card-header>
       <ion-item href="#" detail-push (click)="openSpeakerDetail(speaker.name)">
-        <img item-left src="{{speaker.profile_pic}}"></icon>
-        <a>{{speaker.name}}</a>
+        <ion-avatar item-left>
+          <img [src]="speaker.profile_pic"></icon>
+        </ion-avatar>
+        {{speaker.name}}
       </ion-item>
     </ion-card-header>
 

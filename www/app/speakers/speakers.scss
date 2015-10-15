@@ -4,18 +4,8 @@
       padding: 0;
 
       .item {
-        padding: 16px;
-
-        a {
-          color: #666;
-        }
+        padding: 12px;
       }
-    }
-
-    img[item-left] {
-      border-radius: 20px;
-      width: 40px;
-      margin: 0 10px 0 0;
     }
 
     ion-card-content {
