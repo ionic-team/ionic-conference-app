@@ -1,4 +1,4 @@
-import {IonicApp, IonicView, NavController, Page, Popup, SearchBar} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, Page, Popup, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -13,9 +13,10 @@ import {ScheduleList} from '../components/schedule-list';
 })
 
 export class SchedulePage {
-  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, popup: Popup) {
+  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, popup: Popup, modal: Modal) {
     this.nav = nav;
     this.popup = popup;
+    this.modal = modal;
     this.schedule = data.getSchedule();
     this.index = 0;
     // this.scheduleForTheDay = this.schedule[0];
@@ -61,48 +62,6 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, session);
   }
 
-  addFavorite(timeSlot, session, event) {
-    console.log('timeslot:', timeSlot, 'add session', session, event);
-    // this.favorites.push(session);
-    var currTimeSlot;
-    this.favorites.forEach(function(t) {
-      if (t.time == timeSlot.time) {
-        currTimeSlot = t;
-      }
-    });
-    if (!currTimeSlot) {
-      currTimeSlot = { time: timeSlot.time, talks:[] };
-      currTimeSlot.talks.push(session);
-      this.favorites.push(currTimeSlot);
-    } else {
-      console.log('we had timeslot');
-      currTimeSlot.talks.push(session);
-    }
-
-
-    console.log('currTimeSlot', currTimeSlot);
-    console.log('favorites', this.favorites);
-    event.preventDefault();
-    return false;
-
-  }
-
-  openPopup() {
-    this.popup.prompt({
-      title: "Filter",
-      template: "Enter a session name or category",
-      inputPlaceholder: "Name",
-      okText: "Filter"
-    }).then((name) => {
-      console.log('entry', name);
-      // this.promptResult = name;
-      // this.promptOpen = false;
-    }, () => {
-      console.error('Prompt closed');
-      // this.promptOpen = false;
-    });
-  }
-
   cancelSearch() {
     console.log('cancelSearch stuffs');
   }
@@ -126,5 +85,9 @@ export class SchedulePage {
       }
     });
     return talks;
+  }
+
+  openScheduleFilter() {
+
   }
 }

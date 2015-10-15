@@ -14,7 +14,7 @@
       </p>
       <ion-item-options>
         <button primary *ng-if="session.speaker" (click)="openSpeakerDetail(session.speaker, $event)">Speaker<br>Info</button>
-        <button secondary (click)="addFavorite(timeSlot, session, $event)">Add to<br>Favorites</button>
+        <button secondary *ng-if="showing == 'all'" (click)="addFavorite(timeSlot, session, $event)">Add to<br>Favorites</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-item-group>

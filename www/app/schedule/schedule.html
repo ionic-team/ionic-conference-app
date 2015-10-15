@@ -3,7 +3,7 @@
     <ion-nav-items primary>
     </ion-nav-items>
     <ion-nav-items secondary>
-      <button (click)="openPopup()"><icon funnel></icon></button>
+      <button (click)="openScheduleFilter()"><icon funnel></icon></button>
     </ion-nav-items>
     <ion-title>
       <div class="segments">
@@ -23,10 +23,10 @@
   <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search Schedules"></ion-search-bar>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
     <div *ng-switch-when="'favorites'">
-      <schedule-list [data]="favorites"></schedule-list>
+      <schedule-list [data]="favorites" showing="favorites"></schedule-list>
     </div>
     <div *ng-switch-when="'all'">
-      <schedule-list [data]="getSessionsForTheDay()" [favorites]="favorites"></schedule-list>
+      <schedule-list [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></schedule-list>
     </div>
   </div>
 </ion-content>
