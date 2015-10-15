@@ -1,20 +1,4 @@
 .home-page {
-  .top-header {
-    background-color: lightblue;
-    padding: 16px;
-
-    .header-image {
-      float: left;
-      margin-right: 20px;
-      img {
-        height: 50px;
-      }
-    }
-
-    .header-info {
-
-    }
-  }
 
   .home-content {
     margin-top: 16px;
@@ -59,7 +43,7 @@
   .next-day-schedule {
     left: 0;
   }
-  
+
   .previous-day-schedule {
     right: 0;
   }

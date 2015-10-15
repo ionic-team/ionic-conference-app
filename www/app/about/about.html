@@ -1,16 +1,19 @@
-<ion-content padding class="home-page">
+<ion-navbar *navbar>
+  <ion-title>About</ion-title>
+</ion-navbar>
 
+<ion-content class="about-page">
   <div class="top-header">
-    <div class="header-image">
+    <div padding-top class="header-image">
       <img src="/img/appicon.png">
     </div>
-    <div class="header-info">
+    <div padding-top class="header-info">
         <h4>{{conferenceInfo.name}}</h4>
         <date-format [value]="conferenceInfo.start" format="MMM D"></date-format> - <date-format [value]="conferenceInfo.end" format="MMM D, YYYY"></date-format><br>
         <span>{{conferenceInfo.location}}</span>
     </div>
   </div>
-  <div class="home-content">
+  <div padding>
     {{conferenceInfo.about}}
   </div>
 </ion-content>

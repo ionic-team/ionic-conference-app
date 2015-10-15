@@ -1,6 +1,6 @@
 {
-  "about": "Ionic 2 conference is a three day multi-track event focused on Ionic applications being built around Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2, directives, components, webpack, sass, and other technologies used in Ionic 2.",
-  "name": "Ionic 2 conf",
+  "about": "Ionic 2 conference is a one day event focused on Ionic applications being built around Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2, directives, components, webpack, sass, and other technologies used in Ionic 2.",
+  "name": "Ionic Conference",
   "start": "05/17/2016",
   "end": "05/19/2016",
   "location": "Madison, WI"
