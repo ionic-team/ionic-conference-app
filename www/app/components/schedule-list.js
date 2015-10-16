@@ -21,6 +21,10 @@ export class ScheduleList {
     this.popup = popup;
   }
 
+  onInit() {
+    console.info("Showing new schedule list");
+  }
+
   addFavorite(timeSlot, session, event) {
     //console.log('timeslot:', timeSlot, 'add session', session, event);
 
@@ -63,7 +67,7 @@ export class ScheduleList {
   alertFavoriteExists() {
     this.popup.alert({
       title: "Oops",
-      template: "That talk has been favorited already.",
+      template: "That session has been favorited already.",
     }).then((response) => {
      console.log('entry', response);
     };

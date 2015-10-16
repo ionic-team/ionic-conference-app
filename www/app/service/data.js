@@ -14,7 +14,6 @@ export class DataService {
 
   retrieveData() {
     this.http.get('app/data/info.json')
-    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the
@@ -25,7 +24,6 @@ export class DataService {
     });
 
     this.http.get('app/data/schedule.json')
-    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the
@@ -33,10 +31,9 @@ export class DataService {
     .subscribe(data => {
       console.log('schedule data retrieved', data);
       this.scheduleInfo = data;
-    }); 
+    });
 
     this.http.get('app/data/speakers.json')
-    // .toRx()
     // Call map on the response observable to get the parsed people object
     .map(res => res.json())
     // Subscribe to the observable to get the parsed people object and attach it to the
@@ -44,18 +41,32 @@ export class DataService {
     .subscribe(data => {
       console.log('speaker data retrieved', data);
       this.speakers = data;
-    }); 
+    });
+
+    this.http.get('app/data/categories.json')
+    // Call map on the response observable to get the parsed people object
+    .map(res => res.json())
+    // Subscribe to the observable to get the parsed people object and attach it to the
+    // component
+    .subscribe(data => {
+      console.log('speaker data retrieved', data);
+      this.categories = data;
+    });
   }
 
   getData() {
     return this.conferenceInfo;
   }
 
-  getSchedule() { 
+  getSchedule() {
     return this.scheduleInfo;
   }
 
   getSpeakers() {
     return this.speakers;
+  }
+
+  getCategories() {
+    return this.categories;
   }
 }

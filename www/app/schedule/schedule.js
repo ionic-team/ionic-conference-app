@@ -1,4 +1,4 @@
-import {IonicApp, IonicView, NavController, Page, Popup, SearchBar, Modal} from 'ionic/ionic';
+import {IonicApp, IonicView, NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -13,9 +13,8 @@ import {ScheduleList} from '../components/schedule-list';
 })
 
 export class SchedulePage {
-  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, popup: Popup, modal: Modal) {
+  constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, modal: Modal) {
     this.nav = nav;
-    this.popup = popup;
     this.modal = modal;
     this.schedule = data.getSchedule();
     this.index = 0;
@@ -88,6 +87,27 @@ export class SchedulePage {
   }
 
   openScheduleFilter() {
+    console.log("opening modal");
+    this.modal.open(ScheduleFilterModal);
+  }
+}
 
+@Page({
+  templateUrl: 'app/modals/filter-schedule-modal.html',
+  providers: [DataService]
+})
+export class ScheduleFilterModal {
+  constructor(data: DataService) {
+    this.categories = data.getCategories();
+
+
+  }
+
+  resetFilters() {
+    console.log("Resetting filters");
+  }
+
+  applyFilters() {
+    console.log("Apply filters");
   }
 }
