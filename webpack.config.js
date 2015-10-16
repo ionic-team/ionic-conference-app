@@ -37,7 +37,6 @@ module.exports = {
       "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
       "node_modules/ionic-framework/js", // for web-animations polyfill
 
-      // "node_modules/moment", 
       // "node_modules/ionic2/dist/src/es5/common", // driftyco/ionic2 repo (master)
       // "dist/src/es5/common",
       // "node_modules/ionic2/node_modules",
