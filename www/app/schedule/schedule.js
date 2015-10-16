@@ -87,7 +87,6 @@ export class SchedulePage {
   }
 
   openScheduleFilter() {
-    console.log("opening modal");
     this.modal.open(ScheduleFilterModal);
   }
 }
@@ -99,15 +98,32 @@ export class SchedulePage {
 export class ScheduleFilterModal {
   constructor(data: DataService) {
     this.categories = data.getCategories();
+  }
 
-
+  onInit() {
+    // On Init reset the filters back to the last thing the user had
+    this.categories.forEach((category) => {
+      category.filterToApply = category.showFilter;
+    });
   }
 
   resetFilters() {
-    console.log("Resetting filters");
+    console.log("Reset filters");
+    console.log("Categories", this.categories);
+
+    this.categories.forEach((category) => {
+      category.filterToApply =  true;
+    });
   }
 
   applyFilters() {
     console.log("Apply filters");
+    console.log("Categories", this.categories);
+
+    this.categories.forEach((category) => {
+      category.showFilter = category.filterToApply;
+    });
+
+    this.close();
   }
 }

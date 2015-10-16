@@ -14,7 +14,7 @@
     <ion-list class="category-filter">
       <ion-header>Categories</ion-header>
 
-      <ion-switch *ng-for="#category of categories" [attr.category]="category.name" [checked]="category.value" secondary>
+      <ion-switch *ng-for="#category of categories" [(ng-model)]="category.filterToApply" [attr.category]="category.name" [(checked)]="category.filterToApply" secondary>
         <span class="dot"></span>
         {{ category.displayName }}
       </ion-switch>

@@ -2,51 +2,51 @@
   {
     "name": "ionic",
     "displayName": "Ionic",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "angular",
     "displayName": "Angular",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "communication",
     "displayName": "Communication",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "tooling",
     "displayName": "Tooling",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "services",
     "displayName": "Services",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "design",
     "displayName": "Design",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "workshop",
     "displayName": "Workshop",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "food",
     "displayName": "Food",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "documentation",
     "displayName": "Documentation",
-    "value": true
+    "showFilter": true
   },
   {
     "name": "navigation",
     "displayName": "Navigation",
-    "value": true
+    "showFilter": true
   }
 ]

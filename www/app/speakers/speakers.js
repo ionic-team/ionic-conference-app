@@ -14,7 +14,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 export class SpeakersPage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
     this.nav = nav;
-    console.log('this.nav', this.nav);
+    //console.log('this.nav', this.nav);
     this.speakers = null;
     this.scheduleInfo = null;
     this.dataService = data;

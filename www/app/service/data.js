@@ -69,4 +69,13 @@ export class DataService {
   getCategories() {
     return this.categories;
   }
+
+  // TODO return the filter 
+  getShowFilterCategory(category) {
+    var showFilter;
+
+    console.log("Category passed", category);
+
+    return true;
+  }
 }

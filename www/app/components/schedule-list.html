@@ -3,7 +3,8 @@
     <ion-item-group-title>
       {{timeSlot.time}}
     </ion-item-group-title>
-    <ion-item-sliding *ng-for="#session of timeSlot.talks" detail-push (click)="openSession(session)" [attr.category]="session.category">
+    <!-- todo add *ng-if="showSession" to determine the category -->
+    <ion-item-sliding *ng-for="#session of timeSlot.talks" (click)="openSession(session)" [attr.category]="session.category">
       <h3>{{session.name}}</h3>
       <p>
         <date-format [value]="session.timestart" format="h:mm"></date-format>
