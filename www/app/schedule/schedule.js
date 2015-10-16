@@ -1,4 +1,4 @@
-import {IonicApp, IonicView, NavController, Page, SearchBar, Modal} from 'ionic/ionic';
+import {IonicApp, NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 import {SessionDetailPage} from '../session-detail/session-detail';
