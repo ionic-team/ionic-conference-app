@@ -6,12 +6,12 @@
 
   <ion-card *ng-for="#speaker of speakers" class="speaker">
     <ion-card-header>
-      <ion-item href="#" detail-push (click)="openSpeakerDetail(speaker.name)">
+      <button ion-item (click)="openSpeakerDetail(speaker.name)">
         <ion-avatar item-left>
           <img [src]="speaker.profile_pic"></icon>
         </ion-avatar>
         {{speaker.name}}
-      </ion-item>
+      </button>
     </ion-card-header>
 
     <ion-card-content>
@@ -19,9 +19,9 @@
         <ion-header>
           Sessions
         </ion-header>
-        <ion-item href="#" *ng-for="#session of speaker.sessions" detail-push (click)="openSession(session)">
+        <button ion-item *ng-for="#session of speaker.sessions" (click)="openSession(session)">
           <h3>{{session.name}}</h3>
-        </ion-item>
+        </button>
       </ion-list>
     </ion-card-content>
 
