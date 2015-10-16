@@ -2,6 +2,7 @@ import {View, Component, NgIf, NgFor} from 'angular2/angular2';
 import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
+import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 
 @Component({
@@ -11,14 +12,19 @@ import {DateFormat} from '../components/date-format';
 
 @View({
   templateUrl: 'app/components/schedule-list.html',
+  providers: [DataService],
   directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf]
 })
 
 export class ScheduleList {
-  constructor(nav: NavController, popup: Popup) {
-    console.log('this.data', this.data);
+  constructor(nav: NavController, popup: Popup, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;
+    this.categories = dataService.getCategories();
+  }
+
+  onInit() {
+    console.info("Showing new schedule list");
   }
 
   addFavorite(timeSlot, session, event) {
@@ -63,7 +69,7 @@ export class ScheduleList {
   alertFavoriteExists() {
     this.popup.alert({
       title: "Oops",
-      template: "That talk has been favorited already.",
+      template: "That session has been favorited already.",
     }).then((response) => {
      console.log('entry', response);
     };
@@ -84,5 +90,13 @@ export class ScheduleList {
     event.preventDefault();
     this.nav.push(SpeakerDetailPage, speaker);
     return false;
+  }
+
+  showSession(session) {
+    // TODO show the session if the category showFilter is true
+    // console.error("Session", session);
+    // var categoryShowFilter = true;
+
+    // return categoryShowFilter;
   }
 }

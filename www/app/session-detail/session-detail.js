@@ -12,6 +12,6 @@ export class SessionDetailPage {
   }
 
   onInit() {
-    console.log('SessionDetailPage init', this.navParams);
+    //console.log('SessionDetailPage init', this.navParams);
   }
 }

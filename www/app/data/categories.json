@@ -1,0 +1,52 @@
+[
+  {
+    "name": "ionic",
+    "displayName": "Ionic",
+    "showFilter": true
+  },
+  {
+    "name": "angular",
+    "displayName": "Angular",
+    "showFilter": true
+  },
+  {
+    "name": "communication",
+    "displayName": "Communication",
+    "showFilter": true
+  },
+  {
+    "name": "tooling",
+    "displayName": "Tooling",
+    "showFilter": true
+  },
+  {
+    "name": "services",
+    "displayName": "Services",
+    "showFilter": true
+  },
+  {
+    "name": "design",
+    "displayName": "Design",
+    "showFilter": true
+  },
+  {
+    "name": "workshop",
+    "displayName": "Workshop",
+    "showFilter": true
+  },
+  {
+    "name": "food",
+    "displayName": "Food",
+    "showFilter": true
+  },
+  {
+    "name": "documentation",
+    "displayName": "Documentation",
+    "showFilter": true
+  },
+  {
+    "name": "navigation",
+    "displayName": "Navigation",
+    "showFilter": true
+  }
+]

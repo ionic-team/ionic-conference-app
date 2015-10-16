@@ -13,7 +13,7 @@ export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to wor
     this.dataService = dataService;
 
     let speakerName = this.navParams.data;
-    console.log('this.navParams', this.navParams);
+    //console.log('this.navParams', this.navParams);
     let speakerList = this.dataService.getSpeakers();
 
     this.speaker = speakerList.find( (v) => {
@@ -25,7 +25,6 @@ export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to wor
   }
 
   openSession(session) {
-    console.log('Open up session', session);
     this.nav.push(SessionDetailPage, session);
   }
 }

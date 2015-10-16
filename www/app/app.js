@@ -22,7 +22,7 @@ class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      console.log('Platform ready');
+      //console.log('Platform ready');
 
       // The platform is now ready. Note: if this callback fails to fire, follow
       // the Troubleshooting guide for a number of possible solutions:
@@ -49,7 +49,7 @@ class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     let nav = this.app.getComponent('nav');
-    console.log('got nav', nav, 'page', page);
+    //console.log('got nav', nav, 'page', page);
     nav.setRoot(page.component);
   }
 }

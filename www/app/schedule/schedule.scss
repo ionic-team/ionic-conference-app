@@ -6,6 +6,10 @@
   margin-top: 3px;
 }
 
+.reset-filters {
+  color: color(danger);
+}
+
 $categories: (
   ionic: color(primary),
   angular: #AC282B,
@@ -24,9 +28,20 @@ $categories: (
 }
 
 @each $category, $value in auxiliary-categories() {
-  .item[category=#{$category}] ion-item-content {
+  ion-item-sliding.item[category=#{$category}] ion-item-content {
     border-left: 2px solid $value;
     padding-left: 10px;
+  }
+
+  ion-switch.item[category=#{$category}] {
+    ion-item-content .dot {
+      height: 10px;
+      display: inline-block;
+      width: 10px;
+      background-color: $value;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
   }
 
 }
