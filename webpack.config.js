@@ -1,9 +1,8 @@
 module.exports = {
   entry: [
+    "es6-shim",
     "zone.js",
-    // "traceur-runtime",
     "reflect-metadata",
-    // "rtts_assert/rtts_assert",
     "angular2/angular2",
     "ionic/ionic",
     "web-animations.min",
@@ -34,11 +33,11 @@ module.exports = {
   resolve: {
     modulesDirectories: [
       "node_modules",
-      //TODO: Set these to what they should be in future
       "node_modules/ionic-framework/src/es5/common", // ionic-framework npm package (stable)
       "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
       "node_modules/ionic-framework/js", // for web-animations polyfill
-      "node_modules/moment", // for web-animations polyfill
+
+      // "node_modules/moment", 
       // "node_modules/ionic2/dist/src/es5/common", // driftyco/ionic2 repo (master)
       // "dist/src/es5/common",
       // "node_modules/ionic2/node_modules",

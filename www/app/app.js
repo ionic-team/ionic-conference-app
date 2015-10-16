@@ -1,9 +1,8 @@
-import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {App, IonicApp, Platform, StatusBar} from 'ionic/ionic';
 import {DataService} from './service/data';
 import {forwardRef, FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/angular2';
 import {Http, HTTP_BINDINGS} from 'angular2/http';
 import {HomePage} from './home/home';
-// import {FORM_DIRECTIVES, FormBuilder, Validators, Control, ControlGroup} from 'angular2/forms';
 import {ScheduleList} from './components/schedule-list';
 
 @App({
@@ -13,7 +12,7 @@ import {ScheduleList} from './components/schedule-list';
 })
 
 class MyApp {
-  constructor(app: IonicApp, platform: IonicPlatform, data: DataService) {
+  constructor(app: IonicApp, platform: Platform, data: DataService) {
     this.app = app;
     this.platform = platform;
     data.retrieveData();
@@ -38,7 +37,7 @@ class MyApp {
       //
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
-      // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
+      StatusBar.setStyle(StatusBar.BLACK_OPAQUE);
 
     });
   }
