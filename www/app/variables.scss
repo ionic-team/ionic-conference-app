@@ -9,6 +9,9 @@
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+// Any Sass variables that you want to override need to be done
+// in this file, before Ionic's source scss files are imported.
+
 $colors: (
 
   primary:    #387ef5,
