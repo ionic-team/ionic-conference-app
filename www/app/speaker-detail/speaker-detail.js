@@ -5,7 +5,6 @@ import {DataService} from '../service/data';
 @Page({
   templateUrl: 'app/speaker-detail/speaker-detail.html',
 })
-
 export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ {
   constructor(nav: NavController, app: IonicApp, navParams: NavParams, dataService: DataService) {
     this.nav = nav;
@@ -13,7 +12,6 @@ export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to wor
     this.dataService = dataService;
 
     let speakerName = this.navParams.data;
-    //console.log('this.navParams', this.navParams);
     let speakerList = this.dataService.getSpeakers();
 
     this.speaker = speakerList.find( (v) => {

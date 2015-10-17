@@ -10,7 +10,6 @@ import {ScheduleList} from './components/schedule-list';
   providers: [DataService, Http, FormBuilder, HTTP_BINDINGS],
   directives: [forwardRef(() => ScheduleList)]
 })
-
 class MyApp {
   constructor(app: IonicApp, platform: Platform, data: DataService) {
     this.app = app;
@@ -22,8 +21,6 @@ class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //console.log('Platform ready');
-
       // The platform is now ready. Note: if this callback fails to fire, follow
       // the Troubleshooting guide for a number of possible solutions:
       //
@@ -38,7 +35,6 @@ class MyApp {
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
       StatusBar.setStyle(StatusBar.DEFAULT);
-
     });
   }
 
@@ -49,7 +45,6 @@ class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     let nav = this.app.getComponent('nav');
-    //console.log('got nav', nav, 'page', page);
     nav.setRoot(page.component);
   }
 }

@@ -20,10 +20,6 @@ export class LoginPage {
   }
 
   doLogin(event) {
-    console.log('Doing login', this.form.value);
-
-    // Handle the login here:
-
     // Don't allow the form to submit normally, since we
     // will handle it ourselves
     event.preventDefault();
@@ -38,10 +34,6 @@ export class ForgotPasswordPage {
     this.email = "";
   }
   doForgotPassword(event) {
-    console.log('Resetting password for user', this.email);
-
-    // Maybe reset their password here.
-
     event.preventDefault();
   }
 }

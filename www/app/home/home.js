@@ -12,7 +12,6 @@ import {MapPage} from '../map/map';
   templateUrl: 'app/home/home.html',
   directives: [DateFormat]
 })
-
 export class HomePage {
   constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
@@ -21,7 +20,5 @@ export class HomePage {
     this.MapPage = MapPage;
     this.SchedulePage = SchedulePage;
     this.SpeakersPage = SpeakersPage;
-
-    console.log('Home page!');
   }
 }

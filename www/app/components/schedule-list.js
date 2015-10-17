@@ -9,13 +9,11 @@ import {DateFormat} from '../components/date-format';
   selector: 'schedule-list',
   properties: ['data', 'favorites', 'showing']
 })
-
 @View({
   templateUrl: 'app/components/schedule-list.html',
   providers: [DataService],
   directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf]
 })
-
 export class ScheduleList {
   constructor(nav: NavController, popup: Popup, dataService: DataService) {
     this.nav = nav;
@@ -23,13 +21,7 @@ export class ScheduleList {
     this.categories = dataService.getCategories();
   }
 
-  onInit() {
-    console.info("Showing new schedule list");
-  }
-
   addFavorite(timeSlot, session, event) {
-    //console.log('timeslot:', timeSlot, 'add session', session, event);
-
     var currTimeSlot,
         added = false;
 
@@ -59,8 +51,6 @@ export class ScheduleList {
       this.alertFavoriteExists();
     }
 
-    // console.log('currTimeSlot', currTimeSlot);
-    // console.log('favorites', this.favorites);
     event.preventDefault();
     event.stopPropagation();
     return false;
@@ -70,13 +60,10 @@ export class ScheduleList {
     this.popup.alert({
       title: "Oops",
       template: "That session has been favorited already.",
-    }).then((response) => {
-     console.log('entry', response);
-    };
+    });
   }
 
   openSession(session, val, event) {
-    console.log('val for this', val, session, event);
     this.nav.push(SessionDetailPage, session);
     if (event) {
       event.preventDefault();
@@ -85,7 +72,6 @@ export class ScheduleList {
   }
 
   openSpeakerDetail(speaker, event) {
-    console.log('open speaker detail', speaker, event);
     event.stopPropagation();
     event.preventDefault();
     this.nav.push(SpeakerDetailPage, speaker);
@@ -94,9 +80,6 @@ export class ScheduleList {
 
   showSession(session) {
     // TODO show the session if the category showFilter is true
-    // console.error("Session", session);
-    // var categoryShowFilter = true;
-
     // return categoryShowFilter;
   }
 }

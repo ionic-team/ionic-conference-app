@@ -9,7 +9,6 @@ import {DateFormat} from '../components/date-format';
   viewBindings: [HTTP_BINDINGS],
   directives: [DateFormat]
 })
-
 export class MapPage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
     this.map = null;

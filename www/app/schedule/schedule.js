@@ -11,24 +11,17 @@ import {ScheduleList} from '../components/schedule-list';
   providers: [DataService, NgControl],
   directives: [DateFormat, FORM_DIRECTIVES, ScheduleList, SearchBar]
 })
-
 export class SchedulePage {
   constructor(nav: NavController, app: IonicApp, data: DataService, fb: FormBuilder, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
     this.schedule = data.getSchedule();
     this.index = 0;
-    // this.scheduleForTheDay = this.schedule[0];
     this.sessionsForTheDay = this.schedule[0].sessions;
-
     this.scheduleForm = fb.group({
       scheduleShowing: ['all', Validators.required]
     });
     this.searchQuery = '';
-    // this.searchForm = fb.group({
-    //   searchQuery: ['', Validators.required]
-    // });
-
     this.favorites = [];
   }
 
@@ -41,9 +34,6 @@ export class SchedulePage {
     this.scheduleForTheDay = this.schedule[newIndex];
     this.index = newIndex;
     this.sessionsForTheDay = this.scheduleForTheDay.sessions;
-    //[1, 2], length = 2
-    //0 = 1. index = 0, is passed.
-    //if index + 1 = 1.
   }
 
   previousDay(index) {
@@ -61,12 +51,7 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, session);
   }
 
-  cancelSearch() {
-    console.log('cancelSearch stuffs');
-  }
-
   getSessionsForTheDay() {
-    //console.log('getSessionsForTheDay this.searchQuery', this.searchQuery);
     if (!this.searchQuery || this.searchQuery.trim() == '') {
       return this.sessionsForTheDay;
     }
@@ -108,18 +93,12 @@ export class ScheduleFilterModal {
   }
 
   resetFilters() {
-    console.log("Reset filters");
-    console.log("Categories", this.categories);
-
     this.categories.forEach((category) => {
       category.filterToApply =  true;
     });
   }
 
   applyFilters() {
-    console.log("Apply filters");
-    console.log("Categories", this.categories);
-
     this.categories.forEach((category) => {
       category.showFilter = category.filterToApply;
     });

@@ -9,10 +9,8 @@ import {DateFormat} from '../components/date-format';
   viewBindings: [HTTP_BINDINGS],
   directives: [DateFormat]
 })
-
 export class AboutPage {
   constructor(nav: NavController, app: IonicApp, data: DataService) {
-    // debugger;
     this.conferenceInfo = data.getData();
   }
 }

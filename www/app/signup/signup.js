@@ -18,10 +18,6 @@ export class SignupPage {
   }
 
   doSignup(event) {
-    // Handle the signup here:
-    console.log('Doing signup', this.form.value);
-
-
     // Don't allow the form to submit normally, since we
     // will handle it ourselves
     event.preventDefault();
