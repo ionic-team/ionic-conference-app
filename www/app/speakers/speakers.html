@@ -2,8 +2,6 @@
   <ion-navbar *navbar>
     <ion-title>Speakers</ion-title>
   </ion-navbar>
-
-
   <ion-card *ng-for="#speaker of speakers" class="speaker">
     <ion-card-header>
       <button ion-item (click)="openSpeakerDetail(speaker.name)">

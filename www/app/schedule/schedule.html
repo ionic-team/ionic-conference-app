@@ -6,18 +6,16 @@
       <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
     </ion-nav-items>
     <ion-title>
-      <div class="segments">
-        <form [ng-form-model]="scheduleForm">
-          <ion-segment ng-control="scheduleShowing">
-            <ion-segment-button value="all">
-              All
-            </ion-segment-button>
-            <ion-segment-button value="favorites">
-              Favorites
-            </ion-segment-button>
-          </ion-segment>
-        </form>
-      </div>
+      <form [ng-form-model]="scheduleForm">
+        <ion-segment ng-control="scheduleShowing">
+          <ion-segment-button value="all">
+            All
+          </ion-segment-button>
+          <ion-segment-button value="favorites">
+            Favorites
+          </ion-segment-button>
+        </ion-segment>
+      </form>
     </ion-title>
   </ion-navbar>
   <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search"></ion-search-bar>
