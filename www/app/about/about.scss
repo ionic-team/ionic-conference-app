@@ -3,40 +3,38 @@
   padding: 16px;
   width: 100%;
   text-align: center;
-
-  img {
-    width: 70%;
-    margin-left: -15px;
-    padding: 25px 0 20px 0;
-  }
 }
 
-.about-info {
-  p {
-    color: #697072;
-  }
+.about-header img {
+  width: 70%;
+  margin-left: -15px;
+  padding: 25px 0 20px 0;
+}
 
-  div {
-    padding: 5px;
-    text-align: left;
-    font-size: 1.5rem;
+.about-info p {
+  color: #697072;
+}
 
-    icon {
-      color: color(primary);
-      width: 20px;
-    }
-  }
+.about-info div {
+  padding: 5px;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.about-info icon {
+  color: color(primary);
+  width: 20px;
 }
 
 .ios .about-info {
   text-align: center;
+}
 
-  div {
-    display: inline-block;
+.ios .about-info div {
+  display: inline-block;
+}
 
-    icon {
-      width: auto;
-      margin-right: 10px;
-    }
-  }
+.ios .about-info icon {
+  width: auto;
+  margin-right: 10px;
 }
