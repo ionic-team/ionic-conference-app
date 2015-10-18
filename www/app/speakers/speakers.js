@@ -1,17 +1,14 @@
-import {IonicApp, NavController, Page} from 'ionic/ionic';
+import {NavController, Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
-import {Http, HTTP_BINDINGS} from "angular2/http";
-import {DateFormat} from '../components/date-format';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 @Page({
   templateUrl: 'app/speakers/speakers.html',
-  providers: [DataService],
-  directives: [DateFormat]
+  providers: [DataService]
 })
 export class SpeakersPage {
-  constructor(nav: NavController, app: IonicApp, data: DataService) {
+  constructor(nav: NavController, data: DataService) {
     this.nav = nav;
     this.speakers = null;
     this.scheduleInfo = null;
