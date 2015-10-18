@@ -1,4 +1,4 @@
-import {NavController, IonicApp, NavParams, Page} from 'ionic/ionic';
+import {NavController, NavParams, Page} from 'ionic/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {DataService} from '../service/data';
 
@@ -6,7 +6,7 @@ import {DataService} from '../service/data';
   templateUrl: 'app/speaker-detail/speaker-detail.html',
 })
 export class SpeakerDetailPage /*extends PageNavigator //couldnt get this to work, import speakerDetail in PageNavigator */ {
-  constructor(nav: NavController, app: IonicApp, navParams: NavParams, dataService: DataService) {
+  constructor(nav: NavController, navParams: NavParams, dataService: DataService) {
     this.nav = nav;
     this.navParams = navParams;
     this.dataService = dataService;
