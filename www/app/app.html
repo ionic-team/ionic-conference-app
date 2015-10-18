@@ -1,4 +1,9 @@
 
-<ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
+<ion-tabs>
+  <ion-tab tab-title="Schedule" tab-icon="globe" [root]="tab1"></ion-tab>
+  <ion-tab tab-title="Speakers" tab-icon="people" [root]="tab2"></ion-tab>
+  <ion-tab tab-title="Map" tab-icon="map" [root]="tab3"></ion-tab>
+  <ion-tab tab-title="About" tab-icon="information-circle" [root]="tab4"></ion-tab>
+</ion-tabs>
 
 <ion-overlay></ion-overlay>
