@@ -20,10 +20,12 @@ export class SpeakersPage {
     let speakerList = this.speakers = this.dataService.getSpeakers();
     let talks = [];
     let speakers = [];
-    this.scheduleInfo.map(function(dayItem) {
-      dayItem.sessions.map(function(sessionItem) {
-        sessionItem.talks.map(function(talkItem) {
+
+    this.scheduleInfo.map(dayItem => {
+      dayItem.sessions.map(sessionItem => {
+        sessionItem.talks.map(talkItem => {
           talks.push(talkItem.name);
+
           if (talkItem.speaker) {
             let speakerSession = speakerList.find(x => x.name == talkItem.speaker);
             if (speakerSession) {
@@ -34,9 +36,11 @@ export class SpeakersPage {
               speakers.push(talkItem.speaker);
             }
           }
+          
         });
       });
     });
+
     this.talks = talks;
     this.speakersNames = speakers;
   }
