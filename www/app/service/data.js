@@ -1,6 +1,6 @@
 import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
-import {Injectable, bind} from "angular2/angular2";
-import {Http, HTTP_BINDINGS} from "angular2/http";
+import {Injectable, bind} from 'angular2/angular2';
+import {Http} from 'angular2/http';
 
 @Injectable()
 export class DataService {
@@ -10,41 +10,35 @@ export class DataService {
     this.conferenceInfo = null;
     this.scheduleInfo = null;
     this.speakers = null;
+    this.categories = null;
   }
 
   retrieveData() {
+    //Under the hood we are using Angular http service.
+    //This defaults to use the HTTP_BINDING for http requests.
+    //Here, we're going to get a JSON data file, use the `map` call to parse json
+    // and finally subscribe to the observable and set our data
+    //to the value it provides once the http request is complete.
     this.http.get('app/data/info.json')
-      // Call map on the response observable to get the parsed people object
       .map(res => res.json())
-      // Subscribe to the observable to get the parsed people object and attach it to the
-      // component
       .subscribe(data => {
         this.conferenceInfo = data;
       });
 
     this.http.get('app/data/schedule.json')
-      // Call map on the response observable to get the parsed people object
       .map(res => res.json())
-      // Subscribe to the observable to get the parsed people object and attach it to the
-      // component
       .subscribe(data => {
         this.scheduleInfo = data;
       });
 
     this.http.get('app/data/speakers.json')
-      // Call map on the response observable to get the parsed people object
       .map(res => res.json())
-      // Subscribe to the observable to get the parsed people object and attach it to the
-      // component
       .subscribe(data => {
         this.speakers = data;
       });
 
     this.http.get('app/data/categories.json')
-      // Call map on the response observable to get the parsed people object
       .map(res => res.json())
-      // Subscribe to the observable to get the parsed people object and attach it to the
-      // component
       .subscribe(data => {
         this.categories = data;
       });
