@@ -1,6 +1,7 @@
 import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SessionDetailPage} from '../session-detail/session-detail';
+import {FilterScheduleModal} from '../modals/filter-schedule-modal';
 import {FormBuilder, Validators} from 'angular2/angular2';
 import {NgControl} from 'angular2/angular2';
 import {ScheduleList} from '../components/schedule-list';
@@ -71,37 +72,6 @@ export class SchedulePage {
   }
 
   openScheduleFilter() {
-    this.modal.open(ScheduleFilterModal);
-  }
-}
-
-@Page({
-  templateUrl: 'app/modals/filter-schedule-modal.html',
-  providers: [DataService]
-})
-export class ScheduleFilterModal {
-  constructor(data: DataService) {
-    this.categories = data.getCategories();
-  }
-
-  onInit() {
-    // On Init reset the filters back to the last thing the user had
-    this.categories.forEach((category) => {
-      category.filterToApply = category.showFilter;
-    });
-  }
-
-  resetFilters() {
-    this.categories.forEach((category) => {
-      category.filterToApply =  true;
-    });
-  }
-
-  applyFilters() {
-    this.categories.forEach((category) => {
-      category.showFilter = category.filterToApply;
-    });
-
-    this.close();
+    this.modal.open(FilterScheduleModal);
   }
 }
