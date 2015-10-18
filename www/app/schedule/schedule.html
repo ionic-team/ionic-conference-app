@@ -1,23 +1,23 @@
+<ion-navbar *navbar>
+  <ion-nav-items primary>
+  </ion-nav-items>
+  <ion-nav-items secondary>
+    <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
+  </ion-nav-items>
+  <ion-title>
+    <form [ng-form-model]="scheduleForm">
+      <ion-segment ng-control="scheduleShowing">
+        <ion-segment-button value="all">
+          All
+        </ion-segment-button>
+        <ion-segment-button value="favorites">
+          Favorites
+        </ion-segment-button>
+      </ion-segment>
+    </form>
+  </ion-title>
+</ion-navbar>
 <ion-content class="schedule-page">
-  <ion-navbar *navbar>
-    <ion-nav-items primary>
-    </ion-nav-items>
-    <ion-nav-items secondary>
-      <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
-    </ion-nav-items>
-    <ion-title>
-      <form [ng-form-model]="scheduleForm">
-        <ion-segment ng-control="scheduleShowing">
-          <ion-segment-button value="all">
-            All
-          </ion-segment-button>
-          <ion-segment-button value="favorites">
-            Favorites
-          </ion-segment-button>
-        </ion-segment>
-      </form>
-    </ion-title>
-  </ion-navbar>
   <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search"></ion-search-bar>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
     <div *ng-switch-when="'favorites'">
