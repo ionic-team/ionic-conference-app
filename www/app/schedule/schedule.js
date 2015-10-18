@@ -1,14 +1,14 @@
 import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SessionDetailPage} from '../session-detail/session-detail';
-import {FORM_DIRECTIVES, FormBuilder, Validators} from 'angular2/angular2';
+import {FormBuilder, Validators} from 'angular2/angular2';
 import {NgControl} from 'angular2/angular2';
 import {ScheduleList} from '../components/schedule-list';
 
 @Page({
   templateUrl: 'app/schedule/schedule.html',
   providers: [DataService, NgControl],
-  directives: [FORM_DIRECTIVES, ScheduleList, SearchBar]
+  directives: [ScheduleList, SearchBar]
 })
 export class SchedulePage {
   constructor(nav: NavController, data: DataService, fb: FormBuilder, modal: Modal) {
