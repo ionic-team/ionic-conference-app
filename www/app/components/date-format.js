@@ -1,12 +1,9 @@
-import {View, Component} from 'angular2/angular2';
+import {Component} from 'angular2/angular2';
 import * as moment from 'moment';
 
 @Component({
+  properties: ['value', 'format'],
   selector: 'date-format',
-  properties: ['value', 'format']
-})
-
-@View({
   template: '<span>{{formattedDate}}</span>'
 })
 

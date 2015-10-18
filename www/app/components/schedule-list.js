@@ -1,4 +1,4 @@
-import {View, Component, NgIf, NgFor} from 'angular2/angular2';
+import {Component, NgIf, NgFor} from 'angular2/angular2';
 import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
@@ -6,13 +6,11 @@ import {DataService} from '../service/data';
 import {DateFormat} from '../components/date-format';
 
 @Component({
-  selector: 'schedule-list',
-  properties: ['data', 'favorites', 'showing']
-})
-@View({
-  templateUrl: 'app/components/schedule-list.html',
+  directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
+  properties: ['data', 'favorites', 'showing'],
   providers: [DataService],
-  directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf]
+  selector: 'schedule-list',
+  templateUrl: 'app/components/schedule-list.html'
 })
 export class ScheduleList {
   constructor(nav: NavController, popup: Popup, dataService: DataService) {
