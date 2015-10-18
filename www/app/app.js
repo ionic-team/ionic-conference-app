@@ -1,6 +1,5 @@
 import {App, Platform, StatusBar} from 'ionic/ionic';
 import {DataService} from './service/data';
-import {HTTP_PROVIDERS} from 'angular2/http';
 import {AboutPage} from './about/about';
 import {MapPage} from './map/map';
 import {SchedulePage} from './schedule/schedule';
@@ -9,7 +8,7 @@ import {SpeakersPage} from './speakers/speakers';
 
 @App({
   templateUrl: 'app/app.html',
-  providers: [DataService, HTTP_PROVIDERS]
+  providers: [DataService]
 })
 class ConferenceApp {
   constructor(platform: Platform, data: DataService) {
