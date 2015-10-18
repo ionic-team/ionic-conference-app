@@ -1,4 +1,5 @@
 import {Component} from 'angular2/angular2';
+//Note we import the module in webpack.config.js, as a node_module thats installed locally
 import * as moment from 'moment';
 
 @Component({
