@@ -8,7 +8,6 @@ import {ConvertDate} from '../pipes/convert-date';
 @Component({
   directives: [Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
   properties: ['data', 'favorites', 'showing'],
-  providers: [DataService],
   pipes: [ConvertDate],
   selector: 'schedule-list',
   templateUrl: 'app/components/schedule-list.html'
@@ -17,7 +16,6 @@ export class ScheduleList {
   constructor(nav: NavController, popup: Popup, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;
-    this.categories = dataService.getCategories();
     this.dataService = dataService;
   }
 
@@ -79,11 +77,26 @@ export class ScheduleList {
     slidingItem.close();
   }
 
-  hideSession(session) {
-    return this.dataService.showCategory(session.category);
-  }
+  showTimeSlot(timeSlot) {
+    var filteredTimeSlot = [];
 
-  showSession(sessions) {
-    return sessions;
+    timeSlot.forEach((time) => {
+      let filteredTalks = [];
+      // Filter the talks by category
+      time.talks.forEach((talk) => {
+        if (this.dataService.showCategory(talk.category)) {
+          filteredTalks.push(talk);
+        }
+      });
+      // Only push the this time slot if talks exist
+      if (filteredTalks.length > 0 ) {
+        filteredTimeSlot.push({
+          talks: filteredTalks,
+          time: time.time
+        });
+      }
+    });
+
+    return filteredTimeSlot;
   }
 }

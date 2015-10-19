@@ -2,8 +2,7 @@ import {Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
 
 @Page({
-  templateUrl: 'app/modals/filter-schedule-modal.html',
-  providers: [DataService]
+  templateUrl: 'app/modals/filter-schedule-modal.html'
 })
 export class FilterScheduleModal {
   constructor(dataService: DataService) {
@@ -20,7 +19,7 @@ export class FilterScheduleModal {
 
   resetFilters() {
     this.categories.forEach((category) => {
-      category.filterToApply =  true;
+      category.filterToApply = true;
     });
   }
 

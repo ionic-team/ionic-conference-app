@@ -4,15 +4,14 @@ import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 @Page({
-  templateUrl: 'app/speakers/speakers.html',
-  providers: [DataService]
+  templateUrl: 'app/speakers/speakers.html'
 })
 export class SpeakersPage {
-  constructor(nav: NavController, data: DataService) {
+  constructor(nav: NavController, dataService: DataService) {
     this.nav = nav;
     this.speakers = null;
     this.scheduleInfo = null;
-    this.dataService = data;
+    this.dataService = dataService;
   }
 
   onInit() {
@@ -36,7 +35,7 @@ export class SpeakersPage {
               speakers.push(talkItem.speaker);
             }
           }
-          
+
         });
       });
     });

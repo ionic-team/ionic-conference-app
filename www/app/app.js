@@ -11,7 +11,7 @@ import {SpeakersPage} from './speakers/speakers';
   providers: [DataService]
 })
 class ConferenceApp {
-  constructor(platform: Platform, data: DataService) {
+  constructor(platform: Platform, dataService: DataService) {
     // set the root pages for each tab
     this.tab1 = SchedulePage;
     this.tab2 = SpeakersPage;
@@ -19,7 +19,7 @@ class ConferenceApp {
     this.tab4 = AboutPage;
 
     // retrieve the conference data
-    data.retrieveData();
+    dataService.retrieveData();
 
     // when the platform is ready, set the status bar's style
     platform.ready().then(() => {

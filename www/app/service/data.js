@@ -64,16 +64,17 @@ export class DataService {
     this.categories = categories;
   }
 
-  // TODO return the filter
   showCategory(sessionCategory) {
-    var showFilter;
+    var categories = this.getCategories() || [],
+        showFilter = true;
 
-    var categories = this.getCategories() || [];
     categories.forEach((category) => {
-      if(category == sessionCategory) {
-        console.log("category matches session category");
+      if(category.name == sessionCategory) {
+        showFilter = category.showFilter;
       }
     });
-    return true;
+
+    // if there are no categories just return true
+    return showFilter;
   }
 }

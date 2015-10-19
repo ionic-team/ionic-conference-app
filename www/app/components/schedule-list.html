@@ -1,10 +1,9 @@
 <ion-list>
-  <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of data">
+  <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of showTimeSlot(data)">
     <ion-item-group-title>
       {{timeSlot.time}}
     </ion-item-group-title>
-    <!-- todo add *ng-if="showSession" to determine the category -->
-    <ion-item-sliding *ng-for="#session of showSession(timeSlot.talks)" (click)="openSession(session)" [attr.category]="session.category" #sliding-item>
+    <ion-item-sliding *ng-for="#session of timeSlot.talks" (click)="openSession(session)" [attr.category]="session.category" #sliding-item>
       <h3>{{session.name}}</h3>
       <p>
         {{ session.timestart | convertDate | date : 'shortTime' }}

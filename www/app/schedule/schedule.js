@@ -8,14 +8,14 @@ import {ScheduleList} from '../components/schedule-list';
 
 @Page({
   templateUrl: 'app/schedule/schedule.html',
-  providers: [DataService, NgControl],
+  providers: [NgControl],
   directives: [ScheduleList, SearchBar]
 })
 export class SchedulePage {
-  constructor(nav: NavController, data: DataService, fb: FormBuilder, modal: Modal) {
+  constructor(nav: NavController, dataService: DataService, fb: FormBuilder, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
-    this.schedule = data.getSchedule();
+    this.schedule = dataService.getSchedule();
     this.index = 0;
     this.sessionsForTheDay = this.schedule[0].sessions;
     this.scheduleForm = fb.group({

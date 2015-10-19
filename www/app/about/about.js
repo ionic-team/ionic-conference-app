@@ -5,11 +5,11 @@ import {ConvertDate} from '../pipes/convert-date';
 
 @Page({
   templateUrl: 'app/about/about.html',
-  providers: [DataService, Http],
+  providers: [Http],
   pipes: [ConvertDate]
 })
 export class AboutPage {
-  constructor(data: DataService) {
-    this.conferenceInfo = data.getData();
+  constructor(dataService: DataService) {
+    this.conferenceInfo = dataService.getData();
   }
 }
