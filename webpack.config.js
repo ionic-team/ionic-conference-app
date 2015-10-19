@@ -6,7 +6,6 @@ module.exports = {
     "angular2/angular2",
     "ionic/ionic",
     "web-animations.min",
-    "moment",
     "./www/app/app.js"
   ],
   output: {
