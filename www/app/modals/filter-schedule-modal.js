@@ -6,8 +6,9 @@ import {DataService} from '../service/data';
   providers: [DataService]
 })
 export class FilterScheduleModal {
-  constructor(data: DataService) {
-    this.categories = data.getCategories();
+  constructor(dataService: DataService) {
+    this.categories = dataService.getCategories();
+    this.dataService = dataService;
   }
 
   onInit() {
@@ -28,6 +29,7 @@ export class FilterScheduleModal {
       category.showFilter = category.filterToApply;
     });
 
+    this.dataService.updateCategories(this.categories);
     this.close();
   }
 }

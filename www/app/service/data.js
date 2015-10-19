@@ -60,9 +60,20 @@ export class DataService {
     return this.categories;
   }
 
+  updateCategories(categories) {
+    this.categories = categories;
+  }
+
   // TODO return the filter
-  getShowFilterCategory(category) {
+  showCategory(sessionCategory) {
     var showFilter;
+
+    var categories = this.getCategories() || [];
+    categories.forEach((category) => {
+      if(category == sessionCategory) {
+        console.log("category matches session category");
+      }
+    });
     return true;
   }
 }

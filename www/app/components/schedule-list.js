@@ -18,9 +18,10 @@ export class ScheduleList {
     this.nav = nav;
     this.popup = popup;
     this.categories = dataService.getCategories();
+    this.dataService = dataService;
   }
 
-  addFavorite(timeSlot, session, event) {
+  addFavorite(timeSlot, session, event, slidingItem) {
     var currTimeSlot,
         added = false;
 
@@ -52,6 +53,7 @@ export class ScheduleList {
 
     event.preventDefault();
     event.stopPropagation();
+    slidingItem.close();
     return false;
   }
 
@@ -70,15 +72,18 @@ export class ScheduleList {
     return false;
   }
 
-  openSpeakerDetail(speaker, event) {
+  openSpeakerDetail(speaker, event, slidingItem) {
     event.stopPropagation();
     event.preventDefault();
     this.nav.push(SpeakerDetailPage, speaker);
-    return false;
+    slidingItem.close();
   }
 
-  showSession(session) {
-    // TODO show the session if the category showFilter is true
-    // return categoryShowFilter;
+  hideSession(session) {
+    return this.dataService.showCategory(session.category);
+  }
+
+  showSession(sessions) {
+    return sessions;
   }
 }
