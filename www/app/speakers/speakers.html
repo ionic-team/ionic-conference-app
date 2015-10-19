@@ -1,12 +1,14 @@
+
 <ion-navbar *navbar>
   <ion-title>Speakers</ion-title>
 </ion-navbar>
+
 <ion-content class="outer-content">
   <ion-card *ng-for="#speaker of speakers" class="speaker">
     <ion-card-header>
       <button ion-item (click)="openSpeakerDetail(speaker.name)">
         <ion-avatar item-left>
-          <img [src]="speaker.profile_pic"></icon>
+          <img [src]="speaker.profile_pic">
         </ion-avatar>
         {{speaker.name}}
       </button>

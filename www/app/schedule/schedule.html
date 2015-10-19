@@ -1,9 +1,5 @@
+
 <ion-navbar *navbar>
-  <ion-nav-items primary>
-  </ion-nav-items>
-  <ion-nav-items secondary>
-    <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
-  </ion-nav-items>
   <ion-title>
     <form [ng-form-model]="scheduleForm">
       <ion-segment ng-control="scheduleShowing">
@@ -16,7 +12,11 @@
       </ion-segment>
     </form>
   </ion-title>
+  <ion-nav-items secondary>
+    <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
+  </ion-nav-items>
 </ion-navbar>
+
 <ion-content>
   <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search"></ion-search-bar>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
