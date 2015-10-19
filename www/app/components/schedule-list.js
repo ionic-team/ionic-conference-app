@@ -3,12 +3,13 @@ import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, Na
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
-import {DateFormat} from '../components/date-format';
+import {ConvertDate} from '../pipes/convert-date';
 
 @Component({
-  directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
+  directives: [Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
   properties: ['data', 'favorites', 'showing'],
   providers: [DataService],
+  pipes: [ConvertDate],
   selector: 'schedule-list',
   templateUrl: 'app/components/schedule-list.html'
 })

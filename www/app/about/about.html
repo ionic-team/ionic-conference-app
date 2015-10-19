@@ -10,7 +10,7 @@
 
     <div>
       <icon calendar></icon>
-      <date-format [value]="conferenceInfo.start" format="MMM D, YYYY"></date-format>
+      {{ conferenceInfo.start | convertDate | date : 'mediumDate' }}
     </div>
     <div>
       <icon pin></icon>

@@ -7,9 +7,9 @@
     <ion-item-sliding *ng-for="#session of timeSlot.talks" (click)="openSession(session)" [attr.category]="session.category">
       <h3>{{session.name}}</h3>
       <p>
-        <date-format [value]="session.timestart" format="h:mm"></date-format>
+        {{ session.timestart | convertDate | date : 'shortTime' }}
         &dash;
-        <date-format [value]="session.timeend" format="h:mm"></date-format>
+        {{ session.timeend | convertDate | date : 'shortTime' }}
         &mdash;
         <span>{{session.location}}</span>
       </p>
