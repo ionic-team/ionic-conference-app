@@ -1,5 +1,6 @@
 var path = require('path');
 var wwwPath = path.resolve(__dirname, 'www');
+var outputPath = path.join(wwwPath, 'build', 'js');
 var appPath = path.join(wwwPath, 'app');
 var appJsPath = path.join(appPath, 'app.js');
 
@@ -15,8 +16,8 @@ module.exports = {
     appJsPath
   ],
   output: {
-    path: wwwPath,
-    filename: "build/js/app.bundle.js"
+    path: outputPath,
+    filename: 'app.bundle.js'
     //pathinfo: true // show module paths in the bundle, handy for debugging
   },
   module: {
