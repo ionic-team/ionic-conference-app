@@ -15,7 +15,7 @@ module.exports = {
     appJsPath
   ],
   output: {
-    path: wwwPath
+    path: wwwPath,
     filename: "build/js/app.bundle.js"
     //pathinfo: true // show module paths in the bundle, handy for debugging
   },
