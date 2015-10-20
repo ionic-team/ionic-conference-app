@@ -1,3 +1,4 @@
+var path = require('path');
 module.exports = {
   entry: [
     "es6-shim",
@@ -10,7 +11,7 @@ module.exports = {
   ],
   output: {
     path: __dirname + "/www",
-    filename: "build/js/app.bundle.js",
+    filename: path.join(__dirname, 'build', 'js', 'app.bundle.js'),
     //pathinfo: true // show module paths in the bundle, handy for debugging
   },
   module: {
@@ -18,13 +19,13 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "awesome-typescript-loader?doTypeCheck=false&useBabel=true&useWebpackText=true",
-        include: /www\/app\//,
+        include: path.join(__dirname, 'www', 'app'),
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
         loader: "awesome-typescript-loader",
-        include: /www\/app\//,
+        include: path.join(__dirname, 'www', 'app'),
         exclude: /node_modules/
        }
     ]
