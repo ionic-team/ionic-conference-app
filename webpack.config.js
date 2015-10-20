@@ -1,4 +1,8 @@
 var path = require('path');
+var wwwPath = path.resolve(__dirname, 'www');
+var appPath = path.join(wwwPath, 'app');
+var appJsPath = path.join(appPath, 'app.js');
+
 module.exports = {
   entry: [
     "es6-shim",
@@ -7,11 +11,12 @@ module.exports = {
     "angular2/angular2",
     "ionic/ionic",
     "web-animations.min",
-    "./www/app/app.js"
+    // "./www/app/app.js"
+    appJsPath
   ],
   output: {
-    path: __dirname + "/www",
-    filename: path.join(__dirname, 'build', 'js', 'app.bundle.js'),
+    path: wwwPath
+    filename: "build/js/app.bundle.js"
     //pathinfo: true // show module paths in the bundle, handy for debugging
   },
   module: {
@@ -19,13 +24,15 @@ module.exports = {
       {
         test: /\.js$/,
         loader: "awesome-typescript-loader?doTypeCheck=false&useBabel=true&useWebpackText=true",
-        include: path.join(__dirname, 'www', 'app'),
+        include: [wwwPath],
+        // include: /www(\/|\\)app(\/|\\)/,
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
         loader: "awesome-typescript-loader",
-        include: path.join(__dirname, 'www', 'app'),
+        // include: /www(\/|\\)app(\/|\\)/,
+        include: [wwwPath],
         exclude: /node_modules/
        }
     ]
