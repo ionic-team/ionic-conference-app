@@ -13,6 +13,7 @@
     "webpack": "1.10.5"
   },
   "dependencies": {
+    "moment": "^2.10.6",
     "ionic-framework": "2.0.0-alpha.30"
   },
   "cordovaPlugins": [

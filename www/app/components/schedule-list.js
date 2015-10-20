@@ -4,9 +4,10 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
 import {ConvertDate} from '../pipes/convert-date';
+import {DateFormat} from '../components/date-format';
 
 @Component({
-  directives: [Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
+  directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
   properties: ['data', 'favorites', 'showing'],
   pipes: [ConvertDate],
   selector: 'schedule-list',
