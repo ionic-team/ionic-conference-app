@@ -1,6 +1,6 @@
 # Ionic 2 Conference Application
 
-This is purely a demo of Ionic 2.
+This is purely a demo of Ionic 2. This app is still in production.
 
 ## Getting started
 
@@ -10,30 +10,25 @@ This is purely a demo of Ionic 2.
 * Run `ionic serve` in project root.
 * Profit
 
-This app will need the following as discussed in Issue #176:
+This app will show how to use the following use cases:
 
-## Data Service
+* Tabs
+* Segments
+* Cards and items
+* Search bar
+* Sliding items with buttons
+* Using the Angular HTTP service to get data
+* Navigation
+* Modals
+* Toggle / switches
 
-Create an Angular HTTP service to get data 
+# More to come
 
-## Native plugins:
+We'll also be showing how to use native plugins:
 
 - Camera access
 - Geolocation
-- Bluetooth
 
-## Components
-
-- Side menu
-- Tabs
-- Form inputs, keyboard 
-
-## Serverside
-
-- Photo uploads
-- HTTP API get/post
-- Firebase
-
-## Other examples
+## Other great Angular 2 examples
 
 - Angular 2 RxJS Chat: https://github.com/ng-book/angular2-rxjs-chat
