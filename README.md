@@ -10,17 +10,16 @@ This is purely a demo of Ionic 2. This app is still in production.
 * Run `ionic serve` in project root.
 * Profit
 
-This app will show how to use the following use cases:
+## Use cases
 
-* Tabs
-* Segments
-* Cards and items
-* Search bar
-* Sliding items with buttons
-* Using the Angular HTTP service to get data
-* Navigation
-* Modals
-* Toggle / switches
+* Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js) ]
+* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L4-L13) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L21-L23) ]
+* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L21) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L54-L72) ]
+* Sliding items with buttons - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L6-L19) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.js#L23-L72) ]
+* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/modals/filter-schedule-modal.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L74-L76) ]
+* Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/modals/filter-schedule-modal.html#L17-L20) ]
+* Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speakers/speakers.html#L7-L39) ]
+* Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L15-L18) ]
 
 # More to come
 
