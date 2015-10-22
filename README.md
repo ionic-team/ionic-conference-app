@@ -19,6 +19,7 @@ This is purely a demo of Ionic 2. This app is still in production.
 * Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/modals/filter-schedule-modal.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L74-L76) ]
 * Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/modals/filter-schedule-modal.html#L17-L20) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speakers/speakers.html#L7-L39) ]
+* Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L3-L5) ]
 * Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L15-L18) ]
 
 # More to come
