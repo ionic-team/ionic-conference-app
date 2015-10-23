@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true
+  },
+    "rules": {
+      "quotes": false,
+      "no-underscore-dangle": false,
+      "no-unused-expressions": false,
+      "curly": [2, "multi-line"],
+      "strict": false,
+      "no-use-before-define": false,
+      "eqeqeq": false,
+      "new-cap": [2, {"capIsNew": false}],
+      "dot-notation": [2, {"allowKeywords": false}],
+      "no-console": false,
+      "no-return-assign": false,
+      "no-shadow": false,
+      "comma-dangle": false,
+      "camelcase": [2, {"properties": "never"}]
+    }
+}
+
