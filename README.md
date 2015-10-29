@@ -15,7 +15,6 @@ This is purely a demo of Ionic 2. This app is still in development.
 ### iPhone 6
 <img src="app-preview/iphone/1.png" alt="Schedules" width="360">
 <img src="app-preview/iphone/2.png" alt="Speakers" width="360">
-<br><br>
 <img src="app-preview/iphone/3.png" alt="Map" width="360">
 <img src="app-preview/iphone/4.png" alt="About" width="360">
 
@@ -23,7 +22,6 @@ This is purely a demo of Ionic 2. This app is still in development.
 
 <img src="app-preview/nexus/1.png" alt="Schedules" width="360">
 <img src="app-preview/nexus/2.png" alt="Speakers" width="360">
-<br><br>
 <img src="app-preview/nexus/3.png" alt="Map" width="360">
 <img src="app-preview/nexus/4.png" alt="About" width="360">
 
