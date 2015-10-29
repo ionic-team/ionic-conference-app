@@ -10,6 +10,23 @@ This is purely a demo of Ionic 2. This app is still in development.
 * Run `ionic serve` in project root.
 * Profit
 
+## App Preview
+
+### iPhone 6
+<img src="app-preview/iphone/1.png" alt="Schedules" height="667">
+<img src="app-preview/iphone/2.png" alt="Speakers" height="667">
+<br><br>
+<img src="app-preview/iphone/3.png" alt="Map" height="667">
+<img src="app-preview/iphone/4.png" alt="About" height="667">
+
+### Nexus 5
+
+<img src="app-preview/nexus/1.png" alt="Schedules" height="667">
+<img src="app-preview/nexus/2.png" alt="Speakers" height="667">
+<br><br>
+<img src="app-preview/nexus/3.png" alt="Map" height="667">
+<img src="app-preview/nexus/4.png" alt="About" height="667">
+
 ## Use cases
 
 * Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js) ]
@@ -55,7 +72,7 @@ ionic-conference-app/
 │   │     ├── css                     * Compiled CSS
 │   │     ├── fonts                   * Copied Fonts
 │   │     └── js                      * ES5 compiled JavaScript
-│   │ 
+│   │
 │   ├── img/                          * App images
 │   │
 │   └── index.html                    * Main entry point
