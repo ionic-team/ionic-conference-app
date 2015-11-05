@@ -18,13 +18,9 @@
 </ion-navbar>
 
 <ion-content>
-  <ion-search-bar [(ng-model)]="searchQuery" placeholder="Search"></ion-search-bar>
+  <ion-searchbar [(ng-model)]="searchQuery" placeholder="Search Schedules"></ion-searchbar>
   <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
-    <div *ng-switch-when="'favorites'">
-      <schedule-list [data]="favorites" showing="favorites"></schedule-list>
-    </div>
-    <div *ng-switch-when="'all'">
-      <schedule-list [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></schedule-list>
-    </div>
+    <schedule-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></schedule-list>
+    <schedule-list *ng-switch-when="'all'" [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></schedule-list>
   </div>
 </ion-content>
