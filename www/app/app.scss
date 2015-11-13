@@ -31,7 +31,9 @@ $colors: (
 
 // App Sass
 // ---------------------------------
-@import "map/map",
-        "schedule/schedule",
-        "speakers/speakers",
-        "about/about";
+// It is recommended to do all of your imports in your files to let webpack build them
+// in a module like manner.
+// For example - instead of adding the @imports here, create a sass file 
+// in ./tabs/tabs.scss - then @import your variables there, along with any custom styles.
+// Webpack only rebuilds that specific sass file on changes, 
+// and not the entire bundle, making rebuild times much faster for sass changes
