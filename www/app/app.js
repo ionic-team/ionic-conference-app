@@ -21,9 +21,9 @@ class ConferenceApp {
     // retrieve the conference data
     dataService.retrieveData();
 
-    // when the platform is ready, set the status bar's style
+    // when the platform is ready
     platform.ready().then(() => {
-      StatusBar.setStyle(StatusBar.DEFAULT);
+
     });
   }
 

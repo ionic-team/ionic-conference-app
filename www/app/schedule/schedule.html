@@ -1,25 +1,23 @@
 
 <ion-navbar *navbar>
-  <ion-title>
-    <form [ng-form-model]="scheduleForm">
-      <ion-segment ng-control="scheduleShowing">
-        <ion-segment-button value="all">
-          All
-        </ion-segment-button>
-        <ion-segment-button value="favorites">
-          Favorites
-        </ion-segment-button>
-      </ion-segment>
-    </form>
-  </ion-title>
+  <ion-segment [(ng-model)]="scheduleShowing">
+    <ion-segment-button value="all">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="favorites">
+      Favorites
+    </ion-segment-button>
+  </ion-segment>
   <ion-nav-items secondary>
     <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
   </ion-nav-items>
 </ion-navbar>
+<ion-toolbar light>
+  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar>
+</ion-toolbar>
 
 <ion-content>
-  <ion-searchbar [(ng-model)]="searchQuery" placeholder="Search Schedules"></ion-searchbar>
-  <div [ng-switch]="scheduleForm.controls.scheduleShowing.value">
+  <div [ng-switch]="scheduleShowing">
     <schedule-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></schedule-list>
     <schedule-list *ng-switch-when="'all'" [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></schedule-list>
   </div>

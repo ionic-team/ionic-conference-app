@@ -4,14 +4,16 @@
       {{timeSlot.time}}
     </ion-item-group-title>
     <ion-item-sliding *ng-for="#session of timeSlot.talks" (click)="openSession(session)" [attr.category]="session.category" #sliding-item>
-      <h3>{{session.name}}</h3>
-      <p>
-        <date-format [value]="session.timestart" format="h:mm"></date-format>
-        &dash;
-        <date-format [value]="session.timeend" format="h:mm"></date-format>
-        &mdash;
-        <span>{{session.location}}</span>
-      </p>
+      <ion-item>
+        <h3>{{session.name}}</h3>
+        <p>
+          <date-format [value]="session.timestart" format="h:mm"></date-format>
+          &dash;
+          <date-format [value]="session.timeend" format="h:mm"></date-format>
+          &mdash;
+          <span>{{session.location}}</span>
+        </p>
+      </ion-item>
       <ion-item-options>
         <button primary *ng-if="session.speaker" (click)="openSpeakerDetail(session.speaker, $event, slidingItem)">Speaker<br>Info</button>
         <button favorite *ng-if="showing == 'all'" (click)="addFavorite(timeSlot, session, $event, slidingItem)">Add to<br>Favorites</button>

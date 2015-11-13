@@ -1,3 +1,13 @@
+/********************************************************************/
+// TODO this is a temp hack to fix segment overlapping ion-nav-item
+// https://github.com/driftyco/ionic2/issues/506
+// remove when this issue is fixed and a release is made
+.ios ion-nav-items {
+  z-index: 99;
+}
+/********************************************************************/
+
+
 .item-group-title.no-results {
   background-color: transparent;
 }
@@ -28,7 +38,7 @@ $categories: (
 }
 
 @each $category, $value in auxiliary-categories() {
-  ion-item-sliding.item[category=#{$category}] ion-item-content {
+  ion-item-sliding[category=#{$category}] ion-item-content {
     border-left: 2px solid $value;
     padding-left: 10px;
   }
