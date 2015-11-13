@@ -2,7 +2,17 @@
 
 This is purely a demo of Ionic 2. This app is still in development.
 
-## Getting started
+## Table of Contents
+ - [Getting Started](#getting-started)
+ - [App Preview](#app-preview)
+  - [iPhone 6](#iphone-6)
+  - [Nexus 5](#nexus-5)
+ - [Use Cases](#use-cases)
+ - [File Structure of App](#file-structure-of-app)
+ - [Coming Soon](#coming-soon)
+ - [Angular 2 Examples](#angular-2-examples)
+
+## Getting Started
 
 * Clone this repository.
 * Run `npm install` on project root.
@@ -25,7 +35,7 @@ This is purely a demo of Ionic 2. This app is still in development.
 <img src="app-preview/nexus/3.png" alt="Map" width="360">
 <img src="app-preview/nexus/4.png" alt="About" width="360">
 
-## Use cases
+## Use Cases
 
 * Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js) ]
 * Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L4-L13) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L21-L23) ]
@@ -85,13 +95,13 @@ ionic-conference-app/
 └── webpack.config.js                 * Our Webpack configuration
 ```
 
-# More to come
+## Coming Soon
 
 We'll also be showing how to use native plugins:
 
 - Camera access
 - Geolocation
 
-## Other great Angular 2 examples
+## Angular 2 Examples
 
 - Angular 2 RxJS Chat: https://github.com/ng-book/angular2-rxjs-chat

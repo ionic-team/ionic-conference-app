@@ -7,10 +7,10 @@ module.exports = {
   "sassIncludePaths": [
     "node_modules/ionic-framework/dist/src/scss"
   ],
-  "sassWatchPattern": [
+  "sassWatchPatterns": [
     "www/**/*.scss"
   ],
-  "htmlWatchPattern": [
+  "htmlWatchPatterns": [
     "www/**/*.html"
   ]
 }
