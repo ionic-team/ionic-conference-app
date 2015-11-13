@@ -2,7 +2,6 @@ import {NavController, Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
-import './speakers.scss';
 
 @Page({
   templateUrl: 'app/speakers/speakers.html'

@@ -3,7 +3,6 @@ import {DataService} from '../service/data';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {FilterScheduleModal} from '../modals/filter-schedule-modal';
 import {ScheduleList} from '../components/schedule-list';
-import './schedule.scss';
 
 @Page({
   templateUrl: 'app/schedule/schedule.html',
