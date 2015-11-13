@@ -4,7 +4,7 @@ import {AboutPage} from './about/about';
 import {MapPage} from './map/map';
 import {SchedulePage} from './schedule/schedule';
 import {SpeakersPage} from './speakers/speakers';
-
+import './app.scss';
 
 @App({
   templateUrl: 'app/app.html',

@@ -31,7 +31,6 @@ $colors: (
 
 // App Sass
 // ---------------------------------
-@import "map/map",
-        "schedule/schedule",
-        "speakers/speakers",
-        "about/about";
+@import "schedule/schedule";
+@import "speakers/speakers";
+@import "about/about";
