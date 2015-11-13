@@ -2,25 +2,20 @@ import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {FilterScheduleModal} from '../modals/filter-schedule-modal';
-import {FormBuilder, Validators} from 'angular2/angular2';
-import {NgControl} from 'angular2/angular2';
 import {ScheduleList} from '../components/schedule-list';
 
 @Page({
   templateUrl: 'app/schedule/schedule.html',
-  providers: [NgControl],
   directives: [ScheduleList, SearchBar]
 })
 export class SchedulePage {
-  constructor(nav: NavController, dataService: DataService, fb: FormBuilder, modal: Modal) {
+  constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
     this.schedule = dataService.getSchedule();
     this.index = 0;
     this.sessionsForTheDay = this.schedule[0].sessions;
-    this.scheduleForm = fb.group({
-      scheduleShowing: ['all', Validators.required]
-    });
+    this.scheduleShowing = 'all';
     this.searchQuery = '';
     this.favorites = [];
   }
