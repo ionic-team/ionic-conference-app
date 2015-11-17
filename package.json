@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "moment": "^2.10.6",
-    "ionic-framework": "2.0.0-alpha.32"
+    "ionic-framework": "2.0.0-alpha.33"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
