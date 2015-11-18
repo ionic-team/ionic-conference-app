@@ -5,7 +5,7 @@
         An Ionic Framework application for the Ionic Conference.
   </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team <3
+      Ionic Framework Team
   </author>
   <content src="index.html"/>
   <access origin="*"/>
