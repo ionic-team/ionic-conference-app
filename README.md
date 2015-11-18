@@ -1,6 +1,6 @@
 # Ionic 2 Conference Application
 
-This is purely a demo of Ionic v2.0. This app is still in development. **There is not an actual Ionic Conference at this time.**
+This is purely a demo of Ionic v2.0 alpha and is still in development. **There is not an actual Ionic Conference at this time.**
 
 ## Table of Contents
  - [Getting Started](#getting-started)
@@ -10,7 +10,6 @@ This is purely a demo of Ionic v2.0. This app is still in development. **There i
  - [Use Cases](#use-cases)
  - [File Structure of App](#file-structure-of-app)
  - [Coming Soon](#coming-soon)
- - [Angular 2 Examples](#angular-2-examples)
 
 ## Getting Started
 
@@ -98,7 +97,3 @@ We'll also be showing how to use native plugins:
 
 - Camera access
 - Geolocation
-
-## Angular 2 Examples
-
-- Angular 2 RxJS Chat: https://github.com/ng-book/angular2-rxjs-chat
