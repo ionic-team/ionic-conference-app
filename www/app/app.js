@@ -13,10 +13,10 @@ import './app.scss';
 class ConferenceApp {
   constructor(platform: Platform, dataService: DataService) {
     // set the root pages for each tab
-    this.tab1 = Schedules;
-    this.tab2 = Speakers;
-    this.tab3 = Map;
-    this.tab4 = About;
+    this.tab1Root = Schedules;
+    this.tab2Root = Speakers;
+    this.tab3Root = Map;
+    this.tab4Root = About;
 
     // retrieve the conference data
     dataService.retrieveData();
