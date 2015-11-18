@@ -47,9 +47,7 @@ module.exports = {
       "node_modules",
       "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
       "node_modules/ionic-framework/dist/js", // for web-animations polyfill
-      "node_modules/ionic-framework/dist/src/es5/common" // ionic-framework npm package (stable)
-      // See README for steps on developing against ionic-framework locally
-      // "dist/src/es5/common" // when developing against locally linked ionic-framework (master)
+      "node_modules/ionic-framework/dist/src/es5/common" // ionic-framework npm package
     ],
     extensions: ["", ".js", ".ts"]
   },
