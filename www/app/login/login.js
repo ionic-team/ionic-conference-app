@@ -13,4 +13,8 @@ export class Login {
     this.nav.push(Tabs);
   }
 
+  signup() {
+    console.log("Sorry you can't signup yet");
+  }
+
 }

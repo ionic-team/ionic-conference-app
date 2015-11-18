@@ -2,7 +2,31 @@
   <ion-title>Login</ion-title>
 </ion-navbar>
 
-<ion-content padding class="login">
+<ion-content class="login">
 
-  <button (click)="login()" primary block>Login</button>
+  <ion-list>
+    <div class="logo">
+      <img src="img/appicon.png">
+    </div>
+
+    <ion-input floating-label>
+      <ion-label>Username</ion-label>
+      <input type="text">
+    </ion-input>
+
+    <ion-input floating-label>
+      <ion-label>Password</ion-label>
+      <input type="password">
+    </ion-input>
+
+    <ion-row responsive-sm>
+      <ion-col>
+        <button (click)="login()" primary block>Login</button>
+      </ion-col>
+      <ion-col>
+        <button (click)="signup()" light block>Signup</button>
+      </ion-col>
+    </ion-row>
+</ion-list>
+
 </ion-content>
