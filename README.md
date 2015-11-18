@@ -37,14 +37,14 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 ## Use Cases
 
 * Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.html#L2-L7) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js) ]
-* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L3-L10) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L18) ]
-* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L16) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L49-L67) ]
+* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.html#L3-L10) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L18) ]
+* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.html#L16) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L49-L67) ]
 * Sliding items with buttons - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L6-L21) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.js#L24-L80) ]
-* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/filter-schedules/filter-schedules.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L69-L71) ]
+* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/filter-schedules/filter-schedules.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L69-L71) ]
 * Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/filter-schedules/filter-schedules.html#L16-L19) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speakers/speakers.html#L7-L39) ]
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L3-L5) ]
-* Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L15-L17) ]
+* Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L15-L17) ]
 
 ## File Structure of App
 

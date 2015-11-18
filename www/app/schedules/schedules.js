@@ -5,10 +5,10 @@ import {FilterSchedules} from '../filter-schedules/filter-schedules';
 import {ScheduleList} from '../components/schedule-list';
 
 @Page({
-  templateUrl: 'app/schedule/schedule.html',
+  templateUrl: 'app/schedules/schedules.html',
   directives: [ScheduleList, SearchBar]
 })
-export class SchedulePage {
+export class Schedules {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;

@@ -2,7 +2,7 @@ import {App, Platform, StatusBar} from 'ionic/ionic';
 import {DataService} from './service/data';
 import {About} from './about/about';
 import {Map} from './map/map';
-import {SchedulePage} from './schedule/schedule';
+import {Schedules} from './schedules/schedules';
 import {Speakers} from './speakers/speakers';
 import './app.scss';
 
@@ -13,7 +13,7 @@ import './app.scss';
 class ConferenceApp {
   constructor(platform: Platform, dataService: DataService) {
     // set the root pages for each tab
-    this.tab1 = SchedulePage;
+    this.tab1 = Schedules;
     this.tab2 = Speakers;
     this.tab3 = Map;
     this.tab4 = About;
