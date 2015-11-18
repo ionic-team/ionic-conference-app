@@ -1,6 +1,6 @@
 # Ionic 2 Conference Application
 
-This is purely a demo of Ionic v2.0. This app is still in development. **There is not an actual Ionic Conference at this time.** 
+This is purely a demo of Ionic v2.0. This app is still in development. **There is not an actual Ionic Conference at this time.**
 
 ## Table of Contents
  - [Getting Started](#getting-started)
@@ -23,17 +23,17 @@ This is purely a demo of Ionic v2.0. This app is still in development. **There i
 ## App Preview
 
 ### iPhone 6
-<img src="app-preview/iphone/1.png" alt="Schedules" width="360">
-<img src="app-preview/iphone/2.png" alt="Speakers" width="360">
-<img src="app-preview/iphone/3.png" alt="Map" width="360">
-<img src="app-preview/iphone/4.png" alt="About" width="360">
+<img src="resources/screenshots/iphone/1.png" alt="Schedules" width="360">
+<img src="resources/screenshots/iphone/2.png" alt="Speakers" width="360">
+<img src="resources/screenshots/iphone/3.png" alt="Map" width="360">
+<img src="resources/screenshots/iphone/4.png" alt="About" width="360">
 
 ### Nexus 5
 
-<img src="app-preview/nexus/1.png" alt="Schedules" width="360">
-<img src="app-preview/nexus/2.png" alt="Speakers" width="360">
-<img src="app-preview/nexus/3.png" alt="Map" width="360">
-<img src="app-preview/nexus/4.png" alt="About" width="360">
+<img src="resources/screenshots/nexus/1.png" alt="Schedules" width="360">
+<img src="resources/screenshots/nexus/2.png" alt="Speakers" width="360">
+<img src="resources/screenshots/nexus/3.png" alt="Map" width="360">
+<img src="resources/screenshots/nexus/4.png" alt="About" width="360">
 
 ## Use Cases
 
