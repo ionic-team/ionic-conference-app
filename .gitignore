@@ -1,4 +1,26 @@
-node_modules
-platforms
-plugins
-www/build
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+*.sublime-project
+*.sublime-workspace
+
+.idea/
+.sass-cache/
+.versions/
+coverage/
+dist/
+node_modules/
+tmp/
+temp/
+www/build/
+$RECYCLE.BIN/
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
