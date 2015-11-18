@@ -10,7 +10,7 @@ import {DateFormat} from '../components/date-format';
   directives: [DateFormat],
   pipes: [ConvertDate]
 })
-export class AboutPage {
+export class About {
   constructor(dataService: DataService) {
     this.conferenceInfo = dataService.getData();
   }

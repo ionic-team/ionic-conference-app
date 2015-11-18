@@ -1,7 +1,7 @@
 import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
-import {SessionDetailPage} from '../session-detail/session-detail';
-import {FilterScheduleModal} from '../modals/filter-schedule-modal';
+import {SessionDetail} from '../session-detail/session-detail';
+import {FilterSchedules} from '../filter-schedules/filter-schedules';
 import {ScheduleList} from '../components/schedule-list';
 
 @Page({
@@ -43,7 +43,7 @@ export class SchedulePage {
   }
 
   openSession(session) {
-    this.nav.push(SessionDetailPage, session);
+    this.nav.push(SessionDetail, session);
   }
 
   getSessionsForTheDay() {
@@ -67,6 +67,6 @@ export class SchedulePage {
   }
 
   openScheduleFilter() {
-    this.modal.open(FilterScheduleModal);
+    this.modal.open(FilterSchedules);
   }
 }

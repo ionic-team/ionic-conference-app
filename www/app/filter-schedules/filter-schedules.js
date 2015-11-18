@@ -2,9 +2,9 @@ import {Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
 
 @Page({
-  templateUrl: 'app/modals/filter-schedule-modal.html'
+  templateUrl: 'app/filter-schedules/filter-schedules.html'
 })
-export class FilterScheduleModal {
+export class FilterSchedules {
   constructor(dataService: DataService) {
     this.categories = dataService.getCategories();
     this.dataService = dataService;

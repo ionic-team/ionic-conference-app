@@ -2,7 +2,7 @@
   "name": "ionic-conference-app",
   "description": "Ionic Conference App",
   "dependencies": {
-    "ionic-framework": "2.0.0-alpha.33",
+    "ionic-framework": "2.0.0-alpha.34",
     "moment": "^2.10.6"
   },
   "devDependencies": {
