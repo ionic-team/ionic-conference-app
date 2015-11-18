@@ -2,11 +2,11 @@
 <widget id="io.ionic.conference" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Ionic Conference</name>
   <description>
-        An Ionic Framework application for Ionic 2 Conference
-    </description>
+        An Ionic Framework application for the Ionic Conference.
+  </description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+      Ionic Framework Team <3
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
