@@ -1,6 +1,11 @@
 {
   "name": "ionic-conference-app",
   "description": "Ionic Conference App",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/driftyco/ionic-conference-app.git"
+  },
   "dependencies": {
     "ionic-framework": "2.0.0-alpha.34",
     "moment": "^2.10.6"
