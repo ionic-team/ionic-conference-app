@@ -23,7 +23,7 @@ class ConferenceApp {
 
     // when the platform is ready
     platform.ready().then(() => {
-      this.nav.push(Login);
+
     });
   }
 
