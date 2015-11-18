@@ -15,7 +15,7 @@ This is purely a demo of Ionic v2.0. This app is still in development. **There i
 ## Getting Started
 
 * Clone this repository.
-* Run `npm install` on project root.
+* Run `npm install --production` on project root.
 * Install the ionic-cli if not already (`npm install -g ionic@alpha`)
 * Run `ionic serve` in project root.
 * Profit
@@ -51,8 +51,6 @@ This is purely a demo of Ionic v2.0. This app is still in development. **There i
 
 ```
 ionic-conference-app/
-├── hooks/                             * Cordova hooks
-|
 ├── node_modules/                      * Node dependencies
 |
 ├── platforms/                         * Cordova generated native platform code
@@ -86,13 +84,12 @@ ionic-conference-app/
 │   └── index.html                    * Main entry point
 |
 ├── .gitignore                        * Example git ignore file
-├── config.xml                        * Cordova config file
-├── gulpfile.js                       * Gulpfile for tasks
-├── ionic.project                     * Ionic project file
 ├── package.json                      * Our javascript dependencies
 ├── README.md                         * This file
 ├── tsconfig.json                     * Configures the TypeScript compiler
-└── webpack.config.js                 * Our Webpack configuration
+├── config.xml                        * Cordova configuration file
+├── ionic.config.js                   * Ionic configuration file
+└── webpack.config.js                 * Webpack configuration file
 ```
 
 ## Coming Soon
