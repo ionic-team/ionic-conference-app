@@ -20,6 +20,7 @@ tmp/
 temp/
 hooks/
 platforms/
+plugins/
 www/build/
 $RECYCLE.BIN/
 

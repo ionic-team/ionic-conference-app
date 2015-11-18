@@ -17,5 +17,9 @@
     "typescript": "1.5.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.4"
-  }
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist"
+  ],
+  "cordovaPlatforms": []
 }
