@@ -11,7 +11,8 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'www', 'build', 'js'),
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: 'build/js/'
     //pathinfo: true // show module paths in the bundle, handy for debugging
   },
   module: {
