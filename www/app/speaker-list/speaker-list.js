@@ -4,9 +4,9 @@ import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 @Page({
-  templateUrl: 'app/speakers/speakers.html'
+  templateUrl: 'app/speaker-list/speaker-list.html'
 })
-export class SpeakersPage {
+export class SpeakerListPage {
   constructor(nav: NavController, dataService: DataService) {
     this.nav = nav;
     this.speakers = null;
