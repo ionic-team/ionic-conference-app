@@ -12,34 +12,12 @@ export class SchedulePage {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
+    
     this.schedule = dataService.getSchedule();
-    this.index = 0;
     this.sessionsForTheDay = this.schedule[0].sessions;
     this.scheduleShowing = 'all';
     this.searchQuery = '';
     this.favorites = [];
-  }
-
-  nextDay(index) {
-    let newIndex = index + 1;
-    if (newIndex >= this.schedule.length) {
-      return;
-    }
-
-    this.scheduleForTheDay = this.schedule[newIndex];
-    this.index = newIndex;
-    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
-  }
-
-  previousDay(index) {
-    let newIndex = index - 1;
-    if (newIndex < 0) {
-      return;
-    }
-
-    this.scheduleForTheDay = this.schedule[newIndex];
-    this.index = newIndex;
-    this.sessionsForTheDay = this.scheduleForTheDay.sessions;
   }
 
   openSession(session) {

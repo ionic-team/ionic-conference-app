@@ -1,5 +1,4 @@
 import {Page} from 'ionic/ionic';
-import './map.scss';
 
 @Page({
   templateUrl: 'app/map/map.html'
