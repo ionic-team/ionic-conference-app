@@ -7,7 +7,6 @@ import * as moment from 'moment';
   selector: 'date-format',
   template: '<span>{{formattedDate}}</span>'
 })
-
 export class DateFormat {
   constructor() {
     this.formattedDate = this.test;

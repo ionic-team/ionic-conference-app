@@ -4,7 +4,7 @@ import {DataService} from '../service/data';
 @Page({
   templateUrl: 'app/session-filter/session-filter.html'
 })
-export class SessionFilter {
+export class SessionFilterPage {
   constructor(dataService: DataService) {
     this.dataService = dataService;
     this.categories = this.dataService.getCategories();

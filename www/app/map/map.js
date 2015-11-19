@@ -4,7 +4,7 @@ import './map.scss';
 @Page({
   templateUrl: 'app/map/map.html'
 })
-export class Map {
+export class MapPage {
   constructor() {
     this.map = null;
   }

@@ -1,11 +1,11 @@
 import {NavController, NavParams, Page} from 'ionic/ionic';
-import {SessionDetail} from '../session-detail/session-detail';
+import {SessionDetailPage} from '../session-detail/session-detail';
 import {DataService} from '../service/data';
 
 @Page({
   templateUrl: 'app/speaker-detail/speaker-detail.html',
 })
-export class SpeakerDetail {
+export class SpeakerDetailPage {
   constructor(nav: NavController, navParams: NavParams, dataService: DataService) {
     this.nav = nav;
     this.navParams = navParams;
@@ -23,6 +23,6 @@ export class SpeakerDetail {
   }
 
   openSession(session) {
-    this.nav.push(SessionDetail, session);
+    this.nav.push(SessionDetailPage, session);
   }
 }

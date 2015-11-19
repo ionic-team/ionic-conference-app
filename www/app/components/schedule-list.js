@@ -1,7 +1,7 @@
 import {Component, NgIf, NgFor} from 'angular2/angular2';
 import {Config, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic/ionic';
-import {SessionDetail} from '../session-detail/session-detail';
-import {SpeakerDetail} from '../speaker-detail/speaker-detail';
+import {SessionDetailPage} from '../session-detail/session-detail';
+import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
 import {ConvertDate} from '../pipes/convert-date';
 import {DateFormat} from '../components/date-format';
@@ -67,7 +67,7 @@ export class ScheduleList {
   }
 
   openSession(session, val, event) {
-    this.nav.push(SessionDetail, session);
+    this.nav.push(SessionDetailPage, session);
     if (event) {
       event.preventDefault();
     }
@@ -77,7 +77,7 @@ export class ScheduleList {
   openSpeakerDetail(speaker, event, slidingItem) {
     event.stopPropagation();
     event.preventDefault();
-    this.nav.push(SpeakerDetail, speaker);
+    this.nav.push(SpeakerDetailPage, speaker);
     slidingItem.close();
   }
 

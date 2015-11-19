@@ -1,7 +1,7 @@
 import {App} from 'ionic/ionic';
 import {DataService} from './service/data';
-import {Tabs} from './tabs/tabs';
-import {Login} from './login/login';
+import {TabsPage} from './tabs/tabs';
+import {LoginPage} from './login/login';
 import './app.scss';
 
 @App({
@@ -22,10 +22,10 @@ class ConferenceApp {
     dataService.retrieveData();
 
     this.loggedIn = false;
-    this.root = Tabs;
+    this.root = TabsPage;
 
     if (!this.loggedIn) {
-      this.root = Tabs;
+      this.root = TabsPage;
     }
   }
 }

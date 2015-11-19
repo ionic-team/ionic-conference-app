@@ -1,16 +1,16 @@
 import {Page, NavController} from 'ionic/ionic';
-import {Tabs} from '../tabs/tabs';
+import {TabsPage} from '../tabs/tabs';
 
 @Page({
   templateUrl: 'app/login/login.html',
 })
-export class Login {
+export class LoginPage {
   constructor(nav: NavController) {
     this.nav = nav;
   }
 
   login() {
-    this.nav.push(Tabs);
+    this.nav.push(TabsPage);
   }
 
   signup() {
