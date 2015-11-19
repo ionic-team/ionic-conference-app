@@ -1,12 +1,12 @@
 
 <ion-navbar *navbar>
-  <ion-title>Speaker Detail</ion-title>
+  <ion-title>{{speaker.name}}</ion-title>
 </ion-navbar>
 
 <ion-content padding>
   <div class="speaker-detail">
     <img src="{{speaker.profile_pic}}">
-    <ion-item>
+    <ion-item no-lines>
       <h1>{{speaker.name}}</h1>
       <a item-right href="{{speaker.twitter}}"><icon ion-social-twitter></icon></a>
     </ion-item>
