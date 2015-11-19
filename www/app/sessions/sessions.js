@@ -1,14 +1,14 @@
 import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SessionDetail} from '../session-detail/session-detail';
-import {FilterSchedules} from '../filter-schedules/filter-schedules';
+import {SessionFilter} from '../session-filter/session-filter';
 import {ScheduleList} from '../components/schedule-list';
 
 @Page({
-  templateUrl: 'app/schedules/schedules.html',
+  templateUrl: 'app/sessions/sessions.html',
   directives: [ScheduleList, SearchBar]
 })
-export class Schedules {
+export class Sessions {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
@@ -67,6 +67,6 @@ export class Schedules {
   }
 
   openScheduleFilter() {
-    this.modal.open(FilterSchedules);
+    this.modal.open(SessionFilter);
   }
 }

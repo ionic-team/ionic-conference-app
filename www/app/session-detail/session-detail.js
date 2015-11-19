@@ -5,7 +5,6 @@ import {NavParams, Page} from 'ionic/ionic';
 })
 export class SessionDetail {
   constructor(navParams: NavParams) {
-    this.navParams = navParams;
-    this.session = this.navParams.data;
+    this.session = navParams.data;
   }
 }

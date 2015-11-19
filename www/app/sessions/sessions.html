@@ -12,11 +12,9 @@
     <button (click)="openScheduleFilter()"><icon ios="funnel-outline" md="funnel"></icon></button>
   </ion-nav-items>
 </ion-navbar>
-<ion-toolbar light>
-  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar>
-</ion-toolbar>
 
 <ion-content>
+  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar>
   <div [ng-switch]="scheduleShowing">
     <schedule-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></schedule-list>
     <schedule-list *ng-switch-when="'all'" [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></schedule-list>

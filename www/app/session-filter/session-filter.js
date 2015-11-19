@@ -2,12 +2,12 @@ import {Page} from 'ionic/ionic';
 import {DataService} from '../service/data';
 
 @Page({
-  templateUrl: 'app/filter-schedules/filter-schedules.html'
+  templateUrl: 'app/session-filter/session-filter.html'
 })
-export class FilterSchedules {
+export class SessionFilter {
   constructor(dataService: DataService) {
-    this.categories = dataService.getCategories();
     this.dataService = dataService;
+    this.categories = this.dataService.getCategories();
   }
 
   onInit() {
