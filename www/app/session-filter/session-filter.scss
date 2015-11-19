@@ -1,4 +1,8 @@
 
+.reset-filters {
+  color: color(danger);
+}
+
 @each $category, $value in auxiliary-categories() {
 
   ion-switch.item[category=#{$category}] {

@@ -25,7 +25,7 @@ class ConferenceApp {
     this.root = TabsPage;
 
     if (!this.loggedIn) {
-      this.root = TabsPage;
+      this.root = LoginPage;
     }
   }
 }

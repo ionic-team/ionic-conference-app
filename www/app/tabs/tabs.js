@@ -1,7 +1,7 @@
 import {NavController, Page} from 'ionic/ionic';
 import {AboutPage} from '../about/about';
 import {MapPage} from '../map/map';
-import {SessionsPage} from '../sessions/sessions';
+import {SessionsPage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 
 @Page({

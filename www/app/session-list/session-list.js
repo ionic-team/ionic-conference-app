@@ -4,16 +4,16 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
 import {ConvertDate} from '../pipes/convert-date';
-import {DateFormat} from '../components/date-format';
+import {DateFormat} from '../date-format/date-format';
 
 @Component({
   directives: [DateFormat, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NgFor, NgIf],
   properties: ['data', 'favorites', 'showing'],
   pipes: [ConvertDate],
-  selector: 'schedule-list',
-  templateUrl: 'app/components/schedule-list.html'
+  selector: 'session-list',
+  templateUrl: 'app/session-list/session-list.html'
 })
-export class ScheduleList {
+export class SessionList {
   constructor(nav: NavController, popup: Popup, config: Config, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;

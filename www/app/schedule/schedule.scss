@@ -1,0 +1,8 @@
+/********************************************************************/
+// TODO this is a temp hack to fix segment overlapping ion-nav-item
+// https://github.com/driftyco/ionic2/issues/506
+// remove when this issue is fixed and a release is made
+.ios ion-nav-items {
+  z-index: 99;
+}
+/********************************************************************/

@@ -2,11 +2,11 @@ import {NavController, Page, SearchBar, Modal} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {SessionFilterPage} from '../session-filter/session-filter';
-import {ScheduleList} from '../components/schedule-list';
+import {SessionList} from '../session-list/session-list';
 
 @Page({
-  templateUrl: 'app/sessions/sessions.html',
-  directives: [ScheduleList, SearchBar]
+  templateUrl: 'app/schedule/schedule.html',
+  directives: [SessionList, SearchBar]
 })
 export class SessionsPage {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
