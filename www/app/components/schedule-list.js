@@ -1,5 +1,5 @@
 import {Component, NgIf, NgFor} from 'angular2/angular2';
-import {Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController, Platform, Popup} from 'ionic/ionic';
+import {Config, Icon, Item, ItemGroup, ItemGroupTitle, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic/ionic';
 import {SessionDetail} from '../session-detail/session-detail';
 import {SpeakerDetail} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
@@ -14,11 +14,13 @@ import {DateFormat} from '../components/date-format';
   templateUrl: 'app/components/schedule-list.html'
 })
 export class ScheduleList {
-  constructor(nav: NavController, popup: Popup, dataService: DataService, platform: Platform) {
+  constructor(nav: NavController, popup: Popup, config: Config, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;
     this.dataService = dataService;
-    this.platform = platform;
+    this.config = config;
+
+    this.isMD = this.config.get('mode') == 'md';
   }
 
   addFavorite(timeSlot, session, event, slidingItem) {

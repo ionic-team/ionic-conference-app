@@ -1,4 +1,4 @@
-import {App, Platform} from 'ionic/ionic';
+import {App} from 'ionic/ionic';
 import {Tabs} from './tabs/tabs';
 import {Login} from './login/login';
 import './app.scss';
@@ -7,14 +7,9 @@ import './app.scss';
   templateUrl: 'app/app.html'
 })
 class ConferenceApp {
-  constructor(platform: Platform) {
+  constructor() {
     this.loggedIn = false;
     this.root = Tabs;
-
-    // when the platform is ready
-    platform.ready().then(() => {
-
-    });
 
     if (!this.loggedIn) {
       this.root = Login;

@@ -46,6 +46,10 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L3-L5) ]
 * Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/login/login.html#L22-L29) ]
 * Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L15-L17) ]
+* Adding an attribute (no-lines) dynamically - [
+[template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L1) |
+[code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.js#L23)
+]
 
 ## File Structure of App
 

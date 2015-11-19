@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list [attr.no-lines]="isMD ? '' : null">
   <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of showTimeSlot(data)">
     <ion-item-group-title>
       {{timeSlot.time}}
