@@ -44,7 +44,7 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/filter-schedules/filter-schedules.html#L16-L19) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speakers/speakers.html#L7-L39) ]
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/components/schedule-list.html#L3-L5) ]
-* Grid - [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/login/login.html#L22-L29)
+* Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/login/login.html#L22-L29) ]
 * Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/service/data.js#L22-L26) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedules/schedules.js#L15-L17) ]
 
 ## File Structure of App
