@@ -120,7 +120,7 @@ ionic-conference-app/
 │   │   │    └── speaker-detail.js     * SpeakerDetailPage code
 │   │   │    └── speaker-detail.scss   * SpeakerDetailPage stylesheet
 │   │   │
-│   │   │── speaker-list/              * Speaker tab page
+│   │   │── speaker-list/              * Speakers tab page
 │   │   │    ├── speaker-list.html     * SpeakerListPage template
 │   │   │    └── speaker-list.js       * SpeakerListPage code
 │   │   │    └── speaker-list.scss     * SpeakerListPage stylesheet
