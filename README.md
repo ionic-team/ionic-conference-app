@@ -65,35 +65,90 @@ ionic-conference-app/
 |
 ├── www/                               * Folder that is copied over to platforms www directory
 │   ├── app/                           * Contains our application code
-│   │   ├── about/                     * About page
-│   │   │    ├── about.html            * Page template
-│   │   │    └── about.js              * Page code
+│   │   ├── about/                     * About tab page
+│   │   │    ├── about.html            * AboutPage template
+│   │   │    └── about.js              * AboutPage code
+│   │   │    └── about.scss            * AboutPage stylesheet
 │   │   │
-│   │   │── components/                * Example components
-│   │   │       ├── date-format.js     * Import moment.js and format date
-│   │   │       ├── session-list.js   * List component
-│   │   │       └── session-list.html * List template
+│   │   │── data/                      * Contains all app data
+│   │   │    ├── categories.json       * Category data
+│   │   │    └── info.json             * Conference data
+│   │   │    └── schedule.json         * Schedule data
+│   │   │    └── speakers.json         * Speakers data
+│   │   │
+│   │   │── date-format/               * DateFormat component
+│   │   │    └── date-format.js        * DateFormat component
+│   │   │
+│   │   │── login/                     * Login page
+│   │   │    ├── login.html            * LoginPage template
+│   │   │    └── login.js              * LoginPage code
+│   │   │    └── login.scss            * LoginPage stylesheet
+│   │   │
+│   │   │── map/                       * Map tab page
+│   │   │    ├── map.html              * MapPage template
+│   │   │    └── map.js                * MapPage code
+│   │   │    └── map.scss              * MapPage stylesheet
+│   │   │
+│   │   │── pipes/                     * Contains all pipes
+│   │   │    ├── convert-date.js       * ConvertDate pipe
+│   │   │
+│   │   │── schedule/                  * Schedule tab page
+│   │   │    ├── schedule.html         * SchedulePage template
+│   │   │    └── schedule.js           * SchedulePage code
+│   │   │    └── schedule.scss         * SchedulePage stylesheet
+│   │   │
+│   │   │── service/                   * Contains all services
+│   │   │    ├── data.js               * DataService code
+│   │   │
+│   │   │── session-detail/            * Session Detail page
+│   │   │    ├── session-detail.html   * SessionDetailPage template
+│   │   │    └── session-detail.js     * SessionDetailPage code
+│   │   │    └── session-detail.scss   * SessionDetailPage stylesheet
+│   │   │
+│   │   │── session-filter/            * Session Filter page
+│   │   │    ├── session-filter.html   * SessionFilterPage template
+│   │   │    └── session-filter.js     * SessionFilterPage code
+│   │   │    └── session-filter.scss   * SessionFilterPage stylesheet
+│   │   │
+│   │   │── session-list/              * Session List page
+│   │   │    ├── session-list.html     * SessionListPage template
+│   │   │    └── session-list.js       * SessionListPage code
+│   │   │    └── session-list.scss     * SessionListPage stylesheet
+│   │   │
+│   │   │── speaker-detail/            * Speaker Detail page
+│   │   │    ├── speaker-detail.html   * SpeakerDetailPage template
+│   │   │    └── speaker-detail.js     * SpeakerDetailPage code
+│   │   │    └── speaker-detail.scss   * SpeakerDetailPage stylesheet
+│   │   │
+│   │   │── speaker-list/              * Speaker tab page
+│   │   │    ├── speaker-list.html     * SpeakerListPage template
+│   │   │    └── speaker-list.js       * SpeakerListPage code
+│   │   │    └── speaker-list.scss     * SpeakerListPage stylesheet
+│   │   │
+│   │   │── tabs/              * Tabs page
+│   │   │    ├── tabs.html     * TabsPage template
+│   │   │    └── tabs.js       * TabsPage code
 │   │   │
 │   │   ├── app.html                   * Application template
 │   │   ├── app.js                     * Main Application configuration
 │   │   └── app.scss                   * Sass imports
 │   │   
-│   ├── build/                        * Contains compiled content
-│   │     ├── css                     * Compiled CSS
-│   │     ├── fonts                   * Copied Fonts
-│   │     └── js                      * ES5 compiled JavaScript
+│   ├── build/                         * Contains compiled content
+│   │     ├── css                      * Compiled CSS
+│   │     ├── fonts                    * Copied Fonts
+│   │     └── js                       * ES5 compiled JavaScript
 │   │
-│   ├── img/                          * App images
+│   ├── img/                           * App images
 │   │
-│   └── index.html                    * Main entry point
+│   └── index.html                     * Main entry point
 |
-├── .gitignore                        * Example git ignore file
-├── package.json                      * Our javascript dependencies
-├── README.md                         * This file
-├── tsconfig.json                     * Configures the TypeScript compiler
-├── config.xml                        * Cordova configuration file
-├── ionic.config.js                   * Ionic configuration file
-└── webpack.config.js                 * Webpack configuration file
+├── .gitignore                         * Example git ignore file
+├── package.json                       * Our javascript dependencies
+├── README.md                          * This file
+├── tsconfig.json                      * Configures the TypeScript compiler
+├── config.xml                         * Cordova configuration file
+├── ionic.config.js                    * Ionic configuration file
+└── webpack.config.js                  * Webpack configuration file
 ```
 
 ## Coming Soon

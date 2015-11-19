@@ -8,7 +8,7 @@ import {SessionList} from '../session-list/session-list';
   templateUrl: 'app/schedule/schedule.html',
   directives: [SessionList, SearchBar]
 })
-export class SessionsPage {
+export class SchedulePage {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
