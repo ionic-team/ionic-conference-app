@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Adam Badley",
+    "name": "Adam Bradley",
     "profile_pic": "https://avatars2.githubusercontent.com/u/452425?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -9,7 +9,7 @@
   },
   {
     "id": "2",
-    "name": "Max Lynx",
+    "name": "Max Lynch",
     "profile_pic": "https://avatars3.githubusercontent.com/u/11214?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -17,7 +17,7 @@
   },
   {
     "id": "3",
-    "name": "Brandy Carnegie",
+    "name": "Brandy Carney",
     "profile_pic": "https://avatars0.githubusercontent.com/u/6577830?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -25,15 +25,15 @@
   },
   {
     "id": "4",
-    "name": "Josh Babari",
-    "profile_pic": "https://avatars3.githubusercontent.com/u/1414692?v=3",
+    "name": "Drew Rygh",
+    "profile_pic": "https://avatars2.githubusercontent.com/u/2018508?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
     "location": "Madison, WI"
   },
   {
     "id": "5",
-    "name": "Ben Sparrow",
+    "name": "Ben Sperry",
     "profile_pic": "https://avatars1.githubusercontent.com/u/519526?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -41,7 +41,7 @@
   },
   {
     "id": "6",
-    "name": "Mike Hurtington",
+    "name": "Mike Hartington",
     "profile_pic": "https://avatars0.githubusercontent.com/u/2835826?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -49,7 +49,7 @@
   },
   {
     "id": "7",
-    "name": "Perry Governor",
+    "name": "Perry Govier",
     "profile_pic": "https://avatars1.githubusercontent.com/u/571056?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -57,7 +57,7 @@
   },
   {
     "id": "8",
-    "name": "Eric Bobbington",
+    "name": "Eric Bobbitt",
     "profile_pic": "https://avatars3.githubusercontent.com/u/19638?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -65,7 +65,7 @@
   },
   {
     "id": "9",
-    "name": "Tim Lanchester",
+    "name": "Tim Lancina",
     "profile_pic": "https://avatars2.githubusercontent.com/u/804331?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -73,7 +73,7 @@
   },
   {
     "id": "10",
-    "name": "Brody Kiddington",
+    "name": "Brody Kidd",
     "profile_pic": "https://avatars0.githubusercontent.com/u/5280265?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "11",
-    "name": "Rudy Belfonte",
+    "name": "Rudy Pelrine",
     "profile_pic": "https://avatars0.githubusercontent.com/u/1584992?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -89,7 +89,7 @@
   },
   {
     "id": "12",
-    "name": "Dan Dalman",
+    "name": "Dan Imhoff",
     "profile_pic": "https://pbs.twimg.com/profile_images/627907755743952896/TEEur1pK.jpg",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
@@ -97,16 +97,8 @@
   },
   {
     "id": "13",
-    "name": "Katie Kinder",
+    "name": "Katie Ginder-Vogel",
     "profile_pic": "https://avatars2.githubusercontent.com/u/8117985?v=3",
-    "twitter": "http://twitter.com/ionicframework",
-    "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
-    "location": "Madison, WI"
-  },
-  {
-    "id": "14",
-    "name": "Drew Rough",
-    "profile_pic": "https://avatars2.githubusercontent.com/u/2018508?v=3",
     "twitter": "http://twitter.com/ionicframework",
     "about": "Co-creator of Ionic Framework and Angular Material Design team member. Regularly writes and speaks about hybrid development with Ionic and Angular. Proud dad, husband, veteran, and dog's best friend. Based in beautiful Madison, WI.",
     "location": "Madison, WI"
