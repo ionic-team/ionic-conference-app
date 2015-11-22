@@ -1,13 +1,15 @@
-import {Page} from 'ionic/ionic';
+import {Page, Config} from 'ionic/ionic';
 import {DataService} from '../service/data';
 
 @Page({
   templateUrl: 'app/session-filter/session-filter.html'
 })
 export class SessionFilterPage {
-  constructor(dataService: DataService) {
+  constructor(dataService: DataService, config: Config) {
     this.dataService = dataService;
     this.categories = this.dataService.getCategories();
+
+    this.isMD = config.get('mode') == 'md';
   }
 
   onInit() {
