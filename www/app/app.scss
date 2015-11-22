@@ -13,16 +13,18 @@
 // in this file, before Ionic's source scss files are imported.
 
 $colors: (
-
   primary:    #387ef5,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   favorite:   #69BB7B
-
 );
 
+// override ionic.scss's font-path to point to the correct path
+// when building from Sass source.
+// More info: https://github.com/jtangelder/sass-loader#problems-with-url
+$font-path: '~ionic-framework/dist/fonts';
 
 // Ionic Sass
 // ---------------------------------

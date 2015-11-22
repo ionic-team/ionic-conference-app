@@ -35,11 +35,11 @@ module.exports = {
         // can work with, e.g.: url('../my-file.png') => url('/path/to/my-file.png')
         // https://github.com/bholloway/resolve-url-loader
         test: /\.scss$/,
-        loaders: ["style", "css", "autoprefixer?browsers=last 2 version", "resolve-url", "sass?sourceMap"]
+        loaders: ["style", "css", "autoprefixer?browsers=last 2 version", "sass"]
       },
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
-      { test: /\.(png|woff|ttf)$/, loader: 'url-loader?limit=100000' }
+      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
     ]
   },
   resolve: {
