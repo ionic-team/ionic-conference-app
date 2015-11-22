@@ -21,11 +21,7 @@ class ConferenceApp {
     // retrieve the conference data
     dataService.retrieveData();
 
-    this.loggedIn = false;
-    this.root = TabsPage;
-
-    if (!this.loggedIn) {
-      this.root = LoginPage;
-    }
+    // We plan to add auth to only show the login page if not logged in
+    this.root = LoginPage;
   }
 }
