@@ -1,4 +1,4 @@
-import {NavController, Page} from 'ionic/ionic';
+import {NavController, Page, ActionSheet} from 'ionic/ionic';
 import {DataService} from '../service/data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -7,11 +7,12 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  constructor(nav: NavController, dataService: DataService) {
+  constructor(nav: NavController, dataService: DataService, actionSheet: ActionSheet) {
     this.nav = nav;
     this.speakers = null;
     this.scheduleInfo = null;
     this.dataService = dataService;
+    this.actionSheet = actionSheet;
   }
 
   onInit() {
@@ -54,5 +55,34 @@ export class SpeakerListPage {
 
   openSpeakerTwitter(speaker) {
     window.open(speaker.twitter);
+  }
+
+  openShareSpeaker(speaker) {
+    this.actionSheet.open({
+      buttons: [
+        { text: 'Copy Link' },
+        { text: 'Share via ...' },
+      ],
+      titleText: 'Share ' + speaker.name,
+      cancelText: 'Cancel',
+      cancel: () => {},
+      buttonClicked: (index) => {
+        switch (index){
+          case 0 :
+            // TODO
+            // waiting for the platform wrapper to be reorganized
+            // http://ngcordova.com/docs/plugins/clipboard/
+            return true;
+          case 1 :
+            // TODO
+            // waiting for the platform wrapper to be reorganized
+            // http://ngcordova.com/docs/plugins/socialSharing/
+            return true;
+        }
+      }
+    }).then(actionSheetRef => {
+      this.actionSheetRef = actionSheetRef;
+      // this.actionSheetRef.close() to close it
+    })
   }
 }
