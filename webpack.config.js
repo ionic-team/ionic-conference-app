@@ -1,5 +1,16 @@
 var path = require('path');
 
+var autoprefixerOptions = {
+  browsers: [
+    'last 2 versions',
+    'iOS >= 7',
+    'Android >= 4',
+    'Explorer >= 10',
+    'ExplorerMobile >= 11'
+  ],
+  cascade: false
+}
+
 module.exports = {
   entry: [
     "es6-shim",
@@ -30,12 +41,8 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        // Loader to compile all of our SASS down.
-        // Use the `resolve-url` pipe to convert the relative url paths to something this loader
-        // can work with, e.g.: url('../my-file.png') => url('/path/to/my-file.png')
-        // https://github.com/bholloway/resolve-url-loader
         test: /\.scss$/,
-        loaders: ["style", "css", "autoprefixer?browsers=last 2 version", "sass"]
+        loaders: ["style", "css", "autoprefixer?" + JSON.stringify(autoprefixerOptions), "sass"]
       },
       // Any png-image or woff-font below or equal to 100K will be converted
       // to inline base64 instead
