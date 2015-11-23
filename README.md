@@ -45,6 +45,7 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L17) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L49-L67) ]
 * Sliding items with buttons - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-list/session-list.html#L6-L21) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-list/session-list.js#L26-L82) ]
 * Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-filter/session-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L69-L71) ]
+* Action Sheet - [ [template](https://github.com/3dd13/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.html#L33) | [code](https://github.com/3dd13/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.js#L60-L87) ]
 * Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-filter/session-filter.html#L16-L19) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.html#L7-L39) ]
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-list/session-list.html#L3-L5) ]
