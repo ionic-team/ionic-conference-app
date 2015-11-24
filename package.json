@@ -7,7 +7,7 @@
     "url": "https://github.com/driftyco/ionic-conference-app.git"
   },
   "dependencies": {
-    "ionic-framework": "2.0.0-alpha.35",
+    "ionic-framework": "2.0.0-alpha.36",
     "moment": "^2.10.6"
   },
   "devDependencies": {

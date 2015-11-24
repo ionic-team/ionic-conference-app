@@ -14,11 +14,11 @@
       </button>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content class="outer-content">
       <ion-list>
-        <ion-header>
+        <ion-list-header>
           Sessions
-        </ion-header>
+        </ion-list-header>
         <button ion-item *ng-for="#session of speaker.sessions" (click)="openSession(session)">
           <h3>{{session.name}}</h3>
         </button>
