@@ -11,7 +11,7 @@
 </ion-toolbar>
 <ion-content class="outer-content">
   <ion-list>
-    <ion-header>Categories</ion-header>
+    <ion-list-header>Categories</ion-list-header>
 
     <ion-switch *ng-for="#category of categories" [(ng-model)]="category.filterToApply" [attr.category]="category.name" [(checked)]="category.filterToApply" secondary>
       <span class="dot"></span>
