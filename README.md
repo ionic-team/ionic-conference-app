@@ -56,7 +56,7 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Adding an attribute (no-lines) dynamically - [
 [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-list/session-list.html#L1) |
 [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-list/session-list.js#L23) ]
-* Using Config - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js#L9-L16) ]
+* Using Config - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js#L10-L17) ]
 
 ## File Structure of App
 
