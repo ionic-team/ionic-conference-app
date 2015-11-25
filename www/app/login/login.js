@@ -1,5 +1,6 @@
 import {Page, NavController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
+import {SignupPage} from '../signup/signup';
 
 @Page({
   templateUrl: 'app/login/login.html',
@@ -14,7 +15,7 @@ export class LoginPage {
   }
 
   signup() {
-    console.log("Sorry you can't signup yet");
+    this.nav.push(SignupPage);
   }
 
 }

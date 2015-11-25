@@ -120,6 +120,10 @@ ionic-conference-app/
 │   │   │    └── session-list.js       * SessionListPage code
 │   │   │    └── session-list.scss     * SessionListPage stylesheet
 │   │   │
+│   │   │── signup/                    * Signup page
+│   │   │    ├── signup.html           * SignupPage template
+│   │   │    └── signup.js             * SignupPage code
+│   │   │
 │   │   │── speaker-detail/            * Speaker Detail page
 │   │   │    ├── speaker-detail.html   * SpeakerDetailPage template
 │   │   │    └── speaker-detail.js     * SpeakerDetailPage code

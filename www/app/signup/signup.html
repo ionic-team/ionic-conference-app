@@ -1,5 +1,5 @@
 <ion-navbar *navbar>
-  <ion-title>Login</ion-title>
+  <ion-title>Signup</ion-title>
 </ion-navbar>
 
 <ion-content class="login">
@@ -19,14 +19,9 @@
       <input type="password">
     </ion-input>
 
-    <ion-row responsive-sm>
-      <ion-col>
-        <button (click)="login()" primary block>Login</button>
-      </ion-col>
-      <ion-col>
-        <button (click)="signup()" light block>Signup</button>
-      </ion-col>
-    </ion-row>
+    <div padding>
+      <button (click)="signup()" primary block>Create</button>
+    </div>
   </ion-list>
 
 </ion-content>
