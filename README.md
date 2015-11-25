@@ -22,21 +22,21 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 ## App Preview
 
 ### iPhone 6
-<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="360">
-<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="360">
-<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="360">
-<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="360">
-<img src="resources/screenshots/iphone/5.png" alt="Map" width="360">
-<img src="resources/screenshots/iphone/6.png" alt="About" width="360">
+<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="450">
+<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="450">
+<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="450">
+<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="450">
+<img src="resources/screenshots/iphone/5.png" alt="Map" width="450">
+<img src="resources/screenshots/iphone/6.png" alt="About" width="450">
 
 ### Nexus 5
 
-<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="360">
-<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="360">
-<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="360">
-<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="360">
-<img src="resources/screenshots/nexus/5.png" alt="Map" width="360">
-<img src="resources/screenshots/nexus/6.png" alt="About" width="360">
+<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="450">
+<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="450">
+<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="450">
+<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="450">
+<img src="resources/screenshots/nexus/5.png" alt="Map" width="450">
+<img src="resources/screenshots/nexus/6.png" alt="About" width="450">
 
 ## Use Cases
 
