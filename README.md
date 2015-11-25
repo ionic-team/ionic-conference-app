@@ -29,6 +29,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 <img src="resources/screenshots/iphone/5.png" alt="Map" width="450">
 <img src="resources/screenshots/iphone/6.png" alt="About" width="450">
 
+<img src="resources/gifs/ios.gif" alt="iOS">
+
 ### Nexus 5
 
 <img src="resources/screenshots/nexus/1.png" alt="Sessions" width="450">
@@ -37,6 +39,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 <img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="450">
 <img src="resources/screenshots/nexus/5.png" alt="Map" width="450">
 <img src="resources/screenshots/nexus/6.png" alt="About" width="450">
+
+<img src="resources/gifs/nexus.gif" alt="MD">
 
 ## Use Cases
 
