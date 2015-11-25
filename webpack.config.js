@@ -30,13 +30,17 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: "awesome-typescript-loader?doTypeCheck=false&useWebpackText=true",
+        loader: "awesome-typescript",
+        query: {
+          'doTypeCheck': false,
+          'useWebpackText': true
+        },
         include: [path.join(__dirname, 'www')],
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
-        loader: "awesome-typescript-loader",
+        loader: "awesome-typescript",
         include: [path.join(__dirname, 'www')],
         exclude: /node_modules/
       },
