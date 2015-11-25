@@ -40,6 +40,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 
 ## Use Cases
 
+* Menu - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.html#L1-L18) |
+[code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/app.js#L31-L47) ]
 * Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/tabs/tabs.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/tabs/tabs.js) ]
 * Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L2-L9) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L18) ]
 * Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L16) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L49-L67) ]
