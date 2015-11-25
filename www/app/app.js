@@ -29,9 +29,9 @@ class ConferenceApp {
     this.isMD = config.get('mode') == 'md' ? '' : null;
 
     this.pages = [
-      { title: 'Login', component: LoginPage },
-      { title: 'Signup', component: SignupPage },
-      { title: 'Logout', component: LoginPage },
+      { title: 'Login', component: LoginPage, icon: 'log-in' },
+      { title: 'Signup', component: SignupPage, icon: 'person-add' },
+      { title: 'Logout', component: LoginPage, icon: 'log-out' },
     ];
   }
 
