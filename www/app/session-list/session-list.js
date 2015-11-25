@@ -18,7 +18,7 @@ export class SessionList {
     this.dataService = dataService;
     this.config = config;
 
-    this.isMD = this.config.get('mode') == 'md';
+    this.isMD = this.config.get('mode') == 'md' ? '' : null;
   }
 
   addFavorite(timeSlot, session, event, slidingItem) {

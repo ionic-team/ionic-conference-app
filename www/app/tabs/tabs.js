@@ -1,4 +1,4 @@
-import {NavController, Page} from 'ionic/ionic';
+import {Page} from 'ionic/ionic';
 import {AboutPage} from '../about/about';
 import {MapPage} from '../map/map';
 import {SchedulePage} from '../schedule/schedule';
@@ -8,7 +8,7 @@ import {SpeakerListPage} from '../speaker-list/speaker-list';
   templateUrl: 'app/tabs/tabs.html'
 })
 export class TabsPage {
-  constructor(nav: NavController) {
+  constructor() {
     // set the root pages for each tab
     this.tab1Root = SchedulePage;
     this.tab2Root = SpeakerListPage;
