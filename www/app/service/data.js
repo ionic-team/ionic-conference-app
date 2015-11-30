@@ -64,6 +64,16 @@ export class DataService {
     this.categories = categories;
   }
 
+  updateSchedule() {
+    this.scheduleInfo = this.scheduleInfo.filter((timeSlot) => {
+      // Filter the talks by category
+      let matched = timeSlot.talks.filter((talk) => {
+        return this.showCategory(talk.category);
+      });
+      return matched.length > 0;
+    });
+  }
+
   showCategory(sessionCategory) {
     var categories = this.getCategories() || [],
         showFilter = true;

@@ -1,5 +1,5 @@
 <ion-list [attr.no-lines]="isMD">
-  <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of showTimeSlot(data)">
+  <ion-item-group [class.hide]="data.length == 0" *ng-for="#timeSlot of data">
     <ion-item-divider sticky>
       {{timeSlot.time}}
     </ion-item-divider>

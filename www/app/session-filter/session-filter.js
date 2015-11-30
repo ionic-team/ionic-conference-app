@@ -7,7 +7,7 @@ import {DataService} from '../service/data';
 export class SessionFilterPage {
   constructor(dataService: DataService, config: Config) {
     this.dataService = dataService;
-    this.categories = this.dataService.getCategories();
+    this.categories = dataService.getCategories();
 
     this.isMD = config.get('mode') == 'md';
   }
@@ -31,6 +31,7 @@ export class SessionFilterPage {
     });
 
     this.dataService.updateCategories(this.categories);
+    this.dataService.updateSchedule();
     this.close();
   }
 }

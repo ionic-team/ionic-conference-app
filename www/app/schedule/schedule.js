@@ -12,8 +12,8 @@ export class SchedulePage {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
-    this.schedule = dataService.getSchedule();
-    this.sessions = this.schedule[0].sessions;
+    this.dataService = dataService;
+    this.sessions = this.dataService.getSchedule();
     this.scheduleShowing = 'all';
     this.searchQuery = '';
     this.favorites = [];
@@ -23,8 +23,8 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, session);
   }
 
-  filterSessions(searchbar, dayIndex) {
-    this.sessions = this.schedule[dayIndex].sessions;
+  filterSessions(searchbar) {
+    this.sessions = this.dataService.getSchedule();
     let query = searchbar.query;
 
     // If the query in the searchbar exists we want to filter

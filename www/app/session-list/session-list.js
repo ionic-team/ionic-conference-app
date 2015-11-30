@@ -78,27 +78,4 @@ export class SessionList {
     this.nav.push(SpeakerDetailPage, speaker);
     slidingItem.close();
   }
-
-  showTimeSlot(timeSlot) {
-    var filteredTimeSlot = [];
-
-    timeSlot.forEach((time) => {
-      let filteredTalks = [];
-      // Filter the talks by category
-      time.talks.forEach((talk) => {
-        if (this.dataService.showCategory(talk.category)) {
-          filteredTalks.push(talk);
-        }
-      });
-      // Only push the this time slot if talks exist
-      if (filteredTalks.length > 0 ) {
-        filteredTimeSlot.push({
-          talks: filteredTalks,
-          time: time.time
-        });
-      }
-    });
-
-    return filteredTimeSlot;
-  }
 }
