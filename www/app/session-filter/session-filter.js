@@ -31,7 +31,7 @@ export class SessionFilterPage {
     });
 
     this.dataService.updateCategories(this.categories);
-    this.dataService.updateSchedule();
+    this.dataService.updateSessions();
     this.close();
   }
 }

@@ -24,21 +24,7 @@ export class SchedulePage {
   }
 
   filterSessions(searchbar) {
-    this.sessions = this.dataService.getSchedule();
-    let query = searchbar.query;
-
-    // If the query in the searchbar exists we want to filter
-    // all of the session talks by it
-    if (query && query.trim() != '') {
-      // Filter the sessions based on the talk name
-      this.sessions = this.sessions.filter((session) => {
-        var matched = session.talks.filter((talk) => {
-          return talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-        });
-
-        return matched.length > 0;
-      });
-    }
+    this.dataService.updateSessions(searchbar.query);
   }
 
   openScheduleFilter() {

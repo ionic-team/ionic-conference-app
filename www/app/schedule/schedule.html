@@ -19,7 +19,6 @@
   <ion-searchbar #searchbar primary [(ng-model)]="searchQuery" (input)="filterSessions(searchbar)" show-cancel="true" placeholder="Search"></ion-searchbar>
   <div [ng-switch]="scheduleShowing">
     <session-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></session-list>
-    <!-- TODO when there is a callback for the modal we want to remove this function call for data -->
-    <session-list *ng-switch-when="'all'" [data]="dataService.getSchedule()" [favorites]="favorites" showing="all"></session-list>
+    <session-list *ng-switch-when="'all'" [data]="dataService.getSessions()" [favorites]="favorites" showing="all"></session-list>
   </div>
 </ion-content>
