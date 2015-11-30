@@ -16,9 +16,9 @@
 </ion-navbar>
 
 <ion-content>
-  <ion-searchbar primary [(ng-model)]="searchQuery" show-cancel="true" placeholder="Search"></ion-searchbar>
+  <ion-searchbar #searchbar primary [(ng-model)]="searchQuery" (input)="filterSessions(searchbar, 0)" show-cancel="true" placeholder="Search"></ion-searchbar>
   <div [ng-switch]="scheduleShowing">
     <session-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></session-list>
-    <session-list *ng-switch-when="'all'" [data]="getSessionsForTheDay()" [favorites]="favorites" showing="all"></session-list>
+    <session-list *ng-switch-when="'all'" [data]="sessions" [favorites]="favorites" showing="all"></session-list>
   </div>
 </ion-content>

@@ -12,9 +12,8 @@ export class SchedulePage {
   constructor(nav: NavController, dataService: DataService, modal: Modal) {
     this.nav = nav;
     this.modal = modal;
-    
     this.schedule = dataService.getSchedule();
-    this.sessionsForTheDay = this.schedule[0].sessions;
+    this.sessions = this.schedule[0].sessions;
     this.scheduleShowing = 'all';
     this.searchQuery = '';
     this.favorites = [];
@@ -24,24 +23,22 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, session);
   }
 
-  getSessionsForTheDay() {
-    if (!this.searchQuery || this.searchQuery.trim() == '') {
-      return this.sessionsForTheDay;
-    }
-    var talks = [];
-    this.sessionsForTheDay.forEach((session) => {
-      var matched = session.talks.filter((v) => {
-        if(v.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0) {
-          return true;
-        }
-        return false;
+  filterSessions(searchbar, dayIndex) {
+    this.sessions = this.schedule[dayIndex].sessions;
+    let query = searchbar.query;
+
+    // If the query in the searchbar exists we want to filter
+    // all of the session talks by it
+    if (query && query.trim() != '') {
+      // Filter the sessions based on the talk name
+      this.sessions = this.sessions.filter((session) => {
+        var matched = session.talks.filter((talk) => {
+          return talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+        });
+
+        return matched.length > 0;
       });
-      if (matched.length > 0) {
-        session.talks = matched;
-        talks.push(session);
-      }
-    });
-    return talks;
+    }
   }
 
   openScheduleFilter() {
