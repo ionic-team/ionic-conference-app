@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -6,8 +6,10 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'app/login/login.html',
 })
 export class LoginPage {
-  constructor(nav: NavController) {
+  constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
+    this.app = app;
+    this.app.getComponent('leftMenu').enable(false);
   }
 
   login() {
@@ -18,4 +20,7 @@ export class LoginPage {
     this.nav.push(SignupPage);
   }
 
+  onPageWillLeave() {
+    this.app.getComponent('leftMenu').enable(true);
+  }
 }
