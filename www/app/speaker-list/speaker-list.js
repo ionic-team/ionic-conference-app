@@ -21,23 +21,23 @@ export class SpeakerListPage {
     let talks = [];
     let speakers = [];
 
-    this.scheduleInfo.map(dayItem => {
-      dayItem.sessions.map(sessionItem => {
-        sessionItem.talks.map(talkItem => {
-          talks.push(talkItem.name);
+    console.log(this.scheduleInfo);
 
-          if (talkItem.speaker) {
-            let speakerSession = speakerList.find(x => x.name == talkItem.speaker);
-            if (speakerSession) {
-              speakerSession.sessions = speakerSession.sessions || [];
-              speakerSession.sessions.push(talkItem);
-            }
-            if (speakers.indexOf(talkItem.speaker) == -1) {
-              speakers.push(talkItem.speaker);
-            }
+    this.scheduleInfo.map(sessionItem => {
+      sessionItem.talks.map(talkItem => {
+        talks.push(talkItem.name);
+
+        if (talkItem.speaker) {
+          let speakerSession = speakerList.find(x => x.name == talkItem.speaker);
+          if (speakerSession) {
+            speakerSession.sessions = speakerSession.sessions || [];
+            speakerSession.sessions.push(talkItem);
           }
+          if (speakers.indexOf(talkItem.speaker) == -1) {
+            speakers.push(talkItem.speaker);
+          }
+        }
 
-        });
       });
     });
 
