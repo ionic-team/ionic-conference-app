@@ -11,7 +11,6 @@ export class DataService {
     this.scheduleInfo = null;
     this.speakers = null;
     this.categories = null;
-    this.sessions = null;
   }
 
   retrieveData() {
@@ -30,7 +29,6 @@ export class DataService {
       .map(res => res.json())
       .subscribe(data => {
         this.scheduleInfo = data;
-        this.sessions = data;
       });
 
     this.http.get('app/data/speakers.json')
@@ -66,38 +64,12 @@ export class DataService {
     this.categories = categories;
   }
 
-  getSessions() {
-    return this.sessions;
-  }
-
-  updateSessions(query) {
-    this.sessions = this.getSchedule();
-    let query = query || '';
-
-    this.sessions = this.sessions.filter((session) => {
-      // Filter the talks by category
-      console.log(session.talks);
-      let talks = session.talks.filter((talk) => {
-        if (this.showCategory(talk.category) && talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
-          console.log(talk.category, this.showCategory(talk.category));
-          console.log(talk.name, talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-        }
-
-        return (this.showCategory(talk.category) && talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-      });
-      session.talks = talks;
-      return talks.length > 0;
-    });
-
-    console.log("Sessions", this.sessions);
-  }
-
   showCategory(sessionCategory) {
     var categories = this.getCategories() || [],
         showFilter = true;
 
     categories.forEach((category) => {
-      if(category.name == sessionCategory) {
+      if (category.name == sessionCategory) {
         showFilter = category.showFilter;
       }
     });
