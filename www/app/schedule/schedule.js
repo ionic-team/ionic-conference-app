@@ -27,6 +27,10 @@ export class SchedulePage {
     // The searchQuery doesn't get updated before this function is called
     // so we have to wrap it in a timeout
     setTimeout(() => {
+      if (!this.searchQuery) {
+        console.log("Query is null, reset");
+        this.sessions = this.dataService.getSchedule();
+      }
       this.sessions = this.dataService.getSchedule();
       console.log(this.sessions);
 
