@@ -9,7 +9,6 @@ export class LoginPage {
   constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
     this.app = app;
-    this.app.getComponent('leftMenu').enable(false);
   }
 
   login() {
@@ -18,6 +17,10 @@ export class LoginPage {
 
   signup() {
     this.nav.push(SignupPage);
+  }
+
+  onPageDidEnter() {
+    this.app.getComponent('leftMenu').enable(false);
   }
 
   onPageWillLeave() {
