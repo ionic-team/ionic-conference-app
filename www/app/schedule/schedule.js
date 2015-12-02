@@ -23,25 +23,35 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, session);
   }
 
-  filterSessions(searchbar) {
-    this.sessions = this.dataService.getSchedule();
-    let query = searchbar.query;
+  filterSessions() {
+    // The searchQuery doesn't get updated before this function is called
+    // so we have to wrap it in a timeout
+    setTimeout(() => {
+      this.sessions = this.dataService.getSchedule();
 
-    // If the query in the searchbar exists we want to filter
-    // all of the session talks by it
-    if (query && query.trim() != '') {
-      // Filter the sessions based on the talk name
+      // If searchQuery exists we want to trim it, otherwise set it to an empty string
+      this.searchQuery ? this.searchQuery = this.searchQuery.trim() : this.searchQuery = '';
+
+      // Filter the sessions based on the talk name and whether the category is showing
       this.sessions = this.sessions.filter((session) => {
-        var matched = session.talks.filter((talk) => {
-          return talk.name.toLowerCase().indexOf(query.toLowerCase()) > -1;
+        let matched = session.talks.filter((talk) => {
+          return (this.dataService.showCategory(talk.category) && talk.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1);
         });
 
         return matched.length > 0;
       });
-    }
+    });
   }
 
   openScheduleFilter() {
-    this.modal.open(SessionFilterPage);
+    this.modal.open(SessionFilterPage).then(modalRef => {
+      // modalRef is a reference to the modal instance
+      modalRef.onClose = (modalData) => {
+        // If the modalData is true we want to update sessions
+        if (modalData) {
+          this.filterSessions();
+        }
+      }
+    });
   }
 }

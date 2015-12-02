@@ -31,7 +31,7 @@ export class SessionFilterPage {
     });
 
     this.dataService.updateCategories(this.categories);
-    this.dataService.updateSchedule();
-    this.close();
+    // Pass true back so the modal knows filters were applied
+    this.close(true);
   }
 }

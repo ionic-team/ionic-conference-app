@@ -25,7 +25,8 @@ class ConferenceApp {
     dataService.retrieveData();
 
     // We plan to add auth to only show the login page if not logged in
-    this.root = LoginPage;
+    // TODO change back to LoginPage
+    this.root = TabsPage;
     this.isMD = config.get('mode') == 'md' ? '' : null;
 
     this.pages = [
