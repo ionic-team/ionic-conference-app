@@ -27,24 +27,18 @@ export class SchedulePage {
     // The searchQuery doesn't get updated before this function is called
     // so we have to wrap it in a timeout
     setTimeout(() => {
-      if (!this.searchQuery) {
-        console.log("Query is null, reset");
-        this.sessions = this.dataService.getSchedule();
-      }
       this.sessions = this.dataService.getSchedule();
-      console.log(this.sessions);
 
       // If searchQuery exists we want to trim it, otherwise set it to an empty string
       this.searchQuery ? this.searchQuery = this.searchQuery.trim() : this.searchQuery = '';
 
       // Filter the sessions based on the talk name and whether the category is showing
       this.sessions = this.sessions.filter((session) => {
-        session.talks = session.talks.filter((talk) => {
+        let matched = session.talks.filter((talk) => {
           return (this.dataService.showCategory(talk.category) && talk.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1);
         });
 
-        if (session.talks.length > 0) console.log("Matched", session.talks.length, session.talks);
-        return session.talks.length > 0;
+        return matched.length > 0;
       });
     });
   }
