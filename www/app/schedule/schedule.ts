@@ -1,4 +1,4 @@
-import {Page, Modal} from 'ionic/ionic';
+import {Page, Modal} from 'ionic-framework/ionic';
 import {Timeline} from '../timeline/timeline';
 import {TimelineFilterPage} from '../timeline-filter/timeline-filter';
 

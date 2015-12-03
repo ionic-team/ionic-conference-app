@@ -38,12 +38,10 @@ module.exports = {
   },
   resolve: {
     modulesDirectories: [
-      'node_modules',
-      '/Users/adam/git/ionic2/node_modules', // angular is a dependency of ionic
-      '/Users/adam/git/ionic2/dist/js', // for web-animations polyfill
-      '/Users/adam/git/ionic2/dist/src/es5/common',
-      //'node_modules/ionic-framework/dist/src/es5/common', // ionic-framework npm package
+      "node_modules",
+      "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
+      "node_modules/ionic-framework/js", // for web-animations polyfill
     ],
-    extensions: ['', '.js', '.ts']
+    extensions: ["", ".js", ".ts"]
   }
 };

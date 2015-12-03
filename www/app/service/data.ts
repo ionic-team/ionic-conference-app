@@ -1,4 +1,4 @@
-import {App, IonicApp, IonicPlatform} from 'ionic/ionic';
+import {App, IonicApp, IonicPlatform} from 'ionic-framework/ionic';
 import {Injectable, bind} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 

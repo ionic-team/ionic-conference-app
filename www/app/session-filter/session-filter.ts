@@ -1,4 +1,4 @@
-import {Page, Config} from 'ionic/ionic';
+import {Page, Config} from 'ionic-framework/ionic';
 import {DataService} from '../service/data';
 
 @Page({

@@ -1,4 +1,4 @@
-import {Page} from 'ionic/ionic';
+import {Page} from 'ionic-framework/ionic';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 import {MapPage} from '../map/map';

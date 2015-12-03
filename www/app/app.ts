@@ -1,4 +1,4 @@
-import {App, IonicApp, Config} from 'ionic/ionic';
+import {App, IonicApp, Config} from 'ionic-framework/ionic';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './tabs/tabs';
