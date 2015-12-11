@@ -31,6 +31,9 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'awesome-typescript',
+        query: {
+          'doTypeCheck': false
+        },
         include: [path.join(__dirname, paths.wwwDir)],
         exclude: /node_modules/
       }
