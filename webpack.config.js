@@ -4,7 +4,7 @@ var paths = require('./ionic.config').paths;
 
 module.exports = {
   entry: [
-    'es6-shim',
+    'es6-shim/es6-shim.min',
     'reflect-metadata',
     'web-animations.min',
     'zone.js',
@@ -37,11 +37,9 @@ module.exports = {
     ]
   },
   resolve: {
-    modulesDirectories: [
-      "node_modules",
-      "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
-      "node_modules/ionic-framework/js", // for web-animations polyfill
-    ],
+    alias: {
+      'web-animations.min': 'ionic-framework/js/web-animations.min',
+    },
     extensions: ["", ".js", ".ts"]
   }
 };
