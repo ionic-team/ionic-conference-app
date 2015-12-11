@@ -1,4 +1,4 @@
-import {Page, Modal} from 'ionic-framework/ionic';
+import {IonicApp, Page, Modal} from 'ionic-framework/ionic';
 import {ConferenceData} from '../providers/conference-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 
@@ -7,19 +7,29 @@ import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
   templateUrl: 'app/schedule/schedule.html'
 })
 export class SchedulePage {
-  constructor(modal: Modal, confData: ConferenceData) {
+  constructor(app: IonicApp, modal: Modal, confData: ConferenceData) {
+    this.app = app;
     this.modal = modal;
     this.confData = confData;
 
-    this.data = {};
+    this.data = {
+      hasSessions: false
+    };
+
     this.dayIndex = 0;
     this.queryText = '';
     this.excludeTracks = [];
     this.segment = 'all';
+
+    this.updateSchedule();
   }
 
-  ngAfterContentCheck() {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
+  onPageDidEnter() {
+    this.app.setTitle('Schedule');
+  }
+
+  updateSchedule() {
+    this.confData.getTimeline(this.dayIndex).then(data => {
       this.data = data;
     });
   }
