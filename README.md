@@ -15,7 +15,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 
 * Clone this repository.
 * Run `npm install --production` on project root.
-* Install the ionic-cli if not already (`npm install -g ionic@alpha`)
+* Install the ionic-cli if not already (`npm install -g ionic@beta`)
+* Install the gulp if not already (`npm install -g gulp`)
 * Run `ionic serve` in project root.
 * Profit
 

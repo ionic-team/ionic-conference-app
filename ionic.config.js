@@ -11,14 +11,14 @@ module.exports = {
   // ex: beforeServe, afterRun, beforePrepare, etc.
   hooks: {
     beforeServe: function(argv) {
-      // var spawn = require('child_process').spawn;
-      // var gulpWatch = spawn('gulp', ['watch']);
-      // gulpWatch.stdout.on('data', function(data) {
-      //   console.log(data);
-      // });
-      // gulpWatch.stderr.on('data', function(data) {
-      //   console.log('gulp watch error: ' + data);
-      // });
+      var spawn = require('child_process').spawn;
+      var gulpWatch = spawn('gulp', ['watch']);
+      gulpWatch.stdout.on('data', function(data) {
+        console.log(data);
+      });
+      gulpWatch.stderr.on('data', function(data) {
+        console.log('gulp watch error: ' + data);
+      });
     }
   },
 
