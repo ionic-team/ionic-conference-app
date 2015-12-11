@@ -1,12 +1,12 @@
 <ion-navbar *navbar>
-  <button menu-toggle>
+  <button menuToggle>
     <icon menu></icon>
   </button>
   <ion-title>Speakers</ion-title>
 </ion-navbar>
 
 <ion-content class="outer-content speaker-list">
-  <ion-card *ng-for="#speaker of speakers" class="speaker">
+  <ion-card *ngFor="#speaker of speakers" class="speaker">
 
     <ion-card-header>
       <button ion-item (click)="goToSpeakerDetail(speaker)">
@@ -22,7 +22,7 @@
         <ion-list-header>
           Sessions
         </ion-list-header>
-        <button ion-item *ng-for="#session of speaker.sessions" (click)="goToSessionDetail(session)">
+        <button ion-item *ngFor="#session of speaker.sessions" (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>
         </button>
       </ion-list>

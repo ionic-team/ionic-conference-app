@@ -6,7 +6,7 @@
 <ion-content padding>
   <h1>{{session.name}}</h1>
 
-  <h3 *ng-for="#speaker of session.speakers">
+  <h3 *ngFor="#speaker of session.speakers">
     {{speaker.name}}
   </h3>
 

@@ -1,9 +1,9 @@
 <ion-navbar *navbar>
-  <button menu-toggle>
+  <button menuToggle>
     <icon menu></icon>
   </button>
 
-  <ion-segment [(ng-model)]="filterSegment">
+  <ion-segment [(ngModel)]="segment">
     <ion-segment-button value="all">
       All
     </ion-segment-button>
@@ -21,18 +21,50 @@
 
 
 <ion-content>
-
+  
+<!--
   <ion-searchbar primary
-                 [(ng-model)]="filterQueryText"
+                 [(ngModel)]="queryText"
                  (input)="onQueryFilter()"
-                 show-cancel="true"
+                 showCancel="true"
                  placeholder="Search">
   </ion-searchbar>
 
-  <timeline [day-index]="filterDayIndex"
-            [query-text]="filterQueryText"
-            [tracks]="filterTracks"
-            [segment]="filterSegment">
-  </timeline>
+
+  <ion-list *ng-if="data">
+
+    <ion-item-group *ngFor="#group of data.groups">
+
+      <ion-item-divider sticky>
+        {{group.time | date:'h:m'}}
+      </ion-item-divider>
+
+      <ion-item-sliding *ngFor="#session of group.sessions" #sliding-item>
+
+        <button ion-item (click)="goToSessionDetail(session)">
+          <h3>{{session.name}}</h3>
+          <p>
+            {{session.timeStart | date:'h:m'}} &mdash;
+            {{session.timeEnd | date:'h:m'}}:
+            {{session.location}}
+          </p>
+        </button>
+
+        <ion-item-options>
+          <button favorite (click)="addFavorite(slidingItem, session)" *ng-if="segment === 'all'">
+            Favorite
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    </ion-item-group>
+
+    <ion-list-header [hidden]="data.hasSessions">
+        No Sessions Found
+    </ion-list-header>
+
+  </ion-list> -->
+
 
 </ion-content>

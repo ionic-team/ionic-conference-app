@@ -1,0 +1,35 @@
+
+<ion-toolbar>
+  <ion-buttons start>
+    <button (click)="close()">Cancel</button>
+  </ion-buttons>
+
+  <ion-title>
+    Filter Sessions
+  </ion-title>
+
+  <ion-buttons end>
+    <button (click)="applyFilters()">Done</button>
+  </ion-buttons>
+</ion-toolbar>
+
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-list-header>Tracks</ion-list-header>
+
+    <ion-toggle *ngFor="#track of tracks" [(ngModel)]="track.isChecked" [attr.track]="track.name" [(checked)]="track.isChecked" secondary>
+      <span class="dot"></span>
+      {{track.name}}
+    </ion-toggle>
+
+  </ion-list>
+
+  <ion-list>
+    <button ion-item (click)="resetFilters()" danger detail-none>
+      Reset All Filters
+    </button>
+  </ion-list>
+
+</ion-content>

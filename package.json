@@ -7,7 +7,7 @@
     "url": "https://github.com/driftyco/ionic-conference-app.git"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.50",
+    "angular2": "^2.0.0-alpha.52",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "ionic-framework": "2.0.0-alpha.41",

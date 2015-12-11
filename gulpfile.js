@@ -63,7 +63,7 @@ gulp.task('sass', function(){
  ******************************************************************************/
 gulp.task('fonts', function() {
   return gulp.src(path.join(config.paths.ionicDir, config.paths.ionicFontFiles))
-         .pipe(gulp.dest(path.join(config.paths.buildDir, config.paths.buildFontsDir)));
+         .pipe(gulp.dest(path.join(config.paths.wwwDir, config.paths.buildDir, config.paths.buildFontsDir)));
 });
 
 
