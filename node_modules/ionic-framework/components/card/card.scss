@@ -1,0 +1,27 @@
+@import "../../globals.core";
+
+// Card
+// --------------------------------------------------
+
+
+ion-card {
+  display: block;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+ion-card img {
+  display: block;
+  width: 100%;
+}
+
+ion-card-header {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+ion-card-content {
+  display: block;
+}

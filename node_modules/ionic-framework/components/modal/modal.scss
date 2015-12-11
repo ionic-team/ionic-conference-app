@@ -1,0 +1,11 @@
+@import "../../globals.core";
+
+// Modals
+// --------------------------------------------------
+
+ion-page.modal {
+  z-index: $z-index-overlay;
+
+  // hidden by default to prevent flickers, the animation will show it
+  transform: translate3d(0px, 100%, 0px);
+}

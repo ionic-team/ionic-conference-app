@@ -1,0 +1,97 @@
+{
+  "_from": "deep-extend@~0.4.0",
+  "_id": "deep-extend@0.4.0",
+  "_location": "/deep-extend",
+  "_nodeVersion": "1.8.1",
+  "_npmUser": {
+    "email": "lotsmanov89@gmail.com",
+    "name": "unclechu"
+  },
+  "_npmVersion": "2.8.3",
+  "_phantomChildren": {},
+  "_requiredBy": [
+    "/rc"
+  ],
+  "_resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.4.0.tgz",
+  "_shasum": "f58b46db58eb5d6439cdd0f2e6cafb4739fc1283",
+  "author": {
+    "email": "lotsmanov89@gmail.com",
+    "name": "Viacheslav Lotsmanov"
+  },
+  "bugs": {
+    "url": "https://github.com/unclechu/node-deep-extend/issues"
+  },
+  "contributors": [
+    {
+      "name": "Romain Prieto",
+      "url": "https://github.com/rprieto"
+    },
+    {
+      "name": "Max Maximov",
+      "url": "https://github.com/maxmaximov"
+    }
+  ],
+  "dependencies": {},
+  "description": "Recursive object extending",
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
+  },
+  "directories": {
+    "lib": "./lib/",
+    "test": "./test/"
+  },
+  "dist": {
+    "shasum": "f58b46db58eb5d6439cdd0f2e6cafb4739fc1283",
+    "tarball": "http://registry.npmjs.org/deep-extend/-/deep-extend-0.4.0.tgz"
+  },
+  "engines": {
+    "iojs": ">=1.0.0",
+    "node": ">=0.4.0"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "lib/deep-extend.js",
+    "test/index.spec.js",
+    "test/mocha.opts"
+  ],
+  "gitHead": "9ea374c54bdff7e42be163ae09670ea8cf3bbc7e",
+  "homepage": "https://github.com/unclechu/node-deep-extend",
+  "keywords": [
+    "clone",
+    "deep",
+    "deep-extend",
+    "extend",
+    "json",
+    "merge",
+    "recursive",
+    "xtend"
+  ],
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE"
+    }
+  ],
+  "main": "lib/deep-extend.js",
+  "maintainers": [
+    {
+      "name": "unclechu",
+      "email": "lotsmanov89@gmail.com"
+    }
+  ],
+  "name": "deep-extend",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unclechu/node-deep-extend.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.4.0"
+}

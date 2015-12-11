@@ -1,0 +1,34 @@
+
+// Ionicons
+// --------------------------
+
+$ionicons-font-path: $font-path !default;
+$ionicons-font-family: "Ionicons" !default;
+$ionicons-version: "3.0.0" !default;
+
+
+@font-face {
+ font-family: "Ionicons";
+ src: url("#{$ionicons-font-path}/ionicons.ttf?v=#{$ionicons-version}") format("truetype"),
+      url("#{$ionicons-font-path}/ionicons.woff?v=#{$ionicons-version}") format("woff");
+ font-weight: normal;
+ font-style: normal;
+}
+
+icon,
+[icon],
+.icon {
+  display: inline-block;
+  font-family: $ionicons-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import "ionicons-core";

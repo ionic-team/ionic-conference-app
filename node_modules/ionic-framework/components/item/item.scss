@@ -1,0 +1,92 @@
+@import "../../globals.core";
+
+// Item
+// --------------------------------------------------
+// Core structure only, dimensions belong in specific modes
+
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  min-height: 4.4rem;
+  overflow: hidden;
+
+  text-align: initial;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-inner {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+
+  flex: 1;
+  flex-direction: inherit;
+  align-items: inherit;
+  align-self: stretch;
+}
+
+.item[no-lines],
+.item[no-lines] .item-inner {
+  border: none;
+}
+
+ion-item-group {
+  display: block;
+}
+
+ion-item-divider {
+  display: block;
+  min-height: 30px;
+  width: 100%;
+  z-index: 1000;
+  font-weight: 500;
+
+  &[sticky] {
+    position: -webkit-sticky;
+    position: sticky;
+  	top: 0px;
+  }
+}
+
+ion-item-content {
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+
+  a,
+  button,
+  [tappable] {
+    pointer-events: auto;
+  }
+}
+
+[text-wrap] ion-item-content {
+  white-space: normal;
+}
+
+[vertical-align-top],
+ion-input.item {
+  align-items: flex-start;
+}
+
+ion-item-content + ion-item-content[cnt] {
+  display: none;
+}
+
+@import "item-media";
+@import "item-sliding";

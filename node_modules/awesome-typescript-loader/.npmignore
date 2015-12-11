@@ -1,0 +1,6 @@
+.tscache
+node_modules
+dist
+!/dist
+!/dist.babel
+tscommand

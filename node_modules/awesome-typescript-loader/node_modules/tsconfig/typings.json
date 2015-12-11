@@ -1,0 +1,16 @@
+{
+  "ambientDependencies": {
+    "chai": "github:borisyankov/DefinitelyTyped/chai/chai.d.ts#66f88ec51858bb21bc375fa91a963c04bc09401e",
+    "mocha": "github:borisyankov/DefinitelyTyped/mocha/mocha.d.ts#66f88ec51858bb21bc375fa91a963c04bc09401e",
+    "node": "github:borisyankov/DefinitelyTyped/node/node.d.ts#66f88ec51858bb21bc375fa91a963c04bc09401e"
+  },
+  "dependencies": {
+    "array-uniq": "github:typings/typed-array-uniq#fe1767e9b1baa0fd9f7a55fbcbf2fd8f08296d42",
+    "globby": "github:typings/typed-globby#9624dd0875f851656c93132c63e6cafa78641334",
+    "parse-json": "github:typings/typed-parse-json#74152f9c8b831227fc4eb3533fcd01b8906e2694",
+    "pinkie-promise": "github:typings/typed-pinkie-promise#680fa32baa4e45e4a13b0c823f4db62ff47990e8",
+    "strip-bom": "github:typings/typed-strip-bom#d1d42e7f43dcd9fce1cfd988c40421a1d37fa47b",
+    "strip-json-comments": "github:typings/typed-strip-json-comments#6fd0bb0b697465c16e022557c3796bc1358124ac",
+    "xtend": "github:typings/typed-xtend#63cccadf3295b3c15561ee45617ac006edcca9e0"
+  }
+}

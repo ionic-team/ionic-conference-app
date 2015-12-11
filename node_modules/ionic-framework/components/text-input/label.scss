@@ -1,0 +1,42 @@
+@import "../../globals.core";
+
+// Label
+// --------------------------------------------------
+
+
+ion-label {
+  display: block;
+  max-width: 200px;
+  font-size: inherit;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
+// Stacked & Floating Inputs
+// --------------------------------------------------
+
+.fixed-label {
+  width: 30%;
+  min-width: 100px;
+  max-width: 200px;
+}
+
+[stacked-label],
+[floating-label] {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stacked-label,
+.floating-label {
+  align-self: stretch;
+  margin-bottom: 0;
+  max-width: 100%;
+}
+
+.stacked-input,
+.floating-input {
+  align-self: stretch;
+  width: auto;
+}

@@ -1,0 +1,66 @@
+{
+  "_from": "tar-pack@~3.1.0",
+  "_id": "tar-pack@3.1.0",
+  "_location": "/tar-pack",
+  "_nodeVersion": "1.6.2",
+  "_npmUser": {
+    "email": "forbes@lindesay.co.uk",
+    "name": "forbeslindesay"
+  },
+  "_npmVersion": "2.7.1",
+  "_phantomChildren": {},
+  "_requiredBy": [
+    "/node-pre-gyp"
+  ],
+  "_resolved": "https://registry.npmjs.org/tar-pack/-/tar-pack-3.1.0.tgz",
+  "_shasum": "4cd7ab38addb1480139e80040f149e07edc8ac16",
+  "bugs": {
+    "url": "https://github.com/ForbesLindesay/tar-pack/issues"
+  },
+  "dependencies": {
+    "debug": "~0.7.2",
+    "fstream": "~1.0.8",
+    "fstream-ignore": "~1.0.3",
+    "graceful-fs": "4.1",
+    "once": "~1.1.1",
+    "readable-stream": "~1.0.2",
+    "rimraf": "~2.2.0",
+    "tar": "~2.2.1",
+    "uid-number": "0.0.3"
+  },
+  "description": "Package and un-package modules of some sort (in tar/gz bundles).",
+  "devDependencies": {
+    "mkdirp": "*",
+    "mocha": "*",
+    "rfile": "*"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "4cd7ab38addb1480139e80040f149e07edc8ac16",
+    "tarball": "http://registry.npmjs.org/tar-pack/-/tar-pack-3.1.0.tgz"
+  },
+  "gitHead": "7584a23a1a5aac882c85fccc8ca11fb67001958f",
+  "homepage": "https://github.com/ForbesLindesay/tar-pack",
+  "license": "BSD",
+  "maintainers": [
+    {
+      "name": "forbeslindesay",
+      "email": "forbes@lindesay.co.uk"
+    },
+    {
+      "name": "shinnn",
+      "email": "snnskwtnb@gmail.com"
+    }
+  ],
+  "name": "tar-pack",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ForbesLindesay/tar-pack.git"
+  },
+  "scripts": {
+    "test": "mocha -R list"
+  },
+  "version": "3.1.0"
+}
