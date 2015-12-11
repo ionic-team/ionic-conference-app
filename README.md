@@ -17,8 +17,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Run `npm install --production` on project root.
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Install gulp (`npm install -g gulp`)
-* Run `ionic serve` in project root.
-* Run `gulp sass watch` in another tab of project root.
+* Run `ionic serve` in a terminal from the project root.
+* Run `gulp sass watch` in another terminal window from the project root.
 * Profit
 
 ## App Preview
