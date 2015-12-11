@@ -17,12 +17,10 @@ export class ScheduleFilterPage {
     this.confData = confData;
 
     this.filteredTracks = this.navParams.data;
-    console.log(this.filteredTracks);
 
     this.confData.getTracks().then(trackNames => {
 
       trackNames.forEach(trackName => {
-        console.log(trackName);
         this.tracks.push({
           name: trackName,
           isChecked: (this.filteredTracks.indexOf(trackName) < 0)
