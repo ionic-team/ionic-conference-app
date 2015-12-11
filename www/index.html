@@ -8,13 +8,22 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvhp5ELJ3lgUdwq7PQIcZssUiWID8vzQ4"></script>
+  <!-- ionic dynamically decides which stylesheet to load -->
+  <link ios-href="build/css/app.ios.css" rel="stylesheet">
+  <link md-href="build/css/app.md.css" rel="stylesheet">
 </head>
 <body>
 
+  <!-- <ion-app> is where the app's HTML loads -->
   <ion-app></ion-app>
 
+  <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
+
+  <!-- the bundle which is built from the app's source code -->
   <script src="build/js/app.bundle.js"></script>
+
+  <!-- google maps script is loaded last as to not block rendering -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvhp5ELJ3lgUdwq7PQIcZssUiWID8vzQ4"></script>
 </body>
 </html>

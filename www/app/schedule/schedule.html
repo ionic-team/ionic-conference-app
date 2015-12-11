@@ -1,8 +1,9 @@
 <ion-navbar *navbar>
-  <a menu-toggle="leftMenu">
+  <button menu-toggle>
     <icon menu></icon>
-  </a>
-  <ion-segment [(ng-model)]="scheduleShowing">
+  </button>
+
+  <ion-segment [(ng-model)]="filterSegment">
     <ion-segment-button value="all">
       All
     </ion-segment-button>
@@ -10,15 +11,28 @@
       Favorites
     </ion-segment-button>
   </ion-segment>
-  <ion-nav-items secondary>
-    <button (click)="openScheduleFilter()"><icon ios="ion-ios-funnel-outline" md="ion-md-funnel"></icon></button>
-  </ion-nav-items>
+
+  <ion-buttons end>
+    <button (click)="openFilter()">
+      <icon ios="ion-ios-funnel-outline" md="ion-md-funnel"></icon>
+    </button>
+  </ion-buttons>
 </ion-navbar>
 
+
 <ion-content>
-  <ion-searchbar primary [(ng-model)]="searchQuery" (input)="filterSessions()" show-cancel="true" placeholder="Search"></ion-searchbar>
-  <div [ng-switch]="scheduleShowing">
-    <session-list *ng-switch-when="'favorites'" [data]="favorites" showing="favorites"></session-list>
-    <session-list *ng-switch-when="'all'" [data]="sessions" [favorites]="favorites" showing="all"></session-list>
-  </div>
+
+  <ion-searchbar primary
+                 [(ng-model)]="filterQueryText"
+                 (input)="onQueryFilter()"
+                 show-cancel="true"
+                 placeholder="Search">
+  </ion-searchbar>
+
+  <timeline [day-index]="filterDayIndex"
+            [query-text]="filterQueryText"
+            [tracks]="filterTracks"
+            [segment]="filterSegment">
+  </timeline>
+
 </ion-content>

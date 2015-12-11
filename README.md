@@ -87,9 +87,6 @@ ionic-conference-app/
 │   │   │    └── schedule.json         * Schedule data
 │   │   │    └── speakers.json         * Speakers data
 │   │   │
-│   │   │── date-format/               * DateFormat component
-│   │   │    └── date-format.js        * DateFormat component
-│   │   │
 │   │   │── login/                     * Login page
 │   │   │    ├── login.html            * LoginPage template
 │   │   │    └── login.js              * LoginPage code

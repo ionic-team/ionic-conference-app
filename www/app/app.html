@@ -1,6 +1,8 @@
-<ion-menu [content]="content" id="leftMenu" side="left">
 
-  <ion-toolbar [attr.primary]="isMD">
+<!-- left menu -->
+<ion-menu [content]="content">
+
+  <ion-toolbar>
     <ion-title>Account</ion-title>
   </ion-toolbar>
 
@@ -18,6 +20,10 @@
 
 </ion-menu>
 
+
+<!-- main navigation -->
 <ion-nav id="nav" [root]="root" #content swipe-back-enabled="false"></ion-nav>
 
+
+<!-- where popups/actionsheets/modals are added -->
 <ion-overlay></ion-overlay>

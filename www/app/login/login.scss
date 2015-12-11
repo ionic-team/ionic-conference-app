@@ -1,11 +1,10 @@
-.login {
-  .logo {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-  }
 
-  .logo img {
-    height: 150px;
-  }
+.login-page .logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
+
+.login-page .logo img {
+  max-width: 150px;
 }

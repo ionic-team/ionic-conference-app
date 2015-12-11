@@ -1,73 +1,49 @@
 var path = require('path');
+var paths = require('./ionic.config').paths;
 
-var autoprefixerOptions = {
-  browsers: [
-    'last 2 versions',
-    'iOS >= 7',
-    'Android >= 4',
-    'Explorer >= 10',
-    'ExplorerMobile >= 11'
-  ],
-  cascade: false
-}
 
 module.exports = {
   entry: [
-    "es6-shim",
-    "reflect-metadata",
-    "web-animations.min",
-    "moment",
-    "zone.js",
-    path.join(__dirname, 'www', 'app', 'app.js')
+    'es6-shim',
+    'reflect-metadata',
+    'web-animations.min',
+    'zone.js',
+    path.join(__dirname, paths.wwwDir, paths.appDir, paths.appSrcModule)
   ],
   output: {
-    path: path.join(__dirname, 'www', 'build', 'js'),
-    filename: 'app.bundle.js',
-    publicPath: 'build/js/'
-    //pathinfo: true // show module paths in the bundle, handy for debugging
+    path: path.join(__dirname, paths.wwwDir, paths.buildDir, paths.buildJSDir),
+    filename: paths.appBuildBundle,
+    publicPath: path.join(paths.buildDir, paths.buildJSDir),
+    pathinfo: false // show module paths in the bundle, handy for debugging
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        loader: "awesome-typescript",
+        loader: 'awesome-typescript',
         query: {
           'doTypeCheck': false,
           'useWebpackText': true
         },
-        include: [path.join(__dirname, 'www')],
+        include: [path.join(__dirname, paths.wwwDir)],
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
-        loader: "awesome-typescript",
-        include: [path.join(__dirname, 'www')],
+        loader: 'awesome-typescript',
+        include: [path.join(__dirname, paths.wwwDir)],
         exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        loaders: ["style", "css", "autoprefixer?" + JSON.stringify(autoprefixerOptions), "sass"]
-      },
-      // Any png-image or woff-font below or equal to 100K will be converted
-      // to inline base64 instead
-      { test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000' }
+      }
     ]
   },
   resolve: {
     modulesDirectories: [
-      "node_modules",
-      "node_modules/ionic-framework/node_modules", // angular is a dependency of ionic
-      "node_modules/ionic-framework/dist/js", // for web-animations polyfill
-      "node_modules/ionic-framework/dist/src/es5/common" // ionic-framework npm package
+      'node_modules',
+      '/Users/adam/git/ionic2/node_modules', // angular is a dependency of ionic
+      '/Users/adam/git/ionic2/dist/js', // for web-animations polyfill
+      '/Users/adam/git/ionic2/dist/src/es5/common',
+      //'node_modules/ionic-framework/dist/src/es5/common', // ionic-framework npm package
     ],
-    extensions: ["", ".js", ".ts"]
-  },
-  // Sass loader configuration to tell webpack where to find the additional SASS files
-  // it needs for `ionic`, located in the ionic-framework node module folder.
-  // https://github.com/jtangelder/sass-loader#sass-options
-  sassLoader: {
-    includePaths: [
-      path.resolve(__dirname, "node_modules", 'ionic-framework', 'dist', 'src', 'scss')
-    ]
+    extensions: ['', '.js', '.ts']
   }
 };

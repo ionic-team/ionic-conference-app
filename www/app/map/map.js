@@ -1,42 +1,44 @@
 import {Page} from 'ionic/ionic';
+import {ConferenceData} from '../providers/conference-data';
+
 
 @Page({
   templateUrl: 'app/map/map.html'
 })
 export class MapPage {
-  constructor() {
-    this.map = null;
+  constructor(confData: ConferenceData) {
+    this.confData = confData;
   }
 
-  addMarkerAndInfo(latLng, infoContent) {
-    var infowindow = new google.maps.InfoWindow({
-      content: ['<h5>', infoContent, '</h5>'].join('')
+  onPageLoaded() {
+    this.confData.getMap().then(mapData => {
+      let mapEle = document.getElementById('map');
+
+      let map = new google.maps.Map(mapEle, {
+        center: mapData.find(d => d.center),
+        zoom: 16
+      });
+
+      mapData.forEach(markerData => {
+        let infoWindow = new google.maps.InfoWindow({
+          content: `<h5>${markerData.name}</h5>`
+        });
+
+        let marker = new google.maps.Marker({
+          position: markerData,
+          map: map,
+          title: markerData.name
+        });
+
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+      });
+
+      google.maps.event.addListenerOnce(map, 'idle', () => {
+        mapEle.classList.add('show-map');
+      });
+
     });
-
-    var marker = new google.maps.Marker({
-      position: latLng,
-      map: this.map,
-      title: infoContent
-    });
-
-    marker.addListener('click', function() {
-      infowindow.open(this.map, marker);
-    });
-  }
-
-  onInit() {
-    var ionicHqLatLng = {lat: 43.07421, lng: -89.38119};
-    var afterPartyLatLng = {lat: 43.07336, lng: -89.38335};
-    var conferenceCenterLatLng = {lat: 43.07276, lng: -89.38076};
-
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      center: ionicHqLatLng,
-      zoom: 18
-    });
-
-    this.addMarkerAndInfo(ionicHqLatLng, 'Ionic HQ');
-    this.addMarkerAndInfo(conferenceCenterLatLng, 'Conference Center');
-    this.addMarkerAndInfo(afterPartyLatLng, 'Afterparty - Brocach Irish Pub');
-
   }
 }

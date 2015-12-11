@@ -1,7 +1,8 @@
+
 <ion-navbar *navbar>
-  <a menu-toggle="leftMenu">
+  <button menu-toggle>
     <icon menu></icon>
-  </a>
+  </button>
   <ion-title>About</ion-title>
 </ion-navbar>
 
@@ -10,17 +11,26 @@
     <img src="img/ionic-logo-white.svg">
   </div>
   <div padding class="about-info">
-    <h4>{{conferenceInfo.name}}</h4>
+    <h4>Ionic Conference</h4>
 
     <div>
       <icon calendar></icon>
-      <date-format [value]="conferenceInfo.start" format="MMM D, YYYY"></date-format>
-    </div>
-    <div>
-      <icon pin></icon>
-      <span>{{conferenceInfo.location}}</span>
+      05/17/2016 - 05/19/2016
     </div>
 
-    <p>{{conferenceInfo.about}}</p>
+    <div>
+      <icon pin></icon>
+      Madison, WI
+    </div>
+
+    <p>
+      Ionic Conference is a one-day conference featuring talks from the
+      Ionic team. It is focused on Ionic applications being built with
+      Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2,
+      Angular concepts, Webpack, Sass, and many other technologies used
+      in Ionic 2. Tickets are completely sold out, and we’re expecting
+      more than 1000 developers – making this the largest Ionic
+      conference ever!
+    </p>
   </div>
 </ion-content>

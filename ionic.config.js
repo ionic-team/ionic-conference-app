@@ -1,3 +1,4 @@
+
 module.exports = {
   name: 'ionic-conference-app',
   proxies: null,
@@ -9,8 +10,43 @@ module.exports = {
   // The format is 'before' or 'after' + commandName (uppercased)
   // ex: beforeServe, afterRun, beforePrepare, etc.
   hooks: {
-    // beforeServe: function(argv) {
-    //   console.log('Arguments to ionic serve: "' + argv._ + '"');
-    // }
+    beforeServe: function(argv) {
+      // var spawn = require('child_process').spawn;
+      // var gulpWatch = spawn('gulp', ['watch']);
+      // gulpWatch.stdout.on('data', function(data) {
+      //   console.log(data);
+      // });
+      // gulpWatch.stderr.on('data', function(data) {
+      //   console.log('gulp watch error: ' + data);
+      // });
+    }
+  },
+
+  paths: {
+    wwwDir: 'www',
+    buildDir: 'build',
+    buildJSDir: 'js',
+    buildCSSDir: 'css',
+    buildFontsDir: 'fonts',
+    appDir: 'app',
+    appSrcModule: 'app.js',
+    appBuildBundle: 'app.bundle.js',
+    appSassSrc: ['app.ios.scss', 'app.md.scss'],
+    appSassWatch: '**/*.scss',
+    ionicDir: 'node_modules/ionic-framework',
+    ionicSassDir: 'dist/src/scss',
+    ionicFontFiles: 'fonts/**/*.ttf'
+  },
+
+  autoPrefixerOpts: {
+    browsers: [
+      'last 2 versions',
+      'iOS >= 7',
+      'Android >= 4',
+      'Explorer >= 10',
+      'ExplorerMobile >= 11'
+    ],
+    cascade: false
   }
-}
+
+};

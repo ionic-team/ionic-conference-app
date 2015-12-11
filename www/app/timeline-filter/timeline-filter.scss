@@ -5,7 +5,7 @@
 
 @each $category, $value in auxiliary-categories() {
 
-  ion-switch.item[category=#{$category}] {
+  ion-toggle.item[track=#{$category}] {
     ion-item-content .dot {
       height: 10px;
       display: inline-block;

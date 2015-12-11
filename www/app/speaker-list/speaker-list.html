@@ -1,16 +1,17 @@
 <ion-navbar *navbar>
-  <a menu-toggle="leftMenu">
+  <button menu-toggle>
     <icon menu></icon>
-  </a>
+  </button>
   <ion-title>Speakers</ion-title>
 </ion-navbar>
 
 <ion-content class="outer-content speaker-list">
   <ion-card *ng-for="#speaker of speakers" class="speaker">
+
     <ion-card-header>
-      <button ion-item (click)="openSpeakerDetail(speaker.name)">
+      <button ion-item (click)="goToSpeakerDetail(speaker)">
         <ion-avatar item-left>
-          <img [src]="speaker.profile_pic">
+          <img [src]="speaker.profilePic">
         </ion-avatar>
         {{speaker.name}}
       </button>
@@ -21,18 +22,18 @@
         <ion-list-header>
           Sessions
         </ion-list-header>
-        <button ion-item *ng-for="#session of speaker.sessions" (click)="openSession(session)">
+        <button ion-item *ng-for="#session of speaker.sessions" (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>
         </button>
       </ion-list>
     </ion-card-content>
 
     <ion-item actions>
-      <button (click)="openSpeakerTwitter(speaker)" clear item-left>
+      <button (click)="goToSpeakerTwitter(speaker)" clear item-left>
         <icon ion-social-twitter></icon>
         Tweet
       </button>
-      <button (click)="openShareSpeaker(speaker)" clear item-right>
+      <button (click)="openSpeakerShare(speaker)" clear item-right>
         <icon share></icon>
         Share
       </button>

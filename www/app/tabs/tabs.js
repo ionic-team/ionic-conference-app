@@ -1,8 +1,9 @@
 import {Page} from 'ionic/ionic';
-import {AboutPage} from '../about/about';
-import {MapPage} from '../map/map';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
+import {MapPage} from '../map/map';
+import {AboutPage} from '../about/about';
+
 
 @Page({
   templateUrl: 'app/tabs/tabs.html'

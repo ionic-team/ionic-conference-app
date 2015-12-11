@@ -7,20 +7,17 @@
     "url": "https://github.com/driftyco/ionic-conference-app.git"
   },
   "dependencies": {
-    "ionic-framework": "2.0.0-alpha.38",
-    "moment": "^2.10.6"
+    "ionic-framework": "2.0.0-alpha.41"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^3.1.0",
     "awesome-typescript-loader": "0.12.0-rc.2",
-    "css-loader": "^0.22.0",
-    "file-loader": "^0.8.4",
-    "node-sass": "^3.4.2",
-    "sass-loader": "^3.1.1",
-    "style-loader": "^0.13.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-watch": "^4.3.5",
     "typescript": "1.5.3",
-    "url-loader": "^0.5.6",
-    "webpack": "^1.12.4"
+    "webpack": "^1.12.9"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist"
