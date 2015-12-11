@@ -3,17 +3,15 @@
   color: color(danger);
 }
 
-@each $category, $value in auxiliary-categories() {
+@each $track, $value in auxiliary-categories() {
 
-  ion-toggle.#{$category} {
-    ion-item-content .dot {
-      height: 10px;
-      display: inline-block;
-      width: 10px;
-      background-color: $value;
-      border-radius: 5px;
-      margin-right: 10px;
-    }
+  ion-toggle[track=#{$track}] .dot {
+    height: 10px;
+    display: inline-block;
+    width: 10px;
+    background-color: $value;
+    border-radius: 5px;
+    margin-right: 10px;
   }
 
 }

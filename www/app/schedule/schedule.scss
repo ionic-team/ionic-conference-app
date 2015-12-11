@@ -16,8 +16,8 @@ $categories: (
 }
 
 .schedule {
-  @each $category, $value in auxiliary-categories() {
-   .#{$category} ion-item-content {
+  @each $track, $value in auxiliary-categories() {
+   ion-item-sliding[track=#{$track}] ion-item-content {
      border-left: 2px solid $value;
      padding-left: 10px;
    }
