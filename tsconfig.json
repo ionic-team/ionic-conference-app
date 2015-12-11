@@ -5,7 +5,10 @@
     "noEmitOnError": false,
     "rootDir": ".",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "inlineSources": false
   },
   "exclude": [
     "node_modules"

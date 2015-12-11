@@ -1,5 +1,6 @@
-import {Page, Modal} from 'ionic-framework/ionic';
+import {IonicApp, Page, Modal, Popup, NavController} from 'ionic-framework/ionic';
 import {ConferenceData} from '../providers/conference-data';
+import {UserData} from '../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
@@ -8,12 +9,15 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/schedule/schedule.html'
 })
 export class SchedulePage {
+  app: any;
   modal: any;
   popup: any;
   confData: any;
   nav: any;
 
-  data = {};
+  data = {
+    hasSessions: false
+  };
   dayIndex = 0;
   queryText = '';
   excludeTracks = [];
@@ -23,23 +27,28 @@ export class SchedulePage {
   filterTracks: any;
   user: any;
 
-  constructor(modal: Modal, confData: ConferenceData) {
+  constructor(app: IonicApp, modal: Modal, popup: Popup, nav: NavController, confData: ConferenceData, user: UserData) {
+    this.app = app;
     this.modal = modal;
+    this.popup = popup;
+    this.nav = nav;
     this.confData = confData;
+    this.user = user;
+
+    this.updateSchedule();
   }
 
-  ngAfterContentCheck() {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
+  onPageDidEnter() {
+    this.app.setTitle('Schedule');
+  }
+
+  updateSchedule() {
+    this.confData.getTimeline(this.dayIndex, this.queryText).then(data => {
       this.data = data;
     });
   }
 
-  onQueryFilter() {
-    console.log(this.filterQueryText);
-  }
-
   openFilter() {
-
     this.modal.open(ScheduleFilterPage, this.filterTracks).then(modalRef => {
 
       modalRef.onClose = (filteredTracks) => {
@@ -47,7 +56,6 @@ export class SchedulePage {
       };
 
     });
-
   }
 
   goToSessionDetail(sessionData) {

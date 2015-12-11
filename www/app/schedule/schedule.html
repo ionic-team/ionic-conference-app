@@ -25,18 +25,18 @@
 
   <ion-searchbar primary
                  [(ngModel)]="queryText"
-                 (input)="onQueryFilter()"
+                 (input)="updateSchedule()"
                  showCancel="true"
                  placeholder="Search">
   </ion-searchbar>
 
 
-  <ion-list *ngIf="data">
+  <ion-list [hidden]="!data.hasSessions">
 
     <ion-item-group *ngFor="#group of data.groups">
 
       <ion-item-divider sticky>
-        {{group.time | date:'h:m'}}
+        {{group.time}}
       </ion-item-divider>
 
       <ion-item-sliding *ngFor="#session of group.sessions" #slidingItem>
@@ -44,8 +44,8 @@
         <button ion-item (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>
           <p>
-            {{session.timeStart | date:'h:m'}} &mdash;
-            {{session.timeEnd | date:'h:m'}}:
+            {{session.timeStart}} &mdash;
+            {{session.timeEnd}}:
             {{session.location}}
           </p>
         </button>
@@ -60,11 +60,11 @@
 
     </ion-item-group>
 
-    <ion-list-header [hidden]="data.hasSessions">
-        No Sessions Found
-    </ion-list-header>
-
   </ion-list>
+
+  <ion-list-header [hidden]="data.hasSessions">
+      No Sessions Found
+  </ion-list-header>
 
 
 </ion-content>
