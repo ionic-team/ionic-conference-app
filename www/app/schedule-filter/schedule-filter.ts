@@ -8,19 +8,24 @@ import {ConferenceData} from '../providers/conference-data';
 export class ScheduleFilterPage {
   tracks = [];
   close: any;
+  confData: any;
   navParams: any;
+  filteredTracks: any;
 
   constructor(confData: ConferenceData, navParams: NavParams) {
     this.navParams = navParams;
+    this.confData = confData;
 
-    let filteredTracks = this.navParams.data;
+    this.filteredTracks = this.navParams.data;
+    console.log(this.filteredTracks);
 
-    confData.getTracks().then(trackNames => {
+    this.confData.getTracks().then(trackNames => {
 
       trackNames.forEach(trackName => {
+        console.log(trackName);
         this.tracks.push({
           name: trackName,
-          isChecked: (filteredTracks.indexOf(trackName) < 0)
+          isChecked: (this.filteredTracks.indexOf(trackName) < 0)
         });
       });
 
