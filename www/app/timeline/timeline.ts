@@ -1,5 +1,5 @@
 import {Component} from 'angular2/angular2';
-import {Config, NavController, Popup, Item, ItemSliding, List, Button} from 'ionic/ionic';
+import {Config, NavController, Popup, Item, ItemSliding, List, Button} from 'ionic-framework/ionic';
 import {ConferenceData} from '../providers/conference-data';
 import {UserData} from '../providers/user-data';
 import {DatePipe} from '../pipes/date';

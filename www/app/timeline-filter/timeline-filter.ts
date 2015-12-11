@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic/ionic';
+import {Page, NavParams} from 'ionic-framework/ionic';
 import {ConferenceData} from '../providers/conference-data';
 
 
