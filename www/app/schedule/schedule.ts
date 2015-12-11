@@ -22,9 +22,9 @@ export class SchedulePage {
   queryText = '';
   excludeTracks = [];
   segment = 'all';
+  filterTracks = [];
 
   filterQueryText: any;
-  filterTracks: any;
   user: any;
 
   constructor(app: IonicApp, modal: Modal, popup: Popup, nav: NavController, confData: ConferenceData, user: UserData) {
