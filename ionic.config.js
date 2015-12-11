@@ -29,12 +29,12 @@ module.exports = {
     buildCSSDir: 'css',
     buildFontsDir: 'fonts',
     appDir: 'app',
-    appSrcModule: 'app.js',
+    appSrcModule: 'app.ts',
     appBuildBundle: 'app.bundle.js',
     appSassSrc: ['app.ios.scss', 'app.md.scss'],
     appSassWatch: '**/*.scss',
     ionicDir: 'node_modules/ionic-framework',
-    ionicSassDir: 'dist/src/scss',
+    ionicSassDir: 'node_modules/ionic-framework',
     ionicFontFiles: 'fonts/**/*.ttf'
   },
 
