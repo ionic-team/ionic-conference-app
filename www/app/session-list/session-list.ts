@@ -1,8 +1,7 @@
 import {Component, NgIf, NgFor} from 'angular2/angular2';
 import {Config, Icon, Item, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic-framework/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
-import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
-import {DataService} from '../service/data';
+
 
 @Component({
   selector: 'session-list',
