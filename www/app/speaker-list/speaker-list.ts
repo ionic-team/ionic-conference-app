@@ -15,6 +15,10 @@ export class SpeakerListPage {
   speakers = [];
 
   constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {
+    this.nav = nav;
+    this.confData = confData;
+    this.actionSheet = actionSheet;
+
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;
     });
