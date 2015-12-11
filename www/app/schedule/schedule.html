@@ -20,9 +20,7 @@
 </ion-navbar>
 
 
-<ion-content>
-
-
+<ion-content class="schedule">
   <ion-searchbar primary
                  [(ngModel)]="queryText"
                  (input)="updateSchedule()"
@@ -39,7 +37,7 @@
         {{group.time}}
       </ion-item-divider>
 
-      <ion-item-sliding *ngFor="#session of group.sessions" #slidingItem>
+      <ion-item-sliding *ngFor="#session of group.sessions" #slidingItem [class]="session.tracks[0] | lowercase">
 
         <button ion-item (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>

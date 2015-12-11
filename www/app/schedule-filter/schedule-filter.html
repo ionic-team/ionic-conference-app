@@ -19,7 +19,7 @@
   <ion-list>
     <ion-list-header>Tracks</ion-list-header>
 
-    <ion-toggle *ngFor="#track of tracks" [(ngModel)]="track.isChecked" [attr.track]="track.name" [(checked)]="track.isChecked" secondary>
+    <ion-toggle *ngFor="#track of tracks" [(ngModel)]="track.isChecked" [attr.track]="track.name" [(checked)]="track.isChecked" secondary [class]="track.name | lowercase">
       <span class="dot"></span>
       {{track.name}}
     </ion-toggle>
@@ -27,7 +27,7 @@
   </ion-list>
 
   <ion-list>
-    <button ion-item (click)="resetFilters()" danger detail-none>
+    <button ion-item (click)="resetFilters()" danger detail-none class="reset-filters">
       Reset All Filters
     </button>
   </ion-list>

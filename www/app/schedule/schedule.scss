@@ -1,4 +1,25 @@
+$categories: (
+ ionic: color(primary),
+ angular: #AC282B,
+ communication: #8E8D93,
+ tooling: #FE4C52,
+ services: #FD8B2D,
+ design: #FED035,
+ workshop: #69BB7B,
+ food: #3BC7C4,
+ documentation: #B16BE3,
+ navigation: #6600CC,
+);
 
-.schedule-page {
-  
+@function auxiliary-categories() {
+  @return map-remove($categories);
+}
+
+.schedule {
+  @each $category, $value in auxiliary-categories() {
+   .#{$category} ion-item-content {
+     border-left: 2px solid $value;
+     padding-left: 10px;
+   }
+  }
 }

@@ -50,11 +50,9 @@ export class SchedulePage {
 
   openFilter() {
     this.modal.open(ScheduleFilterPage, this.filterTracks).then(modalRef => {
-
       modalRef.onClose = (filteredTracks) => {
         this.filterTracks = filteredTracks;
       };
-
     });
   }
 
