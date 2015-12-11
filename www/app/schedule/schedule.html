@@ -21,7 +21,7 @@
 
 
 <ion-content>
-  
+
 <!--
   <ion-searchbar primary
                  [(ngModel)]="queryText"
@@ -31,7 +31,7 @@
   </ion-searchbar>
 
 
-  <ion-list *ng-if="data">
+  <ion-list *ngIf="data">
 
     <ion-item-group *ngFor="#group of data.groups">
 
@@ -51,7 +51,7 @@
         </button>
 
         <ion-item-options>
-          <button favorite (click)="addFavorite(slidingItem, session)" *ng-if="segment === 'all'">
+          <button favorite (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
             Favorite
           </button>
         </ion-item-options>

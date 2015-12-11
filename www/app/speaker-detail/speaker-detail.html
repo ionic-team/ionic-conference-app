@@ -15,7 +15,7 @@
     </a>
   </p>
 
-  <div *ng-if="speaker.sessions">
+  <div *ngIf="speaker.sessions">
     <h4>Sessions</h4>
     <div *ngFor="#session of speaker.sessions">
       <h5><a href="#" (click)="goToSessionDetail(session)">{{session.name}}</a></h5>
