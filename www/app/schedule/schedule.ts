@@ -29,13 +29,9 @@ export class SchedulePage {
   }
 
   updateSchedule() {
-    this.confData.getTimeline(this.dayIndex).then(data => {
+    this.confData.getTimeline(this.dayIndex, this.queryText).then(data => {
       this.data = data;
     });
-  }
-
-  onQueryFilter() {
-    console.log(this.filterQueryText);
   }
 
   openFilter() {
