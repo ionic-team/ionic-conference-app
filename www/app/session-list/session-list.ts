@@ -3,15 +3,21 @@ import {Config, Icon, Item, ItemSliding, List, ListHeader, NavController, Popup}
 import {SessionDetailPage} from '../session-detail/session-detail';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {DataService} from '../service/data';
-import {DateFormat} from '../date-format/date-format';
 
 @Component({
   selector: 'session-list',
-  directives: [DateFormat, Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf],
+  directives: [Icon, Item, ItemSliding, List, ListHeader, NgFor, NgIf],
   properties: ['data', 'favorites', 'showing'],
   templateUrl: 'app/session-list/session-list.html'
 })
 export class SessionList {
+  nav: any;
+  popup: any;
+  dataService: any;
+  config: any;
+  isMD: string;
+  favorites: any;
+
   constructor(nav: NavController, popup: Popup, config: Config, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;

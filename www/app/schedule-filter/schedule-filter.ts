@@ -6,10 +6,14 @@ import {ConferenceData} from '../providers/conference-data';
   templateUrl: 'app/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
+  tracks = [];
+  close: any;
+  navParams: any;
 
   constructor(confData: ConferenceData, navParams: NavParams) {
-    this.tracks = [];
-    let filteredTracks = navParams.data;
+    this.navParams = navParams;
+
+    let filteredTracks = this.navParams.data;
 
     confData.getTracks().then(trackNames => {
 

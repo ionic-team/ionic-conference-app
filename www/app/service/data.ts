@@ -1,16 +1,19 @@
-import {App, IonicApp, IonicPlatform} from 'ionic-framework/ionic';
+import {App, IonicApp} from 'ionic-framework/ionic';
 import {Injectable, bind} from 'angular2/angular2';
 import {Http} from 'angular2/http';
 
 @Injectable()
 export class DataService {
+  app: any;
+  http: any;
+  conferenceInfo = null;
+  scheduleInfo = null;
+  speakers = null;
+  categories = null;
+
   constructor(app: IonicApp, http: Http) {
     this.app = app;
     this.http = http;
-    this.conferenceInfo = null;
-    this.scheduleInfo = null;
-    this.speakers = null;
-    this.categories = null;
   }
 
   retrieveData() {

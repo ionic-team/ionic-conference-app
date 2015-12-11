@@ -5,6 +5,8 @@ import {ConferenceData} from '../providers/conference-data';
   templateUrl: 'app/map/map.html'
 })
 export class MapPage {
+  confData: any;
+  
   constructor(confData: ConferenceData) {
     this.confData = confData;
   }

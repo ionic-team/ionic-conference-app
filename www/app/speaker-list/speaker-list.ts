@@ -8,12 +8,13 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {
-    this.nav = nav;
-    this.confData = confData;
-    this.actionSheet = actionSheet;
+  nav: any;
+  confData: any;
+  actionSheet: any;
 
-    this.speakers = [];
+  speakers = [];
+
+  constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;
     });

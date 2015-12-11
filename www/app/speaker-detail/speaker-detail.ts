@@ -6,9 +6,14 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/speaker-detail/speaker-detail.html',
 })
 export class SpeakerDetailPage {
+  nav: any;
+  navParams: any;
+  speaker: any;
+
   constructor(nav: NavController, navParams: NavParams) {
     this.nav = nav;
-    this.speaker = navParams.data;
+    this.navParams = navParams;
+    this.speaker = this.navParams.data;
   }
 
   goToSessionDetail(session) {

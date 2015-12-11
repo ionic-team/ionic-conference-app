@@ -9,6 +9,11 @@ import {AboutPage} from '../about/about';
   templateUrl: 'app/tabs/tabs.html'
 })
 export class TabsPage {
+  tab1Root: any;
+  tab2Root: any;
+  tab3Root: any;
+  tab4Root: any;
+
   constructor() {
     // set the root pages for each tab
     this.tab1Root = SchedulePage;

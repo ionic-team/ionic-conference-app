@@ -11,6 +11,10 @@ import {SignupPage} from './signup/signup';
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {
+  app: any;
+  root: any;
+  pages: any;
+
   constructor(app: IonicApp, confData: ConferenceData, config: Config) {
     this.app = app;
 

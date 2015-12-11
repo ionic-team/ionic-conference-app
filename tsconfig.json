@@ -7,9 +7,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "files": [
-    "www/app/app.ts"
-  ],
   "exclude": [
     "node_modules"
   ],

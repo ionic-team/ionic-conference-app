@@ -5,6 +5,8 @@ import {TabsPage} from '../tabs/tabs';
   templateUrl: 'app/signup/signup.html',
 })
 export class SignupPage {
+  nav: any;
+  
   constructor(nav: NavController) {
     this.nav = nav;
   }
