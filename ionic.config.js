@@ -1,4 +1,3 @@
-
 module.exports = {
   name: 'ionic-conference-app',
   proxies: null,
@@ -11,14 +10,9 @@ module.exports = {
   // ex: beforeServe, afterRun, beforePrepare, etc.
   hooks: {
     beforeServe: function(argv) {
-      // var spawn = require('child_process').spawn;
-      // var gulpWatch = spawn('gulp', ['watch']);
-      // gulpWatch.stdout.on('data', function(data) {
-      //   console.log(data);
-      // });
-      // gulpWatch.stderr.on('data', function(data) {
-      //   console.log('gulp watch error: ' + data);
-      // });
+      var path = require('path');
+      var fork = require('child_process').fork;
+      fork(path.resolve('./node_modules/.bin/gulp'), ['watch']);
     }
   },
 
