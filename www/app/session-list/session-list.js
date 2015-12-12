@@ -1,5 +1,5 @@
 import {Component, NgIf, NgFor} from 'angular2/angular2';
-import {Config, Icon, Item, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic-framework/ionic';
+import {Config, Icon, Item, ItemSliding, List, ListHeader, NavController, Popup} from 'ionic/ionic';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
@@ -10,13 +10,6 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/session-list/session-list.html'
 })
 export class SessionList {
-  nav: any;
-  popup: any;
-  dataService: any;
-  config: any;
-  isMD: string;
-  favorites: any;
-
   constructor(nav: NavController, popup: Popup, config: Config, dataService: DataService) {
     this.nav = nav;
     this.popup = popup;

@@ -27,20 +27,12 @@ module.exports = {
         },
         include: [path.join(__dirname, paths.wwwDir)],
         exclude: /node_modules/
-      },
-      {
-        test: /\.ts$/,
-        loader: 'awesome-typescript',
-        query: {
-          'doTypeCheck': false
-        },
-        include: [path.join(__dirname, paths.wwwDir)],
-        exclude: /node_modules/
       }
     ]
   },
   resolve: {
     alias: {
+      'ionic': 'ionic-framework',
       'web-animations.min': 'ionic-framework/js/web-animations.min',
     },
     extensions: ["", ".js", ".ts"]

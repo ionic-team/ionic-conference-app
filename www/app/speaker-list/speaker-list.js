@@ -1,4 +1,4 @@
-import {NavController, Page, ActionSheet} from 'ionic-framework/ionic';
+import {NavController, Page, ActionSheet} from 'ionic/ionic';
 import {ConferenceData} from '../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -8,16 +8,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  nav: any;
-  confData: any;
-  actionSheet: any;
-
-  speakers = [];
-
   constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {
     this.nav = nav;
     this.confData = confData;
     this.actionSheet = actionSheet;
+    this.speakers = [];
 
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;

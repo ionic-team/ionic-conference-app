@@ -1,12 +1,11 @@
-import {Page} from 'ionic-framework/ionic';
+import {Page} from 'ionic/ionic';
 import {ConferenceData} from '../providers/conference-data';
+
 
 @Page({
   templateUrl: 'app/map/map.html'
 })
 export class MapPage {
-  confData: any;
-  
   constructor(confData: ConferenceData) {
     this.confData = confData;
   }

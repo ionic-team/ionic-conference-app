@@ -1,4 +1,4 @@
-import {IonicApp, Page, NavController} from 'ionic-framework/ionic';
+import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -7,9 +7,6 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'app/login/login.html',
 })
 export class LoginPage {
-  nav: any;
-  app: any;
-  
   constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
     this.app = app;

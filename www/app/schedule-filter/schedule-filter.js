@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic-framework/ionic';
+import {Page, NavParams} from 'ionic/ionic';
 import {ConferenceData} from '../providers/conference-data';
 
 
@@ -6,15 +6,10 @@ import {ConferenceData} from '../providers/conference-data';
   templateUrl: 'app/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  tracks = [];
-  close: any;
-  confData: any;
-  navParams: any;
-  filteredTracks: any;
-
   constructor(confData: ConferenceData, navParams: NavParams) {
     this.navParams = navParams;
     this.confData = confData;
+    this.tracks = [];
 
     this.filteredTracks = this.navParams.data;
 

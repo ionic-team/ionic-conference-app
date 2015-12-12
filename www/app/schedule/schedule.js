@@ -1,4 +1,4 @@
-import {IonicApp, Page, Modal, Popup, NavController} from 'ionic-framework/ionic';
+import {IonicApp, Page, Modal, Popup, NavController} from 'ionic/ionic';
 import {ConferenceData} from '../providers/conference-data';
 import {UserData} from '../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -9,24 +9,6 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'app/schedule/schedule.html'
 })
 export class SchedulePage {
-  app: any;
-  modal: any;
-  popup: any;
-  confData: any;
-  nav: any;
-
-  data = {
-    hasSessions: false
-  };
-  dayIndex = 0;
-  queryText = '';
-  excludeTracks = [];
-  segment = 'all';
-  filterTracks = [];
-
-  filterQueryText: any;
-  user: any;
-
   constructor(app: IonicApp, modal: Modal, popup: Popup, nav: NavController, confData: ConferenceData, user: UserData) {
     this.app = app;
     this.modal = modal;
@@ -34,6 +16,15 @@ export class SchedulePage {
     this.nav = nav;
     this.confData = confData;
     this.user = user;
+    this.data = {
+      hasSessions: false
+    };
+    this.dayIndex = 0;
+    this.queryText = '';
+    this.excludeTracks = [];
+    this.filterTracks = [];
+    this.segment = 'all';
+
 
     this.updateSchedule();
   }
