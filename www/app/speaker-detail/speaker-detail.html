@@ -5,7 +5,9 @@
 
 <ion-content padding>
 
-  <img [src]="speaker.profilePic">
+  <p class="speaker-pic">
+    <img [src]="speaker.profilePic" [alt]="speaker.name">
+  </p>
 
   <p>{{speaker.about}}</p>
 
