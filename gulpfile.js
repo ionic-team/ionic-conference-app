@@ -42,7 +42,7 @@ gulp.task('sass', function(){
     sassSrcFiles.push( path.join(config.paths.wwwDir, config.paths.appDir, sassSrc) );
   });
 
-  gulp.src(sassSrcFiles)
+  return gulp.src(sassSrcFiles)
     .pipe(sass({
       includePaths: [path.join(config.paths.ionicDir, config.paths.ionicSassDir)],
     }))
