@@ -34,17 +34,17 @@ export class SchedulePage {
   }
 
   updateSchedule() {
-    this.confData.getTimeline(this.dayIndex, this.queryText).then(data => {
+    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
-      console.log(`updateSchedule: shownSessions: ${this.shownSessions}`);
     });
   }
 
   openFilter() {
-    this.modal.open(ScheduleFilterPage, this.filterTracks).then(modalRef => {
-      modalRef.onClose = (filteredTracks) => {
-        this.filterTracks = filteredTracks;
+    this.modal.open(ScheduleFilterPage, this.excludeTracks).then(modalRef => {
+      modalRef.onClose = (excludeTracks) => {
+        this.excludeTracks = excludeTracks;
+        this.updateSchedule();
       };
     });
   }
