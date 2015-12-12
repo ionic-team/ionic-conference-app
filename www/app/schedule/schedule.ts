@@ -44,7 +44,9 @@ export class SchedulePage {
 
   updateSchedule() {
     this.confData.getTimeline(this.dayIndex, this.queryText).then(data => {
-      this.data = data;
+      this.shownSessions = data.shownSessions;
+      this.groups = data.groups;
+      console.log(`updateSchedule: shownSessions: ${this.shownSessions}`);
     });
   }
 
