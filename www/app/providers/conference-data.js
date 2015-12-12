@@ -78,72 +78,51 @@ export class ConferenceData {
   getTimeline(dayIndex, queryText='', tracks=[], segment='all') {
     return this.load().then(data => {
       let day = data.schedule[dayIndex];
-      day.hasSessions = false;
+      day.shownSessions = 0;
 
-      let queryWords = [];
-      queryText = queryText.toLowerCase().replace(/,/g,' ').replace(/\./g,' ').replace(/-/g,' ');
-      queryText.split(' ').forEach(queryWord => {
-        queryWord = queryWord.trim();
-        if (queryWord.length > 1) {
-          queryWords.push(queryWord);
-        }
-      });
+      queryText = queryText.toLowerCase().replace(/,|\.|-/g,' ');
+      let queryWords = queryText.split(' ').filter(w => w.trim().length);
 
       let hasFilter = !!(queryWords.length || tracks.length || segment !== 'all');
 
-      function queryFilter(session, name) {
-        name = name.toLowerCase().trim();
-        queryWords.forEach(queryWord => {
-          if (name.indexOf(queryWord) > -1) {
-            session.show = true;
-          }
-        })
-      }
-
       day.groups.forEach(group => {
-        group.show = false;
+        group.hide = true;
 
         group.sessions.forEach(session => {
-          session.show = !hasFilter;
+          session.hide = hasFilter;
 
           if (hasFilter) {
 
             if (queryWords.length) {
-              queryFilter(session, session.name);
-
-              session.tracks.forEach(trackName => {
-                queryFilter(session, trackName);
-              });
-
-              session.speakers.forEach(speaker => {
-                queryFilter(session, speaker.name);
+              queryWords.forEach(queryWord => {
+                if (session.name.toLowerCase().indexOf(queryWord) > -1) {
+                  session.hide = false;
+                }
               });
             }
 
             if (tracks.length) {
               tracks.forEach(trackId => {
                 if (session.tracks.indexOf(trackId) > -1) {
-                  session.show = true;
+                  session.hide = false;
                 }
               });
             }
 
             if (segment === 'favorites') {
               if (this.user.hasFavorite(session.name)) {
-                session.show = true;
+                session.hide = false;
               }
             }
 
           }
 
-          if (session.show) {
-            group.show = true;
+          if (!session.hide) {
+            group.hide = false;
+            day.shownSessions++;
           }
         });
 
-        if (group.show) {
-          day.hasSessions = true;
-        }
       });
 
       return day;

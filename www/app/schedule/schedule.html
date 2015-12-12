@@ -23,21 +23,21 @@
 <ion-content class="schedule">
   <ion-searchbar primary
                  [(ngModel)]="queryText"
-                 (input)="updateSchedule()"
+                 (keyup)="updateSchedule()"
                  showCancel="true"
                  placeholder="Search">
   </ion-searchbar>
 
 
-  <ion-list [hidden]="!data.hasSessions">
+  <ion-list [hidden]="shownSessions === 0">
 
-    <ion-item-group *ngFor="#group of data.groups">
+    <ion-item-group *ngFor="#group of groups" [hidden]="group.hide">
 
       <ion-item-divider sticky>
         {{group.time}}
       </ion-item-divider>
 
-      <ion-item-sliding *ngFor="#session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase">
+      <ion-item-sliding *ngFor="#session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
         <button ion-item (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>
@@ -60,7 +60,7 @@
 
   </ion-list>
 
-  <ion-list-header [hidden]="data.hasSessions">
+  <ion-list-header [hidden]="shownSessions > 0">
       No Sessions Found
   </ion-list-header>
 

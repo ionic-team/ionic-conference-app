@@ -16,15 +16,15 @@ export class SchedulePage {
     this.nav = nav;
     this.confData = confData;
     this.user = user;
-    this.data = {
-      hasSessions: false
-    };
+
     this.dayIndex = 0;
     this.queryText = '';
     this.excludeTracks = [];
     this.filterTracks = [];
     this.segment = 'all';
 
+    this.hasSessions = false;
+    this.groups = [];
 
     this.updateSchedule();
   }
@@ -35,7 +35,9 @@ export class SchedulePage {
 
   updateSchedule() {
     this.confData.getTimeline(this.dayIndex, this.queryText).then(data => {
-      this.data = data;
+      this.shownSessions = data.shownSessions;
+      this.groups = data.groups;
+      console.log(`updateSchedule: shownSessions: ${this.shownSessions}`);
     });
   }
 
