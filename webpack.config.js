@@ -19,16 +19,6 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'awesome-typescript',
-        query: {
-          'doTypeCheck': false,
-          'useWebpackText': true
-        },
-        include: [path.join(__dirname, paths.wwwDir)],
-        exclude: /node_modules/
-      },
-      {
         test: /\.ts$/,
         loader: 'awesome-typescript',
         query: {
