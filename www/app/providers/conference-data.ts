@@ -8,7 +8,7 @@ export class ConferenceData {
   http: any;
   user: any;
   data: any;
-  
+
   constructor(http: Http, user: UserData) {
     // inject the Http provider and set to this instance
     this.http = http;
@@ -85,7 +85,7 @@ export class ConferenceData {
       day.shownSessions = 0;
 
       queryText = queryText.toLowerCase().replace(/,|\.|-/g,' ');
-      let queryWords = queryText.split(' ').filter(w => w.trim().length);
+      let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
 
       day.groups.forEach(group => {
         group.hide = true;

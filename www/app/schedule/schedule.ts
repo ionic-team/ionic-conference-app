@@ -23,6 +23,8 @@ export class SchedulePage {
   excludeTracks = [];
   segment = 'all';
   filterTracks = [];
+  shownSessions = [];
+  groups = [];
 
   filterQueryText: any;
   user: any;

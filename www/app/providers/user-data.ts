@@ -3,10 +3,7 @@ import {Injectable} from 'angular2/angular2';
 
 @Injectable()
 export class UserData {
-
-  constructor() {
-    this._favorites = [];
-  }
+  _favorites = [];
 
   hasFavorite(sessionName) {
     return (this._favorites.indexOf(sessionName) > -1);
