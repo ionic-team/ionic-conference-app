@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/googlemaps/google.maps.d.ts" />
+
 import {Page} from 'ionic-framework/ionic';
 import {ConferenceData} from '../providers/conference-data';
 
@@ -6,7 +8,7 @@ import {ConferenceData} from '../providers/conference-data';
 })
 export class MapPage {
   confData: any;
-  
+
   constructor(confData: ConferenceData) {
     this.confData = confData;
   }
