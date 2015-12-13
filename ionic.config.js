@@ -11,7 +11,8 @@ module.exports = {
     beforeServe: function(argv) {
       var path = require('path');
       var fork = require('child_process').fork;
-      fork(path.resolve('./node_modules/.bin/gulp'), ['watch']);
+      // npm generates non-js .bin files for windows, so use gulp directly
+      fork(path.resolve('./node_modules/gulp/bin/gulp.js'), ['watch']);
     }
   },
 
