@@ -54,8 +54,10 @@ export class SchedulePage {
   openFilter() {
     this.modal.open(ScheduleFilterPage, this.excludeTracks).then(modalRef => {
       modalRef.onClose = (excludeTracks) => {
-        this.excludeTracks = excludeTracks;
-        this.updateSchedule();
+        if (excludeTracks) {
+          this.excludeTracks = excludeTracks;
+          this.updateSchedule();
+        }
       };
     });
   }
