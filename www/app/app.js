@@ -4,6 +4,7 @@ import {UserData} from './providers/user-data';
 import {TabsPage} from './tabs/tabs';
 import {LoginPage} from './login/login';
 import {SignupPage} from './signup/signup';
+import {TutorialPage} from './tutorial/tutorial';
 
 
 @App({
@@ -22,7 +23,7 @@ class ConferenceApp {
     confData.load();
 
     // We plan to add auth to only show the login page if not logged in
-    this.root = LoginPage;
+    this.root = TutorialPage;
 
     // create an list of pages that can be navigated to from the left menu
     // the left menu only works after login
