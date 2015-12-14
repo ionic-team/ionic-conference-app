@@ -118,11 +118,6 @@ ionic-conference-app/
 │   │   │    └── session-filter.js     * SessionFilterPage code
 │   │   │    └── session-filter.scss   * SessionFilterPage stylesheet
 │   │   │
-│   │   │── session-list/              * Session List page
-│   │   │    ├── session-list.html     * SessionListPage template
-│   │   │    └── session-list.js       * SessionListPage code
-│   │   │    └── session-list.scss     * SessionListPage stylesheet
-│   │   │
 │   │   │── signup/                    * Signup page
 │   │   │    ├── signup.html           * SignupPage template
 │   │   │    └── signup.js             * SignupPage code
