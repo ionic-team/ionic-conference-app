@@ -81,11 +81,8 @@ ionic-conference-app/
 │   │   │    └── about.js              * AboutPage code
 │   │   │    └── about.scss            * AboutPage stylesheet
 │   │   │
-│   │   │── data/                      * Contains all app data
-│   │   │    ├── categories.json       * Category data
-│   │   │    └── info.json             * Conference data
-│   │   │    └── schedule.json         * Schedule data
-│   │   │    └── speakers.json         * Speakers data
+│   │   │── data/                      * Contains json files
+│   │   │    ├── data.json             * App data
 │   │   │
 │   │   │── login/                     * Login page
 │   │   │    ├── login.html            * LoginPage template
@@ -97,26 +94,23 @@ ionic-conference-app/
 │   │   │    └── map.js                * MapPage code
 │   │   │    └── map.scss              * MapPage stylesheet
 │   │   │
-│   │   │── pipes/                     * Contains all pipes
-│   │   │    ├── convert-date.js       * ConvertDate pipe
+│   │   │── providers/                 * Contains all injectables
+│   │   │    ├── conference-data.js    * ConferenceData code
+│   │   │    └── user-data.js          * UserData code
 │   │   │
 │   │   │── schedule/                  * Schedule tab page
 │   │   │    ├── schedule.html         * SchedulePage template
 │   │   │    └── schedule.js           * SchedulePage code
 │   │   │    └── schedule.scss         * SchedulePage stylesheet
 │   │   │
-│   │   │── service/                   * Contains all services
-│   │   │    ├── data.js               * DataService code
+│   │   │── schedule-filter/           * Schedule Filter page
+│   │   │    ├── schedule-filter.html  * ScheduleFilterPage template
+│   │   │    └── schedule-filter.js    * ScheduleFilterPage code
+│   │   │    └── schedule-filter.scss  * ScheduleFilterPage stylesheet
 │   │   │
 │   │   │── session-detail/            * Session Detail page
 │   │   │    ├── session-detail.html   * SessionDetailPage template
 │   │   │    └── session-detail.js     * SessionDetailPage code
-│   │   │    └── session-detail.scss   * SessionDetailPage stylesheet
-│   │   │
-│   │   │── session-filter/            * Session Filter page
-│   │   │    ├── session-filter.html   * SessionFilterPage template
-│   │   │    └── session-filter.js     * SessionFilterPage code
-│   │   │    └── session-filter.scss   * SessionFilterPage stylesheet
 │   │   │
 │   │   │── signup/                    * Signup page
 │   │   │    ├── signup.html           * SignupPage template
@@ -132,13 +126,16 @@ ionic-conference-app/
 │   │   │    └── speaker-list.js       * SpeakerListPage code
 │   │   │    └── speaker-list.scss     * SpeakerListPage stylesheet
 │   │   │
-│   │   │── tabs/              * Tabs page
-│   │   │    ├── tabs.html     * TabsPage template
-│   │   │    └── tabs.js       * TabsPage code
+│   │   │── tabs/                      * Tabs page
+│   │   │    ├── tabs.html             * TabsPage template
+│   │   │    └── tabs.js               * TabsPage code
 │   │   │
 │   │   ├── app.html                   * Application template
 │   │   ├── app.js                     * Main Application configuration
-│   │   └── app.scss                   * Sass imports
+│   │   ├── app.core.scss              * Shared Sass imports
+│   │   ├── app.variables.scss         * Shared Sass variables
+│   │   ├── app.ios.scss               * iOS specific Sass
+│   │   └── app.md.scss                * MD specific Sass
 │   │   
 │   ├── build/                         * Contains compiled content
 │   │     ├── css                      * Compiled CSS
@@ -149,12 +146,15 @@ ionic-conference-app/
 │   │
 │   └── index.html                     * Main entry point
 |
+├── .editorconfig                      * Defines coding styles between editors
 ├── .gitignore                         * Example git ignore file
+├── config.xml                         * Cordova configuration file
+├── gulpfile.js                        * Gulp file
+├── ionic.config.js                    * Ionic configuration file
+├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
 ├── README.md                          * This file
 ├── tsconfig.json                      * Configures the TypeScript compiler
-├── config.xml                         * Cordova configuration file
-├── ionic.config.js                    * Ionic configuration file
 └── webpack.config.js                  * Webpack configuration file
 ```
 
