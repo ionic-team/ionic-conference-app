@@ -10,10 +10,16 @@ export class TutorialPage {
   constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
     this.app = app;
+
+    this.continueText = "Skip Intro";
   }
 
-  startNow() {
+  startApp() {
     this.nav.push(TabsPage);
+  }
+
+  onSlideChanged(event) {
+    this.continueText = (event.isEnd == false) ? "Skip Intro" : "Continue";
   }
 
   onPageDidEnter() {

@@ -1,24 +1,41 @@
 
-.tutorial-page .logo {
-  padding: 20px 0;
-  text-align: center;
-}
+.tutorial-page {
+  .toolbar-background {
+    background: white;
+    border-color: transparent;
+  }
 
-.tutorial-page .logo img {
-  max-width: 100px;
-}
+  .slide-zoom {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-.tutorial-page .container {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: 'stretch';
-}
+  h2 {
+    margin-top: 2.8rem;
+  }
 
-.tutorial-page .content-main {
-  flex: 1;
-}
+  .welcome {
+    color: white;
+    background-color: map-get($colors, primary);
+  }
 
-.tutorial-page .swiper-slide {
-  min-height: 300px;
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 60px;
+  }
+
+  .logo img {
+    max-height: 80%;
+    max-width: 80%;
+    margin: 20px 0;
+  }
+
+  p {
+    padding: 0 16px;
+    color: #666;
+  }
 }
