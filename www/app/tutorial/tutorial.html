@@ -1,10 +1,10 @@
-<ion-toolbar>
-  <ion-buttons end>
-    <button (click)="startApp()">{{ continueText }}</button>
-  </ion-buttons>
-</ion-toolbar>
-
 <ion-content>
+  <ion-toolbar transparent>
+    <ion-buttons end>
+      <button (click)="startApp()">{{ continueText }}</button>
+    </ion-buttons>
+  </ion-toolbar>
+
   <ion-slides pager (slideChanged)="onSlideChanged($event)">
     <ion-slide>
       <h2>Welcome</h2>

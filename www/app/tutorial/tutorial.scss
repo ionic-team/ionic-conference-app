@@ -1,14 +1,13 @@
 
 .tutorial-page {
+  // TODO remove this when alpha.43 is released
   .toolbar-background {
-    background: white;
+    background: transparent;
     border-color: transparent;
   }
 
-  .slide-zoom {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  ion-slides {
+    height: auto;
   }
 
   h2 {
