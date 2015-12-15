@@ -1,32 +1,41 @@
+<ion-toolbar>
+  <ion-buttons end>
+    <button (click)="startApp()">{{ continueText }}</button>
+  </ion-buttons>
+</ion-toolbar>
+
 <ion-content>
-  <div class="container">
-    <div class="content-header">
+  <ion-slides pager (slideChanged)="onSlideChanged($event)">
+    <ion-slide>
+      <h2>Welcome</h2>
+      <p>All of the information you need to get up and running with Ionic.</p>
       <div class="logo">
-        <img src="img/appicon.svg">
+        <img src="img/ionic-welcome.png"/>
       </div>
-    </div>
+    </ion-slide>
 
-    <div class="content-main">
-      <ion-slides pager>
-        <ion-slide>
-          <h2>Ionic Conference Apps</h2>
-          <p>You will find all the ticketing and schedule information in this apps</p>
-        </ion-slide>
+    <ion-slide>
+      <h2>Ionic View</h2>
+      <p>Learn how you can use Ionic View to share your apps.</p>
+      <div class="logo">
+        <img src="img/ionic-view.png"/>
+      </div>
+    </ion-slide>
 
-        <ion-slide>
-          <h2>Buy Ticket</h2>
-          <p>Grab the eTicket and show it at the entrance using the Conference apps</p>
-        </ion-slide>
+    <ion-slide>
+      <h2>Ionic Creator</h2>
+      <p>Drag-&-drop to create a great Ionic app with the click of a mouse.</p>
+      <div class="logo">
+        <img src="img/ionic-creator.png"/>
+      </div>
+    </ion-slide>
 
-        <ion-slide>
-          <h2>Up-to-date Schedule</h2>
-          <p>Event updates will be distributed through this apps too, stay tuned</p>
-        </ion-slide>
-      </ion-slides>
-    </div>
-
-    <div class="content-footer">
-      <button (click)="startNow()" primary block>Browse Schedule</button>
-    </div>
-  </div>
+    <ion-slide>
+      <h2>Ionic Platform</h2>
+      <p>Our Platform Services are there to make development easier.</p>
+      <div class="logo">
+        <img src="img/ionic-platform.png"/>
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
