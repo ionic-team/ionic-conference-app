@@ -27,6 +27,11 @@ module.exports = {
         },
         include: [path.join(__dirname, paths.wwwDir)],
         exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        include: /node_modules\/angular2/,
+        loader: 'strip-sourcemap'
       }
     ]
   },
