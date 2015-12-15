@@ -23,12 +23,12 @@ export class TutorialPage {
   }
 
   onPageDidEnter() {
-    // the root left menu should be disabled on the login page
+    // the root left menu should be disabled on the tutorial page
     this.app.getComponent('leftMenu').enable(false);
   }
 
   onPageWillLeave() {
-    // enable the root left menu when leaving the login page
+    // enable the root left menu when leaving the tutorial page
     this.app.getComponent('leftMenu').enable(true);
   }
 }
