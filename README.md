@@ -53,6 +53,8 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 * Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/session-filter/session-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L43-L52) ]
 * Action Sheet - [ [template](https://github.com/3dd13/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.html#L33) | [code](https://github.com/3dd13/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.js#L60-L87) ]
 * Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule-filter/schedule-filter.html#L22-L25) ]
+* Slides - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/tutorial/tutorial.html#L8-L40) |
+[code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/tutorial/tutorial.js#L17-L23) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/speaker-list/speaker-list.html#L9-L42) ]
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L36-L38) ]
 * Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/login/login.html#L24-L31) ]
@@ -125,6 +127,11 @@ ionic-conference-app/
 │   │   │── tabs/                      * Tabs page
 │   │   │    ├── tabs.html             * TabsPage template
 │   │   │    └── tabs.js               * TabsPage code
+│   │   │
+│   │   │── tutorial/                  * Tutorial Intro page
+│   │   │    ├── tutorial.html         * TutorialPage template
+│   │   │    └── tutorial.js           * TutorialPage code
+│   │   │    └── tutorial.scss         * TutorialPage stylesheet
 │   │   │
 │   │   ├── app.html                   * Application template
 │   │   ├── app.js                     * Main Application configuration
