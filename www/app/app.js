@@ -25,6 +25,7 @@ class ConferenceApp {
     // the left menu only works after login
     // the login page disables the left menu
     this.pages = [
+      { title: 'Schedules', component: TabsPage, icon: 'calendar' },
       { title: 'Login', component: LoginPage, icon: 'log-in' },
       { title: 'Signup', component: SignupPage, icon: 'person-add' },
       { title: 'Logout', component: LoginPage, icon: 'log-out' },
