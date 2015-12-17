@@ -6,7 +6,8 @@ import {AboutPage} from '../about/about';
 
 
 @Page({
-  templateUrl: 'app/tabs/tabs.html'
+  templateUrl: 'tabs.html',
+  moduleId: module.id
 })
 export class TabsPage {
   tab1Root: any;

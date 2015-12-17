@@ -1,6 +1,6 @@
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
-import {UserData} from './user-data';
+import {UserData} from './user-data';;
 
 
 @Injectable()

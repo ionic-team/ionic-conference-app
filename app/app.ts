@@ -1,14 +1,15 @@
 import {App, IonicApp, Config} from 'ionic-framework/ionic';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
-import {TabsPage} from './tabs/tabs';
-import {LoginPage} from './login/login';
-import {SignupPage} from './signup/signup';
-import {TutorialPage} from './tutorial/tutorial';
+import {TabsPage} from './pages/tabs/tabs';
+import {LoginPage} from './pages/login/login';
+import {SignupPage} from './pages/signup/signup';
+import {TutorialPage} from './pages/tutorial/tutorial';
 
 
 @App({
-  templateUrl: 'app/app.html',
+  templateUrl: 'app.html',
+  moduleId: module.id,
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {

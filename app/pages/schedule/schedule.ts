@@ -1,13 +1,14 @@
 import {IonicApp, Page, Modal, Popup, NavController} from 'ionic-framework/ionic';
-import {ConferenceData} from '../providers/conference-data';
-import {UserData} from '../providers/user-data';
+import {ConferenceData} from '../../providers/conference-data';
+import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'app/schedule/schedule.html'
-})
+  templateUrl: 'schedule.html',
+  moduleId: module.id
+}))
 export class SchedulePage {
   app: any;
   modal: any;

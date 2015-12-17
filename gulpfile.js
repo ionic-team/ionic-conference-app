@@ -25,7 +25,10 @@ gulp.task('watch', ['sass', 'fonts'], function(done) {
  * gulp build
  * Build the styles once, without watching for source file changes.
  ******************************************************************************/
-gulp.task('build', ['sass', 'fonts']);
+gulp.task('build', ['sass', 'fonts'], function(done) {
+  gulp.src('app/**/*.html')
+      .pipe(gulp.dest('www/build'));
+});
 
 
 /******************************************************************************
@@ -39,7 +42,7 @@ gulp.task('sass', function(){
 
   var sassSrcFiles = [];
   config.paths.appSassSrc.forEach(function(sassSrc) {
-    sassSrcFiles.push( path.join(config.paths.wwwDir, config.paths.appDir, sassSrc) );
+    sassSrcFiles.push( path.join(config.paths.appDir, sassSrc) );
   });
 
   return gulp.src(sassSrcFiles)

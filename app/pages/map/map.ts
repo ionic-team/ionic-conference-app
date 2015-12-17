@@ -1,10 +1,11 @@
 /// <reference path="../../../typings/googlemaps/google.maps.d.ts" />
 
 import {Page} from 'ionic-framework/ionic';
-import {ConferenceData} from '../providers/conference-data';
+import {ConferenceData} from '../../providers/conference-data';
 
 @Page({
-  templateUrl: 'app/map/map.html'
+  templateUrl: 'map.html',
+  moduleId: module.id
 })
 export class MapPage {
   confData: any;
