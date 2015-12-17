@@ -1,9 +1,10 @@
 import {Page, NavParams} from 'ionic/ionic';
-import {ConferenceData} from '../providers/conference-data';
+import {ConferenceData} from '../../providers/conference-data';
 
 
 @Page({
-  templateUrl: 'app/schedule-filter/schedule-filter.html'
+  templateUrl: 'schedule-filter.html',
+  moduleId: module.id
 })
 export class ScheduleFilterPage {
   constructor(confData: ConferenceData, navParams: NavParams) {

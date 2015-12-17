@@ -1,9 +1,10 @@
 import {Page} from 'ionic/ionic';
-import {ConferenceData} from '../providers/conference-data';
+import {ConferenceData} from '../../providers/conference-data';
 
 
 @Page({
-  templateUrl: 'app/map/map.html'
+  templateUrl: 'map.html',
+  moduleId: module.id
 })
 export class MapPage {
   constructor(confData: ConferenceData) {

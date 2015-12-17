@@ -24,7 +24,7 @@ module.exports = {
     buildFontsDir: 'fonts',
     appDir: 'app',
     appSrcModule: 'app.js',
-    appBuildBundle: 'app.bundle.js',
+    appBundle: 'app.bundle.js',
     appSassSrc: ['app.ios.scss', 'app.md.scss'],
     appSassWatch: '**/*.scss',
     ionicDir: 'node_modules/ionic-framework',

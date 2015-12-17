@@ -1,11 +1,12 @@
 import {NavController, Page, ActionSheet} from 'ionic/ionic';
-import {ConferenceData} from '../providers/conference-data';
+import {ConferenceData} from '../../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'app/speaker-list/speaker-list.html'
+  templateUrl: 'speaker-list.html',
+  moduleId: module.id
 })
 export class SpeakerListPage {
   constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {

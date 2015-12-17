@@ -3,7 +3,8 @@ import {TabsPage} from '../tabs/tabs';
 
 
 @Page({
-  templateUrl: 'app/signup/signup.html',
+  templateUrl: 'signup.html',
+  moduleId: module.id
 })
 export class SignupPage {
   constructor(nav: NavController) {

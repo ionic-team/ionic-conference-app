@@ -4,7 +4,8 @@ import {SignupPage} from '../signup/signup';
 
 
 @Page({
-  templateUrl: 'app/login/login.html',
+  templateUrl: 'login.html',
+  moduleId: module.id
 })
 export class LoginPage {
   constructor(nav: NavController, app: IonicApp) {

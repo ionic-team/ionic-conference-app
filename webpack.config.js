@@ -8,11 +8,11 @@ module.exports = {
     'reflect-metadata',
     'web-animations.min',
     'zone.js',
-    path.join(__dirname, paths.wwwDir, paths.appDir, paths.appSrcModule)
+    path.join(__dirname, paths.appDir, paths.appSrcModule)
   ],
   output: {
     path: path.join(__dirname, paths.wwwDir, paths.buildDir, paths.buildJSDir),
-    filename: paths.appBuildBundle,
+    filename: paths.appBundle,
     publicPath: path.join(paths.buildDir, paths.buildJSDir),
     pathinfo: false // show module paths in the bundle, handy for debugging
   },
@@ -25,7 +25,7 @@ module.exports = {
           'doTypeCheck': false,
           'useWebpackText': true
         },
-        include: [path.join(__dirname, paths.wwwDir)],
+        include: [path.join(__dirname, paths.appDir)],
         exclude: /node_modules/
       },
       {
@@ -40,6 +40,6 @@ module.exports = {
       'ionic': 'ionic-framework',
       'web-animations.min': 'ionic-framework/js/web-animations.min',
     },
-    extensions: ["", ".js", ".ts"]
+    extensions: ['', '.js', '.ts']
   }
 };

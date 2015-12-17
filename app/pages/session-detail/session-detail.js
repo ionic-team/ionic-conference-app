@@ -2,7 +2,8 @@ import {Page, NavParams} from 'ionic/ionic';
 
 
 @Page({
-  templateUrl: 'app/session-detail/session-detail.html',
+  templateUrl: 'session-detail.html',
+  moduleId: module.id
 })
 export class SessionDetailPage {
   constructor(navParams: NavParams) {

@@ -3,7 +3,8 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'app/speaker-detail/speaker-detail.html',
+  templateUrl: 'speaker-detail.html',
+  moduleId: module.id
 })
 export class SpeakerDetailPage {
   constructor(nav: NavController, navParams: NavParams) {
