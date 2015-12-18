@@ -9,7 +9,7 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 
 @App({
   templateUrl: 'app.html',
-  moduleId: module.id,
+  moduleId: 'build/app.html',
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {

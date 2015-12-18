@@ -6,8 +6,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'schedule.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
   constructor(app: IonicApp, modal: Modal, popup: Popup, nav: NavController, confData: ConferenceData, user: UserData) {

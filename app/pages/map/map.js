@@ -3,8 +3,7 @@ import {ConferenceData} from '../../providers/conference-data';
 
 
 @Page({
-  templateUrl: 'map.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/mapp/map.html'
 })
 export class MapPage {
   constructor(confData: ConferenceData) {

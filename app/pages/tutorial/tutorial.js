@@ -4,7 +4,7 @@ import {SignupPage} from '../signup/signup';
 
 
 @Page({
-  templateUrl: 'app/tutorial/tutorial.html',
+  templateUrl: 'build/pages/tutorial/tutorial.html',
 })
 export class TutorialPage {
   constructor(nav: NavController, app: IonicApp) {
@@ -18,7 +18,7 @@ export class TutorialPage {
     this.nav.push(TabsPage);
   }
 
-  onSlideChanged(event) {
+  onSlideChange(event) {
     this.continueText = (event.isEnd == false) ? "Skip Intro" : "Continue";
   }
 
