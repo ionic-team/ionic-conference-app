@@ -4,8 +4,7 @@ import {SignupPage} from '../signup/signup';
 
 
 @Page({
-  templateUrl: 'login.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
   nav: any;

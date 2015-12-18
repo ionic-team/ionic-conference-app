@@ -3,8 +3,7 @@ import {ConferenceData} from '../../providers/conference-data';
 
 
 @Page({
-  templateUrl: 'schedule-filter.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
   tracks = [];

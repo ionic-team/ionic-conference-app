@@ -2,8 +2,7 @@ import {Page, NavController} from 'ionic-framework/ionic';
 import {TabsPage} from '../tabs/tabs';
 
 @Page({
-  templateUrl: 'signup.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
   nav: any;

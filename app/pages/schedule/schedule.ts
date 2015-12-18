@@ -6,9 +6,8 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'schedule.html',
-  moduleId: module.id
-}))
+  templateUrl: 'build/pages/schedule/schedule.html'
+})
 export class SchedulePage {
   app: any;
   modal: any;

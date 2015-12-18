@@ -2,7 +2,6 @@ import {Page} from 'ionic-framework/ionic';
 
 
 @Page({
-  templateUrl: 'about.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/about/about.html'
 })
 export class AboutPage {}

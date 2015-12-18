@@ -5,8 +5,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
 
 
 @Page({
-  templateUrl: 'speaker-list.html',
-  moduleId: module.id
+  templateUrl: 'build/pages/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
   nav: any;
