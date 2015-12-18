@@ -5,10 +5,10 @@ var paths = require('./ionic.config').paths;
 module.exports = {
   entry: [
     'es6-shim/es6-shim.min',
+    'zone.js/dist/zone-microtask',
     'reflect-metadata',
     'web-animations.min',
-    'zone.js/dist/zone.js',
-    path.join(__dirname, paths.appDir, paths.appSrcModule)
+    './app/app'
   ],
   output: {
     path: path.join(__dirname, paths.wwwDir, paths.buildDir, paths.buildJSDir),
@@ -32,6 +32,11 @@ module.exports = {
         include: /node_modules\/angular2/,
         loader: 'strip-sourcemap'
       }
+    ],
+    noParse: [
+      /rtts_assert\/src\/rtts_assert/,
+      /reflect-metadata/,
+      /zone\.js\/dist\/zone-microtask/
     ]
   },
   resolve: {
