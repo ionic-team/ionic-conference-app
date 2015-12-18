@@ -16,6 +16,29 @@ module.exports = {
     }
   },
 
+  // paths: {
+  //   modules: {
+  //
+  //   },
+  //   sass: {
+  //     src: ['app/app.ios.scss', 'app/app.md.scss'],
+  //     dest: 'www/build/css/',
+  //     include: ['node_modules/ionic-framework']
+  //   },
+  //   html : {
+  //     src: ['app/**/*.html']
+  //     dest: 'www/build/html/'
+  //   },
+  //   fonts: {
+  //     src: ['node_modules/ionic-framework/fonts/**/*.ttf'],
+  //     dest: 'www/build/fonts/'
+  //   },
+  //   watch: {
+  //     sass: ['**/*.scss'],
+  //     livereload: []
+  //   }
+  // },
+
   paths: {
     wwwDir: 'www',
     buildDir: 'build',
