@@ -1,14 +1,17 @@
-import {Page, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupForm} from './signup-form';
+import {UserData} from '../providers/user-data';
 
 @Page({
   templateUrl: 'app/signup/signup.html',
   directives: [SignupForm]
 })
 export class SignupPage {
-  constructor(nav: NavController) {
+  constructor(app: IonicApp, nav: NavController, userData: UserData) {
+    this.app = app;
     this.nav = nav;
+    this.userData = userData;
   }
 
   signupFormSubmittedHandler(userData) {
@@ -17,6 +20,9 @@ export class SignupPage {
   }
 
   private _signup(username, password) {
-    console.log('do signup');
+    this.userData.signup(username, password);
+
+    let menuList = this.app.getComponent('menu-list');
+    menuList.updateMenuItems(true);
   }
 }
