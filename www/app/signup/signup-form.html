@@ -1,0 +1,21 @@
+<form [ngFormModel]="signupForm" (submit)="onSignupFormSubmitted($event)">
+  <ion-input floating-label>
+    <ion-label primary>Username</ion-label>
+    <input type="text" class="form-control" ngControl="username" required>
+  </ion-input>
+
+  <ion-input floating-label>
+    <ion-label primary>Password</ion-label>
+    <input type="password" ngControl="password" required>
+  </ion-input>
+
+  <div padding>
+    <button
+      type="submit"
+      [disabled]="!signupForm.valid"
+      [ngClass]="{'button-disabled': !signupForm.valid}"
+      primary block>
+      Create
+    </button>
+  </div>
+</form>

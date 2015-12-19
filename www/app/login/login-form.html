@@ -1,0 +1,24 @@
+<form [ngFormModel]="loginForm" (submit)="onLoginFormSubmitted($event)">
+  <ion-input floating-label>
+    <ion-label primary>Username</ion-label>
+    <input type="text" class="form-control" ngControl="username" required>
+  </ion-input>
+
+  <ion-input floating-label>
+    <ion-label primary>Password</ion-label>
+    <input type="password" ngControl="password" required>
+  </ion-input>
+
+  <ion-row responsive-sm padding>
+    <ion-col>
+      <button
+        type="submit"
+        [disabled]="!loginForm.valid"
+        [ngClass]="{'button-disabled': !loginForm.valid}"
+        primary block>Login</button>
+    </ion-col>
+    <ion-col>
+      <button (click)="onSignupButtonClicked($event)" light block>Signup</button>
+    </ion-col>
+  </ion-row>
+</form>
