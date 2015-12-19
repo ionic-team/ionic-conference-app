@@ -6,26 +6,17 @@
   <ion-title>Signup</ion-title>
 </ion-navbar>
 
-<ion-content class="login-page">
+<ion-content class="signup-page">
 
   <ion-list>
     <div class="logo">
       <img src="img/appicon.svg">
     </div>
 
-    <ion-input floating-label>
-      <ion-label primary>Username</ion-label>
-      <input type="text">
-    </ion-input>
-
-    <ion-input floating-label>
-      <ion-label primary>Password</ion-label>
-      <input type="password">
-    </ion-input>
-
-    <div padding>
-      <button (click)="signup()" primary block>Create</button>
-    </div>
+    <signup-form
+      (formSubmitCallback)="signupFormSubmittedHandler($event)"
+      ></signup-form>
+      
   </ion-list>
 
 </ion-content>
