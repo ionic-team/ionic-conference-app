@@ -10,7 +10,7 @@ import {Input} from 'angular2/core';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  //@Input() testInput;
+  @Input() testInput;
 
   constructor() {
     // set the root pages for each tab
