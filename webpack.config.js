@@ -37,8 +37,9 @@ module.exports = {
       }
     ],
     noParse: [
-      /rtts_assert\/src\/rtts_assert/,
+      /es6-shim/,
       /reflect-metadata/,
+      /web-animations/,
       /zone\.js\/dist\/zone-microtask/
     ]
   },
@@ -46,7 +47,25 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        drop_debugger: false
+        properties: true,
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        comparisons: true,
+        evaluate: true,
+        booleans: true,
+        unused: true,
+        loops: true,
+        hoist_funs: true,
+        cascade: true,
+        if_return: true,
+        join_vars: true,
+        //drop_console: true,
+        drop_debugger: true,
+        unsafe: true,
+        hoist_vars: true,
+        negate_iife: true,
+        //side_effects: true
       },
       output: {
         comments: false
@@ -61,6 +80,6 @@ module.exports = {
       'ionic': 'ionic-framework',
       'web-animations.min': 'ionic-framework/js/web-animations.min',
     },
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.js']
   }
 };
