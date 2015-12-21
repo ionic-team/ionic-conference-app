@@ -1,5 +1,6 @@
 var path = require('path');
 var paths = require('./ionic.config').paths;
+var webpack = require('webpack');
 
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
         loader: 'babel',
         query: {
           cacheDirectory: true,
-          "plugins": [
+          plugins: [
             "angular2-annotations",
             "transform-decorators-legacy",
             "transform-class-properties",
@@ -41,6 +42,20 @@ module.exports = {
       /zone\.js\/dist\/zone-microtask/
     ]
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_debugger: false
+      },
+      output: {
+        comments: false
+      },
+      verbose: true,
+      beautify: false,
+      quote_style: 3
+    })
+  ],
   resolve: {
     alias: {
       'ionic': 'ionic-framework',
