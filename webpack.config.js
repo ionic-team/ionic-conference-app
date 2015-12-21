@@ -20,18 +20,19 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'awesome-typescript',
+        loader: 'babel',
         query: {
-          'doTypeCheck': false,
-          'useWebpackText': true
+          cacheDirectory: true,
+          "plugins": [
+            "angular2-annotations",
+            "transform-decorators-legacy",
+            "transform-class-properties",
+            "transform-flow-strip-types"
+          ],
+          presets: ['es2015']
         },
         include: [path.join(__dirname, paths.appDir)],
         exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        include: /node_modules\/angular2/,
-        loader: 'strip-sourcemap'
       }
     ],
     noParse: [
