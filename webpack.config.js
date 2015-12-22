@@ -1,19 +1,18 @@
 var path = require('path');
-var paths = require('./ionic.config').paths;
+var webpack = require('webpack');
 
 
 module.exports = {
   entry: [
-    'es6-shim/es6-shim.min',
-    'zone.js/dist/zone-microtask',
+    path.normalize('es6-shim/es6-shim.min'),
     'reflect-metadata',
     'web-animations.min',
-    './app/app'
+    path.normalize('zone.js/dist/zone-microtask'),
+    path.resolve('app/app.ts')
   ],
   output: {
-    path: path.join(__dirname, paths.wwwDir, paths.buildDir, paths.buildJSDir),
-    filename: paths.appBundle,
-    publicPath: path.join(paths.buildDir, paths.buildJSDir),
+    path: path.resolve('www/build/js'),
+    filename: 'app.bundle.js',
     pathinfo: false // show module paths in the bundle, handy for debugging
   },
   module: {
@@ -24,20 +23,26 @@ module.exports = {
         query: {
           'doTypeCheck': false
         },
-        include: [path.join(__dirname, paths.appDir)],
+        include: path.resolve('app'),
         exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        include: path.resolve('node_modules/angular2'),
+        loader: 'strip-sourcemap'
       }
     ],
     noParse: [
       /es6-shim/,
       /reflect-metadata/,
       /web-animations/,
-      /zone\.js\/dist\/zone-microtask/
+      /zone\.js(\/|\\)dist(\/|\\)zone-microtask/
     ]
   },
   resolve: {
     alias: {
-      'web-animations.min': 'ionic-framework/js/web-animations.min',
+      'ionic': 'ionic-framework',
+      'web-animations.min': path.normalize('ionic-framework/js/web-animations.min')
     },
     extensions: ['', '.js', '.ts']
   }
