@@ -24,6 +24,7 @@
   <ion-searchbar primary
                  [(ngModel)]="queryText"
                  (keyup)="updateSchedule()"
+                 (clear)="searchbarCleared()"
                  showCancel="true"
                  placeholder="Search">
   </ion-searchbar>

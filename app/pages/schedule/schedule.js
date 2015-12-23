@@ -40,6 +40,16 @@ export class SchedulePage {
     });
   }
 
+  searchbarCleared() {
+    this.queryText = '';
+    this.updateSchedule();
+  }
+
+  searchCancelled() {
+    console.log('searchCancelled', this.queryText);
+    this.updateSchedule();
+  }
+
   openFilter() {
     this.modal.open(ScheduleFilterPage, this.excludeTracks).then(modalRef => {
       modalRef.onClose = (excludeTracks) => {
@@ -73,7 +83,7 @@ export class SchedulePage {
         // close the sliding item and hide the option buttons
         slidingItem.close();
       }, () => {
-        
+
         slidingItem.close();
       });
 
