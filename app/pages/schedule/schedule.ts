@@ -83,14 +83,19 @@ export class SchedulePage {
 
         // close the sliding item and hide the option buttons
         slidingItem.close();
+      }, () => {
+
+        slidingItem.close();
       });
 
     } else {
       // remember this session as a user favorite
       this.user.addFavorite(sessionData.name);
 
-      // close the sliding item and hide the option buttons
-      slidingItem.close();
+      this.popup.alert('Favorite added').then(() => {
+        // close the sliding item and hide the option buttons
+        slidingItem.close();
+      });
     }
 
   }

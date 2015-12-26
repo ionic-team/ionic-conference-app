@@ -26,16 +26,12 @@ module.exports = {
         },
         include: [path.join(__dirname, paths.appDir)],
         exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        include: /node_modules\/angular2/,
-        loader: 'strip-sourcemap'
       }
     ],
     noParse: [
-      /rtts_assert\/src\/rtts_assert/,
+      /es6-shim/,
       /reflect-metadata/,
+      /web-animations/,
       /zone\.js\/dist\/zone-microtask/
     ]
   },
