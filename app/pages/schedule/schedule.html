@@ -3,7 +3,7 @@
     <icon menu></icon>
   </button>
 
-  <ion-segment [(ngModel)]="segment">
+  <ion-segment [(ngModel)]="segment" (change)="updateSchedule()">
     <ion-segment-button value="all">
       All
     </ion-segment-button>
