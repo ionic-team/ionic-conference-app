@@ -23,11 +23,9 @@
 <ion-content class="schedule">
   <ion-searchbar primary
                  [(ngModel)]="queryText"
-                 (keyup)="updateSchedule()"
-                 showCancel="true"
+                 (input)="updateSchedule()"
                  placeholder="Search">
   </ion-searchbar>
-
 
   <ion-list [hidden]="shownSessions === 0">
 
