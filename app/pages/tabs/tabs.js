@@ -10,17 +10,11 @@ import {Input} from 'angular2/core';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  @Input() testInput;
-
   constructor() {
     // set the root pages for each tab
     this.tab1Root = SchedulePage;
     this.tab2Root = SpeakerListPage;
     this.tab3Root = MapPage;
     this.tab4Root = AboutPage;
-  }
-
-  ngAfterContentInit() {
-    console.log('test input', this.testInput);
   }
 }
