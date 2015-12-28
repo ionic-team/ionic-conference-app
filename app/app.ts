@@ -8,8 +8,7 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 
 
 @App({
-  templateUrl: 'app.html',
-  moduleId: 'build/app.html',
+  templateUrl: 'build/app.html',
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {
