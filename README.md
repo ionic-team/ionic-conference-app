@@ -4,11 +4,12 @@ This is purely a demo of Ionic v2.0 alpha and is still in development. **There i
 
 
 ## Important!
-Please go through the steps in [Getting Started](#getting-started) before submitting an issue to see if it resolves your issue. Even if you have already gone through them, there may have been a breaking change that requires you to have the latest changes.
+Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) before submitting an issue.
 
 
 ## Table of Contents
  - [Getting Started](#getting-started)
+ - [Contributing](#contributing)
  - [App Preview](#app-preview)
   - [iPhone 6](#iphone-6)
   - [Nexus 5](#nexus-5)
@@ -23,6 +24,10 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Run `ionic serve` in a terminal from the project root.
 * Profit
+
+
+## Contributing
+See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md)
 
 
 ## Use Cases
