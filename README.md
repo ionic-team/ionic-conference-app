@@ -1,8 +1,9 @@
 # Ionic 2 Conference Application
 
-This is purely a demo of Ionic v2.0 alpha and is still in development. **There is not an actual Ionic Conference at this time.**
+This is purely a demo of Ionic v2.0 and is still in development.
 
 ## Important!
+**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic v2.0 components in a real-world application.
 Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) before submitting an issue.
 
 
@@ -26,7 +27,7 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 
 
 ## Contributing
-See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md)
+See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) :tada::+1:
 
 
 ## Use Cases
