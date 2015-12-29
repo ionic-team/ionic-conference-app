@@ -50,12 +50,12 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 <!-- GIF of iOS app -->
 <img src="resources/gifs/ios.gif" alt="iOS"><br>
 <!-- images of iOS app -->
-<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="450">
-<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="450">
-<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="450">
-<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="450">
-<img src="resources/screenshots/iphone/5.png" alt="Map" width="450">
-<img src="resources/screenshots/iphone/6.png" alt="About" width="450">
+<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="425">
+<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="425">
+<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="425">
+<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="425">
+<img src="resources/screenshots/iphone/5.png" alt="Map" width="425">
+<img src="resources/screenshots/iphone/6.png" alt="About" width="425">
 
 
 ### Nexus 5
@@ -63,12 +63,12 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 <!-- GIF of MD app -->
 <img src="resources/gifs/nexus.gif" alt="MD"><br>
 <!-- GIF of MD app -->
-<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="450">
-<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="450">
-<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="450">
-<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="450">
-<img src="resources/screenshots/nexus/5.png" alt="Map" width="450">
-<img src="resources/screenshots/nexus/6.png" alt="About" width="450">
+<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="425">
+<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="425">
+<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="425">
+<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="425">
+<img src="resources/screenshots/nexus/5.png" alt="Map" width="425">
+<img src="resources/screenshots/nexus/6.png" alt="About" width="425">
 
 
 ## File Structure of App
