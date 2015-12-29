@@ -14,6 +14,7 @@ Please go through the steps in [Getting Started](#getting-started) before submit
  - [File Structure of App](#file-structure-of-app)
  - [Coming Soon](#coming-soon)
 
+
 ## Getting Started
 
 * Clone this repository.
@@ -22,28 +23,6 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
-## App Preview
-
-### iPhone 6
-<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="450">
-<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="450">
-<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="450">
-<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="450">
-<img src="resources/screenshots/iphone/5.png" alt="Map" width="450">
-<img src="resources/screenshots/iphone/6.png" alt="About" width="450">
-
-<img src="resources/gifs/ios.gif" alt="iOS">
-
-### Nexus 5
-
-<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="450">
-<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="450">
-<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="450">
-<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="450">
-<img src="resources/screenshots/nexus/5.png" alt="Map" width="450">
-<img src="resources/screenshots/nexus/6.png" alt="About" width="450">
-
-<img src="resources/gifs/nexus.gif" alt="MD">
 
 ## Use Cases
 
@@ -62,6 +41,60 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.html#L36-L38) ]
 * Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/login/login.html#L24-L31) ]
 * Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/providers/conference-data.js#L25-L30) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/www/app/schedule/schedule.js#L36-L41) ]
+
+
+## App Preview
+
+### iPhone 6
+*Scroll to the right to see all of the images.*
+
+<div class="image-slider">
+  <div class="images">
+    <!-- GIF of iOS app -->
+    <img src="resources/gifs/ios.gif" alt="iOS">
+    <!-- images of iOS app -->
+    <img src="resources/screenshots/iphone/1.png" alt="Sessions">
+    <img src="resources/screenshots/iphone/2.png" alt="Filter Sessions">
+    <img src="resources/screenshots/iphone/3.png" alt="Speakers">
+    <img src="resources/screenshots/iphone/4.png" alt="Speaker Detail">
+    <img src="resources/screenshots/iphone/5.png" alt="Map">
+    <img src="resources/screenshots/iphone/6.png" alt="About">
+  </div>
+</div>
+
+
+### Nexus 5
+*Scroll to the right to see all of the images.*
+
+<div class="image-slider">
+  <div class="images">
+    <!-- GIF of MD app -->
+    <img src="resources/gifs/nexus.gif" alt="MD">
+    <!-- GIF of MD app -->
+    <img src="resources/screenshots/nexus/1.png" alt="Sessions">
+    <img src="resources/screenshots/nexus/2.png" alt="Filter Sessions">
+    <img src="resources/screenshots/nexus/3.png" alt="Speakers">
+    <img src="resources/screenshots/nexus/4.png" alt="Speaker Detail">
+    <img src="resources/screenshots/nexus/5.png" alt="Map">
+    <img src="resources/screenshots/nexus/6.png" alt="About">
+  </div>
+</div>
+
+<style>
+  .image-slider {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .images img {
+    display: inline;
+    height: 800px;
+  }
+
+</style>
+
 
 ## File Structure of App
 
@@ -163,10 +196,3 @@ ionic-conference-app/
 ├── tsconfig.json                      * Configures the TypeScript compiler
 └── webpack.config.js                  * Webpack configuration file
 ```
-
-## Coming Soon
-
-We'll also be showing how to use native plugins:
-
-- Camera access
-- Geolocation
