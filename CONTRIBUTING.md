@@ -23,7 +23,7 @@ Before submitting an issue, please go through [the list below](#before-submittin
 #### Before Submitting an Issue
 
 * Make sure you get the latest version of the code and run through the [Getting Started](https://github.com/driftyco/ionic-conference-app#getting-started) steps to see if this resolves your issue.
-* Check the [forum](forum.ionicframework.com) for similar questions and answers.
+* Check the [forum](https://forum.ionicframework.com) for similar questions and answers.
 * Go through [all issues](https://github.com/driftyco/ionic-conference-app/issues?utf8=%E2%9C%93&q=is%3Aissue) on this repository to see if the issue has already been created. It could have been closed with a resolution, so check closed issues, too.
 * Chat with us in the [#ionic-v2](https://ionic-worldwide.slack.com/messages/ionic-v2/) channel on [Slack](http://ionicworldwide.herokuapp.com/) to see if we can find a solution to the problem!
 * [Determine which repository](#determining-the-repository) the problem should be reported in.
