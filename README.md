@@ -47,51 +47,28 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 
 ### iPhone 6
 
-<div class="image-slider">
-  <div class="images">
-    <!-- GIF of iOS app -->
-    <img src="resources/gifs/ios.gif" alt="iOS">
-    <!-- images of iOS app -->
-    <img src="resources/screenshots/iphone/1.png" alt="Sessions">
-    <img src="resources/screenshots/iphone/2.png" alt="Filter Sessions">
-    <img src="resources/screenshots/iphone/3.png" alt="Speakers">
-    <img src="resources/screenshots/iphone/4.png" alt="Speaker Detail">
-    <img src="resources/screenshots/iphone/5.png" alt="Map">
-    <img src="resources/screenshots/iphone/6.png" alt="About">
-  </div>
-</div>
+<!-- GIF of iOS app -->
+<img src="resources/gifs/ios.gif" alt="iOS"><br>
+<!-- images of iOS app -->
+<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="450">
+<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="450">
+<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="450">
+<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="450">
+<img src="resources/screenshots/iphone/5.png" alt="Map" width="450">
+<img src="resources/screenshots/iphone/6.png" alt="About" width="450">
 
 
 ### Nexus 5
 
-<div class="image-slider">
-  <div class="images">
-    <!-- GIF of MD app -->
-    <img src="resources/gifs/nexus.gif" alt="MD">
-    <!-- GIF of MD app -->
-    <img src="resources/screenshots/nexus/1.png" alt="Sessions">
-    <img src="resources/screenshots/nexus/2.png" alt="Filter Sessions">
-    <img src="resources/screenshots/nexus/3.png" alt="Speakers">
-    <img src="resources/screenshots/nexus/4.png" alt="Speaker Detail">
-    <img src="resources/screenshots/nexus/5.png" alt="Map">
-    <img src="resources/screenshots/nexus/6.png" alt="About">
-  </div>
-</div>
-
-<style>
-  .image-slider {
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-  }
-
-  .images img {
-    display: inline;
-    height: 800px;
-  }
-
-</style>
+<!-- GIF of MD app -->
+<img src="resources/gifs/nexus.gif" alt="MD"><br>
+<!-- GIF of MD app -->
+<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="450">
+<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="450">
+<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="450">
+<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="450">
+<img src="resources/screenshots/nexus/5.png" alt="Map" width="450">
+<img src="resources/screenshots/nexus/6.png" alt="About" width="450">
 
 
 ## File Structure of App
