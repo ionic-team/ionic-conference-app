@@ -46,7 +46,6 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 ## App Preview
 
 ### iPhone 6
-*Scroll to the right to see all of the images.*
 
 <div class="image-slider">
   <div class="images">
@@ -64,7 +63,6 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 
 
 ### Nexus 5
-*Scroll to the right to see all of the images.*
 
 <div class="image-slider">
   <div class="images">
