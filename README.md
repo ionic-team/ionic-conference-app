@@ -74,23 +74,12 @@ Please go through the steps in [Getting Started](#getting-started) before submit
 
 ```
 ionic-conference-app/
-├── node_modules/                      * Node dependencies
-|
-├── platforms/                         * Cordova generated native platform code
-|
-├── plugins/                           * Cordova native plugins go
-|
-├── resources/                         * Images for splash screens and icons
-|
-├── www/                               * Folder that is copied over to platforms www directory
-│   ├── app/                           * Contains our application code
+├── app/                               * Working directory
+│   ├── pages/                         * Contains all of our pages
 │   │   ├── about/                     * About tab page
 │   │   │    ├── about.html            * AboutPage template
 │   │   │    └── about.js              * AboutPage code
 │   │   │    └── about.scss            * AboutPage stylesheet
-│   │   │
-│   │   │── data/                      * Contains json files
-│   │   │    ├── data.json             * App data
 │   │   │
 │   │   │── login/                     * Login page
 │   │   │    ├── login.html            * LoginPage template
@@ -101,10 +90,6 @@ ionic-conference-app/
 │   │   │    ├── map.html              * MapPage template
 │   │   │    └── map.js                * MapPage code
 │   │   │    └── map.scss              * MapPage stylesheet
-│   │   │
-│   │   │── providers/                 * Contains all injectables
-│   │   │    ├── conference-data.js    * ConferenceData code
-│   │   │    └── user-data.js          * UserData code
 │   │   │
 │   │   │── schedule/                  * Schedule tab page
 │   │   │    ├── schedule.html         * SchedulePage template
@@ -138,22 +123,41 @@ ionic-conference-app/
 │   │   │    ├── tabs.html             * TabsPage template
 │   │   │    └── tabs.js               * TabsPage code
 │   │   │
-│   │   │── tutorial/                  * Tutorial Intro page
-│   │   │    ├── tutorial.html         * TutorialPage template
-│   │   │    └── tutorial.js           * TutorialPage code
-│   │   │    └── tutorial.scss         * TutorialPage stylesheet
-│   │   │
-│   │   ├── app.html                   * Application template
-│   │   ├── app.js                     * Main Application configuration
-│   │   ├── app.core.scss              * Shared Sass imports
-│   │   ├── app.variables.scss         * Shared Sass variables
-│   │   ├── app.ios.scss               * iOS specific Sass
-│   │   └── app.md.scss                * MD specific Sass
+│   │   └── tutorial/                  * Tutorial Intro page
+│   │        ├── tutorial.html         * TutorialPage template
+│   │        └── tutorial.js           * TutorialPage code
+│   │        └── tutorial.scss         * TutorialPage stylesheet
+│   │
+│   ├── providers/                     * Contains all Injectables
+│   │   ├── conference-data.js         * ConferenceData code
+│   │   └── user-data.js               * UserData code
+│   │
+│   ├── app.core.scss                  * App Shared Sass Imports
+│   ├── app.html                       * Application template
+│   ├── app.ios.scss                   * iOS Sass Imports & Variables
+│   ├── app.js                         * Main Application configuration
+│   ├── app.md.scss                    * MD Sass Imports & Variables
+│   └── app.variables.scss             * App Shared Sass Variables
+|
+├── node_modules/                      * Node dependencies
+|
+├── platforms/                         * Cordova generated native platform code
+|
+├── plugins/                           * Cordova native plugins go
+|
+├── resources/                         * Images for splash screens and icons
+|
+├── www/                               * Folder that is copied over to platforms www directory
 │   │   
-│   ├── build/                         * Contains compiled content
-│   │     ├── css                      * Compiled CSS
-│   │     ├── fonts                    * Copied Fonts
-│   │     └── js                       * ES5 compiled JavaScript
+│   ├── build/                         * Contains auto-generated compiled content
+│   │     ├── css/                     * Compiled CSS
+│   │     ├── fonts/                   * Copied Fonts
+│   │     ├── js/                      * ES5 compiled JavaScript
+│   │     ├── pages/                   * Copied html pages
+│   │     └── app.html                 * Copied app entry point
+│   │
+│   ├── data/                          * Contains data used for the app
+│   │     └── data.json                * App data
 │   │
 │   ├── img/                           * App images
 │   │
@@ -162,11 +166,9 @@ ionic-conference-app/
 ├── .editorconfig                      * Defines coding styles between editors
 ├── .gitignore                         * Example git ignore file
 ├── config.xml                         * Cordova configuration file
-├── gulpfile.js                        * Gulp file
 ├── ionic.config.js                    * Ionic configuration file
 ├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
 ├── README.md                          * This file
-├── tsconfig.json                      * Configures the TypeScript compiler
 └── webpack.config.js                  * Webpack configuration file
 ```
