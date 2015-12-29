@@ -2,6 +2,9 @@
 
 This is purely a demo of Ionic v2.0 alpha and is still in development. **There is not an actual Ionic Conference at this time.**
 
+## Important!
+Please go through the steps in [Getting Started](#getting-started) before submitting an issue to see if it resolves your issue. Even if you have already gone through them, there may have been a breaking change that requires you to have the latest changes. 
+
 ## Table of Contents
  - [Getting Started](#getting-started)
  - [App Preview](#app-preview)
