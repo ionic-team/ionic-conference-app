@@ -172,6 +172,7 @@ ionic-conference-app/
 ├── .editorconfig                      * Defines coding styles between editors
 ├── .gitignore                         * Example git ignore file
 ├── config.xml                         * Cordova configuration file
+├── CONTRIBUTING.md                    * Information about contributing to this project
 ├── ionic.config.js                    * Ionic configuration file
 ├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
