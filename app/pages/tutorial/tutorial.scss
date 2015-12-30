@@ -1,34 +1,15 @@
 
 .tutorial-page {
-  // TODO remove this when alpha.43 is released
-  .toolbar-background {
-    background: transparent;
-    border-color: transparent;
+
+  .slide-zoom {
+    height: 100%;
   }
 
-  ion-slides {
-    height: auto;
-  }
-
-  h2 {
+  .slide-title {
     margin-top: 2.8rem;
   }
 
-  .welcome {
-    color: white;
-    background-color: map-get($colors, primary);
-  }
-
-  .logo {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    margin-bottom: 60px;
-  }
-
-  .logo img {
+  .slide-image {
     max-height: 50%;
     max-width: 80%;
     margin: 20px 0;
@@ -38,4 +19,5 @@
     padding: 0 16px;
     color: #666;
   }
+
 }

@@ -1,41 +1,15 @@
 <ion-content>
-  <ion-toolbar transparent>
-    <ion-buttons end>
-      <button (click)="startApp()">{{ continueText }}</button>
-    </ion-buttons>
-  </ion-toolbar>
-
   <ion-slides pager (change)="onSlideChange($event)">
-    <ion-slide>
-      <h2>Welcome</h2>
-      <p>All of the information you need to get up and running with Ionic.</p>
-      <div class="logo">
-        <img src="img/ionic-welcome.png" class="ionic-welcome-logo"/>
-      </div>
-    </ion-slide>
+    <ion-slide *ngFor="#slide of slides">
+      <ion-toolbar transparent>
+        <ion-buttons end>
+          <button (click)="startApp()">{{ slide.continueText }}</button>
+        </ion-buttons>
+      </ion-toolbar>
 
-    <ion-slide>
-      <h2>Ionic View</h2>
-      <p>Learn how you can use Ionic View to share your apps.</p>
-      <div class="logo">
-        <img src="img/ionic-view.png"/>
-      </div>
-    </ion-slide>
-
-    <ion-slide>
-      <h2>Ionic Creator</h2>
-      <p>Drag-&-drop to create a great Ionic app with the click of a mouse.</p>
-      <div class="logo">
-        <img src="img/ionic-creator.png"/>
-      </div>
-    </ion-slide>
-
-    <ion-slide>
-      <h2>Ionic Platform</h2>
-      <p>Our Platform Services are there to make development easier.</p>
-      <div class="logo">
-        <img src="img/ionic-platform.png"/>
-      </div>
+      <h2 class="slide-title">{{ slide.title }}</h2>
+      <p>{{ slide.description }}</p>
+      <img [src]="slide.image" class="slide-image"/>
     </ion-slide>
   </ion-slides>
 </ion-content>
