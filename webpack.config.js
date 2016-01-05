@@ -18,16 +18,9 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'awesome-typescript',
         query: {
-          cacheDirectory: true,
-          plugins: [
-            "angular2-annotations",
-            "transform-decorators-legacy",
-            "transform-class-properties",
-            "transform-flow-strip-types"
-          ],
-          presets: ['es2015']
+          doTypeCheck: false
         },
         include: path.resolve('app'),
         exclude: /node_modules/
