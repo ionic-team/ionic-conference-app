@@ -12,7 +12,7 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {
-  constructor(app: IonicApp, confData: ConferenceData, config: Config) {
+  constructor(app: IonicApp, config: Config, confData: ConferenceData) {
     this.app = app;
 
     // load the conference data

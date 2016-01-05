@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic-framework/ionic';
+import {Page, NavParams, ViewController} from 'ionic-framework/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 
 
@@ -10,9 +10,10 @@ export class ScheduleFilterPage {
   close: any;
   confData: any;
   navParams: any;
+  viewCtrl: any;
   filteredTracks: any;
 
-  constructor(confData: ConferenceData, navParams: NavParams) {
+  constructor(confData: ConferenceData, navParams: NavParams, viewCtrl: ViewController) {
     this.navParams = navParams;
     this.confData = confData;
 
@@ -41,6 +42,12 @@ export class ScheduleFilterPage {
   applyFilters() {
     // Pass back a new array of track names to exclude
     let excludeTracks = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-    this.close(excludeTracks);
+    this.dismiss(excludeTracks);
+  }
+
+  dismiss(data) {
+    // using the injected ViewController this page
+    // can "dismiss" itself and pass back data
+    this.viewCtrl.dismiss(data);
   }
 }
