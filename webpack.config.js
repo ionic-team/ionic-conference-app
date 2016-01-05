@@ -20,7 +20,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'awesome-typescript',
         query: {
-          doTypeCheck: false
+          doTypeCheck: false,
+          useWebpackText: true
         },
         include: path.resolve('app'),
         exclude: /node_modules/
