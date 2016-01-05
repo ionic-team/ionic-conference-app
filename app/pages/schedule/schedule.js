@@ -1,4 +1,4 @@
-import {IonicApp, Page, Modal, Popup, NavController} from 'ionic/ionic';
+import {IonicApp, Page, Modal, Alert, NavController} from 'ionic/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -9,10 +9,8 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
-  constructor(app: IonicApp, modal: Modal, popup: Popup, nav: NavController, confData: ConferenceData, user: UserData) {
+  constructor(app: IonicApp, nav: NavController, confData: ConferenceData, user: UserData) {
     this.app = app;
-    this.modal = modal;
-    this.popup = popup;
     this.nav = nav;
     this.confData = confData;
     this.user = user;
@@ -40,15 +38,15 @@ export class SchedulePage {
     });
   }
 
-  openFilter() {
-    this.modal.open(ScheduleFilterPage, this.excludeTracks).then(modalRef => {
-      modalRef.onClose = (excludeTracks) => {
-        if (excludeTracks) {
-          this.excludeTracks = excludeTracks;
-          this.updateSchedule();
-        }
-      };
+  presentFilter() {
+    let modal = Modal.create(ScheduleFilterPage, this.excludeTracks);
+    modal.onDismiss(data => {
+      if (data) {
+        this.excludeTracks = data;
+        this.updateSchedule();
+      }
     });
+    this.nav.present(modal);
   }
 
   goToSessionDetail(sessionData) {
@@ -61,30 +59,44 @@ export class SchedulePage {
 
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
-      this.popup.confirm({
+      // create an alert instance
+      let alert = Alert.create({
         title: 'Favorite already added',
-        template: 'Would you like to remove this session from your favorites?',
-        okText: 'Remove',
-        cancelText: 'Cancel'
-      }).then(() => {
-        // they want to remove this session from their favorites
-        this.user.removeFavorite(sessionData.name);
+        body: 'Would you like to remove this session from your favorites?',
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: () => {
+              // they clicked the cancel button, do not remove the session
+              // close the sliding item and hide the option buttons
+              slidingItem.close();
+            }
+          },
+          {
+            text: 'Remove',
+            handler: () => {
+              // they want to remove this session from their favorites
+              this.user.removeFavorite(sessionData.name);
 
-        // close the sliding item and hide the option buttons
-        slidingItem.close();
-      }, () => {
-        
-        slidingItem.close();
+              // close the sliding item and hide the option buttons
+              slidingItem.close();
+            }
+          }
+        ]
       });
+      // now present the alert on top of all other content
+      this.nav.present(alert);
 
     } else {
       // remember this session as a user favorite
       this.user.addFavorite(sessionData.name);
 
-      this.popup.alert('Favorite added').then(() => {
-        // close the sliding item and hide the option buttons
-        slidingItem.close();
+      // create an alert instance
+      let alert = Alert.create({
+        buttons: ['OK']
       });
+      // now present the alert on top of all other content
+      this.nav.present(alert);
     }
 
   }

@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic/ionic';
+import {Page, NavParams, ViewController} from 'ionic/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 
 
@@ -6,9 +6,10 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  constructor(confData: ConferenceData, navParams: NavParams) {
-    this.navParams = navParams;
+  constructor(confData: ConferenceData, navParams: NavParams, viewCtrl: ViewController) {
     this.confData = confData;
+    this.navParams = navParams;
+    this.viewCtrl = viewCtrl;
     this.tracks = [];
 
     // passed in array of tracks that should be excluded (unchecked)
@@ -36,6 +37,12 @@ export class ScheduleFilterPage {
   applyFilters() {
     // Pass back a new array of track names to exclude
     let excludeTracks = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-    this.close(excludeTracks);
+    this.dismiss(excludeTracks);
+  }
+
+  dismiss(data) {
+    // using the injected ViewController this page
+    // can "dismiss" itself and pass back data
+    this.viewCtrl.dismiss(data);
   }
 }
