@@ -14,10 +14,9 @@ export class SpeakerListPage {
 
   speakers = [];
 
-  constructor(nav: NavController, confData: ConferenceData, actionSheet: ActionSheet) {
+  constructor(nav: NavController, confData: ConferenceData) {
     this.nav = nav;
     this.confData = confData;
-    this.actionSheet = actionSheet;
 
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;
@@ -37,25 +36,31 @@ export class SpeakerListPage {
   }
 
   openSpeakerShare(speaker) {
-    this.actionSheet.open({
+    let actionSheet = ActionSheet.create({
+      title: 'Share ' + speaker.name,
       buttons: [
-        { text: 'Copy Link' },
-        { text: 'Share via ...' },
-      ],
-      titleText: 'Share ' + speaker.name,
-      cancelText: 'Cancel',
-      cancel: () => {},
-      buttonClicked: (index) => {
-        switch (index){
-          case 0 :
-            // TODO
-            return true;
-
-          case 1 :
-            // TODO
-            return true;
-        }
-      }
+        {
+          text: 'Copy Link',
+          handler: () => {
+            console.log("Copy link clicked");
+          }
+        },
+        {
+          text: 'Share via ...',
+          handler: () => {
+            console.log("Share via clicked");
+          }
+        },
+        {
+          text: 'Cancel',
+          style: 'cancel',
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+      ]
     });
+
+    this.nav.present(actionSheet);
   }
 }
