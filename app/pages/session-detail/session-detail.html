@@ -6,9 +6,9 @@
 <ion-content padding>
   <h1>{{session.name}}</h1>
 
-  <h3 *ngFor="#speaker of session.speakers">
+  <h4 *ngFor="#speaker of session.speakers">
     {{speaker.name}}
-  </h3>
+  </h4>
 
   <p>
     {{session.timeStart}} - {{session.timeEnd}}
