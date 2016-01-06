@@ -7,16 +7,22 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
-  constructor(nav: NavController, app: IonicApp) {
+  constructor(nav: NavController) {
     this.nav = nav;
-    this.app = app;
+
+    this.login = {};
+    this.submitted = false;
   }
 
-  login() {
-    this.nav.push(TabsPage);
+  onLogin(form) {
+    this.submitted = true;
+
+    if (form.valid) {
+      this.nav.push(TabsPage);
+    }
   }
 
-  signup() {
+  onSignup() {
     this.nav.push(SignupPage);
   }
 }
