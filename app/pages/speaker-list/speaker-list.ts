@@ -42,7 +42,10 @@ export class SpeakerListPage {
         {
           text: 'Copy Link',
           handler: () => {
-            console.log("Copy link clicked");
+            console.log("Copy link clicked on https://twitter.com/" + speaker.twitter);
+            if (window.cordova && window.cordova.plugins.clipboard) {
+              window.cordova.plugins.clipboard.copy("https://twitter.com/" + speaker.twitter);
+            }
           }
         },
         {
