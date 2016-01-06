@@ -21,7 +21,10 @@
     "typescript": "^1.7.5"
   },
   "cordovaPlugins": [
-    "cordova-plugin-whitelist"
-  ],
-  "cordovaPlatforms": []
+    "cordova-plugin-whitelist",
+    {
+      "locator": "https://github.com/VersoSolutions/CordovaClipboard",
+      "id": "com.verso.cordova.clipboard"
+    }
+  ]
 }
