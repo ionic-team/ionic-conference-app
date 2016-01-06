@@ -11,12 +11,6 @@
 
   <p>{{speaker.about}}</p>
 
-  <p>
-    <a item-right [href]="speaker.twitter">
-      <icon ion-social-twitter></icon>
-    </a>
-  </p>
-
   <div *ngIf="speaker.sessions">
     <h4>Sessions</h4>
     <div *ngFor="#session of speaker.sessions">
