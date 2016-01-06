@@ -9,9 +9,18 @@ export class SignupPage {
 
   constructor(nav: NavController) {
     this.nav = nav;
+
+    this.signup = {};
+    this.submitted = false;
   }
 
-  signup() {
-    this.nav.push(TabsPage);
+  onSignup(form) {
+    this.submitted = true;
+
+    console.log(form);
+
+    if (form.valid) {
+      this.nav.push(TabsPage);
+    }
   }
 }

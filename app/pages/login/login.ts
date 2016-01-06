@@ -10,16 +10,22 @@ export class LoginPage {
   nav: any;
   app: any;
   
-  constructor(nav: NavController, app: IonicApp) {
+  constructor(nav: NavController) {
     this.nav = nav;
-    this.app = app;
+
+    this.login = {};
+    this.submitted = false;
   }
 
-  login() {
-    this.nav.push(TabsPage);
+  onLogin(form) {
+    this.submitted = true;
+
+    if (form.valid) {
+      this.nav.push(TabsPage);
+    }
   }
 
-  signup() {
+  onSignup() {
     this.nav.push(SignupPage);
   }
 }

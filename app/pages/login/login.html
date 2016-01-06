@@ -13,24 +13,32 @@
       <img src="img/appicon.svg">
     </div>
 
-    <ion-input floating-label>
-      <ion-label primary>Username</ion-label>
-      <input type="text">
-    </ion-input>
+    <form #loginForm="ngForm" novalidate>
+      <ion-input floating-label>
+        <ion-label primary>Username</ion-label>
+        <input [(ngModel)]="login.username" ngControl="username" type="text" #username="ngForm" required>
+      </ion-input>
+      <p [hidden]="username.valid || submitted == false" danger padding-left>
+        Username is required
+      </p>
 
-    <ion-input floating-label>
-      <ion-label primary>Password</ion-label>
-      <input type="password">
-    </ion-input>
+      <ion-input floating-label>
+        <ion-label primary>Password</ion-label>
+        <input [(ngModel)]="login.password" ngControl="password" type="password" #password="ngForm" required>
+      </ion-input>
+      <p [hidden]="password.valid || submitted == false" danger padding-left>
+        Password is required
+      </p>
 
-    <ion-row responsive-sm>
-      <ion-col>
-        <button (click)="login()" primary block>Login</button>
-      </ion-col>
-      <ion-col>
-        <button (click)="signup()" light block>Signup</button>
-      </ion-col>
-    </ion-row>
+      <ion-row responsive-sm>
+        <ion-col>
+          <button (click)="onLogin(loginForm)" type="submit" primary block>Login</button>
+        </ion-col>
+        <ion-col>
+          <button (click)="onSignup()" light block>Signup</button>
+        </ion-col>
+      </ion-row>
+    </form>
   </ion-list>
 
 </ion-content>
