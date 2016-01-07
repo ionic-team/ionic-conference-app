@@ -9,7 +9,8 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [ConferenceData, UserData]
+  providers: [ConferenceData, UserData],
+  config: {}
 })
 class ConferenceApp {
   constructor(app: IonicApp, config: Config, confData: ConferenceData) {
