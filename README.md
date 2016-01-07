@@ -140,12 +140,15 @@ ionic-conference-app/
 │   │   ├── conference-data.js         * ConferenceData code
 │   │   └── user-data.js               * UserData code
 │   │
-│   ├── app.core.scss                  * App Shared Sass Imports
+│   ├── themes/                        * Core App Sass files
+│   │   ├── app.core.scss              * App Shared Sass Imports
+│   │   ├── app.ios.scss               * iOS Sass Imports & iOS Variables
+│   │   ├── app.md.scss                * MD Sass Imports & MD Variables
+│   │   └── app.variables.scss         * App Shared Sass Variables
+│   │
 │   ├── app.html                       * Application template
-│   ├── app.ios.scss                   * iOS Sass Imports & Variables
-│   ├── app.js                         * Main Application configuration
-│   ├── app.md.scss                    * MD Sass Imports & Variables
-│   └── app.variables.scss             * App Shared Sass Variables
+│   └── app.js                         * Main Application configuration
+│
 |
 ├── node_modules/                      * Node dependencies
 |
