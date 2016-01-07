@@ -12,8 +12,9 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   providers: [ConferenceData, UserData]
 })
 class ConferenceApp {
-  constructor(app: IonicApp, config: Config, confData: ConferenceData) {
+  constructor(app: IonicApp, config: Config, confData: ConferenceData, userData: UserData) {
     this.app = app;
+    this.userData = userData;
 
     // load the conference data
     confData.load();
@@ -33,6 +34,10 @@ class ConferenceApp {
   }
 
   openPage(page) {
+    if (page.title === 'Logout') {
+      this.userData.logout();
+    }
+
     // find the nav component and set what the root page should be
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
