@@ -1,14 +1,15 @@
 import {Injectable} from 'angular2/core';
-import {Storage, LocalStorage} from 'ionic/ionic';
+import {Storage, LocalStorage, Events} from 'ionic/ionic';
 
 
 @Injectable()
 export class UserData {
   HAS_LOGGED_IN: string = 'hasLoggedIn';
 
-  constructor() {
+  constructor(events: Events) {
     this._favorites = [];
     this.storage = new Storage(LocalStorage);
+    this.events = events;
   }
 
   hasFavorite(sessionName) {
@@ -28,14 +29,17 @@ export class UserData {
 
   login(username, password) {
     this.storage.set(this.HAS_LOGGED_IN, true);
+    this.events.publish('user:login');
   }
 
   signup(username, password) {
     this.storage.set(this.HAS_LOGGED_IN, true);
+    this.events.publish('user:signup');
   }
 
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
+    this.events.publish('user:logout');
   }
 
   // return a promise
