@@ -12,7 +12,7 @@ module.exports = {
       include: ['node_modules/ionic-framework']
     },
     fonts: {
-      src: ['node_modules/ionic-framework/fonts/**/*.ttf'],
+      src: ['node_modules/ionic-framework/fonts/**/*.+(ttf|woff|woff2)'],
       dest: "www/build/fonts"
     },
     watch: {

@@ -1,6 +1,6 @@
 <ion-navbar *navbar>
   <button menuToggle>
-    <icon menu></icon>
+    <ion-icon name="menu"></ion-icon>
   </button>
 
   <ion-segment [(ngModel)]="segment" (change)="updateSchedule()">
@@ -14,7 +14,7 @@
 
   <ion-buttons end>
     <button (click)="presentFilter()">
-      <icon ios="ion-ios-funnel-outline" md="ion-md-funnel"></icon>
+      <ion-icon ios="ios-funnel-outline" md="md-funnel"></ion-icon>
     </button>
   </ion-buttons>
 </ion-navbar>
