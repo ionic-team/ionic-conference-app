@@ -73,7 +73,7 @@ export class SchedulePage {
       // create an alert instance
       let alert = Alert.create({
         title: 'Favorite already added',
-        body: 'Would you like to remove this session from your favorites?',
+        message: 'Would you like to remove this session from your favorites?',
         buttons: [
           {
             text: 'Cancel',
@@ -104,7 +104,14 @@ export class SchedulePage {
 
       // create an alert instance
       let alert = Alert.create({
-        buttons: ['OK']
+        title: 'Favorite Added',
+        buttons: [{
+          text: 'OK',
+          handler: () => {
+            // close the sliding item
+            slidingItem.close();
+          }
+        }
       });
       // now present the alert on top of all other content
       this.nav.present(alert);
