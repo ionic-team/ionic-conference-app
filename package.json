@@ -26,5 +26,9 @@
       "locator": "https://github.com/VersoSolutions/CordovaClipboard",
       "id": "com.verso.cordova.clipboard"
     }
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android"
   ]
 }
