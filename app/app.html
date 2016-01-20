@@ -10,7 +10,7 @@
 
     <ion-list>
 
-      <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
+      <button ion-item *ngFor="#p of pages" (click)="openPage(p)" [hidden]="p.hide">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
