@@ -1,4 +1,4 @@
-import {App, IonicApp, Config, Events} from 'ionic/ionic';
+import {App, IonicApp, Events} from 'ionic/ionic';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -9,10 +9,11 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [ConferenceData, UserData]
+  providers: [ConferenceData, UserData],
+  config: {}
 })
 class ConferenceApp {
-  constructor(app: IonicApp, config: Config, events: Events, confData: ConferenceData, userData: UserData) {
+  constructor(app: IonicApp, events: Events, confData: ConferenceData, userData: UserData) {
     this.app = app;
     this.userData = userData;
     this.events = events;

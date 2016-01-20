@@ -33,9 +33,7 @@ Before submitting an issue, please go through [the list below](#before-submittin
 
 There are several repositories being used for Ionic, which makes it difficult to determine which one to report an issue to. Don't worry if you aren't sure, we can always move it!
 
-* The [Ionic 2 repository](https://github.com/driftyco/ionic2) is a temporary repository for all things related to the Ionic SDK version 2.0. If you answer yes to any of the following, you'll want to put the issue [here](https://github.com/driftyco/ionic2/issues):
-  * Does this bug affect all of the Ionic 2 starters, not just the conference app?
-  * Is this issue related to running a CLI command on an Ionic 2 app?
+* The [Ionic repository](https://github.com/driftyco/ionic) is a repository for all things related to the Ionic SDK. If you are able to reproduce the issue in any of the Ionic starters (or an existing project), you'll want to submit the issue [here](http://ionicframework.com/submit-issue/).
 * The [Ionic CLI repository](https://github.com/driftyco/ionic-cli) contains all of the code that allows you to run `ionic` commands from a terminal window. It is safe to put any issues [here](https://github.com/driftyco/ionic-cli/issues) that relate to running an `ionic` command.
 * [This repository](https://github.com/driftyco/ionic-conference-app) is a demo of the Ionic 2 SDK. If you find an issue with this app that does not occur on [a new app](http://ionicframework.com/docs/v2/getting-started/installation/), please submit the issue [here](https://github.com/driftyco/ionic-conference-app/issues).
 
