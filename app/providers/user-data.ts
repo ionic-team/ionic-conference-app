@@ -8,7 +8,7 @@ export class UserData {
   HAS_LOGGED_IN: string = 'hasLoggedIn';
 
   constructor(events: Events) {
-    this.storage = new Storage(LocalStorage);
+    //this.storage = new Storage(LocalStorage);
     this.events = events;
   }
 
@@ -44,8 +44,8 @@ export class UserData {
 
   // return a promise
   hasLoggedIn() {
-    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-      return value;
-    });
+    // return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
+    //   return value;
+    // });
   }
 }
