@@ -20,7 +20,7 @@ module.exports = {
         test: /\.ts$/,
         loader: 'awesome-typescript',
         query: {
-          'doTypeCheck': false
+          doTypeCheck: true
         },
         include: path.resolve('app'),
         exclude: /node_modules/
