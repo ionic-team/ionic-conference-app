@@ -10,16 +10,16 @@
     "angular2": "2.0.0-beta.1",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
-    "ionic-framework": "^2.0.0-alpha.51",
-    "ionicons": "^3.0.0-alpha.3",
+    "ionic-framework": "2.0.0-alpha.51",
+    "ionicons": "3.0.0-alpha.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.10"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^0.15.9",
+    "awesome-typescript-loader": "0.15.9",
     "strip-sourcemap-loader": "0.0.1",
-    "typescript": "^1.7.3"
+    "typescript": "1.7.5"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
