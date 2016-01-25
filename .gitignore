@@ -35,3 +35,4 @@ _jsOut/
 bin/
 bld/
 *.user
+changeList.json
