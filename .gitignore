@@ -32,3 +32,5 @@ UserInterfaceState.xcuserstate
 .vscode/
 typings/*/*.d.ts
 _jsOut/
+bin/
+bld/
