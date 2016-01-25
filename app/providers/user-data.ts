@@ -8,7 +8,7 @@ export class UserData {
   HAS_LOGGED_IN: string = 'hasLoggedIn';
 
   constructor(private events: Events) {
-    //this.storage = new Storage(LocalStorage);
+    this.storage = new Storage(LocalStorage);
   }
 
   hasFavorite(sessionName) {
@@ -43,8 +43,8 @@ export class UserData {
 
   // return a promise
   hasLoggedIn() {
-    // return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-    //   return value;
-    // });
+    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
+      return value;
+    });
   }
 }

@@ -46,9 +46,9 @@ class ConferenceApp {
     ];
 
     // decide which menu items should be hidden by current login status stored in local storage
-    // this.userData.hasLoggedIn().then((hasLoggedIn) => {
-    //   this.updateSideMenuItems(hasLoggedIn)
-    // });
+    this.userData.hasLoggedIn().then((hasLoggedIn) => {
+      this.updateSideMenuItems(hasLoggedIn)
+    });
 
     this.listenToLoginEvents();
   }
