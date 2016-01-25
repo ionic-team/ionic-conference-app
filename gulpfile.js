@@ -7,6 +7,7 @@
 
 // node module imports
 var gulp = require('gulp'),
+    es6promise = require('es6-promise').polyfill();
     webpack = require('webpack-stream'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),

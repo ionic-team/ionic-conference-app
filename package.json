@@ -28,7 +28,8 @@
     "strip-sourcemap-loader": "0.0.1",
     "typescript": "^1.7.3",
     "webpack": "^1.12.11",
-    "webpack-stream": "^3.1.0"
+    "webpack-stream": "^3.1.0",
+    "es6-promise": "^3.0.2"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
