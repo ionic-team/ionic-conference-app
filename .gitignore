@@ -30,5 +30,5 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .vs/
 .vscode/
-typings/
+typings/*/*.d.ts
 _jsOut/
