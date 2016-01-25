@@ -67,6 +67,9 @@
     },
     "cordova/plugins/BatteryStatus.d.ts": {
       "commit": "a40d21b562b62706efa7b8d6e25c9f3489ae7a07"
+    },
+    "googlemaps/google.maps.d.ts": {
+      "commit": "f0d1ae5bb8524e3efe6d84b309ef8b018c7bdb94"
     }
   }
 }
