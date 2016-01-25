@@ -72,4 +72,5 @@
   <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
   <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
   <plugin name="com.verso.cordova.clipboard" version="0.1.0" src="https://github.com/VersoSolutions/CordovaClipboard.git" />
+  <preference name="windows-target-version" value="10.0" />
 </widget>
