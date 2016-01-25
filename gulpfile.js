@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     watch = require('gulp-watch');
+    tsd = require('gulp-tsd');
 
 
 var IONIC_DIR = "node_modules/ionic-framework/"
@@ -24,11 +25,21 @@ gulp.task('build', ['sass', 'fonts', 'copy.html', 'webpack'], function(done) {
     console.log("Gulp Done");
 });
 
-gulp.task('webpack', function () {
+gulp.task('tsd', function (callback) {
+    tsd({
+        command: 'reinstall',
+        config: './tsd.json'
+    }, callback);
+});
+
+gulp.task('webpack', ['tsd'], function () {
+    
     return gulp.src('./app/app.ts')
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('www/build/js'));
 });
+
+
 
 gulp.task('copy.html', function(){
   return gulp.src('app/**/*.html')

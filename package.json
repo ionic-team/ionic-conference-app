@@ -24,6 +24,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.1.1",
     "gulp-watch": "^4.3.5",
+    "gulp-tsd": "^0.1.0",
     "strip-sourcemap-loader": "0.0.1",
     "typescript": "^1.7.3",
     "webpack": "^1.12.11",
