@@ -3,14 +3,20 @@ import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
 
+interface Slide {
+  title: string;
+  description: string;
+  image: string;
+  continueText: string;
+}
+
 @Page({
   templateUrl: 'build/pages/tutorial/tutorial.html',
 })
 export class TutorialPage {
-  constructor(nav: NavController, app: IonicApp) {
-    this.nav = nav;
-    this.app = app;
+  slides: Slide[];
 
+  constructor(private nav: NavController, private app: IonicApp) {
     this.slides = [
       {
         title: "Welcome",
@@ -61,7 +67,7 @@ export class TutorialPage {
     this.app.getComponent('leftMenu').enable(true);
   }
 
-  playImageAnimation(slideIndex) {
+  playImageAnimation(slideIndex: number) {
     if (slideIndex === 0) {
       this.runRotateAnimation();
     }

@@ -6,6 +6,16 @@ import {LoginPage} from './pages/login/login';
 import {SignupPage} from './pages/signup/signup';
 import {TutorialPage} from './pages/tutorial/tutorial';
 
+// https://angular.io/docs/ts/latest/api/core/Type-interface.html
+import {Type} from 'angular2/core';
+
+
+interface PageObj {
+  title: string;
+  component: Type;
+  icon: string;
+  hide: boolean;
+}
 
 @App({
   templateUrl: 'build/app.html',
@@ -13,16 +23,17 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   config: {}
 })
 class ConferenceApp {
-  constructor(app: IonicApp, events: Events, confData: ConferenceData, userData: UserData) {
-    this.app = app;
-    this.userData = userData;
-    this.events = events;
+  rootPage: Type = TutorialPage;
+  pages: PageObj[];
 
+  constructor(
+    private app: IonicApp,
+    private events: Events,
+    private userData: UserData,
+    confData: ConferenceData
+  ) {
     // load the conference data
     confData.load();
-
-    // We plan to add auth to only show the login page if not logged in
-    this.root = TutorialPage;
 
     // create an list of pages that can be navigated to from the left menu
     // the left menu only works after login
@@ -42,7 +53,7 @@ class ConferenceApp {
     this.listenToLoginEvents();
   }
 
-  openPage(page) {
+  openPage(page: PageObj) {
     if (page.title === 'Logout') {
       this.userData.logout();
     }
@@ -72,7 +83,7 @@ class ConferenceApp {
     });
   }
 
-  updateSideMenuItems(hasLoggedIn) {
+  updateSideMenuItems(hasLoggedIn: boolean) {
     if (hasLoggedIn) {
       this.findMenuItemByTitle('Login').hide = true;
       this.findMenuItemByTitle('Signup').hide = true;
@@ -84,7 +95,7 @@ class ConferenceApp {
     }
   }
 
-  findMenuItemByTitle(title) {
+  findMenuItemByTitle(title: string): PageObj {
     return this.pages.find((menuItem) => {
       return menuItem.title === title
     })

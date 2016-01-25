@@ -1,4 +1,4 @@
-import {IonicApp, Page, Modal, Alert, NavController} from 'ionic-framework/ionic';
+import {IonicApp, Page, Modal, Alert, NavController, ItemSliding} from 'ionic-framework/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -9,32 +9,19 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
-  app: any;
-  modal: any;
-  popup: any;
-  confData: any;
-  nav: any;
-
-  data = {
-    hasSessions: false
-  };
   dayIndex = 0;
   queryText = '';
-  excludeTracks = [];
   segment = 'all';
-  filterTracks = [];
+  excludeTracks = [];
   shownSessions = [];
   groups = [];
 
-  filterQueryText: any;
-  user: any;
-
-  constructor(app: IonicApp, nav: NavController, confData: ConferenceData, user: UserData) {
-    this.app = app;
-    this.nav = nav;
-    this.confData = confData;
-    this.user = user;
-
+  constructor(
+    private app: IonicApp,
+    private nav: NavController,
+    private confData: ConferenceData,
+    private user: UserData
+  ) {
     this.updateSchedule();
   }
 
@@ -53,7 +40,7 @@ export class SchedulePage {
     let modal = Modal.create(ScheduleFilterPage, this.excludeTracks);
     this.nav.present(modal);
 
-    modal.onDismiss(data => {
+    modal.onDismiss((data: any[]) => {
       if (data) {
         this.excludeTracks = data;
         this.updateSchedule();
@@ -68,7 +55,7 @@ export class SchedulePage {
     this.nav.push(SessionDetailPage, sessionData);
   }
 
-  addFavorite(slidingItem, sessionData) {
+  addFavorite(slidingItem: ItemSliding, sessionData) {
 
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
@@ -113,7 +100,7 @@ export class SchedulePage {
             // close the sliding item
             slidingItem.close();
           }
-        }
+        }]
       });
       // now present the alert on top of all other content
       this.nav.present(alert);

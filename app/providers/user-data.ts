@@ -7,9 +7,8 @@ export class UserData {
   _favorites = [];
   HAS_LOGGED_IN: string = 'hasLoggedIn';
 
-  constructor(events: Events) {
+  constructor(private events: Events) {
     //this.storage = new Storage(LocalStorage);
-    this.events = events;
   }
 
   hasFavorite(sessionName) {
@@ -27,18 +26,18 @@ export class UserData {
     }
   }
 
-  login(username, password) {
-    this.storage.set(this.HAS_LOGGED_IN, true);
+  login() {
+    //this.storage.set(this.HAS_LOGGED_IN, true);
     this.events.publish('user:login');
   }
 
-  signup(username, password) {
-    this.storage.set(this.HAS_LOGGED_IN, true);
+  signup() {
+    //this.storage.set(this.HAS_LOGGED_IN, true);
     this.events.publish('user:signup');
   }
 
   logout() {
-    this.storage.remove(this.HAS_LOGGED_IN);
+    //this.storage.remove(this.HAS_LOGGED_IN);
     this.events.publish('user:logout');
   }
 
