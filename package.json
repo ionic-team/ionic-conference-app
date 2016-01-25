@@ -2,6 +2,7 @@
   "name": "ionic-conference-app",
   "description": "Ionic Conference App",
   "license": "Apache-2.0",
+  "version": "0.0.123",
   "repository": {
     "type": "git",
     "url": "https://github.com/driftyco/ionic-conference-app.git"
@@ -17,9 +18,16 @@
     "zone.js": "0.5.10"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "0.15.9",
+    "awesome-typescript-loader": "^0.15.9",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-watch": "^4.3.5",
     "strip-sourcemap-loader": "0.0.1",
-    "typescript": "1.7.5"
+    "typescript": "^1.7.3",
+    "webpack": "^1.12.11",
+    "webpack-stream": "^3.1.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
