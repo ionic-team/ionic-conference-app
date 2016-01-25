@@ -7,6 +7,9 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/tutorial/tutorial.html',
 })
 export class TutorialPage {
+    private nav: NavController;
+    private app: IonicApp;
+    private slides: any;
   constructor(nav: NavController, app: IonicApp) {
     this.nav = nav;
     this.app = app;

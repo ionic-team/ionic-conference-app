@@ -13,6 +13,11 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   config: {}
 })
 class ConferenceApp {
+    private app: IonicApp;
+    private userData: UserData;
+    private events: Events;
+    private root: any;
+    private pages: any;
   constructor(app: IonicApp, events: Events, confData: ConferenceData, userData: UserData) {
     this.app = app;
     this.userData = userData;

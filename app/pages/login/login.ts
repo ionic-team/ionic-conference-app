@@ -10,7 +10,9 @@ import {UserData} from '../../providers/user-data';
 export class LoginPage {
   nav: any;
   app: any;
-
+  userData: UserData;
+  login: any;
+  submitted: boolean; 
   constructor(nav: NavController, userData: UserData) {
     this.nav = nav;
     this.userData = userData;
@@ -23,7 +25,7 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login();
+      this.userData.login("","");
       this.nav.push(TabsPage);
     }
   }

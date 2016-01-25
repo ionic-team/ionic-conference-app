@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+
 import {NavController, Page, ActionSheet} from 'ionic-framework/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';

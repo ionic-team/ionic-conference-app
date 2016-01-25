@@ -6,7 +6,8 @@ import {Storage, LocalStorage, Events} from 'ionic-framework/ionic';
 export class UserData {
   _favorites = [];
   HAS_LOGGED_IN: string = 'hasLoggedIn';
-
+  events: Events;
+  storage: Storage;
   constructor(events: Events) {
     //this.storage = new Storage(LocalStorage);
     this.events = events;

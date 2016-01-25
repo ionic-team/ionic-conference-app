@@ -7,6 +7,9 @@ import {UserData} from '../../providers/user-data';
 })
 export class SignupPage {
   nav: any;
+  userData: UserData;
+  signup: any;
+  submitted: boolean;
 
   constructor(nav: NavController, userData: UserData) {
     this.nav = nav;
@@ -22,7 +25,7 @@ export class SignupPage {
     console.log(form);
 
     if (form.valid) {
-      this.userData.signup();
+      this.userData.signup("", "");
       this.nav.push(TabsPage);
     }
   }
