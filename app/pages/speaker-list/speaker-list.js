@@ -51,7 +51,7 @@ export class SpeakerListPage {
         },
         {
           text: 'Cancel',
-          style: 'cancel',
+          role: 'cancel',
           handler: () => {
             console.log("Cancel clicked");
           }
