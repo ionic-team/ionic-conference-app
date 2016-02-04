@@ -36,17 +36,12 @@ export class TutorialPage {
     ];
   }
 
-  ngAfterViewInit() {
-    this.playImageAnimation(0);
-  }
-
   startApp() {
     this.nav.push(TabsPage);
   }
 
   onSlideChange(event) {
     this.continueText = event.isEnd ? "Continue" : "Skip Intro";
-    this.playImageAnimation(event.activeIndex);
   }
 
   onPageDidEnter() {
@@ -59,21 +54,4 @@ export class TutorialPage {
     this.app.getComponent('leftMenu').enable(true);
   }
 
-  playImageAnimation(slideIndex) {
-    if (slideIndex === 0) {
-      this.runRotateAnimation();
-    }
-  }
-
-  runRotateAnimation() {
-    const logoSpin = new Animation(document.querySelector('.slide-image'));
-    logoSpin
-      .from('transform', 'rotate(0deg)')
-      .to('transform', 'rotate(360deg)');
-
-    const animation = new Animation();
-    animation.duration(3000);
-    animation.add(logoSpin);
-    animation.play();
-  }
 }
