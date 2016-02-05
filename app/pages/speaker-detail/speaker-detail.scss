@@ -1,8 +1,9 @@
 
-.speaker-pic {
-  text-align: center;
+.speaker-detail img {
+  max-width: 140px;
+  border-radius: 50%;
 }
 
-.speaker-pic img {
-  max-width: 340px;
+.speaker-detail p {
+  color: #60646B;
 }
