@@ -15,12 +15,19 @@
 
   .slide-image {
     max-height: 50%;
-    max-width: 80%;
-    margin: 20px 0;
+    max-width: 60%;
+    margin: 36px 0;
   }
 
   p {
-    padding: 0 16px;
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #60646B;
+
+    b {
+      color: #000000;
+    }
   }
 
 }
