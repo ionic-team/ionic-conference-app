@@ -6,26 +6,22 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  tracks = [];
-  close: any;
-  confData: any;
-  navParams: any;
-  viewCtrl: any;
-  filteredTracks: any;
+  tracks: Array<{name: string, isChecked: boolean}> = [];
 
-  constructor(confData: ConferenceData, navParams: NavParams, viewCtrl: ViewController) {
-    this.navParams = navParams;
-    this.confData = confData;
+  constructor(
+    private confData: ConferenceData,
+    private navParams: NavParams,
+    private viewCtrl: ViewController
+  ) {
+    // passed in array of track names that should be excluded (unchecked)
+    let excludedTrackNames = this.navParams.data;
 
-    // passed in array of tracks that should be excluded (unchecked)
-    let excludeTracks = this.navParams.data;
-
-    this.confData.getTracks().then(trackNames => {
+    this.confData.getTracks().then((trackNames: string[]) => {
 
       trackNames.forEach(trackName => {
         this.tracks.push({
           name: trackName,
-          isChecked: (excludeTracks.indexOf(trackName) === -1)
+          isChecked: (excludedTrackNames.indexOf(trackName) === -1)
         });
       });
 
@@ -41,8 +37,8 @@ export class ScheduleFilterPage {
 
   applyFilters() {
     // Pass back a new array of track names to exclude
-    let excludeTracks = this.tracks.filter(c => !c.isChecked).map(c => c.name);
-    this.dismiss(excludeTracks);
+    let excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
+    this.dismiss(excludedTrackNames);
   }
 
   dismiss(data) {

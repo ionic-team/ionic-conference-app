@@ -7,11 +7,7 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
-  confData: any;
-
-  constructor(confData: ConferenceData) {
-    this.confData = confData;
-  }
+  constructor(private confData: ConferenceData) {}
 
   onPageLoaded() {
     this.confData.getMap().then(mapData => {

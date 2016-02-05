@@ -5,15 +5,9 @@ import {UserData} from './user-data';;
 
 @Injectable()
 export class ConferenceData {
-  http: any;
-  user: any;
   data: any;
 
-  constructor(http: Http, user: UserData) {
-    // inject the Http provider and set to this instance
-    this.http = http;
-    this.user = user;
-  }
+  constructor(private http: Http, private user: UserData) {}
 
   load() {
     if (this.data) {

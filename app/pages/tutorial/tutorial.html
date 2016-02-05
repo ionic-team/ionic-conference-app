@@ -1,12 +1,12 @@
-<ion-content>
-  <ion-slides pager (change)="onSlideChange($event)">
-    <ion-slide *ngFor="#slide of slides">
-      <ion-toolbar transparent>
-        <ion-buttons end>
-          <button (click)="startApp()">{{ slide.continueText }}</button>
-        </ion-buttons>
-      </ion-toolbar>
+<ion-navbar *navbar>
+  <ion-buttons end>
+    <button (click)="startApp()">{{ continueText }}</button>
+  </ion-buttons>
+</ion-navbar>
 
+<ion-content>
+  <ion-slides (change)="onSlideChange($event)" pager>
+    <ion-slide *ngFor="#slide of slides">
       <h2 class="slide-title">{{ slide.title }}</h2>
       <p>{{ slide.description }}</p>
       <img [src]="slide.image" class="slide-image"/>
