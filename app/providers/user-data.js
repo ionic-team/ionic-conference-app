@@ -4,12 +4,12 @@ import {Storage, LocalStorage, Events} from 'ionic/ionic';
 
 @Injectable()
 export class UserData {
-  HAS_LOGGED_IN: string = 'hasLoggedIn';
 
   constructor(events: Events) {
     this._favorites = [];
     this.storage = new Storage(LocalStorage);
     this.events = events;
+    this.HAS_LOGGED_IN = 'hasLoggedIn';
   }
 
   hasFavorite(sessionName) {

@@ -14,18 +14,20 @@
     </div>
 
     <form #signupForm="ngForm" novalidate>
-      <ion-input floating-label>
-        <ion-label primary>Username</ion-label>
-        <input [(ngModel)]="signup.username" ngControl="username" type="text" #username="ngForm" required>
-      </ion-input>
+      <ion-item>
+        <ion-label floating primary>Username</ion-label>
+        <ion-input [(ngModel)]="signup.username" ngControl="username" type="text" #username="ngForm" required>
+        </ion-input>
+      </ion-item>
       <p [hidden]="username.valid || submitted == false" danger padding-left>
         Username is required
       </p>
 
-      <ion-input floating-label>
-        <ion-label primary>Password</ion-label>
-        <input [(ngModel)]="signup.password" ngControl="password" type="password" #password="ngForm" required>
-      </ion-input>
+      <ion-item>
+        <ion-label floating primary>Password</ion-label>
+        <ion-input [(ngModel)]="signup.password" ngControl="password" type="password" #password="ngForm" required>
+        </ion-input>
+      </ion-item>
       <p [hidden]="password.valid || submitted == false" danger padding-left>
         Password is required
       </p>
