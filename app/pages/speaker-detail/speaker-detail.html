@@ -3,20 +3,16 @@
   <ion-title>{{speaker.name}}</ion-title>
 </ion-navbar>
 
-<ion-content padding>
+<ion-content padding class="speaker-detail">
 
-  <p class="speaker-pic">
-    <img [src]="speaker.profilePic" [alt]="speaker.name">
-  </p>
+  <div text-center>
+    <img [src]="speaker.profilePic" [alt]="speaker.name"><br>
+
+    <button clear small twitter><ion-icon name="logo-twitter"></ion-icon></button>
+    <button clear small github><ion-icon name="logo-github"></ion-icon></button>
+    <button clear small instagram><ion-icon name="logo-instagram"></ion-icon></button>
+  </div>
 
   <p>{{speaker.about}}</p>
-
-  <div *ngIf="speaker.sessions">
-    <h4>Sessions</h4>
-    <div *ngFor="#session of speaker.sessions">
-      <h5><a href="#" (click)="goToSessionDetail(session)">{{session.name}}</a></h5>
-      <p>{{session.description}}</p>
-    </div>
-  </div>
 
 </ion-content>
