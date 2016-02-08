@@ -1,4 +1,4 @@
-import {IonicApp, Page, NavController, Animation} from 'ionic-framework/ionic';
+import {Page, NavController, MenuController} from 'ionic-framework/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -16,7 +16,7 @@ export class TutorialPage {
   slides: Slide[];
   continueText = "Skip Intro";
 
-  constructor(private nav: NavController, private app: IonicApp) {
+  constructor(private nav: NavController, private menu: MenuController) {
     this.slides = [
       {
         title: "Welcome",
@@ -41,44 +41,22 @@ export class TutorialPage {
     ];
   }
 
-  ngAfterViewInit() {
-    this.playImageAnimation(0);
-  }
-
   startApp() {
     this.nav.push(TabsPage);
   }
 
   onSlideChange(event) {
     this.continueText = event.isEnd ? "Continue" : "Skip Intro";
-    this.playImageAnimation(event.activeIndex);
   }
 
   onPageDidEnter() {
     // the root left menu should be disabled on the tutorial page
-    this.app.getComponent('leftMenu').enable(false);
+    this.menu.enable(false);
   }
 
   onPageWillLeave() {
     // enable the root left menu when leaving the tutorial page
-    this.app.getComponent('leftMenu').enable(true);
+    this.menu.enable(true);
   }
 
-  playImageAnimation(slideIndex: number) {
-    if (slideIndex === 0) {
-      this.runRotateAnimation();
-    }
-  }
-
-  runRotateAnimation() {
-    const logoSpin = new Animation(document.querySelector('.slide-image'));
-    logoSpin
-      .from('transform', 'rotate(0deg)')
-      .to('transform', 'rotate(360deg)');
-
-    const animation = new Animation();
-    animation.duration(3000);
-    animation.add(logoSpin);
-    animation.play();
-  }
 }
