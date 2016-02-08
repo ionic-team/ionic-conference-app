@@ -102,7 +102,7 @@ export class SchedulePage {
             // close the sliding item
             slidingItem.close();
           }
-        }
+        }]
       });
       // now present the alert on top of all other content
       this.nav.present(alert);

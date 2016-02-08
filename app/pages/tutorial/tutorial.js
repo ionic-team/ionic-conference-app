@@ -1,4 +1,4 @@
-import {IonicApp, Page, NavController, Animation} from 'ionic/ionic';
+import {Page, NavController, MenuController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -7,9 +7,9 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  constructor(nav: NavController, app: IonicApp) {
+  constructor(nav: NavController, menu: MenuController) {
     this.nav = nav;
-    this.app = app;
+    this.menu = menu;
 
     this.slides = [
       {
@@ -33,15 +33,15 @@ export class TutorialPage {
   startApp() {
     this.nav.push(TabsPage);
   }
-  
+
   onPageDidEnter() {
-    // the root left menu should be disabled on the tutorial page
-    this.app.getComponent('leftMenu').enable(false);
+    // the left menu should be disabled on the tutorial page
+    this.menu.enable(false);
   }
 
-  onPageWillLeave() {
-    // enable the root left menu when leaving the tutorial page
-    this.app.getComponent('leftMenu').enable(true);
+  onPageDidLeave() {
+    // enable the left menu when leaving the tutorial page
+    this.menu.enable(true);
   }
 
 }
