@@ -32,8 +32,10 @@ UserInterfaceState.xcuserstate
 /.vscode
 
 /app/**/*.js
-
 /app/**/*.map
 
 *.user
 *.suo
+
+bin/
+bld/
