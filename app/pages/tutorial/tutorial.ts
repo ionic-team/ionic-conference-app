@@ -14,41 +14,31 @@ interface Slide {
 })
 export class TutorialPage {
   slides: Slide[];
-  continueText = "Skip Intro";
 
   constructor(private nav: NavController, private menu: MenuController) {
     this.slides = [
       {
-        title: "Welcome",
-        description: "All of the information you need to get up and running with Ionic.",
-        image: "img/ionic-welcome.png",
+        title: "Welcome to <b>ICA</b>",
+        description: "The <b>Ionic Conference App</b> is a practical preview of the Ionic Framework in action, and a demonstration of proper code use.",
+        image: "img/ica-slidebox-img-1.png",
       },
       {
-        title: "Ionic View",
-        description: "Learn how you can use Ionic View to share your apps.",
-        image: "img/ionic-view.png",
+        title: "What is Ionic?",
+        description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+        image: "img/ica-slidebox-img-2.png",
       },
       {
-        title: "Ionic Creator",
-        description: "Drag-&-drop to create a great Ionic app with the click of a mouse.",
-        image: "img/ionic-creator.png",
-      },
-      {
-        title: "Ionic Platform",
-        description: "Our Platform Services are there to make development easier.",
-        image: "img/ionic-platform.png",
-      },
+        title: " What is Ionic Platform?",
+        description: "The <b>Ionic Platform</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
+        image: "img/ica-slidebox-img-3.png",
+      }
     ];
   }
 
   startApp() {
     this.nav.push(TabsPage);
   }
-
-  onSlideChange(event) {
-    this.continueText = event.isEnd ? "Continue" : "Skip Intro";
-  }
-
+  
   onPageDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);

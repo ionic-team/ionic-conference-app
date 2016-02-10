@@ -7,7 +7,7 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
-  login: {username?: string, password?: string} = {};
+  signup: {username?: string, password?: string} = {};
   submitted = false;
 
   constructor(private nav: NavController, private userData: UserData) {}
