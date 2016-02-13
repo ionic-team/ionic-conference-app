@@ -22,7 +22,7 @@
     <ion-item *ngFor="#track of tracks" [attr.track]="track.name | lowercase">
       <span item-left class="dot"></span>
       <ion-label>{{track.name}}</ion-label>
-      <ion-toggle  [(ngModel)]="track.isChecked" [(checked)]="track.isChecked" secondary></ion-toggle>
+      <ion-toggle [(ngModel)]="track.isChecked" secondary></ion-toggle>
     </ion-item>
 
   </ion-list>
