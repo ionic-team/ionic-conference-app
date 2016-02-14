@@ -28,3 +28,14 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+/.vs
+/.vscode
+
+/app/**/*.js
+/app/**/*.map
+
+*.user
+*.suo
+
+bin/
+bld/
