@@ -10,6 +10,7 @@ export class UserData {
     this.storage = new Storage(LocalStorage);
     this.events = events;
     this.HAS_LOGGED_IN = 'hasLoggedIn';
+    this.HIDE_TUTORIAL = 'hideTutorial';
   }
 
   hasFavorite(sessionName) {
@@ -45,6 +46,16 @@ export class UserData {
   // return a promise
   hasLoggedIn() {
     return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
+      return value;
+    });
+  }
+
+  hideTutorial(hide) {
+    this.storage.set(this.HIDE_TUTORIAL, hide);
+  }
+
+  shouldHideTutorial(){
+    return this.storage.get(this.HIDE_TUTORIAL).then((value) => {
       return value;
     });
   }

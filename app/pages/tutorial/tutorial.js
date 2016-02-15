@@ -1,15 +1,17 @@
 import {Page, NavController, MenuController} from 'ionic/ionic';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
+import {UserData} from '../../providers/user-data';
 
 
 @Page({
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  constructor(nav: NavController, menu: MenuController) {
+  constructor(nav: NavController, menu: MenuController, userData: UserData) {
     this.nav = nav;
     this.menu = menu;
+    this.userData = userData;
 
     this.slides = [
       {
@@ -31,6 +33,7 @@ export class TutorialPage {
   }
 
   startApp() {
+    this.userData.hideTutorial(true);
     this.nav.push(TabsPage);
   }
 
