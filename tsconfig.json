@@ -14,5 +14,8 @@
   "files": [
     "app/app.ts"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }
