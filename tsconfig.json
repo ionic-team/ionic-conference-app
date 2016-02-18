@@ -12,7 +12,8 @@
     "inlineSources": false
   },
   "files": [
-    "app/app.ts"
+    "app/app.ts",
+    "typings/main.d.ts"
   ],
   "compileOnSave": false,
   "atom": {
