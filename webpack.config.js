@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         loader: 'awesome-typescript',
         query: {
           doTypeCheck: false,
@@ -42,6 +42,6 @@ module.exports = {
       'angular2': path.resolve('node_modules/angular2'),
       'ionic': 'ionic-framework',
     },
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.ts']
   }
 };
