@@ -41,7 +41,7 @@ export class TutorialPage {
   }
 
   onSlideChangeStart(slider) {
-    this.showSkup = !slider.isEnd;
+    this.showSkip = !slider.isEnd;
   }
 
   onPageDidEnter() {
