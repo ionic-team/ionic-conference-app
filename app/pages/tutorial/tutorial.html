@@ -1,11 +1,12 @@
+<ion-navbar *navbar>
+  <ion-buttons end *ngIf="showSkip">
+    <button (click)="startApp()">Skip</button>
+  </ion-buttons>
+</ion-navbar>
+
 <ion-content>
-  <ion-slides pager>
+  <ion-slides pager (slideChangeStart)="onSlideChangeStart($event)">
     <ion-slide *ngFor="#slide of slides">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button (click)="startApp()">Skip</button>
-        </ion-buttons>
-      </ion-toolbar>
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>

@@ -10,6 +10,7 @@ export class TutorialPage {
   constructor(nav: NavController, menu: MenuController) {
     this.nav = nav;
     this.menu = menu;
+    this.showSkip = true;
 
     this.slides = [
       {
@@ -32,6 +33,10 @@ export class TutorialPage {
 
   startApp() {
     this.nav.push(TabsPage);
+  }
+
+  onSlideChangeStart(slider) {
+    slider.isEnd ? this.showSkip = false : this.showSkip = true;
   }
 
   onPageDidEnter() {
