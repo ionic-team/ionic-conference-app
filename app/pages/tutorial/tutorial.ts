@@ -14,6 +14,7 @@ interface Slide {
 })
 export class TutorialPage {
   slides: Slide[];
+  showSkip = true;
 
   constructor(private nav: NavController, private menu: MenuController) {
     this.slides = [
@@ -38,7 +39,11 @@ export class TutorialPage {
   startApp() {
     this.nav.push(TabsPage);
   }
-  
+
+  onSlideChangeStart(slider) {
+    slider.isEnd ? this.showSkip = false : this.showSkip = true;
+  }
+
   onPageDidEnter() {
     // the root left menu should be disabled on the tutorial page
     this.menu.enable(false);
