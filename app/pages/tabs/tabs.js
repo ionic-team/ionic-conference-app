@@ -1,4 +1,4 @@
-import {Page} from 'ionic/ionic';
+import {Page, NavParams} from 'ionic/ionic';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 import {MapPage} from '../map/map';
@@ -10,7 +10,9 @@ import {Input} from 'angular2/core';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  constructor() {
+  constructor(navParams: NavParams) {
+    this.mySelectedIndex = navParams.data.tabIndex || 0;
+
     // set the root pages for each tab
     this.tab1Root = SchedulePage;
     this.tab2Root = SpeakerListPage;
