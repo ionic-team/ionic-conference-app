@@ -1,4 +1,4 @@
-/// <binding />
+/// <binding BeforeBuild='build' />
 /******************************************************************************
  * Gulpfile
  * Be sure to run `npm install` for `gulp` and the following tasks to be
