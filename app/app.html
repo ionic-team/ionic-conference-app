@@ -3,18 +3,39 @@
 <ion-menu [content]="content">
 
   <ion-toolbar>
-    <ion-title>Account</ion-title>
+    <ion-title>Menu</ion-title>
   </ion-toolbar>
 
-  <ion-content>
+  <ion-content class="outer-content">
 
     <ion-list>
-
-      <button ion-item menuClose *ngFor="#p of pages" (click)="openPage(p)" [hidden]="p.hide">
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="#p of appPages" (click)="openPage(p)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
+    </ion-list>
 
+    <ion-list *ngIf="loggedIn">
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="#p of loggedInPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+    <ion-list *ngIf="!loggedIn">
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="#p of loggedOutPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
     </ion-list>
   </ion-content>
 
