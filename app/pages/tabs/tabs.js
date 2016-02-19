@@ -1,16 +1,16 @@
 import {Page, NavParams} from 'ionic/ionic';
+import {Input, Inject} from 'angular2/core';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 import {MapPage} from '../map/map';
 import {AboutPage} from '../about/about';
-import {Input} from 'angular2/core';
 
 
 @Page({
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  constructor(navParams: NavParams) {
+  constructor(@Inject(NavParams) navParams) {
     this.mySelectedIndex = navParams.data.tabIndex || 0;
 
     // set the root pages for each tab

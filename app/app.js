@@ -1,4 +1,5 @@
 import {App, IonicApp, Events} from 'ionic/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -13,7 +14,12 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   config: {}
 })
 class ConferenceApp {
-  constructor(app: IonicApp, events: Events, confData: ConferenceData, userData: UserData) {
+  constructor(
+    @Inject(IonicApp) app,
+    @Inject(Events) events,
+    @Inject(ConferenceData) confData,
+    @Inject(UserData) userData
+  ) {
     this.app = app;
     this.userData = userData;
     this.events = events;

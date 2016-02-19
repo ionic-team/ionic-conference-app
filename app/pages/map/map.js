@@ -1,4 +1,5 @@
 import {Page} from 'ionic/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 
 
@@ -6,7 +7,7 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
-  constructor(confData: ConferenceData) {
+  constructor(@Inject(ConferenceData) confData) {
     this.confData = confData;
   }
 

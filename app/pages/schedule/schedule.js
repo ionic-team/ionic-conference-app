@@ -1,4 +1,5 @@
 import {IonicApp, Page, Modal, Alert, NavController} from 'ionic/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -9,7 +10,12 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
-  constructor(app: IonicApp, nav: NavController, confData: ConferenceData, user: UserData) {
+  constructor(
+    @Inject(IonicApp) app,
+    @Inject(NavController) nav,
+    @Inject(ConferenceData) confData,
+    @Inject(UserData) user
+  ) {
     this.app = app;
     this.nav = nav;
     this.confData = confData;

@@ -1,4 +1,5 @@
 import {Page, NavController, MenuController} from 'ionic/ionic';
+import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -7,7 +8,7 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  constructor(nav: NavController, menu: MenuController) {
+  constructor(@Inject(NavController) nav, @Inject(MenuController) menu) {
     this.nav = nav;
     this.menu = menu;
     this.showSkip = true;

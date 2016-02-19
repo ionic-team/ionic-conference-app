@@ -1,4 +1,5 @@
 import {Page, NavController} from 'ionic/ionic';
+import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {UserData} from '../../providers/user-data';
 
@@ -7,7 +8,7 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
-  constructor(nav: NavController, userData: UserData) {
+  constructor(@Inject(NavController) nav, @Inject(UserData) userData) {
     this.nav = nav;
     this.userData = userData;
 
