@@ -14,6 +14,7 @@ interface PageObj {
   title: string;
   component: Type;
   icon: string;
+  index?: number;
 }
 
 @App({
@@ -27,9 +28,9 @@ class ConferenceApp {
   // the login page disables the left menu
   appPages: PageObj[] = [
     { title: 'Schedule', component: TabsPage, icon: 'calendar' },
-    { title: 'Speakers', component: TabsPage, icon: 'contacts' },
-    { title: 'Map', component: TabsPage, icon: 'map' },
-    { title: 'About', component: TabsPage, icon: 'information-circle' },
+    { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
+    { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
+    { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
   ];
   loggedInPages: PageObj[] = [
     { title: 'Logout', component: TabsPage, icon: 'log-out' }
@@ -63,7 +64,12 @@ class ConferenceApp {
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     let nav = this.app.getComponent('nav');
-    nav.setRoot(page.component);
+
+    if (page.index) {
+      nav.setRoot(page.component, {tabIndex: page.index});
+    } else {
+      nav.setRoot(page.component);
+    }
 
     if (page.title === 'Logout') {
       // Give the menu time to close before changing to logged out

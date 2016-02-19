@@ -1,4 +1,4 @@
-import {Page} from 'ionic-framework/ionic';
+import {Page, NavParams} from 'ionic-framework/ionic';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 import {MapPage} from '../map/map';
@@ -16,9 +16,9 @@ export class TabsPage {
   tab2Root: Type = SpeakerListPage;
   tab3Root: Type = MapPage;
   tab4Root: Type = AboutPage;
+  mySelectedIndex: number;
 
-  constructor(){
-
+  constructor(navParams: NavParams) {
+    this.mySelectedIndex = navParams.data.tabIndex || 0;
   }
-
 }
