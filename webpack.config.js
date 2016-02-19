@@ -40,7 +40,7 @@ module.exports = {
   resolve: {
     alias: {
       'angular2': path.resolve('node_modules/angular2'),
-      'ionic': 'ionic-framework',
+      'ionic': 'ionic-framework'
     },
     extensions: ['', '.js']
   }
