@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/googlemaps/google.maps.d.ts" />
-
 import {Page} from 'ionic-framework/ionic';
 import {ConferenceData} from '../../providers/conference-data';
 

@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='build' ProjectOpened='build' />
+/// <binding />
 /******************************************************************************
  * Gulpfile
  * Be sure to run `npm install` for `gulp` and the following tasks to be
@@ -11,8 +11,7 @@ var gulp = require('gulp'),
     webpack = require('webpack-stream'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    watch = require('gulp-watch');
-    tsd = require('gulp-tsd');
+    watch = require('gulp-watch');    
 
 
 var IONIC_DIR = "node_modules/ionic-framework/"
@@ -26,14 +25,9 @@ gulp.task('build', ['sass', 'fonts', 'copy.html', 'webpack'], function(done) {
     console.log("Gulp Done");
 });
 
-gulp.task('tsd', function (callback) {
-    tsd({
-        command: 'reinstall',
-        config: './tsd.json'
-    }, callback);
-});
 
-gulp.task('webpack', ['tsd'], function () {
+
+gulp.task('webpack', function () {
     
     return gulp.src('./app/app.ts')
         .pipe(webpack(require('./webpack.config.js')))
