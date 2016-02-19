@@ -1,4 +1,4 @@
-import {App, IonicApp, Events} from 'ionic/ionic';
+import {App, IonicApp, Events} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';

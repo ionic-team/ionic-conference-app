@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic/ionic';
+import {Page, NavController} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {UserData} from '../../providers/user-data';

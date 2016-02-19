@@ -1,4 +1,4 @@
-import {NavController, NavParams, Page} from 'ionic/ionic';
+import {NavController, NavParams, Page} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {SessionDetailPage} from '../session-detail/session-detail';
 

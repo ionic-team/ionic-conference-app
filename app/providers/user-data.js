@@ -1,5 +1,5 @@
 import {Injectable, Inject} from 'angular2/core';
-import {Storage, LocalStorage, Events} from 'ionic/ionic';
+import {Storage, LocalStorage, Events} from 'ionic-framework/ionic';
 
 
 @Injectable()

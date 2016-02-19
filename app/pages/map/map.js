@@ -1,4 +1,4 @@
-import {Page} from 'ionic/ionic';
+import {Page} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 
