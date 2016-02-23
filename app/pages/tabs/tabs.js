@@ -10,7 +10,11 @@ import {AboutPage} from '../about/about';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  constructor(@Inject(NavParams) navParams) {
+  static get parameters(){
+    return [[NavParams]];
+  }
+
+  constructor(navParams) {
     this.mySelectedIndex = navParams.data.tabIndex || 0;
 
     // set the root pages for each tab

@@ -9,7 +9,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  constructor(@Inject(NavController) nav, @Inject(ConferenceData) confData) {
+  static get parameters(){
+    return [[NavController], [ConferenceData]];
+  }
+
+  constructor(nav, confData) {
     this.nav = nav;
     this.confData = confData;
     this.speakers = [];

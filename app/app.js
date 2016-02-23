@@ -14,12 +14,11 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   config: {}
 })
 class ConferenceApp {
-  constructor(
-    @Inject(IonicApp) app,
-    @Inject(Events) events,
-    @Inject(ConferenceData) confData,
-    @Inject(UserData) userData
-  ) {
+  static get parameters(){
+    return [[IonicApp], [Events], [ConferenceData], [UserData]]
+  }
+
+  constructor(app, events, confData, userData) {
     this.app = app;
     this.userData = userData;
     this.events = events;

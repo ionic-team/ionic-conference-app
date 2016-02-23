@@ -10,12 +10,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
-  constructor(
-    @Inject(IonicApp) app,
-    @Inject(NavController) nav,
-    @Inject(ConferenceData) confData,
-    @Inject(UserData) user
-  ) {
+  static get parameters(){
+    return [[IonicApp], [NavController], [ConferenceData], [UserData]];
+  }
+
+  constructor(app, nav, confData, user) {
     this.app = app;
     this.nav = nav;
     this.confData = confData;

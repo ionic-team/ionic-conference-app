@@ -8,7 +8,11 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  constructor(@Inject(NavController) nav, @Inject(MenuController) menu) {
+  static get parameters(){
+    return [[NavController], [MenuController]];
+  }
+
+  constructor(nav, menu) {
     this.nav = nav;
     this.menu = menu;
     this.showSkip = true;

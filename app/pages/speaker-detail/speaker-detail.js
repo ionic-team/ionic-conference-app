@@ -7,7 +7,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-detail/speaker-detail.html'
 })
 export class SpeakerDetailPage {
-  constructor(@Inject(NavController) nav, @Inject(NavParams) navParams) {
+  static get parameters(){
+    return [[NavController], [NavParams]];
+  }
+
+  constructor(nav, navParams) {
     this.nav = nav;
     this.navParams = navParams;
     this.speaker = this.navParams.data;

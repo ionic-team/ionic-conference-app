@@ -7,11 +7,11 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  constructor(
-    @Inject(ConferenceData) confData,
-    @Inject(NavParams) navParams,
-    @Inject(ViewController) viewCtrl
-  ) {
+  static get parameters(){
+    return [[ConferenceData], [NavParams], [ViewController]];
+  }
+
+  constructor(confData, navParams, viewCtrl) {
     this.confData = confData;
     this.navParams = navParams;
     this.viewCtrl = viewCtrl;

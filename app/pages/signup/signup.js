@@ -8,7 +8,11 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
-  constructor(@Inject(NavController) nav, @Inject(UserData) userData) {
+  static get parameters(){
+    return [[NavController], [UserData]];
+  }
+
+  constructor(nav, userData) {
     this.nav = nav;
     this.userData = userData;
 

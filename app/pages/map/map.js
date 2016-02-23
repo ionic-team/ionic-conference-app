@@ -7,7 +7,11 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
-  constructor(@Inject(ConferenceData) confData) {
+  static get parameters(){
+    return [[ConferenceData]];
+  }
+
+  constructor(confData) {
     this.confData = confData;
   }
 

@@ -6,7 +6,11 @@ import {Inject} from 'angular2/core';
   templateUrl: 'build/pages/session-detail/session-detail.html'
 })
 export class SessionDetailPage {
-  constructor(@Inject(NavParams) navParams) {
+  static get parameters(){
+    return [[NavParams]];
+  }
+
+  constructor(navParams) {
     this.navParams = navParams;
     this.session = navParams.data;
   }
