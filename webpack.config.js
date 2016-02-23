@@ -17,10 +17,10 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'awesome-typescript',
+        loader: 'babel',
         query: {
-          doTypeCheck: false,
-          useWebpackText: true
+          presets: ['es2015'],
+          plugins: ['transform-decorators-legacy']
         },
         include: path.resolve('app'),
         exclude: /node_modules/
