@@ -6,13 +6,9 @@ import {LoginPage} from './pages/login/login';
 import {SignupPage} from './pages/signup/signup';
 import {TutorialPage} from './pages/tutorial/tutorial';
 
-// https://angular.io/docs/ts/latest/api/core/Type-interface.html
-import {Type} from 'angular2/core';
-
-
 interface PageObj {
   title: string;
-  component: Type;
+  component: any;
   icon: string;
   index?: number;
 }
@@ -39,7 +35,7 @@ class ConferenceApp {
     { title: 'Login', component: LoginPage, icon: 'log-in' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
-  rootPage: Type = TutorialPage;
+  rootPage: any = TutorialPage;
   loggedIn = false;
 
   constructor(
