@@ -7,7 +7,7 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  static get parameters(){
+  static get parameters() {
     return [[ConferenceData], [NavParams], [ViewController]];
   }
 

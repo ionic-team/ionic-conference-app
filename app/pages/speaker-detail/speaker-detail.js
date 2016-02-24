@@ -7,7 +7,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-detail/speaker-detail.html'
 })
 export class SpeakerDetailPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavController], [NavParams]];
   }
 

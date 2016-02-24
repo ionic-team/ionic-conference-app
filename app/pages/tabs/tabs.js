@@ -10,7 +10,7 @@ import {AboutPage} from '../about/about';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavParams]];
   }
 

@@ -8,7 +8,7 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavController], [UserData]];
   }
 

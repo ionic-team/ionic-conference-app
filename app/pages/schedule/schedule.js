@@ -10,7 +10,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
-  static get parameters(){
+  static get parameters() {
     return [[IonicApp], [NavController], [ConferenceData], [UserData]];
   }
 

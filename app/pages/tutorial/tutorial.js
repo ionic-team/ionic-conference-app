@@ -8,7 +8,7 @@ import {SignupPage} from '../signup/signup';
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavController], [MenuController]];
   }
 

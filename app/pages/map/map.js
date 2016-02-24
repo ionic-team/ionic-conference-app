@@ -7,7 +7,7 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
-  static get parameters(){
+  static get parameters() {
     return [[ConferenceData]];
   }
 

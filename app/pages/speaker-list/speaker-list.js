@@ -9,7 +9,7 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavController], [ConferenceData]];
   }
 

@@ -9,7 +9,7 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
-  static get parameters(){
+  static get parameters() {
     return [[NavController], [UserData]];
   }
 

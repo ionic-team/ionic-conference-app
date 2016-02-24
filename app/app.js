@@ -14,7 +14,7 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   config: {}
 })
 class ConferenceApp {
-  static get parameters(){
+  static get parameters() {
     return [[IonicApp], [Events], [ConferenceData], [UserData]]
   }
 
