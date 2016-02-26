@@ -1,4 +1,5 @@
-import {Page, NavParams, ViewController} from 'ionic/ionic';
+import {Page, NavParams, ViewController} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 
 
@@ -6,7 +7,11 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/schedule-filter/schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  constructor(confData: ConferenceData, navParams: NavParams, viewCtrl: ViewController) {
+  static get parameters() {
+    return [[ConferenceData], [NavParams], [ViewController]];
+  }
+
+  constructor(confData, navParams, viewCtrl) {
     this.confData = confData;
     this.navParams = navParams;
     this.viewCtrl = viewCtrl;

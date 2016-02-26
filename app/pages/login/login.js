@@ -1,4 +1,5 @@
-import {IonicApp, Page, NavController} from 'ionic/ionic';
+import {IonicApp, Page, NavController} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 import {UserData} from '../../providers/user-data';
@@ -8,7 +9,11 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
-  constructor(nav: NavController, userData: UserData) {
+  static get parameters() {
+    return [[NavController], [UserData]];
+  }
+
+  constructor(nav, userData) {
     this.nav = nav;
     this.userData = userData;
 

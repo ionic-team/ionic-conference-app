@@ -17,10 +17,10 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'awesome-typescript',
+        loader: 'babel',
         query: {
-          doTypeCheck: false,
-          useWebpackText: true
+          presets: ['es2015'],
+          plugins: ['transform-decorators-legacy']
         },
         include: path.resolve('app'),
         exclude: /node_modules/
@@ -39,8 +39,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'angular2': path.resolve('node_modules/angular2'),
-      'ionic': 'ionic-framework',
+      'angular2': path.resolve('node_modules/angular2')
     },
     extensions: ['', '.js']
   }

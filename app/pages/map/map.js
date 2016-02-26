@@ -1,4 +1,5 @@
-import {Page} from 'ionic/ionic';
+import {Page} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 
 
@@ -6,7 +7,11 @@ import {ConferenceData} from '../../providers/conference-data';
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
-  constructor(confData: ConferenceData) {
+  static get parameters() {
+    return [[ConferenceData]];
+  }
+
+  constructor(confData) {
     this.confData = confData;
   }
 

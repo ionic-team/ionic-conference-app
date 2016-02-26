@@ -1,4 +1,5 @@
-import {NavController, Page, ActionSheet} from 'ionic/ionic';
+import {NavController, Page, ActionSheet} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -8,7 +9,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
-  constructor(nav: NavController, confData: ConferenceData) {
+  static get parameters() {
+    return [[NavController], [ConferenceData]];
+  }
+
+  constructor(nav, confData) {
     this.nav = nav;
     this.confData = confData;
     this.speakers = [];

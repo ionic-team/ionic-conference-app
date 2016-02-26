@@ -1,4 +1,5 @@
-import {NavController, NavParams, Page} from 'ionic/ionic';
+import {NavController, NavParams, Page} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
@@ -6,7 +7,11 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-detail/speaker-detail.html'
 })
 export class SpeakerDetailPage {
-  constructor(nav: NavController, navParams: NavParams) {
+  static get parameters() {
+    return [[NavController], [NavParams]];
+  }
+
+  constructor(nav, navParams) {
     this.nav = nav;
     this.navParams = navParams;
     this.speaker = this.navParams.data;

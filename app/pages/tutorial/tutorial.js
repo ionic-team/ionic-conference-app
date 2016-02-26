@@ -1,4 +1,5 @@
-import {Page, NavController, MenuController} from 'ionic/ionic';
+import {Page, NavController, MenuController} from 'ionic-framework/ionic';
+import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 import {UserData} from '../../providers/user-data';
@@ -8,10 +9,14 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
-  constructor(nav: NavController, menu: MenuController, userData: UserData) {
+  static get parameters() {
+    return [[NavController], [MenuController]];
+  }
+
+  constructor(nav, menu) {
     this.nav = nav;
     this.menu = menu;
-    this.userData = userData;
+    this.showSkip = true;
 
     this.slides = [
       {
@@ -35,6 +40,10 @@ export class TutorialPage {
   startApp() {
     this.userData.hideTutorial(true);
     this.nav.push(TabsPage);
+  }
+
+  onSlideChangeStart(slider) {
+    this.showSkip = !slider.isEnd;
   }
 
   onPageDidEnter() {
