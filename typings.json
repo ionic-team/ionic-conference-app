@@ -1,0 +1,9 @@
+{
+  "name": "ionic-conference-app",
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
+    "googlemaps": "github:DefinitelyTyped/DefinitelyTyped/googlemaps/google.maps.d.ts"
+  }
+}
