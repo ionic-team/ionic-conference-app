@@ -1,4 +1,4 @@
-import {Page, NavParams, ViewController} from 'ionic-framework/ionic';
+import {Page, NavParams, ViewController} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 
 

@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic-framework/ionic';
+import {Page, NavParams} from 'ionic-angular';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
 import {MapPage} from '../map/map';

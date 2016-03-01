@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-framework/ionic';
+import {Page, NavController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {UserData} from '../../providers/user-data';
 

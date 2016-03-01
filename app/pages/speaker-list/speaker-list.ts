@@ -1,4 +1,4 @@
-import {NavController, Page, ActionSheet} from 'ionic-framework/ionic';
+import {NavController, Page, ActionSheet} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';

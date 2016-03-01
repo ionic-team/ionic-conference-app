@@ -1,4 +1,4 @@
-import {IonicApp, Page, Modal, Alert, NavController, ItemSliding} from 'ionic-framework/ionic';
+import {IonicApp, Page, Modal, Alert, NavController, ItemSliding} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
