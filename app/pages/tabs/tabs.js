@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic-framework/ionic';
+import {Page, NavParams} from 'ionic-angular';
 import {Input, Inject} from 'angular2/core';
 import {SchedulePage} from '../schedule/schedule';
 import {SpeakerListPage} from '../speaker-list/speaker-list';
