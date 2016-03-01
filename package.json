@@ -18,8 +18,14 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "0.15.10",
+    "del": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "2.2.0",
+    "gulp-watch": "4.3.5",
     "strip-sourcemap-loader": "0.0.1",
-    "typescript": "1.7.5"
+    "typescript": "1.7.5",
+    "webpack": "1.12.14"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
