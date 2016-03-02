@@ -22,6 +22,9 @@
       <p [hidden]="username.valid || submitted == false" danger padding-left>
         Username is required
       </p>
+	  <p [hidden]="signup.exists == false || submitted == false" danger padding-left>
+        Username already exists
+      </p>
 
       <ion-item>
         <ion-label floating primary>Password</ion-label>
@@ -31,6 +34,51 @@
       <p [hidden]="password.valid || submitted == false" danger padding-left>
         Password is required
       </p>
+	  
+	  <ion-item>
+        <ion-label floating primary>Name</ion-label>
+        <ion-input [(ngModel)]="signup.name" ngControl="name" type="text" #name="ngForm" required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="name.valid || submitted == false" danger padding-left>
+        Name is required
+      </p>
+	  
+	  <ion-item>
+        <ion-label floating primary>Picture</ion-label>
+        <ion-input [(ngModel)]="signup.picture" ngControl="picutre" type="text" #picture="ngForm">
+        </ion-input>
+      </ion-item>
+	  <p favorite padding-left>
+        Paste web url to your profile picture
+      </p>
+	  
+	  <ion-item>
+        <ion-label floating primary>Twitter</ion-label>
+        <ion-input [(ngModel)]="signup.twitter" ngControl="twitter" type="text" #twitter="ngForm">
+        </ion-input>
+      </ion-item>
+	  
+	  <ion-item>
+        <ion-label floating primary>About</ion-label>
+        <ion-input [(ngModel)]="signup.about" ngControl="about" type="text" #about="ngForm">
+        </ion-input>
+      </ion-item>
+	  
+	  <ion-item>
+        <ion-label floating primary>Tracks</ion-label>
+        <ion-input [(ngModel)]="signup.tracks" ngControl="tracks" type="text" #tracks="ngForm">
+        </ion-input>
+      </ion-item>
+	  <p favorite padding-left>
+        List some of your interests. Ex : sports, science, Da Vinci
+      </p>
+	  
+	  <ion-item>
+        <ion-label floating primary>Location</ion-label>
+        <ion-input [(ngModel)]="signup.location" ngControl="location" type="text" #location="ngForm">
+        </ion-input>
+      </ion-item>
 
       <div padding>
         <button (click)="onSignup(signupForm)" type="submit" primary block>Create</button>
