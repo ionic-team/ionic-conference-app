@@ -2,6 +2,7 @@ import {Page, NavController, MenuController} from 'ionic-angular';
 import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
+import {UserData} from '../../providers/user-data';
 
 
 @Page({
@@ -37,6 +38,7 @@ export class TutorialPage {
   }
 
   startApp() {
+    this.userData.hideTutorial(true);
     this.nav.push(TabsPage);
   }
 

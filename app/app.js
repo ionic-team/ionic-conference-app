@@ -26,9 +26,14 @@ class ConferenceApp {
 
     // load the conference data
     confData.load();
-
-    // We plan to add auth to only show the login page if not logged in
-    this.root = TutorialPage;
+    userData.shouldHideTutorial().then(hide =>{
+      if(hide){
+        // We plan to add auth to only show the login page if not logged in
+        this.root = TabsPage;
+      } else {
+        this.root = TutorialPage;
+      }
+    });
 
     // create an list of pages that can be navigated to from the left menu
     // the left menu only works after login
