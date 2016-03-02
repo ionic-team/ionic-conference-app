@@ -7,15 +7,18 @@ import {LoginPage} from './pages/login/login';
 import {SignupPage} from './pages/signup/signup';
 import {TutorialPage} from './pages/tutorial/tutorial';
 
+import {ProfileData} from './providers/profile-data';
+import {ProfileListPage} from './pages/profile-list/profile-list';
+
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [ConferenceData, UserData],
+  providers: [ConferenceData, UserData, ProfileData],
   config: {}
 })
 class ConferenceApp {
   static get parameters(){
-    return [[IonicApp], [Events], [ConferenceData], [UserData]]
+    return [[IonicApp], [Events], [ConferenceData], [UserData], [ProfileData]]
   }
 
   constructor(app, events, confData, userData) {
@@ -24,7 +27,13 @@ class ConferenceApp {
     this.events = events;
     this.loggedIn = false;
 
+    // load the profile data
+	this.profileData = profileData;
+
     // load the conference data
+    profileData.load();
+	
+	// load the profile data
     confData.load();
 
     // We plan to add auth to only show the login page if not logged in
@@ -38,6 +47,7 @@ class ConferenceApp {
       { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
       { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
       { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
+	  { title: 'Profiles', component: ProfileListPage, icon: 'contacts' },
     ];
 
     this.loggedInPages = [

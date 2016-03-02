@@ -2,6 +2,7 @@ import {Page, NavController, MenuController} from 'ionic-framework/ionic';
 import {Inject} from 'angular2/core';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
+import {UserData} from '../../providers/user-data';
 
 
 @Page({
@@ -9,13 +10,15 @@ import {SignupPage} from '../signup/signup';
 })
 export class TutorialPage {
   static get parameters(){
-    return [[NavController], [MenuController]];
+    return [[NavController], [MenuController], [UserData]];
   }
 
-  constructor(nav, menu) {
+  constructor(nav, menu, user) {
     this.nav = nav;
     this.menu = menu;
     this.showSkip = true;
+	//
+	this.user = user;
 
     this.slides = [
       {
@@ -37,6 +40,8 @@ export class TutorialPage {
   }
 
   startApp() {
+	// log out on start to avoid undefined user problems
+	this.user.logout();
     this.nav.push(TabsPage);
   }
 
