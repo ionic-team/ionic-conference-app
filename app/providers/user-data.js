@@ -13,6 +13,7 @@ export class UserData {
     this.storage = new Storage(LocalStorage);
     this.events = events;
     this.HAS_LOGGED_IN = 'hasLoggedIn';
+	this.profile_info = {};
   }
 
   hasFavorite(sessionName) {
@@ -31,11 +32,13 @@ export class UserData {
   }
 
   login(username, password) {
+	this.profile_info.id = username;
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.events.publish('user:login');
   }
 
   signup(username, password) {
+	this.profile_info.id = username;
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.events.publish('user:signup');
   }

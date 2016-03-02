@@ -4,6 +4,7 @@ import {ProfileData} from '../../providers/profile-data';
 import {ProfileDetailPage} from '../profile-detail/profile-detail';
 import {UserData} from '../../providers/user-data';
 import {DbPage} from '../db/db';
+import {LoginPage} from '../login/login';
 
 /*
   Generated class for the MatchListPage page.
@@ -33,11 +34,15 @@ export class MatchListPage {
 	this.data.keys.forEach(key => {
 		this.data.profiles.push(this.data.table[key]);
 	});
-	
 	this.profiles = this.profData.getMatches(this.data, this.current_profile);
   }
   
   goToProfileDetail(profileName){
 	this.nav.push(ProfileDetailPage, profileName);
   }
+  
+  goToLoginPage(){
+	this.nav.push(LoginPage);
+  }
+  
 }

@@ -22,7 +22,7 @@ class ConferenceApp {
     return [[IonicApp], [Events], [ConferenceData], [UserData], [ProfileData]]
   }
 
-  constructor(app, events, confData, userData) {
+  constructor(app, events, confData, userData, profileData) {
     this.app = app;
     this.userData = userData;
     this.events = events;
@@ -53,7 +53,6 @@ class ConferenceApp {
 
     this.loggedInPages = [
       { title: 'Logout', component: TabsPage, icon: 'log-out' },
-	  //
 	  { title: 'Matches', component: MatchListPage, icon: 'contacts'}
     ];
 
