@@ -9,6 +9,7 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 
 import {ProfileData} from './providers/profile-data';
 import {ProfileListPage} from './pages/profile-list/profile-list';
+import {MatchListPage} from './pages/match-list/match-list';
 
 
 @App({
@@ -51,7 +52,9 @@ class ConferenceApp {
     ];
 
     this.loggedInPages = [
-      { title: 'Logout', component: TabsPage, icon: 'log-out' }
+      { title: 'Logout', component: TabsPage, icon: 'log-out' },
+	  //
+	  { title: 'Matches', component: MatchListPage, icon: 'contacts'}
     ];
 
     this.loggedOutPages = [

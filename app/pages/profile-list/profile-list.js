@@ -68,6 +68,31 @@ export class ProfileListPage {
 		}
 	});
 	this.profiles = unMatched;
+	
+	// add selected profile to match queue
+	var id = this.userData.profile_info.id;
+	var row = DbPage.get("users", id);
+	var data = {};
+	data.profiles = [];
+	data.table = DbPage.load("users");
+	data.keys = Object.keys(data.table);
+	data.keys.forEach(key => {
+		data.profiles.push(data.table[key]);
+	});
+	if(row.matches){
+		// add match
+		row.matches.ids = row.matches.ids || [];
+		row.matches.ids.push(profileName.id);
+	}
+	else {
+		row.matches = {};
+		// add match
+		row.matches.ids = row.matches.ids || [];
+		row.matches.ids.push(profileName.id);
+	}
+	// update real table
+	DbPage.add("users", row);
+	DbPage.save();
   }
 
 }
