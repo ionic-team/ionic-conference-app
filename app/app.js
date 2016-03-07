@@ -11,7 +11,13 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 @App({
   templateUrl: 'build/app.html',
   providers: [ConferenceData, UserData],
-  config: {}
+  config: {
+    platforms: {
+      android: {
+        tabbarLayout: 'icon-hide'
+      }
+    }
+  }
 })
 class ConferenceApp {
   static get parameters() {
