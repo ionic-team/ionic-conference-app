@@ -16,7 +16,13 @@ interface PageObj {
 @App({
   templateUrl: 'build/app.html',
   providers: [ConferenceData, UserData],
-  config: {}
+  config: {
+    platforms: {
+      android: {
+        tabbarLayout: 'icon-hide'
+      }
+    }
+  }
 })
 class ConferenceApp {
   // List of pages that can be navigated to from the left menu
