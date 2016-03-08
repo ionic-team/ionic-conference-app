@@ -17,15 +17,19 @@
     "zone.js": "0.5.14"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "0.15.10",
-    "del": "2.2.0",
-    "gulp": "3.9.1",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "2.2.0",
-    "gulp-watch": "4.3.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5",
+    "prettysize": "0.0.3",
     "strip-sourcemap-loader": "0.0.1",
+    "tsify": "^0.14.1",
     "typescript": "1.7.5",
-    "webpack": "1.12.14"
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
