@@ -123,7 +123,11 @@ gulp.task('clean', function(done) {
  function bundleTask(watch) {
    var b = browserify(
      ['./app/app.ts', './typings/main.d.ts'],
-     { cache: {}, packageCache: {} }
+     {
+       cache: {},
+       packageCache: {},
+       debug: true //set to false to disable sourcemaps
+     }
    )
    .plugin(tsify);
 
