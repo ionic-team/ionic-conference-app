@@ -29,7 +29,10 @@
     "tsify": "^0.14.1",
     "typescript": "1.7.5",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "vinyl-buffer" : "^1.0.0",
+    "watchify": "^3.7.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util" : "^3.0.7"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",

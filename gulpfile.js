@@ -13,7 +13,10 @@ var fs = require('fs'),
     gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    gutil = require('gulp-util'),
+    buffer = require('vinyl-buffer'),
+    sourcemaps = require('gulp-sourcemaps');
 
 
 var IONIC_DIR = "node_modules/ionic-angular/"
@@ -121,15 +124,16 @@ gulp.task('clean', function(done) {
  * and tsify.
  ******************************************************************************/
  function bundleTask(watch) {
-   var b = browserify(
-     ['./app/app.ts', './typings/main.d.ts'],
-     {
-       cache: {},
-       packageCache: {},
-       debug: true //set to false to disable sourcemaps
-     }
-   )
-   .plugin(tsify);
+     var b = browserify(
+       ['./app/app.ts', './typings/main.d.ts'],
+       {
+           cache: {},
+           packageCache: {},
+           debug: true //set to false to disable sourcemaps
+       }
+     )
+     .plugin(tsify, { noImplicitAny: false });
+     
 
    if (watch) {
      b = watchify(b);
@@ -144,7 +148,14 @@ gulp.task('clean', function(done) {
    function bundle() {
      return b.bundle()
        .on('error', function(err){ console.error(err.toString()); })
-       .pipe(fs.createWriteStream('www/build/js/app.bundle.js'));
-   }
+       //.pipe(fs.createWriteStream('www/build/js/app.bundle.js'));
+      .pipe(source('app.js'))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write('./', {
+          includeContent: true,
+          sourceRoot: '../../../'}))
+      .pipe(gulp.dest('./www/build/js'));
+    }
  }
 
