@@ -3,6 +3,7 @@
  * Be sure to run `npm install` for `gulp` and the following tasks to be
  * available from the command line. All tasks are run using `gulp taskName`.
  ******************************************************************************/
+var Promise = require('es6-promise').Promise
 var fs = require('fs'),
     browserify = require('browserify'),
     watchify = require('watchify'),

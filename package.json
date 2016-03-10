@@ -32,7 +32,8 @@
     "vinyl-buffer" : "^1.0.0",
     "watchify": "^3.7.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-util" : "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "es6-promise" : "^3.1.2"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
