@@ -65,7 +65,7 @@ gulp.task('sass', function(){
     cascade: false
   };
 
-  return gulp.src('app/theme/app.+(ios|md).scss')
+  return gulp.src('app/theme/app.+(ios|md|wp).scss')
     .pipe(sass({
       includePaths: [
         IONIC_DIR,
