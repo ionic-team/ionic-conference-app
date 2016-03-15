@@ -18,14 +18,15 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "0.15.10",
-    "del": "2.2.0",
+    "del": "1.1.1",
     "gulp": "3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "2.2.0",
     "gulp-watch": "4.3.5",
+    "ionic-gulp-fonts-copy": "^1.0.0",
+    "ionic-gulp-html-copy": "^1.0.0",
+    "ionic-gulp-sass-build": "^1.0.0",
+    "ionic-gulp-webpack-build": "^1.0.0",
     "strip-sourcemap-loader": "0.0.1",
-    "typescript": "1.8.7",
-    "webpack": "1.12.14"
+    "typescript": "1.8.7"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
