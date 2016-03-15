@@ -1,4 +1,4 @@
-var gulp = require('gulp');
+var gulp = require('gulp'),
     gulpWatch = require('gulp-watch'),
     del = require('del');
 
