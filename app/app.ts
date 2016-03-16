@@ -1,4 +1,5 @@
-import {App, IonicApp, Events} from 'ionic-angular';
+import {App, IonicApp, Events, Platform} from 'ionic-angular';
+import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -48,8 +49,14 @@ class ConferenceApp {
     private app: IonicApp,
     private events: Events,
     private userData: UserData,
+    platform: Platform,
     confData: ConferenceData
   ) {
+    // Call any initial plugins when ready
+    platform.ready().then(() => {
+      StatusBar.styleDefault();
+    });
+
     // load the conference data
     confData.load();
 
