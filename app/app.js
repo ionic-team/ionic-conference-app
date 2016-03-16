@@ -1,5 +1,5 @@
 import {App, IonicApp, Events, Platform} from 'ionic-angular';
-import {Inject} from 'angular2/core';
+import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -7,7 +7,6 @@ import {LoginPage} from './pages/login/login';
 import {SignupPage} from './pages/signup/signup';
 import {TutorialPage} from './pages/tutorial/tutorial';
 
-import {StatusBar} from 'ionic-native';
 
 @App({
   templateUrl: 'build/app.html',

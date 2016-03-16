@@ -1,5 +1,4 @@
 import {IonicApp, Page, Modal, Alert, NavController} from 'ionic-angular';
-import {Inject} from 'angular2/core';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';

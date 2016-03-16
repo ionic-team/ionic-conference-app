@@ -1,5 +1,4 @@
 import {Page, NavParams} from 'ionic-angular';
-import {Inject} from 'angular2/core';
 
 
 @Page({
