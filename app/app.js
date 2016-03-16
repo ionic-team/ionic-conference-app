@@ -1,4 +1,4 @@
-import {App, IonicApp, Events} from 'ionic-angular';
+import {App, IonicApp, Events, Platform} from 'ionic-angular';
 import {Inject} from 'angular2/core';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
@@ -7,6 +7,7 @@ import {LoginPage} from './pages/login/login';
 import {SignupPage} from './pages/signup/signup';
 import {TutorialPage} from './pages/tutorial/tutorial';
 
+import {StatusBar} from 'ionic-native';
 
 @App({
   templateUrl: 'build/app.html',
@@ -21,14 +22,21 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 })
 class ConferenceApp {
   static get parameters() {
-    return [[IonicApp], [Events], [ConferenceData], [UserData]]
+    return [
+      [IonicApp], [Events], [ConferenceData], [UserData], [Platform]
+    ]
   }
 
-  constructor(app, events, confData, userData) {
+  constructor(app, events, confData, userData, platform) {
     this.app = app;
     this.userData = userData;
     this.events = events;
     this.loggedIn = false;
+
+    // Call any initial plugins when ready
+    platform.ready().then(() => {
+      StatusBar.styleDefault();
+    });
 
     // load the conference data
     confData.load();
