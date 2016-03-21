@@ -8,3 +8,4 @@
 console.log('\nFrom ionic.config.js:');
 console.log('\nPlease update your version of the Ionic CLI:');
 console.log('    npm install -g ionic@beta\n');
+process.exit(1);
