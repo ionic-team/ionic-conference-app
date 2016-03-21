@@ -1,10 +1,47 @@
-// Ionic CLI is no longer responsible for building your web assets, and now
-// relies on gulp hooks instead. This file was used for exposing web build
-// configuration and is no longer necessary.
-// If this file is executed when running ionic commands, then an update to the
-// CLI is needed.
-//
-// If your version of the Ionic CLI is beta.21 or greater, you can delete this file.
-console.log('\nFrom ionic.config.js:');
-console.log('\nPlease update your version of the Ionic CLI:');
-console.log('    npm install -g ionic@beta\n');
+var path = require('path');
+
+
+module.exports = {
+  entry: [
+    path.normalize('es6-shim/es6-shim.min'),
+    'reflect-metadata',
+    path.normalize('zone.js/dist/zone-microtask'),
+    path.resolve('app/app.ts')
+  ],
+  output: {
+    path: path.resolve('www/build/js'),
+    filename: 'app.bundle.js',
+    pathinfo: false // show module paths in the bundle, handy for debugging
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript',
+        query: {
+          doTypeCheck: true,
+          resolveGlobs: false,
+          externals: ["typings/browser.d.ts"]
+        },
+        include: path.resolve('app'),
+        exclude: /node_modules/
+      },
+      {
+        test: /\.js$/,
+        include: path.resolve('node_modules/angular2'),
+        loader: 'strip-sourcemap'
+      }
+    ],
+    noParse: [
+      /es6-shim/,
+      /reflect-metadata/,
+      /zone\.js(\/|\\)dist(\/|\\)zone-microtask/
+    ]
+  },
+  resolve: {
+    alias: {
+      'angular2': path.resolve('node_modules/angular2')
+    },
+    extensions: ['', '.js', '.ts']
+  }
+};
