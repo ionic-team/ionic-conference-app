@@ -11,25 +11,21 @@
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
     "ionic-angular": "2.0.0-beta.3",
-    "ionic-native": "^1.0.12",
+    "ionic-native": "^1.1.0",
     "ionicons": "3.0.0-alpha.3",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.14"
   },
   "devDependencies": {
-    "babel-core": "6.5.2",
-    "babel-loader": "6.2.3",
-    "babel-plugin-transform-decorators-legacy": "1.3.4",
-    "babel-preset-es2015": "6.5.0",
     "del": "1.1.1",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
+    "ionic-gulp-browserify-es2015": "^1.0.0",
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
-    "ionic-gulp-webpack-build": "^1.0.0",
-    "strip-sourcemap-loader": "0.0.1"
+    "ionic-gulp-scripts-copy": "^1.0.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
