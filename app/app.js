@@ -1,3 +1,4 @@
+import 'es6-shim';
 import {App, IonicApp, Events, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
