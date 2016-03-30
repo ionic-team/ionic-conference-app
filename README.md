@@ -27,7 +27,7 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
-**Note:** Build slow? Update to `npm3`: `npm install -g npm`.
+**Note:** Build slow? Update to `npm3`: `npm install -g npm3`.
 
 
 
