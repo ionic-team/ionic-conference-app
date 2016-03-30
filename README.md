@@ -182,7 +182,7 @@ ionic-conference-app/
 ├── .gitignore                         * Example git ignore file
 ├── config.xml                         * Cordova configuration file
 ├── CONTRIBUTING.md                    * Information about contributing to this project
-├── ionic.config.js                    * Ionic configuration file
+├── ionic.config.json                  * Ionic configuration file
 ├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
 ├── README.md                          * This file
