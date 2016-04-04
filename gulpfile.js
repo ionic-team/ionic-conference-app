@@ -39,10 +39,10 @@ gulp.task('watch', ['sass', 'html', 'fonts', 'scripts'], function(){
 });
 
 gulp.task('build', ['sass', 'html', 'fonts', 'scripts'], buildBrowserify);
-gulp.task('sass', buildSass);
-gulp.task('html', copyHTML);
-gulp.task('fonts', copyFonts);
-gulp.task('scripts', copyScripts);
+gulp.task('sass', ['clean'], buildSass);
+gulp.task('html', ['clean'], copyHTML);
+gulp.task('fonts', ['clean'], copyFonts);
+gulp.task('scripts', ['clean'], copyScripts);
 gulp.task('clean', function(done){
   del('www/build', done);
 });
