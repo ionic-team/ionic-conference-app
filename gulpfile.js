@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     gulpWatch = require('gulp-watch'),
     del = require('del'),
+    runSequence = require('run-sequence'),
     argv = process.argv;
 
 /**
@@ -31,16 +32,28 @@ var copyHTML = require('ionic-gulp-html-copy');
 var copyFonts = require('ionic-gulp-fonts-copy');
 var copyScripts = require('ionic-gulp-scripts-copy');
 
-gulp.task('watch', ['sass', 'html', 'fonts', 'scripts'], function(){
-  gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
-  gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-  return buildBrowserify({ watch: true });
+gulp.task('watch', ['clean'], function(done){
+  runSequence(
+    ['sass', 'html', 'fonts', 'scripts'],
+    function(){
+      gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
+      gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+      buildBrowserify({ watch: true }).on('end', done);
+    }
+  );
 });
-gulp.task('build', ['sass', 'html', 'fonts', 'scripts'], buildBrowserify);
-gulp.task('sass', ['clean'], buildSass);
-gulp.task('html', ['clean'], copyHTML);
-gulp.task('fonts', ['clean'], copyFonts);
-gulp.task('scripts', ['clean'], copyScripts);
+gulp.task('build', ['clean'], function(done){
+  runSequence(
+    ['sass', 'html', 'fonts', 'scripts'],
+    function(){
+      buildBrowserify().on('end', done);
+    }
+  );
+});
+gulp.task('sass', buildSass);
+gulp.task('html', copyHTML);
+gulp.task('fonts', copyFonts);
+gulp.task('scripts', copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
