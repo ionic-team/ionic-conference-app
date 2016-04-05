@@ -18,7 +18,7 @@
     "zone.js": "0.5.14"
   },
   "devDependencies": {
-    "del": "1.1.1",
+    "del": "2.2.0",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
     "ionic-gulp-browserify-es2015": "^1.0.0",
