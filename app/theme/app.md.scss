@@ -11,7 +11,8 @@
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-$toolbar-md-background:                   map-get($colors, primary) !default;
+
+$toolbar-md-background:                   color($colors, primary) !default;
 $toolbar-md-text-color:                   #fff !default;
 $toolbar-md-active-color:                 #fff !default;
 $toolbar-md-inactive-color:               #fff !default;
