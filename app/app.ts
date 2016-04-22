@@ -1,4 +1,5 @@
-import {App, IonicApp, Events, Platform} from 'ionic-angular';
+import {ViewChild} from 'angular2/core';
+import {App, Events, Platform, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
@@ -20,6 +21,10 @@ interface PageObj {
   config: {}
 })
 class ConferenceApp {
+  // the root nav is a child of the root app component
+  // @ViewChild(Nav) gets a reference to the app's root nav
+  @ViewChild(Nav) nav: Nav;
+
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
   // the login page disables the left menu
@@ -40,7 +45,6 @@ class ConferenceApp {
   loggedIn = false;
 
   constructor(
-    private app: IonicApp,
     private events: Events,
     private userData: UserData,
     platform: Platform,
@@ -63,15 +67,14 @@ class ConferenceApp {
   }
 
   openPage(page: PageObj) {
-    // find the nav component and set what the root page should be
+    // the nav component was found using @ViewChild(Nav)
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
-    let nav = this.app.getComponent('nav');
-
     if (page.index) {
-      nav.setRoot(page.component, {tabIndex: page.index});
+      this.nav.setRoot(page.component, {tabIndex: page.index});
+
     } else {
-      nav.setRoot(page.component);
+      this.nav.setRoot(page.component);
     }
 
     if (page.title === 'Logout') {
