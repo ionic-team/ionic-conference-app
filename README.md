@@ -27,7 +27,7 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
-**Note:** Build slow? Update to `npm3`: `npm install -g npm`.
+**Note:** Build slow? Update to `npm3`: `npm install -g npm3`.
 
 
 
@@ -182,7 +182,7 @@ ionic-conference-app/
 ├── .gitignore                         * Example git ignore file
 ├── config.xml                         * Cordova configuration file
 ├── CONTRIBUTING.md                    * Information about contributing to this project
-├── ionic.config.js                    * Ionic configuration file
+├── ionic.config.json                  * Ionic configuration file
 ├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
 ├── README.md                          * This file
