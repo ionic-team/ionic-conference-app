@@ -49,8 +49,12 @@ gulp.task('build', ['clean'], function(done){
     ['sass', 'html', 'fonts', 'scripts'],
     function(){
       buildBrowserify({
+        minify: isRelease,
         browserifyOptions: {
           debug: !isRelease
+        },
+        uglifyOptions: {
+          mangle: false
         }
       }).on('end', done);
     }
