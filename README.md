@@ -21,14 +21,13 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 ## Getting Started
 
 * Clone this repository.
-* Want to use TypeScript? Check out the `typescript` branch: `git checkout typescript` 
+* Want to use TypeScript? Check out the `typescript` branch: `git checkout typescript`
 * Run `npm install` from the project root.
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
-**Note:** Build slow? Update to `npm3`: `npm install -g npm`.
-
+**Note:** Build slow? Update `npm` to 3.x: `npm install -g npm`.
 
 
 ## Contributing
