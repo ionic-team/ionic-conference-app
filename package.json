@@ -18,7 +18,7 @@
     "del": "2.2.0",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
-    "ionic-gulp-browserify-es2015": "^1.0.2",
+    "ionic-gulp-browserify-es2015": "^1.1.0",
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
