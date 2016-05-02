@@ -56,7 +56,6 @@ npm run e2e
 ```
 
 **Note:** Build slow? Update `npm` to 3.x: `npm install -g npm`.
->>>>>>> upstream/typescript
 
 ## Contributing
 See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) :tada::+1:
