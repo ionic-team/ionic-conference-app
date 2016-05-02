@@ -1,6 +1,6 @@
 
 .reset-filters {
-  color: map-get($colors, danger);
+  color: color($colors, danger);
 }
 
 @each $track, $value in auxiliary-categories() {
