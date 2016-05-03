@@ -11,10 +11,10 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 ## Table of Contents
  - [Getting Started](#getting-started)
  - [Contributing](#contributing)
+ - [Use Cases](#use-cases)
  - [App Preview](#app-preview)
   - [iPhone 6](#iphone-6)
   - [Nexus 5](#nexus-5)
- - [Use Cases](#use-cases)
  - [File Structure of App](#file-structure-of-app)
 
 
