@@ -68,6 +68,3 @@ gulp.task('scripts', copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
-
-
-
