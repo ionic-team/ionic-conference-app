@@ -7,9 +7,9 @@
     "url": "https://github.com/driftyco/ionic-conference-app.git"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.15",
+    "angular2": "2.0.0-beta.16",
     "es6-shim": "^0.35.0",
-    "ionic-angular": "2.0.0-beta.6",
+    "ionic-angular": "2.0.0-beta.6-201605131639",
     "ionic-native": "^1.1.0",
     "ionicons": "3.0.0",
     "rxjs": "5.0.0-beta.2"
