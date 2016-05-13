@@ -1,4 +1,5 @@
-import {App, IonicApp, Events, Platform} from 'ionic-angular';
+import {ViewChild} from 'angular2/core';
+import {App, IonicApp, Events, Platform, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
@@ -15,21 +16,27 @@ import {TutorialPage} from './pages/tutorial/tutorial';
   // more ways to configure your app:
   // http://ionicframework.com/docs/v2/api/config/Config/
   config: {
-
+    // Place the tabs on the bottom for all platforms
+    // See the theming docs for the default values:
+    // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
+    tabbarPlacement: "bottom"
+  },
+  queries: {
+    nav: new ViewChild('content')
   }
 })
 class ConferenceApp {
   static get parameters() {
     return [
-      [IonicApp], [Events], [ConferenceData], [UserData], [Platform]
+      [IonicApp], [Events], [ConferenceData], [UserData], [Platform], [MenuController]
     ]
   }
 
-  constructor(app, events, confData, userData, platform) {
+  constructor(app, events, confData, userData, platform, menu) {
     this.app = app;
     this.userData = userData;
     this.events = events;
-    this.loggedIn = false;
+    this.menu = menu;
 
     // Call any initial plugins when ready
     platform.ready().then(() => {
@@ -63,7 +70,7 @@ class ConferenceApp {
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.loggedIn = (hasLoggedIn == 'true');
+      this.enableMenu(hasLoggedIn == 'true');
     });
 
     this.listenToLoginEvents();
@@ -73,12 +80,10 @@ class ConferenceApp {
     // find the nav component and set what the root page should be
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
-    let nav = this.app.getComponent('nav');
-
     if (page.index) {
-      nav.setRoot(page.component, {tabIndex: page.index});
+      this.nav.setRoot(page.component, {tabIndex: page.index});
     } else {
-      nav.setRoot(page.component);
+      this.nav.setRoot(page.component);
     }
 
     if (page.title === 'Logout') {
@@ -91,15 +96,20 @@ class ConferenceApp {
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
-      this.loggedIn = true;
+      this.enableMenu(true);
     });
 
     this.events.subscribe('user:signup', () => {
-      this.loggedIn = true;
+      this.enableMenu(true);
     });
 
     this.events.subscribe('user:logout', () => {
-      this.loggedIn = false;
+      this.enableMenu(false);
     });
+  }
+
+  enableMenu(loggedIn) {
+    this.menu.enable(loggedIn, "loggedInMenu");
+    this.menu.enable(!loggedIn, "loggedOutMenu");
   }
 }

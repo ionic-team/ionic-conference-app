@@ -1,6 +1,6 @@
 
-<!-- left menu -->
-<ion-menu [content]="content">
+<!-- logged out menu -->
+<ion-menu id="loggedOutMenu" [content]="content">
 
   <ion-toolbar>
     <ion-title>Menu</ion-title>
@@ -18,17 +18,7 @@
       </button>
     </ion-list>
 
-    <ion-list *ngIf="loggedIn">
-      <ion-list-header>
-        Account
-      </ion-list-header>
-      <button ion-item menuClose *ngFor="#p of loggedInPages" (click)="openPage(p)">
-        <ion-icon item-left [name]="p.icon"></ion-icon>
-        {{p.title}}
-      </button>
-    </ion-list>
-
-    <ion-list *ngIf="!loggedIn">
+    <ion-list>
       <ion-list-header>
         Account
       </ion-list-header>
@@ -41,6 +31,39 @@
 
 </ion-menu>
 
+<!-- logged in menu -->
+<ion-menu id="loggedInMenu" [content]="content">
+
+  <ion-toolbar>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+
+  <ion-content class="outer-content">
+
+    <ion-list>
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="#p of appPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="#p of loggedInPages" (click)="openPage(p)">
+        <ion-icon item-left [name]="p.icon"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
 
 <!-- main navigation -->
-<ion-nav id="nav" [root]="root" #content swipe-back-enabled="false"></ion-nav>
+<ion-nav [root]="root" #content swipe-back-enabled="false"></ion-nav>
