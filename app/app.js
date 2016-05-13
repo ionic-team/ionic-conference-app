@@ -11,7 +11,12 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 @App({
   templateUrl: 'build/app.html',
   providers: [ConferenceData, UserData],
-  config: {}
+  // Set any config for your app here, see the docs for
+  // more ways to configure your app:
+  // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {
+
+  }
 })
 class ConferenceApp {
   static get parameters() {
