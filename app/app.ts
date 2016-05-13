@@ -1,5 +1,5 @@
 import {ViewChild} from 'angular2/core';
-import {App, Events, Platform, Nav} from 'ionic-angular';
+import {App, Events, Platform, Nav, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
@@ -22,7 +22,10 @@ interface PageObj {
   // more ways to configure your app:
   // http://ionicframework.com/docs/v2/api/config/Config/
   config: {
-
+    // Place the tabs on the bottom for all platforms
+    // See the theming docs for the default values:
+    // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
+    tabbarPlacement: "bottom"
   }
 })
 class ConferenceApp {
@@ -47,11 +50,11 @@ class ConferenceApp {
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
   rootPage: any = TutorialPage;
-  loggedIn = false;
 
   constructor(
     private events: Events,
     private userData: UserData,
+    private menu: MenuController,
     platform: Platform,
     confData: ConferenceData
   ) {
@@ -65,7 +68,7 @@ class ConferenceApp {
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.loggedIn = (hasLoggedIn == 'true');
+      this.enableMenu(hasLoggedIn == 'true');
     });
 
     this.listenToLoginEvents();
@@ -92,15 +95,20 @@ class ConferenceApp {
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
-      this.loggedIn = true;
+      this.enableMenu(true);
     });
 
     this.events.subscribe('user:signup', () => {
-      this.loggedIn = true;
+      this.enableMenu(true);
     });
 
     this.events.subscribe('user:logout', () => {
-      this.loggedIn = false;
+      this.enableMenu(false);
     });
+  }
+
+  enableMenu(loggedIn) {
+    this.menu.enable(loggedIn, "loggedInMenu");
+    this.menu.enable(!loggedIn, "loggedOutMenu");
   }
 }
