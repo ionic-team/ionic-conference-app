@@ -12,14 +12,19 @@
 // Material Design only Sass variables can go here
 
 // Use the primary color as the background for the toolbar-md-background
-$toolbar-md-background:                   color($colors, primary) !default;
+$toolbar-md-background:                   color($colors, primary);
+
+// Use the default background for the tabbar since it inherits from toolbar
+$tabbar-md-background:                    #f8f8f8;
 
 // Change the color of the tabs text
-$toolbar-md-active-color:                 #fff !default;
-$toolbar-md-inactive-color:               #fff !default;
+$tab-button-md-active-color:              color($colors, primary);
+$tab-button-md-inactive-color:            #8c8c8c;
 
-// Change the color of the segment button when activated
-$segment-button-md-text-color-activated:  #fff !default;
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
+$toolbar-md-inactive-color:               #fff;
+$segment-button-md-text-color-activated:  #fff;
 
 // Ionic Material Design Sass
 // --------------------------------------------------
