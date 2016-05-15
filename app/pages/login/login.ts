@@ -17,7 +17,7 @@ export class LoginPage {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login();
+      this.userData.login(this.login.username);
       this.nav.push(TabsPage);
     }
   }

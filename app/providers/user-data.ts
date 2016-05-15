@@ -25,19 +25,32 @@ export class UserData {
     }
   }
 
-  login() {
-    //this.storage.set(this.HAS_LOGGED_IN, true);
+  login(username) {
+    this.storage.set(this.HAS_LOGGED_IN, true);
+    this.setUsername(username);
     this.events.publish('user:login');
   }
 
-  signup() {
-    //this.storage.set(this.HAS_LOGGED_IN, true);
+  signup(username) {
+    this.storage.set(this.HAS_LOGGED_IN, true);
+    this.setUsername(username);
     this.events.publish('user:signup');
   }
 
   logout() {
-    //this.storage.remove(this.HAS_LOGGED_IN);
+    this.storage.remove(this.HAS_LOGGED_IN);
+    this.storage.remove("username");
     this.events.publish('user:logout');
+  }
+
+  setUsername(username) {
+    this.storage.set("username", username);
+  }
+
+  getUsername() {
+    return this.storage.get("username").then((value) => {
+      return value;
+    });
   }
 
   // return a promise
