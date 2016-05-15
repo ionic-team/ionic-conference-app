@@ -1,6 +1,6 @@
 import {ViewChild} from 'angular2/core';
 import {App, Events, Platform, Nav, MenuController} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
+import {StatusBar, Splashscreen} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -61,6 +61,7 @@ class ConferenceApp {
     // Call any initial plugins when ready
     platform.ready().then(() => {
       StatusBar.styleDefault();
+      Splashscreen.hide();
     });
 
     // load the conference data
