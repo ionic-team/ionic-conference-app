@@ -1,6 +1,6 @@
 import {ViewChild} from 'angular2/core';
-import {App, IonicApp, Events, Platform, MenuController} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
+import {App, Events, Platform, MenuController} from 'ionic-angular';
+import {StatusBar, Splashscreen} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
 import {TabsPage} from './pages/tabs/tabs';
@@ -28,12 +28,11 @@ import {TutorialPage} from './pages/tutorial/tutorial';
 class ConferenceApp {
   static get parameters() {
     return [
-      [IonicApp], [Events], [ConferenceData], [UserData], [Platform], [MenuController]
+      [Events], [ConferenceData], [UserData], [Platform], [MenuController]
     ]
   }
 
-  constructor(app, events, confData, userData, platform, menu) {
-    this.app = app;
+  constructor(events, confData, userData, platform, menu) {
     this.userData = userData;
     this.events = events;
     this.menu = menu;
@@ -41,6 +40,7 @@ class ConferenceApp {
     // Call any initial plugins when ready
     platform.ready().then(() => {
       StatusBar.styleDefault();
+      Splashscreen.hide();
     });
 
     // load the conference data
