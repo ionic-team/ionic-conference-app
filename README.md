@@ -25,6 +25,36 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
+## Install & Start like a pro
+
+```bash
+git clone https://github.com/driftyco/ionic-conference-app.git
+cd ionic-conference-app
+npm install       # or `npm run reinstall` if you get an error
+npm start         # start the application (ionic serve)
+```
+
+## Run Unit Tests
+```bash
+npm test          # run unit tests
+```
+
+## Debug Unit tests
+```bash
+npm run test.watch   # in one window - build all the tests and start watching for changes
+npm run karma        # start karma in debug mode: mutli run Chrome, hit `debug` to get going
+```
+
+## Run E2E
+```
+# e2e (aka. end-to-end, integration) - In three different shell windows
+# Make sure you don't have a global instance of Protractor
+
+npm run webdriver-update #<- You will need to run this the first time
+npm start
+npm run e2e
+```
+
 **Note:** Build slow? Update `npm` to 3.x: `npm install -g npm`.
 
 ## Contributing
