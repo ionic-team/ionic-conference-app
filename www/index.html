@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic Conference</title>
@@ -8,7 +9,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
+
   <!--manifest.json-->
   <link rel="manifest" href="manifest.json">
 
@@ -16,7 +17,20 @@
   <link ios-href="build/css/app.ios.css" rel="stylesheet">
   <link md-href="build/css/app.md.css" rel="stylesheet">
   <link wp-href="build/css/app.wp.css" rel="stylesheet">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then((registration) => {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch((err) => {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+      });
+    }
+  </script>
 </head>
+
 <body>
 
   <!-- <ion-app> is where the app's HTML loads -->
@@ -34,4 +48,5 @@
   <!-- google maps script is loaded last as to not block rendering -->
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </body>
+
 </html>

@@ -1,0 +1,36 @@
+
+<ion-toolbar>
+  <ion-buttons start>
+    <button (click)="dismiss()">Cancel</button>
+  </ion-buttons>
+
+  <ion-title>
+    Filter Sessions
+  </ion-title>
+
+  <ion-buttons end>
+    <button (click)="applyFilters()">Done</button>
+  </ion-buttons>
+</ion-toolbar>
+
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-list-header>Tracks</ion-list-header>
+
+    <ion-item *ngFor="#track of tracks" [attr.track]="track.name | lowercase">
+      <span item-left class="dot"></span>
+      <ion-label>{{track.name}}</ion-label>
+      <ion-toggle [(ngModel)]="track.isChecked" secondary></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <button ion-item (click)="resetFilters()" danger detail-none class="reset-filters">
+      Reset All Filters
+    </button>
+  </ion-list>
+
+</ion-content>
