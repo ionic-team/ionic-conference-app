@@ -17,7 +17,7 @@ export class AccountPage {
   }
 
   updatePicture() {
-    console.log("Clicked to update picture");
+    console.log('Clicked to update picture');
   }
 
   // Present an alert with the current username populated
@@ -25,9 +25,9 @@ export class AccountPage {
   // clicking Cancel will close the alert and do nothing
   changeUsername() {
     let alert = Alert.create({
-      title: "Change Username",
+      title: 'Change Username',
       buttons: [
-        "Cancel"
+        'Cancel'
       ]
     });
     alert.addInput({
@@ -53,7 +53,7 @@ export class AccountPage {
   }
 
   changePassword() {
-    console.log("Clicked to change password");
+    console.log('Clicked to change password');
   }
 
   logout() {

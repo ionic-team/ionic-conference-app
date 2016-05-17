@@ -19,7 +19,7 @@ export class UserData {
   }
 
   removeFavorite(sessionName) {
-    let index = this._favorites.indexOf(sessionName)
+    let index = this._favorites.indexOf(sessionName);
     if (index > -1) {
       this._favorites.splice(index, 1);
     }
@@ -39,16 +39,16 @@ export class UserData {
 
   logout() {
     this.storage.remove(this.HAS_LOGGED_IN);
-    this.storage.remove("username");
+    this.storage.remove('username');
     this.events.publish('user:logout');
   }
 
   setUsername(username) {
-    this.storage.set("username", username);
+    this.storage.set('username', username);
   }
 
   getUsername() {
-    return this.storage.get("username").then((value) => {
+    return this.storage.get('username').then((value) => {
       return value;
     });
   }

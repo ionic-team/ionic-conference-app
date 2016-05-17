@@ -26,7 +26,7 @@ interface PageObj {
     // Place the tabs on the bottom for all platforms
     // See the theming docs for the default values:
     // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
-    tabbarPlacement: "bottom"
+    tabbarPlacement: 'bottom'
   }
 })
 class ConferenceApp {
@@ -71,7 +71,7 @@ class ConferenceApp {
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.enableMenu(hasLoggedIn == 'true');
+      this.enableMenu(hasLoggedIn === 'true');
     });
 
     this.listenToLoginEvents();
@@ -111,7 +111,7 @@ class ConferenceApp {
   }
 
   enableMenu(loggedIn) {
-    this.menu.enable(loggedIn, "loggedInMenu");
-    this.menu.enable(!loggedIn, "loggedOutMenu");
+    this.menu.enable(loggedIn, 'loggedInMenu');
+    this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 }
