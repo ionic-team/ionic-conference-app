@@ -26,7 +26,7 @@ interface PageObj {
     // Place the tabs on the bottom for all platforms
     // See the theming docs for the default values:
     // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
-    tabbarPlacement: "bottom"
+    tabbarPlacement: 'bottom'
   }
 })
 class ConferenceApp {
@@ -111,7 +111,7 @@ class ConferenceApp {
   }
 
   enableMenu(loggedIn) {
-    this.menu.enable(loggedIn, "loggedInMenu");
-    this.menu.enable(!loggedIn, "loggedOutMenu");
+    this.menu.enable(loggedIn, 'loggedInMenu');
+    this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 }
