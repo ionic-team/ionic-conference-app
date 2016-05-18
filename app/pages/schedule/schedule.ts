@@ -1,4 +1,4 @@
-import {ViewChild} from 'angular2/core';
+import {ViewChild} from '@angular/core';
 import {IonicApp, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
