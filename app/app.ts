@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-import 'zone.js/dist/zone';
 import {ViewChild} from '@angular/core';
 import {App, Events, Platform, Nav, MenuController} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
