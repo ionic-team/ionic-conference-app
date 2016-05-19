@@ -13,18 +13,22 @@
   <div padding class="about-info">
     <h4>Ionic Conference</h4>
 
-    <div>
-      <ion-icon name="calendar"></ion-icon>
-      05/17/2047
-    </div>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="conferenceDate"></ion-datetime>
+      </ion-item>
 
-    <div>
-      <ion-icon name="pin"></ion-icon>
-      Madison, WI
-    </div>
+      <ion-item>
+        <ion-icon name="pin" item-left></ion-icon>
+        <ion-label>Location</ion-label>
+        <ion-label text-right>Madison, WI</ion-label>
+      </ion-item>
+    </ion-list>
 
     <p>
-      Ionic Conference is a one-day conference featuring talks from the
+      The Ionic Conference is a one-day conference featuring talks from the
       Ionic team. It is focused on Ionic applications being built with
       Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2,
       Angular concepts, Webpack, Sass, and many other technologies used
