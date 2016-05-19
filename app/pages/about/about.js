@@ -5,5 +5,7 @@ import {Page} from 'ionic-angular';
   templateUrl: 'build/pages/about/about.html'
 })
 export class AboutPage {
-  conferenceDate = '2047-05-17';
+  constructor() {
+    this.conferenceDate = '2047-05-17';
+  }
 }
