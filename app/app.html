@@ -12,7 +12,7 @@
       <ion-list-header>
         Navigate
       </ion-list-header>
-      <button ion-item menuClose *ngFor="#p of appPages" (click)="openPage(p)">
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
@@ -22,7 +22,7 @@
       <ion-list-header>
         Account
       </ion-list-header>
-      <button ion-item menuClose *ngFor="#p of loggedOutPages" (click)="openPage(p)">
+      <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
@@ -44,7 +44,7 @@
       <ion-list-header>
         Navigate
       </ion-list-header>
-      <button ion-item menuClose *ngFor="#p of appPages" (click)="openPage(p)">
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
@@ -54,7 +54,7 @@
       <ion-list-header>
         Account
       </ion-list-header>
-      <button ion-item menuClose *ngFor="#p of loggedInPages" (click)="openPage(p)">
+      <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
         <ion-icon item-left [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>

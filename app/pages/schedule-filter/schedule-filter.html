@@ -19,7 +19,7 @@
   <ion-list>
     <ion-list-header>Tracks</ion-list-header>
 
-    <ion-item *ngFor="#track of tracks" [attr.track]="track.name | lowercase">
+    <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
       <span item-left class="dot"></span>
       <ion-label>{{track.name}}</ion-label>
       <ion-toggle [(ngModel)]="track.isChecked" secondary></ion-toggle>
