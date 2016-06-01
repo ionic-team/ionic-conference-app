@@ -1,4 +1,5 @@
-import {Page, NavController, MenuController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, MenuController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
@@ -9,7 +10,7 @@ interface Slide {
   image: string;
 }
 
-@Page({
+@Component({
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {

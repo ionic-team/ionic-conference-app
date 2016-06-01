@@ -1,12 +1,12 @@
-import {ViewChild} from '@angular/core';
-import {IonicApp, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {App, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
@@ -24,7 +24,7 @@ export class SchedulePage {
   groups = [];
 
   constructor(
-    private app: IonicApp,
+    private app: App,
     private nav: NavController,
     private confData: ConferenceData,
     private user: UserData

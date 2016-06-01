@@ -1,5 +1,5 @@
-import {ViewChild} from '@angular/core';
-import {App, Events, Platform, Nav, MenuController} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {ionicBootstrap, Events, Platform, Nav, MenuController} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import {ConferenceData} from './providers/conference-data';
 import {UserData} from './providers/user-data';
@@ -16,18 +16,8 @@ interface PageObj {
   index?: number;
 }
 
-@App({
-  templateUrl: 'build/app.html',
-  providers: [ConferenceData, UserData],
-  // Set any config for your app here, see the docs for
-  // more ways to configure your app:
-  // http://ionicframework.com/docs/v2/api/config/Config/
-  config: {
-    // Place the tabs on the bottom for all platforms
-    // See the theming docs for the default values:
-    // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
-    tabbarPlacement: 'bottom'
-  }
+@Component({
+  templateUrl: 'build/app.html'
 })
 class ConferenceApp {
   // the root nav is a child of the root app component
@@ -115,3 +105,17 @@ class ConferenceApp {
     this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 }
+
+
+// Pass the main App component as the first argument
+// Pass any providers for your app in the second argument
+// Set any config for your app as the third argument, see the docs for
+// more ways to configure your app:
+// http://ionicframework.com/docs/v2/api/config/Config/
+// Place the tabs on the bottom for all platforms
+// See the theming docs for the default values:
+// http://ionicframework.com/docs/v2/theming/platform-specific-styles/
+
+ionicBootstrap(ConferenceApp, [ConferenceData, UserData], {
+  tabbarPlacement: 'bottom'
+});

@@ -1,6 +1,7 @@
-import {Page, NavController, ViewController, Popover, Platform} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, ViewController, Popover, Platform} from 'ionic-angular';
 
-@Page({
+@Component({
   template: `
     <ion-list [attr.no-lines]="!isIos">
       <button ion-item (click)="close()">Learn Ionic</button>
@@ -23,7 +24,7 @@ class PopoverPage {
 }
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/about/about.html'
 })
 export class AboutPage {
