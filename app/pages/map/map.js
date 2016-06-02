@@ -1,8 +1,8 @@
-import {Page} from 'ionic-angular';
+import {Component} from '@angular/core';
 import {ConferenceData} from '../../providers/conference-data';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/map/map.html'
 })
 export class MapPage {
@@ -14,7 +14,7 @@ export class MapPage {
     this.confData = confData;
   }
 
-  onPageLoaded() {
+  ionViewLoaded() {
     this.confData.getMap().then(mapData => {
       let mapEle = document.getElementById('map');
 

@@ -1,10 +1,11 @@
+import {Component} from '@angular/core';
 import {NavController, Page, ActionSheet} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/speaker-list/speaker-list.html'
 })
 export class SpeakerListPage {
