@@ -32,7 +32,7 @@ export class SchedulePage {
 
   }
 
-  onPageDidEnter() {
+  ionViewDidEnter() {
     this.app.setTitle('Schedule');
   }
 

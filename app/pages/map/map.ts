@@ -8,7 +8,7 @@ import {ConferenceData} from '../../providers/conference-data';
 export class MapPage {
   constructor(private confData: ConferenceData) {}
 
-  onPageLoaded() {
+  ionViewLoaded() {
     this.confData.getMap().then(mapData => {
       let mapEle = document.getElementById('map');
 
