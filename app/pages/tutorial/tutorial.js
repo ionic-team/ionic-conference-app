@@ -40,7 +40,7 @@ export class TutorialPage {
     this.nav.push(TabsPage);
   }
 
-  onionWillChange(slider) {
+  onSlideChangeStart(slider) {
     this.showSkip = !slider.isEnd;
   }
 
