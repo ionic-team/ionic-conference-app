@@ -66,13 +66,17 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="orientation" value="portrait" />
     <preference name="SplashScreenDelay" value="10000" />
-    <preference name="FadeSplashScreen" value="true"/>
-    <preference name="FadeSplashScreenDuration" value="750"/>
-    <preference name="ShowSplashScreenSpinner" value="false"/>
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="750" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <plugin name="cordova-plugin-whitelist" spec="~1.0.0" />
     <plugin name="cordova-plugin-splashscreen" spec="https://github.com/apache/cordova-plugin-splashscreen.git" />
+    <preference name="xwalkVersion" value="18+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
 </widget>
