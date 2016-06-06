@@ -1,9 +1,10 @@
-import {Page, NavController, MenuController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, MenuController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/tutorial/tutorial.html'
 })
 export class TutorialPage {
@@ -43,12 +44,12 @@ export class TutorialPage {
     this.showSkip = !slider.isEnd;
   }
 
-  onPageDidEnter() {
+  ionViewDidEnter() {
     // the left menu should be disabled on the tutorial page
     this.menu.enable(false);
   }
 
-  onPageDidLeave() {
+  ionViewDidLeave() {
     // enable the left menu when leaving the tutorial page
     this.menu.enable(true);
   }

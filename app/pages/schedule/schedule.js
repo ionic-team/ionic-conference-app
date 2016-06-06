@@ -1,16 +1,17 @@
-import {IonicApp, Page, Modal, Alert, NavController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {App, Page, Modal, Alert, NavController} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 import {SessionDetailPage} from '../session-detail/session-detail';
 
 
-@Page({
+@Component({
   templateUrl: 'build/pages/schedule/schedule.html'
 })
 export class SchedulePage {
   static get parameters() {
-    return [[IonicApp], [NavController], [ConferenceData], [UserData]];
+    return [[App], [NavController], [ConferenceData], [UserData]];
   }
 
   constructor(app, nav, confData, user) {
@@ -31,7 +32,7 @@ export class SchedulePage {
     this.updateSchedule();
   }
 
-  onPageDidEnter() {
+  ionViewDidEnter() {
     this.app.setTitle('Schedule');
   }
 
