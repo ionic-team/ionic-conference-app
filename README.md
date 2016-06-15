@@ -12,8 +12,6 @@ This is purely a demo of Ionic 2 with TypeScript. It is still in development.
  - [Contributing](#contributing)
  - [Use Cases](#use-cases)
  - [App Preview](#app-preview)
-  - [iPhone 6](#iphone-6)
-  - [Nexus 5](#nexus-5)
  - [File Structure of App](#file-structure-of-app)
 
 
@@ -36,18 +34,21 @@ See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/mast
 ## Use Cases
 
 * Action Sheet - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.ts) ]
+* Alert - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 * Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html) ]
+* Datetime - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/about/about.html) ]
 * Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/login/login.html) ]
+* Inputs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/login/login.html) ]
+* Items (Sliding) - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 * Menu - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.html) |
 [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.ts) ]
-* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
-* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
-* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Modal - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Searchbar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Segment - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 * Slides - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.html) |
-* Sliding Items - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 * Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) ]
 * Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.ts) ]
-* Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) ]
+* Toggle - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) ]
 [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.ts) ]
 * Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/providers/conference-data.ts) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 
