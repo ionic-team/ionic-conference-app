@@ -8,25 +8,16 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/signup/signup.html'
 })
 export class SignupPage {
-  static get parameters() {
-    return [[NavController], [UserData]];
-  }
+  signup: {username?: string, password?: string} = {};
+  submitted = false;
 
-  constructor(nav, userData) {
-    this.nav = nav;
-    this.userData = userData;
-
-    this.signup = {};
-    this.submitted = false;
-  }
+  constructor(private nav: NavController, private userData: UserData) {}
 
   onSignup(form) {
     this.submitted = true;
 
-    console.log(form);
-
     if (form.valid) {
-      this.userData.signup();
+      this.userData.signup(this.signup.username);
       this.nav.push(TabsPage);
     }
   }

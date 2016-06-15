@@ -10,17 +10,14 @@ import {AboutPage} from '../about/about';
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  static get parameters() {
-    return [[NavParams]];
-  }
+  // set the root pages for each tab
+  tab1Root: any = SchedulePage;
+  tab2Root: any = SpeakerListPage;
+  tab3Root: any = MapPage;
+  tab4Root: any = AboutPage;
+  mySelectedIndex: number;
 
-  constructor(navParams) {
+  constructor(navParams: NavParams) {
     this.mySelectedIndex = navParams.data.tabIndex || 0;
-
-    // set the root pages for each tab
-    this.tab1Root = SchedulePage;
-    this.tab2Root = SpeakerListPage;
-    this.tab3Root = MapPage;
-    this.tab4Root = AboutPage;
   }
 }

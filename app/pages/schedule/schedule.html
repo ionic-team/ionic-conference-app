@@ -28,7 +28,7 @@
 </ion-toolbar>
 
 <ion-content class="schedule">
-  <ion-list [hidden]="shownSessions === 0">
+  <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
 
@@ -50,6 +50,9 @@
         <ion-item-options>
           <button favorite (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
             Favorite
+          </button>
+          <button danger (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
+            Remove
           </button>
         </ion-item-options>
 

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {App, Page, NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 import {UserData} from '../../providers/user-data';
@@ -9,23 +9,16 @@ import {UserData} from '../../providers/user-data';
   templateUrl: 'build/pages/login/login.html'
 })
 export class LoginPage {
-  static get parameters() {
-    return [[NavController], [UserData]];
-  }
+  login: {username?: string, password?: string} = {};
+  submitted = false;
 
-  constructor(nav, userData) {
-    this.nav = nav;
-    this.userData = userData;
-
-    this.login = {};
-    this.submitted = false;
-  }
+  constructor(private nav: NavController, private userData: UserData) {}
 
   onLogin(form) {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.login();
+      this.userData.login(this.login.username);
       this.nav.push(TabsPage);
     }
   }

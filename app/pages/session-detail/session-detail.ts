@@ -6,12 +6,9 @@ import {NavParams} from 'ionic-angular';
   templateUrl: 'build/pages/session-detail/session-detail.html'
 })
 export class SessionDetailPage {
-  static get parameters() {
-    return [[NavParams]];
-  }
+  session: any;
 
-  constructor(navParams) {
-    this.navParams = navParams;
+  constructor(private navParams: NavParams) {
     this.session = navParams.data;
   }
 }

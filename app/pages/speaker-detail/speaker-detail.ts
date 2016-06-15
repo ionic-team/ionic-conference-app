@@ -7,13 +7,9 @@ import {SessionDetailPage} from '../session-detail/session-detail';
   templateUrl: 'build/pages/speaker-detail/speaker-detail.html'
 })
 export class SpeakerDetailPage {
-  static get parameters() {
-    return [[NavController], [NavParams]];
-  }
+  speaker: any;
 
-  constructor(nav, navParams) {
-    this.nav = nav;
-    this.navParams = navParams;
+  constructor(private nav: NavController, private navParams: NavParams) {
     this.speaker = this.navParams.data;
   }
 

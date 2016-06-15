@@ -1,6 +1,11 @@
 // http://ionicframework.com/docs/v2/theming/
 
 
+// App Shared Sass
+// --------------------------------------------------
+// CSS that should apply to the app for every mode
+
+
 // App Shared Imports
 // --------------------------------------------------
 // These are the various page imports which make up this app.
@@ -9,7 +14,7 @@
 
 @import "../pages/about/about";
 
-@import "../pages/tutorial/tutorial";
+@import "../pages/account/account";
 
 @import "../pages/login/login";
 
@@ -22,3 +27,5 @@
 @import "../pages/speaker-detail/speaker-detail";
 
 @import "../pages/speaker-list/speaker-list";
+
+@import "../pages/tutorial/tutorial";
