@@ -1,11 +1,10 @@
 # Ionic 2 Conference Application
 
-This is purely a demo of Ionic 2. It is still in development.
+This is purely a demo of Ionic 2 with TypeScript. It is still in development.
 
 
 ## Important!
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic v2.0 components in a real-world application.
-Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
+**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic 2 components in a real-world application. Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
 
 
 ## Table of Contents
@@ -21,13 +20,13 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 ## Getting Started
 
 * Clone this repository.
-* Want to use TypeScript? Check out the `typescript` branch: `git checkout typescript`
+* Want to use TypeScript? Both the `master` branch and the `typescript` branch now use TypeScript.
 * Run `npm install` from the project root.
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
-**Note:** Build slow? Update `npm` to 3.x: `npm install -g npm`.
+**Note:** Is your build slow? Update `npm` to 3.x: `npm install -g npm`.
 
 
 ## Contributing
@@ -36,29 +35,27 @@ See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/mast
 
 ## Use Cases
 
-* Menu - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.html#L3-L21) |
-[code](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.js#L27-L32) ]
-* Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.js) ]
-* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html#L6-L13) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.js#L24) ]
-* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html#L24-L29) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.js#L36-L41) ]
-* Sliding items with buttons - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html#L38-L55) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.js#L60-L90) ]
-* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.js#L43-L52) ]
-* Action Sheet - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html#L32) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.js#L34-L55) ]
-* Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html#L22-L25) ]
-* Slides - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.html#L2-L14) |
-[code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.js#L14-L39) ]
-* Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html#L9-L42) ]
-* Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html#L34-L36) ]
-* Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/login/login.html#L26-L33) ]
-* Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/providers/conference-data.js#L25-L30) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.js#L36-L41) ]
+* Action Sheet - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.ts) ]
+* Cards - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/speaker-list/speaker-list.html) ]
+* Grid - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/login/login.html) ]
+* Menu - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.html) |
+[code](https://github.com/driftyco/ionic-conference-app/blob/master/app/app.ts) ]
+* Modals - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Search bar - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Segments - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Slides - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.html) |
+* Sliding Items - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
+* Sticky headers - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html) ]
+* Tabs - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.html) | [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tabs/tabs.ts) ]
+* Toggle / switches - [ [template](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule-filter/schedule-filter.html) ]
+[code](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/tutorial/tutorial.ts) ]
+* Using Angular HTTP for JSON - [ [code](https://github.com/driftyco/ionic-conference-app/blob/master/app/providers/conference-data.ts) | [usage](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.ts) ]
 
 
 ## App Preview
 
 ### iPhone 6
 
-<!-- GIF of iOS app -->
-<img src="resources/gifs/ios.gif" alt="iOS"><br>
 <!-- images of iOS app -->
 <img src="resources/screenshots/iphone/1.png" alt="Sessions" width="425">
 <img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="425">
@@ -70,8 +67,6 @@ See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/mast
 
 ### Nexus 5
 
-<!-- GIF of MD app -->
-<img src="resources/gifs/nexus.gif" alt="MD"><br>
 <!-- GIF of MD app -->
 <img src="resources/screenshots/nexus/1.png" alt="Sessions" width="425">
 <img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="425">
@@ -93,59 +88,64 @@ ionic-conference-app/
 │   ├── pages/                         * Contains all of our pages
 │   │   ├── about/                     * About tab page
 │   │   │    ├── about.html            * AboutPage template
-│   │   │    └── about.js              * AboutPage code
+│   │   │    └── about.ts              * AboutPage code
 │   │   │    └── about.scss            * AboutPage stylesheet
+│   │   │
+│   │   ├── account/                   * Account page
+│   │   │    ├── account.html          * AccountPage template
+│   │   │    └── account.ts            * AccountPage code
+│   │   │    └── account.scss          * AccountPage stylesheet
 │   │   │
 │   │   │── login/                     * Login page
 │   │   │    ├── login.html            * LoginPage template
-│   │   │    └── login.js              * LoginPage code
+│   │   │    └── login.ts              * LoginPage code
 │   │   │    └── login.scss            * LoginPage stylesheet
 │   │   │
 │   │   │── map/                       * Map tab page
 │   │   │    ├── map.html              * MapPage template
-│   │   │    └── map.js                * MapPage code
+│   │   │    └── map.ts                * MapPage code
 │   │   │    └── map.scss              * MapPage stylesheet
 │   │   │
 │   │   │── schedule/                  * Schedule tab page
 │   │   │    ├── schedule.html         * SchedulePage template
-│   │   │    └── schedule.js           * SchedulePage code
+│   │   │    └── schedule.ts           * SchedulePage code
 │   │   │    └── schedule.scss         * SchedulePage stylesheet
 │   │   │
 │   │   │── schedule-filter/           * Schedule Filter page
 │   │   │    ├── schedule-filter.html  * ScheduleFilterPage template
-│   │   │    └── schedule-filter.js    * ScheduleFilterPage code
+│   │   │    └── schedule-filter.ts    * ScheduleFilterPage code
 │   │   │    └── schedule-filter.scss  * ScheduleFilterPage stylesheet
 │   │   │
 │   │   │── session-detail/            * Session Detail page
 │   │   │    ├── session-detail.html   * SessionDetailPage template
-│   │   │    └── session-detail.js     * SessionDetailPage code
+│   │   │    └── session-detail.ts     * SessionDetailPage code
 │   │   │
 │   │   │── signup/                    * Signup page
 │   │   │    ├── signup.html           * SignupPage template
-│   │   │    └── signup.js             * SignupPage code
+│   │   │    └── signup.ts             * SignupPage code
 │   │   │
 │   │   │── speaker-detail/            * Speaker Detail page
 │   │   │    ├── speaker-detail.html   * SpeakerDetailPage template
-│   │   │    └── speaker-detail.js     * SpeakerDetailPage code
+│   │   │    └── speaker-detail.ts     * SpeakerDetailPage code
 │   │   │    └── speaker-detail.scss   * SpeakerDetailPage stylesheet
 │   │   │
 │   │   │── speaker-list/              * Speakers tab page
 │   │   │    ├── speaker-list.html     * SpeakerListPage template
-│   │   │    └── speaker-list.js       * SpeakerListPage code
+│   │   │    └── speaker-list.ts       * SpeakerListPage code
 │   │   │    └── speaker-list.scss     * SpeakerListPage stylesheet
 │   │   │
 │   │   │── tabs/                      * Tabs page
 │   │   │    ├── tabs.html             * TabsPage template
-│   │   │    └── tabs.js               * TabsPage code
+│   │   │    └── tabs.ts               * TabsPage code
 │   │   │
 │   │   └── tutorial/                  * Tutorial Intro page
 │   │        ├── tutorial.html         * TutorialPage template
-│   │        └── tutorial.js           * TutorialPage code
+│   │        └── tutorial.ts           * TutorialPage code
 │   │        └── tutorial.scss         * TutorialPage stylesheet
 │   │
 │   ├── providers/                     * Contains all Injectables
-│   │   ├── conference-data.js         * ConferenceData code
-│   │   └── user-data.js               * UserData code
+│   │   ├── conference-data.ts         * ConferenceData code
+│   │   └── user-data.ts               * UserData code
 │   │
 │   ├── theme/                         * App theme files
 │   │   ├── app.core.scss              * App Shared Sass Imports
@@ -155,17 +155,19 @@ ionic-conference-app/
 │   │   └── app.wp.scss                * Windows Sass Imports & Variables
 │   │
 │   ├── app.html                       * Application template
-│   └── app.js                         * Main Application configuration
+│   └── app.ts                         * Main Application configuration
 │
 ├── node_modules/                      * Node dependencies
 |
 ├── platforms/                         * Cordova generated native platform code
 |
-├── plugins/                           * Cordova native plugins go
+├── plugins/                           * Cordova native plugins
 |
 ├── resources/                         * Images for splash screens and icons
 |
-├── www/                               * Folder that is copied over to platforms www directory
+├── typings/                           * Contains type definitions
+|
+├── www/                               * Folder that is copied over to the platform's www directory
 │   │   
 │   ├── build/                         * Contains auto-generated compiled content
 │   │     ├── css/                     * Compiled CSS
@@ -183,9 +185,13 @@ ionic-conference-app/
 |
 ├── .editorconfig                      * Defines coding styles between editors
 ├── .gitignore                         * Example git ignore file
-├── config.xml                         * Cordova configuration file
-├── ionic.config.json                  * Ionic configuration file
 ├── LICENSE                            * Apache License
-├── package.json                       * Our javascript dependencies
-└── README.md                          * This file
+├── README.md                          * This file
+├── config.xml                         * Cordova configuration file
+├── gulpfile.js                        * Contains the build tasks for our app
+├── ionic.config.json                  * Ionic configuration file
+├── package.json                       * Defines our JavaScript dependencies
+├── tsconfig.json                      * Defines the root files and the compiler options
+├── tslint.json                        * Defines the rules for the TypeScript linter
+└── typings.json                       * Defines the external type definitions
 ```
