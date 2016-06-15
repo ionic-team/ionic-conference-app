@@ -2,6 +2,7 @@
 
 This is purely a demo of Ionic 2. It is still in development.
 
+
 ## Important!
 **There is not an actual Ionic Conference at this time.** This project is just to show off Ionic v2.0 components in a real-world application.
 Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
@@ -10,22 +11,24 @@ Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ion
 ## Table of Contents
  - [Getting Started](#getting-started)
  - [Contributing](#contributing)
+ - [Use Cases](#use-cases)
  - [App Preview](#app-preview)
   - [iPhone 6](#iphone-6)
   - [Nexus 5](#nexus-5)
- - [Use Cases](#use-cases)
  - [File Structure of App](#file-structure-of-app)
 
 
 ## Getting Started
 
 * Clone this repository.
+* Want to use TypeScript? Check out the `typescript` branch: `git checkout typescript`
 * Run `npm install` from the project root.
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
 **Note:** Build slow? Update `npm` to 3.x: `npm install -g npm`.
+
 
 ## Contributing
 See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) :tada::+1:
