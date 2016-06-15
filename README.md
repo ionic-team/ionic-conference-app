@@ -54,26 +54,19 @@ See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/mast
 
 ## App Preview
 
-### iPhone 6
+All app preview screenshots were taken by running `ionic serve --lab` on a retina display.
 
-<!-- images of iOS app -->
-<img src="resources/screenshots/iphone/1.png" alt="Sessions" width="425">
-<img src="resources/screenshots/iphone/2.png" alt="Filter Sessions" width="425">
-<img src="resources/screenshots/iphone/3.png" alt="Speakers" width="425">
-<img src="resources/screenshots/iphone/4.png" alt="Speaker Detail" width="425">
-<img src="resources/screenshots/iphone/5.png" alt="Map" width="425">
-<img src="resources/screenshots/iphone/6.png" alt="About" width="425">
+- [Schedule Page](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/schedule/schedule.html)
+
+  <img src="resources/screenshots/SchedulePage.png" alt="Schedule">
 
 
-### Nexus 5
+- [About Page](https://github.com/driftyco/ionic-conference-app/blob/master/app/pages/about/schedule.html)
 
-<!-- GIF of MD app -->
-<img src="resources/screenshots/nexus/1.png" alt="Sessions" width="425">
-<img src="resources/screenshots/nexus/2.png" alt="Filter Sessions" width="425">
-<img src="resources/screenshots/nexus/3.png" alt="Speakers" width="425">
-<img src="resources/screenshots/nexus/4.png" alt="Speaker Detail" width="425">
-<img src="resources/screenshots/nexus/5.png" alt="Map" width="425">
-<img src="resources/screenshots/nexus/6.png" alt="About" width="425">
+  <img src="resources/screenshots/AboutPage.png" alt="Schedule">
+
+
+- To see more images of the app, check out the [screenshots directory](https://github.com/driftyco/ionic-conference-app/tree/master/resources/screenshots)!
 
 
 ## File Structure of App
@@ -163,7 +156,7 @@ ionic-conference-app/
 |
 ├── plugins/                           * Cordova native plugins
 |
-├── resources/                         * Images for splash screens and icons
+├── resources/                         * Images for splash screens and icons and screenshots of this app
 |
 ├── typings/                           * Contains type definitions
 |

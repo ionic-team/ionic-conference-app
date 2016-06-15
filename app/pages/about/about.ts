@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {NavController, ViewController, Popover, Platform} from 'ionic-angular';
+import {NavController, ViewController, Popover} from 'ionic-angular';
 
 @Component({
   template: `
-    <ion-list [attr.no-lines]="!isIos">
+    <ion-list>
       <button ion-item (click)="close()">Learn Ionic</button>
       <button ion-item (click)="close()">Documentation</button>
       <button ion-item (click)="close()">Showcase</button>
@@ -12,10 +12,9 @@ import {NavController, ViewController, Popover, Platform} from 'ionic-angular';
   `
 })
 class PopoverPage {
-  isIos: boolean = false;
 
-  constructor(private viewCtrl: ViewController, private platform: Platform) {
-    this.isIos = platform.is('ios');
+  constructor(private viewCtrl: ViewController) {
+
   }
 
   close() {
