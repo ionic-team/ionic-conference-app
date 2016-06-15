@@ -16,13 +16,10 @@ http://ionicworldwide.herokuapp.com/
 3.
 
 ```
-insert any relevant code between the above and below backticks
+insert any relevant code between the above and below backticks (```)
 ```
 
 **Other information:** (e.g. stacktraces, related issues, suggestions how to fix, stackoverflow links, forum links, etc)
-
-
-**Which branch are you on?** master or typescript
 
 
 **Run `ionic info` from terminal/cmd prompt:** (paste output below)
