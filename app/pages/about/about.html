@@ -1,15 +1,16 @@
-
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>About</ion-title>
-  <ion-buttons end>
-    <button (click)="presentPopover($event)">
-      <ion-icon name="more"></ion-icon>
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
     </button>
-  </ion-buttons>
-</ion-navbar>
+    <ion-title>About</ion-title>
+    <ion-buttons end>
+      <button (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
   <div class="about-header">
