@@ -117,5 +117,5 @@ class ConferenceApp {
 // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
 
 ionicBootstrap(ConferenceApp, [ConferenceData, UserData], {
-  tabbarPlacement: 'bottom'
+  tabsPlacement: 'bottom'
 });
