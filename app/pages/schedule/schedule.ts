@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {App, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
+import {App, Page, ModalController, AlertController, NavController, ItemSliding, List} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -24,7 +24,9 @@ export class SchedulePage {
   groups = [];
 
   constructor(
+    private alertCtrl: AlertController,
     private app: App,
+    private modalCtrl: ModalController,
     private nav: NavController,
     private confData: ConferenceData,
     private user: UserData
@@ -51,8 +53,8 @@ export class SchedulePage {
   }
 
   presentFilter() {
-    let modal = Modal.create(ScheduleFilterPage, this.excludeTracks);
-    this.nav.present(modal);
+    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
+    modal.present();
 
     modal.onDismiss((data: any[]) => {
       if (data) {
@@ -80,7 +82,7 @@ export class SchedulePage {
       this.user.addFavorite(sessionData.name);
 
       // create an alert instance
-      let alert = Alert.create({
+      let alert = this.alertCtrl.create({
         title: 'Favorite Added',
         buttons: [{
           text: 'OK',
@@ -91,13 +93,13 @@ export class SchedulePage {
         }]
       });
       // now present the alert on top of all other content
-      this.nav.present(alert);
+      alert.present();
     }
 
   }
 
   removeFavorite(slidingItem: ItemSliding, sessionData, title) {
-    let alert = Alert.create({
+    let alert = this.alertCtrl.create({
       title: title,
       message: 'Would you like to remove this session from your favorites?',
       buttons: [
@@ -123,6 +125,6 @@ export class SchedulePage {
       ]
     });
     // now present the alert on top of all other content
-    this.nav.present(alert);
+    alert.present();
   }
 }
