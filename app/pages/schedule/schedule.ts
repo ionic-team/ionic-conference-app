@@ -56,7 +56,7 @@ export class SchedulePage {
     let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
     modal.present();
 
-    modal.onDismiss((data: any[]) => {
+    modal.onDidDismiss((data: any[]) => {
       if (data) {
         this.excludeTracks = data;
         this.updateSchedule();
