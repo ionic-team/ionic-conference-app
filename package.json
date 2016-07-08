@@ -27,7 +27,7 @@
     "gulp": "3.9.1",
     "gulp-tslint": "4.3.4",
     "gulp-watch": "4.3.5",
-    "ionic-gulp-browserify-typescript": "^1.1.0",
+    "ionic-gulp-browserify-typescript": "^2.0.0",
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
