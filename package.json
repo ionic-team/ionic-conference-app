@@ -25,17 +25,17 @@
   "devDependencies": {
     "del": "2.2.0",
     "gulp": "3.9.1",
-    "gulp-tslint": "4.3.4",
+    "gulp-tslint": "^5.0.0",
     "gulp-watch": "4.3.5",
     "ionic-gulp-browserify-typescript": "^1.1.0",
     "ionic-gulp-fonts-copy": "^1.0.0",
     "ionic-gulp-html-copy": "^1.0.0",
     "ionic-gulp-sass-build": "^1.0.0",
     "ionic-gulp-scripts-copy": "^2.0.0",
+    "ionic-gulp-tslint": "^1.0.0",
     "run-sequence": "1.1.5",
     "tslint": "^3.10.1",
-    "tslint-eslint-rules": "^1.3.0",
-    "tslint-ionic-rules": "0.0.3"
+    "tslint-ionic-rules": "^0.0.3"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
