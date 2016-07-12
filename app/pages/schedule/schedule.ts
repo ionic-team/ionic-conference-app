@@ -1,9 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
-import {App, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
-import {ConferenceData} from '../../providers/conference-data';
-import {UserData} from '../../providers/user-data';
-import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
-import {SessionDetailPage} from '../session-detail/session-detail';
+import { Component, ViewChild } from '@angular/core';
+
+import { Alert, App, ItemSliding, List, Modal, NavController, Page } from 'ionic-angular';
+
+import { ConferenceData } from '../../providers/conference-data';
+import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
+import { SessionDetailPage } from '../session-detail/session-detail';
+import { UserData } from '../../providers/user-data';
 
 
 @Component({
