@@ -1,7 +1,10 @@
-import {Component} from '@angular/core';
-import {NavController, Alert} from 'ionic-angular';
-import {UserData} from '../../providers/user-data';
-import {LoginPage} from '../login/login';
+import { Component } from '@angular/core';
+
+import { Alert, NavController } from 'ionic-angular';
+
+import { LoginPage } from '../login/login';
+import { UserData } from '../../providers/user-data';
+
 
 @Component({
   templateUrl: 'build/pages/account/account.html',

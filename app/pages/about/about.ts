@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
-import {NavController, ViewController, Popover} from 'ionic-angular';
+import { Component } from '@angular/core';
+
+import { NavController, Popover, ViewController } from 'ionic-angular';
+
 
 @Component({
   template: `

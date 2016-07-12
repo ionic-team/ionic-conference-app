@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
-import {NavController, Page, ActionSheet} from 'ionic-angular';
-import {ConferenceData} from '../../providers/conference-data';
-import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
-import {SessionDetailPage} from '../session-detail/session-detail';
+import { Component } from '@angular/core';
+
+import { ActionSheet, NavController, Page } from 'ionic-angular';
+
+import { ConferenceData } from '../../providers/conference-data';
+import { SessionDetailPage } from '../session-detail/session-detail';
+import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 
 @Component({
