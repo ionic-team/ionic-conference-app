@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {App, Page, ModalController, AlertController, NavController, ItemSliding, List} from 'ionic-angular';
+import {App, Page, Modal, Alert, NavController, ItemSliding, List} from 'ionic-angular';
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
@@ -24,9 +24,7 @@ export class SchedulePage {
   groups = [];
 
   constructor(
-    private alertCtrl: AlertController,
     private app: App,
-    private modalCtrl: ModalController,
     private nav: NavController,
     private confData: ConferenceData,
     private user: UserData
@@ -53,10 +51,10 @@ export class SchedulePage {
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
-    modal.present();
+    let modal = Modal.create(ScheduleFilterPage, this.excludeTracks);
+    this.nav.present(modal);
 
-    modal.onDidDismiss((data: any[]) => {
+    modal.onDismiss((data: any[]) => {
       if (data) {
         this.excludeTracks = data;
         this.updateSchedule();
@@ -82,7 +80,7 @@ export class SchedulePage {
       this.user.addFavorite(sessionData.name);
 
       // create an alert instance
-      let alert = this.alertCtrl.create({
+      let alert = Alert.create({
         title: 'Favorite Added',
         buttons: [{
           text: 'OK',
@@ -93,13 +91,13 @@ export class SchedulePage {
         }]
       });
       // now present the alert on top of all other content
-      alert.present();
+      this.nav.present(alert);
     }
 
   }
 
   removeFavorite(slidingItem: ItemSliding, sessionData, title) {
-    let alert = this.alertCtrl.create({
+    let alert = Alert.create({
       title: title,
       message: 'Would you like to remove this session from your favorites?',
       buttons: [
@@ -125,6 +123,6 @@ export class SchedulePage {
       ]
     });
     // now present the alert on top of all other content
-    alert.present();
+    this.nav.present(alert);
   }
 }

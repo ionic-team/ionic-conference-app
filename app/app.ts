@@ -1,13 +1,15 @@
-import {Component, ViewChild} from '@angular/core';
-import {ionicBootstrap, Events, Platform, Nav, MenuController} from 'ionic-angular';
-import {StatusBar, Splashscreen} from 'ionic-native';
-import {ConferenceData} from './providers/conference-data';
-import {UserData} from './providers/user-data';
-import {AccountPage} from './pages/account/account';
-import {TabsPage} from './pages/tabs/tabs';
-import {LoginPage} from './pages/login/login';
-import {SignupPage} from './pages/signup/signup';
-import {TutorialPage} from './pages/tutorial/tutorial';
+import { Component, ViewChild } from '@angular/core';
+
+import { Events, ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
+import { Splashscreen, StatusBar } from 'ionic-native';
+
+import { AccountPage } from './pages/account/account';
+import { ConferenceData } from './providers/conference-data';
+import { LoginPage } from './pages/login/login';
+import { SignupPage } from './pages/signup/signup';
+import { TabsPage } from './pages/tabs/tabs';
+import { TutorialPage } from './pages/tutorial/tutorial';
+import { UserData } from './providers/user-data';
 
 interface PageObj {
   title: string;

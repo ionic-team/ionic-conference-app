@@ -1,6 +1,8 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams, Page} from 'ionic-angular';
-import {SessionDetailPage} from '../session-detail/session-detail';
+import { Component } from '@angular/core';
+
+import { NavController, NavParams, Page } from 'ionic-angular';
+
+import { SessionDetailPage } from '../session-detail/session-detail';
 
 
 @Component({
