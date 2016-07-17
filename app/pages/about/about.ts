@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import {Component} from '@angular/core';
-import {ViewController, PopoverController} from 'ionic-angular';
-=======
 import { Component } from '@angular/core';
 
-import { NavController, Popover, ViewController } from 'ionic-angular';
+import { NavController, PopoverController, ViewController } from 'ionic-angular';
 
->>>>>>> upstream/master
 
 @Component({
   template: `

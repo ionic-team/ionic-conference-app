@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-import {Component} from '@angular/core';
-import {NavController, Page, ActionSheet, ActionSheetController} from 'ionic-angular';
-import {ConferenceData} from '../../providers/conference-data';
-import {SpeakerDetailPage} from '../speaker-detail/speaker-detail';
-import {SessionDetailPage} from '../session-detail/session-detail';
-=======
 import { Component } from '@angular/core';
 
-import { ActionSheet, NavController, Page } from 'ionic-angular';
+import { ActionSheet, ActionSheetController, NavController, Page } from 'ionic-angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
->>>>>>> upstream/master
 
 
 @Component({
