@@ -14,18 +14,18 @@ export class LoginPage {
   login: {username?: string, password?: string} = {};
   submitted = false;
 
-  constructor(private nav: NavController, private userData: UserData) {}
+  constructor(public navCtrl: NavController, public userData: UserData) { }
 
   onLogin(form) {
     this.submitted = true;
 
     if (form.valid) {
       this.userData.login(this.login.username);
-      this.nav.push(TabsPage);
+      this.navCtrl.push(TabsPage);
     }
   }
 
   onSignup() {
-    this.nav.push(SignupPage);
+    this.navCtrl.push(SignupPage);
   }
 }

@@ -12,7 +12,7 @@ import { UserData } from '../../providers/user-data';
 export class AccountPage {
   username: string;
 
-  constructor(private alertCtrl: AlertController, private nav: NavController, private userData: UserData) {
+  constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
 
   }
 

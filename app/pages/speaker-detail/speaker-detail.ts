@@ -11,11 +11,11 @@ import { SessionDetailPage } from '../session-detail/session-detail';
 export class SpeakerDetailPage {
   speaker: any;
 
-  constructor(private nav: NavController, private navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.speaker = this.navParams.data;
   }
 
   goToSessionDetail(session) {
-    this.nav.push(SessionDetailPage, session);
+    this.navCtrl.push(SessionDetailPage, session);
   }
 }

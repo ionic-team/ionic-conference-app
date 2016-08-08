@@ -12,9 +12,9 @@ export class ScheduleFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];
 
   constructor(
-    private confData: ConferenceData,
-    private navParams: NavParams,
-    private viewCtrl: ViewController
+    public confData: ConferenceData,
+    public navParams: NavParams,
+    public viewCtrl: ViewController
   ) {
     // passed in array of track names that should be excluded (unchecked)
     let excludedTrackNames = this.navParams.data;

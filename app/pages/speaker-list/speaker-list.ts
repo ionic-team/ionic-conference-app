@@ -14,18 +14,18 @@ export class SpeakerListPage {
   actionSheet: ActionSheet;
   speakers = [];
 
-  constructor(private actionSheetCtrl: ActionSheetController, private nav: NavController, confData: ConferenceData) {
+  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, confData: ConferenceData) {
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;
     });
   }
 
   goToSessionDetail(session) {
-    this.nav.push(SessionDetailPage, session);
+    this.navCtrl.push(SessionDetailPage, session);
   }
 
   goToSpeakerDetail(speakerName: string) {
-    this.nav.push(SpeakerDetailPage, speakerName);
+    this.navCtrl.push(SpeakerDetailPage, speakerName);
   }
 
   goToSpeakerTwitter(speaker) {

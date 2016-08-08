@@ -19,7 +19,7 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
 
-  constructor(private nav: NavController, private menu: MenuController) {
+  constructor(public navCtrl: NavController, public menu: MenuController) {
     this.slides = [
       {
         title: 'Welcome to <b>ICA</b>',
@@ -40,7 +40,7 @@ export class TutorialPage {
   }
 
   startApp() {
-    this.nav.push(TabsPage);
+    this.navCtrl.push(TabsPage);
   }
 
   onSlideChangeStart(slider) {

@@ -13,14 +13,14 @@ export class SignupPage {
   signup: {username?: string, password?: string} = {};
   submitted = false;
 
-  constructor(private nav: NavController, private userData: UserData) {}
+  constructor(public navCtrl: NavController, public userData: UserData) {}
 
   onSignup(form) {
     this.submitted = true;
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.nav.push(TabsPage);
+      this.navCtrl.push(TabsPage);
     }
   }
 }

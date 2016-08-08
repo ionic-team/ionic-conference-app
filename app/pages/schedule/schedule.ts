@@ -26,12 +26,12 @@ export class SchedulePage {
   groups = [];
 
   constructor(
-    private alertCtrl: AlertController,
-    private app: App,
-    private modalCtrl: ModalController,
-    private nav: NavController,
-    private confData: ConferenceData,
-    private user: UserData
+    public alertCtrl: AlertController,
+    public app: App,
+    public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    public confData: ConferenceData,
+    public user: UserData
   ) {
 
   }
@@ -70,7 +70,7 @@ export class SchedulePage {
   goToSessionDetail(sessionData) {
     // go to the session detail page
     // and pass in the session data
-    this.nav.push(SessionDetailPage, sessionData);
+    this.navCtrl.push(SessionDetailPage, sessionData);
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData) {

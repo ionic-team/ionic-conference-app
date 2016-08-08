@@ -9,7 +9,7 @@ import { NavParams } from 'ionic-angular';
 export class SessionDetailPage {
   session: any;
 
-  constructor(private navParams: NavParams) {
+  constructor(public navParams: NavParams) {
     this.session = navParams.data;
   }
 }

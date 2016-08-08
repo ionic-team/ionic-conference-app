@@ -46,9 +46,9 @@ class ConferenceApp {
   rootPage: any = TutorialPage;
 
   constructor(
-    private events: Events,
-    private userData: UserData,
-    private menu: MenuController,
+    public events: Events,
+    public userData: UserData,
+    public menu: MenuController,
     platform: Platform,
     confData: ConferenceData
   ) {

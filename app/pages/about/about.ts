@@ -15,7 +15,7 @@ import { NavController, PopoverController, ViewController } from 'ionic-angular'
 })
 class PopoverPage {
 
-  constructor(private viewCtrl: ViewController) { }
+  constructor(public viewCtrl: ViewController) { }
 
   close() {
     this.viewCtrl.dismiss();
@@ -29,7 +29,7 @@ class PopoverPage {
 export class AboutPage {
   conferenceDate = '2047-05-17';
 
-  constructor(private popoverCtrl: PopoverController) { }
+  constructor(public popoverCtrl: PopoverController) { }
 
   presentPopover(event) {
     let popover = this.popoverCtrl.create(PopoverPage);
