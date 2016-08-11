@@ -16,7 +16,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
     "@angular/router": "^2.0.0-rc.2",
     "es6-shim": "0.35.0",
-    "ionic-angular": "^2.0.0-beta.11",
+    "ionic-angular": "2.0.0-beta.11",
     "ionic-native": "^1.3.10",
     "ionicons": "3.0.0",
     "reflect-metadata": "0.1.3",

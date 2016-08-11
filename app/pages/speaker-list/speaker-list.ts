@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, NavController, Page } from 'ionic-angular';
+import { InAppBrowser } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -29,7 +30,7 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker) {
-    window.open(`https://twitter.com/${speaker.twitter}`);
+    new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_system');
   }
 
   openSpeakerShare(speaker) {
