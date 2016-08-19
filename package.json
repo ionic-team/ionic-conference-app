@@ -36,7 +36,7 @@
     "ionic-gulp-tslint": "^1.0.0",
     "run-sequence": "1.1.5",
     "tslint": "^3.10.1",
-    "tslint-ionic-rules": "^0.0.3"
+    "tslint-ionic-rules": "0.0.4"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",

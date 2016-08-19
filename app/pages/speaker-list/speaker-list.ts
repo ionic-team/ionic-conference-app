@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ActionSheet, ActionSheetController, NavController, Page } from 'ionic-angular';
+import { ActionSheet, ActionSheetController, NavController } from 'ionic-angular';
 import { InAppBrowser } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
