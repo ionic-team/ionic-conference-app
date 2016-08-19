@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { MenuController, NavController } from 'ionic-angular';
 
-import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 
 
