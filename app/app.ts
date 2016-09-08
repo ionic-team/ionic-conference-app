@@ -2,6 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Events, ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
 import { Splashscreen, StatusBar } from 'ionic-native';
+import {
+  Push,
+  PushToken,
+  CloudSettings,
+  provideCloud
+} from '@ionic/cloud-angular';
+import { app_id, sender_id } from './config/env';
 
 import { AccountPage } from './pages/account/account';
 import { ConferenceData } from './providers/conference-data';
@@ -10,6 +17,24 @@ import { SignupPage } from './pages/signup/signup';
 import { TabsPage } from './pages/tabs/tabs';
 import { TutorialPage } from './pages/tutorial/tutorial';
 import { UserData } from './providers/user-data';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': app_id
+  },
+  'push': {
+    'sender_id': sender_id,
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
 
 interface PageObj {
   title: string;
@@ -118,4 +143,4 @@ class ConferenceApp {
 // See the theming docs for the default values:
 // http://ionicframework.com/docs/v2/theming/platform-specific-styles/
 
-ionicBootstrap(ConferenceApp, [ConferenceData, UserData], { });
+ionicBootstrap(ConferenceApp, [provideCloud(cloudSettings), ConferenceData, UserData], { });
