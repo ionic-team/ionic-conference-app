@@ -75,16 +75,32 @@ class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     platform: Platform,
-    confData: ConferenceData
+    confData: ConferenceData,
+    public push: Push
   ) {
     // Call any initial plugins when ready
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
+      
     });
 
     // load the conference data
     confData.load();
+    
+    // Register for push notifications.
+      this.push.register().then((t: PushToken) => {
+        return this.push.saveToken(t);
+      }).then((t: PushToken) => {
+        console.log('Token saved:', t.token);
+      });      
+
+      // Handle push notifications.
+      this.push.rx.notification()      
+      .subscribe((msg) => {
+        console.log('received');
+        alert(msg.title + ': ' + msg.text);
+      });
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {

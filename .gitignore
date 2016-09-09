@@ -31,3 +31,6 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 app/config/env.ts
+ionic.config.json
+
+
