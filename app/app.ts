@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Events, ionicBootstrap, MenuController, Nav, Platform } from 'ionic-angular';
+import { Events, ionicBootstrap, MenuController, Nav, Platform, Storage, LocalStorage } from 'ionic-angular';
 import { Splashscreen, StatusBar } from 'ionic-native';
 import {
   Push,
@@ -68,7 +68,8 @@ class ConferenceApp {
     { title: 'Login', component: LoginPage, icon: 'log-in' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
-  rootPage: any = TutorialPage;
+  rootPage: any = TabsPage;
+  local: Storage;
 
   constructor(
     public events: Events,
@@ -76,31 +77,37 @@ class ConferenceApp {
     public menu: MenuController,
     platform: Platform,
     confData: ConferenceData,
-    public push: Push
+    public push: Push    
   ) {
+    this.local = new Storage(LocalStorage);
+
     // Call any initial plugins when ready
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
-      
+      this.local.get('intro').then((local) => {
+        if (!local) {
+          this.nav.setRoot(TutorialPage)
+        }
+      })
     });
 
     // load the conference data
     confData.load();
     
     // Register for push notifications.
-      this.push.register().then((t: PushToken) => {
-        return this.push.saveToken(t);
-      }).then((t: PushToken) => {
-        console.log('Token saved:', t.token);
-      });      
+    this.push.register().then((t: PushToken) => {
+      return this.push.saveToken(t);
+    }).then((t: PushToken) => {
+      console.log('Token saved:', t.token);
+    });      
 
-      // Handle push notifications.
-      this.push.rx.notification()      
-      .subscribe((msg) => {
-        console.log('received');
-        alert(msg.title + ': ' + msg.text);
-      });
+    // Handle push notifications.
+    this.push.rx.notification()      
+    .subscribe((msg) => {
+      console.log('received');
+      alert(msg.title + ': ' + msg.text);
+    });
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -116,7 +123,6 @@ class ConferenceApp {
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
       this.nav.setRoot(page.component, {tabIndex: page.index});
-
     } else {
       this.nav.setRoot(page.component);
     }
