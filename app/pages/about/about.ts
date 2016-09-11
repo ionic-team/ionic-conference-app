@@ -27,7 +27,8 @@ class PopoverPage {
   templateUrl: 'build/pages/about/about.html'
 })
 export class AboutPage {
-  conferenceDate = '2047-05-17';
+  conferenceDate = '2016-10-20';
+  conferenceDateEnd = '2016-10-22';
 
   constructor(public popoverCtrl: PopoverController) { }
 
