@@ -16,6 +16,9 @@
           <img [src]="speaker.profilePic">
         </ion-avatar>
         {{speaker.name}}
+        <button (click)="openContact(speaker)" clear item-right>
+          <ion-icon name="help-circle"></ion-icon>
+        </button>
       </ion-item>
     </ion-card-header>
 

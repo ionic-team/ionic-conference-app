@@ -64,4 +64,28 @@ export class SpeakerListPage {
 
     actionSheet.present();
   }
+
+  openContact(speaker) {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Contact with ' + speaker.name,
+      buttons: [
+        {
+          text: `Email ( ${speaker.email} )`,
+          icon: 'mail',
+          handler: () => {
+            window.open('mailto:' + speaker.email);
+          }
+        },
+        {
+          text: `Call ( ${speaker.phone} )`,
+          icon: 'call',
+          handler: () => {
+            window.open('tel:' + speaker.phone);
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
+  }
 }
