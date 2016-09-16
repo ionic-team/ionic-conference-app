@@ -12,7 +12,7 @@
   "exclude": [
     "node_modules",
     "typings/main",
-    "typings/main.d.ts"
+    "typings/index.d.ts"
   ],
   "compileOnSave": false,
   "atom": {

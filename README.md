@@ -28,7 +28,7 @@ This is purely a demo of Ionic 2 with TypeScript. It is still in development.
 
 
 ## Contributing
-See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/CONTRIBUTING.md) :tada::+1:
+See [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) :tada::+1:
 
 
 ## Use Cases
