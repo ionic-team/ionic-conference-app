@@ -30,7 +30,11 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker) {
-    new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_system');
+    let app = new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
+    app.on('loadstop').subscribe(
+      (ev) => {
+        console.log('InAppBrowser loaded!');
+      });
   }
 
   openSpeakerShare(speaker) {
