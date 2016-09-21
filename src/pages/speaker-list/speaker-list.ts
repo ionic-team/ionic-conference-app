@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, NavController } from 'ionic-angular';
-import { InAppBrowser } from 'ionic-native';
+// import { InAppBrowser } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -30,11 +30,12 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker) {
-    let app = new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
-    app.on('loadstop').subscribe(
-      (ev) => {
-        console.log('InAppBrowser loaded!');
-      });
+    // TODO FIX
+    // let app = new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
+    // app.on('loadstop').subscribe(
+    //   (ev) => {
+    //     console.log('InAppBrowser loaded!');
+    //   });
   }
 
   openSpeakerShare(speaker) {
