@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
+
 import { IonicApp, IonicModule } from 'ionic-angular';
+
 import { ConferenceApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
+
+import { AboutPage, PopoverPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
@@ -13,6 +16,7 @@ import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
+
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
@@ -24,6 +28,7 @@ import { UserData } from '../providers/user-data';
     AccountPage,
     LoginPage,
     MapPage,
+    PopoverPage,
     SchedulePage,
     ScheduleFilterPage,
     SessionDetailPage,
@@ -43,6 +48,7 @@ import { UserData } from '../providers/user-data';
     AccountPage,
     LoginPage,
     MapPage,
+    PopoverPage,
     SchedulePage,
     ScheduleFilterPage,
     SessionDetailPage,

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Speakers</ion-title>
@@ -16,7 +16,7 @@
           <img [src]="speaker.profilePic">
         </ion-avatar>
         {{speaker.name}}
-        <button (click)="openContact(speaker)" clear item-right>
+        <button ion-button (click)="openContact(speaker)" clear item-right icon-only>
           <ion-icon name="help-circle"></ion-icon>
         </button>
       </ion-item>
@@ -34,11 +34,11 @@
     </ion-card-content>
 
     <ion-item>
-      <button (click)="goToSpeakerTwitter(speaker)" clear item-left>
+      <button ion-button (click)="goToSpeakerTwitter(speaker)" clear item-left icon-left>
         <ion-icon name="logo-twitter"></ion-icon>
         Tweet
       </button>
-      <button (click)="openSpeakerShare(speaker)" clear item-right>
+      <button ion-button (click)="openSpeakerShare(speaker)" clear item-right icon-left>
         <ion-icon name="share"></ion-icon>
         Share
       </button>

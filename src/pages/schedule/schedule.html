@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar no-border-bottom>
-    <button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
 
@@ -14,14 +14,14 @@
     </ion-segment>
 
     <ion-buttons end>
-      <button (click)="presentFilter()">
+      <button ion-button (click)="presentFilter()">
         <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 
   <ion-toolbar no-border-top>
-    <ion-searchbar primary
+    <ion-searchbar color="primary"
                    [(ngModel)]="queryText"
                    (ionInput)="updateSchedule()"
                    placeholder="Search">
@@ -50,10 +50,10 @@
         </button>
 
         <ion-item-options>
-          <button favorite (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
+          <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
             Favorite
           </button>
-          <button danger (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
+          <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
             Remove
           </button>
         </ion-item-options>

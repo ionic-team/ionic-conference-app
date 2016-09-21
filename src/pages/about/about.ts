@@ -13,7 +13,7 @@ import { PopoverController, ViewController } from 'ionic-angular';
     </ion-list>
   `
 })
-class PopoverPage {
+export class PopoverPage {
 
   constructor(public viewCtrl: ViewController) { }
 

@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <button menuToggle>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>About</ion-title>
     <ion-buttons end>
-      <button (click)="presentPopover($event)">
+      <button ion-button (click)="presentPopover($event)">
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
@@ -14,7 +14,7 @@
 
 <ion-content>
   <div class="about-header">
-    <img src="img/ionic-logo-white.svg">
+    <img src="../assets/img/ionic-logo-white.svg">
   </div>
   <div padding class="about-info">
     <h4>Ionic Conference</h4>
