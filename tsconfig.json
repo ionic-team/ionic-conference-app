@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
+    "lib": ["dom", "es2015"],
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "filesGlob": [
-    "**/*.ts",
-    "!node_modules/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/index.d.ts"
+  "include": [
+    "./src/**/*.ts"
   ],
   "compileOnSave": false,
   "atom": {
