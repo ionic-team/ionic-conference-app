@@ -12,6 +12,7 @@
 
 $text-color:        #000;
 $background-color:  #fff;
+$headings-font-weight: 300;
 
 
 // Named Color Variables
@@ -30,6 +31,46 @@ $colors: (
   dark:       #222,
   favorite:   #69BB7B
 );
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+// Change #000 to any color to see the ios text color change
+$text-ios-color:                          #000;
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+// Change #000 to any color to see the md text color change
+$text-md-color:                           #000;
+
+// Use the primary color as the background for the toolbar-md-background
+$toolbar-md-background:                   color($colors, primary);
+
+// Use the default background for the tabbar since it inherits from toolbar
+$tabs-md-background:                      #f8f8f8;
+
+// Change the color of the tabs text
+$tabs-md-tab-color-active:                color($colors, primary);
+$tabs-md-tab-color:                       rgba(#8c8c8c, 0.7);
+
+// Change the color of the segment button text
+$toolbar-md-active-color:                 #fff;
+$toolbar-md-inactive-color:               #fff;
+$segment-button-md-text-color-activated:  #fff;
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// Change #000 to any color to see the wp text color change
+$text-wp-color:                           #000;
 
 
 // App Theme
