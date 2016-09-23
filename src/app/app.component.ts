@@ -20,7 +20,7 @@ interface PageObj {
 }
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.template.html'
 })
 export class ConferenceApp {
   // the root nav is a child of the root app component
