@@ -9,9 +9,15 @@
   <div text-center>
     <img [src]="speaker.profilePic" [alt]="speaker.name"><br>
 
-    <button ion-button clear small color="twitter"><ion-icon name="logo-twitter"></ion-icon></button>
-    <button ion-button clear small color="github"><ion-icon name="logo-github"></ion-icon></button>
-    <button ion-button clear small color="instagram"><ion-icon name="logo-instagram"></ion-icon></button>
+    <button ion-button icon-only clear small color="twitter">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </button>
+    <button ion-button icon-only clear small color="github">
+      <ion-icon name="logo-github"></ion-icon>
+    </button>
+    <button ion-button icon-only clear small color="instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </button>
   </div>
 
   <p>{{speaker.about}}</p>

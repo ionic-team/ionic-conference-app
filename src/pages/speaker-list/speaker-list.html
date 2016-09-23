@@ -16,7 +16,7 @@
           <img [src]="speaker.profilePic">
         </ion-avatar>
         {{speaker.name}}
-        <button ion-button (click)="openContact(speaker)" clear item-right icon-only>
+        <button ion-button icon-only (click)="openContact(speaker)" clear item-right>
           <ion-icon name="help-circle"></ion-icon>
         </button>
       </ion-item>
@@ -34,11 +34,11 @@
     </ion-card-content>
 
     <ion-item>
-      <button ion-button (click)="goToSpeakerTwitter(speaker)" clear item-left icon-left>
+      <button ion-button icon-left (click)="goToSpeakerTwitter(speaker)" clear item-left>
         <ion-icon name="logo-twitter"></ion-icon>
         Tweet
       </button>
-      <button ion-button (click)="openSpeakerShare(speaker)" clear item-right icon-left>
+      <button ion-button icon-left (click)="openSpeakerShare(speaker)" clear item-right>
         <ion-icon name="share"></ion-icon>
         Share
       </button>
