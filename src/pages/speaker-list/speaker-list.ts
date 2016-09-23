@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ActionSheet, ActionSheetController, NavController } from 'ionic-angular';
+import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
 // import { InAppBrowser } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
@@ -15,7 +15,7 @@ export class SpeakerListPage {
   actionSheet: ActionSheet;
   speakers = [];
 
-  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, confData: ConferenceData) {
+  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {
     confData.getSpeakers().then(speakers => {
       this.speakers = speakers;
     });
@@ -71,19 +71,21 @@ export class SpeakerListPage {
   }
 
   openContact(speaker) {
+    let mode = this.config.get('mode');
+
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Contact with ' + speaker.name,
       buttons: [
         {
           text: `Email ( ${speaker.email} )`,
-          icon: 'mail',
+          icon: mode !== 'ios' ? 'mail' : null,
           handler: () => {
             window.open('mailto:' + speaker.email);
           }
         },
         {
           text: `Call ( ${speaker.phone} )`,
-          icon: 'call',
+          icon: mode !== 'ios' ? 'call' : null,
           handler: () => {
             window.open('tel:' + speaker.phone);
           }
