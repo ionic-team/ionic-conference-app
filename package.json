@@ -8,8 +8,6 @@
   },
   "scripts": {
     "build": "ionic-app-scripts build",
-    "compress": "ionic-app-scripts compress",
-    "copy": "ionic-app-scripts copy",
     "watch": "ionic-app-scripts watch",
     "serve:before": "watch",
     "emulate:before": "build",
@@ -35,7 +33,6 @@
   "devDependencies": {
     "@angular/compiler-cli": "0.6.2",
     "@ionic/app-scripts": "latest",
-    "tslint-ionic-rules": "0.0.5",
     "typescript": "2.0.2"
   },
   "cordovaPlugins": [
