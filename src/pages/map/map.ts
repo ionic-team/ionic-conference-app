@@ -6,7 +6,7 @@ declare var google: any;
 
 @Component({
   templateUrl: 'map.html',
-  selector: 'map-page'
+  selector: 'page-map'
 })
 export class MapPage {
   constructor(public confData: ConferenceData) {}

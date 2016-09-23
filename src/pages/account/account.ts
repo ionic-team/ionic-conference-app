@@ -8,7 +8,7 @@ import { UserData } from '../../providers/user-data';
 
 @Component({
   templateUrl: 'account.html',
-  selector: 'account-page'
+  selector: 'page-account'
 })
 export class AccountPage {
   username: string;

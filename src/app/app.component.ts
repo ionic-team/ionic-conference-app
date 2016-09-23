@@ -12,7 +12,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-interface PageObj {
+export interface PageObj {
   title: string;
   component: any;
   icon: string;

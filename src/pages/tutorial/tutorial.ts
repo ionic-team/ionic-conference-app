@@ -5,7 +5,7 @@ import { MenuController, NavController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 
 
-interface Slide {
+export interface Slide {
   title: string;
   description: string;
   image: string;
@@ -13,7 +13,7 @@ interface Slide {
 
 @Component({
   templateUrl: 'tutorial.html',
-  selector: 'tutorial-page'
+  selector: 'page-tutorial'
 })
 export class TutorialPage {
   slides: Slide[];
