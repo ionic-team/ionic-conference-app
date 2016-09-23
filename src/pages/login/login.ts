@@ -8,7 +8,8 @@ import { UserData } from '../../providers/user-data';
 
 
 @Component({
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  selector: 'login-page'
 })
 export class LoginPage {
   login: {username?: string, password?: string} = {};

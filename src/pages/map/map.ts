@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 
 import { ConferenceData } from '../../providers/conference-data';
 
+declare var google: any;
 
 @Component({
-  templateUrl: 'map.html'
+  templateUrl: 'map.html',
+  selector: 'map-page'
 })
 export class MapPage {
   constructor(public confData: ConferenceData) {}

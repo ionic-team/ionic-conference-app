@@ -9,7 +9,8 @@ import { UserData } from '../../providers/user-data';
 
 
 @Component({
-  templateUrl: 'schedule.html'
+  templateUrl: 'schedule.html',
+  selector: 'schedule-page'
 })
 export class SchedulePage {
   // the list is a child of the schedule page
@@ -22,7 +23,7 @@ export class SchedulePage {
   queryText = '';
   segment = 'all';
   excludeTracks = [];
-  shownSessions = [];
+  shownSessions: any = [];
   groups = [];
 
   constructor(

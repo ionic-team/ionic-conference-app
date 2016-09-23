@@ -220,7 +220,7 @@
   "speakers": [
     {
       "name": "Burt Bear",
-      "profilePic": "../assets/img/speakers/bear.jpg",
+      "profilePic": "assets/img/speakers/bear.jpg",
       "twitter": "ionicframework",
       "about": "Burt is a Bear.",
       "location": "Everywhere",
@@ -229,7 +229,7 @@
     },
     {
       "name": "Charlie Cheetah",
-      "profilePic": "../assets/img/speakers/cheetah.jpg",
+      "profilePic": "assets/img/speakers/cheetah.jpg",
       "twitter": "ionicframework",
       "about": "Charlie is a Cheetah.",
       "location": "Everywhere",
@@ -238,7 +238,7 @@
     },
     {
       "name": "Donald Duck",
-      "profilePic": "../assets/img/speakers/duck.jpg",
+      "profilePic": "assets/img/speakers/duck.jpg",
       "twitter": "ionicframework",
       "about": "Donald is a Duck.",
       "location": "Everywhere",
@@ -247,7 +247,7 @@
     },
     {
       "name": "Eva Eagle",
-      "profilePic": "../assets/img/speakers/eagle.jpg",
+      "profilePic": "assets/img/speakers/eagle.jpg",
       "twitter": "ionicframework",
       "about": "Eva is an Eagle.",
       "location": "Everywhere",
@@ -256,7 +256,7 @@
     },
     {
       "name": "Ellie Elephant",
-      "profilePic": "../assets/img/speakers/elephant.jpg",
+      "profilePic": "assets/img/speakers/elephant.jpg",
       "twitter": "ionicframework",
       "about": "Ellie is an Elephant.",
       "location": "Everywhere",
@@ -265,7 +265,7 @@
     },
     {
       "name": "Gino Giraffe",
-      "profilePic": "../assets/img/speakers/giraffe.jpg",
+      "profilePic": "assets/img/speakers/giraffe.jpg",
       "twitter": "ionicframework",
       "about": "Gino is a Giraffe.",
       "location": "Everywhere",
@@ -274,7 +274,7 @@
     },
     {
       "name": "Isabella Iguana",
-      "profilePic": "../assets/img/speakers/iguana.jpg",
+      "profilePic": "assets/img/speakers/iguana.jpg",
       "twitter": "ionicframework",
       "about": "Isabella is an Iguana.",
       "location": "Everywhere",
@@ -283,7 +283,7 @@
     },
     {
       "name": "Karl Kitten",
-      "profilePic": "../assets/img/speakers/kitten.jpg",
+      "profilePic": "assets/img/speakers/kitten.jpg",
       "twitter": "ionicframework",
       "about": "Karl is a Kitten.",
       "location": "Everywhere",
@@ -292,7 +292,7 @@
     },
     {
       "name": "Lionel Lion",
-      "profilePic": "../assets/img/speakers/lion.jpg",
+      "profilePic": "assets/img/speakers/lion.jpg",
       "twitter": "ionicframework",
       "about": "Lionel is a Lion.",
       "location": "Everywhere",
@@ -301,7 +301,7 @@
     },
     {
       "name": "Molly Mouse",
-      "profilePic": "../assets/img/speakers/mouse.jpg",
+      "profilePic": "assets/img/speakers/mouse.jpg",
       "twitter": "ionicframework",
       "about": "Molly is a Mouse.",
       "location": "Everywhere",
@@ -310,7 +310,7 @@
     },
     {
       "name": "Paul Puppy",
-      "profilePic": "../assets/img/speakers/puppy.jpg",
+      "profilePic": "assets/img/speakers/puppy.jpg",
       "twitter": "ionicframework",
       "about": "Paul is a Puppy.",
       "location": "Everywhere",
@@ -319,7 +319,7 @@
     },
     {
       "name": "Rachel Rabbit",
-      "profilePic": "../assets/img/speakers/rabbit.jpg",
+      "profilePic": "assets/img/speakers/rabbit.jpg",
       "twitter": "ionicframework",
       "about": "Rachel is a Rabbit.",
       "location": "Everywhere",
@@ -328,7 +328,7 @@
     },
     {
       "name": "Ted Turtle",
-      "profilePic": "../assets/img/speakers/turtle.jpg",
+      "profilePic": "assets/img/speakers/turtle.jpg",
       "twitter": "ionicframework",
       "about": "Ted is a Turtle.",
       "location": "Everywhere",

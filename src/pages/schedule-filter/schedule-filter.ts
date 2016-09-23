@@ -44,7 +44,7 @@ export class ScheduleFilterPage {
     this.dismiss(excludedTrackNames);
   }
 
-  dismiss(data) {
+  dismiss(data?: any) {
     // using the injected ViewController this page
     // can "dismiss" itself and pass back data
     this.viewCtrl.dismiss(data);

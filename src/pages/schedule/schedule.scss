@@ -15,7 +15,7 @@ $categories: (
   @return map-remove($categories);
 }
 
-.schedule-page {
+schedule-page {
   @each $track, $value in auxiliary-categories() {
    ion-item-sliding[track=#{$track}] ion-label {
      border-left: 2px solid $value;
