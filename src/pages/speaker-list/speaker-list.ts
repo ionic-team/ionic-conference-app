@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
-// import { InAppBrowser } from 'ionic-native';
+import { InAppBrowser, Clipboard } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -46,9 +46,7 @@ export class SpeakerListPage {
           text: 'Copy Link',
           handler: () => {
             console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
-            if (window['cordova'] && window['cordova'].plugins.clipboard) {
-              window['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
-            }
+            Clipboard.copy('https://twitter.com/' + speaker.twitter);
           }
         },
         {
