@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
@@ -58,6 +59,6 @@ import { UserData } from '../providers/user-data';
     TabsPage,
     TutorialPage
   ],
-  providers: [ConferenceData, UserData]
+  providers: [ConferenceData, UserData, Storage]
 })
 export class AppModule {}
