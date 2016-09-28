@@ -189,10 +189,8 @@ ionic-conference-app/
 ├── LICENSE                            * Apache License
 ├── README.md                          * This file
 ├── config.xml                          * Cordova configuration file
-├── gulpfile.js                         * Contains the build tasks for our app
 ├── ionic.config.json                   * Ionic configuration file
 ├── package.json                       * Defines our JavaScript dependencies
 ├── tsconfig.json                       * Defines the root files and the compiler options
 ├── tslint.json                        * Defines the rules for the TypeScript linter
-└── typings.json                       * Defines the external type definitions
 ```
