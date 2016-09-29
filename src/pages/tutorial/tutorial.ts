@@ -12,8 +12,8 @@ export interface Slide {
 }
 
 @Component({
-  templateUrl: 'tutorial.html',
-  selector: 'page-tutorial'
+  selector: 'page-tutorial',
+  templateUrl: 'tutorial.html'
 })
 export class TutorialPage {
   slides: Slide[];

@@ -24,6 +24,7 @@ export class PopoverPage {
 
 
 @Component({
+  selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {

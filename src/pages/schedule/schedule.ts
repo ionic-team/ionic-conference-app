@@ -9,8 +9,8 @@ import { UserData } from '../../providers/user-data';
 
 
 @Component({
-  templateUrl: 'schedule.html',
-  selector: 'page-schedule'
+  selector: 'page-schedule',
+  templateUrl: 'schedule.html'
 })
 export class SchedulePage {
   // the list is a child of the schedule page

@@ -5,8 +5,8 @@ import { ConferenceData } from '../../providers/conference-data';
 declare var google: any;
 
 @Component({
-  templateUrl: 'map.html',
-  selector: 'page-map'
+  selector: 'page-map',
+  templateUrl: 'map.html'
 })
 export class MapPage {
   constructor(public confData: ConferenceData) {}

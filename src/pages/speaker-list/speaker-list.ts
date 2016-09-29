@@ -9,6 +9,7 @@ import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 
 
 @Component({
+  selector: 'page-speaker-list',
   templateUrl: 'speaker-list.html'
 })
 export class SpeakerListPage {

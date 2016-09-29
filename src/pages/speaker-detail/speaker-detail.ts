@@ -6,6 +6,7 @@ import { SessionDetailPage } from '../session-detail/session-detail';
 
 
 @Component({
+  selector: 'page-speaker-detail',
   templateUrl: 'speaker-detail.html'
 })
 export class SpeakerDetailPage {
