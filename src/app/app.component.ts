@@ -16,6 +16,7 @@ export interface PageObj {
   title: string;
   component: any;
   icon: string;
+  logsOut?: boolean;
   index?: number;
 }
 
@@ -38,7 +39,7 @@ export class ConferenceApp {
   ];
   loggedInPages: PageObj[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out' }
+    { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageObj[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
@@ -81,7 +82,7 @@ export class ConferenceApp {
       this.nav.setRoot(page.component);
     }
 
-    if (page.title === 'Logout') {
+    if (page.logsOut === true) {
       // Give the menu time to close before changing to logged out
       setTimeout(() => {
         this.userData.logout();
