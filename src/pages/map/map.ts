@@ -11,7 +11,7 @@ declare var google: any;
 export class MapPage {
   constructor(public confData: ConferenceData) {}
 
-  ionViewLoaded() {
+  ionViewDidLoad() {
     this.confData.getMap().then(mapData => {
       let mapEle = document.getElementById('map');
 
