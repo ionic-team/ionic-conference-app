@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, ItemSliding, List, ModalController, NavController } from 'ionic-angular';
+import { AlertController, App, ItemSliding, List, ModalController, NavController, PopoverController } from 'ionic-angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { UserData } from '../../providers/user-data';
-
+import { PopoverPage } from './popover';
 
 @Component({
   templateUrl: 'build/pages/schedule/schedule.html'
@@ -18,7 +18,7 @@ export class SchedulePage {
   // the List and not a reference to the element
   @ViewChild('scheduleList', {read: List}) scheduleList: List;
 
-  dayIndex = 1;
+  dayIndex = 0;
   queryText = '';
   segment = 'all';
   excludeTracks = [];
@@ -31,9 +31,23 @@ export class SchedulePage {
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     public confData: ConferenceData,
-    public user: UserData
+    public user: UserData,
+    public popoverCtrl: PopoverController
   ) {
 
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
+    popover.onDidDismiss((day) => {
+      if (day === 0 || day === 1 || day === 2) {
+        this.dayIndex = day;
+        this.updateSchedule();
+      }
+    })
   }
 
   ionViewDidEnter() {

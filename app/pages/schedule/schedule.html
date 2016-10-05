@@ -20,12 +20,19 @@
     </ion-buttons>
   </ion-navbar>
 
+  <!--
   <ion-toolbar no-border-top>
     <ion-searchbar primary
                    [(ngModel)]="queryText"
                    (ionInput)="updateSchedule()"
                    placeholder="Search">
     </ion-searchbar>
+  </ion-toolbar>
+  -->
+  <ion-toolbar no-border-top>
+      <button clear full (click)="presentPopover($event)">
+        <ion-icon name="calendar"></ion-icon>Thursday
+      </button>     
   </ion-toolbar>
 </ion-header>
 
