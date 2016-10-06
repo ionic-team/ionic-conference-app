@@ -4,7 +4,7 @@ import { AlertController, App, ItemSliding, List, ModalController, NavController
 
 /*
   To learn how to use third party libs in an
-  Ionic 2 app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
+  Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
 */
 import moment from 'moment';
 
@@ -61,7 +61,7 @@ export class SchedulePage {
 
       /*
         To learn how to use third party libs in an
-        Ionic 2 app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
+        Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
       */
       this.confDate = moment(timestamp).format('MM/DD/YYYY');
       this.shownSessions = data.shownSessions;
