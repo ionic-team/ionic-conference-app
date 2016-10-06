@@ -2,6 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 
 import { AlertController, App, ItemSliding, List, ModalController, NavController } from 'ionic-angular';
 
+/*
+  To learn how to use third party libs in an
+  Ionic 2 app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
+*/
+import moment from 'moment';
+
 import { ConferenceData } from '../../providers/conference-data';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -25,6 +31,7 @@ export class SchedulePage {
   excludeTracks = [];
   shownSessions: any = [];
   groups = [];
+  confDate: string;
 
   constructor(
     public alertCtrl: AlertController,
@@ -50,6 +57,13 @@ export class SchedulePage {
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
+      let timestamp = data.date;
+
+      /*
+        To learn how to use third party libs in an
+        Ionic 2 app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
+      */
+      this.confDate = moment(timestamp).format('MM/DD/YYYY');
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
