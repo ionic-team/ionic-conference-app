@@ -22,7 +22,7 @@
     "ionic-native": "^2.0.3"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^0.0.29",
+    "@ionic/app-scripts": "latest",
     "typescript": "^2.0.3"
   },
   "cordovaPlugins": [
