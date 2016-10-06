@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Speakers</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list">
+  <ion-card *ngFor="let speaker of speakers" class="speaker">
+
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="speaker.profilePic">
+        </ion-avatar>
+        {{speaker.name}}
+        <button ion-button icon-only (click)="openContact(speaker)" clear item-right>
+          <ion-icon name="help-circle"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content class="outer-content">
+      <ion-list>
+        <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
+          <h3>{{session.name}}</h3>
+        </button>
+        <button ion-item (click)="goToSpeakerDetail(speaker)">
+          <h3>About {{speaker.name}}</h3>
+        </button>
+      </ion-list>
+    </ion-card-content>
+
+    <ion-item>
+      <button ion-button icon-left (click)="goToSpeakerTwitter(speaker)" clear item-left>
+        <ion-icon name="logo-twitter"></ion-icon>
+        Tweet
+      </button>
+      <button ion-button icon-left (click)="openSpeakerShare(speaker)" clear item-right>
+        <ion-icon name="share"></ion-icon>
+        Share
+      </button>
+    </ion-item>
+
+  </ion-card>
+</ion-content>
