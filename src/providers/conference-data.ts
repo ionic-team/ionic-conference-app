@@ -20,7 +20,7 @@ export class ConferenceData {
       return Observable.of(this.data);
     } else {
       return this.http.get('assets/data/data.json')
-        .map(this.extractData);
+        .map(this.processData);
     }
   }
 
@@ -32,45 +32,41 @@ export class ConferenceData {
   processData(data) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
+    this.data = data.json();
 
-    data.tracks = [];
+    this.data.tracks = [];
 
     // loop through each day in the schedule
-    data.schedule.forEach(day => {
+    this.data.schedule.forEach(day => {
       // loop through each timeline group in the day
       day.groups.forEach(group => {
         // loop through each session in the timeline group
         group.sessions.forEach(session => {
-          this.processSession(data, session);
+          // this.processSession(this.data, session);
+          session.speakers = [];
+          if (session.speakerNames) {
+            session.speakerNames.forEach(speakerName => {
+              let speaker = this.data.speakers.find(s => s.name === speakerName);
+              if (speaker) {
+                session.speakers.push(speaker);
+                speaker.sessions = speaker.sessions || [];
+                speaker.sessions.push(session);
+              }
+            });
+          }
+
+          if (session.tracks) {
+            session.tracks.forEach(track => {
+              if (this.data.tracks.indexOf(track) < 0) {
+                this.data.tracks.push(track);
+              }
+            });
+          }
         });
       });
     });
 
-    return data;
-  }
-
-  processSession(data, session) {
-    // loop through each speaker and load the speaker data
-    // using the speaker name as the key
-    session.speakers = [];
-    if (session.speakerNames) {
-      session.speakerNames.forEach(speakerName => {
-        let speaker = data.speakers.find(s => s.name === speakerName);
-        if (speaker) {
-          session.speakers.push(speaker);
-          speaker.sessions = speaker.sessions || [];
-          speaker.sessions.push(session);
-        }
-      });
-    }
-
-    if (session.tracks) {
-      session.tracks.forEach(track => {
-        if (data.tracks.indexOf(track) < 0) {
-          data.tracks.push(track);
-        }
-      });
-    }
+    return this.data;
   }
 
   getTimeline(dayIndex, queryText = '', excludeTracks = [], segment = 'all') {
