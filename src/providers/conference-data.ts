@@ -37,7 +37,6 @@ export class ConferenceData {
       day.groups.forEach(group => {
         // loop through each session in the timeline group
         group.sessions.forEach(session => {
-          // this.processSession(this.data, session);
           session.speakers = [];
           if (session.speakerNames) {
             session.speakerNames.forEach(speakerName => {
