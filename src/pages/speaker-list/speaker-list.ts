@@ -16,8 +16,10 @@ export class SpeakerListPage {
   actionSheet: ActionSheet;
   speakers = [];
 
-  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {
-    confData.getSpeakers().subscribe(speakers => {
+  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {}
+
+  ionViewDidLoad() {
+    this.confData.getSpeakers().subscribe(speakers => {
       this.speakers = speakers;
     });
   }

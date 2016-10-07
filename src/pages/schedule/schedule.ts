@@ -44,11 +44,8 @@ export class SchedulePage {
 
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     this.app.setTitle('Schedule');
-  }
-
-  ngAfterViewInit() {
     this.updateSchedule();
   }
 
