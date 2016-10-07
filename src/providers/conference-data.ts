@@ -1,34 +1,32 @@
 import { Injectable } from '@angular/core';
 
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 
 import { UserData } from './user-data';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 
 @Injectable()
 export class ConferenceData {
   data: any;
 
-  constructor(public http: Http, public user: UserData) {}
+  constructor(public http: Http, public user: UserData) { }
 
-  load() {
+  load(): any {
     if (this.data) {
-      // already loaded data
-      return Promise.resolve(this.data);
+      return Observable.of(this.data);
+    } else {
+      return this.http.get('assets/data/data.json')
+        .map(this.extractData);
     }
+  }
 
-    // don't have the data yet
-    return new Promise(resolve => {
-      // We're using Angular Http provider to request the data,
-      // then on the response it'll map the JSON data to a parsed JS object.
-      // Next we process the data and resolve the promise with the new data.
-      this.http.get('assets/data/data.json').subscribe(res => {
-        // we've got back the raw data, now generate the core schedule data
-        // and save the data for later reference
-        this.data = this.processData(res.json());
-        resolve(this.data);
-      });
-    });
+  extractData(res: Response) {
+    this.data = res.json();
+    return this.data;
   }
 
   processData(data) {
@@ -76,7 +74,7 @@ export class ConferenceData {
   }
 
   getTimeline(dayIndex, queryText = '', excludeTracks = [], segment = 'all') {
-    return this.load().then(data => {
+    return this.load().map(data => {
       let day = data.schedule[dayIndex];
       day.shownSessions = 0;
 
@@ -143,7 +141,7 @@ export class ConferenceData {
   }
 
   getSpeakers() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.speakers.sort((a, b) => {
         let aName = a.name.split(' ').pop();
         let bName = b.name.split(' ').pop();
@@ -153,13 +151,13 @@ export class ConferenceData {
   }
 
   getTracks() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.tracks.sort();
     });
   }
 
   getMap() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.map;
     });
   }

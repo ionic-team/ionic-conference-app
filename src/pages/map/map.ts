@@ -12,7 +12,7 @@ export class MapPage {
   constructor(public confData: ConferenceData) {}
 
   ionViewDidLoad() {
-    this.confData.getMap().then(mapData => {
+    this.confData.getMap().subscribe(mapData => {
       let mapEle = document.getElementById('map');
 
       let map = new google.maps.Map(mapEle, {

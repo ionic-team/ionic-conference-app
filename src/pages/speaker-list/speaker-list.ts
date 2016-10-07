@@ -17,7 +17,7 @@ export class SpeakerListPage {
   speakers = [];
 
   constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {
-    confData.getSpeakers().then(speakers => {
+    confData.getSpeakers().subscribe(speakers => {
       this.speakers = speakers;
     });
   }
