@@ -24,11 +24,6 @@ export class ConferenceData {
     }
   }
 
-  extractData(res: Response) {
-    this.data = res.json();
-    return this.data;
-  }
-
   processData(data) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
