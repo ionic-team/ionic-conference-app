@@ -21,6 +21,7 @@ This is purely a demo of Ionic 2 with TypeScript. It is still in development.
 * Want to use TypeScript? Both the `master` branch and the `typescript` branch now use TypeScript.
 * Run `npm install` from the project root.
 * Install the ionic CLI (`npm install -g ionic`)
+* Create an empty 'www' folder under the project root (`mkdir www`)
 * Run `ionic serve` in a terminal from the project root.
 * Profit
 
