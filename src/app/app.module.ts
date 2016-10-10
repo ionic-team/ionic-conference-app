@@ -27,7 +27,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     { component: SchedulePage, name: 'schedule', segment: 'schedule' },
     { component: MapPage, name: 'map', segment: 'map' },
     { component: SpeakerListPage, name: 'speakerList', segment: 'speaker-list' },
-    { component: AboutPage, name: 'about', segment: 'about' },,
+    { component: AboutPage, name: 'about', segment: 'about' },
     { component: Support, name: 'support', segment: 'support' },
     { component: SignupPage, name: 'signup', segment: 'signup' },
     { component: TutorialPage, name: 'tutorial', segment: 'tutorial' }
