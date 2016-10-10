@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, ItemSliding, List, ModalController, NavController } from 'ionic-angular';
+import { AlertController, App, ItemSliding, List, ModalController, NavController, ToastController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -23,7 +23,7 @@ export class SchedulePage {
   // @ViewChild('scheduleList') gets a reference to the list
   // with the variable #scheduleList, `read: List` tells it to return
   // the List and not a reference to the element
-  @ViewChild('scheduleList', {read: List}) scheduleList: List;
+  @ViewChild('scheduleList', { read: List }) scheduleList: List;
 
   dayIndex = 0;
   queryText = '';
@@ -38,6 +38,7 @@ export class SchedulePage {
     public app: App,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
+    public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData
   ) {
