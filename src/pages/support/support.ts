@@ -24,9 +24,9 @@ export class Support {
   }
 
   ionViewDidEnter() {
-    console.log('called');
     let toast = this.toastCtrl.create({
-      message: 'This does not actually send a support request'
+      message: 'This does not actually send a support request',
+      duration: 3000
     });
     toast.present();
   }
@@ -62,13 +62,14 @@ export class Support {
             text: 'Leave',
             handler: () => {
               console.log('Agree clicked');
-              return true;
+              this.submitted = true;
+              this.navCtrl.pop();
             }
           }
         ]
       });
       confirm.present();
-      return false;
+      return false
     }
   }
 
