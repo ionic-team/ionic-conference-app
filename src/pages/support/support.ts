@@ -13,31 +13,42 @@ import { NavController, AlertController } from 'ionic-angular';
 })
 export class Support {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) { }
+  submitted: boolean;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+    this.submitted = false;
+  }
+
+  submit() {
+    this.submitted = true;
+  }
 
   ionViewCanLeave() {
-    let confirm = this.alertCtrl.create({
-      title: 'Leave this page?',
-      message: 'Are you sure you want to leave this page?',
-      buttons: [
-        {
-          text: 'Stay',
-          handler: () => {
-            console.log('Disagree clicked');
+    if (this.submitted === true) {
+      return true;
+    } else {
+      let confirm = this.alertCtrl.create({
+        title: 'Leave this page?',
+        message: 'Are you sure you want to leave this page?',
+        buttons: [
+          {
+            text: 'Stay',
+            handler: () => {
+              console.log('Disagree clicked');
+            }
+          },
+          {
+            text: 'Leave',
+            handler: () => {
+              console.log('Agree clicked');
+              return true;
+            }
           }
-        },
-        {
-          text: 'Leave',
-          handler: () => {
-            console.log('Agree clicked');
-          }
-        }
-      ]
-    });
-    confirm.present().then(() => {
-      console.log('hello world');
-    })
-    return false;
+        ]
+      });
+      confirm.present();
+      return false;
+    }
   }
 
 }
