@@ -6,18 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Support</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Support</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-item id="textAreaItem">
-    <ion-label>Support Question</ion-label>
-    <ion-textarea rows="6"></ion-textarea>
-  </ion-item>
+	<form #submitForm="ngForm" novalidate>
+		<ion-item id="textAreaItem">
+			<ion-label>Support Question</ion-label>
+			<ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
+		</ion-item>
+		<p [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>
+			Support message is required
+		</p>
 
-  <button ion-button color="secondary" block (click)="submit()">Submit</button>
+		<button id="submitButton" ion-button color="secondary" block (click)="submit(submitForm)">Submit</button>
+	</form>
 </ion-content>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PopoverController, ViewController, NavController } from 'ionic-angular';
+import { PopoverController, ViewController, NavController, App } from 'ionic-angular';
 
 import { Support } from '../support/support';
 
@@ -18,10 +18,14 @@ import { Support } from '../support/support';
 })
 export class PopoverPage {
 
-  constructor(public viewCtrl: ViewController, public navCtrl: NavController) { }
+  constructor(
+    public viewCtrl: ViewController,
+    public navCtrl: NavController,
+    public app: App
+  ) { }
 
   support() {
-    this.navCtrl.push(Support);
+    this.app.getRootNav().push(Support);
     this.viewCtrl.dismiss();
   }
 

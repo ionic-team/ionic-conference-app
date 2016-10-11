@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 
 /*
   Generated class for the Support page.
@@ -15,12 +15,33 @@ export class Support {
 
   submitted: boolean;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController
+  ) {
     this.submitted = false;
   }
 
-  submit() {
+  ionViewDidEnter() {
+    console.log('called');
+    let toast = this.toastCtrl.create({
+      message: 'This does not actually send a support request'
+    });
+    toast.present();
+  }
+
+  submit(form) {
     this.submitted = true;
+
+    if (form.valid) {
+      console.log('valid');
+      let toast = this.toastCtrl.create({
+        message: 'Support request sent!',
+        duration: 3000
+      });
+      toast.present();
+    }
   }
 
   ionViewCanLeave() {
