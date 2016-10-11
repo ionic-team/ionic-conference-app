@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import { Events, MenuController, Nav, Platform, ToastController } from 'ionic-angular';
 import { Splashscreen, StatusBar } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
@@ -53,7 +53,8 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public confData: ConferenceData,
-    public storage: Storage
+    public storage: Storage,
+    public toastCtrl: ToastController
   ) {
     // Call any initial plugins when ready
     platform.ready().then(() => {
@@ -82,6 +83,8 @@ export class ConferenceApp {
     });
 
     this.listenToLoginEvents();
+
+    this.handleServiceWorker();
   }
 
   openPage(page: PageObj) {
@@ -124,5 +127,20 @@ export class ConferenceApp {
   enableMenu(loggedIn) {
     this.menu.enable(loggedIn, 'loggedInMenu');
     this.menu.enable(!loggedIn, 'loggedOutMenu');
+  }
+
+  handleServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      (navigator as any).serviceWorker.register('service-worker.js')
+        .then(() => {
+          console.log('service worker installed');
+          let toast = this.toastCtrl.create({
+            message: 'You can now use this application offline',
+            duration: 3000
+          });
+          toast.present();
+        })
+        .catch(err => console.log('Error', err));
+    }
   }
 }
