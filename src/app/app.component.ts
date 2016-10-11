@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
+import { QRPage } from '../pages/qr/qr';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
@@ -36,6 +37,7 @@ export class ConferenceApp {
     { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
     { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
     { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
+    { title: 'QR', component: QRPage, index: 4, icon: 'qr-scanner'}
   ];
   loggedInPages: PageObj[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },

@@ -6,13 +6,15 @@ import { Storage } from '@ionic/storage';
 import { ConferenceApp } from './app.component';
 
 import { AboutPage, PopoverPage } from '../pages/about/about';
-import { SchedulePopoverPage } from '../pages/schedule/popover';
+
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
+import { QRPage } from '../pages/qr/qr';
 import { SchedulePage } from '../pages/schedule/schedule';
-import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
+import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
+import { SchedulePopoverPage } from '../pages/schedule/popover';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
@@ -31,6 +33,7 @@ import { UserData } from '../providers/user-data';
     LoginPage,
     MapPage,
     PopoverPage,
+    QRPage,
     SchedulePage,
     SchedulePopoverPage,
     ScheduleFilterPage,
@@ -52,6 +55,7 @@ import { UserData } from '../providers/user-data';
     LoginPage,
     MapPage,
     PopoverPage,
+    QRPage,
     SchedulePage,
     SchedulePopoverPage,
     ScheduleFilterPage,

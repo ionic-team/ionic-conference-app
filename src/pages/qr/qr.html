@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Networking</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list">
+  <ion-fab edge top right #fab>
+      <button ion-fab><ion-icon name="md-add"></ion-icon></button>
+      <ion-fab-list side="bottom">
+     <button color="dark" ion-fab (click)="scan(fab)"><ion-icon name="qr-scanner"></ion-icon></button>
+     <button color="dark" ion-fab><ion-icon name="ios-send"></ion-icon></button>    
+   </ion-fab-list>
+  </ion-fab>
+  <ion-list>
+	<ion-item *ngFor="let speaker of speakers">
+		<!--<ion-avatar item-left>
+			<img src="img/avatar-finn.png">
+		</ion-avatar>-->
+		<h2>{{speaker.name}}</h2>
+        <!--
+		<h3>{{speaker.title}}</h3>
+		<p>{{speaker.org}}</p>
+        -->
+	</ion-item>
+</ion-list>
+</ion-content>
