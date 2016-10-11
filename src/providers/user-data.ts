@@ -57,7 +57,7 @@ export class UserData {
   // return a promise
   hasLoggedIn() {
     return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-      return value;
+      return value === true;
     });
   }
 }
