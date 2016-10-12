@@ -1,27 +1,8 @@
 import { Component } from '@angular/core';
 
-import { PopoverController, ViewController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
 
-
-@Component({
-  template: `
-    <ion-list>
-      <button ion-item (click)="close()">Learn Ionic</button>
-      <button ion-item (click)="close()">Documentation</button>
-      <button ion-item (click)="close()">Showcase</button>
-      <button ion-item (click)="close()">GitHub Repo</button>
-    </ion-list>
-  `
-})
-export class PopoverPage {
-
-  constructor(public viewCtrl: ViewController) { }
-
-  close() {
-    this.viewCtrl.dismiss();
-  }
-}
-
+import { PopoverPage } from '../about-popover/about-popover';
 
 @Component({
   selector: 'page-about',
