@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner } from 'ionic-native';
 import { NavController, FabContainer } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -8,8 +9,15 @@ import { NavController, FabContainer } from 'ionic-angular';
   templateUrl: 'qr.html'
 })
 export class QRPage {
-  speakers = [];
-  constructor(public nav: NavController) { }
+  contacts = [];
+  constructor(public nav: NavController, public storage: Storage) {    
+    this.storage.get('contacts').then( (contacts) => {
+      if (contacts) {
+        this.contacts = contacts;
+      }      
+    }, (err) => {      
+    });
+  }
 
   getLastName(vcard) {
     return vcard.split("\n")[1].split(';')[0].split(':')[1];
@@ -30,6 +38,7 @@ export class QRPage {
 
   scan(fab: FabContainer) {
       fab.close();
+      console.log(this.contacts);
       BarcodeScanner.scan().then((data) => {        
           const vcard = data.text;
           const contact = {
@@ -37,8 +46,14 @@ export class QRPage {
               'email': this.getEmail(vcard),
               'org': this.getOrg(vcard),
               'title': this.getTitle(vcard)
-          };
-          this.speakers.push(contact);
+          };          
+          this.contacts.push(contact);          
+          this.storage.set('contacts', this.contacts).then((success) => {
+            // Make toast
+            console.log('saved');
+          }, (err) => {
+            console.log('err');
+          });
       }, (err) => {
           console.log(err);
       })
