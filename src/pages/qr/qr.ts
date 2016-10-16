@@ -10,12 +10,12 @@ import { Storage } from '@ionic/storage';
 })
 export class QRPage {
   contacts = [];
-  constructor(public nav: NavController, public storage: Storage) {    
+  constructor(public nav: NavController, public storage: Storage) {
     this.storage.get('contacts').then( (contacts) => {
       if (contacts) {
         this.contacts = contacts;
-      }      
-    }, (err) => {      
+      }
+    }, (err) => {
     });
   }
 
@@ -39,15 +39,15 @@ export class QRPage {
   scan(fab: FabContainer) {
       fab.close();
       console.log(this.contacts);
-      BarcodeScanner.scan().then((data) => {        
+      BarcodeScanner.scan().then((data) => {
           const vcard = data.text;
           const contact = {
               'name': this.getFirstName(vcard) + ' ' + this.getLastName(vcard),
               'email': this.getEmail(vcard),
               'org': this.getOrg(vcard),
               'title': this.getTitle(vcard)
-          };          
-          this.contacts.push(contact);          
+          };
+          this.contacts.push(contact);
           this.storage.set('contacts', this.contacts).then((success) => {
             // Make toast
             console.log('saved');
@@ -68,26 +68,26 @@ export class QRPage {
         Object.keys(contact).forEach(function(key) {
           //yield [key, obj[key]];
           if (csvContacts[i]) {
-            if (contact[key]) {
-              csvContacts[i] += '\n' + contact[key]
-            }            
+            // if (contact[key]) {
+              csvContacts[i] += ';' + contact[key]
+            // }
           } else {
             csvContacts[i] = contact[key];
           }
         });
-        csvContacts[i] += "\n ------------ \n"
-      }            
+        csvContacts[i] += "\n"
+      }
       return csvContacts;
   }
 
-  share() {      
+  share() {
       EmailComposer.isAvailable().then(() => {
         console.log('available');
         this.storage.get('contacts').then( (contacts) => {
           console.log(contacts);
           if (contacts) {
             var emailOpts = {
-              to: [''],              
+              to: [''],
               subject: 'Your scanned contacts',
               body: this.generateContactCsv(contacts).join("\n"),
               isHtml: false
@@ -96,12 +96,12 @@ export class QRPage {
             EmailComposer.open(emailOpts).then(function() {
               console.log('email');
             }, function () {
-              // user cancelled email              
+              // user cancelled email
             });
-          }  
+          }
         }, (err) => {
-          console.log('error loading contacts');      
-        });            
+          console.log('error loading contacts');
+        });
       }, () => {
         console.log('not available');
       });

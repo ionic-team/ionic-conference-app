@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="tech.connect.mobile" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="tech.connect.mobile" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Connect.Tech</name>
     <description>
         Connect.Tech Conference App
   </description>
-    <author email="hello@connect.tech" href="http://ionicframework.com/">
+    <author email="hello@connect.tech" href="http://connect.tech/">
       Connect.Tech Team
   </author>
     <content src="index.html" />

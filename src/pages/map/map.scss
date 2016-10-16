@@ -13,3 +13,8 @@ page-map #map {
 page-map #map.show-map {
   opacity: 1;
 }
+
+ion-scroll {
+    white-space: nowrap;
+    height: 100%;
+}

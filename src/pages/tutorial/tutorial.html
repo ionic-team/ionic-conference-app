@@ -11,8 +11,14 @@
     <ion-slide>
       <img src="assets/img/ct.png" class="slide-image"/>
       <h2 class="slide-title">Connect.Tech Conference</h2>
-      <button ion-button icon-right large clear (click)="onSignup()">
-        Create Account
+
+      <h3>Schedule is subject to change; please check the monitors and watch for announcements during the morning keynotes for changes.
+      </h3>
+      <h3>Please take a minute to read the conference's code of conduct
+        <a class="ion-home color-primary item" href="#" onclick="window.open('http://connect.tech/conduct.html', '_system', 'location=yes'); return false;"> here</a>
+      </h3>
+      <button ion-button icon-right large clear (click)="startApp()">
+        Click here to start the app
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-slide>

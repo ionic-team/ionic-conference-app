@@ -42,7 +42,7 @@ export class AboutPage {
 
 openMapsApp() {
 
-  var coords = "33.883812,-84.46812";
+  var coords = "33.8837833,-84.4668657";
   if(this._isiOS) {
     window.open("http://maps.apple.com/?q=" + coords, '_system');
     return;

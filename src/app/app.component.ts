@@ -3,10 +3,10 @@ import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 // import { Splashscreen, StatusBar } from 'ionic-native';
 
-import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
+// import { AccountPage } from '../pages/account/account';
+// import { LoginPage } from '../pages/login/login';
 import { QRPage } from '../pages/qr/qr';
-import { SignupPage } from '../pages/signup/signup';
+// import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 
@@ -39,14 +39,6 @@ export class ConferenceApp {
     { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
     { title: 'QR', component: QRPage, index: 4, icon: 'qr-scanner'}
   ];
-  loggedInPages: PageObj[] = [
-    { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out' }
-  ];
-  loggedOutPages: PageObj[] = [
-    { title: 'Login', component: LoginPage, icon: 'log-in' },
-    { title: 'Signup', component: SignupPage, icon: 'person-add' }
-  ];
   rootPage: any = TabsPage;
   local: Storage;
 
@@ -56,7 +48,7 @@ export class ConferenceApp {
     public menu: MenuController,
     platform: Platform,
     confData: ConferenceData,
-    public storage: Storage    
+    public storage: Storage
   ) {
 
     // Call any initial plugins when ready
@@ -118,4 +110,3 @@ export class ConferenceApp {
     this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 }
-
