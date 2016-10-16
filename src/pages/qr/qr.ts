@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BarcodeScanner } from 'ionic-native';
+import { BarcodeScanner, EmailComposer } from 'ionic-native';
 import { NavController, FabContainer } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
@@ -57,5 +57,53 @@ export class QRPage {
       }, (err) => {
           console.log(err);
       })
+  }
+
+  generateContactCsv(contacts) {
+      var csvContacts = [];
+      for (var i = 0; i < contacts.length; i++) {
+        //csvContacts.push(JSON.stringify(contacts[i]));
+        //let contact = Object.keys(contacts[i])
+        let contact = contacts[i];
+        Object.keys(contact).forEach(function(key) {
+          //yield [key, obj[key]];
+          if (csvContacts[i]) {
+            if (contact[key]) {
+              csvContacts[i] += '\n' + contact[key]
+            }            
+          } else {
+            csvContacts[i] = contact[key];
+          }
+        });
+        csvContacts[i] += "\n ------------ \n"
+      }            
+      return csvContacts;
+  }
+
+  share() {      
+      EmailComposer.isAvailable().then(() => {
+        console.log('available');
+        this.storage.get('contacts').then( (contacts) => {
+          console.log(contacts);
+          if (contacts) {
+            var emailOpts = {
+              to: [''],              
+              subject: 'Your scanned contacts',
+              body: this.generateContactCsv(contacts).join("\n"),
+              isHtml: false
+            };
+
+            EmailComposer.open(emailOpts).then(function() {
+              console.log('email');
+            }, function () {
+              // user cancelled email              
+            });
+          }  
+        }, (err) => {
+          console.log('error loading contacts');      
+        });            
+      }, () => {
+        console.log('not available');
+      });
   }
 }
