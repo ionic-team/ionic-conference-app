@@ -4,11 +4,6 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>About</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -24,14 +19,14 @@
         <ion-icon name="calendar" item-left></ion-icon>
         <ion-label>Date</ion-label>
         <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="conferenceDate"></ion-datetime>
-        to
+        <ion-label>to</ion-label>
         <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="conferenceDateEnd"></ion-datetime>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="openMapsApp()">
         <ion-icon name="pin" item-left></ion-icon>
         <ion-label>Location</ion-label>
-        <ion-label>Atlanta, GA</ion-label>
+        <ion-label>Cobb Galleria, Atlanta, GA</ion-label>
       </ion-item>
     </ion-list>
 
