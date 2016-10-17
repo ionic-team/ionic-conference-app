@@ -20,6 +20,7 @@ export class SchedulePage {
   @ViewChild('scheduleList', {read: List}) scheduleList: List;
 
   dayIndex = 0;
+  search: boolean;
   day = 'Thursday';
   queryText = '';
   segment = 'all';
@@ -36,7 +37,15 @@ export class SchedulePage {
     public user: UserData,
     public popoverCtrl: PopoverController
   ) {
+    this.search=false;
+  }
 
+  getSearchShow() {
+    return this.search;
+  }
+
+  showSearch() {
+    this.search = !this.search;
   }
 
   presentPopover(myEvent) {
