@@ -69,10 +69,11 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="orientation" value="portrait"/>
-  <preference name="SplashScreenDelay" value="10000"/>
   <preference name="FadeSplashScreen" value="true"/>
-  <preference name="FadeSplashScreenDuration" value="750"/>
+  <preference name="FadeSplashScreenDuration" value="250"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
+  <preference name="AutoHideSplashScreen" value="false" />
+
   <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
   <preference name="xwalkVersion" value="18+"/>
   <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect"/>

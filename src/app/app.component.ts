@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-// import { Splashscreen, StatusBar } from 'ionic-native';
+import { Splashscreen, StatusBar } from 'ionic-native';
 
 // import { AccountPage } from '../pages/account/account';
 // import { LoginPage } from '../pages/login/login';
@@ -58,8 +58,8 @@ export class ConferenceApp {
           this.nav.setRoot(TutorialPage)
         }
       })
-      // StatusBar.styleDefault();
-      // Splashscreen.hide();
+      StatusBar.styleDefault();
+      Splashscreen.hide();
     });
 
     // load the conference data
