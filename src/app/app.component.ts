@@ -83,8 +83,6 @@ export class ConferenceApp {
     });
 
     this.listenToLoginEvents();
-
-    this.handleServiceWorker();
   }
 
   openPage(page: PageObj) {
@@ -127,20 +125,5 @@ export class ConferenceApp {
   enableMenu(loggedIn) {
     this.menu.enable(loggedIn, 'loggedInMenu');
     this.menu.enable(!loggedIn, 'loggedOutMenu');
-  }
-
-  handleServiceWorker() {
-    if ('serviceWorker' in navigator) {
-      (navigator as any).serviceWorker.register('service-worker.js')
-        .then(() => {
-          console.log('service worker installed');
-          let toast = this.toastCtrl.create({
-            message: 'You can now use this application offline',
-            duration: 3000
-          });
-          toast.present();
-        })
-        .catch(err => console.log('Error', err));
-    }
   }
 }

@@ -14,6 +14,7 @@ import { NavController, AlertController, ToastController } from 'ionic-angular';
 export class Support {
 
   submitted: boolean;
+  supportMessage: string;
 
   constructor(
     public navCtrl: NavController,
