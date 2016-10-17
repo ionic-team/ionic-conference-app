@@ -14,22 +14,16 @@
     </ion-segment>
 
     <ion-buttons end>
+      <button ion-button icon-only (click)="showSearch()">
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="presentFilter()">
         <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
       </button>
     </ion-buttons>
 
-  </ion-navbar>
+  </ion-navbar>  
 
-  <!--
-  <ion-toolbar no-border-top>
-    <ion-searchbar color="primary"
-                   [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
-                   placeholder="Search">
-    </ion-searchbar>
-  </ion-toolbar>
-  -->
   <ion-toolbar no-border-top>
       <button ion-button icon-left clear full color="danger" (click)="presentPopover($event)">
         <ion-icon name="calendar"></ion-icon> {{day}}
@@ -37,8 +31,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-label text-center>(swipe left to favorite)</ion-label>
+<ion-content>  
+  <ion-toolbar no-border-top bind-hidden="search === true">
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateSchedule()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
   <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
