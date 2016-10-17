@@ -14,7 +14,7 @@
     </ion-segment>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="showSearch()">
+      <button ion-button icon-only (click)="showSearch()" *ngIf="!search">
         <ion-icon ios="ios-search" md="md-search"></ion-icon>
       </button>
       <button ion-button icon-only (click)="presentFilter()">
@@ -32,9 +32,11 @@
 </ion-header>
 
 <ion-content>  
-  <ion-toolbar no-border-top bind-hidden="search === true">
+  <ion-toolbar no-border-top *ngIf="search">
+    <ion-buttons end><button ion-button button-left clear (click)="onHide()">Hide</button></ion-buttons>
     <ion-searchbar color="primary"
                    [(ngModel)]="queryText"
+                   [showCancelButton]="true"
                    (ionInput)="updateSchedule()"
                    placeholder="Search">
     </ion-searchbar>

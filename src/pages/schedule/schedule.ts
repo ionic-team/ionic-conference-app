@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { AlertController, App, ItemSliding, List, ModalController, NavController, PopoverController } from 'ionic-angular';
-
 import { ConferenceData } from '../../providers/conference-data';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -35,17 +33,17 @@ export class SchedulePage {
     public navCtrl: NavController,
     public confData: ConferenceData,
     public user: UserData,
-    public popoverCtrl: PopoverController
+    public popoverCtrl: PopoverController,
   ) {
     this.search=false;
   }
 
-  getSearchShow() {
-    return this.search;
+  showSearch() {
+    this.search = true;
   }
 
-  showSearch() {
-    this.search = !this.search;
+  onHide() {
+    this.search = false;
   }
 
   presentPopover(myEvent) {
