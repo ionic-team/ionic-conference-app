@@ -60,22 +60,13 @@ export class QRPage {
   }
 
   generateContactCsv(contacts) {
-      var csvContacts = [];
+      let csvContacts = "";
       for (var i = 0; i < contacts.length; i++) {
         //csvContacts.push(JSON.stringify(contacts[i]));
         //let contact = Object.keys(contacts[i])
         let contact = contacts[i];
-        Object.keys(contact).forEach(function(key) {
-          //yield [key, obj[key]];
-          if (csvContacts[i]) {
-            // if (contact[key]) {
-              csvContacts[i] += ';' + contact[key]
-            // }
-          } else {
-            csvContacts[i] = contact[key];
-          }
-        });
-        csvContacts[i] += "\n"
+        csvContacts += contact.name + ',' + contact.email + ',' + contact.org + ',' + contact.title
+        csvContacts += "\n"
       }
       return csvContacts;
   }
@@ -89,7 +80,7 @@ export class QRPage {
             var emailOpts = {
               to: [''],
               subject: 'Your scanned contacts',
-              body: this.generateContactCsv(contacts).join("\n"),
+              body: this.generateContactCsv(contacts),
               isHtml: false
             };
 
