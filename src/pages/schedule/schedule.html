@@ -18,6 +18,7 @@
         <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
       </button>
     </ion-buttons>
+
   </ion-navbar>
 
   <!--
@@ -32,11 +33,12 @@
   <ion-toolbar no-border-top>
       <button ion-button icon-left clear full (click)="presentPopover($event)">
         <ion-icon name="calendar"></ion-icon> {{day}}
-      </button>     
+      </button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-label text-center>(swipe left to favorite)</ion-label>
   <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
@@ -58,10 +60,10 @@
 
         <ion-item-options>
           <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
-            Favorite
+            <h3>Favorite</h3>
           </button>
           <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
-            Remove
+            <h3>Remove</h3>
           </button>
         </ion-item-options>
 

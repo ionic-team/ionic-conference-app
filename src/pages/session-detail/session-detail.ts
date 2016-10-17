@@ -13,4 +13,8 @@ export class SessionDetailPage {
   constructor(public navParams: NavParams) {
     this.session = navParams.data;
   }
+
+  goToSpeakerTwitter(speaker) {
+      window.open(`https://twitter.com/${speaker.twitter}`, '_system');
+  }
 }

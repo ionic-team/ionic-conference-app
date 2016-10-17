@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^2.0.0",
     "@angular/platform-browser-dynamic": "^2.0.0",
     "@angular/platform-server": "^2.0.0",
+    "@ionic/app-scripts": "0.0.36",
     "@ionic/cloud-angular": "0.6.0",
     "@ionic/storage": "^1.0.3",
     "ionic-angular": "^2.0.0-rc.1",
@@ -34,7 +35,7 @@
     "zone.js": "^0.6.21"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^0.0.31",
+    "@ionic/app-scripts": "^0.0.36",
     "typescript": "^2.0.3"
   },
   "cordovaPlugins": [

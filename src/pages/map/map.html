@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content class="map-page">
-
-  <div id="map">
+  <ion-label>Tap map to zoom</ion-label>
+  <ion-scroll  zoom="true" scrollX="true" scrollY="true" maxZoom="20" (click)="photoClick()">
+    <img src="assets/img/CobbGalleriaFloorplan.png">
+  </ion-scroll>
+  <div id="map" >
 
   </div>
 </ion-content>
-<ion-scroll  zoom="true" scrollX="true" scrollY="true" maxZoom="20">
-  <img src="assets/img/CobbGalleriaFloorplan.png">
-</ion-scroll>

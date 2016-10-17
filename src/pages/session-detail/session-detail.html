@@ -18,4 +18,26 @@
   <p>{{session.location}}</p>
 
   <p>{{session.description}}</p>
+
+  <ion-card *ngFor="let speaker of session.speakers" class="speaker">
+
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="speaker.profilePic">
+        </ion-avatar>
+        {{speaker.name}}
+      </ion-item>
+    </ion-card-header>
+
+      <p>{{speaker.about}}</p>
+
+    <ion-item>
+      <button ion-button icon-left (click)="goToSpeakerTwitter(speaker)" clear item-left>
+        <ion-icon name="logo-twitter"></ion-icon>
+        @{{speaker.twitter}}
+      </button>
+    </ion-item>
+
+  </ion-card>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { PhotoViewer } from 'ionic-native';
 import { ConferenceData } from '../../providers/conference-data';
 
 declare var google: any;
@@ -11,6 +11,9 @@ declare var google: any;
 export class MapPage {
   constructor(public confData: ConferenceData) {}
 
+  photoClick() {
+    PhotoViewer.show('http://connect.tech/img/CobbGalleriaFloorplan.png');
+  }
   ionViewDidLoad() {
     // this.confData.getMap().then(mapData => {
     //   let mapEle = document.getElementById('map');
