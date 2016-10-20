@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
+import {Deploy} from '@ionic/cloud-angular';
 import { Storage } from '@ionic/storage';
 import { Splashscreen, StatusBar } from 'ionic-native';
 
@@ -37,7 +38,7 @@ export class ConferenceApp {
     { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
     { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
     { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
-    { title: 'QR', component: QRPage, index: 4, icon: 'qr-scanner'}
+    { title: 'QR', component: QRPage, index: 4, icon: 'qr-scanner' }
   ];
   rootPage: any = TabsPage;
   local: Storage;
@@ -48,7 +49,8 @@ export class ConferenceApp {
     public menu: MenuController,
     platform: Platform,
     confData: ConferenceData,
-    public storage: Storage
+    public storage: Storage,
+    public deploy: Deploy
   ) {
 
     // Call any initial plugins when ready
@@ -59,6 +61,15 @@ export class ConferenceApp {
         }
       })
       StatusBar.styleDefault();
+      this.deploy.check().then((snapshotAvailable: boolean) => {
+        if (snapshotAvailable) {
+          this.deploy.download().then(() => {
+            return this.deploy.extract();
+          }).then(() => {
+            this.deploy.load();
+          });
+        }
+      });
       Splashscreen.hide();
     });
 
@@ -78,7 +89,7 @@ export class ConferenceApp {
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      this.nav.setRoot(page.component, {tabIndex: page.index});
+      this.nav.setRoot(page.component, { tabIndex: page.index });
     } else {
       this.nav.setRoot(page.component);
     }
