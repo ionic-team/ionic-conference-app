@@ -13,7 +13,7 @@ import 'rxjs/add/observable/of';
 export class ConferenceData {
   data: any;
 
-  constructor(private http: Http, public user: UserData) { }
+  constructor(public http: Http, public user: UserData) { }
 
   load(): any {
     if (this.data) {
