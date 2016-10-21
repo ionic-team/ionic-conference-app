@@ -37,6 +37,9 @@
     "@ionic/app-scripts": "beta",
     "typescript": "^2.0.3"
   },
+  "config": {
+    "ionic_bundler": "rollup"
+  },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     {
