@@ -1,18 +1,25 @@
 
 page-speaker-list {
 
-  ion-card.speaker ion-card-header .item {
+  .scroll-content {
+    background: #EDEDED;
+  }
+
+  .speaker-card ion-card-header .item {
     padding: 12px;
   }
 
-  ion-card.speaker ion-card-content .list {
-    margin: 0;
+  .speaker-card ion-card-header,
+  .speaker-card ion-card-content,
+  .speaker-card ion-card-content .list ion-item-content, {
+    padding: 0;
   }
 
-  ion-card.speaker ion-card-header,
-  ion-card.speaker ion-card-content,
-  ion-card.speaker ion-card-content .list ion-item-content, {
-    padding: 0;
+  @media (min-width: 600px) {
+    .speaker-card {
+      width: 60%;
+      margin: 10px auto;
+    }
   }
 
 }

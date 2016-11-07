@@ -21346,18 +21346,25 @@ page-signup .logo img {
   color: #60646B;
 }
 
-page-speaker-list ion-card.speaker ion-card-header .item {
+page-speaker-list .scroll-content {
+  background: #EDEDED;
+}
+
+page-speaker-list .speaker-card ion-card-header .item {
   padding: 12px;
 }
 
-page-speaker-list ion-card.speaker ion-card-content .list {
-  margin: 0;
+page-speaker-list .speaker-card ion-card-header,
+page-speaker-list .speaker-card ion-card-content,
+page-speaker-list .speaker-card ion-card-content .list ion-item-content {
+  padding: 0;
 }
 
-page-speaker-list ion-card.speaker ion-card-header,
-page-speaker-list ion-card.speaker ion-card-content,
-page-speaker-list ion-card.speaker ion-card-content .list ion-item-content {
-  padding: 0;
+@media (min-width: 600px) {
+  page-speaker-list .speaker-card {
+    width: 60%;
+    margin: 10px auto;
+  }
 }
 
 page-support #textAreaItem {
