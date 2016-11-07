@@ -29,7 +29,10 @@ export const deepLinkConfig: DeepLinkConfig = {
     { component: AboutPage, name: 'about', segment: 'about' },
     { component: Support, name: 'support', segment: 'support' },
     { component: SignupPage, name: 'signup', segment: 'signup' },
-    { component: TutorialPage, name: 'tutorial', segment: 'tutorial' }
+    { component: LoginPage, name: 'login', segment: 'login' },
+    { component: TutorialPage, name: 'tutorial', segment: 'tutorial' },
+    { component: SessionDetailPage, name: 'session-detail', segment: 'session-detail' },
+    { component: SpeakerDetailPage, name: 'speaker-detail', segment: 'speaker-detail' }
   ]
 };
 
