@@ -21368,6 +21368,16 @@ page-support #submitButton {
   margin-top: 6rem;
 }
 
+.tabbar {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.tab-button {
+  max-width: 200px;
+}
+
 page-tutorial .toolbar-background {
   background: #fff;
   border-color: transparent;
