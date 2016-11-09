@@ -25,7 +25,6 @@ export class MapPage {
 
       GoogleMap.isAvailable().then(() => {
         mapData.find(data => {
-          console.log(data);
           const position = new GoogleMapsLatLng(43.074395, -89.381056);
 
           this.map.animateCamera({
