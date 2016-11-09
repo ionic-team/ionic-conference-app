@@ -2,44 +2,47 @@ import { Component } from '@angular/core';
 
 import { ConferenceData } from '../../providers/conference-data';
 
-declare var google: any;
+import { Platform } from 'ionic-angular';
+
+import { GoogleMap, GoogleMapsLatLng, GoogleMapsMarkerOptions } from 'ionic-native';
+
 
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
 })
 export class MapPage {
-  constructor(public confData: ConferenceData) {}
 
-  ionViewDidLoad() {
+  public map: GoogleMap;
+
+  constructor(public confData: ConferenceData, public platform: Platform) {
+    this.platform.ready().then(() => this.onPlatformReady());
+  }
+
+  onPlatformReady() {
     this.confData.getMap().subscribe(mapData => {
-      let mapEle = document.getElementById('map');
+      this.map = new GoogleMap('map_canvas');
 
-      let map = new google.maps.Map(mapEle, {
-        center: mapData.find(d => d.center),
-        zoom: 16
-      });
+      GoogleMap.isAvailable().then(() => {
+        mapData.find(data => {
+          console.log(data);
+          const position = new GoogleMapsLatLng(43.074395, -89.381056);
 
-      mapData.forEach(markerData => {
-        let infoWindow = new google.maps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`
+          this.map.animateCamera({
+            target: position,
+            zoom: 16
+          }).then(() => {
+            mapData.forEach(markerData => {
+              const markerOptions: GoogleMapsMarkerOptions = {
+                position: markerData,
+                title: markerData.name
+              };
+
+              this.map.addMarker(markerOptions);
+            });
+          });
         });
-
-        let marker = new google.maps.Marker({
-          position: markerData,
-          map: map,
-          title: markerData.name
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
       });
-
-      google.maps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
-
     });
   }
 }

@@ -55,7 +55,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     Support
   ],
   imports: [
-    IonicModule.forRoot(ConferenceApp, null, deepLinkConfig)
+    IonicModule.forRoot(ConferenceApp, deepLinkConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
