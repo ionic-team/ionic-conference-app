@@ -1,4 +1,3 @@
-
 // tick this to make the cache invalidate and update
 const CACHE_VERSION = 1;
 const CURRENT_CACHES = {
@@ -59,7 +58,7 @@ self.addEventListener('fetch', (event) => {
 
           // Optional: add in extra conditions here, e.g. response.type == 'basic' to only cache
           // responses from the same domain. See https://fetch.spec.whatwg.org/#concept-response-type
-          if (response.status < 400) {
+          if (response.status < 400 && response.type === 'basic') {
             // We need to call .clone() on the response object to save a copy of it to the cache.
             // (https://fetch.spec.whatwg.org/#dom-request-clone)
             cache.put(event.request, response.clone());

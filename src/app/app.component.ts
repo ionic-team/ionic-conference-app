@@ -17,6 +17,7 @@ export interface PageObj {
   title: string;
   component: any;
   icon: string;
+  logsOut?: boolean;
   index?: number;
 }
 
@@ -39,7 +40,7 @@ export class ConferenceApp {
   ];
   loggedInPages: PageObj[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out' }
+    { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageObj[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
@@ -79,7 +80,7 @@ export class ConferenceApp {
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.enableMenu(hasLoggedIn === 'true');
+      this.enableMenu(hasLoggedIn === true);
     });
 
     this.listenToLoginEvents();
@@ -96,7 +97,7 @@ export class ConferenceApp {
       this.nav.setRoot(page.component);
     }
 
-    if (page.title === 'Logout') {
+    if (page.logsOut === true) {
       // Give the menu time to close before changing to logged out
       setTimeout(() => {
         this.userData.logout();
