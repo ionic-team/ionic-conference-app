@@ -25,6 +25,8 @@ import { UserData } from '../providers/user-data';
 
 export const deepLinkConfig: DeepLinkConfig = {
   links: [
+    { component: TabsPage, name: 'home', segment: 'home' },
+    { component: SchedulePage, name: 'schedule', segment: 'schedule' },
     { component: MapPage, name: 'map', segment: 'map' },
     { component: SpeakerListPage, name: 'speaker-list', segment: 'speaker-list' },
     { component: AboutPage, name: 'about', segment: 'about' },
