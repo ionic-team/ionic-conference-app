@@ -11,7 +11,7 @@ import { NavController, AlertController, ToastController } from 'ionic-angular';
   selector: 'page-support',
   templateUrl: 'support.html'
 })
-export class Support {
+export class SupportPage {
 
   submitted: boolean;
   supportMessage: string;

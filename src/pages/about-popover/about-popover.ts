@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ViewController, NavController, App, ModalController } from 'ionic-angular';
 
-import { Support } from '../support/support';
+import { SupportPage } from '../support/support';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class PopoverPage {
   ) { }
 
   support() {
-    this.app.getRootNav().push(Support);
+    this.app.getRootNav().push(SupportPage);
     this.viewCtrl.dismiss();
   }
 

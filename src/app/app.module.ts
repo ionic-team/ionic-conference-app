@@ -18,7 +18,7 @@ import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { Support } from '../pages/support/support';
+import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -26,9 +26,9 @@ import { UserData } from '../providers/user-data';
 export const deepLinkConfig: DeepLinkConfig = {
   links: [
     { component: MapPage, name: 'map', segment: 'map' },
-    { component: SpeakerListPage, name: 'speakerList', segment: 'speaker-list' },
+    { component: SpeakerListPage, name: 'speaker-list', segment: 'speaker-list' },
     { component: AboutPage, name: 'about', segment: 'about' },
-    { component: Support, name: 'support', segment: 'support' },
+    { component: SupportPage, name: 'support', segment: 'support' },
     { component: SignupPage, name: 'signup', segment: 'signup' },
     { component: LoginPage, name: 'login', segment: 'login' },
     { component: TutorialPage, name: 'tutorial', segment: 'tutorial' },
@@ -53,7 +53,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    Support
+    SupportPage
   ],
   imports: [
     IonicModule.forRoot(ConferenceApp, null, deepLinkConfig)
@@ -74,7 +74,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    Support
+    SupportPage
   ],
   providers: [ConferenceData, UserData, Storage]
 })
