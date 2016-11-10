@@ -12,7 +12,7 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-export interface PageObj {
+export interface PageInterface {
   title: string;
   component: any;
   icon: string;
@@ -31,17 +31,17 @@ export class ConferenceApp {
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
   // the login page disables the left menu
-  appPages: PageObj[] = [
+  appPages: PageInterface[] = [
     { title: 'Schedule', component: TabsPage, icon: 'calendar' },
     { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
     { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
     { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
   ];
-  loggedInPages: PageObj[] = [
+  loggedInPages: PageInterface[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
     { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
-  loggedOutPages: PageObj[] = [
+  loggedOutPages: PageInterface[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
@@ -71,7 +71,7 @@ export class ConferenceApp {
     this.listenToLoginEvents();
   }
 
-  openPage(page: PageObj) {
+  openPage(page: PageInterface) {
     // the nav component was found using @ViewChild(Nav)
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
