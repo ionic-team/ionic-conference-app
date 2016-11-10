@@ -68,7 +68,6 @@ export class ConferenceApp {
       if (hasSeenTutorial === null) {
         // User has not seen tutorial
         this.rootPage = TutorialPage;
-        this.storage.set('hasSeenTutorial', 'true');
       } else {
         // User has seen tutorial
         this.rootPage = TabsPage;
