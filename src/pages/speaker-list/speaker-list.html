@@ -11,15 +11,12 @@
   <ion-card *ngFor="let speaker of speakers" class="speaker-card">
 
     <ion-card-header>
-      <ion-item>
+      <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
         <ion-avatar item-left>
           <img [src]="speaker.profilePic">
         </ion-avatar>
         {{speaker.name}}
-        <button ion-button icon-only (click)="openContact(speaker)" clear item-right>
-          <ion-icon name="help-circle"></ion-icon>
-        </button>
-      </ion-item>
+      </button>
     </ion-card-header>
 
     <ion-card-content class="outer-content">
@@ -27,22 +24,33 @@
         <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
           <h3>{{session.name}}</h3>
         </button>
+
         <button ion-item (click)="goToSpeakerDetail(speaker)">
           <h3>About {{speaker.name}}</h3>
         </button>
       </ion-list>
     </ion-card-content>
 
-    <ion-item>
-      <button ion-button icon-left (click)="goToSpeakerTwitter(speaker)" clear item-left>
-        <ion-icon name="logo-twitter"></ion-icon>
-        Tweet
-      </button>
-      <button ion-button icon-left (click)="openSpeakerShare(speaker)" clear item-right>
-        <ion-icon name="share"></ion-icon>
-        Share
-      </button>
-    </ion-item>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="primary" icon-left (click)="goToSpeakerTwitter(speaker)">
+          <ion-icon name="logo-twitter"></ion-icon>
+          Tweet
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="primary" icon-left (click)="openSpeakerShare(speaker)">
+          <ion-icon name='share-alt'></ion-icon>
+         Share
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-left (click)="openContact(speaker)">
+          <ion-icon name='chatboxes'></ion-icon>
+          Contact
+        </button>
+      </ion-col>
+    </ion-row>
 
   </ion-card>
 </ion-content>
