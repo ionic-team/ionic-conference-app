@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { IonicApp, IonicModule, DeepLinkConfig } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
@@ -23,22 +23,6 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-export const deepLinkConfig: DeepLinkConfig = {
-  links: [
-    { component: TabsPage, name: 'home', segment: 'home' },
-    { component: SchedulePage, name: 'schedule', segment: 'schedule' },
-    { component: MapPage, name: 'map', segment: 'map' },
-    { component: SpeakerListPage, name: 'speaker-list', segment: 'speaker-list' },
-    { component: AboutPage, name: 'about', segment: 'about' },
-    { component: SupportPage, name: 'support', segment: 'support' },
-    { component: SignupPage, name: 'signup', segment: 'signup' },
-    { component: LoginPage, name: 'login', segment: 'login' },
-    { component: AccountPage, name: 'account', segment: 'account' },
-    { component: TutorialPage, name: 'tutorial', segment: 'tutorial' },
-    { component: SessionDetailPage, name: 'session-detail', segment: 'session-detail/:session' },
-    { component: SpeakerDetailPage, name: 'speaker-detail', segment: 'speaker-detail/:name' }
-  ]
-};
 
 @NgModule({
   declarations: [
@@ -59,7 +43,7 @@ export const deepLinkConfig: DeepLinkConfig = {
     SupportPage
   ],
   imports: [
-    IonicModule.forRoot(ConferenceApp, null, deepLinkConfig)
+    IonicModule.forRoot(ConferenceApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

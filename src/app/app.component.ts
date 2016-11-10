@@ -63,7 +63,17 @@ export class ConferenceApp {
       Splashscreen.hide();
     });
 
-    this.rootPage = TutorialPage;
+    // Check if the user has already seen the tutorial
+    this.userData.checkHasSeenTutorial().then((hasSeenTutorial) => {
+      if (hasSeenTutorial === null) {
+        // User has not seen tutorial
+        this.rootPage = TutorialPage;
+        this.storage.set('hasSeenTutorial', 'true');
+      } else {
+        // User has seen tutorial
+        this.rootPage = TabsPage;
+      }
+    });
 
     // load the conference data
     confData.load();
