@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
-// import { InAppBrowser } from 'ionic-native';
+import { InAppBrowser } from 'ionic-native';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -39,12 +39,13 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker) {
-    // TODO FIX
-    // let app = new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
-    // app.on('loadstop').subscribe(
-    //   (ev) => {
-    //     console.log('InAppBrowser loaded!');
-    //   });
+    // TODO fix error
+    let browser = new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
+
+    browser.on('loadstop')
+      .subscribe((ev) => {
+        console.log('InAppBrowser loaded!');
+      });
   }
 
   openSpeakerShare(speaker) {
@@ -77,7 +78,7 @@ export class SpeakerListPage {
     let mode = this.config.get('mode');
 
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact with ' + speaker.name,
+      title: 'Contact ' + speaker.name,
       buttons: [
         {
           text: `Email ( ${speaker.email} )`,
