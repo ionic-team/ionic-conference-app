@@ -88,7 +88,7 @@ ionic-conference-app/
 |    |    └── main.dev.ts
 |    |    └── main.prod.ts
 |    |
-|    |-- assests/
+|    |-- assets/
 |    |    ├── data/
 |    |    |    └── data.json
 |    |    |
