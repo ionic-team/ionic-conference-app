@@ -2,12 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { Splashscreen, StatusBar } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
+import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -35,7 +37,7 @@ export class ConferenceApp {
     { title: 'Schedule', component: TabsPage, icon: 'calendar' },
     { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
     { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
-    { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
+    { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
@@ -45,19 +47,31 @@ export class ConferenceApp {
     { title: 'Login', component: LoginPage, icon: 'log-in' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
-  rootPage: any = TutorialPage;
+  rootPage: any;
 
   constructor(
     public events: Events,
     public userData: UserData,
     public menu: MenuController,
-    platform: Platform,
-    confData: ConferenceData
+    public platform: Platform,
+    public confData: ConferenceData,
+    public storage: Storage
   ) {
     // Call any initial plugins when ready
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
+    });
+
+    // Check if the user has already seen the tutorial
+    this.userData.checkHasSeenTutorial().then((hasSeenTutorial) => {
+      if (hasSeenTutorial === null) {
+        // User has not seen tutorial
+        this.rootPage = TutorialPage;
+      } else {
+        // User has seen tutorial
+        this.rootPage = TabsPage;
+      }
     });
 
     // load the conference data
@@ -76,7 +90,7 @@ export class ConferenceApp {
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      this.nav.setRoot(page.component, {tabIndex: page.index});
+      this.nav.setRoot(page.component, { tabIndex: page.index });
 
     } else {
       this.nav.setRoot(page.component);
@@ -88,6 +102,10 @@ export class ConferenceApp {
         this.userData.logout();
       }, 1000);
     }
+  }
+
+  openTutorial() {
+    this.nav.setRoot(TutorialPage);
   }
 
   listenToLoginEvents() {

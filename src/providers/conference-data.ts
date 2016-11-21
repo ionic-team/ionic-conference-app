@@ -4,79 +4,67 @@ import { Http } from '@angular/http';
 
 import { UserData } from './user-data';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+
 
 @Injectable()
 export class ConferenceData {
   data: any;
 
-  constructor(public http: Http, public user: UserData) {}
+  constructor(public http: Http, public user: UserData) { }
 
-  load() {
+  load(): any {
     if (this.data) {
-      // already loaded data
-      return Promise.resolve(this.data);
+      return Observable.of(this.data);
+    } else {
+      return this.http.get('assets/data/data.json')
+        .map(this.processData);
     }
-
-    // don't have the data yet
-    return new Promise(resolve => {
-      // We're using Angular Http provider to request the data,
-      // then on the response it'll map the JSON data to a parsed JS object.
-      // Next we process the data and resolve the promise with the new data.
-      this.http.get('assets/data/data.json').subscribe(res => {
-        // we've got back the raw data, now generate the core schedule data
-        // and save the data for later reference
-        this.data = this.processData(res.json());
-        resolve(this.data);
-      });
-    });
   }
 
   processData(data) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
+    this.data = data.json();
 
-    data.tracks = [];
+    this.data.tracks = [];
 
     // loop through each day in the schedule
-    data.schedule.forEach(day => {
+    this.data.schedule.forEach(day => {
       // loop through each timeline group in the day
       day.groups.forEach(group => {
         // loop through each session in the timeline group
         group.sessions.forEach(session => {
-          this.processSession(data, session);
+          session.speakers = [];
+          if (session.speakerNames) {
+            session.speakerNames.forEach(speakerName => {
+              let speaker = this.data.speakers.find(s => s.name === speakerName);
+              if (speaker) {
+                session.speakers.push(speaker);
+                speaker.sessions = speaker.sessions || [];
+                speaker.sessions.push(session);
+              }
+            });
+          }
+
+          if (session.tracks) {
+            session.tracks.forEach(track => {
+              if (this.data.tracks.indexOf(track) < 0) {
+                this.data.tracks.push(track);
+              }
+            });
+          }
         });
       });
     });
 
-    return data;
-  }
-
-  processSession(data, session) {
-    // loop through each speaker and load the speaker data
-    // using the speaker name as the key
-    session.speakers = [];
-    if (session.speakerNames) {
-      session.speakerNames.forEach(speakerName => {
-        let speaker = data.speakers.find(s => s.name === speakerName);
-        if (speaker) {
-          session.speakers.push(speaker);
-          speaker.sessions = speaker.sessions || [];
-          speaker.sessions.push(session);
-        }
-      });
-    }
-
-    if (session.tracks) {
-      session.tracks.forEach(track => {
-        if (data.tracks.indexOf(track) < 0) {
-          data.tracks.push(track);
-        }
-      });
-    }
+    return this.data;
   }
 
   getTimeline(dayIndex, queryText = '', excludeTracks = [], segment = 'all') {
-    return this.load().then(data => {
+    return this.load().map(data => {
       let day = data.schedule[dayIndex];
       day.shownSessions = 0;
 
@@ -143,7 +131,7 @@ export class ConferenceData {
   }
 
   getSpeakers() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.speakers.sort((a, b) => {
         let aName = a.name.split(' ').pop();
         let bName = b.name.split(' ').pop();
@@ -153,13 +141,13 @@ export class ConferenceData {
   }
 
   getTracks() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.tracks.sort();
     });
   }
 
   getMap() {
-    return this.load().then(data => {
+    return this.load().map(data => {
       return data.map;
     });
   }

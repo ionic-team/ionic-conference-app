@@ -32,6 +32,9 @@
     "@ionic/app-scripts": "0.0.44",
     "typescript": "2.0.9"
   },
+  "config": {
+    "ionic_bundler": "webpack"
+  },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     {

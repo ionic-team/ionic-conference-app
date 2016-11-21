@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { MenuController, NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../tabs/tabs';
 
@@ -19,7 +20,7 @@ export class TutorialPage {
   slides: Slide[];
   showSkip = true;
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public menu: MenuController, public storage: Storage) {
     this.slides = [
       {
         title: 'Welcome to <b>ICA</b>',
@@ -41,6 +42,7 @@ export class TutorialPage {
 
   startApp() {
     this.navCtrl.push(TabsPage);
+    this.storage.set('hasSeenTutorial', 'true');
   }
 
   onSlideChangeStart(slider) {

@@ -23,7 +23,7 @@ export class SchedulePage {
   // @ViewChild('scheduleList') gets a reference to the list
   // with the variable #scheduleList, `read: List` tells it to return
   // the List and not a reference to the element
-  @ViewChild('scheduleList', {read: List}) scheduleList: List;
+  @ViewChild('scheduleList', { read: List }) scheduleList: List;
 
   dayIndex = 0;
   queryText = '';
@@ -44,11 +44,8 @@ export class SchedulePage {
 
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     this.app.setTitle('Schedule');
-  }
-
-  ngAfterViewInit() {
     this.updateSchedule();
   }
 
@@ -56,7 +53,7 @@ export class SchedulePage {
     // Close any open sliding items when the schedule updates
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
+    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe(data => {
       let timestamp = data.date;
 
       /*

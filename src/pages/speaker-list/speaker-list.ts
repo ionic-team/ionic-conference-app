@@ -16,8 +16,10 @@ export class SpeakerListPage {
   actionSheet: ActionSheet;
   speakers = [];
 
-  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {
-    confData.getSpeakers().then(speakers => {
+  constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {}
+
+  ionViewDidLoad() {
+    this.confData.getSpeakers().subscribe(speakers => {
       this.speakers = speakers;
     });
   }
@@ -26,7 +28,7 @@ export class SpeakerListPage {
     this.navCtrl.push(SessionDetailPage, session);
   }
 
-  goToSpeakerDetail(speakerName: string) {
+  goToSpeakerDetail(speakerName: any) {
     this.navCtrl.push(SpeakerDetailPage, speakerName);
   }
 
@@ -46,7 +48,7 @@ export class SpeakerListPage {
       buttons: [
         {
           text: 'Copy Link',
-          handler: () => {
+          handler: ($event) => {
             console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
             if (window['cordova'] && window['cordova'].plugins.clipboard) {
               window['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
@@ -54,17 +56,11 @@ export class SpeakerListPage {
           }
         },
         {
-          text: 'Share via ...',
-          handler: () => {
-            console.log('Share via clicked');
-          }
+          text: 'Share via ...'
         },
         {
           text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
+          role: 'cancel'
         }
       ]
     });
