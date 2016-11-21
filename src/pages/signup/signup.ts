@@ -7,7 +7,7 @@ import { UserData } from '../../providers/user-data';
 
 
 @Component({
-  selector: 'page-login',
+  selector: 'page-user',
   templateUrl: 'signup.html'
 })
 export class SignupPage {

@@ -40,10 +40,12 @@ export class ConferenceApp {
   ];
   loggedInPages: PageInterface[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
+    { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
     { title: 'Login', component: LoginPage, icon: 'log-in' },
+    { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
   rootPage: any;
@@ -92,7 +94,9 @@ export class ConferenceApp {
       this.nav.setRoot(page.component, { tabIndex: page.index });
 
     } else {
-      this.nav.setRoot(page.component);
+      this.nav.setRoot(page.component).catch(() => {
+        console.log("Didn't set nav root");
+      });
     }
 
     if (page.logsOut === true) {
