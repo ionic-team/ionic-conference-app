@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -14,6 +14,7 @@ declare var google: any;
 })
 export class MapPage {
 
+  @ViewChild('mapCanvas') mapElement: ElementRef;
   public map: GoogleMap;
 
   constructor(public confData: ConferenceData, public platform: Platform) {
@@ -21,7 +22,7 @@ export class MapPage {
 
   ionViewDidLoad() {
     if (this.platform.is('cordova') === true) {
-      let mapEle = document.getElementById('map_canvas');
+      let mapEle = this.mapElement.nativeElement;
       this.confData.getMap().subscribe(mapData => {
         this.map = new GoogleMap('map_canvas');
         mapEle.classList.add('show-map');
@@ -29,7 +30,6 @@ export class MapPage {
         GoogleMap.isAvailable().then(() => {
           mapData.find(data => {
             const position = new GoogleMapsLatLng(43.074395, -89.381056);
-
             this.map.animateCamera({
               target: position,
               zoom: 16
@@ -48,7 +48,7 @@ export class MapPage {
       });
     } else {
       this.confData.getMap().subscribe(mapData => {
-        let mapEle = document.getElementById('map_canvas');
+        let mapEle = this.mapElement.nativeElement;
 
         let map = new google.maps.Map(mapEle, {
           center: mapData.find(d => d.center),
