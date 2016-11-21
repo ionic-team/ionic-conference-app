@@ -56,8 +56,7 @@ export class ConferenceApp {
     public menu: MenuController,
     public platform: Platform,
     public confData: ConferenceData,
-    public storage: Storage,
-    public toastCtrl: ToastController
+    public storage: Storage
   ) {
     // Call any initial plugins when ready
     platform.ready().then(() => {

@@ -38,7 +38,6 @@ export class SchedulePage {
     public app: App,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
-    public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData
   ) {
