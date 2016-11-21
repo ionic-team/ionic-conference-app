@@ -13,13 +13,10 @@ export class SpeakerDetailPage {
   speaker: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.speaker = this.navParams.data.data;
+    this.speaker = this.navParams.data;
   }
 
   goToSessionDetail(session) {
-    this.navCtrl.push(SessionDetailPage, {
-      data: session,
-      session: session.name
-    });
+    this.navCtrl.push(SessionDetailPage, session);
   }
 }
