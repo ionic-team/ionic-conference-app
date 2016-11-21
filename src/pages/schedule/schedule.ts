@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, ItemSliding, List, ModalController, NavController, ToastController } from 'ionic-angular';
+import { AlertController, App, ItemSliding, List, ModalController, NavController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an

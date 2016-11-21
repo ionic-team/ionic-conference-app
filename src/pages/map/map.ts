@@ -17,7 +17,6 @@ export class MapPage {
   public map: GoogleMap;
 
   constructor(public confData: ConferenceData, public platform: Platform) {
-    // this.platform.ready().then(() => this.onPlatformReady());
   }
 
   ionViewDidLoad() {
