@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, ItemSliding, List, ModalController, NavController } from 'ionic-angular';
+import { AlertController, App, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -36,13 +36,12 @@ export class SchedulePage {
   constructor(
     public alertCtrl: AlertController,
     public app: App,
+    public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     public confData: ConferenceData,
-    public user: UserData
-  ) {
-
-  }
+    public user: UserData,
+  ) {}
 
   ionViewDidLoad() {
     this.app.setTitle('Schedule');
@@ -140,5 +139,16 @@ export class SchedulePage {
     });
     // now present the alert on top of all other content
     alert.present();
+  }
+
+  openSocial(network, fab) {
+    let loading = this.loadingCtrl.create({
+      content: `Sharing in ${network}...`,
+      duration: (Math.random() * 1000) + 500
+    });
+    loading.onWillDismiss(() => {
+      fab.close();
+    });
+    loading.present();
   }
 }

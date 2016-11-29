@@ -70,5 +70,15 @@
       No Sessions Found
   </ion-list-header>
 
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="openSocial('facebook', fab)"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="openSocial('twitter', fab)"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab (click)="openSocial('vimeo', fab)"><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab (click)="openSocial('googleplus', fab)"><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
 
 </ion-content>
