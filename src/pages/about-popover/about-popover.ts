@@ -31,7 +31,7 @@ export class PopoverPage {
   }
 
   close(url: string) {
-    window.open(url);
+    window.open(url, '_blank');
     this.viewCtrl.dismiss();
   }
 }
