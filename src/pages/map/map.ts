@@ -30,7 +30,7 @@ export class MapPage {
         GoogleMap.isAvailable().then(() => {
           mapData.find(data => {
             const position = new GoogleMapsLatLng(43.074395, -89.381056);
-            this.map.animateCamera({
+            this.map.moveCamera({
               target: position,
               zoom: 16
             }).then(() => {
