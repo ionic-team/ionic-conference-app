@@ -143,7 +143,7 @@ export class SchedulePage {
 
   openSocial(network, fab) {
     let loading = this.loadingCtrl.create({
-      content: `Sharing in ${network}...`,
+      content: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
     });
     loading.onWillDismiss(() => {
