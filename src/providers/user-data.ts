@@ -10,7 +10,10 @@ export class UserData {
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
-  constructor(public events: Events, public storage: Storage) {}
+  constructor(
+    public events: Events,
+    public storage: Storage
+  ) {}
 
   hasFavorite(sessionName) {
     return (this._favorites.indexOf(sessionName) > -1);
