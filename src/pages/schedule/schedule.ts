@@ -6,7 +6,7 @@ import { AlertController, App, ItemSliding, List, ModalController, NavController
   To learn how to use third party libs in an
   Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
 */
-import moment from 'moment';
+// import moment from 'moment';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
@@ -53,13 +53,6 @@ export class SchedulePage {
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe(data => {
-      let timestamp = data.date;
-
-      /*
-        To learn how to use third party libs in an
-        Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
-      */
-      this.confDate = moment(timestamp).format('MM/DD/YYYY');
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
