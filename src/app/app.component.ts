@@ -61,19 +61,15 @@ export class ConferenceApp {
   ) {
 
     // Check if the user has already seen the tutorial
-    console.time('getting indexdb');
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
-        console.time('setting root');
         if (hasSeenTutorial) {
           this.rootPage = TabsPage;
         } else {
           this.rootPage = TutorialPage;
         }
-        console.timeEnd('setting root')
         this.platformReady()
       })
-    console.timeEnd('getting indexdb')
 
     // load the conference data
     confData.load();
@@ -132,9 +128,9 @@ export class ConferenceApp {
 
   platformReady() {
     // Call any initial plugins when ready
-    // this.platform.ready().then(() => {
-    StatusBar.styleDefault();
-    Splashscreen.hide();
-    // });
+    this.platform.ready().then(() => {
+      StatusBar.styleDefault();
+      Splashscreen.hide();
+    });
   }
 }
