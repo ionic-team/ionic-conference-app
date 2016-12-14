@@ -33,8 +33,7 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker) {
-    // TODO fix error
-   new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
+    new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
   }
 
   openSpeakerShare(speaker) {
