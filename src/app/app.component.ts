@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
-import { Splashscreen, StatusBar } from 'ionic-native';
+import { Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { AccountPage } from '../pages/account/account';
@@ -102,11 +102,9 @@ export class ConferenceApp {
       }, 1000);
     }
   }
-
   openTutorial() {
     this.nav.setRoot(TutorialPage);
   }
-
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
       this.enableMenu(true);
@@ -120,16 +118,13 @@ export class ConferenceApp {
       this.enableMenu(false);
     });
   }
-
   enableMenu(loggedIn) {
     this.menu.enable(loggedIn, 'loggedInMenu');
     this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
-
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
-      StatusBar.styleDefault();
       Splashscreen.hide();
     });
   }
