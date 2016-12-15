@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
-import { Splashscreen, StatusBar } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { AccountPage } from '../pages/account/account';
@@ -13,6 +12,8 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+
+declare var StatusBar: any;
 
 export interface PageInterface {
   title: string;
@@ -130,7 +131,7 @@ export class ConferenceApp {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
       StatusBar.styleDefault();
-      Splashscreen.hide();
+      (navigator as any).splashscreen.hide();
     });
   }
 }
