@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <title>Ionic Conference App</title>
@@ -15,16 +16,19 @@
   <link rel="apple-touch-icon" href="assets/img/appicon.png">
 
   <script>
-    /*if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('service worker installed'))
-        .catch(err => console.log('Error', err));
-    }*/
+    /*
+     * if ('serviceWorker' in navigator) {
+     *   navigator.serviceWorker.register('service-worker.js')
+     *     .then(() => console.log('service worker installed'))
+     *     .catch(err => console.log('Error', err));
+     * }
+     */
   </script>
 
   <link href="build/main.css" rel="stylesheet">
 
 </head>
+
 <body>
 
   <!-- Ionic's root component and where the app will load -->
@@ -39,7 +43,8 @@
   <script src="build/main.js"></script>
 
   <!-- google maps script is loaded last as to not block rendering -->
-  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script async src="https://maps.googleapis.com/maps/api/js"></script>
 
 </body>
+
 </html>
