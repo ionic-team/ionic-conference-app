@@ -6,7 +6,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class UserData {
-  _favorites = [];
+  _favorites: string[] = [];
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
@@ -15,28 +15,28 @@ export class UserData {
     public storage: Storage
   ) {}
 
-  hasFavorite(sessionName) {
+  hasFavorite(sessionName: string) {
     return (this._favorites.indexOf(sessionName) > -1);
   };
 
-  addFavorite(sessionName) {
+  addFavorite(sessionName: string) {
     this._favorites.push(sessionName);
   };
 
-  removeFavorite(sessionName) {
+  removeFavorite(sessionName: string) {
     let index = this._favorites.indexOf(sessionName);
     if (index > -1) {
       this._favorites.splice(index, 1);
     }
   };
 
-  login(username) {
+  login(username: string) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.setUsername(username);
     this.events.publish('user:login');
   };
 
-  signup(username) {
+  signup(username: string) {
     this.storage.set(this.HAS_LOGGED_IN, true);
     this.setUsername(username);
     this.events.publish('user:signup');
@@ -48,7 +48,7 @@ export class UserData {
     this.events.publish('user:logout');
   };
 
-  setUsername(username) {
+  setUsername(username: string) {
     this.storage.set('username', username);
   };
 
