@@ -20,7 +20,7 @@
 					required>
 				</ion-input>
 			</ion-item>
-			<p [hidden]="username.valid || submitted == false" color="danger" padding-left>
+			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
 				Username is required
 			</p>
 
@@ -29,7 +29,7 @@
 				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
-			<p [hidden]="password.valid || submitted == false" color="danger" padding-left>
+			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
 				Password is required
 			</p>
 		</ion-list>

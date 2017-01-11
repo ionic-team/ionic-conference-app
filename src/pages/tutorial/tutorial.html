@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content no-bounce>
-  <ion-slides [options]="{pager: true}" (ionWillChange)="onSlideChangeStart($event)">
+  <ion-slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
 
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-1.png" class="slide-image"/>
@@ -39,7 +39,6 @@
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-slide>
-
 
   </ion-slides>
 </ion-content>

@@ -24,7 +24,7 @@ export class TutorialPage {
   }
 
   onSlideChangeStart(slider) {
-    this.showSkip = !slider.isEnd;
+    this.showSkip = !slider.isEnd();
   }
 
   ionViewDidEnter() {
