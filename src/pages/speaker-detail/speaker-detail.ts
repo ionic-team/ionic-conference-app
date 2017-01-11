@@ -16,7 +16,7 @@ export class SpeakerDetailPage {
     this.speaker = this.navParams.data;
   }
 
-  goToSessionDetail(session) {
+  goToSessionDetail(session: any) {
     this.navCtrl.push(SessionDetailPage, session);
   }
 }

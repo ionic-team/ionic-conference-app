@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { NavController } from 'ionic-angular';
 
@@ -17,7 +18,7 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public userData: UserData) { }
 
-  onLogin(form) {
+  onLogin(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {

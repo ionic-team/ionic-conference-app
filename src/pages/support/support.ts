@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+
+import { AlertController, NavController, ToastController } from 'ionic-angular';
 
 
 @Component({
@@ -27,7 +29,7 @@ export class SupportPage {
     toast.present();
   }
 
-  submit(form) {
+  submit(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
