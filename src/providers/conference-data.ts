@@ -24,7 +24,7 @@ export class ConferenceData {
     }
   }
 
-  processData(data) {
+  processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
     this.data = data.json();
@@ -32,15 +32,15 @@ export class ConferenceData {
     this.data.tracks = [];
 
     // loop through each day in the schedule
-    this.data.schedule.forEach(day => {
+    this.data.schedule.forEach((day: any) => {
       // loop through each timeline group in the day
-      day.groups.forEach(group => {
+      day.groups.forEach((group: any) => {
         // loop through each session in the timeline group
-        group.sessions.forEach(session => {
+        group.sessions.forEach((session: any) => {
           session.speakers = [];
           if (session.speakerNames) {
-            session.speakerNames.forEach(speakerName => {
-              let speaker = this.data.speakers.find(s => s.name === speakerName);
+            session.speakerNames.forEach((speakerName: any) => {
+              let speaker = this.data.speakers.find((s: any) => s.name === speakerName);
               if (speaker) {
                 session.speakers.push(speaker);
                 speaker.sessions = speaker.sessions || [];
@@ -50,7 +50,7 @@ export class ConferenceData {
           }
 
           if (session.tracks) {
-            session.tracks.forEach(track => {
+            session.tracks.forEach((track: any) => {
               if (this.data.tracks.indexOf(track) < 0) {
                 this.data.tracks.push(track);
               }
@@ -63,18 +63,18 @@ export class ConferenceData {
     return this.data;
   }
 
-  getTimeline(dayIndex, queryText = '', excludeTracks = [], segment = 'all') {
-    return this.load().map(data => {
+  getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
+    return this.load().map((data: any) => {
       let day = data.schedule[dayIndex];
       day.shownSessions = 0;
 
       queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
       let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
 
-      day.groups.forEach(group => {
+      day.groups.forEach((group: any) => {
         group.hide = true;
 
-        group.sessions.forEach(session => {
+        group.sessions.forEach((session: any) => {
           // check if this session should show or not
           this.filterSession(session, queryWords, excludeTracks, segment);
 
@@ -91,12 +91,12 @@ export class ConferenceData {
     });
   }
 
-  filterSession(session, queryWords, excludeTracks, segment) {
+  filterSession(session: any, queryWords: string[], excludeTracks: any[], segment: string) {
 
     let matchesQueryText = false;
     if (queryWords.length) {
       // of any query word is in the session name than it passes the query test
-      queryWords.forEach(queryWord => {
+      queryWords.forEach((queryWord: string) => {
         if (session.name.toLowerCase().indexOf(queryWord) > -1) {
           matchesQueryText = true;
         }
@@ -109,7 +109,7 @@ export class ConferenceData {
     // if any of the sessions tracks are not in the
     // exclude tracks then this session passes the track test
     let matchesTracks = false;
-    session.tracks.forEach(trackName => {
+    session.tracks.forEach((trackName: string) => {
       if (excludeTracks.indexOf(trackName) === -1) {
         matchesTracks = true;
       }
@@ -131,8 +131,8 @@ export class ConferenceData {
   }
 
   getSpeakers() {
-    return this.load().map(data => {
-      return data.speakers.sort((a, b) => {
+    return this.load().map((data: any) => {
+      return data.speakers.sort((a: any, b: any) => {
         let aName = a.name.split(' ').pop();
         let bName = b.name.split(' ').pop();
         return aName.localeCompare(bName);
@@ -141,13 +141,13 @@ export class ConferenceData {
   }
 
   getTracks() {
-    return this.load().map(data => {
+    return this.load().map((data: any) => {
       return data.tracks.sort();
     });
   }
 
   getMap() {
-    return this.load().map(data => {
+    return this.load().map((data: any) => {
       return data.map;
     });
   }

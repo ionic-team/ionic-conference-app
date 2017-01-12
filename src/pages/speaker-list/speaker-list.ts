@@ -14,17 +14,17 @@ import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 })
 export class SpeakerListPage {
   actionSheet: ActionSheet;
-  speakers = [];
+  speakers: any[] = [];
 
   constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public confData: ConferenceData, public config: Config) {}
 
   ionViewDidLoad() {
-    this.confData.getSpeakers().subscribe(speakers => {
+    this.confData.getSpeakers().subscribe((speakers: any[]) => {
       this.speakers = speakers;
     });
   }
 
-  goToSessionDetail(session) {
+  goToSessionDetail(session: any) {
     this.navCtrl.push(SessionDetailPage, session);
   }
 
@@ -32,20 +32,20 @@ export class SpeakerListPage {
     this.navCtrl.push(SpeakerDetailPage, speakerName);
   }
 
-  goToSpeakerTwitter(speaker) {
+  goToSpeakerTwitter(speaker: any) {
     new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
   }
 
-  openSpeakerShare(speaker) {
+  openSpeakerShare(speaker: any) {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Share ' + speaker.name,
       buttons: [
         {
           text: 'Copy Link',
-          handler: ($event) => {
+          handler: ($event: Event) => {
             console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
-            if (window['cordova'] && window['cordova'].plugins.clipboard) {
-              window['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
+            if ((window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
+              (window as any)['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
             }
           }
         },
@@ -62,7 +62,7 @@ export class SpeakerListPage {
     actionSheet.present();
   }
 
-  openContact(speaker) {
+  openContact(speaker: any) {
     let mode = this.config.get('mode');
 
     let actionSheet = this.actionSheetCtrl.create({

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, App, FabContainer, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -28,9 +28,9 @@ export class SchedulePage {
   dayIndex = 0;
   queryText = '';
   segment = 'all';
-  excludeTracks = [];
+  excludeTracks: any = [];
   shownSessions: any = [];
-  groups = [];
+  groups: any = [];
   confDate: string;
 
   constructor(
@@ -52,7 +52,7 @@ export class SchedulePage {
     // Close any open sliding items when the schedule updates
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe(data => {
+    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
@@ -71,13 +71,13 @@ export class SchedulePage {
 
   }
 
-  goToSessionDetail(sessionData) {
+  goToSessionDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
     this.navCtrl.push(SessionDetailPage, sessionData);
   }
 
-  addFavorite(slidingItem: ItemSliding, sessionData) {
+  addFavorite(slidingItem: ItemSliding, sessionData: any) {
 
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
@@ -104,7 +104,7 @@ export class SchedulePage {
 
   }
 
-  removeFavorite(slidingItem: ItemSliding, sessionData, title) {
+  removeFavorite(slidingItem: ItemSliding, sessionData: any, title: string) {
     let alert = this.alertCtrl.create({
       title: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -134,7 +134,7 @@ export class SchedulePage {
     alert.present();
   }
 
-  openSocial(network, fab) {
+  openSocial(network: string, fab: FabContainer) {
     let loading = this.loadingCtrl.create({
       content: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500

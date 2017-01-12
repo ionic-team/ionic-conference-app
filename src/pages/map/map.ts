@@ -19,15 +19,15 @@ export class MapPage {
 
   ionViewDidLoad() {
 
-      this.confData.getMap().subscribe(mapData => {
+      this.confData.getMap().subscribe((mapData: any) => {
         let mapEle = this.mapElement.nativeElement;
 
         let map = new google.maps.Map(mapEle, {
-          center: mapData.find(d => d.center),
+          center: mapData.find((d: any) => d.center),
           zoom: 16
         });
 
-        mapData.forEach(markerData => {
+        mapData.forEach((markerData: any) => {
           let infoWindow = new google.maps.InfoWindow({
             content: `<h5>${markerData.name}</h5>`
           });

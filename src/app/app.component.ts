@@ -118,7 +118,7 @@ export class ConferenceApp {
       this.enableMenu(false);
     });
   }
-  enableMenu(loggedIn) {
+  enableMenu(loggedIn: boolean) {
     this.menu.enable(loggedIn, 'loggedInMenu');
     this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
