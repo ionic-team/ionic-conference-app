@@ -43,7 +43,7 @@ export class AccountPage {
     });
     alert.addButton({
       text: 'Ok',
-      handler: data => {
+      handler: (data: any) => {
         this.userData.setUsername(data.username);
         this.getUsername();
       }
