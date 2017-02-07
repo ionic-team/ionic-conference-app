@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AlertController, NavController } from 'ionic-angular';
+import { AlertController, NavController, ToastController } from 'ionic-angular';
 
 import { LoginPage } from '../login/login';
 import { SupportPage } from '../support/support';
@@ -14,7 +14,12 @@ import { UserData } from '../../providers/user-data';
 export class AccountPage {
   username: string;
 
-  constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
+  constructor(
+      public alertCtrl: AlertController,
+      public nav: NavController,
+      public userData: UserData,
+      public toastCtrl: ToastController
+  ) {
 
   }
 
@@ -59,7 +64,44 @@ export class AccountPage {
   }
 
   changePassword() {
-    console.log('Clicked to change password');
+    let alert = this.alertCtrl.create({
+      title: 'Change Password',
+      buttons: [
+        'Cancel'
+      ]
+    });
+    alert.addInput({
+      name: 'password',
+      value: '',
+      type: 'password',
+      placeholder: 'New Password'
+    });
+    alert.addInput({
+      name: 'confirmPassword',
+      value: '',
+      type: 'password',
+      placeholder: 'Confirm Password'
+    });
+
+    alert.addButton({
+      text: 'Ok',
+      handler: (data: any) => {
+        if (data.password === data.confirmPassword) {
+          this.userData.setPassword(data.newPassword);
+          let toast = this.toastCtrl.create({
+            message: 'Password updated.',
+            duration: 3000
+          });
+          toast.present();
+        } else {
+          alert.setMessage('Password does not match the confirm password')
+          return false;
+        }
+
+      }
+    });
+
+    alert.present();
   }
 
   logout() {

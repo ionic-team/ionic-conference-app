@@ -52,6 +52,10 @@ export class UserData {
     this.storage.set('username', username);
   };
 
+  setPassword(password: string) {
+    this.storage.set('password', password);
+  };
+
   getUsername() {
     return this.storage.get('username').then((value) => {
       return value;
