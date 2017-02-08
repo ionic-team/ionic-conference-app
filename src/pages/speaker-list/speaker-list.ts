@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
-import { InAppBrowser } from 'ionic-native';
+import { InAppBrowser } from '@ionic-native/inappbrowser';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
