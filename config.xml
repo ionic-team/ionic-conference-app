@@ -69,7 +69,7 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="StatusBarStyle" value="default" />
   <preference name="SplashScreen" value="screen"/>
-  <preference name="orientation" value="portrait"/>
+  <preference name="orientation" value="default"/>
   <preference name="SplashMaintainAspectRatio" value="true"/>
   <preference name="FadeSplashScreenDuration" value="300"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
