@@ -54,6 +54,9 @@ export class ConferenceApp {
     { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
+
+  accountPages: PageInterface[] = this.loggedOutPages;
+
   rootPage: any;
 
   constructor(
@@ -126,8 +129,11 @@ export class ConferenceApp {
   }
 
   enableMenu(loggedIn: boolean) {
-    this.menu.enable(loggedIn, 'loggedInMenu');
-    this.menu.enable(!loggedIn, 'loggedOutMenu');
+    if (loggedIn) {
+      this.accountPages = this.loggedInPages;
+    } else {
+      this.accountPages = this.loggedOutPages;
+    }
   }
 
   platformReady() {
