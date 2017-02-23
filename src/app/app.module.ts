@@ -23,9 +23,6 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-export function provideStorage() {
-  return new Storage(['sqlite', 'websql', 'indexeddb'], { name: '__mydb' });
-}
 
 @NgModule({
   declarations: [
@@ -66,10 +63,6 @@ export function provideStorage() {
     TutorialPage,
     SupportPage
   ],
-  providers: [
-    ConferenceData,
-    UserData,
-    { provide: Storage, useFactory: provideStorage }
-  ]
+  providers: [ConferenceData, UserData, Storage]
 })
 export class AppModule { }
