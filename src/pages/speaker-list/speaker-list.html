@@ -8,7 +8,11 @@
 </ion-header>
 
 <ion-content class="outer-content speaker-list">
-  <ion-card *ngFor="let speaker of speakers" class="speaker-card">
+  <ion-list>
+    <ion-grid fixed>
+    <ion-row align-items-stretch>
+      <ion-col col-12 col-lg-6 align-self-stretch align-self-center *ngFor="let speaker of speakers">
+  <ion-card class="speaker-card">
 
     <ion-card-header>
       <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
@@ -53,4 +57,10 @@
     </ion-row>
 
   </ion-card>
+
+
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  </ion-list>
 </ion-content>
