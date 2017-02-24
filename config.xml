@@ -26,6 +26,7 @@
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
     <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
     <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
     <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
     <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
@@ -100,5 +101,4 @@
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <engine name="ios" spec="4.3.1"/>
   <engine name="android" spec="6.1.0"/>
-  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
