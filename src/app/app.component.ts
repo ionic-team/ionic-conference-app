@@ -54,7 +54,6 @@ export class ConferenceApp {
     { title: 'Support', component: SupportPage, icon: 'help' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
-
   rootPage: any;
 
   constructor(
