@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuController, NavController, Slides } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { TabsPage } from '../tabs/tabs';
@@ -10,6 +10,8 @@ import { TabsPage } from '../tabs/tabs';
 
 export class TutorialPage {
   showSkip = true;
+
+	@ViewChild('slides') slides: Slides;
 
   constructor(
     public navCtrl: NavController,
@@ -26,6 +28,10 @@ export class TutorialPage {
   onSlideChangeStart(slider: Slides) {
     this.showSkip = !slider.isEnd();
   }
+
+	ionViewWillEnter() {
+		this.slides.update();
+	}
 
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page
