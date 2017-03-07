@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 
 import { NavController } from 'ionic-angular';
 
-import { TabsPage } from '../tabs/tabs';
 import { UserData } from '../../providers/user-data';
 
 
@@ -22,7 +21,7 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.navCtrl.push(TabsPage);
+      this.navCtrl.push('TabsPage');
     }
   }
 }

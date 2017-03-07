@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 import { AlertController, NavController } from 'ionic-angular';
 
-import { LoginPage } from '../login/login';
-import { SupportPage } from '../support/support';
 import { UserData } from '../../providers/user-data';
 
 
@@ -53,9 +51,9 @@ export class AccountPage {
   }
 
   getUsername() {
-    this.userData.getUsername().then((username) => {
+    /*this.userData.getUsername().then((username) => {
       this.username = username;
-    });
+    });*/
   }
 
   changePassword() {
@@ -64,10 +62,10 @@ export class AccountPage {
 
   logout() {
     this.userData.logout();
-    this.nav.setRoot(LoginPage);
+    this.nav.setRoot('LoginPage');
   }
 
   support() {
-    this.nav.push(SupportPage);
+    this.nav.push('SupportPage');
   }
 }
