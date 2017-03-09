@@ -25,14 +25,14 @@
     "@ionic-native/inappbrowser": "^3.0.0-alpha.1",
     "@ionic-native/splashscreen": "^3.0.0-alpha.1",
     "@ionic/storage": "2.0.0",
-    "ionic-angular": "nightly",
+    "ionic-angular": "2.1.0-201703092049",
     "ionicons": "3.0.0",
     "rxjs": "5.0.1",
     "sw-toolbox": "3.4.0",
     "zone.js": "0.7.2"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.1.3",
+    "@ionic/app-scripts": "1.1.4",
     "@ionic/cli-plugin-cordova": "0.0.9",
     "typescript": "2.1.1"
   },
