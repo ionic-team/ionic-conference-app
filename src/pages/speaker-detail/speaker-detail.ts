@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { DeepLink, NavController, NavParams } from 'ionic-angular';
 
 
+@DeepLink()
 @Component({
   selector: 'page-speaker-detail',
   templateUrl: 'speaker-detail.html'

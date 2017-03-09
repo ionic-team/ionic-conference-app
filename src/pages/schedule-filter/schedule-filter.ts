@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
-import { NavParams, ViewController } from 'ionic-angular';
+import { DeepLink, NavParams, ViewController } from 'ionic-angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
 
+@DeepLink()
 @Component({
   selector: 'page-schedule-filter',
   templateUrl: 'schedule-filter.html'

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
+import { ActionSheet, ActionSheetController, Config, DeepLink, NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/inappbrowser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
 
+@DeepLink()
 @Component({
   selector: 'page-speaker-list',
   templateUrl: 'speaker-list.html'

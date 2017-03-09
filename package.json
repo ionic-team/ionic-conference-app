@@ -25,7 +25,7 @@
     "@ionic-native/inappbrowser": "^3.0.0-alpha.1",
     "@ionic-native/splashscreen": "^3.0.0-alpha.1",
     "@ionic/storage": "2.0.0",
-    "ionic-angular": "2.1.0-201703092049",
+    "ionic-angular": "2.1.0-201703092235",
     "ionicons": "3.0.0",
     "rxjs": "5.0.1",
     "sw-toolbox": "3.4.0",

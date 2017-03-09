@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
 // import { IonicStorageModule } from '@ionic/storage';
-import { HttpModule } from '@angular/http';
 
 import { ConferenceApp } from './app.component';
 
@@ -19,23 +19,6 @@ import { UserData } from '../providers/user-data';
     BrowserModule,
     IonicModule.forRoot(ConferenceApp, {
       preloadModules: true
-    }, {
-      links: [
-        { loadChildren: '../pages/session-detail/session-detail.module#SessionDetailModule', name: 'SessionDetailPage' },
-        { loadChildren: '../pages/schedule-filter/schedule-filter.module#ScheduleFilterModule', name: 'ScheduleFilterPage' },
-        { loadChildren: '../pages/speaker-list/speaker-list.module#SpeakerListModule', name: 'SpeakerListPage' },
-        { loadChildren: '../pages/speaker-detail/speaker-detail.module#SpeakerDetailModule', name: 'SpeakerDetailPage' },
-        { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage' },
-        { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage' },
-        { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage' },
-        { loadChildren: '../pages/account/account.module#AccountPageModule', name: 'AccountPage' },
-        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage' },
-        { loadChildren: '../pages/support/support.module#SupportPageModule', name: 'SupportPage' },
-        { loadChildren: '../pages/schedule/schedule.module#SchedulePageModule', name: 'SchedulePage' },
-        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage' },
-        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage' },
-        { loadChildren: '../pages/about-popover/about-popover.module#PopoverPageModule', name: 'PopoverPage' }
-      ]
     }),
     HttpModule
 		/*IonicStorageModule.forRoot()*/

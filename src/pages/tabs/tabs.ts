@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
-import { NavParams } from 'ionic-angular';
+import { DeepLink, NavParams } from 'ionic-angular';
 
 
+@DeepLink({ name: 'TabsPage' })
 @Component({
   templateUrl: 'tabs.html'
 })
