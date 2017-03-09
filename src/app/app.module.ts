@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
 // import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 import { ConferenceApp } from './app.component';
 
@@ -16,7 +17,9 @@ import { UserData } from '../providers/user-data';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(ConferenceApp, {}, {
+    IonicModule.forRoot(ConferenceApp, {
+      preloadModules: true
+    }, {
       links: [
         { loadChildren: '../pages/session-detail/session-detail.module#SessionDetailModule', name: 'SessionDetailPage' },
         { loadChildren: '../pages/schedule-filter/schedule-filter.module#ScheduleFilterModule', name: 'ScheduleFilterPage' },
@@ -31,9 +34,10 @@ import { UserData } from '../providers/user-data';
         { loadChildren: '../pages/schedule/schedule.module#SchedulePageModule', name: 'SchedulePage' },
         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage' },
         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage' },
-        { loadChildren: '../pages/about-popover/about-popover.module#PopoverPageModule', name: 'PopoverPage'}
+        { loadChildren: '../pages/about-popover/about-popover.module#PopoverPageModule', name: 'PopoverPage' }
       ]
-    })
+    }),
+    HttpModule
 		/*IonicStorageModule.forRoot()*/
   ],
   bootstrap: [IonicApp],
