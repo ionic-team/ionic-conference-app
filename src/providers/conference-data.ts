@@ -20,7 +20,7 @@ export class ConferenceData {
       return Observable.of(this.data);
     } else {
       return this.http.get('assets/data/data.json')
-        .map(this.processData);
+        .map(this.processData, this);
     }
   }
 
