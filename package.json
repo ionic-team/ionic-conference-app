@@ -32,9 +32,9 @@
     "zone.js": "0.7.2"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.1.4",
+    "@ionic/app-scripts": "nightly",
     "@ionic/cli-plugin-cordova": "0.0.9",
-    "typescript": "2.1.1"
+    "typescript": "~2.2.1"
   },
   "config": {
     "ionic_experimental_parse_deeplinks": true,
