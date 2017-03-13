@@ -13,15 +13,15 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@angular/common": "4.0.0-rc.2",
-    "@angular/compiler": "4.0.0-rc.2",
-    "@angular/compiler-cli": "4.0.0-rc.2",
-    "@angular/core": "4.0.0-rc.2",
-    "@angular/forms": "4.0.0-rc.2",
-    "@angular/http": "4.0.0-rc.2",
-    "@angular/platform-browser": "4.0.0-rc.2",
-    "@angular/platform-browser-dynamic": "4.0.0-rc.2",
-    "@angular/platform-server": "4.0.0-rc.2",
+    "@angular/common": "4.0.0-rc.3",
+    "@angular/compiler": "4.0.0-rc.3",
+    "@angular/compiler-cli": "4.0.0-rc.3",
+    "@angular/core": "4.0.0-rc.3",
+    "@angular/forms": "4.0.0-rc.3",
+    "@angular/http": "4.0.0-rc.3",
+    "@angular/platform-browser": "4.0.0-rc.3",
+    "@angular/platform-browser-dynamic": "4.0.0-rc.3",
+    "@angular/platform-server": "4.0.0-rc.3",
     "@ionic-native/inappbrowser": "^3.0.0-alpha.1",
     "@ionic-native/splashscreen": "^3.0.0-alpha.1",
     "@ionic/storage": "2.0.0",
@@ -37,8 +37,6 @@
     "typescript": "~2.2.1"
   },
   "config": {
-    "ionic_experimental_parse_deeplinks": true,
-    "ionic_experimental_manual_treeshaking": true,
-    "ionic_experimental_purge_decorators": true
+    "ionic_experimental_parse_deeplinks": true
   }
 }
