@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
-// import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
@@ -20,8 +20,8 @@ import { UserData } from '../providers/user-data';
     IonicModule.forRoot(ConferenceApp, {
       preloadModules: true
     }),
-    HttpModule
-		/*IonicStorageModule.forRoot()*/
+    HttpModule,
+		IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
