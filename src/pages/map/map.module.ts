@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { MapPage } from './map';
-import { DeepLinkModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
 	declarations: [
 		MapPage
 	],
 	imports: [
-		DeepLinkModule.forChild(MapPage)
+		IonicPageModule.forChild(MapPage)
 	],
 	entryComponents: [
 		MapPage

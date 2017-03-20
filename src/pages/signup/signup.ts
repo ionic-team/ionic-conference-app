@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { DeepLink, NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user-data';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-user',
   templateUrl: 'signup.html'

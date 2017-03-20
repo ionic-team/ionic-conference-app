@@ -2,13 +2,13 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 
 import { ConferenceData } from '../../providers/conference-data';
 
-import { DeepLink, Platform } from 'ionic-angular';
+import { IonicPage, Platform } from 'ionic-angular';
 
 
 declare var google: any;
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'

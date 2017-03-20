@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PopoverPage } from './about-popover';
-import { DeepLinkModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
 	declarations: [
 		PopoverPage
 	],
 	imports: [
-		DeepLinkModule.forChild(PopoverPage)
+		IonicPageModule.forChild(PopoverPage)
 	],
 	entryComponents: [
 		PopoverPage

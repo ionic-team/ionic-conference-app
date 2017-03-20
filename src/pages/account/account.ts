@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
-import { AlertController, DeepLink, NavController } from 'ionic-angular';
+import { AlertController, IonicPage, NavController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user-data';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html'

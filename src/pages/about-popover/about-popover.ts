@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { App, DeepLink, NavController, ModalController, ViewController } from 'ionic-angular';
+import { App, IonicPage, NavController, ModalController, ViewController } from 'ionic-angular';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   template: `
     <ion-list>

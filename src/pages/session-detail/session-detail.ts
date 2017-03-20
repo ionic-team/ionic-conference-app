@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { DeepLink, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-session-detail',
   templateUrl: 'session-detail.html'

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SchedulePage } from './schedule';
-import { DeepLinkModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
 	declarations: [
 		SchedulePage
 	],
 	imports: [
-		DeepLinkModule.forChild(SchedulePage)
+		IonicPageModule.forChild(SchedulePage)
 	],
 	entryComponents: [
 		SchedulePage

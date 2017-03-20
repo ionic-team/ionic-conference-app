@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, DeepLink, FabContainer, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, App, IonicPage, FabContainer, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -12,7 +12,7 @@ import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-schedule',
   templateUrl: 'schedule.html'

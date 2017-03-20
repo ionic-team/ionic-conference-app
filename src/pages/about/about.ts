@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { DeepLink, PopoverController } from 'ionic-angular';
+import { IonicPage, PopoverController } from 'ionic-angular';
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'

@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { DeepLink, MenuController, NavController, Slides } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, Slides } from 'ionic-angular';
 
 // import { Storage } from '@ionic/storage';
 
 
-@DeepLink()
+@IonicPage()
 @Component({
   selector: 'page-tutorial',
   templateUrl: 'tutorial.html'

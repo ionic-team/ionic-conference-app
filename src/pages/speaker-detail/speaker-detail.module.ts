@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SpeakerDetailPage } from './speaker-detail';
-import { DeepLinkModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
 	declarations: [
 		SpeakerDetailPage
 	],
 	imports: [
-		DeepLinkModule.forChild(SpeakerDetailPage)
+		IonicPageModule.forChild(SpeakerDetailPage)
 	],
 	entryComponents: [
 		SpeakerDetailPage

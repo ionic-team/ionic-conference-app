@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SignupPage } from './signup';
-import { DeepLinkModule } from 'ionic-angular';
+import { IonicPageModule } from 'ionic-angular';
 
 @NgModule({
 	declarations: [
 		SignupPage
 	],
 	imports: [
-		DeepLinkModule.forChild(SignupPage)
+		IonicPageModule.forChild(SignupPage)
 	],
 	entryComponents: [
 		SignupPage
