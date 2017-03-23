@@ -57,7 +57,7 @@ export class ConferenceApp {
   ) {
 
     // Check if the user has already seen the tutorial
-    /*this.storage.get('hasSeenTutorial')
+    this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
         if (hasSeenTutorial) {
           this.rootPage = 'TabsPage';
@@ -65,7 +65,7 @@ export class ConferenceApp {
           this.rootPage = 'TutorialPage';
         }
         this.platformReady()
-      })*/
+      })
 
       this.rootPage = 'TabsPage';
       this.platformReady();
@@ -74,9 +74,9 @@ export class ConferenceApp {
     confData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
-    /*this.userData.hasLoggedIn().then((hasLoggedIn: any) => {
+    this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
-    });*/
+    });
     this.enableMenu(true);
 
     this.listenToLoginEvents();
