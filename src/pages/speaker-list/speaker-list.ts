@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActionSheet, ActionSheetController, Config, IonicPage, NavController } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/inappbrowser';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -19,7 +19,8 @@ export class SpeakerListPage {
     public actionSheetCtrl: ActionSheetController,
     public navCtrl: NavController,
     public confData: ConferenceData,
-    public config: Config
+    public config: Config,
+    public inAppBrowser: InAppBrowser
   ) { }
 
   ionViewDidLoad() {
@@ -37,7 +38,7 @@ export class SpeakerListPage {
   }
 
   goToSpeakerTwitter(speaker: any) {
-    new InAppBrowser(`https://twitter.com/${speaker.twitter}`, '_blank');
+    this.inAppBrowser.create(`https://twitter.com/${speaker.twitter}`, '_blank');
   }
 
   openSpeakerShare(speaker: any) {

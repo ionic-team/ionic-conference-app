@@ -10,6 +10,9 @@ import { ConferenceApp } from './app.component';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 @NgModule({
   declarations: [
@@ -17,16 +20,21 @@ import { UserData } from '../providers/user-data';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(ConferenceApp, {
       preloadModules: true
     }),
-    HttpModule,
-		IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     ConferenceApp
   ],
-  providers: [ConferenceData, UserData]
+  providers: [
+    ConferenceData,
+    UserData,
+    InAppBrowser,
+    SplashScreen
+  ]
 })
 export class AppModule { }

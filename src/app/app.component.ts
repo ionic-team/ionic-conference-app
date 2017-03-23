@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
-import { Splashscreen } from '@ionic-native/splashscreen';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -49,7 +49,8 @@ export class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
-    public confData: ConferenceData/*,
+    public confData: ConferenceData,
+    public splashScreen: SplashScreen/*,
     public storage: Storage*/
   ) {
 
@@ -125,7 +126,7 @@ export class ConferenceApp {
   platformReady() {
     // Call any initial plugins when ready
     this.platform.ready().then(() => {
-      Splashscreen.hide();
+      this.splashScreen.hide();
     });
   }
 
