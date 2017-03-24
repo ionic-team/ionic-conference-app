@@ -59,15 +59,13 @@ export class ConferenceApp {
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
-        /*if (hasSeenTutorial) {
+        if (hasSeenTutorial) {
           this.rootPage = 'TabsPage';
         } else {
           this.rootPage = 'TutorialPage';
         }
-        this.platformReady()*/
-      })
-		this.rootPage = 'TabsPage';
-		this.platformReady();
+        this.platformReady()
+      });
 
     // load the conference data
     confData.load();
