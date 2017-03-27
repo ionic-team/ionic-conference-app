@@ -3,6 +3,10 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { IonicApp, IonicModule } from 'ionic-angular';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
@@ -10,8 +14,7 @@ import { ConferenceApp } from './app.component';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { TabsPageModule } from '../pages/tabs/tabs.module';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     IonicModule.forRoot(ConferenceApp, {
       preloadModules: true
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    TabsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
