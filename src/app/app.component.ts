@@ -29,7 +29,7 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'TabsPage', tabName: 'SchedulePage', icon: 'calendar' },
+    { title: 'Schedule', name: 'TabsPage', tabName: 'SchedulePage', index: 0, icon: 'calendar' },
     { title: 'Speakers', name: 'TabsPage', tabName: 'SpeakerListPage', index: 1, icon: 'contacts' },
     { title: 'Map', name: 'TabsPage', tabName: 'MapPage', index: 2, icon: 'map' },
     { title: 'About', name: 'TabsPage', tabName: 'AboutPage', index: 3, icon: 'information-circle' }
@@ -80,24 +80,30 @@ export class ConferenceApp {
   }
 
   openPage(page: PageInterface) {
+    let params = {};
+
     // the nav component was found using @ViewChild(Nav)
-    // reset the nav to remove previous pages and only have this page
+    // setRoot on the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      this.nav.setRoot(page.name, { tabIndex: page.index }).catch(() => {
-        console.log("Didn't set nav root");
-      });
+      params = { tabIndex: page.index };
+    }
+
+    // If we are already on tabs just change the selected tab
+    // don't setRoot again, this maintains the history stack of the
+    // tabs even if changing them from the menu
+    if (this.nav.getActiveChildNav() && page.index != undefined) {
+      this.nav.getActiveChildNav().select(page.index);
+    // Set the root of the nav with params if it's a tab index
     } else {
-      this.nav.setRoot(page.name).catch(() => {
+      this.nav.setRoot(page.name, params).catch(() => {
         console.log("Didn't set nav root");
       });
     }
 
     if (page.logsOut === true) {
       // Give the menu time to close before changing to logged out
-      setTimeout(() => {
-        this.userData.logout();
-      }, 1000);
+      this.userData.logout();
     }
   }
 
