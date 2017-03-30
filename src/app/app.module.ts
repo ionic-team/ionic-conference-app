@@ -14,8 +14,6 @@ import { ConferenceApp } from './app.component';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
-import { TabsPageModule } from '../pages/tabs/tabs.module';
-
 
 @NgModule({
   declarations: [
@@ -27,8 +25,7 @@ import { TabsPageModule } from '../pages/tabs/tabs.module';
     IonicModule.forRoot(ConferenceApp, {
       preloadModules: true
     }),
-    IonicStorageModule.forRoot(),
-    TabsPageModule
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
