@@ -10,11 +10,11 @@ import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
   title: string;
-  component: any;
+  name: string;
   icon: string;
   logsOut?: boolean;
   index?: number;
-  tabComponent?: any;
+  tabName?: string;
 }
 
 @Component({
@@ -29,22 +29,22 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', component: 'TabsPage', tabComponent: 'SchedulePage', icon: 'calendar' },
-    { title: 'Speakers', component: 'TabsPage', tabComponent: 'SpeakerListPage', index: 1, icon: 'contacts' },
-    { title: 'Map', component: 'TabsPage', tabComponent: 'MapPage', index: 2, icon: 'map' },
-    { title: 'About', component: 'TabsPage', tabComponent: 'AboutPage', index: 3, icon: 'information-circle' }
+    { title: 'Schedule', name: 'TabsPage', tabName: 'SchedulePage', icon: 'calendar' },
+    { title: 'Speakers', name: 'TabsPage', tabName: 'SpeakerListPage', index: 1, icon: 'contacts' },
+    { title: 'Map', name: 'TabsPage', tabName: 'MapPage', index: 2, icon: 'map' },
+    { title: 'About', name: 'TabsPage', tabName: 'AboutPage', index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
-    { title: 'Account', component: 'AccountPage', icon: 'person' },
-    { title: 'Support', component: 'SupportPage', icon: 'help' },
-    { title: 'Logout', component: 'TabsPage', icon: 'log-out', logsOut: true }
+    { title: 'Account', name: 'AccountPage', icon: 'person' },
+    { title: 'Support', name: 'SupportPage', icon: 'help' },
+    { title: 'Logout', name: 'TabsPage', icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', component: 'LoginPage', icon: 'log-in' },
-    { title: 'Support', component: 'SupportPage', icon: 'help' },
-    { title: 'Signup', component: 'SignupPage', icon: 'person-add' }
+    { title: 'Login', name: 'LoginPage', icon: 'log-in' },
+    { title: 'Support', name: 'SupportPage', icon: 'help' },
+    { title: 'Signup', name: 'SignupPage', icon: 'person-add' }
   ];
-  rootPage: any;
+  rootPage: string;
 
   constructor(
     public events: Events,
@@ -84,11 +84,11 @@ export class ConferenceApp {
     // reset the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      this.nav.setRoot(page.component, { tabIndex: page.index }).catch(() => {
+      this.nav.setRoot(page.name, { tabIndex: page.index }).catch(() => {
         console.log("Didn't set nav root");
       });
     } else {
-      this.nav.setRoot(page.component).catch(() => {
+      this.nav.setRoot(page.name).catch(() => {
         console.log("Didn't set nav root");
       });
     }
@@ -136,13 +136,13 @@ export class ConferenceApp {
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
+      if (childNav.getSelected() && childNav.getSelected().root === page.tabName) {
         return 'primary';
       }
       return;
     }
 
-    if (this.nav.getActive() && this.nav.getActive().component === page.component) {
+    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
       return 'primary';
     }
     return;
