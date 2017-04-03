@@ -103,10 +103,7 @@ export class ConferenceApp {
     }
 
     if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      setTimeout(() => {
         this.userData.logout();
-      }, 1000);
     }
   }
 
