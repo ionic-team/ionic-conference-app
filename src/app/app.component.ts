@@ -105,12 +105,10 @@ export class ConferenceApp {
     // If we are already on tabs just change the selected tab
     // don't setRoot again, this maintains the history stack of the
     // tabs even if changing them from the menu
-    console.log(page);
     if (this.nav.getActiveChildNav() && page.index != undefined) {
       this.nav.getActiveChildNav().select(page.index);
     // Set the root of the nav with params if it's a tab index
   } else {
-      console.log(page.name);
       this.nav.setRoot(page.name, params).catch((err: any) => {
         console.log(`Didn't set nav root: ${err}`);
       });

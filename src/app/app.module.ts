@@ -62,10 +62,10 @@ import { UserData } from '../providers/user-data';
         { component: MapPage, name: 'Map', segment: 'map' },
         { component: AboutPage, name: 'About', segment: 'about' },
         { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
-        { component: SupportPage, name: 'Support', segment: 'support' },
-        { component: LoginPage, name: 'login', segment: 'login' },
-        { component: AccountPage, name: 'Account', segment: 'account' },
-        { component: SignupPage, name: 'Signup', segment: 'signup' }
+        { component: SupportPage, name: 'SupportPage', segment: 'support' },
+        { component: LoginPage, name: 'LoginPage', segment: 'login' },
+        { component: AccountPage, name: 'AccountPage', segment: 'account' },
+        { component: SignupPage, name: 'SignupPage', segment: 'signup' }
       ]
     }),
     IonicStorageModule.forRoot()
