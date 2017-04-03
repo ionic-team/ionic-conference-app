@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
@@ -68,6 +68,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SupportPage
   ],
   providers: [
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
     UserData,
     InAppBrowser,
