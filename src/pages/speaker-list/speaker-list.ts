@@ -31,11 +31,17 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, session);
+    this.navCtrl.push(SessionDetailPage, { 
+      name: session.name,
+      session: session
+    });
   }
 
   goToSpeakerDetail(speakerName: any) {
-    this.navCtrl.push(SpeakerDetailPage, speakerName);
+    this.navCtrl.push(SpeakerDetailPage, { 
+      speaker: speakerName,
+      name: speakerName.name
+    });
   }
 
   goToSpeakerTwitter(speaker: any) {
