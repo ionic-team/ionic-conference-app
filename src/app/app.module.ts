@@ -11,25 +11,82 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
+import { AboutPage } from '../pages/about/about';
+import { PopoverPage } from '../pages/about-popover/about-popover';
+import { AccountPage } from '../pages/account/account';
+import { LoginPage } from '../pages/login/login';
+import { MapPage } from '../pages/map/map';
+import { SchedulePage } from '../pages/schedule/schedule';
+import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
+import { SessionDetailPage } from '../pages/session-detail/session-detail';
+import { SignupPage } from '../pages/signup/signup';
+import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
+import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { TabsPage } from '../pages/tabs/tabs';
+import { TutorialPage } from '../pages/tutorial/tutorial';
+import { SupportPage } from '../pages/support/support';
+
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
 
 @NgModule({
   declarations: [
-    ConferenceApp
+    ConferenceApp,
+    AboutPage,
+    AccountPage,
+    LoginPage,
+    MapPage,
+    PopoverPage,
+    SchedulePage,
+    ScheduleFilterPage,
+    SessionDetailPage,
+    SignupPage,
+    SpeakerDetailPage,
+    SpeakerListPage,
+    TabsPage,
+    TutorialPage,
+    SupportPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(ConferenceApp, {
-      preloadModules: true
+    IonicModule.forRoot(ConferenceApp, {}, {
+      links: [
+        { component: TabsPage, name: 'Tabs', segment: 'tabs' },
+        { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
+        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail' },
+        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
+        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
+        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail' },
+        { component: MapPage, name: 'Map', segment: 'map' },
+        { component: AboutPage, name: 'About', segment: 'about' },
+        { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
+        { component: SupportPage, name: 'Support', segment: 'support' },
+        { component: LoginPage, name: 'login', segment: 'login' },
+        { component: AccountPage, name: 'Account', segment: 'account' },
+        { component: SignupPage, name: 'Signup', segment: 'signup' }
+      ]
     }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ConferenceApp
+    ConferenceApp,
+    AboutPage,
+    AccountPage,
+    LoginPage,
+    MapPage,
+    PopoverPage,
+    SchedulePage,
+    ScheduleFilterPage,
+    SessionDetailPage,
+    SignupPage,
+    SpeakerDetailPage,
+    SpeakerListPage,
+    TabsPage,
+    TutorialPage,
+    SupportPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, IonicPage, FabContainer, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
+import { AlertController, App, FabContainer, ItemSliding, List, ModalController, NavController, LoadingController } from 'ionic-angular';
 
 /*
   To learn how to use third party libs in an
@@ -11,8 +11,10 @@ import { AlertController, App, IonicPage, FabContainer, ItemSliding, List, Modal
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
+import { SessionDetailPage } from '../session-detail/session-detail';
+import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 
-@IonicPage()
+
 @Component({
   selector: 'page-schedule',
   templateUrl: 'schedule.html'
@@ -58,7 +60,7 @@ export class SchedulePage {
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create('ScheduleFilterPage', this.excludeTracks);
+    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
     modal.present();
 
     modal.onWillDismiss((data: any[]) => {
@@ -73,7 +75,7 @@ export class SchedulePage {
   goToSessionDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
-    this.navCtrl.push('SessionDetailPage', sessionData);
+    this.navCtrl.push(SessionDetailPage, sessionData);
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData: any) {

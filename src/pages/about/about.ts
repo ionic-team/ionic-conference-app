@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, PopoverController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
 
-@IonicPage()
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'

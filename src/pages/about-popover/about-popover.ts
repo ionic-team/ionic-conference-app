@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { App, IonicPage, NavController, ModalController, ViewController } from 'ionic-angular';
+import { App, NavController, ModalController, ViewController } from 'ionic-angular';
 
 
-@IonicPage()
 @Component({
   template: `
     <ion-list>

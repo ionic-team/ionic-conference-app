@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AlertController, IonicPage, NavController, ToastController } from 'ionic-angular';
+import { AlertController, NavController, ToastController } from 'ionic-angular';
 
 
-@IonicPage()
 @Component({
   selector: 'page-user',
   templateUrl: 'support.html'

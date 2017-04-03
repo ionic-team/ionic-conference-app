@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
+import { SessionDetailPage } from '../session-detail/session-detail';
 
-@IonicPage()
 @Component({
   selector: 'page-speaker-detail',
   templateUrl: 'speaker-detail.html'
@@ -16,6 +16,6 @@ export class SpeakerDetailPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push('SessionDetailPage', session);
+    this.navCtrl.push(SessionDetailPage, session);
   }
 }

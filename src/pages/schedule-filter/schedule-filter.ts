@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { NavParams, ViewController } from 'ionic-angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
 
-@IonicPage()
 @Component({
   selector: 'page-schedule-filter',
   templateUrl: 'schedule-filter.html'

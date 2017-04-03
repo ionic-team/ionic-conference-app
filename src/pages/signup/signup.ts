@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { IonicPage, NavController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user-data';
 
+import { TabsPage } from '../tabs/tabs';
 
-@IonicPage()
 @Component({
   selector: 'page-user',
   templateUrl: 'signup.html'
@@ -22,7 +22,7 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.navCtrl.push('TabsPage');
+      this.navCtrl.push(TabsPage);
     }
   }
 }
