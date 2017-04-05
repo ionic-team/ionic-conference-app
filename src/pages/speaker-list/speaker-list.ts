@@ -4,9 +4,9 @@ import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
+
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
-
 
 @Component({
   selector: 'page-speaker-list',
@@ -31,11 +31,17 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, session);
+    this.navCtrl.push(SessionDetailPage, { 
+      name: session.name,
+      session: session
+    });
   }
 
   goToSpeakerDetail(speakerName: any) {
-    this.navCtrl.push(SpeakerDetailPage, speakerName);
+    this.navCtrl.push(SpeakerDetailPage, { 
+      speaker: speakerName,
+      name: speakerName.name
+    });
   }
 
   goToSpeakerTwitter(speaker: any) {

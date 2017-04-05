@@ -9,9 +9,10 @@ import { AlertController, App, FabContainer, ItemSliding, List, ModalController,
 // import moment from 'moment';
 
 import { ConferenceData } from '../../providers/conference-data';
-import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
-import { SessionDetailPage } from '../session-detail/session-detail';
 import { UserData } from '../../providers/user-data';
+
+import { SessionDetailPage } from '../session-detail/session-detail';
+import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 
 
 @Component({
@@ -74,7 +75,10 @@ export class SchedulePage {
   goToSessionDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
-    this.navCtrl.push(SessionDetailPage, sessionData);
+    this.navCtrl.push(SessionDetailPage, { 
+      name: sessionData.name,
+      session: sessionData
+    });
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData: any) {

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { Storage } from '@ionic/storage';
 
 import { AboutPage } from '../pages/about/about';
@@ -20,10 +21,12 @@ import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
   title: string;
+  name: string;
   component: any;
   icon: string;
   logsOut?: boolean;
   index?: number;
+  tabName?: string;
   tabComponent?: any;
 }
 
@@ -39,20 +42,20 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', component: TabsPage, tabComponent: SchedulePage, icon: 'calendar' },
-    { title: 'Speakers', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
+    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+    { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
   ];
   loggedInPages: PageInterface[] = [
-    { title: 'Account', component: AccountPage, icon: 'person' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
-    { title: 'Logout', component: TabsPage, icon: 'log-out', logsOut: true }
+    { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
+    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
+    { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', component: LoginPage, icon: 'log-in' },
-    { title: 'Support', component: SupportPage, icon: 'help' },
-    { title: 'Signup', component: SignupPage, icon: 'person-add' }
+    { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
+    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
+    { title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
   ];
   rootPage: any;
 
@@ -75,7 +78,7 @@ export class ConferenceApp {
           this.rootPage = TutorialPage;
         }
         this.platformReady()
-      })
+      });
 
     // load the conference data
     confData.load();
@@ -84,29 +87,36 @@ export class ConferenceApp {
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
     });
+    this.enableMenu(true);
 
     this.listenToLoginEvents();
   }
 
   openPage(page: PageInterface) {
+    let params = {};
+
     // the nav component was found using @ViewChild(Nav)
-    // reset the nav to remove previous pages and only have this page
+    // setRoot on the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      this.nav.setRoot(page.component, { tabIndex: page.index }).catch(() => {
-        console.log("Didn't set nav root");
-      });
-    } else {
-      this.nav.setRoot(page.component).catch(() => {
-        console.log("Didn't set nav root");
+      params = { tabIndex: page.index };
+    }
+
+    // If we are already on tabs just change the selected tab
+    // don't setRoot again, this maintains the history stack of the
+    // tabs even if changing them from the menu
+    if (this.nav.getActiveChildNav() && page.index != undefined) {
+      this.nav.getActiveChildNav().select(page.index);
+    // Set the root of the nav with params if it's a tab index
+  } else {
+      this.nav.setRoot(page.name, params).catch((err: any) => {
+        console.log(`Didn't set nav root: ${err}`);
       });
     }
 
     if (page.logsOut === true) {
       // Give the menu time to close before changing to logged out
-      setTimeout(() => {
-        this.userData.logout();
-      }, 1000);
+      this.userData.logout();
     }
   }
 
@@ -145,13 +155,13 @@ export class ConferenceApp {
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
+      if (childNav.getSelected() && childNav.getSelected().root === page.tabName) {
         return 'primary';
       }
       return;
     }
 
-    if (this.nav.getActive() && this.nav.getActive().component === page.component) {
+    if (this.nav.getActive() && this.nav.getActive().name === page.name) {
       return 'primary';
     }
     return;

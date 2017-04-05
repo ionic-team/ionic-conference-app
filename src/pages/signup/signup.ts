@@ -3,9 +3,9 @@ import { NgForm } from '@angular/forms';
 
 import { NavController } from 'ionic-angular';
 
-import { TabsPage } from '../tabs/tabs';
 import { UserData } from '../../providers/user-data';
 
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   selector: 'page-user',

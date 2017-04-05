@@ -7,6 +7,7 @@ import { Platform } from 'ionic-angular';
 
 declare var google: any;
 
+
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
