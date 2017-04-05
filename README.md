@@ -1,10 +1,10 @@
-# Ionic 2 Conference Application
+# Ionic Conference Application
 
-This is purely a demo of Ionic 2 with TypeScript. It is still in development.
+This is purely a demo of Ionic with TypeScript. It is still in development.
 
 
 ## Important!
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic 2 components in a real-world application. Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
+**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING.md](https://github.com/driftyco/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
 
 
 ## Table of Contents
