@@ -10,15 +10,21 @@
         "timeEnd": "9:00 am",
         "location": "Main hallway",
         "tracks": ["Food"]
+      }, {
+        "name": "Meet and Greet",
+        "timeStart": "9:00 am",
+        "timeEnd": "9:15 am",
+        "location": "Main hallway",
+        "tracks": ["Food"]
       }]
     }, {
-      "time": "9:00 am",
+      "time": "9:15 am",
       "sessions": [{
         "name": "Introduction to Appcamp.io",
         "location": "Room 2203",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
         "speakerNames": ["Ellie Elephant"],
-        "timeStart": "9:00 am",
+        "timeStart": "9:15 am",
         "timeEnd": "9:30 am",
         "tracks": ["Ionic"]
       }, {
@@ -49,19 +55,27 @@
         "timeEnd": "10:15 am",
         "tracks": ["Ionic"]
       }, {
+        "name": "Whats new in Angular",
+        "location": "Room 2203",
+        "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+        "speakerNames": ["Rachel Rabbit"],
+        "timeStart": "10:15 am",
+        "timeEnd": "10:30 am",
+        "tracks": ["Angular"]
+      }, {
         "name": "The evolution of Ionicons",
         "location": "Room 2202",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
         "speakerNames": ["Isabella Iguana", "Eva Eagle"],
-        "timeStart": "10:15 am",
-        "timeEnd": "10:30 am",
+        "timeStart": "10:30 am",
+        "timeEnd": "10:45 am",
         "tracks": ["Design"]
       }, {
         "name": "Ionic.io Services",
         "location": "Room 2202",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
         "speakerNames": ["Charlie Cheetah"],
-        "timeStart": "10:30 am",
+        "timeStart": "10:45 am",
         "timeEnd": "11:00 am",
         "tracks": ["Services"]
       }]
@@ -174,6 +188,22 @@
         "timeStart": "3:30 pm",
         "timeEnd": "3:45 pm",
         "tracks": ["Navigation"]
+      }, {
+        "name": "Progressive Web Apps",
+        "location": "Room 2203",
+        "description": "Progressive Web Apps are a first class citizen in Ionic. In this talk we will discuss what PWA's are, service workers and how to build an Awesome PWA with Ionic",
+        "speakerNames": ["Burt Bear"],
+        "timeStart": "3:45 pm",
+        "timeEnd": "4:15 pm",
+        "tracks": ["Workshop"]
+      }, {
+        "name": "Observables",
+        "location": "Room 2204",
+        "description": "Observables allow for a new reactive programming paradigm. In this talk we will discuss the basics of using observables and some awesome use cases for them",
+        "speakerNames": ["Isabella Iguana", "Ellie Elephant"],
+        "timeStart": "4:15 pm",
+        "timeEnd": "4:45 pm",
+        "tracks": ["Workshop"]
       }]
     }]
   }],
