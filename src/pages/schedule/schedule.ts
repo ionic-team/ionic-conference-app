@@ -76,7 +76,7 @@ export class SchedulePage {
   goToSessionDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
-    this.navCtrl.push(SessionDetailPage, { 
+    this.navCtrl.push(SessionDetailPage, {
       name: sessionData.name,
       session: sessionData
     });
@@ -154,14 +154,14 @@ export class SchedulePage {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
-      
+
       // simulate a network request that would take longer
       // than just pulling from out local json file
       setTimeout(() => {
         refresher.complete();
 
         const toast = this.toastCtrl.create({
-          message: 'Session list refreshed',
+          message: 'Sessions have been updated.',
           duration: 3000
         });
         toast.present();
