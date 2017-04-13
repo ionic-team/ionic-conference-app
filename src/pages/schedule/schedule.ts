@@ -31,7 +31,6 @@ export class SchedulePage {
   segment = 'all';
   excludeTracks: any = [];
   shownSessions: any = [];
-  allSessions: any = [];
   groups: any = [];
   confDate: string;
 
