@@ -155,7 +155,7 @@ export class ConferenceApp {
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
-      if (childNav.getSelected() && childNav.getSelected().root === page.tabName) {
+      if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';
       }
       return;
