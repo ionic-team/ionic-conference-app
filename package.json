@@ -1,5 +1,6 @@
 {
   "name": "ionic-conference-app",
+  "version": "0.0.0",
   "description": "Ionic Conference App",
   "license": "Apache-2.0",
   "repository": {
@@ -34,6 +35,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.2.4",
+    "@ionic/cli-plugin-cordova": "0.0.12-alpha.5db25ede",
+    "@ionic/cli-plugin-ionic-angular": "0.0.6-alpha.5db25ede",
     "typescript": "~2.2.1"
   },
   "config": {}
