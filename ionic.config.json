@@ -1,6 +1,5 @@
 {
   "name": "ionic-conference-app",
   "app_id": "",
-  "typescript": true,
-  "v2": true
+  "type": "ionic-angular"
 }
