@@ -1,5 +1,6 @@
 {
   "name": "ionic-conference-app",
+  "version": "0.0.0",
   "description": "Ionic Conference App",
   "license": "Apache-2.0",
   "repository": {
