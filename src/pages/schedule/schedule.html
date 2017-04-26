@@ -30,6 +30,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
