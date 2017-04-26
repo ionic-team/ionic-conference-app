@@ -78,12 +78,6 @@
   <preference name="AutoHideSplashScreen" value="false"/>
   <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
   <preference name="SplashScreenDelay" value="3000"/>
-  <feature name="StatusBar">
-    <param name="ios-package" onload="true" value="CDVStatusBar"/>
-  </feature>
-  <feature name="CDVWKWebViewEngine">
-    <param name="ios-package" value="CDVWKWebViewEngine"/>
-  </feature>
   <plugin name="cordova-plugin-inappbrowser" spec="~1.4.0"/>
   <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/driftyco/cordova-plugin-wkwebview-engine.git"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
