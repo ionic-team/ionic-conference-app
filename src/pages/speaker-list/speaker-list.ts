@@ -31,14 +31,14 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
+    this.navCtrl.push(SessionDetailPage, {
       name: session.name,
       session: session
     });
   }
 
   goToSpeakerDetail(speakerName: any) {
-    this.navCtrl.push(SpeakerDetailPage, { 
+    this.navCtrl.push(SpeakerDetailPage, {
       speaker: speakerName,
       name: speakerName.name
     });
@@ -54,7 +54,7 @@ export class SpeakerListPage {
       buttons: [
         {
           text: 'Copy Link',
-          handler: ($event: Event) => {
+          handler: () => {
             console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
             if ((window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
               (window as any)['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
