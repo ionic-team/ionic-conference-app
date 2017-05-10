@@ -19,7 +19,7 @@ export class LoginPage {
   login: { username?: string, password?: string } = {};
   submitted = false;
 
-  constructor(public navCtrl: NavController, public userData: UserData, public loginService: LoginService) {
+  constructor(private navCtrl: NavController, private userData: UserData, private loginService: LoginService) {
   }
 
   onLogin(form: NgForm) {

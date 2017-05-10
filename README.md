@@ -123,7 +123,7 @@ ionic-conference-app/
 │    │    │
 │    │    │── schedule/                  * Schedule tab page
 │    │    │    ├── schedule.html         * SchedulePage template
-│    │    │    └── schedule.ts           * SchedulePage code
+│    │    │    └── home.ts           * SchedulePage code
 │    │    │    └── schedule.scss         * SchedulePage stylesheet
 │    │    │
 │    │    │── schedule-filter/            * Schedule Filter page

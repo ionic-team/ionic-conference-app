@@ -31,7 +31,7 @@ export class ConferenceData {
 
     this.data.tracks = [];
 
-    // loop through each day in the schedule
+    // loop through each day in the home
     this.data.schedule.forEach((day: any) => {
       // loop through each timeline group in the day
       day.groups.forEach((group: any) => {

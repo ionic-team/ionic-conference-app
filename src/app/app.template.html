@@ -13,7 +13,7 @@
 
       <ion-list>
         <ion-list-header>
-          Navigate
+          导航
         </ion-list-header>
         <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
           <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
@@ -23,7 +23,7 @@
 
       <ion-list>
         <ion-list-header>
-          Account
+          账户
         </ion-list-header>
         <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
           <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
@@ -44,8 +44,8 @@
 
   </ion-menu>
 
-  <!-- logged in menu -->
-  <ion-menu id="loggedInMenu" [content]="content">
+  <!-- logged in menu todo 这是干啥的-->
+  <!--<ion-menu id="loggedInMenu" [content]="content">
 
     <ion-header>
       <ion-toolbar>
@@ -87,7 +87,7 @@
 
     </ion-content>
 
-  </ion-menu>
+  </ion-menu>-->
 
   <!-- main navigation -->
   <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
