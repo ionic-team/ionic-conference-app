@@ -3,7 +3,6 @@ import {Component, ViewChild} from '@angular/core';
 import {
   AlertController,
   App,
-  FabContainer,
   ItemSliding,
   List,
   ModalController,
@@ -13,11 +12,6 @@ import {
   Refresher
 } from 'ionic-angular';
 
-/*
- To learn how to use third party libs in an
- Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
- */
-// import moment from 'moment';
 
 import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
@@ -30,7 +24,7 @@ import {HomeService} from "./home.service";
 @Component({
   selector: 'page-schedule',
   templateUrl: 'home.html',
-  providers:[HomeService]
+  providers: [HomeService]
 })
 export class HomePage {
   // the list is a child of the home page
@@ -47,23 +41,23 @@ export class HomePage {
   groups: any = [];
   confDate: string;
 
-  constructor(public alertCtrl: AlertController,
-              public app: App,
-              public loadingCtrl: LoadingController,
-              public modalCtrl: ModalController,
-              public navCtrl: NavController,
-              public toastCtrl: ToastController,
-              public confData: ConferenceData,
-              public user: UserData,
+  constructor(private alertCtrl: AlertController,
+              private app: App,
+              private loadingCtrl: LoadingController,
+              private modalCtrl: ModalController,
+              private navCtrl: NavController,
+              private toastCtrl: ToastController,
+              private confData: ConferenceData,
+              private user: UserData,
               private homeService: HomeService,) {
   }
-
+  //当页面加载的时候触发，仅在页面创建的时候触发一次，如果被缓存了，那么下次再打开这个页面则不会触发
   ionViewDidLoad() {
     this.app.setTitle('home');
     this.updateSchedule();
   }
 
-  updateSchedule() {
+   updateSchedule() {
     // Close any open sliding items when the home updates
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
@@ -76,7 +70,6 @@ export class HomePage {
   presentFilter() {
     let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
     modal.present();
-
     modal.onWillDismiss((data: any[]) => {
       if (data) {
         this.excludeTracks = data;
@@ -96,7 +89,6 @@ export class HomePage {
   }
 
   addFavorite(slidingItem: ItemSliding, sessionData: any) {
-
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
       // prompt them to remove it
@@ -119,7 +111,6 @@ export class HomePage {
       // now present the alert on top of all other content
       alert.present();
     }
-
   }
 
   removeFavorite(slidingItem: ItemSliding, sessionData: any, title: string) {
@@ -141,7 +132,6 @@ export class HomePage {
             // they want to remove this session from their favorites
             this.user.removeFavorite(sessionData.name);
             this.updateSchedule();
-
             // close the sliding item and hide the option buttons
             slidingItem.close();
           }
@@ -152,27 +142,23 @@ export class HomePage {
     alert.present();
   }
 
-  openSocial(network: string, fab: FabContainer) {
-    let loading = this.loadingCtrl.create({
-      content: `Posting to ${network}`,
-      duration: (Math.random() * 1000) + 500
-    });
-    loading.onWillDismiss(() => {
-      fab.close();
-    });
-    loading.present();
-  }
+  // openSocial(network: string, fab: FabContainer) {
+  //   let loading = this.loadingCtrl.create({
+  //     content: `Posting to ${network}`,
+  //     duration: (Math.random() * 1000) + 500
+  //   });
+  //   loading.onWillDismiss(() => {
+  //     fab.close();
+  //   });
+  //   loading.present();
+  // }
 
   doRefresh(refresher: Refresher) {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
-
-      // simulate a network request that would take longer
-      // than just pulling from out local json file
       setTimeout(() => {
         refresher.complete();
-
         const toast = this.toastCtrl.create({
           message: 'Sessions have been updated.',
           duration: 3000

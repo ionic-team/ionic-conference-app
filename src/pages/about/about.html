@@ -16,36 +16,35 @@
   <div class="about-header">
     <img src="assets/img/ionic-logo-white.svg" alt="ionic logo">
   </div>
-  <div padding class="about-info">
-    <h4>Ionic Conference</h4>
-
-    <ion-list no-lines>
+  <div class="about-info">
+    <ion-list>
       <ion-item>
         <ion-icon name="calendar" item-left></ion-icon>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
+        <ion-label (click)="itemClick('collect')">我的收藏</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label (click)="itemClick('article')">我发表的文章</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label (click)="itemClick('draft')">我的草稿箱</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label (click)="itemClick('history')">我的历史记录</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label (click)="itemClick('setting')">设置</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label (click)="itemClick('attention')">我的关注</ion-label>
       </ion-item>
 
-      <ion-item>
-        <ion-icon name="pin" item-left></ion-icon>
-        <ion-label>Location</ion-label>
-        <ion-select>
-          <ion-option value="madison" selected>Madison, WI</ion-option>
-          <ion-option value="austin">Austin, TX</ion-option>
-          <ion-option value="chicago">Chicago, IL</ion-option>
-          <ion-option value="seattle">Seattle, WA</ion-option>
-        </ion-select>
-      </ion-item>
     </ion-list>
 
-    <p>
-      The Ionic Conference is a one-day conference featuring talks from the
-      Ionic team. It is focused on Ionic applications being built with
-      Ionic 2. This includes migrating apps from Ionic 1 to Ionic 2,
-      Angular concepts, Webpack, Sass, and many other technologies used
-      in Ionic 2. Tickets are completely sold out, and we’re expecting
-      more than 1000 developers – making this the largest Ionic
-      conference ever!
-    </p>
+
   </div>
 </ion-content>
