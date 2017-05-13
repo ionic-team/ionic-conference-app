@@ -10,7 +10,7 @@ import { ConferenceData } from '../../providers/conference-data';
   templateUrl: 'schedule-filter.html'
 })
 export class ScheduleFilterPage {
-  tracks: Array<{name: string, isChecked: boolean}> = [];
+  tracks: Array<{ name: string, isChecked: boolean }> = [];
 
   constructor(
     public confData: ConferenceData,
