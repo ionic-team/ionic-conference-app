@@ -60,7 +60,6 @@ export class HomePage {
    updateSchedule() {
     // Close any open sliding items when the home updates
     this.scheduleList && this.scheduleList.closeSlidingItems();
-
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
@@ -80,8 +79,6 @@ export class HomePage {
   }
 
   goToSessionDetail(sessionData: any) {
-    // go to the session detail page
-    // and pass in the session data
     this.navCtrl.push(SessionDetailPage, {
       name: sessionData.name,
       session: sessionData
@@ -142,16 +139,6 @@ export class HomePage {
     alert.present();
   }
 
-  // openSocial(network: string, fab: FabContainer) {
-  //   let loading = this.loadingCtrl.create({
-  //     content: `Posting to ${network}`,
-  //     duration: (Math.random() * 1000) + 500
-  //   });
-  //   loading.onWillDismiss(() => {
-  //     fab.close();
-  //   });
-  //   loading.present();
-  // }
 
   doRefresh(refresher: Refresher) {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
