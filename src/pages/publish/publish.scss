@@ -1,0 +1,23 @@
+
+page-map ion-content {
+  background: rgb(229, 227, 223);
+}
+
+page-map {
+  .map-page {
+    font-size: 12px;
+    .article-title-input{
+      height: 5%;
+    }
+    .article-input {
+      height: 100%-5;
+      textarea {
+        height: 100%;
+      }
+    }
+  }
+}
+
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: transparent !important;
+}

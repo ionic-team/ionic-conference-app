@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-icon ios="ios-close" md="md-close" style="margin-left: 20px" (click)="cancel()"></ion-icon>
+    <ion-title>文章发布</ion-title>
+    <ion-icon ios="ios-paper-plane" md="md-paper-plane" style="float: right;margin-right: 20px" (click)="publish()"></ion-icon>
+  </ion-navbar>
+</ion-header>
+<ion-content class="map-page">
+  <form [formGroup]="articleForm" style="height:100%;">
+    <ion-item class="article-title-input">
+      <ion-input formControlName="title" type="text" placeholder="请输入文章标题"></ion-input>
+    </ion-item>
+    <ion-item class="article-input">
+      <ion-textarea formControlName="content" placeholder="请输入文章内容" ></ion-textarea>
+    </ion-item>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p>Ash, Misty, Brock</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+        Send
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
