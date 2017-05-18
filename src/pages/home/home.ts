@@ -51,14 +51,19 @@ export class HomePage {
               private user: UserData,
               private homeService: HomeService,) {
   }
+
   //当页面加载的时候触发，仅在页面创建的时候触发一次，如果被缓存了，那么下次再打开这个页面则不会触发
   ionViewDidLoad() {
     this.app.setTitle('home');
     this.updateSchedule();
   }
 
-   updateSchedule() {
-    // Close any open sliding items when the home updates
+  updateSchedule() {
+    this.homeService.findArticle({}).subscribe(data => {
+      console.log(data);
+    });
+
+
     this.scheduleList && this.scheduleList.closeSlidingItems();
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;

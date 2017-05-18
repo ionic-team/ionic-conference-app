@@ -118,7 +118,7 @@ ionic-conference-app/
 │    │    │
 │    │    │── map/                       * Map tab page
 │    │    │    ├── map.html              * MapPage template
-│    │    │    └── map.ts                * MapPage code
+│    │    │    └── publish.ts                * MapPage code
 │    │    │    └── map.scss              * MapPage stylesheet
 │    │    │
 │    │    │── schedule/                  * Schedule tab page
