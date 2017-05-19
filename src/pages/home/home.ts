@@ -8,12 +8,10 @@ import {
   ModalController,
   NavController,
   ToastController,
-  LoadingController,
   Refresher
 } from 'ionic-angular';
 
 
-import {ConferenceData} from '../../providers/conference-data';
 import {UserData} from '../../providers/user-data';
 
 import {SessionDetailPage} from '../session-detail/session-detail';
@@ -33,21 +31,17 @@ export class HomePage {
   // the List and not a reference to the element
   @ViewChild('scheduleList', {read: List}) scheduleList: List;
 
-  dayIndex = 0;
   queryText = '';
   segment = 'all';
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
-  confDate: string;
 
   constructor(private alertCtrl: AlertController,
               private app: App,
-              private loadingCtrl: LoadingController,
               private modalCtrl: ModalController,
               private navCtrl: NavController,
               private toastCtrl: ToastController,
-              private confData: ConferenceData,
               private user: UserData,
               private homeService: HomeService,) {
   }
@@ -59,15 +53,11 @@ export class HomePage {
   }
 
   updateSchedule() {
-    this.homeService.findArticle({}).subscribe(data => {
-      console.log(data);
-    });
-
-
     this.scheduleList && this.scheduleList.closeSlidingItems();
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
+    this.homeService.findArticle({}).subscribe(data => {
+      this.shownSessions = data.data.totalElements;
+      this.groups = data.data.content;
+      console.log(data);
     });
   }
 
@@ -146,13 +136,14 @@ export class HomePage {
 
 
   doRefresh(refresher: Refresher) {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
+
+    this.homeService.findArticle({}).subscribe(data => {
+      this.shownSessions = data.data.totalElements;
+      this.groups = data.data.content;
       setTimeout(() => {
         refresher.complete();
         const toast = this.toastCtrl.create({
-          message: 'Sessions have been updated.',
+          message: '更新成功！',
           duration: 3000
         });
         toast.present();

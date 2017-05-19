@@ -17,29 +17,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="home">
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <!--<ion-list #scheduleList [hidden]="shownSessions === 0">-->
-  <ion-list [hidden]="shownSessions === 0">
-    <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
-      <ion-item-divider sticky>
-        <ion-label>
-          {{group.time}}
-        </ion-label>
-      </ion-item-divider>
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase"
-                        [hidden]="session.hide">
-        <button ion-item (click)="goToSessionDetail(session)">
-          <h3>{{session.name}}</h3>
-          <p>
-            {{session.timeStart}} &mdash;
-            {{session.timeEnd}}:
-            {{session.location}}
+  <ion-list [hidden]="shownSessions === 0" class="home-article">
+    <ion-item-group>
+      <ion-item-sliding *ngFor="let group of groups" class="article-item">
+        <ion-item (click)="goToSessionDetail(group)" no-lines>
+          <div class="article-header">
+            <img
+              src="{{group.creator.smallHeadPic? group.creator.smallHeadPic:'http://legal-inn.oss-cn-shanghai.aliyuncs.com/u%3D1442458788%2C3017119920%26fm%3D23%26gp%3D0.jpg'}}">
+              <p style="color:#2d2d2e">
+                <!--{{group.title}}-->
+                {{group.title.length >18 ? group.title.substring(0,20)+'...' :group.title}}
+              </p>
+              <p>
+                <span>{{group.creator.nickName}}</span><span class="publish-time">{{group.createTime | amTimeAgo}}</span>
+              </p>
+          </div>
+          <img *ngIf="group.showPic" style="width: 100%; height: 100%;margin-top: 5px" src="{{group.showPic}}"/>
+          <p text-wrap class="article-summary">
+            {{group.content}}
           </p>
-        </button>
+        </ion-item>
 
         <ion-item-options>
           <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
@@ -55,6 +57,6 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-    No Sessions Found
+    No Data Found
   </ion-list-header>
 </ion-content>

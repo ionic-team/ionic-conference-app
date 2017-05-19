@@ -1,20 +1,20 @@
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {Http} from "@angular/http";
-import {UrlData} from "../../common/urldata";
+import 'rxjs/add/operator/toPromise';
+import {LoginClient} from "./login.client";
 
 @Injectable()
 export class LoginService {
 
-  constructor(private http: Http,
-              private urlData: UrlData) {
+  constructor(private loginClient: LoginClient) {
   }
 
-  login(username: string, password: string): Observable<string> {
-    console.log("login");
-    debugger;
-    return this.http
-      .post(this.urlData.baseUrl + `login`, {username: username, password: password})
-      .map(response => response.json().data as string);
+  login(username: string, password: string) {
+
+    this.loginClient.login(username, password).subscribe(res => {
+
+    }, error => {
+      console.log(error)
+    });
+
   };
 }

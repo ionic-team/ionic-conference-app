@@ -29,6 +29,8 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 import {UrlData} from  '../common/urldata';
+import {MomentModule} from 'angular2-moment';
+
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import {UrlData} from  '../common/urldata';
   imports: [
     BrowserModule,
     HttpModule,
+    MomentModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs' },

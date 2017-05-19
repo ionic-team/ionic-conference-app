@@ -1,25 +1,54 @@
 $categories: (
- ionic: color($colors, primary),
- angular: #AC282B,
- communication: #8E8D93,
- tooling: #FE4C52,
- services: #FD8B2D,
- design: #FED035,
- workshop: #69BB7B,
- food: #3BC7C4,
- documentation: #B16BE3,
- navigation: #6600CC,
+  ionic: color($colors, primary),
+  angular: #AC282B,
+  communication: #8E8D93,
+  tooling: #FE4C52,
+  services: #FD8B2D,
+  design: #FED035,
+  workshop: #69BB7B,
+  food: #3BC7C4,
+  documentation: #B16BE3,
+  navigation: #6600CC,
 );
 
 @function auxiliary-categories() {
   @return map-remove($categories);
 }
 
+.home {
+  .home-article {
+    background-color: #f5f5f5;
+    .article-item {
+      margin-bottom: 10px;
+      border-bottom: 1px solid gainsboro;
+      .article-header {
+        height: 40px;
+        img {
+          float: left;
+          width: 40px;
+          height: 40px;
+        }
+        p {
+          text-overflow: ellipsis;
+          margin-left: 50px;
+          .publish-time {
+            margin-left: 10px;
+          }
+        }
+      }
+      .article-summary {
+        max-height: 60px;
+        margin-top:5px;
+      }
+    }
+  }
+}
+
 page-schedule {
   @each $track, $value in auxiliary-categories() {
-   ion-item-sliding[track=#{$track}] ion-label {
-     border-left: 2px solid $value;
-     padding-left: 10px;
-   }
+    ion-item-sliding[track=#{$track}] ion-label {
+      border-left: 2px solid $value;
+      padding-left: 10px;
+    }
   }
 }
