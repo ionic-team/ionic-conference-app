@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/toPromise';
 import {LoginClient} from "./login.client";
+import {LoginFormData} from "./login.form.data";
 
 @Injectable()
 export class LoginService {
@@ -8,10 +9,9 @@ export class LoginService {
   constructor(private loginClient: LoginClient) {
   }
 
-  login(username: string, password: string) {
-
-    this.loginClient.login(username, password).subscribe(res => {
-
+  login(loginFormData:LoginFormData) {
+    this.loginClient.login(loginFormData).subscribe(res => {
+      return res;
     }, error => {
       console.log(error)
     });

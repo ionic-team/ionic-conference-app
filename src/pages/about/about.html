@@ -14,7 +14,21 @@
 
 <ion-content>
   <div class="about-header">
-    <img src="assets/img/ionic-logo-white.svg" alt="ionic logo">
+    <ion-list no-margin>
+      <ion-item *ngIf="flag" no-lines (click)="userInfo()" style="height: 100px">
+        <ion-avatar item-left>
+          <img src="http://legal-inn.oss-cn-shanghai.aliyuncs.com/u%3D1442458788%2C3017119920%26fm%3D23%26gp%3D0.jpg">
+        </ion-avatar>
+        <h2>bobo</h2>
+        <h3>点击编辑个人信息</h3>
+      </ion-item>
+      <ion-item *ngIf="!flag" no-lines (click)="toLogin()" style="height: 100px">
+        <ion-avatar item-left>
+          <img src="http://legal-inn.oss-cn-shanghai.aliyuncs.com/u%3D1442458788%2C3017119920%26fm%3D23%26gp%3D0.jpg">
+        </ion-avatar>
+        <h3>点击登录</h3>
+      </ion-item>
+    </ion-list>
   </div>
   <div class="about-info">
     <ion-list>

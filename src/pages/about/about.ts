@@ -1,20 +1,45 @@
 import {Component} from '@angular/core';
-import {PopoverController} from 'ionic-angular';
-
+import {NavController, PopoverController} from 'ionic-angular';
+import {Storage} from '@ionic/storage';
 import {PopoverPage} from '../about-popover/about-popover';
+import {User} from "./User";
+import {LoginPage} from '../login/login';
+
 
 @Component({
   selector: 'page-about',
-  templateUrl: 'about.html'
+  templateUrl: 'about.html',
+  providers:[LoginPage]
 })
 export class AboutPage {
+  public user: User;
+  private flag: boolean = false;
 
-  constructor(public popoverCtrl: PopoverController) {
+  constructor(private popoverCtrl: PopoverController,
+              private storage: Storage,
+              private navCtrl: NavController,) {
   }
 
   presentPopover(event: Event) {
     let popover = this.popoverCtrl.create(PopoverPage);
     popover.present({ev: event});
+  }
+
+  ionViewDidLoad() {
+    console.log("init about page");
+    this.storage.get("username").then(value => {
+      this.user = value;
+      this.flag = this.user === null;
+      console.log("用户是否登录" + this.flag)
+    });
+  }
+
+  userInfo() {
+    // this.navCtrl.push(LoginPage, {});
+  }
+  toLogin(){
+    console.log("用户未登录，跳转到登录页面!");
+    this.navCtrl.push(LoginPage, {});
   }
 
   itemClick(type: string) {

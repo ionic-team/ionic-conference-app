@@ -3,31 +3,31 @@ import {NgForm} from '@angular/forms';
 
 import {NavController} from 'ionic-angular';
 
-import {UserData} from '../../providers/user-data';
-
 import {TabsPage} from '../tabs/tabs';
 import {SignupPage} from '../signup/signup';
 import {LoginService} from "./login.service";
+import {LoginClient} from "./login.client";
+import {LoginFormData} from "./login.form.data";
 
 
 @Component({
   selector: 'page-user',
   templateUrl: 'login.html',
-  providers: [LoginService]
+  providers: [LoginService, LoginClient, LoginFormData]
 })
 export class LoginPage {
-  login: { username?: string, password?: string } = {};
+
+  private loginFormData: LoginFormData;
+
   submitted = false;
 
-  constructor(private navCtrl: NavController, private userData: UserData, private loginService: LoginService) {
+  constructor(private navCtrl: NavController, private loginService: LoginService) {
   }
 
   onLogin(form: NgForm) {
     this.submitted = true;
     if (form.valid) {
-      this.loginService.login(this.login.username, this.login.password);
-
-      this.userData.login(this.login.username);
+      this.loginService.login(this.loginFormData);
       this.navCtrl.push(TabsPage);
     }
   }

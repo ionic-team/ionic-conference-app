@@ -5,19 +5,14 @@ import {
   App,
   ItemSliding,
   List,
-  ModalController,
   NavController,
   ToastController,
   Refresher
 } from 'ionic-angular';
 
-
 import {UserData} from '../../providers/user-data';
-
 import {SessionDetailPage} from '../session-detail/session-detail';
-import {ScheduleFilterPage} from '../schedule-filter/schedule-filter';
 import {HomeService} from "./home.service";
-
 
 @Component({
   selector: 'page-schedule',
@@ -39,7 +34,6 @@ export class HomePage {
 
   constructor(private alertCtrl: AlertController,
               private app: App,
-              private modalCtrl: ModalController,
               private navCtrl: NavController,
               private toastCtrl: ToastController,
               private user: UserData,
@@ -59,18 +53,6 @@ export class HomePage {
       this.groups = data.data.content;
       console.log(data);
     });
-  }
-
-  presentFilter() {
-    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
-    modal.present();
-    modal.onWillDismiss((data: any[]) => {
-      if (data) {
-        this.excludeTracks = data;
-        this.updateSchedule();
-      }
-    });
-
   }
 
   goToSessionDetail(sessionData: any) {
@@ -134,9 +116,7 @@ export class HomePage {
     alert.present();
   }
 
-
   doRefresh(refresher: Refresher) {
-
     this.homeService.findArticle({}).subscribe(data => {
       this.shownSessions = data.data.totalElements;
       this.groups = data.data.content;

@@ -3,6 +3,7 @@ import {Observable} from "rxjs/Observable";
 import {Http} from "@angular/http";
 import {UrlData} from "../../common/urldata";
 import 'rxjs/add/operator/toPromise';
+import {LoginFormData} from "./login.form.data";
 
 @Injectable()
 export class LoginClient {
@@ -11,9 +12,9 @@ export class LoginClient {
               private urlData: UrlData) {
   }
 
-  login(username: string, password: string): Observable<string> {
+  login(loginFormData:LoginFormData): Observable<string> {
     return this.http
-      .post(this.urlData.baseUrl + `v1/login`, {username: username, password: password})
+      .post(this.urlData.baseUrl + `v1/login`, loginFormData)
       .map(response => response.json());
   };
 }

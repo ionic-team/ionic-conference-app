@@ -1,14 +1,6 @@
 <ion-header>
   <ion-navbar no-border-bottom>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>首页</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentFilter()">
-        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 
   <ion-toolbar no-border-top>
@@ -29,13 +21,13 @@
           <div class="article-header">
             <img
               src="{{group.creator.smallHeadPic? group.creator.smallHeadPic:'http://legal-inn.oss-cn-shanghai.aliyuncs.com/u%3D1442458788%2C3017119920%26fm%3D23%26gp%3D0.jpg'}}">
-              <p style="color:#2d2d2e">
-                <!--{{group.title}}-->
-                {{group.title.length >18 ? group.title.substring(0,20)+'...' :group.title}}
-              </p>
-              <p>
-                <span>{{group.creator.nickName}}</span><span class="publish-time">{{group.createTime | amTimeAgo}}</span>
-              </p>
+            <p style="color:#2d2d2e">
+              <!--{{group.title}}-->
+              {{group.title.length >18 ? group.title.substring(0,20)+'...' :group.title}}
+            </p>
+            <p>
+              <span>{{group.creator.nickName}}</span><span class="publish-time">{{group.createTime | amTimeAgo}}</span>
+            </p>
           </div>
           <img *ngIf="group.showPic" style="width: 100%; height: 100%;margin-top: 5px" src="{{group.showPic}}"/>
           <p text-wrap class="article-summary">
