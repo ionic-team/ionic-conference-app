@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/driftyco/ionic-conference-app.git"
+    "url": "https://github.com/ionic-team/ionic-conference-app.git"
   },
   "scripts": {
     "build": "ionic-app-scripts build",

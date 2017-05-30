@@ -22,9 +22,9 @@ Before submitting an issue, please go through [the list below](#before-submittin
 
 #### Before Submitting an Issue
 
-* Make sure you get the latest version of the code and run through the [Getting Started](https://github.com/driftyco/ionic-conference-app#getting-started) steps to see if this resolves your issue.
+* Make sure you get the latest version of the code and run through the [Getting Started](https://github.com/ionic-team/ionic-conference-app#getting-started) steps to see if this resolves your issue.
 * Check the [forum](https://forum.ionicframework.com) for similar questions and answers.
-* Go through [all issues](https://github.com/driftyco/ionic-conference-app/issues?utf8=%E2%9C%93&q=is%3Aissue) on this repository to see if the issue has already been created. It could have been closed with a resolution, so check closed issues, too.
+* Go through [all issues](https://github.com/ionic-team/ionic-conference-app/issues?utf8=%E2%9C%93&q=is%3Aissue) on this repository to see if the issue has already been created. It could have been closed with a resolution, so check closed issues, too.
 * Chat with us in the [#ionic-v2](https://ionic-worldwide.slack.com/messages/ionic-v2/) channel on [Slack](http://ionicworldwide.herokuapp.com/) to see if we can find a solution to the problem!
 * [Determine which repository](#determining-the-repository) the problem should be reported in.
 
@@ -33,9 +33,9 @@ Before submitting an issue, please go through [the list below](#before-submittin
 
 There are several repositories being used for Ionic, which makes it difficult to determine which one to report an issue to. Don't worry if you aren't sure, we can always move it!
 
-* The [Ionic repository](https://github.com/driftyco/ionic) is a repository for all things related to the Ionic Framework. If you are able to reproduce the issue in any of the Ionic starters (or an existing project), you'll want to submit the issue [here](http://ionicframework.com/submit-issue/).
-* The [Ionic CLI repository](https://github.com/driftyco/ionic-cli) contains all of the code that allows you to run `ionic` commands from a terminal window. It is safe to put any issues [here](https://github.com/driftyco/ionic-cli/issues) that relate to running an `ionic` command.
-* [This repository](https://github.com/driftyco/ionic-conference-app) is a demo of the Ionic 2 Framework. If you find an issue with this app that does not occur on [a new app](http://ionicframework.com/docs/v2/getting-started/installation/), please submit the issue [here](https://github.com/driftyco/ionic-conference-app/issues).
+* The [Ionic repository](https://github.com/ionic-team/ionic) is a repository for all things related to the Ionic Framework. If you are able to reproduce the issue in any of the Ionic starters (or an existing project), you'll want to submit the issue [here](http://ionicframework.com/submit-issue/).
+* The [Ionic CLI repository](https://github.com/ionic-team/ionic-cli) contains all of the code that allows you to run `ionic` commands from a terminal window. It is safe to put any issues [here](https://github.com/ionic-team/ionic-cli/issues) that relate to running an `ionic` command.
+* [This repository](https://github.com/ionic-team/ionic-conference-app) is a demo of the Ionic 2 Framework. If you find an issue with this app that does not occur on [a new app](http://ionicframework.com/docs/v2/getting-started/installation/), please submit the issue [here](https://github.com/ionic-team/ionic-conference-app/issues).
 
 
 #### Submitting the Issue

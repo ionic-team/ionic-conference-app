@@ -12,8 +12,8 @@ page-speaker-list {
       flex: 1 1 auto;
     }
   }
-  
-  // Todo: remove when this issue https://github.com/driftyco/ionic/issues/11212 is fixed
+
+  // Todo: remove when this issue https://github.com/ionic-team/ionic/issues/11212 is fixed
   @media(min-width: 769px) {
     .speaker-card {
       height: 370px;
