@@ -1,27 +1,29 @@
 {
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "compileOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noImplicitAny": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "strict": true,
     "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5"
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015"
+    ]
   },
   "include": [
     "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  ]
 }
