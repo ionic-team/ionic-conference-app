@@ -55,6 +55,8 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 
 ## App Preview
 
+[Try it live](https://ionic-team.github.io/ionic-conference-app/www)
+
 All app preview screenshots were taken by running `ionic serve --lab` on a retina display.
 
 - [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html)
@@ -69,6 +71,12 @@ All app preview screenshots were taken by running `ionic serve --lab` on a retin
 
 - To see more images of the app, check out the [screenshots directory](https://github.com/ionic-team/ionic-conference-app/tree/master/resources/screenshots)!
 
+
+## Deploying
+
+* PWA - Un-comment [this](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L17), run `npm run ionic:build --prod` and then push the `www` folder to your favorite hosting service
+* Android - Run `ionic cordova run android --prod`
+* iOS - Run `ionic cordova run ios --prod`
 
 ## File Structure of App
 
