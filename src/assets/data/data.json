@@ -9,13 +9,8 @@
         "timeStart": "8:00 am",
         "timeEnd": "9:00 am",
         "location": "Main hallway",
-        "tracks": ["Food"]
-      }, {
-        "name": "Meet and Greet",
-        "timeStart": "9:00 am",
-        "timeEnd": "9:15 am",
-        "location": "Main hallway",
-        "tracks": ["Food"]
+        "tracks": ["Food"],
+        "id": "1"
       }]
     }, {
       "time": "9:15 am",
@@ -26,7 +21,8 @@
         "speakerNames": ["Ellie Elephant"],
         "timeStart": "9:15 am",
         "timeEnd": "9:30 am",
-        "tracks": ["Ionic"]
+        "tracks": ["Ionic"],
+        "id": "2"
       }, {
         "name": "Getting started with Ionic",
         "location": "Room 2202",
@@ -34,7 +30,8 @@
         "speakerNames": ["Ted Turtle"],
         "timeStart": "9:30 am",
         "timeEnd": "9:45 am",
-        "tracks": ["Ionic"]
+        "tracks": ["Ionic"],
+        "id": "3"
       }, {
         "name": "Tooling for Ionic",
         "location": "Room 2201",
@@ -42,7 +39,8 @@
         "speakerNames": ["Rachel Rabbit"],
         "timeStart": "9:45 am",
         "timeEnd": "10:00 am",
-        "tracks": ["Tooling"]
+        "tracks": ["Tooling"],
+        "id": "4"
       }]
     }, {
       "time": "10:00 am",
@@ -53,7 +51,8 @@
         "speakerNames": ["Eva Eagle", "Lionel Lion"],
         "timeStart": "10:00 am",
         "timeEnd": "10:15 am",
-        "tracks": ["Ionic"]
+        "tracks": ["Ionic"],
+        "id": "5"
       }, {
         "name": "Whats new in Angular",
         "location": "Room 2203",
@@ -67,9 +66,10 @@
         "location": "Room 2202",
         "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
         "speakerNames": ["Isabella Iguana", "Eva Eagle"],
-        "timeStart": "10:30 am",
-        "timeEnd": "10:45 am",
-        "tracks": ["Design"]
+        "timeStart": "10:15 am",
+        "timeEnd": "10:30 am",
+        "tracks": ["Design"],
+        "id": "6"
       }, {
         "name": "Ionic.io Services",
         "location": "Room 2202",
@@ -77,7 +77,8 @@
         "speakerNames": ["Charlie Cheetah"],
         "timeStart": "10:45 am",
         "timeEnd": "11:00 am",
-        "tracks": ["Services"]
+        "tracks": ["Services"],
+        "id": "6"
       }]
     }, {
       "time": "11:00 am",
@@ -88,7 +89,8 @@
         "speakerNames": ["Karl Kitten", "Lionel Lion"],
         "timeStart": "11:00 am",
         "timeEnd": "11:45 am",
-        "tracks": ["Workshop"]
+        "tracks": ["Workshop"],
+        "id": "7"
       }, {
         "name": "Community Interaction",
         "location": "Room 2203",
@@ -96,7 +98,8 @@
         "speakerNames": ["Lionel Lion", "Gino Giraffe"],
         "timeStart": "11:30 am",
         "timeEnd": "11:50 am",
-        "tracks": ["Communication"]
+        "tracks": ["Communication"],
+        "id": "8"
       }, {
         "name": "Navigation in Ionic",
         "location": "Room 2203",
@@ -104,7 +107,8 @@
         "speakerNames": ["Rachel Rabbit", "Eva Eagle"],
         "timeStart": "11:30 am",
         "timeEnd": "12:00 pm",
-        "tracks": ["Navigation"]
+        "tracks": ["Navigation"],
+        "id": "9"
       }]
     }, {
       "time": "12:00 pm",
@@ -114,7 +118,8 @@
         "description": "Come grab lunch with all the Ionic fanatics and talk all things Ionic",
         "timeStart": "12:00 pm",
         "timeEnd": "1:00 pm",
-        "tracks": ["Food"]
+        "tracks": ["Food"],
+        "id": "10"
       }]
     }, {
       "time": "1:00 pm",
@@ -125,7 +130,8 @@
         "speakerNames": ["Paul Puppy"],
         "timeStart": "1:00 pm",
         "timeEnd": "1:15 pm",
-        "tracks": ["Communication"]
+        "tracks": ["Communication"],
+        "id": "11"
       }, {
         "name": "Ionic Worldwide",
         "location": "Room 2201",
@@ -133,7 +139,8 @@
         "speakerNames": ["Gino Giraffe"],
         "timeStart": "1:15 pm",
         "timeEnd": "1:30 pm",
-        "tracks": ["Communication"]
+        "tracks": ["Communication"],
+        "id": "12"
       }, {
         "name": "The Ionic package service",
         "location": "Room 2203",
@@ -141,7 +148,8 @@
         "speakerNames": ["Molly Mouse", "Burt Bear"],
         "timeStart": "1:30 pm",
         "timeEnd": "2:00 pm",
-        "tracks": ["Services"]
+        "tracks": ["Services"],
+        "id": "13"
       }]
     }, {
       "time": "2:00 pm",
@@ -152,7 +160,8 @@
         "speakerNames": ["Burt Bear", "Charlie Cheetah"],
         "timeStart": "2:00 pm",
         "timeEnd": "2:30 pm",
-        "tracks": ["Services"]
+        "tracks": ["Services"],
+        "id": "14"
       }, {
         "name": "Ionic Documentation",
         "location": "Room 2202",
@@ -160,7 +169,8 @@
         "speakerNames": ["Donald Duck"],
         "timeStart": "2:30 pm",
         "timeEnd": "2:45 pm",
-        "tracks": ["Documentation"]
+        "tracks": ["Documentation"],
+        "id": "15"
       }, {
         "name": "UX planning in Ionic",
         "location": "Room 2203",
@@ -168,7 +178,8 @@
         "speakerNames": ["Isabella Iguana", "Ellie Elephant"],
         "timeStart": "2:45 pm",
         "timeEnd": "3:00 pm",
-        "tracks": ["Design"]
+        "tracks": ["Design"],
+        "id": "16"
       }]
     }, {
       "time": "3:00",
@@ -179,7 +190,8 @@
         "speakerNames": ["Ted Turtle"],
         "timeStart": "3:00 pm",
         "timeEnd": "3:30 pm",
-        "tracks": ["Angular"]
+        "tracks": ["Angular"],
+        "id": "17"
       }, {
         "name": "Mobile States",
         "location": "Room 2202",
@@ -187,23 +199,8 @@
         "speakerNames": ["Rachel Rabbit"],
         "timeStart": "3:30 pm",
         "timeEnd": "3:45 pm",
-        "tracks": ["Navigation"]
-      }, {
-        "name": "Progressive Web Apps",
-        "location": "Room 2203",
-        "description": "Progressive Web Apps are a first class citizen in Ionic. In this talk we will discuss what PWA's are, service workers and how to build an Awesome PWA with Ionic",
-        "speakerNames": ["Burt Bear"],
-        "timeStart": "3:45 pm",
-        "timeEnd": "4:15 pm",
-        "tracks": ["Workshop"]
-      }, {
-        "name": "Observables",
-        "location": "Room 2204",
-        "description": "Observables allow for a new reactive programming paradigm. In this talk we will discuss the basics of using observables and some awesome use cases for them",
-        "speakerNames": ["Isabella Iguana", "Ellie Elephant"],
-        "timeStart": "4:15 pm",
-        "timeEnd": "4:45 pm",
-        "tracks": ["Workshop"]
+        "tracks": ["Navigation"],
+        "id": "18"
       }]
     }]
   }],
@@ -216,7 +213,8 @@
     "about": "Burt is a Bear.",
     "location": "Everywhere",
     "email": "burt@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "1"
   }, {
     "name": "Charlie Cheetah",
     "profilePic": "assets/img/speakers/cheetah.jpg",
@@ -224,7 +222,8 @@
     "about": "Charlie is a Cheetah.",
     "location": "Everywhere",
     "email": "charlie@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "2"
   }, {
     "name": "Donald Duck",
     "profilePic": "assets/img/speakers/duck.jpg",
@@ -232,7 +231,8 @@
     "about": "Donald is a Duck.",
     "location": "Everywhere",
     "email": "donald@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "3"
   }, {
     "name": "Eva Eagle",
     "profilePic": "assets/img/speakers/eagle.jpg",
@@ -240,7 +240,8 @@
     "about": "Eva is an Eagle.",
     "location": "Everywhere",
     "email": "eva@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "4"
   }, {
     "name": "Ellie Elephant",
     "profilePic": "assets/img/speakers/elephant.jpg",
@@ -248,7 +249,8 @@
     "about": "Ellie is an Elephant.",
     "location": "Everywhere",
     "email": "ellie@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "5"
   }, {
     "name": "Gino Giraffe",
     "profilePic": "assets/img/speakers/giraffe.jpg",
@@ -256,7 +258,8 @@
     "about": "Gino is a Giraffe.",
     "location": "Everywhere",
     "email": "gino@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "6"
   }, {
     "name": "Isabella Iguana",
     "profilePic": "assets/img/speakers/iguana.jpg",
@@ -264,7 +267,8 @@
     "about": "Isabella is an Iguana.",
     "location": "Everywhere",
     "email": "isabella@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "7"
   }, {
     "name": "Karl Kitten",
     "profilePic": "assets/img/speakers/kitten.jpg",
@@ -272,7 +276,8 @@
     "about": "Karl is a Kitten.",
     "location": "Everywhere",
     "email": "karl@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "8"
   }, {
     "name": "Lionel Lion",
     "profilePic": "assets/img/speakers/lion.jpg",
@@ -280,7 +285,8 @@
     "about": "Lionel is a Lion.",
     "location": "Everywhere",
     "email": "lionel@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "9"
   }, {
     "name": "Molly Mouse",
     "profilePic": "assets/img/speakers/mouse.jpg",
@@ -288,7 +294,8 @@
     "about": "Molly is a Mouse.",
     "location": "Everywhere",
     "email": "molly@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "10"
   }, {
     "name": "Paul Puppy",
     "profilePic": "assets/img/speakers/puppy.jpg",
@@ -296,7 +303,8 @@
     "about": "Paul is a Puppy.",
     "location": "Everywhere",
     "email": "paul@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "11"
   }, {
     "name": "Rachel Rabbit",
     "profilePic": "assets/img/speakers/rabbit.jpg",
@@ -304,7 +312,8 @@
     "about": "Rachel is a Rabbit.",
     "location": "Everywhere",
     "email": "rachel@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "12"
   }, {
     "name": "Ted Turtle",
     "profilePic": "assets/img/speakers/turtle.jpg",
@@ -312,7 +321,8 @@
     "about": "Ted is a Turtle.",
     "location": "Everywhere",
     "email": "ted@example.com",
-    "phone": "+1-541-754-3010"
+    "phone": "+1-541-754-3010",
+    "id": "13"
   }],
 
 

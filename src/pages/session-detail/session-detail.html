@@ -4,10 +4,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="session">
   <h1>{{session.name}}</h1>
 
-  <h4 *ngFor="let speaker of session.speakers">
+  <h4 *ngFor="let speaker of session?.speakers">
     {{speaker.name}}
   </h4>
 

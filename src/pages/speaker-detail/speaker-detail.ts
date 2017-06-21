@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { ConferenceData } from '../../providers/conference-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
-
+@IonicPage({
+  segment: 'speaker/:speakerId'
+})
 @Component({
   selector: 'page-speaker-detail',
   templateUrl: 'speaker-detail.html'
@@ -11,14 +13,24 @@ import { SessionDetailPage } from '../session-detail/session-detail';
 export class SpeakerDetailPage {
   speaker: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.speaker = this.navParams.data.speaker;
+  constructor(public dataProvider: ConferenceData, public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewWillEnter() {
+    this.dataProvider.load().subscribe((data: any) => {
+      if (data && data.speakers) {
+        for (const speaker of data.speakers) {
+          if (speaker && speaker.id === this.navParams.data.speakerId) {
+            this.speaker = speaker;
+            break;
+          }
+        }
+      }
+    });
+
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { 
-      name: session.name,
-      session: session
-    });
+    this.navCtrl.push('SessionDetailPage', { sessionId: session.id });
   }
 }
