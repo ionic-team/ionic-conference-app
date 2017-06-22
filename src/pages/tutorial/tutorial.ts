@@ -14,7 +14,7 @@ import { TabsPage } from '../tabs/tabs';
 export class TutorialPage {
   showSkip = true;
 
-	@ViewChild('slides') slides: Slides;
+  @ViewChild('slides') slides: Slides;
 
   constructor(
     public navCtrl: NavController,
@@ -32,9 +32,9 @@ export class TutorialPage {
     this.showSkip = !slider.isEnd();
   }
 
-	ionViewWillEnter() {
-		this.slides.update();
-	}
+  ionViewWillEnter() {
+    this.slides.update();
+  }
 
   ionViewDidEnter() {
     // the root left menu should be disabled on the tutorial page

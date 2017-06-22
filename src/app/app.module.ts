@@ -12,19 +12,19 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ConferenceApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { PopoverPage } from '../pages/about-popover/about-popover';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
-import { SchedulePage } from '../pages/schedule/schedule';
+import { PopoverPage } from '../pages/about-popover/about-popover';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
+import { SchedulePage } from '../pages/schedule/schedule';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { SupportPage } from '../pages/support/support';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -32,61 +32,61 @@ import { UserData } from '../providers/user-data';
 
 @NgModule({
   declarations: [
-    ConferenceApp,
     AboutPage,
     AccountPage,
+    ConferenceApp,
     LoginPage,
     MapPage,
     PopoverPage,
-    SchedulePage,
     ScheduleFilterPage,
+    SchedulePage,
     SessionDetailPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    SupportPage,
     TabsPage,
-    TutorialPage,
-    SupportPage
+    TutorialPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
-        { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
+        { component: AboutPage, name: 'About', segment: 'about' },
+        { component: AccountPage, name: 'AccountPage', segment: 'account' },
+        { component: LoginPage, name: 'LoginPage', segment: 'login' },
+        { component: MapPage, name: 'Map', segment: 'map' },
+        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:name' },
-        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
-        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
+        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
-        { component: MapPage, name: 'Map', segment: 'map' },
-        { component: AboutPage, name: 'About', segment: 'about' },
-        { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
+        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
-        { component: LoginPage, name: 'LoginPage', segment: 'login' },
-        { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' }
+        { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
+        { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' }
       ]
     }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ConferenceApp,
     AboutPage,
     AccountPage,
+    ConferenceApp,
     LoginPage,
     MapPage,
     PopoverPage,
-    SchedulePage,
     ScheduleFilterPage,
+    SchedulePage,
     SessionDetailPage,
     SignupPage,
     SpeakerDetailPage,
     SpeakerListPage,
+    SupportPage,
     TabsPage,
-    TutorialPage,
-    SupportPage
+    TutorialPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

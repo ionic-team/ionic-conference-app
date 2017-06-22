@@ -11,8 +11,9 @@ import { AlertController, App, FabContainer, ItemSliding, List, ModalController,
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
+import { SessionDetailPage } from '../session-detail/session-detail';
+
 
 
 @Component({
@@ -43,7 +44,7 @@ export class SchedulePage {
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     this.app.setTitle('Schedule');
