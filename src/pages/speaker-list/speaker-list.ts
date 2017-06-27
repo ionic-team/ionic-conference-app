@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 
-import { ActionSheet, ActionSheetController, Config, NavController } from 'ionic-angular';
+import {
+  ActionSheet,
+  ActionSheetController,
+  Config,
+  NavController
+} from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
@@ -22,7 +27,7 @@ export class SpeakerListPage {
     public confData: ConferenceData,
     public config: Config,
     public inAppBrowser: InAppBrowser
-  ) { }
+  ) {}
 
   ionViewDidLoad() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {
@@ -31,15 +36,18 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { sessionId: session.id});
+    this.navCtrl.push(SessionDetailPage, { sessionId: session.id });
   }
 
   goToSpeakerDetail(speaker: any) {
-    this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id});
+    this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id });
   }
 
   goToSpeakerTwitter(speaker: any) {
-    this.inAppBrowser.create(`https://twitter.com/${speaker.twitter}`, '_blank');
+    this.inAppBrowser.create(
+      `https://twitter.com/${speaker.twitter}`,
+      '_blank'
+    );
   }
 
   openSpeakerShare(speaker: any) {
@@ -49,9 +57,16 @@ export class SpeakerListPage {
         {
           text: 'Copy Link',
           handler: () => {
-            console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
-            if ((window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
-              (window as any)['cordova'].plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
+            console.log(
+              'Copy link clicked on https://twitter.com/' + speaker.twitter
+            );
+            if (
+              (window as any)['cordova'] &&
+              (window as any)['cordova'].plugins.clipboard
+            ) {
+              (window as any)['cordova'].plugins.clipboard.copy(
+                'https://twitter.com/' + speaker.twitter
+              );
             }
           }
         },

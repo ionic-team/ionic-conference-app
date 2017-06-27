@@ -55,10 +55,10 @@ import { UserData } from '../providers/user-data';
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
         { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
-        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:name' },
+        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
-        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
+        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: MapPage, name: 'Map', segment: 'map' },
         { component: AboutPage, name: 'About', segment: 'about' },
         { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },

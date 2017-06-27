@@ -13,12 +13,19 @@ import { ConferenceData } from '../../providers/conference-data';
 export class SessionDetailPage {
   session: any;
 
-  constructor(public dataProvider: ConferenceData,public navParams: NavParams) {
-  }
+  constructor(
+    public dataProvider: ConferenceData,
+    public navParams: NavParams
+  ) {}
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
-      if (data && data.schedule && data.schedule[0] && data.schedule[0].groups) {
+      if (
+        data &&
+        data.schedule &&
+        data.schedule[0] &&
+        data.schedule[0].groups
+      ) {
         for (const group of data.schedule[0].groups) {
           if (group && group.sessions) {
             for (const session of group.sessions) {
