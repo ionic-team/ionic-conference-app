@@ -67,8 +67,9 @@ export class ConferenceApp {
     public confData: ConferenceData,
     public storage: Storage,
     public splashScreen: SplashScreen
-  ) {
+  ) { }
 
+  ionViewDidLoad() {
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
@@ -77,11 +78,11 @@ export class ConferenceApp {
         } else {
           this.rootPage = TutorialPage;
         }
-        this.platformReady()
+        this.platformReady();
       });
 
     // load the conference data
-    confData.load();
+    this.confData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
@@ -107,8 +108,8 @@ export class ConferenceApp {
     // tabs even if changing them from the menu
     if (this.nav.getActiveChildNav() && page.index != undefined) {
       this.nav.getActiveChildNav().select(page.index);
-    // Set the root of the nav with params if it's a tab index
-  } else {
+      // Set the root of the nav with params if it's a tab index
+    } else {
       this.nav.setRoot(page.name, params).catch((err: any) => {
         console.log(`Didn't set nav root: ${err}`);
       });
