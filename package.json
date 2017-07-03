@@ -10,8 +10,10 @@
   "scripts": {
     "build": "ionic-app-scripts build",
     "clean": "ionic-app-scripts clean",
-    "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "lint": "ionic-app-scripts lint",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run serve",
+    "ionic:lint": "npm run lint"
   },
   "dependencies": {
     "@angular/common": "4.1.3",
