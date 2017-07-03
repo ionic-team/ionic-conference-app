@@ -5,14 +5,17 @@ import { NavController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user-data';
 
+import { UserOptions } from '../../interfaces/user-options';
+
 import { TabsPage } from '../tabs/tabs';
+
 
 @Component({
   selector: 'page-user',
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  signup: {username?: string, password?: string} = {};
+  signup: UserOptions = { username: '', password: '' };
   submitted = false;
 
   constructor(public navCtrl: NavController, public userData: UserData) {}
