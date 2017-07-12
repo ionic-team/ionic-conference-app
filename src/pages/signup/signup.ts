@@ -7,7 +7,7 @@ import { UserData } from '../../providers/user-data';
 
 import { UserOptions } from '../../interfaces/user-options';
 
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../tabs-page/tabs-page';
 
 
 @Component({
