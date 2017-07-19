@@ -4,7 +4,7 @@ import { MenuController, NavController, Slides } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
-import { TabsPage } from '../tabs/tabs';
+import { TabsPage } from '../tabs-page/tabs-page';
 
 @Component({
   selector: 'page-tutorial',

@@ -22,7 +22,7 @@ import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
 
@@ -53,7 +53,7 @@ import { UserData } from '../providers/user-data';
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
-        { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
+        { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
         { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },

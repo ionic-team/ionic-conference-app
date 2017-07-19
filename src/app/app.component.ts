@@ -10,7 +10,7 @@ import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
@@ -105,8 +105,8 @@ export class ConferenceApp {
     // If we are already on tabs just change the selected tab
     // don't setRoot again, this maintains the history stack of the
     // tabs even if changing them from the menu
-    if (this.nav.getActiveChildNav() && page.index != undefined) {
-      this.nav.getActiveChildNav().select(page.index);
+    if (this.nav.getActiveChildNavs().length && page.index != undefined) {
+      this.nav.getActiveChildNavs()[0].select(page.index);
     // Set the root of the nav with params if it's a tab index
   } else {
       this.nav.setRoot(page.name, params).catch((err: any) => {
@@ -151,7 +151,7 @@ export class ConferenceApp {
   }
 
   isActive(page: PageInterface) {
-    let childNav = this.nav.getActiveChildNav();
+    let childNav = this.nav.getActiveChildNavs()[0];
 
     // Tabs are a special case because they have their own navigation
     if (childNav) {
