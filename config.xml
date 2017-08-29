@@ -94,5 +94,5 @@
   </plugin>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <engine name="ios" spec="4.3.1"/>
-  <engine name="android" spec="6.1.0"/>
+  <engine name="android" spec="6.2.3"/>
 </widget>
