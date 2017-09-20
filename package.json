@@ -16,14 +16,14 @@
         "ionic:lint": "npm run lint"
     },
     "dependencies": {
-        "@angular/common": "4.3.6",
-        "@angular/compiler": "4.3.6",
-        "@angular/compiler-cli": "4.3.6",
-        "@angular/core": "4.3.6",
-        "@angular/forms": "4.3.6",
-        "@angular/http": "4.3.6",
-        "@angular/platform-browser": "4.3.6",
-        "@angular/platform-browser-dynamic": "4.3.6",
+        "@angular/common": "4.4.3",
+        "@angular/compiler": "4.4.3",
+        "@angular/compiler-cli": "4.4.3",
+        "@angular/core": "4.4.3",
+        "@angular/forms": "4.4.3",
+        "@angular/http": "4.4.3",
+        "@angular/platform-browser": "4.4.3",
+        "@angular/platform-browser-dynamic": "4.4.3",
         "@ionic-native/core": "3.13.1",
         "@ionic-native/in-app-browser": "3.13.1",
         "@ionic-native/splash-screen": "3.13.1",
@@ -48,10 +48,12 @@
     },
     "devDependencies": {
         "@ionic/app-scripts": "nightly",
-        "ionic": "3.10.2",
-        "typescript": "2.3.4"
+        "ionic": "3.10.3",
+        "typescript": "2.5.2"
     },
-    "config": {},
+    "config": {
+      "ionic_aot_write_to_disk": true
+    },
     "cordova": {
         "platforms": [
             "android",
