@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "strict": true,
+    "strict": false,
     "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
