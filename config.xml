@@ -75,8 +75,6 @@
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <preference name="SplashScreenDelay" value="3000" />
     <engine name="android" spec="6.2.3" />
-    <engine name="ios" spec="4.3.1" />
-    <plugin name="cordova-plugin-console" spec="1.0.5" />
     <plugin name="cordova-plugin-crosswalk-webview" spec="~2.2.0">
         <variable name="XWALK_VERSION" value="22+" />
         <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
@@ -91,4 +89,5 @@
     <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
     <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/ionic-team/cordova-plugin-wkwebview-engine.git" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <engine name="ios" spec="~4.5.1" />
 </widget>
