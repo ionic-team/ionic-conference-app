@@ -34,7 +34,7 @@
         "cordova-plugin-crosswalk-webview": "^2.2.0",
         "cordova-plugin-device": "1.1.4",
         "cordova-plugin-inappbrowser": "~1.4.0",
-        "cordova-plugin-ionic-webview": "^1.1.8",
+        "cordova-plugin-ionic-webview": "^1.1.14",
         "cordova-plugin-splashscreen": "~4.0.1",
         "cordova-plugin-statusbar": "2.2.1",
         "cordova-plugin-whitelist": "1.3.1",
