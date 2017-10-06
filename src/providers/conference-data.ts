@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { UserData } from './user-data';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
 
 
 @Injectable()
 export class ConferenceData {
   data: any;
 
-  constructor(public http: Http, public user: UserData) { }
+  constructor(public http: HttpClient, public user: UserData) { }
 
   load(): any {
     if (this.data) {
@@ -27,7 +26,7 @@ export class ConferenceData {
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    this.data = data.json();
+    this.data = data;
 
     this.data.tracks = [];
 
