@@ -31,15 +31,15 @@
         "@ionic/storage": "2.0.1",
         "cordova-android": "6.2.3",
         "cordova-ios": "^4.5.1",
-        "cordova-plugin-crosswalk-webview": "^2.2.0",
-        "cordova-plugin-device": "1.1.4",
-        "cordova-plugin-inappbrowser": "~1.4.0",
-        "cordova-plugin-ionic-webview": "^1.1.8",
-        "cordova-plugin-splashscreen": "~4.0.1",
-        "cordova-plugin-statusbar": "2.2.1",
-        "cordova-plugin-whitelist": "1.3.1",
-        "ionic-angular": "3.7.1-201710052110",
-        "ionic-plugin-keyboard": "~2.2.1",
+        "cordova-plugin-crosswalk-webview": "^2.3.0",
+        "cordova-plugin-device": "^1.1.6",
+        "cordova-plugin-inappbrowser": "^1.7.1",
+        "cordova-plugin-ionic-webview": "^1.1.15",
+        "cordova-plugin-ionic-wkkeyboard": "^1.1.7",
+        "cordova-plugin-splashscreen": "^4.0.3",
+        "cordova-plugin-statusbar": "^2.2.3",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "ionic-angular": "^3.7.1-201710061612",
         "ionicons": "3.0.0",
         "rxjs": "5.4.3",
         "sw-toolbox": "3.6.0",
@@ -69,9 +69,9 @@
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {},
             "cordova-plugin-ionic-webview": {},
-            "cordova-plugin-statusbar": {}
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-ionic-wkkeyboard": {}
         }
     }
 }
