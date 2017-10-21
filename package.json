@@ -11,6 +11,7 @@
     "build": "ionic-app-scripts build",
     "clean": "ionic-app-scripts clean",
     "lint": "ionic-app-scripts lint",
+    "serve": "ionic-app-scripts serve",
     "ionic:build": "npm run build",
     "ionic:serve": "npm run serve",
     "ionic:lint": "npm run lint"
