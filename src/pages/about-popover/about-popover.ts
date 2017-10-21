@@ -24,7 +24,7 @@ export class PopoverPage {
   ) { }
 
   support() {
-    this.app.getRootNav().push('SupportPage');
+    this.app.getRootNav().setRoot('SupportPage');
     this.viewCtrl.dismiss();
   }
 
