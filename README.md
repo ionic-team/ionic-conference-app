@@ -73,7 +73,7 @@ All app preview screenshots were taken by running `ionic serve --lab` on a retin
 
 ## Deploying
 
-* PWA - Un-comment [this](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L17), run `npm run ionic:build --prod` and then push the `www` folder to your favorite hosting service
+* PWA - Un-comment [this](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L21), run `npm run ionic:build --prod` and then push the `www` folder to your favorite hosting service
 * Android - Run `ionic cordova run android --prod`
   - If you are deploying to Android 4.4 or below we recommend adding crosswalk: `cordova plugin add cordova-plugin-crosswalk-webview`
 * iOS - Run `ionic cordova run ios --prod`
