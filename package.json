@@ -45,6 +45,7 @@
     "@angular/compiler": "latest",
     "@angular/compiler-cli": "latest",
     "@angular/language-service": "latest",
+    "@stencil/core": "^0.6.8",
     "tslint": "^5.9.1",
     "tslint-ionic-rules": "0.0.14",
     "typescript": "~2.4.2"
