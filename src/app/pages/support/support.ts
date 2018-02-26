@@ -55,10 +55,12 @@ export class SupportPage {
     return new Promise((resolve: any, reject: any) => {
       const alert = this.alertCtrl.create({
         title: 'Leave this page?',
-        message: 'Are you sure you want to leave this page? Your support message will not be submitted.'
+        message: 'Are you sure you want to leave this page? Your support message will not be submitted.',
+        buttons: [
+          { text: 'Stay', handler: reject },
+          { text: 'Leave', role: 'cancel', handler: resolve }
+        ]
       });
-      alert.addButton({ text: 'Stay', handler: reject });
-      alert.addButton({ text: 'Leave', role: 'cancel', handler: resolve });
 
       alert.present();
     });

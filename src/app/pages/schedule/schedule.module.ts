@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
 
 import { SchedulePage } from './schedule';
-import { ScheduleFilterPage } from './schedule-filter';
+import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { SchedulePageRoutingModule } from './schedule-routing.module';
 
 @NgModule({

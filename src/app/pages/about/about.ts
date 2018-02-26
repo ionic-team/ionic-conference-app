@@ -13,7 +13,10 @@ export class AboutPage {
   constructor(public popoverCtrl: PopoverController) { }
 
   presentPopover(event: Event) {
-    const popover = this.popoverCtrl.create(PopoverPage);
-    popover.present({ ev: event });
+    const popover = this.popoverCtrl.create({
+      component: PopoverPage,
+      ev: event
+    });
+    popover.present();
   }
 }

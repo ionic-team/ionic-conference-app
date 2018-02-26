@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
-import { MenuController, NavController, Slides } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -14,7 +14,7 @@ import { TabsPage } from '../tabs-page/tabs-page';
 export class TutorialPage {
   showSkip = true;
 
-  @ViewChild('slides') slides: Slides;
+  @ViewChild('slides') slides: HTMLIonSlidesElement;
 
   constructor(
     public navCtrl: NavController,
@@ -28,7 +28,7 @@ export class TutorialPage {
     });
   }
 
-  onSlideChangeStart(slider: Slides) {
+  onSlideChangeStart(slider: HTMLIonSlidesElement) {
     this.showSkip = !slider.isEnd();
   }
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavParams, ViewController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -15,7 +15,7 @@ export class ScheduleFilterPage {
   constructor(
     public confData: ConferenceData,
     public navParams: NavParams,
-    public viewCtrl: ViewController
+    public modalCtrl: ModalController
   ) {
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.navParams.data;
@@ -46,8 +46,8 @@ export class ScheduleFilterPage {
   }
 
   dismiss(data?: any) {
-    // using the injected ViewController this page
+    // using the injected ModalController this page
     // can "dismiss" itself and pass back data
-    this.viewCtrl.dismiss(data);
+    this.modalCtrl.dismiss(data);
   }
 }

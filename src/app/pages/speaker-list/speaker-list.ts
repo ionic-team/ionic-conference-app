@@ -1,56 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {
-  ActionSheet,
-  ActionSheetController,
-  ActionSheetOptions,
-  Config,
-  NavController
-} from '@ionic/angular';
+import { ActionSheetController, NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
-import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
-
-// TODO remove
-export interface ActionSheetButton {
-  text?: string;
-  role?: string;
-  icon?: string;
-  cssClass?: string;
-  handler?: () => boolean|void;
-}
-
 @Component({
   selector: 'page-speaker-list',
-  templateUrl: 'speaker-list.html'
+  templateUrl: 'speaker-list.html',
+  styleUrls: ['./speaker-list.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SpeakerListPage {
-  actionSheet: ActionSheet;
   speakers: any[] = [];
 
   constructor(
-    public actionSheetCtrl: ActionSheetController,
-    public navCtrl: NavController,
-    public confData: ConferenceData,
-    public config: Config,
-    public inAppBrowser: InAppBrowser
+    private actionSheetCtrl: ActionSheetController,
+    private navCtrl: NavController,
+    private confData: ConferenceData,
+    private inAppBrowser: InAppBrowser,
+    private router: Router
   ) {}
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {
       this.speakers = speakers;
     });
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { sessionId: session.id });
+    this.router.navigateByUrl(`app/tabs/(schedule:session/${session.id})`);
   }
 
   goToSpeakerDetail(speaker: any) {
-    this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id });
+    this.router.navigateByUrl(`app/tabs/(speakers:speaker-details/${speaker.id})`);
   }
 
   goToSpeakerTwitter(speaker: any) {
@@ -74,22 +58,22 @@ export class SpeakerListPage {
               );
             }
           }
-        } as ActionSheetButton,
+        },
         {
           text: 'Share via ...'
-        } as ActionSheetButton,
+        },
         {
           text: 'Cancel',
           role: 'cancel'
-        } as ActionSheetButton
+        }
       ]
-    } as ActionSheetOptions);
+    });
 
     actionSheet.present();
   }
 
   openContact(speaker: any) {
-    const mode = this.config.get('mode');
+    const mode = 'ios'; // this.config.get('mode');
 
     const actionSheet = this.actionSheetCtrl.create({
       title: 'Contact ' + speaker.name,
@@ -100,16 +84,16 @@ export class SpeakerListPage {
           handler: () => {
             window.open('mailto:' + speaker.email);
           }
-        } as ActionSheetButton,
+        },
         {
           text: `Call ( ${speaker.phone} )`,
           icon: mode !== 'ios' ? 'call' : null,
           handler: () => {
             window.open('tel:' + speaker.phone);
           }
-        } as ActionSheetButton
+        }
       ]
-    } as ActionSheetOptions);
+    });
 
     actionSheet.present();
   }

@@ -1,12 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { AlertController, App, FabContainer, ItemSliding, List, LoadingController, ModalController, NavController, Refresher, ToastController } from '@ionic/angular';
-
-/*
-  To learn how to use third party libs in an
-  Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
-*/
-// import moment from 'moment';
+import { AlertController, App, LoadingController, ModalController, NavController, ToastController } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
@@ -22,9 +16,11 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 export class SchedulePage {
   // the list is a child of the schedule page
   // @ViewChild('scheduleList') gets a reference to the list
-  // with the variable #scheduleList, `read: List` tells it to return
-  // the List and not a reference to the element
-  @ViewChild('scheduleList', { read: List }) scheduleList: List;
+  // with the variable #scheduleList
+
+  // TODO
+  // @ViewChild('scheduleList') scheduleList: HTMLIonListElement;
+  @ViewChild('scheduleList') scheduleList: any;
 
   dayIndex = 0;
   queryText = '';
@@ -61,7 +57,10 @@ export class SchedulePage {
   }
 
   presentFilter() {
-    const modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
+    const modal = this.modalCtrl.create({
+      component: ScheduleFilterPage,
+      data: { excludedTracks: this.excludeTracks }
+    });
     modal.present();
 
     modal.onWillDismiss((data: any[]) => {
@@ -80,7 +79,7 @@ export class SchedulePage {
     this.navCtrl.push(SessionDetailPage, { sessionId: sessionData.id, name: sessionData.name });
   }
 
-  addFavorite(slidingItem: ItemSliding, sessionData: any) {
+  addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
 
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
@@ -107,7 +106,7 @@ export class SchedulePage {
 
   }
 
-  removeFavorite(slidingItem: ItemSliding, sessionData: any, title: string) {
+  removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
     const alert = this.alertCtrl.create({
       title: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -137,7 +136,7 @@ export class SchedulePage {
     alert.present();
   }
 
-  openSocial(network: string, fab: FabContainer) {
+  openSocial(network: string, fab: HTMLIonFabElement) {
     const loading = this.loadingCtrl.create({
       content: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
@@ -148,7 +147,7 @@ export class SchedulePage {
     loading.present();
   }
 
-  doRefresh(refresher: Refresher) {
+  doRefresh(refresher: HTMLIonRefresherElement) {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;

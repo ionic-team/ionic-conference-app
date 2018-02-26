@@ -31,22 +31,24 @@ export class AccountPage {
     const alert = this.alertCtrl.create({
       title: 'Change Username',
       buttons: [
-        'Cancel'
+        'Cancel',
+        {
+          text: 'Ok',
+          handler: (data: any) => {
+            this.userData.setUsername(data.username);
+            this.getUsername();
+          }
+        }
+      ],
+      inputs: [
+        {
+          type: 'text',
+          name: 'username',
+          value: this.username,
+          placeholder: 'username'
+        }
       ]
     });
-    alert.addInput({
-      name: 'username',
-      value: this.username,
-      placeholder: 'username'
-    });
-    alert.addButton({
-      text: 'Ok',
-      handler: (data: any) => {
-        this.userData.setUsername(data.username);
-        this.getUsername();
-      }
-    });
-
     alert.present();
   }
 
