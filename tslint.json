@@ -1,8 +1,6 @@
 {
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ],
+  "extends": "tslint-ionic-rules",
   "rules": {
-    "no-duplicate-variable": true
+    "no-import-side-effect": false
   }
 }
