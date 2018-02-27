@@ -45,8 +45,7 @@ export class SchedulePage {
   updateSchedule() {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
-      console.log(this.scheduleList.nativeElement);
-      // this.scheduleList.closeSlidingItems();
+      this.scheduleList.nativeElement.closeSlidingItems();
     }
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {

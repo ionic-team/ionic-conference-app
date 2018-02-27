@@ -6,20 +6,14 @@ import { AlertController, NavController, ToastController } from '@ionic/angular'
 
 @Component({
   selector: 'page-user',
-  templateUrl: 'support.html'
+  templateUrl: 'support.html',
+  styleUrls: ['./support.scss']
 })
 export class SupportPage {
-
   submitted = false;
   supportMessage: string;
 
-  constructor(
-    public navCtrl: NavController,
-    public alertCtrl: AlertController,
-    public toastCtrl: ToastController
-  ) {
-
-  }
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public toastCtrl: ToastController) { }
 
   ionViewDidEnter() {
     const toast = this.toastCtrl.create({

@@ -10,7 +10,7 @@
 
   <ion-content>
 
-    <div class="sign-up-logo">
+    <div class="signup-logo">
       <img src="assets/img/appicon.svg" alt="Ionic Logo">
     </div>
 
@@ -21,22 +21,26 @@
           <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
           </ion-input>
         </ion-item>
-        <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-          Username is required
-        </p>
+        <ion-text color="danger">
+          <p [hidden]="username.valid || submitted == false" padding-left>
+            Username is required
+          </p>
+        </ion-text>
 
         <ion-item>
           <ion-label stacked color="primary">Password</ion-label>
           <ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
           </ion-input>
         </ion-item>
-        <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-          Password is required
-        </p>
+        <ion-text color="danger">
+          <p [hidden]="password.valid || submitted == false" padding-left>
+            Password is required
+          </p>
+        </ion-text>
       </ion-list>
 
       <div padding>
-        <ion-button (click)="onSignup(signupForm)" type="submit" block>Create</ion-button>
+        <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Create</ion-button>
       </div>
     </form>
 

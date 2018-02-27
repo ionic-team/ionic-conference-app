@@ -15,19 +15,18 @@ export class ScheduleFilterPage {
 
   constructor(public confData: ConferenceData, public navParams: NavParams, public modalCtrl: ModalController) { }
 
-  ionViewDidEnter() {
+  // TODO use the ionViewDidEnter event
+  ngAfterViewInit() {
     // passed in array of track names that should be excluded (unchecked)
-    const excludedTrackNames = this.navParams.data;
+    const excludedTrackNames = this.navParams.data.excludedTracks;
 
     this.confData.getTracks().subscribe((trackNames: string[]) => {
-
       trackNames.forEach(trackName => {
         this.tracks.push({
           name: trackName,
           isChecked: (excludedTrackNames.indexOf(trackName) === -1)
         });
       });
-
     });
   }
 

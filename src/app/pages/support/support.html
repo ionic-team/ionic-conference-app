@@ -14,7 +14,7 @@
       <img src="assets/img/appicon.svg" alt="Ionic Logo">
     </div>
 
-    <form>
+    <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
       <ion-list no-lines>
         <ion-item>
           <ion-label stacked color="primary">Enter your support message below</ion-label>
@@ -22,12 +22,14 @@
         </ion-item>
       </ion-list>
 
-      <p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>
+      <ion-text color="danger">
+      <p [hidden]="supportQuestion.valid || submitted === false" padding-left>
         Support message is required
       </p>
+      </ion-text>
 
       <div padding>
-        <ion-button block (click)="submit()">Submit</ion-button>
+        <ion-button expand="block" type="submit">Submit</ion-button>
       </div>
     </form>
   </ion-content>
