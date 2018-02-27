@@ -16,40 +16,39 @@ declare var google: any;
 export class MapPage {
 
   @ViewChild('mapCanvas') mapElement: ElementRef;
-  constructor(public confData: ConferenceData, public platform: Platform) {
-  }
+
+  constructor(public confData: ConferenceData, public platform: Platform) { }
 
   ionViewDidEnter() {
+    this.confData.getMap().subscribe((mapData: any) => {
+      const mapEle = this.mapElement.nativeElement;
 
-      this.confData.getMap().subscribe((mapData: any) => {
-        const mapEle = this.mapElement.nativeElement;
-
-        const map = new google.maps.Map(mapEle, {
-          center: mapData.find((d: any) => d.center),
-          zoom: 16
-        });
-
-        mapData.forEach((markerData: any) => {
-          const infoWindow = new google.maps.InfoWindow({
-            content: `<h5>${markerData.name}</h5>`
-          });
-
-          const marker = new google.maps.Marker({
-            position: markerData,
-            map: map,
-            title: markerData.name
-          });
-
-          marker.addListener('click', () => {
-            infoWindow.open(map, marker);
-          });
-        });
-
-        google.maps.event.addListenerOnce(map, 'idle', () => {
-          mapEle.classList.add('show-map');
-        });
-
+      const map = new google.maps.Map(mapEle, {
+        center: mapData.find((d: any) => d.center),
+        zoom: 16
       });
+
+      mapData.forEach((markerData: any) => {
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<h5>${markerData.name}</h5>`
+        });
+
+        const marker = new google.maps.Marker({
+          position: markerData,
+          map: map,
+          title: markerData.name
+        });
+
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+      });
+
+      google.maps.event.addListenerOnce(map, 'idle', () => {
+        mapEle.classList.add('show-map');
+      });
+
+    });
 
   }
 }
