@@ -34,10 +34,10 @@ export class SchedulePage {
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
-    private router: Router
-  ) {}
+    public router: Router
+  ) { }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.app.setTitle('Schedule');
     this.updateSchedule();
   }
@@ -45,6 +45,7 @@ export class SchedulePage {
   updateSchedule() {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
+      console.log(this.scheduleList.nativeElement);
       // this.scheduleList.closeSlidingItems();
     }
 

@@ -46,17 +46,25 @@
 //   facebook:   #3b5998
 // );
 
+
 :root {
-  --ion-color-favorite: #69BB7B;
-  --ion-color-twitter: #1da1f4;
-  --ion-color-google: #dc4a38;
-  --ion-color-vimeo: #23b6ea;
-  --ion-color-facebook: #3b5998;
+  --ion-color-primary:         #3880ff;
+  --ion-color-secondary:       #0cd1e8;
+  --ion-color-tertiary:        #7044ff;
+  --ion-color-success:         #10dc60;
+  --ion-color-warning:         #ffce00;
+  --ion-color-danger:          #f04141;
+  --ion-color-light:           #f4f5f8;
+  --ion-color-medium:          #989aa2;
+  --ion-color-dark:            #222428;
+
+  --ion-color-favorite:        #69BB7B;
+  --ion-color-twitter:         #1da1f4;
+  --ion-color-google:          #dc4a38;
+  --ion-color-vimeo:           #23b6ea;
+  --ion-color-facebook:        #3b5998;
 }
 
-.button-favorite {
-  background-color: var(--ion-color-favorite);
-}
 
 // App iOS Variables
 // --------------------------------------------------

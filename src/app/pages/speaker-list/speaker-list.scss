@@ -1,22 +1,18 @@
-page-speaker-list {
-  .scroll-content {
-    background: #EDEDED;
-  }
+.scroll-content {
+  background: #EDEDED;
+}
 
-  .speaker-card {
-    display: flex;
-    flex-direction: column;
+.speaker-card {
+  display: flex;
+  flex-direction: column;
+}
 
-    ion-card-content {
-      flex: 1 1 auto;
-    }
-  }
+.speaker-card ion-card-header .item {
+  padding: 4px 16px;
+}
 
-  .speaker-card ion-card-header .item {
-    padding: 4px 16px;
-  }
+.speaker-card ion-card-content {
+  flex: 1 1 auto;
 
-  .speaker-card ion-card-content {
-    padding: 0;
-  }
+  padding: 0;
 }

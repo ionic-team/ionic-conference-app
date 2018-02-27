@@ -4,8 +4,7 @@
   color: var(--ion-color-danger);
 }
 
-@each $track, $value in auxiliary-categories() {
-
+@each $track, $value in map-remove($categories) {
   ion-item[track=#{$track}] .dot {
     height: 10px;
     display: inline-block;
@@ -14,5 +13,4 @@
     border-radius: 5px;
     margin-right: 10px;
   }
-
 }
