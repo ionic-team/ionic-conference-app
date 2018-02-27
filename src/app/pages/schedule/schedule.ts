@@ -44,7 +44,6 @@ export class SchedulePage {
 
   updateSchedule() {
     // Close any open sliding items when the schedule updates
-    console.log('update schedule called', this.segment);
     if (this.scheduleList) {
       this.scheduleList.nativeElement.closeSlidingItems();
     }
