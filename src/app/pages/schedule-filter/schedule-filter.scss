@@ -1,6 +1,7 @@
+@import '../schedule/schedule';
 
 .reset-filters {
-  color: color($colors, danger);
+  color: var(--ion-color-danger);
 }
 
 @each $track, $value in auxiliary-categories() {

@@ -7,16 +7,15 @@ import { ConferenceData } from '../../providers/conference-data';
 
 @Component({
   selector: 'page-schedule-filter',
-  templateUrl: 'schedule-filter.html'
+  templateUrl: 'schedule-filter.html',
+  styleUrls: ['./schedule-filter.scss']
 })
 export class ScheduleFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];
 
-  constructor(
-    public confData: ConferenceData,
-    public navParams: NavParams,
-    public modalCtrl: ModalController
-  ) {
+  constructor(public confData: ConferenceData, public navParams: NavParams, public modalCtrl: ModalController) { }
+
+  ionViewDidEnter() {
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.navParams.data;
 

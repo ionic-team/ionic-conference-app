@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { App, ModalController, NavController, PopoverController } from '@ionic/angular';
+import { App, PopoverController } from '@ionic/angular';
 
 
 @Component({

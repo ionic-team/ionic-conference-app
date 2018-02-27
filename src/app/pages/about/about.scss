@@ -19,7 +19,7 @@
 }
 
 .about-info ion-icon {
-  color: color($colors, primary);
+  color: var(--ion-color-primary);
   width: 20px;
 }
 

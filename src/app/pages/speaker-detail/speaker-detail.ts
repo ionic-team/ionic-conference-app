@@ -5,7 +5,8 @@ import { ConferenceData } from '../../providers/conference-data';
 
 @Component({
   selector: 'page-speaker-detail',
-  templateUrl: 'speaker-detail.html'
+  templateUrl: 'speaker-detail.html',
+  styleUrls: ['./speaker-detail.scss']
 })
 export class SpeakerDetailPage {
   speaker: any;

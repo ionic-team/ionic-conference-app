@@ -13,7 +13,8 @@ import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-user',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  styleUrls: ['./login.scss']
 })
 export class LoginPage {
   login: UserOptions = { username: '', password: '' };

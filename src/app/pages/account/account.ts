@@ -7,7 +7,8 @@ import { UserData } from '../../providers/user-data';
 
 @Component({
   selector: 'page-account',
-  templateUrl: 'account.html'
+  templateUrl: 'account.html',
+  styleUrls: ['./account.scss']
 })
 export class AccountPage {
   username: string;

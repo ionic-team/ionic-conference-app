@@ -4,7 +4,6 @@ page-speaker-list {
   }
 
   .speaker-card {
-    height: 100%;
     display: flex;
     flex-direction: column;
 
@@ -13,19 +12,11 @@ page-speaker-list {
     }
   }
 
-  // Todo: remove when this issue https://github.com/ionic-team/ionic/issues/11212 is fixed
-  @media(min-width: 769px) {
-    .speaker-card {
-      height: 370px;
-    }
-  }
-
   .speaker-card ion-card-header .item {
     padding: 4px 16px;
   }
 
   .speaker-card ion-card-content {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
   }
 }

@@ -10,7 +10,8 @@ declare var google: any;
 
 @Component({
   selector: 'page-map',
-  templateUrl: 'map.html'
+  templateUrl: 'map.html',
+  styleUrls: ['./map.scss']
 })
 export class MapPage {
 
@@ -18,7 +19,7 @@ export class MapPage {
   constructor(public confData: ConferenceData, public platform: Platform) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
 
       this.confData.getMap().subscribe((mapData: any) => {
         const mapEle = this.mapElement.nativeElement;

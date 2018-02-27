@@ -1,22 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { AlertController, App, LoadingController, ModalController, NavController, ToastController } from '@ionic/angular';
 
+import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
-import { SessionDetailPage } from '../session-detail/session-detail';
-import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
-
-
 @Component({
   selector: 'page-schedule',
-  templateUrl: 'schedule.html'
+  templateUrl: 'schedule.html',
+  styleUrls: ['./schedule.scss']
 })
 export class SchedulePage {
-  // the list is a child of the schedule page
-  // @ViewChild('scheduleList') gets a reference to the list
-  // with the variable #scheduleList
+  // Gets a reference to the list element
 
   // TODO
   // @ViewChild('scheduleList') scheduleList: HTMLIonListElement;
@@ -35,20 +31,22 @@ export class SchedulePage {
     public app: App,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
-    public navCtrl: NavController,
     public toastCtrl: ToastController,
     public confData: ConferenceData,
     public user: UserData,
+    private router: Router
   ) {}
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.app.setTitle('Schedule');
     this.updateSchedule();
   }
 
   updateSchedule() {
     // Close any open sliding items when the schedule updates
-    this.scheduleList && this.scheduleList.closeSlidingItems();
+    if (this.scheduleList) {
+      // this.scheduleList.closeSlidingItems();
+    }
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
@@ -75,8 +73,7 @@ export class SchedulePage {
   goToSessionDetail(sessionData: any) {
     // go to the session detail page
     // and pass in the session data
-
-    this.navCtrl.push(SessionDetailPage, { sessionId: sessionData.id, name: sessionData.name });
+    this.router.navigateByUrl(`app/tabs/(schedule:session/${sessionData.id})`);
   }
 
   addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
@@ -147,7 +144,7 @@ export class SchedulePage {
     loading.present();
   }
 
-  doRefresh(refresher: HTMLIonRefresherElement) {
+  /*doRefresh(refresher: Refresher) {
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
@@ -165,4 +162,5 @@ export class SchedulePage {
       }, 1000);
     });
   }
+  */
 }

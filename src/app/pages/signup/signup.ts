@@ -12,7 +12,8 @@ import { TabsPage } from '../tabs-page/tabs-page';
 
 @Component({
   selector: 'page-user',
-  templateUrl: 'signup.html'
+  templateUrl: 'signup.html',
+  styleUrls: ['./signup.scss']
 })
 export class SignupPage {
   signup: UserOptions = { username: '', password: '' };

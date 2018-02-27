@@ -9,7 +9,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuModule } from './pages/menu/menu.module';
 
 import { ConferenceData } from './providers/conference-data';
 import { UserData } from './providers/user-data';
@@ -25,7 +24,6 @@ import { UserData } from './providers/user-data';
     IonicAngularModule.forRoot(),
     IonicStorageModule.forRoot(),
     IonicRouterModule.forRoot(),
-    MenuModule
   ],
   providers: [
     ConferenceData,
