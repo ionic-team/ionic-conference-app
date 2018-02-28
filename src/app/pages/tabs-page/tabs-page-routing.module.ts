@@ -35,6 +35,11 @@ const routes: Routes = [
       },
 
       {
+        path: 'session/:sessionId',
+        component: SessionDetailPage,
+        outlet: 'speakers'
+      },
+      {
         path: 'speaker-details/:speakerId',
         component: SpeakerDetailPage,
         outlet: 'speakers'

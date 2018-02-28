@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicAngularModule, IonicRouterModule} from '@ionic/angular';
+import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
 
 import { SpeakerListPage } from './speaker-list';
 import { SpeakerListPageRoutingModule } from './speaker-list-routing.module';
@@ -12,11 +12,7 @@ import { SpeakerListPageRoutingModule } from './speaker-list-routing.module';
     IonicRouterModule,
     SpeakerListPageRoutingModule
   ],
-  declarations: [
-    SpeakerListPage,
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  declarations: [SpeakerListPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SpeakerListModule { }
+export class SpeakerListModule {}

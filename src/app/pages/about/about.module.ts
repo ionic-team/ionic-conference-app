@@ -15,18 +15,9 @@ import { AboutPageRoutingModule } from './about-routing.module';
     IonicRouterModule,
     AboutPageRoutingModule
   ],
-  declarations: [
-    AboutPage,
-    PopoverPage
-  ],
-  entryComponents: [
-    PopoverPage
-  ],
-  bootstrap: [
-    AboutPage
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  declarations: [AboutPage, PopoverPage],
+  entryComponents: [PopoverPage],
+  bootstrap: [AboutPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AboutModule { }
+export class AboutModule {}

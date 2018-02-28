@@ -30,7 +30,7 @@ export class SpeakerListPage {
   }
 
   goToSessionDetail(session: any) {
-    this.router.navigateByUrl(`app/tabs/(schedule:session/${session.id})`);
+    this.router.navigateByUrl(`app/tabs/(speakers:session/${session.id})`);
   }
 
   goToSpeakerDetail(speaker: any) {
