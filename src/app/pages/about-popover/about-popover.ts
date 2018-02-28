@@ -29,7 +29,7 @@ export class PopoverPage {
   constructor(public app: App, public popoverCtrl: PopoverController) { }
 
   support() {
-    this.app.getRootNavs()[0].push('SupportPage');
+    this.app.getRootNavs()[0].push('/support');
     this.popoverCtrl.dismiss();
   }
 
