@@ -1,6 +1,6 @@
 # Ionic Conference Application
 
-This is the official Ionic demo app, showcaseing a variety of Ionic Framework components and native features.
+This is the official Ionic demo app, showcasing a variety of Ionic Framework components and native features.
 
 ## Important!
 **There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
