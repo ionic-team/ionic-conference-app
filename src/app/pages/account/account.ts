@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';
 
@@ -14,9 +15,11 @@ import { UserData } from '../../providers/user-data';
 export class AccountPage {
   username: string;
 
-  constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
-
-  }
+  constructor(
+    public alertCtrl: AlertController,
+    public router: Router,
+    public userData: UserData
+  ) { }
 
   ngAfterViewInit() {
     this.getUsername();
@@ -66,10 +69,10 @@ export class AccountPage {
 
   logout() {
     this.userData.logout();
-    this.nav.setRoot('LoginPage');
+    this.router.navigateByUrl('/login');
   }
 
   support() {
-    this.nav.push('SupportPage');
+    this.router.navigateByUrl('/support');
   }
 }

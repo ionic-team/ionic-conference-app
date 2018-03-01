@@ -13,7 +13,7 @@ export class SessionDetailPage {
   constructor(
     public dataProvider: ConferenceData,
     public navParams: NavParams
-  ) {}
+  ) { }
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {

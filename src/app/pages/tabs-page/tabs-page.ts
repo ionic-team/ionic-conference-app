@@ -18,7 +18,7 @@ export class TabsPage {
   tab4Root: any = AboutPage;
   mySelectedIndex: number;
 
-  constructor(navParams: NavParams) {
+  constructor(public navParams: NavParams) {
     this.mySelectedIndex = navParams.data.tabIndex || 0;
   }
 

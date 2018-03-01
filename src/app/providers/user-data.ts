@@ -13,7 +13,7 @@ export class UserData {
   constructor(
     public events: Events,
     public storage: Storage
-  ) {}
+  ) { }
 
   hasFavorite(sessionName: string): boolean {
     return (this._favorites.indexOf(sessionName) > -1);

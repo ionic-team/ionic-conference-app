@@ -26,7 +26,10 @@ import { App, PopoverController } from '@ionic/angular';
 })
 export class PopoverPage {
 
-  constructor(public app: App, public popoverCtrl: PopoverController) { }
+  constructor(
+    public app: App,
+    public popoverCtrl: PopoverController
+  ) { }
 
   support() {
     this.app.getRootNavs()[0].push('/support');

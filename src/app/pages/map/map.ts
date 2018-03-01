@@ -18,7 +18,10 @@ export class MapPage {
 
   @ViewChild('mapCanvas') mapElement: ElementRef;
 
-  constructor(public confData: ConferenceData, public platform: Platform) { }
+  constructor(
+    public confData: ConferenceData,
+    public platform: Platform
+  ) { }
 
   ionViewDidEnter() {
     this.confData.getMap().subscribe((mapData: any) => {

@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NavController, NavParams } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+import { NavParams } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -12,8 +14,11 @@ import { ConferenceData } from '../../providers/conference-data';
 export class SpeakerDetailPage {
   speaker: any;
 
-  constructor(public dataProvider: ConferenceData, public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public dataProvider: ConferenceData,
+    public navParams: NavParams,
+    public router: Router
+  ) { }
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
@@ -30,6 +35,6 @@ export class SpeakerDetailPage {
   }
 
   goToSessionDetail(session: any) {
-    this.navCtrl.push('SessionDetailPage', { sessionId: session.id });
+    this.router.navigateByUrl(`app/tabs/(schedule:session/${session.id})`);
   }
 }

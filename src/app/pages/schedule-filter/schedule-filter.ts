@@ -14,7 +14,11 @@ import { ConferenceData } from '../../providers/conference-data';
 export class ScheduleFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];
 
-  constructor(public confData: ConferenceData, public navParams: NavParams, public modalCtrl: ModalController) { }
+  constructor(
+    public confData: ConferenceData,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+  ) { }
 
   // TODO use the ionViewDidEnter event
   ngAfterViewInit() {

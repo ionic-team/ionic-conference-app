@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActionSheetController, NavController } from '@ionic/angular';
+import { ActionSheetController } from '@ionic/angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
@@ -16,12 +16,11 @@ export class SpeakerListPage {
   speakers: any[] = [];
 
   constructor(
-    private actionSheetCtrl: ActionSheetController,
-    private navCtrl: NavController,
-    private confData: ConferenceData,
-    private inAppBrowser: InAppBrowser,
-    private router: Router
-  ) {}
+    public actionSheetCtrl: ActionSheetController,
+    public confData: ConferenceData,
+    public inAppBrowser: InAppBrowser,
+    public router: Router
+  ) { }
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {

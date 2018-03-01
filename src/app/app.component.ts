@@ -37,9 +37,9 @@ export class AppComponent implements OnInit {
     private events: Events,
     private menu: MenuController,
     private router: Router,
-    private userData: UserData,
-    public storage: Storage
-  ) {}
+    private storage: Storage,
+    private userData: UserData
+  ) { }
 
   ngOnInit() {
     this.checkLoginStatus();

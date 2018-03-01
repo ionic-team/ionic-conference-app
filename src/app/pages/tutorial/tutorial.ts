@@ -21,6 +21,7 @@ export class TutorialPage {
     public router: Router,
     public storage: Storage
   ) {}
+
   ngOnInit() {
     this.storage.get('ion_did_tutorial').then(res => {
       if (res) {

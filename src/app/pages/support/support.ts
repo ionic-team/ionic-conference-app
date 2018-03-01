@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { AlertController, NavController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -14,7 +14,10 @@ export class SupportPage {
   submitted = false;
   supportMessage: string;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public toastCtrl: ToastController) { }
+  constructor(
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController
+  ) { }
 
   ionViewDidEnter() {
     const toast = this.toastCtrl.create({
