@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, App, LoadingController, ModalController, NavController, ToastController } from '@ionic/angular';
 
@@ -9,7 +9,8 @@ import { UserData } from '../../providers/user-data';
 @Component({
   selector: 'page-schedule',
   templateUrl: 'schedule.html',
-  styleUrls: ['./schedule.scss']
+  styleUrls: ['./schedule.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SchedulePage {
   // Gets a reference to the list element
@@ -131,6 +132,11 @@ export class SchedulePage {
     });
     // now present the alert on top of all other content
     alert.present();
+  }
+
+  toggleList(fabButton: HTMLIonFabButtonElement, fabList: HTMLIonFabListElement) {
+    fabButton.activated = !fabButton.activated;
+    fabList.activated = !fabList.activated;
   }
 
   openSocial(network: string, fab: HTMLIonFabElement) {

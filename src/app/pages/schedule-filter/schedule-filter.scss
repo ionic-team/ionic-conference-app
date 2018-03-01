@@ -1,16 +1,20 @@
 @import '../schedule/schedule';
 
-.reset-filters {
-  color: var(--ion-color-danger);
-}
+page-schedule-filter {
+  .reset-filters {
+    color: var(--ion-color-danger);
+  }
 
-@each $track, $value in map-remove($categories) {
-  ion-item[track=#{$track}] .dot {
-    height: 10px;
-    display: inline-block;
-    width: 10px;
-    background-color: $value;
-    border-radius: 5px;
-    margin-right: 10px;
+  @each $track, $value in map-remove($categories) {
+    ion-item[track=#{$track}] .dot {
+      display: inline-block;
+
+      height: 10px;
+      width: 10px;
+
+      background-color: $value;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
   }
 }

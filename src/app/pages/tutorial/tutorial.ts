@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { MenuController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
@@ -7,7 +8,8 @@ import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-tutorial',
   templateUrl: 'tutorial.html',
-  styleUrls: ['./tutorial.scss']
+  styleUrls: ['./tutorial.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TutorialPage {
   showSkip = true;

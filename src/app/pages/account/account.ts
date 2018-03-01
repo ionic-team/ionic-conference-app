@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AlertController, NavController } from '@ionic/angular';
 
@@ -8,7 +8,8 @@ import { UserData } from '../../providers/user-data';
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html',
-  styleUrls: ['./account.scss']
+  styleUrls: ['./account.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AccountPage {
   username: string;

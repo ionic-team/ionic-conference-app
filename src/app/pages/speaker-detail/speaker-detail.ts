@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
@@ -6,7 +6,8 @@ import { ConferenceData } from '../../providers/conference-data';
 @Component({
   selector: 'page-speaker-detail',
   templateUrl: 'speaker-detail.html',
-  styleUrls: ['./speaker-detail.scss']
+  styleUrls: ['./speaker-detail.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SpeakerDetailPage {
   speaker: any;

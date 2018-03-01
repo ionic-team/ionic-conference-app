@@ -33,8 +33,8 @@
           {{group.time}}
         </ion-label>
       </ion-item-divider>
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
+      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
         <ion-item (click)="goToSessionDetail(session)">
           <ion-label>
             <h3>{{session.name}}</h3>
@@ -54,4 +54,26 @@
       </ion-item-sliding>
     </ion-item-group>
   </ion-list>
+
+  <ion-list-header [hidden]="shownSessions > 0">
+    No Sessions Found
+  </ion-list-header>
+
+  <ion-fab slot="fixed" bottom right #fab>
+    <ion-fab-button #fabButton (click)="toggleList(fabButton, fabList)"><ion-icon name="share"></ion-icon></ion-fab-button>
+    <ion-fab-list #fabList side="top">
+      <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="google" (click)="openSocial('Google+', fab)">
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="twitter" (click)="openSocial('Twitter', fab)">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

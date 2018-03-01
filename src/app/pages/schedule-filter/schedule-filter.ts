@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 import { ModalController, NavParams } from '@ionic/angular';
 
@@ -8,7 +8,8 @@ import { ConferenceData } from '../../providers/conference-data';
 @Component({
   selector: 'page-schedule-filter',
   templateUrl: 'schedule-filter.html',
-  styleUrls: ['./schedule-filter.scss']
+  styleUrls: ['./schedule-filter.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ScheduleFilterPage {
   tracks: Array<{name: string, isChecked: boolean}> = [];

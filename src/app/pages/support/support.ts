@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AlertController, NavController, ToastController } from '@ionic/angular';
 
 
 @Component({
-  selector: 'page-user',
+  selector: 'page-support',
   templateUrl: 'support.html',
-  styleUrls: ['./support.scss']
+  styleUrls: ['./support.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SupportPage {
   submitted = false;

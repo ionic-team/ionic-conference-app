@@ -15,7 +15,7 @@ import { UserData } from './providers/user-data';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
@@ -23,7 +23,7 @@ import { UserData } from './providers/user-data';
     HttpModule,
     IonicAngularModule.forRoot(),
     IonicStorageModule.forRoot(),
-    IonicRouterModule.forRoot(),
+    IonicRouterModule.forRoot()
   ],
   providers: [
     ConferenceData,

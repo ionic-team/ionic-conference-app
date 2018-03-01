@@ -11,13 +11,15 @@ $categories: (
  navigation: #6600cc,
 );
 
-@each $track, $value in map-remove($categories) {
-  ion-item-sliding[track=#{$track}] ion-label {
-    border-left: 2px solid $value;
-    padding-left: 10px;
-  }
+page-schedule {
+  @each $track, $value in map-remove($categories) {
+    ion-item-sliding[track=#{$track}] ion-label {
+      border-left: 2px solid $value;
+      padding-left: 10px;
+    }
 
-  ion-item-option[color=favorite] {
-    background-color: var(--ion-color-favorite);
+    ion-item-option[color=favorite] {
+      background-color: var(--ion-color-favorite);
+    }
   }
 }

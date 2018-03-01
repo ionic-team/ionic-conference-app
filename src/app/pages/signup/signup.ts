@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { NavController } from '@ionic/angular';
@@ -11,9 +11,10 @@ import { TabsPage } from '../tabs-page/tabs-page';
 
 
 @Component({
-  selector: 'page-user',
+  selector: 'page-signup',
   templateUrl: 'signup.html',
-  styleUrls: ['./signup.scss']
+  styleUrls: ['./signup.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SignupPage {
   signup: UserOptions = { username: '', password: '' };

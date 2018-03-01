@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Events, MenuController } from '@ionic/angular';
@@ -9,7 +9,8 @@ import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   appPages = [
@@ -31,6 +32,7 @@ export class AppComponent implements OnInit {
     }
   ];
   loggedIn = false;
+
   constructor(
     private events: Events,
     private menu: MenuController,
