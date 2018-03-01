@@ -12,7 +12,7 @@ import { SignupPage } from '../signup/signup';
 
 
 @Component({
-  selector: 'page-user',
+  selector: 'page-login',
   templateUrl: 'login.html',
   styleUrls: ['./login.scss'],
   encapsulation: ViewEncapsulation.None
