@@ -7,6 +7,9 @@
   height: 100%;
 }
 
+.swiper-slide {
+  display: block;
+}
 .slide-title {
   margin-top: 2.8rem;
 }
@@ -25,7 +28,7 @@ p {
   padding: 0 40px;
   font-size: 14px;
   line-height: 1.5;
-  color: #60646B;
+  color: #60646b;
 
   b {
     color: #000000;

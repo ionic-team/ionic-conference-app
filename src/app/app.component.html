@@ -13,41 +13,14 @@
           <ion-list-header>
             Navigate
           </ion-list-header>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item (click)="selectTab(0, '/app/tabs/(schedule:schedule)')">
-              <ion-icon slot="start" name="calendar"></ion-icon>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectTab(i, p.url)">
+              <ion-icon  slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
-                Schedule
+                {{p.title}}
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
 
-          <ion-menu-toggle auto-hide="false">
-            <ion-item (click)="selectTab(1, '/app/tabs/(speakers:speakers)')">
-              <ion-icon slot="start" name="contacts"></ion-icon>
-              <ion-label>
-                Speakers
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item (click)="selectTab(2, '/app/tabs/(map:map)')">
-              <ion-icon slot="start" name="map"></ion-icon>
-              <ion-label>
-                Map
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
-            <ion-item (click)="selectTab(3, '/app/tabs/(about:about)')">
-              <ion-icon slot="start" name="information-circle"></ion-icon>
-              <ion-label>
-                About
-              </ion-label>
-            </ion-item>
           </ion-menu-toggle>
         </ion-list>
 

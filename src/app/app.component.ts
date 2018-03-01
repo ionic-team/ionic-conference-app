@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Events, MenuController } from '@ionic/angular';
 
 import { UserData } from './providers/user-data';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +12,32 @@ import { UserData } from './providers/user-data';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  appPages = [
+    {
+      title: 'Schedule',
+      url: '/app/tabs/(schedule:schedule)',
+      icon: 'calendar'
+    },
+    {
+      title: 'Speakers',
+      url: '/app/tabs/(speakers:speakers)',
+      icon: 'contacts'
+    },
+    { title: 'Map', url: '/app/tabs/(map:map)', icon: 'map' },
+    {
+      title: 'About',
+      url: '/app/tabs/(about:about)',
+      icon: 'information-circle'
+    }
+  ];
   loggedIn = false;
   constructor(
     private events: Events,
     private menu: MenuController,
     private router: Router,
-    private userData: UserData) {
-  }
+    private userData: UserData,
+    public storage: Storage
+  ) {}
 
   ngOnInit() {
     this.checkLoginStatus();
@@ -26,7 +45,7 @@ export class AppComponent implements OnInit {
   }
 
   checkLoginStatus() {
-    return this.userData.isLoggedIn().then((loggedIn) => {
+    return this.userData.isLoggedIn().then(loggedIn => {
       return this.updateLoggedInStatus(loggedIn);
     });
   }
@@ -78,7 +97,7 @@ export class AppComponent implements OnInit {
   }
 
   openTutorial() {
-    alert('todo tutorial');
+    this.menu.enable(false);
+    this.router.navigateByUrl('/tutorial');
   }
 }
-

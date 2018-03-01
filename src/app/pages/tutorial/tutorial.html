@@ -1,13 +1,13 @@
-<ion-header no-border>
-  <ion-toolbar>
-    <ion-buttons slot="end" end *ngIf="showSkip">
-      <ion-button (click)="startApp()" color="primary">Skip</ion-button>
+<ion-header>
+  <ion-toolbar transparent>
+    <ion-buttons slot="end">
+      <ion-button (click)="startApp()" [hidden]="!showSkip" >Skip</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content no-bounce>
-  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager>
+  <ion-slides #slides (ionSlideDidChange)="onSlideChangeStart($event)" pager="false">
 
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
@@ -43,7 +43,7 @@
       <h2 class="slide-title">Ready to Play?</h2>
       <ion-button clear="true" (click)="startApp()">
         Continue
-        <ion-icon slot="icon-end" name="arrow-forward"></ion-icon>
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
       </ion-button>
     </ion-slide>
 
