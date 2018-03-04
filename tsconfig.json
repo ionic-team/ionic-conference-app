@@ -1,8 +1,4 @@
 {
-  "atom": {
-    "rewriteTsconfig": false
-  },
-  "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
