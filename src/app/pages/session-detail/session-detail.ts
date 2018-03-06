@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavParams } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -11,8 +10,7 @@ export class SessionDetailPage {
   session: any;
 
   constructor(
-    public dataProvider: ConferenceData,
-    public navParams: NavParams
+    public dataProvider: ConferenceData
   ) { }
 
   ionViewWillEnter() {
@@ -26,10 +24,10 @@ export class SessionDetailPage {
         for (const group of data.schedule[0].groups) {
           if (group && group.sessions) {
             for (const session of group.sessions) {
-              if (session && session.id === this.navParams.data.sessionId) {
-                this.session = session;
-                break;
-              }
+              // if (session && session.id === this.navParams.data.sessionId) {
+              //   this.session = session;
+              //   break;
+              // }
             }
           }
         }

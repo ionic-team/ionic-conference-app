@@ -2,7 +2,7 @@ import { BrowserModule, } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
+import { IonicAngularModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,16 +14,15 @@ import { ConferenceData } from './providers/conference-data';
 import { UserData } from './providers/user-data';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     HttpModule,
     IonicAngularModule.forRoot(),
-    IonicStorageModule.forRoot(),
-    IonicRouterModule.forRoot()
+    IonicStorageModule.forRoot()
+  ],
+  declarations: [
+    AppComponent
   ],
   providers: [
     ConferenceData,

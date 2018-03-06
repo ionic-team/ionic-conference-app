@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
+import { IonicAngularModule } from '@ionic/angular';
 
 import { SchedulePage } from './schedule';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
@@ -12,7 +12,6 @@ import { SchedulePageRoutingModule } from './schedule-routing.module';
     CommonModule,
     FormsModule,
     IonicAngularModule,
-    IonicRouterModule,
     SchedulePageRoutingModule
   ],
   declarations: [

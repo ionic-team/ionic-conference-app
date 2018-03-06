@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
+import { IonicAngularModule } from '@ionic/angular';
 
 import { MapPage } from './map';
 import { MapPageRoutingModule } from './map-routing.module';
@@ -9,7 +9,6 @@ import { MapPageRoutingModule } from './map-routing.module';
   imports: [
     CommonModule,
     IonicAngularModule,
-    IonicRouterModule,
     MapPageRoutingModule
   ],
   declarations: [

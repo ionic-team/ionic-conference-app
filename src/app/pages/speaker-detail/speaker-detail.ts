@@ -1,9 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { NavParams } from '@ionic/angular';
-
 import { ConferenceData } from '../../providers/conference-data';
+
 
 @Component({
   selector: 'page-speaker-detail',
@@ -16,7 +15,6 @@ export class SpeakerDetailPage {
 
   constructor(
     public dataProvider: ConferenceData,
-    public navParams: NavParams,
     public router: Router
   ) { }
 
@@ -24,10 +22,10 @@ export class SpeakerDetailPage {
     this.dataProvider.load().subscribe((data: any) => {
       if (data && data.speakers) {
         for (const speaker of data.speakers) {
-          if (speaker && speaker.id === this.navParams.data.speakerId) {
-            this.speaker = speaker;
-            break;
-          }
+          // if (speaker && speaker.id === this.navParams.data.speakerId) {
+          //   this.speaker = speaker;
+          //   break;
+          // }
         }
       }
     });

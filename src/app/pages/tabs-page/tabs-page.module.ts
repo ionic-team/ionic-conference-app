@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicAngularModule, IonicRouterModule } from '@ionic/angular';
+import { IonicAngularModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs-page';
 import { TabsPageRoutingModule } from './tabs-page-routing.module';
@@ -17,7 +17,6 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
     AboutModule,
     CommonModule,
     IonicAngularModule,
-    IonicRouterModule,
     MapModule,
     ScheduleModule,
     SessionDetailModule,
