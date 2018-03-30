@@ -46,7 +46,7 @@
     "@angular/language-service": "latest",
     "tslint": "^5.9.1",
     "tslint-ionic-rules": "0.0.14",
-    "typescript": "2.6.2"
+    "typescript": "2.7.2"
   },
   "cordova": {
     "platforms": [

@@ -11,8 +11,8 @@
         "assets",
         {
           "glob": "**/*",
-          "input": "../node_modules/@ionic/core/dist",
-          "output": "./ionic/core"
+          "input": "../node_modules/@ionic/angular/dist/ionic",
+          "output": "./ionic"
         }
       ],
       "index": "index.html",
