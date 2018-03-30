@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConferenceData } from '../../providers/conference-data';
 
 
@@ -14,18 +13,20 @@ export class SpeakerDetailPage {
   speaker: any;
 
   constructor(
-    public dataProvider: ConferenceData,
-    public router: Router
-  ) { }
+    private dataProvider: ConferenceData,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
+      const sessionId = this.route.snapshot.paramMap.get('sessionId');
       if (data && data.speakers) {
         for (const speaker of data.speakers) {
-          // if (speaker && speaker.id === this.navParams.data.speakerId) {
-          //   this.speaker = speaker;
-          //   break;
-          // }
+          if (speaker && speaker.id === sessionId) {
+            this.speaker = speaker;
+            break;
+          }
         }
       }
     });
