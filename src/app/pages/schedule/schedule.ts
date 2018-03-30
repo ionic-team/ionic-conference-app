@@ -54,20 +54,18 @@ export class SchedulePage {
     });
   }
 
-  presentFilter() {
-    const modal = this.modalCtrl.create({
+  async presentFilter() {
+    const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
-      data: { excludedTracks: this.excludeTracks }
+      componentProps: { excludedTracks: this.excludeTracks }
     });
-    modal.present();
+    await modal.present();
 
-    modal.onWillDismiss((data: any[]) => {
-      if (data) {
-        this.excludeTracks = data;
-        this.updateSchedule();
-      }
-    });
-
+    const {data} = await modal.onWillDismiss();
+    if (data) {
+      this.excludeTracks = data;
+      this.updateSchedule();
+    }
   }
 
   goToSessionDetail(sessionData: any) {
@@ -76,8 +74,7 @@ export class SchedulePage {
     this.router.navigateByUrl(`app/tabs/(schedule:session/${sessionData.id})`);
   }
 
-  addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
-
+  async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
     if (this.user.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
       // prompt them to remove it
@@ -87,7 +84,7 @@ export class SchedulePage {
       this.user.addFavorite(sessionData.name);
 
       // create an alert instance
-      const alert = this.alertCtrl.create({
+      const alert = await this.alertCtrl.create({
         title: 'Favorite Added',
         buttons: [{
           text: 'OK',
@@ -98,13 +95,13 @@ export class SchedulePage {
         }]
       });
       // now present the alert on top of all other content
-      alert.present();
+      await alert.present();
     }
 
   }
 
-  removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
-    const alert = this.alertCtrl.create({
+  async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
+    const alert = await this.alertCtrl.create({
       title: title,
       message: 'Would you like to remove this session from your favorites?',
       buttons: [
@@ -130,7 +127,7 @@ export class SchedulePage {
       ]
     });
     // now present the alert on top of all other content
-    alert.present();
+    await alert.present();
   }
 
   toggleList(fabButton: HTMLIonFabButtonElement, fabList: HTMLIonFabListElement) {
@@ -138,15 +135,15 @@ export class SchedulePage {
     fabList.activated = !fabList.activated;
   }
 
-  openSocial(network: string, fab: HTMLIonFabElement) {
-    const loading = this.loadingCtrl.create({
+  async openSocial(network: string, fab: HTMLIonFabElement) {
+    const loading = await this.loadingCtrl.create({
       content: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
     });
+    await loading.present();
     loading.onWillDismiss(() => {
       fab.close();
     });
-    loading.present();
   }
 
   /*doRefresh(refresher: Refresher) {

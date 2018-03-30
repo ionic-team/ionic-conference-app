@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login';
 import { LoginPageRoutingModule } from './login-routing.module';
@@ -10,7 +10,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    IonicAngularModule,
+    IonicModule,
     LoginPageRoutingModule
   ],
   declarations: [

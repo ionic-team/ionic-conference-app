@@ -1,8 +1,8 @@
 import { BrowserModule, } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +18,7 @@ import { UserData } from './providers/user-data';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    IonicAngularModule.forRoot(),
+    IonicModule.forRoot(),
     IonicStorageModule.forRoot()
   ],
   declarations: [
@@ -30,9 +30,6 @@ import { UserData } from './providers/user-data';
     SplashScreen,
     UserData
   ],
-  bootstrap: [AppComponent],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

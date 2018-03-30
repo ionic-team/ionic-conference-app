@@ -15,11 +15,11 @@ export class AboutPage {
 
   constructor(public popoverCtrl: PopoverController) { }
 
-  presentPopover(event: Event) {
-    const popover = this.popoverCtrl.create({
+  async presentPopover(event: Event) {
+    const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       ev: event
     });
-    popover.present();
+    await popover.present();
   }
 }

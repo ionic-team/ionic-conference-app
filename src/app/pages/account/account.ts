@@ -32,8 +32,8 @@ export class AccountPage {
   // Present an alert with the current username populated
   // clicking OK will update the username and display it
   // clicking Cancel will close the alert and do nothing
-  changeUsername() {
-    const alert = this.alertCtrl.create({
+  async changeUsername() {
+    const alert = await this.alertCtrl.create({
       title: 'Change Username',
       buttons: [
         'Cancel',
@@ -54,7 +54,7 @@ export class AccountPage {
         }
       ]
     });
-    alert.present();
+    await alert.present();
   }
 
   getUsername() {

@@ -19,48 +19,48 @@ export class SupportPage {
     public toastCtrl: ToastController
   ) { }
 
-  ionViewDidEnter() {
-    const toast = this.toastCtrl.create({
+  async ionViewDidEnter() {
+    const toast = await this.toastCtrl.create({
       message: 'This does not actually send a support request.',
       duration: 3000
     });
-    toast.present();
+    await toast.present();
   }
 
-  submit(form: NgForm) {
+  async submit(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
       this.supportMessage = '';
       this.submitted = false;
 
-      const toast = this.toastCtrl.create({
+      const toast = await this.toastCtrl.create({
         message: 'Your support request has been sent.',
         duration: 3000
       });
-      toast.present();
+      await toast.present();
     }
   }
 
   // If the user enters text in the support question and then navigates
   // without submitting first, ask if they meant to leave the page
-  ionViewCanLeave(): boolean | Promise<boolean> {
-    // If the support message is empty we should just navigate
-    if (!this.supportMessage || this.supportMessage.trim().length === 0) {
-      return true;
-    }
+  // async ionViewCanLeave(): Promise<boolean> {
+  //   // If the support message is empty we should just navigate
+  //   if (!this.supportMessage || this.supportMessage.trim().length === 0) {
+  //     return true;
+  //   }
 
-    return new Promise((resolve: any, reject: any) => {
-      const alert = this.alertCtrl.create({
-        title: 'Leave this page?',
-        message: 'Are you sure you want to leave this page? Your support message will not be submitted.',
-        buttons: [
-          { text: 'Stay', handler: reject },
-          { text: 'Leave', role: 'cancel', handler: resolve }
-        ]
-      });
+  //   return new Promise((resolve: any, reject: any) => {
+  //     const alert = await this.alertCtrl.create({
+  //       title: 'Leave this page?',
+  //       message: 'Are you sure you want to leave this page? Your support message will not be submitted.',
+  //       buttons: [
+  //         { text: 'Stay', handler: reject },
+  //         { text: 'Leave', role: 'cancel', handler: resolve }
+  //       ]
+  //     });
 
-      alert.present();
-    });
-  }
+  //     await alert.present();
+  //   });
+  // }
 }

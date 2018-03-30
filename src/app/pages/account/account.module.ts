@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 
 import { AccountPage } from './account';
 import { AccountPageRoutingModule } from './account-routing.module';
@@ -8,7 +8,7 @@ import { AccountPageRoutingModule } from './account-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    IonicAngularModule,
+    IonicModule,
 
     AccountPageRoutingModule
   ],

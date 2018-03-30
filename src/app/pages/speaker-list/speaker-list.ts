@@ -43,8 +43,8 @@ export class SpeakerListPage {
     );
   }
 
-  openSpeakerShare(speaker: any) {
-    const actionSheet = this.actionSheetCtrl.create({
+  async openSpeakerShare(speaker: any) {
+    const actionSheet = await this.actionSheetCtrl.create({
       title: 'Share ' + speaker.name,
       buttons: [
         {
@@ -68,13 +68,13 @@ export class SpeakerListPage {
       ]
     });
 
-    actionSheet.present();
+    await actionSheet.present();
   }
 
-  openContact(speaker: any) {
+  async openContact(speaker: any) {
     const mode = 'ios'; // this.config.get('mode');
 
-    const actionSheet = this.actionSheetCtrl.create({
+    const actionSheet = await this.actionSheetCtrl.create({
       title: 'Contact ' + speaker.name,
       buttons: [
         {
@@ -94,6 +94,6 @@ export class SpeakerListPage {
       ]
     });
 
-    actionSheet.present();
+    await actionSheet.present();
   }
 }

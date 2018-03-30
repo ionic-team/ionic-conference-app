@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicAngularModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { SupportPage } from './support';
 import { SupportPageRoutingModule } from './support-routing.module';
 
@@ -9,7 +9,7 @@ import { SupportPageRoutingModule } from './support-routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    IonicAngularModule,
+    IonicModule,
     SupportPageRoutingModule
   ],
   declarations: [
