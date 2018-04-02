@@ -34,7 +34,7 @@ export class AccountPage {
   // clicking Cancel will close the alert and do nothing
   async changeUsername() {
     const alert = await this.alertCtrl.create({
-      title: 'Change Username',
+      header: 'Change Username',
       buttons: [
         'Cancel',
         {

@@ -11,7 +11,8 @@ import { ConferenceData } from '../../providers/conference-data';
   encapsulation: ViewEncapsulation.None
 })
 export class ScheduleFilterPage {
-  tracks: Array<{name: string, isChecked: boolean}> = [];
+
+  tracks: {name: string, isChecked: boolean}[] = [];
 
   constructor(
     public confData: ConferenceData,

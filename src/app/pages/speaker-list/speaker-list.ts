@@ -45,7 +45,7 @@ export class SpeakerListPage {
 
   async openSpeakerShare(speaker: any) {
     const actionSheet = await this.actionSheetCtrl.create({
-      title: 'Share ' + speaker.name,
+      header: 'Share ' + speaker.name,
       buttons: [
         {
           text: 'Copy Link',
@@ -75,7 +75,7 @@ export class SpeakerListPage {
     const mode = 'ios'; // this.config.get('mode');
 
     const actionSheet = await this.actionSheetCtrl.create({
-      title: 'Contact ' + speaker.name,
+      header: 'Contact ' + speaker.name,
       buttons: [
         {
           text: `Email ( ${speaker.email} )`,

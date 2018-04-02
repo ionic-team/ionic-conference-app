@@ -85,7 +85,7 @@ export class SchedulePage {
 
       // create an alert instance
       const alert = await this.alertCtrl.create({
-        title: 'Favorite Added',
+        header: 'Favorite Added',
         buttons: [{
           text: 'OK',
           handler: () => {
@@ -102,7 +102,7 @@ export class SchedulePage {
 
   async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
     const alert = await this.alertCtrl.create({
-      title: title,
+      header: title,
       message: 'Would you like to remove this session from your favorites?',
       buttons: [
         {
