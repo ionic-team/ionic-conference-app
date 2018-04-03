@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
@@ -9,14 +9,10 @@ import { AccountPageRoutingModule } from './account-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-
     AccountPageRoutingModule
   ],
   declarations: [
     AccountPage,
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class AccountModule { }
