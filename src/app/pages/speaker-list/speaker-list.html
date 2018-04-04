@@ -16,7 +16,7 @@
 
           <ion-card class="speaker-card">
             <ion-card-header>
-              <ion-item detail-none (click)="goToSpeakerDetail(speaker)">
+              <ion-item detail-none button (click)="goToSpeakerDetail(speaker)">
                 <ion-avatar slot="start">
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>
@@ -26,11 +26,11 @@
 
             <ion-card-content>
               <ion-list>
-                <ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
+                <ion-item *ngFor="let session of speaker.sessions" button (click)="goToSessionDetail(session)">
                   <h3>{{session.name}}</h3>
                 </ion-item>
 
-                <ion-item (click)="goToSpeakerDetail(speaker)">
+                <ion-item button (click)="goToSpeakerDetail(speaker)">
                   <h3>About {{speaker.name}}</h3>
                 </ion-item>
               </ion-list>
