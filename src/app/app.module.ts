@@ -1,6 +1,6 @@
-import { BrowserModule, } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
@@ -17,19 +17,12 @@ import { UserData } from './providers/user-data';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot()
   ],
-  declarations: [
-    AppComponent
-  ],
-  providers: [
-    ConferenceData,
-    InAppBrowser,
-    SplashScreen,
-    UserData
-  ],
+  declarations: [AppComponent],
+  providers: [ConferenceData, InAppBrowser, SplashScreen, UserData],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

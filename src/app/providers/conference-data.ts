@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { UserData } from './user-data';
 
@@ -8,29 +8,24 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-
 @Injectable()
 export class ConferenceData {
   data: any;
 
-  constructor(
-    public http: Http,
-    public user: UserData
-  ) { }
+  constructor(public http: HttpClient, public user: UserData) {}
 
   load(): any {
     if (this.data) {
       return Observable.of(this.data);
     } else {
-      return this.http.get('assets/data/data.json')
-        .map(this.processData, this);
+      return this.http.get('assets/data/data.json').map(this.processData, this);
     }
   }
 
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    this.data = data.json();
+    this.data = data;
 
     this.data.tracks = [];
 
@@ -43,7 +38,9 @@ export class ConferenceData {
           session.speakers = [];
           if (session.speakerNames) {
             session.speakerNames.forEach((speakerName: any) => {
-              const speaker = this.data.speakers.find((s: any) => s.name === speakerName);
+              const speaker = this.data.speakers.find(
+                (s: any) => s.name === speakerName
+              );
               if (speaker) {
                 session.speakers.push(speaker);
                 speaker.sessions = speaker.sessions || [];
@@ -66,7 +63,12 @@ export class ConferenceData {
     return this.data;
   }
 
-  getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
+  getTimeline(
+    dayIndex: number,
+    queryText = '',
+    excludeTracks: any[] = [],
+    segment = 'all'
+  ) {
     return this.load().map((data: any) => {
       const day = data.schedule[dayIndex];
       day.shownSessions = 0;
@@ -87,15 +89,18 @@ export class ConferenceData {
             day.shownSessions++;
           }
         });
-
       });
 
       return day;
     });
   }
 
-  filterSession(session: any, queryWords: string[], excludeTracks: any[], segment: string) {
-
+  filterSession(
+    session: any,
+    queryWords: string[],
+    excludeTracks: any[],
+    segment: string
+  ) {
     let matchesQueryText = false;
     if (queryWords.length) {
       // of any query word is in the session name than it passes the query test
@@ -154,5 +159,4 @@ export class ConferenceData {
       return data.map;
     });
   }
-
 }
