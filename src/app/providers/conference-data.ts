@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { UserData } from './user-data';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ConferenceData {
@@ -16,9 +13,11 @@ export class ConferenceData {
 
   load(): any {
     if (this.data) {
-      return Observable.of(this.data);
+      return of(this.data);
     } else {
-      return this.http.get('assets/data/data.json').map(this.processData, this);
+      return this.http
+        .get('assets/data/data.json')
+        .pipe(map(this.processData, this));
     }
   }
 
