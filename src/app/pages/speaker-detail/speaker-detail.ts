@@ -20,10 +20,10 @@ export class SpeakerDetailPage {
 
   ionViewWillEnter() {
     this.dataProvider.load().subscribe((data: any) => {
-      const sessionId = this.route.snapshot.paramMap.get('sessionId');
+      const speakerId = this.route.snapshot.paramMap.get('speakerId');
       if (data && data.speakers) {
         for (const speaker of data.speakers) {
-          if (speaker && speaker.id === sessionId) {
+          if (speaker && speaker.id === speakerId) {
             this.speaker = speaker;
             break;
           }
