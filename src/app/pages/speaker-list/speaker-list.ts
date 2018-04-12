@@ -1,8 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
-
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -20,7 +19,7 @@ export class SpeakerListPage {
     public confData: ConferenceData,
     public inAppBrowser: InAppBrowser,
     public router: Router
-  ) { }
+  ) {}
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe((speakers: any[]) => {
@@ -33,7 +32,9 @@ export class SpeakerListPage {
   }
 
   goToSpeakerDetail(speaker: any) {
-    this.router.navigateByUrl(`app/tabs/(speakers:speaker-details/${speaker.id})`);
+    this.router.navigateByUrl(
+      `app/tabs/(speakers:speaker-details/${speaker.id})`
+    );
   }
 
   goToSpeakerTwitter(speaker: any) {
@@ -50,8 +51,13 @@ export class SpeakerListPage {
         {
           text: 'Copy Link',
           handler: () => {
-            console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
-            if ( (window as any)['cordova'] && (window as any)['cordova'].plugins.clipboard) {
+            console.log(
+              'Copy link clicked on https://twitter.com/' + speaker.twitter
+            );
+            if (
+              (window as any)['cordova'] &&
+              (window as any)['cordova'].plugins.clipboard
+            ) {
               (window as any)['cordova'].plugins.clipboard.copy(
                 'https://twitter.com/' + speaker.twitter
               );
