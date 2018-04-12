@@ -2,17 +2,16 @@ import { Component } from '@angular/core';
 
 import { PopoverController } from '@ionic/angular';
 
-
 @Component({
   template: `
     <ion-list>
-      <ion-item (click)="close('http://ionicframework.com/docs/v2/getting-started')">
+      <ion-item (click)="close('https://ionicframework.com/docs/v2/getting-started')">
         <ion-label>Learn Ionic</ion-label>
       </ion-item>
-      <ion-item (click)="close('http://ionicframework.com/docs/v2')">
+      <ion-item (click)="close('https://ionicframework.com/docs/v2')">
         <ion-label>Documentation</ion-label>
       </ion-item>
-      <ion-item (click)="close('http://showcase.ionicframework.com')">
+      <ion-item (click)="close('https://showcase.ionicframework.com')">
         <ion-label>Showcase</ion-label>
       </ion-item>
       <ion-item (click)="close('https://github.com/ionic-team/ionic')">
@@ -25,10 +24,7 @@ import { PopoverController } from '@ionic/angular';
   `
 })
 export class PopoverPage {
-
-  constructor(
-    public popoverCtrl: PopoverController
-  ) { }
+  constructor(public popoverCtrl: PopoverController) {}
 
   support() {
     // this.app.getRootNavs()[0].push('/support');
