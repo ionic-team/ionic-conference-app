@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { TutorialPage } from './tutorial';
 
 const routes: Routes = [
-  { path: '', component: TutorialPage}
+  {
+    path: '',
+    component: TutorialPage
+  }
 ];
 
 @NgModule({

@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupPage } from './signup';
 
 const routes: Routes = [
-  { path: '', component: SignupPage}
+  {
+    path: '',
+    component: SignupPage
+  }
 ];
 
 @NgModule({

@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { SchedulePage } from './schedule';
 
 const routes: Routes = [
-  { path: '', component: SchedulePage}
+  {
+    path: '',
+    component: SchedulePage
+  }
 ];
 
 @NgModule({

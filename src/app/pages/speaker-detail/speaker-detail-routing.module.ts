@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { SpeakerDetailPage } from './speaker-detail';
 
 const routes: Routes = [
-  { path: '', component: SpeakerDetailPage}
+  {
+    path: '',
+    component: SpeakerDetailPage
+  }
 ];
 
 @NgModule({

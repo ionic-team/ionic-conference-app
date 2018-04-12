@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { SessionDetailPage } from './session-detail';
 
 const routes: Routes = [
-  { path: '', component: SessionDetailPage}
+  {
+    path: '',
+    component: SessionDetailPage
+  }
 ];
 
 @NgModule({

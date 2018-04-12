@@ -11,8 +11,12 @@ const routes: Routes = [
     path: 'support',
     loadChildren: './pages/support/support.module#SupportModule'
   },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignUpModule' },
+  {
+    path: 'login', loadChildren: './pages/login/login.module#LoginModule'
+  },
+  {
+    path: 'signup', loadChildren: './pages/signup/signup.module#SignUpModule'
+  },
   {
     path: 'app',
     loadChildren: './pages/tabs-page/tabs-page.module#TabsModule'

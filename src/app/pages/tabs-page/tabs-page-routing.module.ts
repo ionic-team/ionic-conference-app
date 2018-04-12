@@ -33,7 +33,6 @@ const routes: Routes = [
         component: SpeakerListPage,
         outlet: 'speakers'
       },
-
       {
         path: 'session/:sessionId',
         component: SessionDetailPage,
@@ -50,7 +49,6 @@ const routes: Routes = [
         component: MapPage,
         outlet: 'map'
       },
-
       // tab four
       {
         path: 'about',
