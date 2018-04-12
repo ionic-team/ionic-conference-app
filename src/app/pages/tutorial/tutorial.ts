@@ -22,14 +22,6 @@ export class TutorialPage {
     public storage: Storage
   ) {}
 
-  ngOnInit() {
-    this.storage.get('ion_did_tutorial').then(res => {
-      if (res) {
-        this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
-      }
-    });
-  }
-
   startApp() {
     this.router
       .navigateByUrl('/app/tabs/(schedule:schedule)')
@@ -41,6 +33,12 @@ export class TutorialPage {
   }
 
   ionViewWillEnter() {
+    this.storage.get('ion_did_tutorial').then(res => {
+      if (res) {
+        this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+      }
+    });
+
     this.menu.enable(false);
   }
 
