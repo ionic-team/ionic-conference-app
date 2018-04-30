@@ -4,7 +4,7 @@
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/img/appicon.png",
+    "src": "img/appicon.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
