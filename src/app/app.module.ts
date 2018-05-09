@@ -9,8 +9,6 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConferenceData } from './providers/conference-data';
-import { UserData } from './providers/user-data';
 
 @NgModule({
   imports: [
@@ -21,7 +19,7 @@ import { UserData } from './providers/user-data';
     IonicStorageModule.forRoot()
   ],
   declarations: [AppComponent],
-  providers: [ConferenceData, InAppBrowser, SplashScreen, StatusBar, UserData],
+  providers: [InAppBrowser, SplashScreen, StatusBar],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

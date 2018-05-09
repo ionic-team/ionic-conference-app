@@ -3,7 +3,9 @@ import { Events } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserData {
   _favorites: string[] = [];
   HAS_LOGGED_IN = 'hasLoggedIn';
