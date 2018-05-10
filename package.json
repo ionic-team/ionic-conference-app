@@ -44,7 +44,7 @@
     "@angular/compiler": "^6.0.0-rc.3",
     "@angular/compiler-cli": "^6.0.0-rc.3",
     "@angular/language-service": "6.0.0-rc.3",
-    "@ionic/lab": "1.0.0-rc.5",
+    "@ionic/lab": "1.0.0-rc.6",
     "@ionic/schematics-angular": "^1.0.0-rc.5",
     "tslint": "^5.9.1",
     "tslint-ionic-rules": "0.0.14",
