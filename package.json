@@ -9,7 +9,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "6.0.0",
+    "@angular/animations": "6.0.1",
     "@angular/common": "6.0.0",
     "@angular/core": "6.0.0",
     "@angular/forms": "6.0.0",
