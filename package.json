@@ -43,7 +43,7 @@
     "@angular/cli": "^6.0.0",
     "@angular/compiler": "^6.0.0",
     "@angular/compiler-cli": "^6.0.0",
-    "@angular/language-service": "6.0.0",
+    "@angular/language-service": "6.0.1",
     "@ionic/lab": "1.0.0-rc.6",
     "@ionic/schematics-angular": "^1.0.0-rc.5",
     "tslint": "^5.10.0",
