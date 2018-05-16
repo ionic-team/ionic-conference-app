@@ -42,7 +42,7 @@
     "@angular-devkit/schematics": "0.6.0",
     "@angular/cli": "^6.0.0",
     "@angular/compiler": "^6.0.0",
-    "@angular/compiler-cli": "^6.0.0",
+    "@angular/compiler-cli": "^6.0.2",
     "@angular/language-service": "6.0.0",
     "@ionic/lab": "1.0.0-rc.6",
     "@ionic/schematics-angular": "^1.0.0-rc.5",
