@@ -22,9 +22,9 @@
                 "output": "assets"
               },
               {
-                "glob": "**/*",
-                "input": "node_modules/@ionic/angular/dist/ionic",
-                "output": "./ionic"
+                "glob": "**/*.svg",
+                "input": "node_modules/@ionic/angular/dist/ionic/svg",
+                "output": "./svg"
               }
             ],
             "styles": [
