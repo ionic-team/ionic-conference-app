@@ -45,7 +45,7 @@
     "@angular-devkit/core": "0.6.0",
     "@angular-devkit/schematics": "0.6.0",
     "@ionic/lab": "1.0.0-rc.6",
-    "@ionic/schematics-angular": "^1.0.0-rc.5",
+    "@ionic/schematics-angular": "^1.0.0-rc.6",
     "tslint": "^5.10.0",
     "tslint-ionic-rules": "0.0.14",
     "typescript": "2.7.2"
