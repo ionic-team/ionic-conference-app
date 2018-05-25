@@ -1,4 +1,5 @@
-# Ionic Conference Application
+# Ionic Conference Application 
+Firebased by Dibyanshu Patnaik
 
 This is the official Ionic demo app, showcasing a variety of Ionic Framework components and native features.
 
