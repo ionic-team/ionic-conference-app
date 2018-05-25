@@ -29,6 +29,19 @@ import { SupportPage } from '../pages/support/support';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyClxpBtKaVlcr5n-itSoZM_WWTLBqVf-og",
+  authDomain: "ionic-abs-conference.firebaseapp.com",
+  databaseURL: "https://ionic-abs-conference.firebaseio.com",
+  projectId: "ionic-abs-conference",
+  storageBucket: "ionic-abs-conference.appspot.com",
+  messagingSenderId: "668567626055"
+};
+
 
 @NgModule({
   declarations: [
@@ -68,7 +81,9 @@ import { UserData } from '../providers/user-data';
         { component: SignupPage, name: 'SignupPage', segment: 'signup' }
       ]
     }),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
