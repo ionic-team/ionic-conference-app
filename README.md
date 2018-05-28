@@ -1,6 +1,8 @@
 # Ionic Conference Application 
 Firebased by Dibyanshu Patnaik
 
+(Instead of using the assets/data/data.json file for feching data, this version fetches data from the realtime, online database, Firebase. The changes made are reflected in the appmodule and the provider)
+
 This is the official Ionic demo app, showcasing a variety of Ionic Framework components and native features.
 
 ## Important!
