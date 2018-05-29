@@ -12,25 +12,26 @@
 		<img src="assets/img/appicon.svg" alt="Ionic logo">
 	</div>
 
-	<form #loginForm="ngForm" novalidate>
+	<form #loginForm="ngForm" validate>
 		<ion-list no-lines>
+
 			<ion-item>
-				<ion-label stacked color="primary">Username</ion-label>
-				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+				<ion-label floating color="primary">Registered Email ID</ion-label>
+				<ion-input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
 					required>
 				</ion-input>
 			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
+			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				Email Address is required
 			</p>
 
 			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
-				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+				<ion-label floating color="primary">Passcode</ion-label>
+				<ion-input [(ngModel)]="login.passcode" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
 			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
+				Passcode is required
 			</p>
 		</ion-list>
 
