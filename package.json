@@ -25,7 +25,7 @@
     "cordova-android": "^7.1.0",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-device": "^2.0.1",
-    "cordova-plugin-inappbrowser": "^2.0.2",
+    "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.0.2",
     "cordova-plugin-ionic-webview": "^1.2.0",
     "cordova-plugin-splashscreen": "^5.0.2",
