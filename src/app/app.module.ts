@@ -34,7 +34,7 @@ import { AngularFireModule } from 'angularfire2';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyClxpBtKaVlcr5n-itSoZM_WWTLBqVf-og",
+  apiKey: "Your API Key",
   authDomain: "ionic-abs-conference.firebaseapp.com",
   databaseURL: "https://ionic-abs-conference.firebaseio.com",
   projectId: "ionic-abs-conference",
