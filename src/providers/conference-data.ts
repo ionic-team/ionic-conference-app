@@ -8,26 +8,53 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
+import {  AngularFireDatabase } from 'angularfire2/database'
+import * as firebase from 'firebase';
+
 
 @Injectable()
 export class ConferenceData {
   data: any;
 
-  constructor(public http: Http, public user: UserData) { }
+  public listRef: firebase.database.Reference = firebase.database().ref('/');
+
+  constructor(public http: Http, public user: UserData, public angFire  : AngularFireDatabase) { }
 
   load(): any {
     if (this.data) {
       return Observable.of(this.data);
     } else {
-      return this.http.get('assets/data/data.json')
-        .map(this.processData, this);
+      return Observable.create(observer => {
+        this.listRef.on('value', itemSnapshot=> {
+          this.data = [];
+          console.log('************',itemSnapshot);
+          itemSnapshot.forEach( itemSnap => {
+                console.log(itemSnap.val());
+                this.data[itemSnap.key] = itemSnap.val();
+                return false;
+            });
+            this.processData(this.data);
+          observer.next(this.data);
+          observer.complete();
+        //   
+      })
+       /* return this.http.get('listRef')
+        .map(this.processData, this);  */
+        // return this.listRef.on('value', itemSnapshot=> {
+        //   this.data = [];
+        //   itemSnapshot.forEach( itemSnap => {
+        //     console.log(itemSnap.val());
+        //     this.data.push(itemSnap.val());
+        //     return false;
+        // });
+    }); 
     }
   }
 
   processData(data: any) {
     // just some good 'ol JS fun with objects and arrays
     // build up the data by linking speakers to sessions
-    this.data = data.json();
+    // this.data = data.json();
 
     this.data.tracks = [];
 
