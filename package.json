@@ -48,7 +48,7 @@
     "@ionic/schematics-angular": "^1.0.0-rc.5",
     "tslint": "^5.10.0",
     "tslint-ionic-rules": "0.0.14",
-    "typescript": "2.7.2"
+    "typescript": "2.8.3"
   },
   "cordova": {
     "platforms": [
