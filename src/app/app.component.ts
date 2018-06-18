@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Events, MenuController, Platform } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
 
 import { UserData } from './providers/user-data';
 
@@ -38,7 +37,6 @@ export class AppComponent implements OnInit {
     private events: Events,
     private menu: MenuController,
     private router: Router,
-    private storage: Storage,
     private userData: UserData,
     private platform: Platform,
     private splashScreen: SplashScreen,

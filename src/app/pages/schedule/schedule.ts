@@ -61,7 +61,7 @@ export class SchedulePage {
     });
     await modal.present();
 
-    const {data} = await modal.onWillDismiss();
+    const { data } = await modal.onWillDismiss();
     if (data) {
       this.excludeTracks = data;
       this.updateSchedule();

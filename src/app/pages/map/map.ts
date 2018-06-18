@@ -39,7 +39,7 @@ export class MapPage {
 
         const marker = new google.maps.Marker({
           position: markerData,
-          map: map,
+          map,
           title: markerData.name
         });
 
