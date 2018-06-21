@@ -14,7 +14,7 @@
     "@angular/forms": "6.0.5",
     "@angular/http": "6.0.5",
     "@angular/platform-browser": "6.0.5",
-    "@angular/platform-browser-dynamic": "6.0.5",
+    "@angular/platform-browser-dynamic": "6.0.6",
     "@angular/router": "6.0.5",
     "@ionic-native/core": "5.0.0-beta.11",
     "@ionic-native/in-app-browser": "5.0.0-beta.11",
