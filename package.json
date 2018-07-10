@@ -46,7 +46,7 @@
     "@angular/compiler-cli": "6.0.7",
     "@angular/language-service": "6.0.7",
     "@ionic/lab": "1.0.0-rc.9",
-    "@ionic/ng-toolkit": "1.0.0-rc.9",
+    "@ionic/ng-toolkit": "1.0.0-rc.10",
     "@ionic/schematics-angular": "1.0.0-rc.9",
     "tslint": "^5.10.0",
     "tslint-ionic-rules": "0.0.16",
