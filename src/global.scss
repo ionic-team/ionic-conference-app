@@ -3,8 +3,27 @@
 @import "~@ionic/angular/css/typography.css";
 @import "~@ionic/angular/css/colors.css";
 
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+// App Global Sass
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply globally. These styles are for
+// the entire app and not just one component. Additionally, this file can be
+// also used as an entry point to import other Sass files to be included in the
+// output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's default Sass
+// variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule for the .md, or .ios
+// mode classes. The mode class is automatically applied to the <body>
+// element in the app.
+
+@import "~@ionic/core/css/normalize.css";
+@import "~@ionic/core/css/structure.css";
+@import "~@ionic/core/css/typography.css";
+@import "~@ionic/core/css/colors.css";
+
+@import "~@ionic/core/css/padding.css";
+@import "~@ionic/core/css/float-elements.css";
+@import "~@ionic/core/css/text-alignment.css";
+@import "~@ionic/core/css/text-transformation.css";
+@import "~@ionic/core/css/flex-utils.css";
