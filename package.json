@@ -12,7 +12,7 @@
     "@angular/common": "6.0.9",
     "@angular/core": "6.0.9",
     "@angular/forms": "6.0.9",
-    "@angular/http": "6.0.9",
+    "@angular/http": "6.1.0",
     "@angular/platform-browser": "6.0.9",
     "@angular/platform-browser-dynamic": "6.0.9",
     "@angular/router": "6.0.9",
