@@ -50,7 +50,7 @@
     "@ionic/schematics-angular": "1.0.0-rc.9",
     "tslint": "^5.11.0",
     "tslint-ionic-rules": "0.0.16",
-    "typescript": "2.7.2"
+    "typescript": "2.9.2"
   },
   "cordova": {
     "platforms": [
