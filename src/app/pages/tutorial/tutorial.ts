@@ -43,7 +43,9 @@ export class TutorialPage {
   }
 
   ionViewDidEnter() {
-    this.slides.nativeElement.update();
+    this.slides.nativeElement.addEventListener('ionSlidesDidLoad', () => {
+      this.slides.nativeElement.update();
+    });
   }
 
   ionViewDidLeave() {
