@@ -18,7 +18,7 @@ export class AboutPage {
   async presentPopover(event: Event) {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
-      ev: event
+      event
     });
     await popover.present();
   }
