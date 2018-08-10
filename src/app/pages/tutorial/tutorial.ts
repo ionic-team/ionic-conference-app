@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MenuController } from '@ionic/angular';
+import { MenuController, Slides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -14,7 +14,8 @@ import { Storage } from '@ionic/storage';
 export class TutorialPage {
   showSkip = true;
 
-  @ViewChild('slides') slides;
+  // TODO https://github.com/ionic-team/ionic/issues/15046
+  @ViewChild('slides', { read: Slides }) slides: Slides;
 
   constructor(
     public menu: MenuController,
@@ -43,7 +44,7 @@ export class TutorialPage {
   }
 
   ionViewDidEnter() {
-    this.slides.nativeElement.update();
+    this.slides.update();
   }
 
   ionViewDidLeave() {
