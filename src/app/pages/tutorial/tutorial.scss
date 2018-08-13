@@ -1,16 +1,14 @@
 page-tutorial {
-  .toolbar-background {
-    background: transparent;
-    border-color: transparent;
-  }
-
-  .slide-zoom {
-    height: 100%;
+  ion-toolbar {
+    // TODO test transparent and fullscreen
+    --background: transparent;
+    --border-color: transparent;
   }
 
   .swiper-slide {
     display: block;
   }
+
   .slide-title {
     margin-top: 2.8rem;
   }

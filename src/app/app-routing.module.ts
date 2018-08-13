@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tutorial', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/tutorial',
+    pathMatch: 'full'
+  },
   {
     path: 'account',
     loadChildren: './pages/account/account.module#AccountModule'
@@ -12,10 +16,12 @@ const routes: Routes = [
     loadChildren: './pages/support/support.module#SupportModule'
   },
   {
-    path: 'login', loadChildren: './pages/login/login.module#LoginModule'
+    path: 'login',
+    loadChildren: './pages/login/login.module#LoginModule'
   },
   {
-    path: 'signup', loadChildren: './pages/signup/signup.module#SignUpModule'
+    path: 'signup',
+    loadChildren: './pages/signup/signup.module#SignUpModule'
   },
   {
     path: 'app',
@@ -26,6 +32,7 @@ const routes: Routes = [
     loadChildren: './pages/tutorial/tutorial.module#TutorialModule'
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

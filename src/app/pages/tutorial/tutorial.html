@@ -1,14 +1,13 @@
 <ion-header no-border>
-  <ion-toolbar transparent>
+  <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip" >Skip</ion-button>
+      <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content no-bounce>
+<ion-content>
   <ion-slides #slides (ionSlideDidChange)="onSlideChangeStart($event)" pager="false">
-
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
       <h2 class="slide-title">
@@ -46,6 +45,5 @@
         <ion-icon slot="end" name="arrow-forward"></ion-icon>
       </ion-button>
     </ion-slide>
-
   </ion-slides>
 </ion-content>

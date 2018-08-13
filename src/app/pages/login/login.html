@@ -14,9 +14,9 @@
   </div>
 
   <form #loginForm="ngForm" novalidate>
-    <ion-list lines="none">
+    <ion-list>
       <ion-item>
-        <ion-label stacked color="primary">Username</ion-label>
+        <ion-label position="stacked" color="primary">Username</ion-label>
         <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
           required>
         </ion-input>
@@ -29,7 +29,7 @@
       </ion-text>
 
       <ion-item>
-        <ion-label stacked color="primary">Password</ion-label>
+        <ion-label position="stacked" color="primary">Password</ion-label>
         <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
         </ion-input>
       </ion-item>
