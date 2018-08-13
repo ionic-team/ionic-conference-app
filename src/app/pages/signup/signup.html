@@ -14,7 +14,7 @@
   </div>
 
   <form #signupForm="ngForm" novalidate>
-    <ion-list no-lines>
+    <ion-list lines="none">
       <ion-item>
         <ion-label stacked color="primary">Username</ion-label>
         <ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>

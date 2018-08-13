@@ -14,7 +14,7 @@
   </div>
 
   <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
-    <ion-list no-lines>
+    <ion-list lines="none">
       <ion-item>
         <ion-label stacked color="primary">Enter your support message below</ion-label>
         <ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required></ion-textarea>
