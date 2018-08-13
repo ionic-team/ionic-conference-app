@@ -139,5 +139,16 @@
         }
       }
     }
+  },
+  "cli": {
+    "defaultCollection": "@ionic/schematics-angular"
+  },
+  "schematics": {
+    "@ionic/schematics-angular:component": {
+      "styleext": "scss"
+    },
+    "@ionic/schematics-angular:page": {
+      "styleext": "scss"
+    }
   }
 }
