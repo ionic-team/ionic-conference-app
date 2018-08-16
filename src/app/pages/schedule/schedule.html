@@ -21,7 +21,7 @@
   </ion-toolbar>
 
   <ion-toolbar color="primary">
-    <ion-searchbar [(ngModel)]="queryText" (ionInput)="updateSchedule()" placeholder="Search">
+    <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateSchedule()" placeholder="Search">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>

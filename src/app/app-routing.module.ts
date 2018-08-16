@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
+import { IonicRouteStrategy } from '../../node_modules/@ionic/angular';
 
 const routes: Routes = [
   {
