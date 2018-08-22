@@ -11,12 +11,10 @@
   <ion-list>
     <ion-grid fixed>
       <ion-row align-items-stretch>
-
-        <ion-col col-12 col-md-6 align-self-stretch align-self-center *ngFor="let speaker of speakers">
-
+        <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
           <ion-card class="speaker-card">
             <ion-card-header>
-              <ion-item detail-none button (click)="goToSpeakerDetail(speaker)">
+              <ion-item detail-none button [href]="'app/tabs/(speakers:speaker-details/'+ speaker.id">
                 <ion-avatar slot="start">
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>
@@ -26,39 +24,37 @@
 
             <ion-card-content>
               <ion-list>
-                <ion-item *ngFor="let session of speaker.sessions" button (click)="goToSessionDetail(session)">
+                <ion-item *ngFor="let session of speaker.sessions" button [href]="'app/tabs/(speakers:session/'+session.id">
                   <h3>{{session.name}}</h3>
                 </ion-item>
 
-                <ion-item button (click)="goToSpeakerDetail(speaker)">
+                <ion-item button (click)="goToSpeakerDetail(speaker)" [href]="'app/tabs/(speakers:speaker-details/'+ speaker.id">
                   <h3>About {{speaker.name}}</h3>
                 </ion-item>
               </ion-list>
             </ion-card-content>
 
             <ion-row no-padding justify-content-center>
-              <ion-col col-auto text-left>
+              <ion-col text-left size="4">
                 <ion-button fill="clear" size="small" color="primary" (click)="goToSpeakerTwitter(speaker)">
                   <ion-icon name="logo-twitter" slot="start"></ion-icon>
                   Tweet
                 </ion-button>
               </ion-col>
-              <ion-col col-auto text-center>
+              <ion-col text-center size="4">
                 <ion-button fill="clear" size="small" color="primary" (click)="openSpeakerShare(speaker)">
                   <ion-icon name='share-alt' slot="start"></ion-icon>
                   Share
                 </ion-button>
               </ion-col>
-              <ion-col col-auto text-right>
+              <ion-col text-right size="4">
                 <ion-button fill="clear" size="small" color="primary" (click)="openContact(speaker)">
                   <ion-icon name='chatboxes' slot="start"></ion-icon>
                   Contact
                 </ion-button>
               </ion-col>
             </ion-row>
-
           </ion-card>
-
         </ion-col>
       </ion-row>
     </ion-grid>
