@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
@@ -10,7 +10,7 @@ import { ConferenceData } from '../../providers/conference-data';
   styleUrls: ['./schedule-filter.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ScheduleFilterPage {
+export class ScheduleFilterPage implements AfterViewInit {
 
   tracks: {name: string, isChecked: boolean}[] = [];
 

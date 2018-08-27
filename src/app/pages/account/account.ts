@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
@@ -12,7 +12,7 @@ import { UserData } from '../../providers/user-data';
   styleUrls: ['./account.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AccountPage {
+export class AccountPage implements AfterViewInit {
   username: string;
 
   constructor(
