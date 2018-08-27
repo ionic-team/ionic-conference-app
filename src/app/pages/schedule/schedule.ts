@@ -45,7 +45,7 @@ export class SchedulePage {
   updateSchedule() {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
-      this.scheduleList.nativeElement.closeSlidingItems();
+      this.scheduleList.closeSlidingItems();
     }
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
@@ -137,7 +137,7 @@ export class SchedulePage {
 
   async openSocial(network: string, fab: HTMLIonFabElement) {
     const loading = await this.loadingCtrl.create({
-      content: `Posting to ${network}`,
+      message: `Posting to ${network}`,
       duration: (Math.random() * 1000) + 500
     });
     await loading.present();
