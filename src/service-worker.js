@@ -15,6 +15,7 @@ self.toolbox.options.cache = {
 self.toolbox.precache(
   [
     './build/main.js',
+    './build/vendor.js',
     './build/main.css',
     './build/polyfills.js',
     'index.html',
