@@ -15,7 +15,7 @@ export class TutorialPage {
   showSkip = true;
 
   // TODO https://github.com/ionic-team/ionic/issues/15046
-  @ViewChild('slides', { read: Slides }) slides: Slides;
+  @ViewChild('slides') slides: Slides;
 
   constructor(
     public menu: MenuController,
