@@ -3,6 +3,14 @@
   "version": "0.0.0",
   "description": "Ionic Conference App",
   "license": "Apache-2.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "precommit": "npm run lint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ionic-team/ionic-conference-app.git"
@@ -50,6 +58,7 @@
     "@ionic/schematics-angular": "^1.0.0",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
+    "husky": "^0.14.3",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^3.0.0",
