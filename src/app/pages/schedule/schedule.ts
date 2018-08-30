@@ -141,9 +141,9 @@ export class SchedulePage {
       duration: (Math.random() * 1000) + 500
     });
     await loading.present();
-    loading.onWillDismiss(() => {
-      fab.close();
-    });
+    await loading.onWillDismiss();
+    fab.close();
+
   }
 
   /*doRefresh(refresher: Refresher) {
