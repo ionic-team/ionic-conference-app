@@ -14,7 +14,6 @@ import { Storage } from '@ionic/storage';
 export class TutorialPage {
   showSkip = true;
 
-  // TODO https://github.com/ionic-team/ionic/issues/15046
   @ViewChild('slides') slides: Slides;
 
   constructor(

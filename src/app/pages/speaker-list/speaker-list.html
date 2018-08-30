@@ -14,7 +14,7 @@
         <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
           <ion-card class="speaker-card">
             <ion-card-header>
-              <ion-item detail-none button [href]="'app/tabs/(speakers:speaker-details/'+ speaker.id">
+              <ion-item detail="false" lines="none" button [href]="'app/tabs/(speakers:speaker-details/'+ speaker.id">
                 <ion-avatar slot="start">
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>

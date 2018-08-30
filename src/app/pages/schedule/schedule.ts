@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, List, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -14,10 +14,7 @@ import { UserData } from '../../providers/user-data';
 })
 export class SchedulePage {
   // Gets a reference to the list element
-
-  // TODO
-  // @ViewChild('scheduleList') scheduleList: HTMLIonListElement;
-  @ViewChild('scheduleList') scheduleList: any;
+  @ViewChild('scheduleList') scheduleList: List;
 
   dayIndex = 0;
   queryText = '';
@@ -143,7 +140,6 @@ export class SchedulePage {
     await loading.present();
     await loading.onWillDismiss();
     fab.close();
-
   }
 
   /*doRefresh(refresher: Refresher) {
