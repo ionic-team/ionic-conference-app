@@ -24,7 +24,7 @@ This is purely a demo of Ionic with TypeScript. It is still in development.
 * Run `ionic serve` in a terminal from the project root.
 * Profit. :tada:
 
-_Note: You may need to add “sudo” in front of any global commands to install the utilities._
+_Note: See [How to Prevent Permissions Errors](https://docs.npmjs.com/getting-started/fixing-npm-permissions) if you are running into issues when trying to install packages globally._
 
 ## Contributing
 See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) :tada::+1:
