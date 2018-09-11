@@ -7,7 +7,7 @@ import {
   Config,
   NavController
 } from 'ionic-angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { ConferenceData } from '../../providers/conference-data';
 

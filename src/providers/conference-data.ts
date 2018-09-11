@@ -4,12 +4,13 @@ import { Http } from '@angular/http';
 
 import { UserData } from './user-data';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ConferenceData {
   data: any;
 
@@ -17,10 +18,12 @@ export class ConferenceData {
 
   load(): any {
     if (this.data) {
-      return Observable.of(this.data);
+      return of(this.data);
     } else {
       return this.http.get('assets/data/data.json')
-        .map(this.processData, this);
+        .pipe(
+          map(this.processData, this)
+        );
     }
   }
 
@@ -64,31 +67,34 @@ export class ConferenceData {
   }
 
   getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
-    return this.load().map((data: any) => {
-      let day = data.schedule[dayIndex];
-      day.shownSessions = 0;
+    return this.load()
+      .pipe(
+        map((data: any) => {
+          let day = data.schedule[dayIndex];
+          day.shownSessions = 0;
 
-      queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-      let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
+          queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
+          let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
 
-      day.groups.forEach((group: any) => {
-        group.hide = true;
+          day.groups.forEach((group: any) => {
+              group.hide = true;
 
-        group.sessions.forEach((session: any) => {
-          // check if this session should show or not
-          this.filterSession(session, queryWords, excludeTracks, segment);
+              group.sessions.forEach((session: any) => {
+                // check if this session should show or not
+                this.filterSession(session, queryWords, excludeTracks, segment);
 
-          if (!session.hide) {
-            // if this session is not hidden then this group should show
-            group.hide = false;
-            day.shownSessions++;
-          }
-        });
+                if (!session.hide) {
+                  // if this session is not hidden then this group should show
+                  group.hide = false;
+                  day.shownSessions++;
+                }
+              });
+            }
+          );
 
-      });
-
-      return day;
-    });
+          return day;
+        })
+      );
   }
 
   filterSession(session: any, queryWords: string[], excludeTracks: any[], segment: string) {
@@ -131,25 +137,30 @@ export class ConferenceData {
   }
 
   getSpeakers() {
-    return this.load().map((data: any) => {
-      return data.speakers.sort((a: any, b: any) => {
-        let aName = a.name.split(' ').pop();
-        let bName = b.name.split(' ').pop();
-        return aName.localeCompare(bName);
-      });
-    });
+    return this.load()
+      .pipe(
+        map((data: any) => {
+          return data.speakers.sort((a: any, b: any) => {
+            let aName = a.name.split(' ').pop();
+            let bName = b.name.split(' ').pop();
+            return aName.localeCompare(bName);
+          });
+        })
+      );
   }
 
   getTracks() {
-    return this.load().map((data: any) => {
-      return data.tracks.sort();
-    });
+    return this.load().pipe(
+      map((data: any) => {
+        return data.tracks.sort();
+      })
+    );
   }
 
   getMap() {
-    return this.load().map((data: any) => {
+    return this.load().pipe(map((data: any) => {
       return data.map;
-    });
+    }));
   }
 
 }
