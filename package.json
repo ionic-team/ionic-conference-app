@@ -51,7 +51,7 @@
     "@angular-devkit/schematics": "~0.7.1",
     "@angular/cli": "~6.1.0",
     "@angular/compiler": "~6.1.0",
-    "@angular/compiler-cli": "~6.1.0",
+    "@angular/compiler-cli": "~6.1.6",
     "@angular/language-service": "~6.1.0",
     "@ionic/lab": "^1.0.0",
     "@ionic/ng-toolkit": "^1.0.0",
