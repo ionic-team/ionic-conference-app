@@ -29,7 +29,9 @@ export class TutorialPage {
   }
 
   onSlideChangeStart(event) {
-    this.showSkip = !event.target.isEnd();
+    event.target.isEnd().then(isEnd => {
+      this.showSkip = !isEnd;
+    });
   }
 
   ionViewWillEnter() {
@@ -40,10 +42,6 @@ export class TutorialPage {
     });
 
     this.menu.enable(false);
-  }
-
-  ionViewDidEnter() {
-    this.slides.update();
   }
 
   ionViewDidLeave() {

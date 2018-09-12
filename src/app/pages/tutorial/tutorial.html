@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides #slides (ionSlideDidChange)="onSlideChangeStart($event)" pager="false">
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="false">
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
       <h2 class="slide-title">
