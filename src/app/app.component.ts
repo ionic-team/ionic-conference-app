@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Events, MenuController, Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 import { UserData } from './providers/user-data';
 
@@ -24,7 +25,11 @@ export class AppComponent implements OnInit {
       url: '/app/tabs/(speakers:speakers)',
       icon: 'contacts'
     },
-    { title: 'Map', url: '/app/tabs/(map:map)', icon: 'map' },
+    {
+      title: 'Map',
+      url: '/app/tabs/(map:map)',
+      icon: 'map'
+    },
     {
       title: 'About',
       url: '/app/tabs/(about:about)',
@@ -36,11 +41,12 @@ export class AppComponent implements OnInit {
   constructor(
     private events: Events,
     private menu: MenuController,
-    private router: Router,
-    private userData: UserData,
     private platform: Platform,
+    private router: Router,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private storage: Storage,
+    private userData: UserData
   ) {
     this.initializeApp();
   }
@@ -111,6 +117,7 @@ export class AppComponent implements OnInit {
 
   openTutorial() {
     this.menu.enable(false);
+    this.storage.set('ion_did_tutorial', 'false');
     this.router.navigateByUrl('/tutorial');
   }
 }

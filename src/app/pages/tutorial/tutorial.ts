@@ -36,7 +36,7 @@ export class TutorialPage {
 
   ionViewWillEnter() {
     this.storage.get('ion_did_tutorial').then(res => {
-      if (res) {
+      if (res === true) {
         this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
       }
     });
