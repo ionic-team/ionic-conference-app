@@ -138,18 +138,20 @@
   --ion-color-tint: #4f6aa2;
 }
 
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
+// the CSS variables found in Ionic's source files.
 // To view all the possible Ionic variables, see:
-// https://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+// https://beta.ionicframework.com/docs/theming/css-variables#ionic-variables
 
 :root {
   // TODO
   // $headings-font-weight: 300;
   --ion-headings-font-weight: 300;
 }
+
 
 // App iOS Variables
 // --------------------------------------------------
@@ -166,10 +168,13 @@
 
 .md {
   // Use the primary color as the background for the toolbar
-  // $toolbar-md-background:                   color($colors, primary);
+  --ion-toolbar-background-color:        var(--ion-color-primary);
 
   // Change the color of the segment button text
-  // $toolbar-md-active-color:                 #fff;
+  --ion-toolbar-color-active:            #fff;
+
+  // Change the color of the segment button text
+  --ion-toolbar-text-color:              #fff;
 }
 
 
