@@ -127,11 +127,6 @@ export class SchedulePage {
     await alert.present();
   }
 
-  toggleList(fabButton: HTMLIonFabButtonElement, fabList: HTMLIonFabListElement) {
-    fabButton.activated = !fabButton.activated;
-    fabList.activated = !fabList.activated;
-  }
-
   async openSocial(network: string, fab: HTMLIonFabElement) {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
