@@ -32,25 +32,21 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 
 ## Use Cases
 
-* Action Sheet - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/speaker-list/speaker-list.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/speaker-list/speaker-list.ts) ]
-* Alert - [ [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-* Cards - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/speaker-list/speaker-list.html) ]
-* Datetime - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/about/about.html) ]
-* Grid - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/login/login.html) ]
-* Inputs - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/login/login.html) ]
-* Items (Sliding) - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-* Menu - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/app.template.html) |
-[code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/app.component.ts) ]
-* Modal - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-* Searchbar - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-* Segment - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-* Slides - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/tutorial/tutorial.html) |
-* Sticky headers - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html) ]
-* Tabs - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/tabs/tabs.html) | [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/tabs/tabs.ts) ]
-* Toggle - [ [template](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule-filter/schedule-filter.html) ]
-[code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/tutorial/tutorial.ts) ]
-* Using Angular HTTP for JSON - [ [code](https://github.com/ionic-team/ionic-conference-app/blob/master/src/providers/conference-data.ts) | [usage](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.ts) ]
-
+* Action Sheet - [ [ionic](https://ionicframework.com/docs/components/#cards) ]
+* Alert - [ [ionic](https://ionicframework.com/docs/components/#alert) ]
+* Cards - [ [ionic](https://ionicframework.com/docs/components/#cards) ]
+* Datetime - [ [ionic](https://ionicframework.com/docs/components/#datetime) ]
+* Grid - [ [ionic](https://ionicframework.com/docs/components/#grid) ]
+* Inputs - [ [ionic](https://ionicframework.com/docs/components/#inputs) ]
+* Lists - [ [ionic](https://ionicframework.com/docs/components/#lists) ]
+* Menu - [ [ionic](https://ionicframework.com/docs/components/#menus) ]
+* Modal - [ [ionic](https://ionicframework.com/docs/components/#modals) ]
+* Searchbar - [ [ionic](https://ionicframework.com/docs/components/#searchbar) ]
+* Segment - [ [ionic](https://ionicframework.com/docs/components/#segment) ]
+* Slides - [ [ionic](https://ionicframework.com/docs/components/#slides) |
+* Tabs - [ [ionic](https://ionicframework.com/docs/components/#tabs) 
+* Toggle - [ [ionic](https://ionicframework.com/docs/components/#toggle) ]
+* Toolbar - [ [ionic](https://ionicframework.com/docs/components/#toolbar) ]
 
 ## App Preview
 
@@ -58,12 +54,12 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 
 All app preview screenshots were taken by running `ionic serve --lab` on a retina display.
 
-- [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html)
+#### - Schedule Page
 
   <img src="resources/screenshots/SchedulePage.png" alt="Schedule">
 
 
-- [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/about/about.html)
+####- About Page
 
   <img src="resources/screenshots/AboutPage.png" alt="Schedule">
 
