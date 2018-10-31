@@ -89,22 +89,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  selectTab(index: number, fallbackUrl: string) {
-    const tabs = document.querySelector('ion-tabs');
-    let promise: Promise<any> = null;
-    if (tabs) {
-      promise = tabs.componentOnReady();
-      promise.then(() => {
-        return tabs.select(index);
-      });
-    } else {
-      promise = this.navigate(fallbackUrl);
-    }
-    return promise.then(() => {
-      return this.menu.toggle();
-    });
-  }
-
   navigate(url: string) {
     return this.router.navigateByUrl(url);
   }
