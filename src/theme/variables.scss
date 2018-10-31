@@ -173,13 +173,13 @@
 
 .md {
   // Use the primary color as the background for the toolbar
-  --ion-toolbar-background-color: var(--ion-color-primary);
+  --ion-toolbar-background: var(--ion-color-primary);
 
   // Change the color of the segment button text
-  --ion-toolbar-color-active: #fff;
+  --ion-toolbar-color: #fff;
 
-  // Change the color of the segment button text
-  --ion-toolbar-text-color: #fff;
+  // Change the color of the activated segment button text
+  --ion-toolbar-color-activated: #fff;
 }
 
 // App Theme
