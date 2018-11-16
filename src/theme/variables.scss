@@ -175,11 +175,17 @@
   // Use the primary color as the background for the toolbar
   --ion-toolbar-background: var(--ion-color-primary);
 
-  // Change the color of the segment button text
+  // Change the color of the toolbar components
   --ion-toolbar-color: #fff;
 
-  // Change the color of the activated segment button text
+  // Change the color of the activated toolbar components
   --ion-toolbar-color-activated: #fff;
+
+  // Change the color of the unchecked segment buttons
+  --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
+
+  // Change the color of the checked segment button
+  --ion-toolbar-color-checked: #fff;
 }
 
 // App Theme
