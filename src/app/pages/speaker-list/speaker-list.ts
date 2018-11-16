@@ -27,16 +27,6 @@ export class SpeakerListPage {
     });
   }
 
-  goToSessionDetail(session: any) {
-    this.router.navigateByUrl(`app/tabs/(speakers:session/${session.id})`);
-  }
-
-  goToSpeakerDetail(speaker: any) {
-    this.router.navigateByUrl(
-      `app/tabs/(speakers:speaker-details/${speaker.id})`
-    );
-  }
-
   goToSpeakerTwitter(speaker: any) {
     this.inAppBrowser.create(
       `https://twitter.com/${speaker.twitter}`,

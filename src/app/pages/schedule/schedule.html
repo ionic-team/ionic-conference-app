@@ -21,8 +21,7 @@
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateSchedule()" placeholder="Search">
-    </ion-searchbar>
+    <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateSchedule()" placeholder="Search"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -35,7 +34,7 @@
       </ion-item-divider>
 
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
-        <ion-item button (click)="goToSessionDetail(session)">
+        <ion-item button href="app/tabs/(schedule:session/{{session.id}}">
           <ion-label>
             <h3>{{session.name}}</h3>
             <p>
