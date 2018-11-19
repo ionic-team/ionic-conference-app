@@ -52,7 +52,7 @@
     "@angular/cli": "~7.0.3",
     "@angular/compiler": "~7.0.3",
     "@angular/compiler-cli": "~7.0.3",
-    "@angular/language-service": "~7.0.3",
+    "@angular/language-service": "~7.0.4",
     "@ionic/lab": "^1.0.13",
     "@ionic/ng-toolkit": "1.1.0",
     "@ionic/schematics-angular": "^1.0.7",
