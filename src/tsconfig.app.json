@@ -5,8 +5,8 @@
     "baseUrl": "./",
     "module": "es2015"
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+//  "angularCompilerOptions": {
+//    "enableIvy": true
+//  },
+  "exclude": ["test.ts", "**/*.spec.ts"]
 }
