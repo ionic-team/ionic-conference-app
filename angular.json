@@ -21,11 +21,6 @@
                 "input": "src/assets",
                 "output": "assets"
               },
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/@ionic/angular/dist/ionic/svg",
-                "output": "./svg"
-              },
               "src/manifest.json"
             ],
             "styles": [
@@ -85,7 +80,10 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "styles.css"
+                "input": "src/theme/variables.scss"
+              },
+              {
+                "input": "src/global.scss"
               }
             ],
             "scripts": [],
