@@ -34,12 +34,12 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 
 All app preview screenshots were taken by running `ionic serve --lab` on a retina display.
 
-- [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/schedule/schedule.html)
+- [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/schedule/schedule.html)
 
   <img src="resources/screenshots/SchedulePage.png" alt="Schedule">
 
 
-- [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/pages/about/about.html)
+- [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/about/about.html)
 
   <img src="resources/screenshots/AboutPage.png" alt="Schedule">
 
@@ -52,13 +52,13 @@ All app preview screenshots were taken by running `ionic serve --lab` on a retin
 ### Progressive Web App
 
 1. Un-comment [these lines](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L21)
-2. Run `npm run ionic:build --prod` 
+2. Run `npm run ionic:build --prod`
 3. Push the `www` folder to your hosting service
 
 ### Android
 
 1. Run `ionic cordova run android --prod`
-  
+
 ### iOS
 
 1. Run `ionic cordova run ios --prod`
