@@ -16,44 +16,53 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      // tab one
       {
         path: 'schedule',
-        component: SchedulePage,
-        outlet: 'schedule'
+        children: [
+          {
+            path: '',
+            component: SchedulePage,
+          },
+          {
+            path: 'session/:sessionId',
+            component: SessionDetailPage,
+          }
+        ]
       },
-      {
-        path: 'session/:sessionId',
-        component: SessionDetailPage,
-        outlet: 'schedule'
-      },
-      // tab two
       {
         path: 'speakers',
-        component: SpeakerListPage,
-        outlet: 'speakers'
+        children: [
+          {
+            path: '',
+            component: SpeakerListPage,
+          },
+          {
+            path: 'session/:sessionId',
+            component: SessionDetailPage,
+          },
+          {
+            path: 'speaker-details/:speakerId',
+            component: SpeakerDetailPage,
+          }
+        ]
       },
-      {
-        path: 'session/:sessionId',
-        component: SessionDetailPage,
-        outlet: 'speakers'
-      },
-      {
-        path: 'speaker-details/:speakerId',
-        component: SpeakerDetailPage,
-        outlet: 'speakers'
-      },
-      // tab three
       {
         path: 'map',
-        component: MapPage,
-        outlet: 'map'
+        children: [
+          {
+            path: '',
+            component: MapPage,
+          }
+        ]
       },
-      // tab four
       {
         path: 'about',
-        component: AboutPage,
-        outlet: 'about'
+        children: [
+          {
+            path: '',
+            component: AboutPage,
+          }
+        ]
       }
     ]
   }

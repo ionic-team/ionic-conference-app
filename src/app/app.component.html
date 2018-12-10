@@ -14,7 +14,7 @@
             Navigate
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item button (click)="navigate(p.url)">
+            <ion-item [routerLink]="p.url">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -30,7 +30,7 @@
           </ion-list-header>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/account')">
+            <ion-item routerLink="/account">
               <ion-icon slot="start" name="person"></ion-icon>
               <ion-label>
                 Account
@@ -39,7 +39,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/support')">
+            <ion-item routerLink="/support">
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
@@ -64,7 +64,7 @@
           </ion-list-header>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/login')">
+            <ion-item routerLink="/login">
               <ion-icon slot="start" name="log-in"></ion-icon>
               <ion-label>
                 Login
@@ -73,7 +73,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/support')">
+            <ion-item routerLink="/support">
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
@@ -82,7 +82,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/signup')">
+            <ion-item routerLink="/signup">
               <ion-icon slot="start" name="person-add"></ion-icon>
               <ion-label>
                 Signup

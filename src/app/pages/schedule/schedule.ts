@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, List, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, IonList, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -14,7 +14,7 @@ import { UserData } from '../../providers/user-data';
 })
 export class SchedulePage {
   // Gets a reference to the list element
-  @ViewChild('scheduleList') scheduleList: List;
+  @ViewChild('scheduleList') scheduleList: IonList;
 
   dayIndex = 0;
   queryText = '';
@@ -63,12 +63,6 @@ export class SchedulePage {
       this.excludeTracks = data;
       this.updateSchedule();
     }
-  }
-
-  goToSessionDetail(sessionData: any) {
-    // go to the session detail page
-    // and pass in the session data
-    this.router.navigateByUrl(`app/tabs/(schedule:session/${sessionData.id})`);
   }
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {

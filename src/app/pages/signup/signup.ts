@@ -28,7 +28,7 @@ export class SignupPage {
 
     if (form.valid) {
       this.userData.signup(this.signup.username);
-      this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+      this.router.navigateByUrl('/app/tabs/schedule');
     }
   }
 }

@@ -32,8 +32,4 @@ export class SpeakerDetailPage {
     });
 
   }
-
-  goToSessionDetail(session: any) {
-    this.router.navigateByUrl(`app/tabs/(schedule:session/${session.id})`);
-  }
 }

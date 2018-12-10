@@ -34,7 +34,7 @@
       </ion-item-divider>
 
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
-        <ion-item button href="app/tabs/(schedule:session/{{session.id}}">
+        <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
           <ion-label>
             <h3>{{session.name}}</h3>
             <p>
