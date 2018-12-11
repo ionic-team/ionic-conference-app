@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, List, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, List, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -31,7 +31,8 @@ export class SchedulePage {
     public modalCtrl: ModalController,
     public router: Router,
     public toastCtrl: ToastController,
-    public user: UserData
+    public user: UserData,
+    public config: Config
   ) { }
 
   ionViewWillEnter() {
