@@ -8,7 +8,6 @@ import { PopoverPage } from '../about-popover/about-popover';
   selector: 'page-about',
   templateUrl: 'about.html',
   styleUrls: ['./about.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class AboutPage {
   conferenceDate = '2047-05-17';

@@ -14,7 +14,7 @@
         <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
           <ion-card class="speaker-card">
             <ion-card-header>
-              <ion-item detail="false" lines="none" [href]="'app/tabs/(speakers:speaker-details/'+ speaker.id">
+              <ion-item detail="false" lines="none" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
                 <ion-avatar slot="start">
                   <img [src]="speaker.profilePic" alt="Speaker profile pic">
                 </ion-avatar>
@@ -24,11 +24,11 @@
 
             <ion-card-content>
               <ion-list>
-                <ion-item *ngFor="let session of speaker.sessions" href="app/tabs/(speakers:session/{{session.id}})">
+                <ion-item *ngFor="let session of speaker.sessions" routerLink="/app/tabs/speakers/session/{{session.id}}">
                   <h3>{{session.name}}</h3>
                 </ion-item>
 
-                <ion-item href="app/tabs/(speakers:speaker-details/{{speaker.id}})">
+                <ion-item routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
                   <h3>About {{speaker.name}}</h3>
                 </ion-item>
               </ion-list>

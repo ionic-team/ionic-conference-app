@@ -11,7 +11,7 @@ $categories: (
   navigation: #6600cc
 );
 
-page-schedule {
+:host {
   @each $track, $value in map-remove($categories) {
     ion-item-sliding[track='#{$track}'] ion-label {
       border-left: 2px solid $value;

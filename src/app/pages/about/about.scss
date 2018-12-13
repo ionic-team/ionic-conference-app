@@ -1,24 +1,26 @@
-.about-header {
-  background-color: var(--ion-color-dark);
-  padding: 16px;
-  width: 100%;
-  text-align: center;
-}
+:host {
+  .about-header {
+    background-color: var(--ion-color-dark);
+    padding: 16px;
+    width: 100%;
+    text-align: center;
+  }
 
-.about-header img {
-  max-width: 200px;
-  padding: 25px 5px 20px 0;
-}
+  .about-header img {
+    max-width: 200px;
+    padding: 25px 5px 20px 0;
+  }
 
-.about-info p {
-  color: var(--ion-color-medium);
-  text-align: left;
-}
+  .about-info p {
+    color: var(--ion-color-medium);
+    text-align: left;
+  }
 
-.about-info ion-icon {
-  color: var(--ion-color-primary);
-}
+  .about-info ion-icon {
+    color: var(--ion-color-primary);
+  }
 
-.ios .about-info {
-  text-align: center;
+  .ios .about-info {
+    text-align: center;
+  }
 }

@@ -1,6 +1,6 @@
 @import '../schedule/schedule';
 
-page-schedule-filter {
+:host {
   .reset-filters {
     color: var(--ion-color-danger);
   }

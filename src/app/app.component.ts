@@ -17,22 +17,22 @@ export class AppComponent implements OnInit {
   appPages = [
     {
       title: 'Schedule',
-      url: '/app/tabs/(schedule:schedule)',
+      url: '/app/tabs/schedule',
       icon: 'calendar'
     },
     {
       title: 'Speakers',
-      url: '/app/tabs/(speakers:speakers)',
+      url: '/app/tabs/speakers',
       icon: 'contacts'
     },
     {
       title: 'Map',
-      url: '/app/tabs/(map:map)',
+      url: '/app/tabs/map',
       icon: 'map'
     },
     {
       title: 'About',
-      url: '/app/tabs/(about:about)',
+      url: '/app/tabs/about',
       icon: 'information-circle'
     }
   ];
@@ -89,19 +89,15 @@ export class AppComponent implements OnInit {
     });
   }
 
-  navigate(url: string) {
-    return this.router.navigateByUrl(url);
-  }
-
   logout() {
     this.userData.logout().then(() => {
-      return this.navigate('/app/tabs/(schedule:schedule)');
+      return this.router.navigateByUrl('/app/tabs/schedule');
     });
   }
 
   openTutorial() {
     this.menu.enable(false);
-    this.storage.set('ion_did_tutorial', 'false');
+    this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
   }
 }

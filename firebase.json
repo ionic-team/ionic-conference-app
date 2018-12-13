@@ -11,6 +11,28 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+
+    "headers": [
+      {
+        "source": "ngsw-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value":
+              "</22.481de9b50b8ba05ca379.js>;rel=preload;as=script,</styles.cb58eabe01a0a3378286.css>;rel=preload;as=style,</runtime.ba37cac935ba78739e30.js>;rel=preload;as=script,</polyfills.37712cc894258bf74805.js>;rel=preload;as=script,</main.0c2ef40fb41a7592d99e.js>;rel=preload;as=script,</common.a9604537c47291c9ad17.js>;rel=preload;as=script,</101.5aade72991cc006bf946.js>;rel=preload;as=script,</135.048aa34080cba98eef15.js>;rel=preload;as=script,</37.989e8115d58d1baec5ee.js>;rel=preload;as=script,</65.a06fb09624747a5f4d87.js>;rel=preload;as=script,</145.c5db3f862cc2bf343d46.js>;rel=preload;as=script,</90.a1c50c8d87330a879f55.js>;rel=preload;as=script,</88.c1d05aa5ee16f8301ba9.js>;rel=preload;as=script,</5.eee541b7052b8e95b77f.js>;rel=preload;as=script,</141.6666cd8dc046bd52eaa0.js>;rel=preload;as=script,</7.d5e69229fe3405ee9246.js>;rel=preload;as=script,</121.7677893567365a5cf2a6.js>;rel=preload;as=script,</assets/img/ica-slidebox-img-1.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-2.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-3.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-4.png>;rel=preload;as=script,</6.d764fa1ca3804ffdbd53.js>;rel=preload;as=script,"
+          }
+        ]
+      }
     ]
   }
 }

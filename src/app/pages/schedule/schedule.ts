@@ -1,6 +1,6 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, List, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
+import { AlertController, IonList, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -10,11 +10,10 @@ import { UserData } from '../../providers/user-data';
   selector: 'page-schedule',
   templateUrl: 'schedule.html',
   styleUrls: ['./schedule.scss'],
-  encapsulation: ViewEncapsulation.None
 })
-export class SchedulePage {
+export class SchedulePage implements OnInit {
   // Gets a reference to the list element
-  @ViewChild('scheduleList') scheduleList: List;
+  @ViewChild('scheduleList') scheduleList: IonList;
 
   dayIndex = 0;
   queryText = '';
@@ -31,11 +30,10 @@ export class SchedulePage {
     public modalCtrl: ModalController,
     public router: Router,
     public toastCtrl: ToastController,
-    public user: UserData,
-    public config: Config
+    public user: UserData
   ) { }
 
-  ionViewWillEnter() {
+  ngOnInit() {
     // this.app.setTitle('Schedule');
     this.updateSchedule();
   }
@@ -64,12 +62,6 @@ export class SchedulePage {
       this.excludeTracks = data;
       this.updateSchedule();
     }
-  }
-
-  goToSessionDetail(sessionData: any) {
-    // go to the session detail page
-    // and pass in the session data
-    this.router.navigateByUrl(`app/tabs/(schedule:session/${sessionData.id})`);
   }
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
@@ -137,24 +129,4 @@ export class SchedulePage {
     await loading.onWillDismiss();
     fab.close();
   }
-
-  /*doRefresh(refresher: Refresher) {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-
-      // simulate a network request that would take longer
-      // than just pulling from out local json file
-      setTimeout(() => {
-        refresher.complete();
-
-        const toast = this.toastCtrl.create({
-          message: 'Sessions have been updated.',
-          duration: 3000
-        });
-        toast.present();
-      }, 1000);
-    });
-  }
-  */
 }

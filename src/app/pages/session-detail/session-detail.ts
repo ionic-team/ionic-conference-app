@@ -56,6 +56,6 @@ export class SessionDetailPage {
     });
   }
   ionViewDidEnter() {
-    this.defaultHref = `/app/tabs/(${this.route.outlet}:${this.route.outlet})`;
+    this.defaultHref = `/app/tabs/schedule`;
   }
 }

@@ -10,7 +10,6 @@ import { UserData } from '../../providers/user-data';
   selector: 'page-account',
   templateUrl: 'account.html',
   styleUrls: ['./account.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class AccountPage implements AfterViewInit {
   username: string;
