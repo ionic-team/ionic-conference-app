@@ -1,36 +1,34 @@
-:host {
-  ion-toolbar {
-    // TODO test transparent and fullscreen
-    --background: transparent;
-    --border-color: transparent;
-  }
+ion-toolbar {
+  // TODO test transparent and fullscreen
+  --background: transparent;
+  --border-color: transparent;
+}
 
-  .swiper-slide {
-    display: block;
-  }
+.swiper-slide {
+  display: block;
+}
 
-  .slide-title {
-    margin-top: 2.8rem;
-  }
+.slide-title {
+  margin-top: 2.8rem;
+}
 
-  .slide-image {
-    max-height: 50%;
-    max-width: 60%;
-    margin: 36px 0;
-  }
+.slide-image {
+  max-height: 50%;
+  max-width: 60%;
+  margin: 36px 0;
+}
+
+b {
+  font-weight: 500;
+}
+
+p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #60646b;
 
   b {
-    font-weight: 500;
-  }
-
-  p {
-    padding: 0 40px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #60646B;
-
-    b {
-      color: #000000;
-    }
+    color: #000000;
   }
 }

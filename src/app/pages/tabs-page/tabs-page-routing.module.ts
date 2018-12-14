@@ -57,7 +57,6 @@ const routes: Routes = [
           }
         ]
       },
-
       {
         path: '',
         redirectTo: '/app/tabs/schedule',
