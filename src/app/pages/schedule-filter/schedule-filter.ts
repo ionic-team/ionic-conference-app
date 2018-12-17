@@ -8,7 +8,6 @@ import { ConferenceData } from '../../providers/conference-data';
   selector: 'page-schedule-filter',
   templateUrl: 'schedule-filter.html',
   styleUrls: ['./schedule-filter.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class ScheduleFilterPage implements AfterViewInit {
 

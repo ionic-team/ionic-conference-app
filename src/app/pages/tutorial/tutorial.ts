@@ -1,7 +1,7 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MenuController, Slides } from '@ionic/angular';
+import { MenuController, IonSlides } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
 
@@ -9,12 +9,11 @@ import { Storage } from '@ionic/storage';
   selector: 'page-tutorial',
   templateUrl: 'tutorial.html',
   styleUrls: ['./tutorial.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class TutorialPage {
   showSkip = true;
 
-  @ViewChild('slides') slides: Slides;
+  @ViewChild('slides') slides: IonSlides;
 
   constructor(
     public menu: MenuController,
@@ -24,7 +23,7 @@ export class TutorialPage {
 
   startApp() {
     this.router
-      .navigateByUrl('/app/tabs/(schedule:schedule)')
+      .navigateByUrl('/app/tabs/schedule')
       .then(() => this.storage.set('ion_did_tutorial', 'true'));
   }
 
@@ -37,7 +36,7 @@ export class TutorialPage {
   ionViewWillEnter() {
     this.storage.get('ion_did_tutorial').then(res => {
       if (res === true) {
-        this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+        this.router.navigateByUrl('/app/tabs/schedule');
       }
     });
 

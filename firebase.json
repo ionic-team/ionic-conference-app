@@ -1,0 +1,38 @@
+{
+  "hosting": {
+    "public": "www",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+
+    "headers": [
+      {
+        "source": "ngsw-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value":
+              "</7.04e49d8eb2fb82393356.js>;rel=preload;as=script,</22.773fbd127d26d4c1e015.js>;rel=preload;as=script,</styles.e4f9b9cdb0cb41a11857.css>;rel=preload;as=style,</runtime.ba232fdef3c9f55aade8.js>;rel=preload;as=script,</polyfills.37712cc894258bf74805.js>;rel=preload;as=script,</main.86732874fcbdf4017d73.js>;rel=preload;as=script,</common.9fdf717d041c0c02bda2.js>;rel=preload;as=script,</179.5fa7823ea707880964e0.js>;rel=preload;as=script,</147.6133d0626a4e6b441c55.js>;rel=preload;as=script,</117.3af3b84bd416f1ef5fe2.js>;rel=preload;as=script,</71.d35160c68098cb9fe3e1.js>;rel=preload;as=script,</165.85e625351a45146a08d3.js>;rel=preload;as=script,</49.665874afb4763feebc7f.js>;rel=preload;as=script,</104.4ca9b1528699c41ec4ff.js>;rel=preload;as=script,</5.1af48c97cf8873405b97.js>;rel=preload;as=script,</145.aef674125cbb0dfe824d.js>;rel=preload;as=script,</121.7677893567365a5cf2a6.js>;rel=preload;as=script,</assets/img/ica-slidebox-img-1.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-2.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-3.png>;rel=preload;as=script,</assets/img/ica-slidebox-img-4.png>;rel=preload;as=script,</6.ba790a199f354956bcb5.js>;rel=preload;as=script,"
+          }
+        ]
+      }
+    ]
+  }
+}

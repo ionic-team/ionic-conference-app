@@ -8,7 +8,6 @@ import { AlertController, ToastController } from '@ionic/angular';
   selector: 'page-support',
   templateUrl: 'support.html',
   styleUrls: ['./support.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SupportPage {
   submitted = false;
