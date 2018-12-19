@@ -1,5 +1,5 @@
 
-export interface UserOptions {
+export interface UserOption {
   username: string;
   password: string;
 }

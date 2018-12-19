@@ -19,5 +19,6 @@
       <ion-item (click)="support()">Support</ion-item>
       <ion-item (click)="logout()">Logout</ion-item>
     </ion-list>
+    <p *ngIf="succeed">{{ jobDescription }}</p>
   </div>
 </ion-content>

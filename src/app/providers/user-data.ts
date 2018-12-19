@@ -70,14 +70,6 @@ export class UserData {
     });
   }
 
-  // signup(user: UserOptions): Promise<any> {
-  //   console.log(user);
-  //   return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
-  //     this.setUsername(user.username);
-  //     return this.events.publish('user:signup');
-  //   });
-  // }
-
   logout(): Promise<any> {
     return this.storage.remove(this.HAS_LOGGED_IN).then(() => {
       return this.storage.remove('user');
@@ -88,6 +80,21 @@ export class UserData {
 
   setUser(user: UserOptions): Promise<any> {
     return this.storage.set('user', user);
+  }
+
+  updateUsername(username: string) {
+    this.storage.get('user')
+      .then((user) => {
+        const id = user.id ;
+        delete(user.id);
+        user.username = username;
+        this.userDoc = this.afs.doc(`users/${id}`);
+        this.userDoc.update(user)
+          .then(() => {
+            user.id = id;
+            this.storage.set('user', user);
+          });
+    })
   }
 
   setUsername(username: string): Promise<any> {

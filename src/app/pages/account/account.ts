@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { AlertController } from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';
-
+import { UserOptions } from '../../models';
 
 @Component({
   selector: 'page-account',
@@ -13,15 +12,17 @@ import { UserData } from '../../providers/user-data';
   encapsulation: ViewEncapsulation.None
 })
 export class AccountPage implements AfterViewInit {
+  users: UserOptions[];
   username: string;
+  succeed: boolean;
+  jobDescription: string;
 
-  constructor(
-    public alertCtrl: AlertController,
-    public router: Router,
-    public userData: UserData
-  ) { }
+  constructor(public alertCtrl: AlertController,
+              public router: Router,
+              public userData: UserData) {}
 
   ngAfterViewInit() {
+    this.getUsers();
     this.getUsername();
   }
 
@@ -33,15 +34,22 @@ export class AccountPage implements AfterViewInit {
   // clicking OK will update the username and display it
   // clicking Cancel will close the alert and do nothing
   async changeUsername() {
-    const alert = await this.alertCtrl.create({
+    this.succeed = false;
+    const changeForm = await this.alertCtrl.create({
       header: 'Change Username',
       buttons: [
         'Cancel',
         {
           text: 'Ok',
           handler: (data: any) => {
-            this.userData.setUsername(data.username);
-            this.getUsername();
+            if (this.isNameExist(data.username)) {
+              alert(data.username + ' is used already. Try another.')
+            } else {
+              this.userData.updateUsername(data.username);
+              this.username = data.username;
+              this.succeed = true;
+              this.jobDescription = "User's name is changed."
+            }
           }
         }
       ],
@@ -50,17 +58,28 @@ export class AccountPage implements AfterViewInit {
           type: 'text',
           name: 'username',
           value: this.username,
-          placeholder: 'username'
+          placeholder: 'new username'
         }
       ]
     });
-    await alert.present();
+    await changeForm.present();
   }
 
   getUsername() {
     this.userData.getUsername().then((username) => {
       this.username = username;
     });
+  }
+
+  getUsers() {
+    this.userData.getUsers().subscribe(
+      users => { this.users = users; }
+    )
+  }
+
+  isNameExist(name: string) {
+    return this.users.find(
+      user => user.username.toLowerCase() === name.toLowerCase());
   }
 
   changePassword() {

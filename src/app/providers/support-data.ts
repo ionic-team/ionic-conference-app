@@ -48,7 +48,7 @@ export class SupportData {
           userId: id,
           support: message
         };
-        this.supportsCollection.add(support);    
+        this.supportsCollection.add(support);
       });
   }
 }
