@@ -91,7 +91,7 @@ export class AccountPage implements AfterViewInit {
       ],
       inputs: [
         {
-          type: 'text',
+          type: 'email',
           name: 'email',
           value: this.user.email,
           placeholder: 'new email'
@@ -101,8 +101,49 @@ export class AccountPage implements AfterViewInit {
     await changeForm.present();
   }
 
-  changePassword() {
-    console.log('Clicked to change password');
+  async changePassword() {
+    this.succeed = false;
+    const changeForm = await this.alertCtrl.create({
+      header: 'Change Password',
+      buttons: [
+        'Cancel',
+        {
+          text: 'Ok',
+          handler: (data: any) => {
+            if (this.user.password !== data.currentPW) {
+              alert('Current password does not match your password.');
+            } else if (data.newPW.length < 4) {
+              alert('Password should be more than 3 characters.');
+            } else if (data.newPW !== data.confirmPW) {
+              alert('New password does not match Confirm password.');
+            } else {
+              this.user.password = data.newPW;
+              this.userData.updateUser(this.user);
+              this.succeed = true;
+              this.jobDescription = 'Password has been changed.';
+            }
+          }
+        }
+      ],
+      inputs: [
+        {
+          type: 'password',
+          name: 'newPW',
+          placeholder: 'new password'
+        },
+        {
+          type: 'password',
+          name: 'confirmPW',
+          placeholder: 'confirm password'
+        },
+        {
+          type: 'password',
+          name: 'currentPW',
+          placeholder: 'current password'
+        }
+      ]
+    });
+    await changeForm.present();
   }
 
   isTheValueUsed(value: string) {
