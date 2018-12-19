@@ -17,25 +17,25 @@
     <ion-list>
       <ion-item>
         <ion-label position="stacked" color="primary">Username</ion-label>
-        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+        <ion-input [(ngModel)]="username" name="username" type="text" #name="ngModel" spellcheck="false" autocapitalize="off"
           required>
         </ion-input>
       </ion-item>
 
       <ion-text color="danger">
-        <p [hidden]="username.valid || submitted == false" padding-left>
+        <p [hidden]="name.valid || submitted == false" padding-left>
           Username is required
         </p>
       </ion-text>
 
       <ion-item>
         <ion-label position="stacked" color="primary">Password</ion-label>
-        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        <ion-input [(ngModel)]="password" name="password" type="password" #word="ngModel" required>
         </ion-input>
       </ion-item>
 
       <ion-text color="danger">
-        <p [hidden]="password.valid || submitted == false" padding-left>
+        <p [hidden]="word.valid || submitted == false" padding-left>
           Password is required
         </p>
       </ion-text>

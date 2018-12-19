@@ -1,12 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
-
-import { UserOptions } from '../../interfaces/user-options';
-
-
+import { UserOptions } from '../../models';
 
 @Component({
   selector: 'page-login',
@@ -14,22 +11,42 @@ import { UserOptions } from '../../interfaces/user-options';
   styleUrls: ['./login.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LoginPage {
-  login: UserOptions = { username: '', password: '' };
-  submitted = false;
+export class LoginPage implements OnInit {
+  username: '';
+  password: '' ;
+  users: UserOptions[];
 
-  constructor(
-    public userData: UserData,
-    public router: Router
-  ) { }
+  constructor(public userData: UserData,
+              public router: Router,
+              private userService: UserData) { }
+
+  ngOnInit() {
+    this.userService.getUsers().subscribe(
+      (data: UserOptions[]) => { this.users = data; }
+    );
+  }
 
   onLogin(form: NgForm) {
-    this.submitted = true;
-
     if (form.valid) {
-      this.userData.login(this.login.username);
-      this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+      const user = this.findUser(this.username.toLowerCase().trim());
+      if (user) {
+        if (user.password === this.password) {
+          this.userData.login(user);
+          this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+        } else {
+          alert('Invalid password. Try again.');
+        }
+      } else {
+        alert('User not found. Try again.');
+      }
     }
+  }
+
+  findUser(data: string) {
+    if (data.indexOf('@') > -1) {
+      return this.users.find(user => user.email.toLowerCase() === data);
+    }
+    return this.users.find(user => user.username.toLowerCase() === data);
   }
 
   onSignup() {

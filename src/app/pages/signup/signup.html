@@ -27,13 +27,41 @@
       </ion-text>
 
       <ion-item>
+        <ion-label position="stacked" color="primary">Email</ion-label>
+        <ion-input [(ngModel)]="signup.email" name="email" type="email" #email="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p [hidden]="email.valid || submitted == false" padding-left>
+          Email is required
+        </p>
+      </ion-text>
+
+      <ion-item>
         <ion-label position="stacked" color="primary">Password</ion-label>
-        <ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
+        <ion-input [(ngModel)]="signup.password" name="password" type="password" 
+                   #password="ngModel" required>
         </ion-input>
       </ion-item>
       <ion-text color="danger">
         <p [hidden]="password.valid || submitted == false" padding-left>
           Password is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Confirm Password</ion-label>
+        <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" #confirm="ngModel" required>
+        </ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p [hidden]="confirm.valid || submitted == false" padding-left>
+          Confirm Password is required
+        </p>
+      </ion-text>
+      <ion-text color="danger">
+        <p [hidden]="confirmPassword == signup.password || submitted == false" padding-left>
+          Password does not match with Confirm Password
         </p>
       </ion-text>
     </ion-list>
