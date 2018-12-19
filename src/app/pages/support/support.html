@@ -5,10 +5,9 @@
     </ion-buttons>
     <ion-title>Support</ion-title>
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="isLoggedIn">
   <div class="support-logo">
     <img src="assets/img/appicon.svg" alt="Ionic Logo">
   </div>
@@ -26,9 +25,12 @@
         Support message is required
       </p>
     </ion-text>
-
     <div padding>
       <ion-button expand="block" type="submit">Submit</ion-button>
     </div>
   </form>
 </ion-content>
+<ion-content class="support-msg" *ngIf="!isLoggedIn">
+  <h4>You need to login first!</h4>
+</ion-content>
+

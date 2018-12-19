@@ -49,6 +49,13 @@ export interface UserOptions {
   favorites: IdName[];       // session's id and name.
 }
 
+export interface Support {
+  id?: string;
+  userId: string;
+  date: string;             // 2018-12-19
+  support: string;
+}
+
 export interface PartOfDay {
   partOfDay: string;    // morning, afternoon, evening, overnight
   timeFrom: string;

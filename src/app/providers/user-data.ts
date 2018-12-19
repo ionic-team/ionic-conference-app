@@ -25,7 +25,7 @@ export class UserData {
               public events: Events,
               public storage: Storage) {
     this.usersCollection = this.afs.collection(
-      'usersYS', ref => ref.orderBy('username', 'asc'));
+      'users', ref => ref.orderBy('username', 'asc'));
   }
 
   getUsers(): Observable<UserOptions[]> {
@@ -41,8 +41,11 @@ export class UserData {
   }
 
   signup(user: UserOptions) {
-    this.usersCollection.add(user);
-    this.login(user);
+    this.usersCollection.add(user)
+      .then(res => {
+        user.id = res.id;
+        this.login(user);
+      });
   }
 
   hasFavorite(sessionName: string): boolean {
