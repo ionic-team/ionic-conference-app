@@ -7,16 +7,16 @@ import { AngularFirestore,
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { UserOptions } from '../models';
+import { User } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserData {
-  usersCollection: AngularFirestoreCollection<UserOptions> ;
-  userDoc: AngularFirestoreDocument<UserOptions> ;
-  users: Observable<UserOptions[]> ;
-  user: Observable<UserOptions> ;
+  usersCollection: AngularFirestoreCollection<User> ;
+  userDoc: AngularFirestoreDocument<User> ;
+  users: Observable<User[]> ;
+  user: Observable<User> ;
   _favorites: string[] = [];
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
@@ -28,11 +28,11 @@ export class UserData {
       'users', ref => ref.orderBy('username', 'asc'));
   }
 
-  getUsers(): Observable<UserOptions[]> {
+  getUsers(): Observable<User[]> {
     this.users = this.usersCollection.snapshotChanges()
       .pipe(map(response => {
         return response.map(action => {
-          const data = action.payload.doc.data() as UserOptions;
+          const data = action.payload.doc.data() as User;
           data.id = action.payload.doc.id;
           return data;
         });
@@ -40,7 +40,7 @@ export class UserData {
     return this.users;
   }
 
-  signup(user: UserOptions) {
+  signup(user: User) {
     this.usersCollection.add(user)
       .then(res => {
         user.id = res.id;
@@ -63,7 +63,7 @@ export class UserData {
     }
   }
 
-  login(user: UserOptions): Promise<any> {
+  login(user: User): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUser(user);
       return this.events.publish('user:login');
@@ -78,7 +78,7 @@ export class UserData {
     });
   }
 
-  setUser(user: UserOptions): Promise<any> {
+  setUser(user: User): Promise<any> {
     return this.storage.set('user', user);
   }
 

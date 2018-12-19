@@ -41,7 +41,7 @@ export interface Map {
   center?: boolean;
 }
 
-export interface UserOptions {
+export interface User {
   id?: string;
   username: string;
   password: string;

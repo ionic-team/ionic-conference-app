@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
-import { UserOptions } from '../../models';
+import { User } from '../../models';
 
 @Component({
   selector: 'page-login',
@@ -14,7 +14,7 @@ import { UserOptions } from '../../models';
 export class LoginPage implements OnInit {
   username: '';
   password: '' ;
-  users: UserOptions[];
+  users: User[];
 
   constructor(public userData: UserData,
               public router: Router,
@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe(
-      (data: UserOptions[]) => { this.users = data; }
+      (data: User[]) => { this.users = data; }
     );
   }
 

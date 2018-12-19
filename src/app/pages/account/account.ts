@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 import { UserData } from '../../providers/user-data';
-import { UserOptions } from '../../models';
+import { User } from '../../models';
 
 @Component({
   selector: 'page-account',
@@ -12,7 +12,7 @@ import { UserOptions } from '../../models';
   encapsulation: ViewEncapsulation.None
 })
 export class AccountPage implements AfterViewInit {
-  users: UserOptions[];
+  users: User[];
   username: string;
   succeed: boolean;
   jobDescription: string;

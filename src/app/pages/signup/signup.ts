@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
-import { UserOptions } from '../../models';
+import { User } from '../../models';
 
 @Component({
   selector: 'page-signup',
@@ -12,8 +12,8 @@ import { UserOptions } from '../../models';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupPage implements OnInit {
-  users: UserOptions[];
-  signup: UserOptions = {
+  users: User[];
+  signup: User = {
     username: '', password: '', email: '', favorites: []
   };
   confirmPassword = '';
@@ -25,7 +25,7 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe(
-      (data: UserOptions[]) => { this.users = data; }
+      (data: User[]) => { this.users = data; }
     );
   }
 
