@@ -43,12 +43,12 @@ export class AccountPage implements AfterViewInit {
           text: 'Ok',
           handler: (data: any) => {
             if (this.isNameExist(data.username)) {
-              alert(data.username + ' is used already. Try another.')
+              alert(data.username + ' is used already. Try another.');
             } else {
               this.userData.updateUsername(data.username);
               this.username = data.username;
               this.succeed = true;
-              this.jobDescription = "User's name is changed."
+              this.jobDescription = 'User"s name is changed.';
             }
           }
         }
@@ -74,7 +74,7 @@ export class AccountPage implements AfterViewInit {
   getUsers() {
     this.userData.getUsers().subscribe(
       users => { this.users = users; }
-    )
+    );
   }
 
   isNameExist(name: string) {

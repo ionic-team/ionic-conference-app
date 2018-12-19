@@ -94,7 +94,7 @@ export class UserData {
             user.id = id;
             this.storage.set('user', user);
           });
-    })
+    });
   }
 
   setUsername(username: string): Promise<any> {
