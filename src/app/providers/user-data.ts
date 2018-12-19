@@ -82,47 +82,49 @@ export class UserData {
     return this.storage.set('user', user);
   }
 
-  updateUsername(username: string) {
-    this.storage.get('user')
-      .then((user) => {
-        const id = user.id ;
-        delete(user.id);
-        user.username = username;
-        this.userDoc = this.afs.doc(`users/${id}`);
-        this.userDoc.update(user)
-          .then(() => {
-            user.id = id;
-            this.storage.set('user', user);
-          });
+  updateUser(user: User) {
+    const id = user.id;
+    delete(user.id);
+    this.userDoc = this.afs.doc(`users/${id}`);
+    this.userDoc.update(user)
+      .then(() => {
+        user.id = id;
+        this.storage.set('user', user);
     });
   }
 
-  setUsername(username: string): Promise<any> {
-    console.log('need to fix');
-    return this.storage.set('username', username);
+  // updateUsername(username: string) {
+  //   this.storage.get('user')
+  //     .then((user) => {
+  //       const id = user.id ;
+  //       delete(user.id);
+  //       user.username = username;
+  //       this.userDoc = this.afs.doc(`users/${id}`);
+  //       this.userDoc.update(user)
+  //         .then(() => {
+  //           user.id = id;
+  //           this.storage.set('user', user);
+  //         });
+  //   });
+  // }
+
+  getUser(): Promise<User> {
+    return this.storage.get('user').then(user => user);
   }
 
   getUsername(): Promise<string> {
-    return this.storage.get('user').then((value) => {
-      return value.username;
-    });
+    return this.storage.get('user').then(value => value.username);
   }
 
   getUserId(): Promise<string> {
-    return this.storage.get('user').then((value) => {
-      return value.id;
-    });
+    return this.storage.get('user').then(value => value.id);
   }
 
   isLoggedIn(): Promise<boolean> {
-    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-      return value === true;
-    });
+    return this.storage.get(this.HAS_LOGGED_IN).then(value => value);
   }
 
   checkHasSeenTutorial(): Promise<string> {
-    return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => {
-      return value;
-    });
+    return this.storage.get(this.HAS_SEEN_TUTORIAL).then(value => value);
   }
 }

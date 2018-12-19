@@ -13,7 +13,7 @@ import { User } from '../../models';
 })
 export class AccountPage implements AfterViewInit {
   users: User[];
-  username: string;
+  user: User;
   succeed: boolean;
   jobDescription: string;
 
@@ -22,8 +22,12 @@ export class AccountPage implements AfterViewInit {
               public userData: UserData) {}
 
   ngAfterViewInit() {
-    this.getUsers();
-    this.getUsername();
+    this.userData.getUsers().subscribe(
+      users => this.users = users
+    );
+    this.userData.getUser().then(
+      user => this.user = user
+    );
   }
 
   updatePicture() {
@@ -42,13 +46,13 @@ export class AccountPage implements AfterViewInit {
         {
           text: 'Ok',
           handler: (data: any) => {
-            if (this.isNameExist(data.username)) {
-              alert(data.username + ' is used already. Try another.');
+            if (this.isTheValueUsed(data.username)) {
+              alert(data.username + ' was used already. Try another.');
             } else {
-              this.userData.updateUsername(data.username);
-              this.username = data.username;
+              this.user.username = data.username;
+              this.userData.updateUser(this.user);
               this.succeed = true;
-              this.jobDescription = 'User"s name is changed.';
+              this.jobDescription = 'Username has been changed.';
             }
           }
         }
@@ -57,7 +61,7 @@ export class AccountPage implements AfterViewInit {
         {
           type: 'text',
           name: 'username',
-          value: this.username,
+          value: this.user.username,
           placeholder: 'new username'
         }
       ]
@@ -65,25 +69,49 @@ export class AccountPage implements AfterViewInit {
     await changeForm.present();
   }
 
-  getUsername() {
-    this.userData.getUsername().then((username) => {
-      this.username = username;
+  async changeEmail() {
+    this.succeed = false;
+    const changeForm = await this.alertCtrl.create({
+      header: 'Change Email',
+      buttons: [
+        'Cancel',
+        {
+          text: 'Ok',
+          handler: (data: any) => {
+            if (this.isTheValueUsed(data.email)) {
+              alert(data.email + ' was used already. Try another.');
+            } else {
+              this.user.email = data.email;
+              this.userData.updateUser(this.user);
+              this.succeed = true;
+              this.jobDescription = 'Email has been changed.';
+            }
+          }
+        }
+      ],
+      inputs: [
+        {
+          type: 'text',
+          name: 'email',
+          value: this.user.email,
+          placeholder: 'new email'
+        }
+      ]
     });
-  }
-
-  getUsers() {
-    this.userData.getUsers().subscribe(
-      users => { this.users = users; }
-    );
-  }
-
-  isNameExist(name: string) {
-    return this.users.find(
-      user => user.username.toLowerCase() === name.toLowerCase());
+    await changeForm.present();
   }
 
   changePassword() {
     console.log('Clicked to change password');
+  }
+
+  isTheValueUsed(value: string) {
+    if (value.indexOf('@') < 0) {
+      return this.users.find(
+        user => user.username.toLowerCase() === value.toLowerCase());
+    }
+    return this.users.find(
+      user => user.email.toLowerCase() === value.toLowerCase());
   }
 
   logout() {
