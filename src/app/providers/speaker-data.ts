@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore,
          AngularFirestoreCollection,
          AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Speaker } from '../models';
@@ -33,13 +33,12 @@ export class SpeakerData {
     return this.speakers ;
   }
 
-  getSpeaker(name: string): Speaker {
-    let speaker;
-    this.getSpeakers().subscribe(
-      (data: Speaker[]) => {
-        speaker = data.find(spk => spk.name === name);
+  getSpeaker(id: string) {
+    return this.speakersCollection.doc(id).ref.get()
+      .then(doc => {
+        const speaker = doc.data() as Speaker;
+        return speaker;
       });
-    return speaker;
   }
 
   addNewSpeaker(speaker: Speaker) {
@@ -56,5 +55,21 @@ export class SpeakerData {
     this.speakerDoc = this.afs.doc(`speakers/${id}`);
     const name = this.speakerDoc.snapshotChanges.name;
     return name;
+  }
+
+  updateSpeakers() {
+    this.getSpeakers().subscribe(
+      (speakers: Speaker[]) => {
+        speakers.forEach( speaker => {
+          const id = speaker.id;
+          delete(speaker.id);
+          speaker.instagram = '';
+          speaker.github = 'hogusong';
+          if (!speaker.twitter) { speaker.twitter = 'YoungSongJS'; }
+          this.speakerDoc = this.afs.doc(`speakers/${id}`);
+          this.speakerDoc.update(speaker);
+        });
+      }
+    );
   }
 }

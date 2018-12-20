@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController, AlertController } from '@ionic/angular';
@@ -12,7 +12,7 @@ import { SpeakerData } from '../../providers/speaker-data';
   styleUrls: ['./speaker-list.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class SpeakerListPage implements OnInit {
+export class SpeakerListPage {
   speakers: Speaker[];
 
   constructor(
@@ -23,19 +23,13 @@ export class SpeakerListPage implements OnInit {
     public router: Router
   ) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.speakerProvider.getSpeakers().subscribe(
       speakers => { this.speakers = speakers; }
     );
   }
 
-  ionViewDidEnter() {
-    // this.dataProvider.getSpeakers().subscribe((speakers: any[]) => {
-    //   this.speakers = speakers;
-    // });
-  }
-
-  goToSpeakerTwitter(speaker: any) {
+  goToSpeakerTwitter(speaker: Speaker) {
     this.inAppBrowser.create(
       `https://twitter.com/${speaker.twitter}`,
       '_blank'
@@ -100,50 +94,4 @@ export class SpeakerListPage implements OnInit {
 
     await actionSheet.present();
   }
-
-  async addNewSpeaker() {
-    // this.succeed = false;
-    const changeForm = await this.alertCtrl.create({
-      header: 'Change Password',
-      buttons: [
-        'Cancel',
-        {
-          text: 'Ok',
-          handler: (data: any) => {
-            // if (this.user.password !== data.currentPW) {
-            //   alert('Current password does not match your password.');
-            // } else if (data.newPW.length < 4) {
-            //   alert('Password should be more than 3 characters.');
-            // } else if (data.newPW !== data.confirmPW) {
-            //   alert('New password does not match Confirm password.');
-            // } else {
-            //   this.user.password = data.newPW;
-            //   this.userData.updateUser(this.user);
-            //   this.succeed = true;
-            //   this.jobDescription = 'Password has been changed.';
-            // }
-          }
-        }
-      ],
-      inputs: [
-        {
-          type: 'password',
-          name: 'newPW',
-          placeholder: 'new password'
-        },
-        {
-          type: 'password',
-          name: 'confirmPW',
-          placeholder: 'confirm password'
-        },
-        {
-          type: 'password',
-          name: 'currentPW',
-          placeholder: 'current password'
-        }
-      ]
-    });
-    await changeForm.present();
-  }
-
 }
