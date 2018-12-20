@@ -19,13 +19,13 @@ export class AccountPage implements AfterViewInit {
 
   constructor(public alertCtrl: AlertController,
               public router: Router,
-              public userData: UserData) {}
+              public userProvider: UserData) {}
 
   ngAfterViewInit() {
-    this.userData.getUsers().subscribe(
+    this.userProvider.getUsers().subscribe(
       users => this.users = users
     );
-    this.userData.getUser().then(
+    this.userProvider.getUser().then(
       user => this.user = user
     );
   }
@@ -50,7 +50,7 @@ export class AccountPage implements AfterViewInit {
               alert(data.username + ' was used already. Try another.');
             } else {
               this.user.username = data.username;
-              this.userData.updateUser(this.user);
+              this.userProvider.updateUser(this.user);
               this.succeed = true;
               this.jobDescription = 'Username has been changed.';
             }
@@ -82,7 +82,7 @@ export class AccountPage implements AfterViewInit {
               alert(data.email + ' was used already. Try another.');
             } else {
               this.user.email = data.email;
-              this.userData.updateUser(this.user);
+              this.userProvider.updateUser(this.user);
               this.succeed = true;
               this.jobDescription = 'Email has been changed.';
             }
@@ -118,7 +118,7 @@ export class AccountPage implements AfterViewInit {
               alert('New password does not match Confirm password.');
             } else {
               this.user.password = data.newPW;
-              this.userData.updateUser(this.user);
+              this.userProvider.updateUser(this.user);
               this.succeed = true;
               this.jobDescription = 'Password has been changed.';
             }
@@ -156,7 +156,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   logout() {
-    this.userData.logout();
+    this.userProvider.logout();
     this.router.navigateByUrl('/login');
   }
 

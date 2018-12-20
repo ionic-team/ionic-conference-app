@@ -18,10 +18,10 @@ export class LoginPage implements OnInit {
 
   constructor(public userData: UserData,
               public router: Router,
-              private userService: UserData) { }
+              private userProvider: UserData) { }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(
+    this.userProvider.getUsers().subscribe(
       (data: User[]) => { this.users = data; }
     );
   }

@@ -20,8 +20,8 @@ export class SupportData {
   support: Observable<Support> ;
 
   constructor(private afs: AngularFirestore,
-              private functionData: FunctionlData,
-              private userData: UserData,
+              private functionProvider: FunctionlData,
+              private userProvider: UserData,
               public events: Events) {
     this.supportsCollection = this.afs.collection(
       'supports', ref => ref.orderBy('date', 'asc'));
@@ -40,8 +40,8 @@ export class SupportData {
   }
 
   addSupport(message: string) {
-    const date = this.functionData.getDataFormat(null);
-    this.userData.getUserId()
+    const date = this.functionProvider.getDateFormat(null);
+    this.userProvider.getUserId()
       .then(id => {
         const support: Support = {
           date: date,

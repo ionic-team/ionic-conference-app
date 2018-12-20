@@ -20,11 +20,10 @@ export class SignupPage implements OnInit {
   submitted = false;
 
   constructor(public router: Router,
-              public userData: UserData,
-              private userService: UserData) {}
+              public userProvider: UserData) {}
 
   ngOnInit() {
-    this.userService.getUsers().subscribe(
+    this.userProvider.getUsers().subscribe(
       (data: User[]) => { this.users = data; }
     );
   }
@@ -37,7 +36,7 @@ export class SignupPage implements OnInit {
       } else if (this.isEmailUsed(this.signup.email)) {
         alert('Email is already taken.');
       } else {
-        this.userData.signup(this.signup);
+        this.userProvider.signup(this.signup);
         this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
       }
     }
