@@ -1,19 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserData } from './user-data';
+import { Track } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConferenceData {
+  tracksCollection: AngularFirestoreCollection<Track> ;
+  trackDoc: AngularFirestoreDocument<Track> ;
+  tracks: Observable<Track[]> ;
+  track: Observable<Track> ;
   data: any;
 
   constructor(
     public http: HttpClient,
-    public user: UserData
-  ) {}
+    public user: UserData,
+    private afs: AngularFirestore) {
+    this.tracksCollection = this.afs.collection(
+      'tracks', ref => ref.orderBy('name', 'asc'));
+  }
 
   load(): any {
     if (this.data) {
@@ -155,12 +166,16 @@ export class ConferenceData {
     );
   }
 
-  getTracks() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.tracks.sort();
-      })
-    );
+  getTracks(): Observable<Track[]> {
+    this.tracks = this.tracksCollection.snapshotChanges()
+      .pipe(map(response => {
+        return response.map(action => {
+          const data = action.payload.doc.data() as Track;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+    return this.tracks ;
   }
 
   getMap() {

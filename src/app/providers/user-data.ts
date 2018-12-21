@@ -93,21 +93,6 @@ export class UserData {
     });
   }
 
-  // updateUsername(username: string) {
-  //   this.storage.get('user')
-  //     .then((user) => {
-  //       const id = user.id ;
-  //       delete(user.id);
-  //       user.username = username;
-  //       this.userDoc = this.afs.doc(`users/${id}`);
-  //       this.userDoc.update(user)
-  //         .then(() => {
-  //           user.id = id;
-  //           this.storage.set('user', user);
-  //         });
-  //   });
-  // }
-
   getUser(): Promise<User> {
     return this.storage.get('user').then(user => user);
   }

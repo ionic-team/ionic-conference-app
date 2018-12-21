@@ -2,7 +2,8 @@ import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
-
+import { UserData } from '../../providers/user-data';
+import { User } from '../../models';
 
 @Component({
   selector: 'page-schedule-filter',
@@ -11,43 +12,42 @@ import { ConferenceData } from '../../providers/conference-data';
   encapsulation: ViewEncapsulation.None
 })
 export class ScheduleFilterPage implements AfterViewInit {
-
-  tracks: {name: string, isChecked: boolean}[] = [];
+  user: User;
+  trackFilter: { name: string, isChecked: boolean }[] = [];
 
   constructor(
-    public confData: ConferenceData,
-    public modalCtrl: ModalController
+    public dataProvider: ConferenceData,
+    public modalCtrl: ModalController,
+    public userProvider: UserData
   ) { }
 
   // TODO use the ionViewDidEnter event
   ngAfterViewInit() {
-    // passed in array of track names that should be excluded (unchecked)
-    const excludedTrackNames = []; // this.navParams.data.excludedTracks;
-
-    this.confData.getTracks().subscribe((trackNames: string[]) => {
-      trackNames.forEach(trackName => {
-        this.tracks.push({
-          name: trackName,
-          isChecked: (excludedTrackNames.indexOf(trackName) === -1)
-        });
-      });
+    this.userProvider.getUser().then(user => {
+      this.user = user;
+      this.trackFilter = user.trackFilter;
     });
   }
 
   resetFilters() {
     // reset all of the toggles to be checked
-    this.tracks.forEach(track => {
+    this.trackFilter.forEach(track => {
       track.isChecked = true;
     });
   }
 
   applyFilters() {
+    // update user's trackFilter
+    console.log(this.trackFilter);
+    this.user.trackFilter = this.trackFilter;
+    this.userProvider.updateUser(this.user);
+
     // Pass back a new array of track names to exclude
-    const excludedTrackNames = this.tracks.filter(c => !c.isChecked).map(c => c.name);
+    const excludedTrackNames = this.trackFilter.filter(c => !c.isChecked).map(c => c.name);
     this.dismiss(excludedTrackNames);
   }
 
-  dismiss(data?: any) {
+  dismiss(data: any) {
     // using the injected ModalController this page
     // can "dismiss" itself and pass back data
     this.modalCtrl.dismiss(data);

@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
-import { User } from '../../models';
+import { ConferenceData } from '../../providers/conference-data';
+import { User, Track } from '../../models';
 
 @Component({
   selector: 'page-signup',
@@ -14,17 +15,22 @@ import { User } from '../../models';
 export class SignupPage implements OnInit {
   users: User[];
   signup: User = {
-    username: '', password: '', email: '', favorites: []
+    username: '', password: '', email: '', favorites: [], trackFilter: []
   };
+  tracks: Track[];
   confirmPassword = '';
   submitted = false;
 
   constructor(public router: Router,
-              public userProvider: UserData) {}
+              public userProvider: UserData,
+              public dataProvider: ConferenceData) {}
 
   ngOnInit() {
     this.userProvider.getUsers().subscribe(
       (data: User[]) => { this.users = data; }
+    );
+    this.dataProvider.getTracks().subscribe(
+      (tracks: Track[]) => { this.tracks = tracks; }
     );
   }
 
@@ -36,10 +42,17 @@ export class SignupPage implements OnInit {
       } else if (this.isEmailUsed(this.signup.email)) {
         alert('Email is already taken.');
       } else {
+        this.setTrackFilter()
         this.userProvider.signup(this.signup);
         this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
       }
     }
+  }
+
+  setTrackFilter() {
+    this.tracks.forEach(track => {
+      this.signup.trackFilter.push({ name: track.name, isChecked: true });
+    });
   }
 
   isNameUsed(name) {

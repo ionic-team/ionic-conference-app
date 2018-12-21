@@ -49,6 +49,7 @@ export interface User {
   password: string;
   email: string;
   favorites: IdName[];       // session's id and name.
+  trackFilter: { name: string, isChecked: boolean }[];
 }
 
 export interface Support {
