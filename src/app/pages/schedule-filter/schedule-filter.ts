@@ -38,7 +38,6 @@ export class ScheduleFilterPage implements AfterViewInit {
 
   applyFilters() {
     // update user's trackFilter
-    console.log(this.trackFilter);
     this.user.trackFilter = this.trackFilter;
     this.userProvider.updateUser(this.user);
 

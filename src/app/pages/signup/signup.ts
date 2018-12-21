@@ -42,7 +42,7 @@ export class SignupPage implements OnInit {
       } else if (this.isEmailUsed(this.signup.email)) {
         alert('Email is already taken.');
       } else {
-        this.setTrackFilter()
+        this.setTrackFilter();
         this.userProvider.signup(this.signup);
         this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
       }
