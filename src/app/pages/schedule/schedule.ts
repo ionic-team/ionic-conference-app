@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { AlertController, List, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
+import { ScheduleTrackPage } from '../schedule-track/schedule-track';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
+import { User } from '../../models';
 
 @Component({
   selector: 'page-schedule',
@@ -16,9 +18,10 @@ export class SchedulePage {
   // Gets a reference to the list element
   @ViewChild('scheduleList') scheduleList: List;
 
+  user: User;
   dayIndex = 0;
   queryText = '';
-  segment = 'all';
+  segment = '';
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
@@ -26,16 +29,22 @@ export class SchedulePage {
 
   constructor(
     public alertCtrl: AlertController,
-    public confData: ConferenceData,
+    public dataProvider: ConferenceData,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public router: Router,
     public toastCtrl: ToastController,
-    public user: UserData
+    public userProvider: UserData
   ) { }
 
   ionViewWillEnter() {
     // this.app.setTitle('Schedule');
+    this.userProvider.getUser().then(user => {
+      this.user = user;
+      this.user.trackFilter.forEach(track => {
+        if (track.isChecked) { this.excludeTracks.push(track.name); }
+      });
+    });
     this.updateSchedule();
   }
 
@@ -45,10 +54,36 @@ export class SchedulePage {
       this.scheduleList.closeSlidingItems();
     }
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+    this.dataProvider.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
+  }
+
+  processBySegment() {
+    if (this.segment === 'one') {
+      this.chooseTrack();
+    } else if (this.segment === 'all') {
+      this.excludeTracks = [];
+      this.updateSchedule();
+    }
+  }
+
+  async chooseTrack() {
+    const modal = await this.modalCtrl.create({
+      component: ScheduleTrackPage,
+      componentProps: { excludedTracks: this.excludeTracks }
+    });
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    if (data) {
+      this.excludeTracks = data;
+      this.segment = 'user';
+      this.updateSchedule();
+    } else {
+      this.segment = '';
+    }
   }
 
   async presentFilter() {
@@ -61,6 +96,7 @@ export class SchedulePage {
     const { data } = await modal.onWillDismiss();
     if (data) {
       this.excludeTracks = data;
+      this.segment = 'user';
       this.updateSchedule();
     }
   }
@@ -72,13 +108,13 @@ export class SchedulePage {
   }
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
-    if (this.user.hasFavorite(sessionData.name)) {
+    if (this.userProvider.hasFavorite(sessionData.name)) {
       // woops, they already favorited it! What shall we do!?
       // prompt them to remove it
       this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
     } else {
       // remember this session as a user favorite
-      this.user.addFavorite(sessionData.name);
+      this.userProvider.addFavorite(sessionData.name);
 
       // create an alert instance
       const alert = await this.alertCtrl.create({
@@ -114,7 +150,7 @@ export class SchedulePage {
           text: 'Remove',
           handler: () => {
             // they want to remove this session from their favorites
-            this.user.removeFavorite(sessionData.name);
+            this.userProvider.removeFavorite(sessionData.name);
             this.updateSchedule();
 
             // close the sliding item and hide the option buttons
@@ -138,7 +174,7 @@ export class SchedulePage {
   }
 
   /*doRefresh(refresher: Refresher) {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+    this.dataProvider.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
 

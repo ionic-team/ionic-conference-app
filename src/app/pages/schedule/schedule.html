@@ -4,9 +4,12 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+    <ion-segment [(ngModel)]="segment" (ionChange)="processBySegment()">
       <ion-segment-button value="all">
         All
+      </ion-segment-button>
+      <ion-segment-button value="one">
+        Track
       </ion-segment-button>
       <ion-segment-button value="favorites">
         Favorites

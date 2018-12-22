@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      One Track Session
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-list-header>Tracks</ion-list-header>
+
+    <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
+      <span slot="start" class="dot"></span>
+      <ion-label (click)="applyTrack(track.name)">{{track.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
