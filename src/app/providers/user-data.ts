@@ -66,6 +66,7 @@ export class UserData {
   login(user: User): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUser(user);
+      console.log(user);
       return this.events.publish('user:login');
     });
   }

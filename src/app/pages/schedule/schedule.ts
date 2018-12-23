@@ -55,10 +55,10 @@ export class SchedulePage {
   ionViewWillEnter() {
     // this.app.setTitle('Schedule');
     this.userProvider.getUser().then(user => {
-      this.user = user;
-      this.user.trackFilter.forEach(track => {
-        if (track.isChecked) { this.excludeTracks.push(track.name); }
+      user.trackFilter.forEach(track => {
+        if (!track.isChecked) { this.excludeTracks.push(track.name); }
       });
+      this.user = user;
     });
 
     this.dataProvider.getPartsOfDay().subscribe(
