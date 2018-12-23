@@ -15,7 +15,7 @@ export interface Speaker {
   location?: string;
   email: string;
   phone?: string;
-  sessions?: IdName[];   // session id & name
+  sessions?: { id: string, name: string }[];   // session id & name
 }
 
 export interface Session {
@@ -31,11 +31,6 @@ export interface Session {
   hide?: boolean;
 }
 
-export interface IdName {
-  id: string;
-  name: string;
-}
-
 export interface Map {
   id?: string;
   name: string;
@@ -49,7 +44,7 @@ export interface User {
   username: string;
   password: string;
   email: string;
-  favorites: IdName[];       // session's id and name.
+  favorites: { id: string, name: string }[];       // session's id and name.
   trackFilter: { name: string, isChecked: boolean }[];
 }
 

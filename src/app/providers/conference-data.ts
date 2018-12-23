@@ -111,12 +111,4 @@ export class ConferenceData {
       }));
     return this.tracks ;
   }
-
-  // getMap() {
-  //   return this.load().pipe(
-  //     map((data: any) => {
-  //       return data.map;
-  //     })
-  //   );
-  // }
 }

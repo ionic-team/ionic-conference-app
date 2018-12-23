@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
 import { SessionData } from '../../providers/session-data';
-import { Session } from '../../models';
+import { Session, User } from '../../models';
 
 @Component({
   selector: 'page-session-detail',
@@ -12,6 +12,7 @@ import { Session } from '../../models';
 })
 export class SessionDetailPage {
   session: Session;
+  user: User;
   isFavorite = false;
   constructor(
     private sessionProvider: SessionData,
@@ -19,47 +20,36 @@ export class SessionDetailPage {
     private route: ActivatedRoute
   ) {}
 
+  ionViewWillEnter() {
+    const id = this.route.snapshot.paramMap.get('sessionId');
+    this.sessionProvider.getSession(id)
+      .then( data => {
+        data.id = id;
+        this.session = data;
+        this.userProvider.getUser().then(user => {
+          this.user = user;
+          this.user.favorites.forEach(favorite => {
+            if (favorite.id === this.session.id) { this.isFavorite = true; }
+          });
+        });
+      }
+    );
+  }
+
   sessionClick(item: string) {
     console.log('Clicked', item);
   }
 
   toggleFavorite() {
-    if (this.userProvider.hasFavorite(this.session.name)) {
-      this.userProvider.removeFavorite(this.session.name);
-      this.isFavorite = false;
+    if (this.isFavorite) {
+      const index = this.user.favorites.findIndex(f => f.id === this.session.id);
+      if (index > -1) {
+        this.user.favorites.splice(index, 1);
+      }
     } else {
-      this.userProvider.addFavorite(this.session.name);
-      this.isFavorite = true;
+      this.user.favorites.push({id: this.session.id, name: this.session.name });
     }
-  }
-
-  ionViewWillEnter() {
-    const id = this.route.snapshot.paramMap.get('sessionId');
-    this.sessionProvider.getSession(id)
-      .then( data => { this.session = data; }
-    );
-    // const id = this.route.snapshot.paramMap.get('sessionId');
-    // this.session = this.sessionProvider.getSession(id);
-    // this.dataProvider.load().subscribe((data: any) => {
-    //   if (
-    //     data &&
-    //     data.schedule &&
-    //     data.schedule[0] &&
-    //     data.schedule[0].groups
-    //   ) {
-    //     const sessionId = this.route.snapshot.paramMap.get('sessionId');
-    //     for (const group of data.schedule[0].groups) {
-    //       if (group && group.sessions) {
-    //         for (const session of group.sessions) {
-    //           if (session && session.id === sessionId) {
-    //             this.session = session;
-    //             this.isFavorite = this.userProvider.hasFavorite(this.session.name);
-    //             break;
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // });
+    this.userProvider.updateUser(this.user);
+    this.isFavorite = !this.isFavorite;
   }
 }
