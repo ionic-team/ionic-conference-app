@@ -150,6 +150,8 @@ export class SchedulePage {
     } else if (this.segment === 'all') {
       this.excludeTracks = [];
       this.updateFilter();
+    } else if (this.segment === 'favorites') {
+      this.updateFilter();
     }
   }
 

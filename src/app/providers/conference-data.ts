@@ -89,14 +89,14 @@ export class ConferenceData {
     let matchesSegment = false;
     if (options.segment === 'favorites') {
       this.userProvider.getUser().then(user => {
-         matchesSegment = (user.favorites.indexOf(session.name) > -1);
+        matchesSegment = (user.favorites.findIndex(f => f.name === session.name) > -1);
+        // all tests must be true if it should not be hidden
+        session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
       });
     } else {
-      matchesSegment = true;
+      // doesn't matter about favorites.
+      session.hide = !(matchesQueryText && matchesTracks);
     }
-
-    // all tests must be true if it should not be hidden
-    session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
     return session;
   }
 
