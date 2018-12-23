@@ -64,10 +64,9 @@ export interface PartOfDay {
 
 export interface Schedule {
   date: string; // 2018-12-06
-  groups: SessionGroup[];
-}
-
-export interface SessionGroup {
-  time: PartOfDay;
-  sessions: Session[];
+  groups: {
+    indexKey: number
+    partOfDay: string,
+    sessions: any[]
+  }[];
 }

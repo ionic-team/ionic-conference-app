@@ -19,13 +19,9 @@ export class SchedulePage {
   @ViewChild('scheduleList') scheduleList: List;
 
   user: User;
-  // dayIndex = 0;
   queryText = '';
   segment = '';
   excludeTracks: any[] = [];
-  // shownSessions: any = [];
-  // groups: any = [];
-  // confDate: string;
 
   start = '2019-01-10';
   end = '2019-01-15';
@@ -54,18 +50,20 @@ export class SchedulePage {
 
   ionViewWillEnter() {
     // this.app.setTitle('Schedule');
-    this.userProvider.getUser().then(user => {
-      user.trackFilter.forEach(track => {
-        if (!track.isChecked) { this.excludeTracks.push(track.name); }
-      });
-      this.user = user;
+    this.userProvider.isLoggedIn().then(loggedIn => {
+      if (loggedIn) {
+        this.userProvider.getUser().then(user => {
+          user.trackFilter.forEach(track => {
+            if (!track.isChecked) { this.excludeTracks.push(track.name); }
+          });
+          this.user = user;
+          this.dataProvider.getPartsOfDay().subscribe(
+            response => { this.partsOfDay = response ; }
+          );
+          this.updateSchedule();
+        });
+      }
     });
-
-    this.dataProvider.getPartsOfDay().subscribe(
-      response => { this.partsOfDay = response ; }
-    );
-
-    this.updateSchedule();
   }
 
   updateSchedule() {
@@ -258,24 +256,4 @@ export class SchedulePage {
     await loading.onWillDismiss();
     fab.close();
   }
-
-  /*doRefresh(refresher: Refresher) {
-    this.dataProvider.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-
-      // simulate a network request that would take longer
-      // than just pulling from out local json file
-      setTimeout(() => {
-        refresher.complete();
-
-        const toast = this.toastCtrl.create({
-          message: 'Sessions have been updated.',
-          duration: 3000
-        });
-        toast.present();
-      }, 1000);
-    });
-  }
-  */
 }

@@ -59,8 +59,10 @@
     </ion-item-group>
   </ion-list>
 
-  <ion-list-header [hidden]="schedule.length > 0">
-    No Sessions Found
+  <ion-list-header class="notFound" [hidden]="schedule.length > 0">
+    <h4>No Sessions Found</h4>
+    <h4>You may</h4>
+    <h4>Login or Signup!</h4>
   </ion-list-header>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>

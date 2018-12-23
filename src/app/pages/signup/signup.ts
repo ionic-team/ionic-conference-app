@@ -44,7 +44,7 @@ export class SignupPage implements OnInit {
       } else {
         this.setTrackFilter();
         this.userProvider.signup(this.signup);
-        this.router.navigateByUrl('/app/tabs/(schedule:schedule)');
+        this.router.navigateByUrl('/app/tabs/(speakers:speakers)');
       }
     }
   }

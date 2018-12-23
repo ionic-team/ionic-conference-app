@@ -14,7 +14,7 @@
             Navigate
           </ion-list-header>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item button (click)="navigate(p.url)">
+            <ion-item button (click)="navigate(p.url)" [disabled]="!loggedIn">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
@@ -73,7 +73,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item button (click)="navigate('/support')">
+            <ion-item button (click)="navigate('/support')" [disabled]='true'>
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
