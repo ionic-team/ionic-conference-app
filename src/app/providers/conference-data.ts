@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore,
   AngularFirestoreCollection,
   AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserData } from './user-data';
-import { Track } from '../models';
+import { Track, Session, PartOfDay } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,115 +16,60 @@ export class ConferenceData {
   trackDoc: AngularFirestoreDocument<Track> ;
   tracks: Observable<Track[]> ;
   track: Observable<Track> ;
+
+  sessionsCollection: AngularFirestoreCollection<Session[]>;
+  sessions: Observable<Session[]> ;
+  session: Observable<Session> ;
+
+  partsOfDayCollection: AngularFirestoreCollection<PartOfDay[]>;
+  partsOfDay: Observable<PartOfDay[]>;
+
   data: any;
 
   constructor(
     public http: HttpClient,
-    public user: UserData,
+    public userProvider: UserData,
     private afs: AngularFirestore) {
     this.tracksCollection = this.afs.collection(
       'tracks', ref => ref.orderBy('name', 'asc'));
+    this.partsOfDayCollection = this.afs.collection(
+      'partsOfDay', ref => ref.orderBy('indexKey', 'asc'));
   }
 
-  load(): any {
-    if (this.data) {
-      return of(this.data);
-    } else {
-      return this.http
-        .get('assets/data/data.json')
-        .pipe(map(this.processData, this));
-    }
-  }
-
-  processData(data: any) {
-    // just some good 'ol JS fun with objects and arrays
-    // build up the data by linking speakers to sessions
-    this.data = data;
-
-    this.data.tracks = [];
-
-    // loop through each day in the schedule
-    this.data.schedule.forEach((day: any) => {
-      // loop through each timeline group in the day
-      day.groups.forEach((group: any) => {
-        // loop through each session in the timeline group
-        group.sessions.forEach((session: any) => {
-          session.speakers = [];
-          if (session.speakerNames) {
-            session.speakerNames.forEach((speakerName: any) => {
-              const speaker = this.data.speakers.find(
-                (s: any) => s.name === speakerName
-              );
-              if (speaker) {
-                session.speakers.push(speaker);
-                speaker.sessions = speaker.sessions || [];
-                speaker.sessions.push(session);
-              }
-            });
-          }
-
-          if (session.tracks) {
-            session.tracks.forEach((track: any) => {
-              if (this.data.tracks.indexOf(track) < 0) {
-                this.data.tracks.push(track);
-              }
-            });
-          }
-        });
+  getPartsOfDay(): Observable<PartOfDay[]> {
+    this.partsOfDay = this.partsOfDayCollection.snapshotChanges()
+    .pipe(map(response => {
+      return response.map(action => {
+        const data = action.payload.doc.data() as PartOfDay;
+        return data;
       });
-    });
-
-    return this.data;
+    }));
+    return this.partsOfDay ;
   }
 
-  getTimeline(
-    dayIndex: number,
-    queryText = '',
-    excludeTracks: any[] = [],
-    segment = 'all'
-  ) {
-    return this.load().pipe(
-      map((data: any) => {
-        const day = data.schedule[dayIndex];
-        day.shownSessions = 0;
-
-        queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-        const queryWords = queryText.split(' ').filter(w => !!w.trim().length);
-
-        day.groups.forEach((group: any) => {
-          group.hide = true;
-
-          group.sessions.forEach((session: any) => {
-            // check if this session should show or not
-            this.filterSession(session, queryWords, excludeTracks, segment);
-
-            if (!session.hide) {
-              // if this session is not hidden then this group should show
-              group.hide = false;
-              day.shownSessions++;
-            }
-          });
-        });
-
-        return day;
-      })
-    );
+  getSessionInPeriod(start, end): Observable<Session[]> {
+    this.sessionsCollection = this.afs.collection(
+      'sessions', ref => ref.where('date', '>=', start)
+                            .where('date', '<=', end)
+                            .orderBy('date', 'asc'));
+    this.sessions = this.sessionsCollection.snapshotChanges()
+    .pipe(map(response => {
+      return response.map(action => {
+        const data = action.payload.doc.data() as Session;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
+    return this.sessions ;
   }
 
-  filterSession(
-    session: any,
-    queryWords: string[],
-    excludeTracks: any[],
-    segment: string
-  ) {
+  filterSession(session: any, options: any) {
     let matchesQueryText = false;
-    if (queryWords.length) {
+    if (options.queryText.length > 0) {
       // of any query word is in the session name than it passes the query test
-      queryWords.forEach((queryWord: string) => {
-        if (session.name.toLowerCase().indexOf(queryWord) > -1) {
-          matchesQueryText = true;
-        }
-      });
+      if (session.name.toLowerCase().indexOf(options.queryText) > -1) {
+        matchesQueryText = true;
+      }
     } else {
       // if there are no query words then this session passes the query test
       matchesQueryText = true;
@@ -134,7 +79,7 @@ export class ConferenceData {
     // exclude tracks then this session passes the track test
     let matchesTracks = false;
     session.tracks.forEach((trackName: string) => {
-      if (excludeTracks.indexOf(trackName) === -1) {
+      if (options.excludeTracks.indexOf(trackName) === -1) {
         matchesTracks = true;
       }
     });
@@ -142,28 +87,17 @@ export class ConferenceData {
     // if the segement is 'favorites', but session is not a user favorite
     // then this session does not pass the segment test
     let matchesSegment = false;
-    if (segment === 'favorites') {
-      if (this.user.hasFavorite(session.name)) {
-        matchesSegment = true;
-      }
+    if (options.segment === 'favorites') {
+      this.userProvider.getUser().then(user => {
+         matchesSegment = (user.favorites.indexOf(session.name) > -1);
+      });
     } else {
       matchesSegment = true;
     }
 
     // all tests must be true if it should not be hidden
     session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
-  }
-
-  getSpeakers() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.speakers.sort((a: any, b: any) => {
-          const aName = a.name.split(' ').pop();
-          const bName = b.name.split(' ').pop();
-          return aName.localeCompare(bName);
-        });
-      })
-    );
+    return session;
   }
 
   getTracks(): Observable<Track[]> {
@@ -178,11 +112,11 @@ export class ConferenceData {
     return this.tracks ;
   }
 
-  getMap() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.map;
-      })
-    );
-  }
+  // getMap() {
+  //   return this.load().pipe(
+  //     map((data: any) => {
+  //       return data.map;
+  //     })
+  //   );
+  // }
 }

@@ -28,6 +28,7 @@ export interface Session {
   description?: string;
   speakerIDs: string[];   // speaker's id
   tracks: string[];     //  name of track
+  hide?: boolean;
 }
 
 export interface IdName {
@@ -60,7 +61,8 @@ export interface Support {
 }
 
 export interface PartOfDay {
-  partOfDay: string;    // morning, afternoon, evening, overnight
+  indexKey: number;
+  name: string;    // morning, afternoon, evening, overnight
   timeFrom: string;
   timeTo: string;
 }

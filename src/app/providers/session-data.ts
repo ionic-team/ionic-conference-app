@@ -5,7 +5,7 @@ import { AngularFirestore,
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Session, Speaker } from '../models';
+import { Session } from '../models';
 
 @Injectable({
   providedIn: 'root'
