@@ -6,7 +6,7 @@ import { AngularFirestore,
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserData } from './user-data';
-import { Track, Session, PartOfDay } from '../models';
+import { Track, Session, PartOfDay, Map } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,9 @@ export class ConferenceData {
   partsOfDayCollection: AngularFirestoreCollection<PartOfDay[]>;
   partsOfDay: Observable<PartOfDay[]>;
 
+  mapsCollection: AngularFirestoreCollection<any[]>;
+  maps: Observable<any[]>;
+
   data: any;
 
   constructor(
@@ -34,6 +37,8 @@ export class ConferenceData {
       'tracks', ref => ref.orderBy('name', 'asc'));
     this.partsOfDayCollection = this.afs.collection(
       'partsOfDay', ref => ref.orderBy('indexKey', 'asc'));
+    this.mapsCollection = this.afs.collection(
+      'maps', ref => ref.orderBy('name', 'asc'));
   }
 
   getPartsOfDay(): Observable<PartOfDay[]> {
@@ -110,5 +115,16 @@ export class ConferenceData {
         });
       }));
     return this.tracks ;
+  }
+
+  getMap() {
+    this.maps = this.mapsCollection.snapshotChanges()
+    .pipe(map(response => {
+      return response.map(action => {
+        const data = action.payload.doc.data() as any;
+        return data;
+      });
+    }));
+    return this.maps ;
   }
 }

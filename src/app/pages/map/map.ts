@@ -4,9 +4,7 @@ import { ConferenceData } from '../../providers/conference-data';
 
 import { Platform } from '@ionic/angular';
 
-
 declare var google: any;
-
 
 @Component({
   selector: 'page-map',
@@ -19,16 +17,16 @@ export class MapPage {
   @ViewChild('mapCanvas') mapElement: ElementRef;
 
   constructor(
-    public confData: ConferenceData,
+    public dataProvider: ConferenceData,
     public platform: Platform
   ) { }
 
   ionViewDidEnter() {
-    this.confData.getMap().subscribe((mapData: any) => {
+    this.dataProvider.getMap().subscribe((mapData: any) => {
       const mapEle = this.mapElement.nativeElement;
 
       const map = new google.maps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
+        center: mapData.find((loc: any) => loc.center),
         zoom: 16
       });
 
@@ -51,8 +49,6 @@ export class MapPage {
       google.maps.event.addListenerOnce(map, 'idle', () => {
         mapEle.classList.add('show-map');
       });
-
     });
-
   }
 }

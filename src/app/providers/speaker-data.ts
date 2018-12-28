@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore,
          AngularFirestoreCollection,
          AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable, of } from 'rxjs';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Speaker } from '../models';
@@ -16,7 +17,8 @@ export class SpeakerData {
   speakers: Observable<Speaker[]> ;
   speaker: Observable<Speaker> ;
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore,
+              private storage: AngularFireStorage) {
     this.speakersCollection = this.afs.collection(
       'speakers', ref => ref.orderBy('name', 'asc'));
     }
@@ -27,6 +29,9 @@ export class SpeakerData {
         return response.map(action => {
           const data = action.payload.doc.data() as Speaker;
           data.id = action.payload.doc.id;
+          this.storage.ref(data.profilePic).getDownloadURL().subscribe(url => {
+            data.profilePic = url;
+          });
           return data;
         });
       }));
@@ -37,7 +42,10 @@ export class SpeakerData {
     return this.speakersCollection.doc(id).ref.get()
       .then(doc => {
         const speaker = doc.data() as Speaker;
-        return speaker;
+        this.storage.ref(speaker.profilePic).getDownloadURL().subscribe(url => {
+          speaker.profilePic = url;
+        });
+      return speaker;
       });
   }
 
