@@ -6,7 +6,7 @@ import { AngularFirestore,
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserData } from './user-data';
-import { Track, Session, PartOfDay, Map } from '../models';
+import { Track, Session, PartOfDay } from '../models';
 
 @Injectable({
   providedIn: 'root'
