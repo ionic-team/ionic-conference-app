@@ -10,7 +10,6 @@ import { SupportData } from '../../providers/support-data';
   selector: 'page-support',
   templateUrl: 'support.html',
   styleUrls: ['./support.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SupportPage {
   isLoggedIn = false;

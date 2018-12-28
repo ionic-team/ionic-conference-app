@@ -10,7 +10,6 @@ import { User, Track } from '../../models';
   selector: 'page-signup',
   templateUrl: 'signup.html',
   styleUrls: ['./signup.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SignupPage implements OnInit {
   users: User[];

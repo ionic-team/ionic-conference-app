@@ -14,6 +14,7 @@ export class SessionDetailPage {
   session: Session;
   user: User;
   isFavorite = false;
+
   constructor(
     private sessionProvider: SessionData,
     private userProvider: UserData,

@@ -9,7 +9,6 @@ import { User } from '../../models';
   selector: 'page-account',
   templateUrl: 'account.html',
   styleUrls: ['./account.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class AccountPage implements AfterViewInit {
   users: User[];

@@ -10,7 +10,6 @@ import { SpeakerData } from '../../providers/speaker-data';
   selector: 'page-speaker-list',
   templateUrl: 'speaker-list.html',
   styleUrls: ['./speaker-list.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class SpeakerListPage {
   speakers: Speaker[];

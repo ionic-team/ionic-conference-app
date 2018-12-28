@@ -1,6 +1,6 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, List, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, IonList, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ScheduleTrackPage } from '../schedule-track/schedule-track';
@@ -12,11 +12,10 @@ import { User, Session, PartOfDay } from '../../models';
   selector: 'page-schedule',
   templateUrl: 'schedule.html',
   styleUrls: ['./schedule.scss'],
-  encapsulation: ViewEncapsulation.None
 })
-export class SchedulePage {
+export class SchedulePage implements OnInit {
   // Gets a reference to the list element
-  @ViewChild('scheduleList') scheduleList: List;
+  @ViewChild('scheduleList') scheduleList: IonList;
 
   user: User;
   queryText = '';
@@ -48,7 +47,7 @@ export class SchedulePage {
     public userProvider: UserData
   ) { }
 
-  ionViewWillEnter() {
+  ngOnInit() {
     // this.app.setTitle('Schedule');
     this.userProvider.isLoggedIn().then(loggedIn => {
       if (loggedIn) {
@@ -183,12 +182,6 @@ export class SchedulePage {
       this.segment = 'user';
       this.updateFilter();
     }
-  }
-
-  goToSessionDetail(sessionData: any) {
-    // go to the session detail page
-    // and pass in the session data
-    this.router.navigateByUrl(`app/tabs/(schedule:session/${sessionData.id})`);
   }
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {

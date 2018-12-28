@@ -12,7 +12,7 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
-
+.firebase/
 .idea/
 .sourcemaps/
 .sass-cache/
