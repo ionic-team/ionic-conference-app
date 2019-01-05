@@ -9,7 +9,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "build:modern": "ng build --plugin ngx-build-modern --prod",
+    "build:modern:app": "ng build --plugin ngx-build-modern --project app --prod"
   },
   "repository": {
     "type": "git",
@@ -37,11 +39,13 @@
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
-    "cordova-plugin-ionic-webview": "^2.0.0",
+    "cordova-plugin-ionic-webview": "3.0.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.2",
     "core-js": "^2.5.7",
+    "ngx-build-modern": "1.0.8",
+    "ngx-build-plus": "7.5.7",
     "rxjs": "6.3.3",
     "sw-toolbox": "3.6.0",
     "tslib": "^1.9.0",
@@ -86,9 +90,11 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-ionic-webview": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      }
     }
   }
 }
