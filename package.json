@@ -45,7 +45,9 @@
     "rxjs": "6.3.3",
     "sw-toolbox": "3.6.0",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "ion2-calendar": "^3.0.0-rc.0",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.11.0",

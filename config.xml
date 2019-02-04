@@ -83,6 +83,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="2.0.0-beta.1" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.2" />
-    <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="~4.5.5" />
 </widget>
