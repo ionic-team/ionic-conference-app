@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     IonicModule.forRoot(),
