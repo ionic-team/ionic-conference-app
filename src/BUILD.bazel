@@ -3,6 +3,7 @@ package(default_visibility = ["//visibility:public"])
 load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 load("@npm_bazel_typescript//:defs.bzl", "ts_config", "ts_devserver")
+load("@build_bazel_rules_nodejs//:defs.bzl", "history_server", "rollup_bundle")
 
 sass_binary(
     name = "global_scss",
@@ -128,4 +129,31 @@ ts_devserver(
     ],
     # Tell Bazel to build the sources first
     deps = ["//src"],
+)
+
+rollup_bundle(
+    name = "bundle",
+    # These Angular routes may be lazy-loaded at runtime.
+    # So we tell Rollup that it can put them in separate JS chunks
+    # (code-splitting) for faster application startup.
+    # In the future, we could automatically gather these from statically
+    # analyzing the Angular sources.
+    additional_entry_points = [
+        "src/app/pages/account/account.module.ngfactory",
+        "src/app/pages/support/support.module.ngfactory",
+        "src/app/pages/tutorial/tutorial.module.ngfactory",
+#        "src/hello-world/hello-world.module.ngfactory",
+#        "src/todos/todos.module.ngfactory",
+    ],
+    entry_point = "src/main.prod",
+    deps = [
+        "//src",
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "@npm//@angular/forms",
+        "@npm//@angular/platform-browser",
+        "@npm//@angular/router",
+        "@npm//@ionic/angular",
+        "@npm//@types",
+    ],
 )
