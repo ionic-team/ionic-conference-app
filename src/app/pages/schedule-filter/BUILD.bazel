@@ -16,6 +16,7 @@ ng_module(
       ":schedule-filter_scss"
     ],
     deps = [
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/forms",
