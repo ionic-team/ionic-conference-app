@@ -29,6 +29,7 @@ ng_module(
         "@npm//@angular/forms",
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
+        "@npm//@ionic/core",
         "@npm//@ionic/angular",
         "@npm//@types",
     ],
