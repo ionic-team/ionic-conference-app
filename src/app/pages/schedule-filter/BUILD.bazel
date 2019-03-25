@@ -1,0 +1,9 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+
+sass_binary(
+    name = "schedule-filter_scss",
+    src = "schedule-filter.scss",
+    deps = ["//src/app/pages/schedule:schedule_scss"],
+)

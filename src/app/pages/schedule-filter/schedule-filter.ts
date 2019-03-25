@@ -7,7 +7,7 @@ import { ConferenceData } from '../../providers/conference-data';
 @Component({
   selector: 'page-schedule-filter',
   templateUrl: 'schedule-filter.html',
-  styleUrls: ['./schedule-filter.scss'],
+  styleUrls: ['./schedule-filter.css'],
 })
 export class ScheduleFilterPage implements AfterViewInit {
 

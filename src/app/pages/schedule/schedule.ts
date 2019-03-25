@@ -9,7 +9,7 @@ import { UserData } from '../../providers/user-data';
 @Component({
   selector: 'page-schedule',
   templateUrl: 'schedule.html',
-  styleUrls: ['./schedule.scss'],
+  styleUrls: ['./schedule.css'],
 })
 export class SchedulePage implements OnInit {
   // Gets a reference to the list element

@@ -1,0 +1,43 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+load("@npm_angular_bazel//:index.bzl", "ng_module")
+
+sass_binary(
+    name = "app_scss",
+    src = "app.scss",
+)
+
+sass_binary(
+    name = "app_component_scss",
+    src = "app.component.scss",
+)
+
+ng_module(
+    name = "app_module_ts",
+    srcs = [
+        "../environments/environment.ts",
+        "app.component.ts",
+        "app.module.ts",
+        "app-routing.module.ts",
+        "providers/check-tutorial.service.ts",
+        "providers/user-data.ts",
+    ],
+    assets = [
+        "app.component.html",
+        ":app_component_scss",
+    ],
+    deps = [
+        "@npm//@angular/common/http",
+        "@npm//@angular/core",
+        "@npm//@angular/platform-browser",
+        "@npm//@angular/router",
+        "@npm//@angular/service-worker",
+        "@npm//@ionic-native/in-app-browser/ngx",
+        "@npm//@ionic-native/splash-screen/ngx",
+        "@npm//@ionic-native/status-bar/ngx",
+        "@npm//@ionic/angular",
+        "@npm//@ionic/storage",
+        "@npm//@types",
+    ],
+)
