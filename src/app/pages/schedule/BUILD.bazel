@@ -1,11 +1,16 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
+load("@io_bazel_rules_sass//:defs.bzl", "sass_binary", "sass_library")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 
 sass_binary(
     name = "schedule_scss",
     src = "schedule.scss",
+)
+
+sass_library(
+    name = "schedule_scss_lib",
+    srcs = ["schedule.scss"],
 )
 
 ng_module(

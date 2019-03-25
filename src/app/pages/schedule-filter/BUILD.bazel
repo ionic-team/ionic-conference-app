@@ -6,8 +6,7 @@ load("@npm_angular_bazel//:index.bzl", "ng_module")
 sass_binary(
     name = "schedule-filter_scss",
     src = "schedule-filter.scss",
-    # todo: fix Zack
-#    deps = ["//src/app/pages/schedule:schedule_scss"],
+    deps = ["//src/app/pages/schedule:schedule_scss_lib"],
 )
 
 ng_module(
