@@ -3,10 +3,10 @@ package(default_visibility = ["//visibility:public"])
 load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
 load("@npm_angular_bazel//:index.bzl", "ng_module")
 
-sass_binary(
-    name = "app_scss",
-    src = "app.scss",
-)
+#sass_binary(
+#    name = "app_scss",
+#    src = "app.scss",
+#)
 
 sass_binary(
     name = "app_component_scss",
@@ -16,7 +16,6 @@ sass_binary(
 ng_module(
     name = "app_module_ts",
     srcs = [
-        # todo: merge with ngModule up-level
 #        "../environments/environment.ts",
         "app.component.ts",
         "app.module.ts",
@@ -29,6 +28,7 @@ ng_module(
         ":app_component_scss",
     ],
     deps = [
+        "//src/environments:env",
         "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
