@@ -11,7 +11,6 @@ sass_binary(
 ng_module(
     name = "account_module_ts",
     srcs = [
-        "../../providers/user-data.ts",
         "account.module.ts",
         "account.ts",
         "account-routing.module.ts",
@@ -21,6 +20,7 @@ ng_module(
         ":account_scss",
     ],
     deps = [
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",

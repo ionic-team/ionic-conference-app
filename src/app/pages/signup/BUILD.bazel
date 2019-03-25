@@ -11,8 +11,8 @@ sass_binary(
 ng_module(
     name = "signup_module_ts",
     srcs = [
-        "../../interfaces/user-options.ts",
-        "../../providers/user-data.ts",
+#        "../../interfaces/user-options.ts",
+#        "../../providers/user-data.ts",
         "signup.module.ts",
         "signup.ts",
         "signup-routing.module.ts",
@@ -22,6 +22,8 @@ ng_module(
         ":signup_scss",
     ],
     deps = [
+        "//src/app/interfaces:interfaces",
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/forms",

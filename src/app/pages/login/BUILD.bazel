@@ -11,8 +11,8 @@ sass_binary(
 ng_module(
     name = "login_module_ts",
     srcs = [
-        "../../interfaces/user-options.ts",
-        "../../providers/user-data.ts",
+#        "../../interfaces/user-options.ts",
+#        "../../providers/user-data.ts",
         "login.module.ts",
         "login.ts",
         "login-routing.module.ts",
@@ -22,6 +22,8 @@ ng_module(
         ":login_scss",
     ],
     deps = [
+        "//src/app/interfaces:interfaces",
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/forms",

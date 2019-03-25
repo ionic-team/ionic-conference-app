@@ -11,7 +11,7 @@ sass_binary(
 ng_module(
     name = "map_module_ts",
     srcs = [
-        "../../providers/conference-data.ts",
+#        "../../providers/conference-data.ts",
         "map.module.ts",
         "map.ts",
         "map-routing.module.ts",
@@ -21,6 +21,7 @@ ng_module(
         ":map_scss",
     ],
     deps = [
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",

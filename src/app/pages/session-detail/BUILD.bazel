@@ -11,8 +11,8 @@ sass_binary(
 ng_module(
     name = "session-detail_module_ts",
     srcs = [
-        "../../providers/conference-data.ts",
-        "../../providers/user-data.ts",
+#        "../../providers/conference-data.ts",
+#        "../../providers/user-data.ts",
         "session-detail.module.ts",
         "session-detail.ts",
         "session-detail-routing.module.ts",
@@ -22,6 +22,7 @@ ng_module(
         ":session-detail_scss",
     ],
     deps = [
+        "//src/app/providers:providers",
         "@npm//@angular/common",
         "@npm//@angular/core",
         "@npm//@angular/platform-browser",
