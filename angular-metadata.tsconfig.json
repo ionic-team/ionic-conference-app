@@ -12,11 +12,13 @@
     "types": []
   },
   "include": [
-    "node_modules/@angular/**/*"
+    "node_modules/@angular/**/*",
+    "node_modules/@ionic/**/*"
   ],
   "exclude": [
     "**/__path__",
     "**/schematics",
+    "node_modules/@ionic/angular-toolkit/builders/cordova-serve/**",
     "node_modules/@angular/bazel/**",
     "node_modules/@angular/compiler-cli/**",
     "node_modules/@angular/**/testing/**"
