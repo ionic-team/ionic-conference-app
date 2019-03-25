@@ -3,6 +3,7 @@
 // with AOT compilation, NGC needs the "ngsummary.json" files.
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "lib": [
       "dom",
       "es2015"
