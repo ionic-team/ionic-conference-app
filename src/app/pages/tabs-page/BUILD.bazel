@@ -26,6 +26,8 @@ ng_module(
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@ionic/angular",
+        "@npm//@ionic-native/in-app-browser",
+        "@npm//@ionic/storage",
         "@npm//@types",
     ],
 )

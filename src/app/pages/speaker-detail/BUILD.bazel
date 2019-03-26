@@ -15,6 +15,7 @@ ng_module(
         "speaker-detail.ts",
         "speaker-detail-routing.module.ts",
     ],
+    tsconfig = "//:tsconfig.json",
     assets = [
         "speaker-detail.html",
         ":speaker-detail_scss",
@@ -26,6 +27,7 @@ ng_module(
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@ionic/angular",
+        "@npm//@ionic/storage",
         "@npm//@types",
     ],
 )

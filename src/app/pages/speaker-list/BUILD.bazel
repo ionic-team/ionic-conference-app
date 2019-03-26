@@ -11,11 +11,11 @@ sass_binary(
 ng_module(
     name = "speaker-list_module_ts",
     srcs = [
-#        "../../providers/conference-data.ts",
         "speaker-list.module.ts",
         "speaker-list.ts",
         "speaker-list-routing.module.ts",
     ],
+    tsconfig = "//:tsconfig.json",
     assets = [
         "speaker-list.html",
         ":speaker-list_scss",
@@ -28,6 +28,7 @@ ng_module(
         "@npm//@angular/router",
         "@npm//@ionic-native/in-app-browser",
         "@npm//@ionic/angular",
+        "@npm//@ionic/storage",
         "@npm//@types",
     ],
 )
