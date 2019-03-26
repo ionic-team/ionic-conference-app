@@ -31,8 +31,7 @@ ng_module(
     deps = [
         "//src/app:app_module_ts",
         "//src/app/pages/account:account_module_ts",
-        # todo: fix
-#        "//src/app/pages/login:login_module_ts",
+        "//src/app/pages/login:login_module_ts",
 #        "//src/app/pages/signup:signup_module_ts",
 #        "//src/app/pages/tabs-page:tabs-page_module_ts",
         "//src/app/pages/support:support_module_ts",

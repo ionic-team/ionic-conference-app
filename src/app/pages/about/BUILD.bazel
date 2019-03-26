@@ -11,7 +11,6 @@ sass_binary(
 ng_module(
     name = "about_module_ts",
     srcs = [
-#        "../about-popover/about-popover.ts",
         "about.module.ts",
         "about.ts",
         "about-routing.module.ts",

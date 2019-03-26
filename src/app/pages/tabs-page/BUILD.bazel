@@ -6,13 +6,14 @@ load("@io_bazel_rules_sass//:defs.bzl", "sass_binary")
 ng_module(
     name = "tabs-page_module_ts",
     srcs = [
-#        "../schedule/schedule.ts",
         "tabs-page.module.ts",
         "tabs-page.ts",
         "tabs-page-routing.module.ts",
     ],
     assets = ["tabs-page.html"],
+    tsconfig = "//:tsconfig.json",
     deps = [
+        "//src/app/providers:providers",
         "//src/app/pages/about:about_module_ts",
         "//src/app/pages/map:map_module_ts",
         "//src/app/pages/schedule:schedule_module_ts",

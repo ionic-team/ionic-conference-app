@@ -11,8 +11,6 @@ sass_binary(
 ng_module(
     name = "login_module_ts",
     srcs = [
-#        "../../interfaces/user-options.ts",
-#        "../../providers/user-data.ts",
         "login.module.ts",
         "login.ts",
         "login-routing.module.ts",
@@ -30,6 +28,7 @@ ng_module(
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@ionic/core",
+        "@npm//@ionic/storage",
         "@npm//@ionic/angular",
         "@npm//@types",
     ],

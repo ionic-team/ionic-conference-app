@@ -12,7 +12,9 @@ sass_binary(
 ng_module(
     name = "schedule-filter",
     srcs = glob(["*.ts"]),
+    tsconfig = "//:tsconfig.json",
     assets = [
+      "schedule-filter.html",
       ":schedule-filter_scss"
     ],
     deps = [
@@ -23,6 +25,8 @@ ng_module(
         "@npm//@angular/platform-browser",
         "@npm//@angular/router",
         "@npm//@ionic/angular",
+        "@npm//@ionic/core",
+        "@npm//@ionic/storage",
         "@npm//@types",
     ],
 )
