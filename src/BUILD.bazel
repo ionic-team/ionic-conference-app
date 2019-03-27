@@ -81,7 +81,7 @@ ts_devserver(
     data = [
 #        "//src/images:image_assets",
 # TODO: IS THIS THE RIGHT PATH?
-#        "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
+        "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
 #        "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
     ],
     # Start from the development version of the main
