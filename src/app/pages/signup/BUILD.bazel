@@ -9,13 +9,13 @@ sass_binary(
 )
 
 ng_module(
-    tsconfig = "//:tsconfig.json",
     name = "signup_module_ts",
     srcs = [
         "signup.module.ts",
         "signup.ts",
         "signup-routing.module.ts",
     ],
+    tsconfig = "//:tsconfig.json",
     assets = [
         "signup.html",
         ":signup_scss",

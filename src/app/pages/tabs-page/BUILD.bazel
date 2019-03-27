@@ -10,7 +10,7 @@ ng_module(
         "tabs-page.ts",
         "tabs-page-routing.module.ts",
     ],
-    assets = ["tabs-page.html"],
+    assets = ["tabs-page.html", ":tabs-page_scss"],
     tsconfig = "//:tsconfig.json",
     deps = [
         "//src/app/providers:providers",
