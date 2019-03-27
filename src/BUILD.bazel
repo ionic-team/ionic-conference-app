@@ -21,6 +21,7 @@ ng_module(
             "initialize_testbed.ts",
         ],
     ),
+    tsconfig = "//:tsconfig.json",
     assets = [
 
         # "//src/app:app_scss",
@@ -38,6 +39,7 @@ ng_module(
         "//src/app/pages/tutorial:tutorial_module_ts",
         "@npm//@angular/common",
         "@npm//@angular/core",
+        "@npm//@angular/service-worker",
         "@npm//@angular/forms",
         "@npm//@angular/animations",
         "@npm//@angular/platform-browser",
@@ -78,19 +80,22 @@ ts_devserver(
     # loader to load them.
     data = [
 #        "//src/images:image_assets",
+# TODO: IS THIS THE RIGHT PATH?
+#        "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
 #        "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
     ],
     # Start from the development version of the main
-    entry_module = "src/main.prod",
+    entry_module = "bazelin/src/main.prod",
     # <script> and <link> tags will be automatically injected into this index file
     index_html = "index.html",
     # These scripts will be included in the JS bundle after require.js
     # They should have only named UMD modules, or require.js will throw.
     scripts = [
         "@npm//node_modules/tslib:tslib.js",
-#        ":rxjs_umd_modules",
+        ":rxjs_umd_modules",
 #        ":require.config.js",
         "@npm//node_modules/@angular/animations:bundles/animations.umd.js",
+        "@npm//node_modules/@angular/service-worker:bundles/service-worker.umd.js",
         "@npm//node_modules/@angular/animations:bundles/animations-browser.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-platform.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-collections.umd.js",
@@ -117,6 +122,8 @@ ts_devserver(
         "@npm//node_modules/@angular/platform-browser:bundles/platform-browser-animations.umd.js",
         "@npm//node_modules/@angular/router:bundles/router.umd.js",
         "@npm//node_modules/@angular/router:router.ngfactory.js",
+        "@npm//node_modules/@ionic/angular:dist/core.ngfactory.js",
+        "@npm//node_modules/@ionic/storage:ionic-storage.ngfactory.js",
 #        "@npm//node_modules/@angular/material:button/typings/index.ngfactory.js",
 #        "@npm//node_modules/@angular/material:card/typings/index.ngfactory.js",
 #        "@npm//node_modules/@angular/material:core/typings/index.ngfactory.js",

@@ -6,4 +6,5 @@
 // //
 // // For example, we configure RequireJS to load /store.umd.min.js
 // // from the server when it encounters require('@ngrx/store').
-// require.config({paths: {}});
+// TODO: IS THIS THE RIGHT PATH?
+// require.config({paths: {'@ionic-native/in-app-browser/ngx': 'ngx/index'}});

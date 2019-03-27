@@ -15,13 +15,13 @@
   },
   "include": [
     "node_modules/@angular/**/*",
-    "node_modules/@ionic/**/*",
-    "node_modules/@ionic/storage/dist/storage.metadata.json"
+    "node_modules/@ionic/**/*"
   ],
   "exclude": [
     "**/__path__",
     "**/schematics",
-    "node_modules/@ionic/angular-toolkit/builders/cordova-serve/**",
+    "node_modules/@ionic/angular-toolkit/builders/**",
+    "node_modules/@angular/router/upgrade*",
     "node_modules/@angular/bazel/**",
     "node_modules/@angular/compiler-cli/**",
     "node_modules/@angular/**/testing/**"
