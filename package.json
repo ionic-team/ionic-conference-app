@@ -56,8 +56,8 @@
     "@angular-devkit/schematics": "7.3.6",
     "@angular/bazel": "7.2.10",
     "@angular/cli": "7.3.6",
-    "@angular/compiler": "7.2.10",
-    "@angular/compiler-cli": "7.2.10",
+    "@angular/compiler": "8.0.0-beta.10",
+    "@angular/compiler-cli": "8.0.0-beta.10",
     "@angular/language-service": "7.2.10",
     "@angular/upgrade": "7.2.10",
     "@bazel/bazel": "0.23.2",
@@ -84,7 +84,7 @@
     "puppeteer": "1.11.0",
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
-    "typescript": "3.2.4"
+    "typescript": "3.3.3333"
   },
   "cordova": {
     "platforms": [

@@ -9,11 +9,14 @@
       "es2015"
     ],
     "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "module": "amd",
     "types": []
   },
   "include": [
     "node_modules/@angular/**/*",
-    "node_modules/@ionic/**/*"
+    "node_modules/@ionic/**/*",
+    "node_modules/@ionic/storage/dist/storage.metadata.json"
   ],
   "exclude": [
     "**/__path__",
