@@ -15,7 +15,8 @@
   },
   "include": [
     "node_modules/@angular/**/*",
-    "node_modules/@ionic/**/*"
+    "node_modules/@ionic/**/*",
+    "node_modules/@ionic-native/**/*"
   ],
   "exclude": [
     "**/__path__",
