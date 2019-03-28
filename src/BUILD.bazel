@@ -78,7 +78,7 @@ ts_devserver(
 #        "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
     ],
     # Start from the development version of the main
-    entry_module = "bazelin/src/main.prod",
+    entry_module = "ionic_conference_app/src/main.prod",
     # <script> and <link> tags will be automatically injected into this index file
     index_html = "index.html",
     # These scripts will be included in the JS bundle after require.js
