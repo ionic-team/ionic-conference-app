@@ -85,11 +85,15 @@ ts_devserver(
     # They should have only named UMD modules, or require.js will throw.
     scripts = [
         "@npm//node_modules/tslib:tslib.js",
+
         ":rxjs_umd_modules",
+
 #        ":require.config.js",
+
         "@npm//node_modules/@angular/animations:bundles/animations.umd.js",
         "@npm//node_modules/@angular/service-worker:bundles/service-worker.umd.js",
         "@npm//node_modules/@angular/animations:bundles/animations-browser.umd.js",
+
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-platform.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-collections.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-coercion.umd.js",
@@ -98,10 +102,12 @@ ts_devserver(
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-a11y.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-keycodes.umd.js",
 #        "@npm//node_modules/@angular/cdk:bundles/cdk-observers.umd.js",
+
         "@npm//node_modules/@angular/common:bundles/common.umd.js",
         "@npm//node_modules/@angular/common:bundles/common-http.umd.js",
         "@npm//node_modules/@angular/core:bundles/core.umd.js",
         "@npm//node_modules/@angular/forms:bundles/forms.umd.js",
+
 #        "@npm//node_modules/@angular/material:bundles/material-button.umd.js",
 #        "@npm//node_modules/@angular/material:bundles/material-card.umd.js",
 #        "@npm//node_modules/@angular/material:bundles/material-core.umd.js",
@@ -111,12 +117,18 @@ ts_devserver(
 #        "@npm//node_modules/@angular/material:bundles/material-toolbar.umd.js",
 #        "@npm//node_modules/@angular/material:bundles/material-icon.umd.js",
 #        "@npm//node_modules/@angular/material:bundles/material-input.umd.js",
+        
         "@npm//node_modules/@angular/platform-browser:bundles/platform-browser.umd.js",
         "@npm//node_modules/@angular/platform-browser:bundles/platform-browser-animations.umd.js",
         "@npm//node_modules/@angular/router:bundles/router.umd.js",
         "@npm//node_modules/@angular/router:router.ngfactory.js",
         "@npm//node_modules/@ionic/angular:dist/core.ngfactory.js",
-        "@npm//node_modules/@ionic/storage:ionic-storage.ngfactory.js",
+        "@npm//node_modules/@ionic/storage:bundles/ionic-storage.umd.js",
+
+        #TODO Is this right path? "@npm//node_modules/localforage:dist/localforage.js",
+        # "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
+
+
 #        "@npm//node_modules/@angular/material:button/typings/index.ngfactory.js",
 #        "@npm//node_modules/@angular/material:card/typings/index.ngfactory.js",
 #        "@npm//node_modules/@angular/material:core/typings/index.ngfactory.js",
@@ -138,7 +150,9 @@ ts_devserver(
         "@npm//node_modules/zone.js:dist/zone.min.js",
     ],
     # Tell Bazel to build the sources first
-    deps = [":src"],
+    deps = [
+        ":src",
+    ],
 )
 
 rollup_bundle(
