@@ -1,11 +1,12 @@
-# todo: fix it
 package(default_visibility = ["//visibility:public"])
 
-load("@npm_angular_bazel//:index.bzl", "ng_module")
+load("@npm_bazel_typescript//:defs.bzl", "ts_library")
 
-ng_module(
+ts_library(
     name = "providers",
-    srcs = glob(["*.ts"]),
+    srcs = glob(
+        include = ["*.ts"]
+        ),
     deps = [
         "@npm//@angular/core",
         "@npm//@angular/common",
