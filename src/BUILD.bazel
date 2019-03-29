@@ -73,6 +73,7 @@ ts_devserver(
     # loader to load them.
     data = [
         "//src/assets/img:image_assets",
+        "//src/assets/data:data_assets",
 # TODO: IS THIS THE RIGHT PATH?
         "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
 #        "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
