@@ -23,7 +23,7 @@ rules_sass_dependencies()
 
 # Setup the NodeJS toolchain
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "check_bazel_version",  "npm_install", "yarn_install")
-check_bazel_version("0.22.0");
+check_bazel_version("0.24.0");
 node_repositories()
 #
 npm_install(

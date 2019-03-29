@@ -72,7 +72,7 @@ ts_devserver(
     # or because they aren't compatible with Require.js so we must use a runtime
     # loader to load them.
     data = [
-#        "//src/images:image_assets",
+        "//src/assets/img:image_assets",
 # TODO: IS THIS THE RIGHT PATH?
         "@npm//node_modules/@ionic-native/in-app-browser:ngx/index.js",
 #        "@npm//node_modules/@ngrx/store:bundles/store.umd.min.js",
