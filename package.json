@@ -60,7 +60,7 @@
     "@ionic/lab": "^1.0.0",
     "@types/jasmine": "2.8.11",
     "@types/jasminewd2": "2.0.6",
-    "@types/node": "10.12.9",
+    "@types/node": "11.13.4",
     "codelyzer": "^4.4.4",
     "husky": "^0.14.3",
     "jasmine-core": "2.99.1",
