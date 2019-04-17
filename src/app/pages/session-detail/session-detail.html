@@ -8,13 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <div padding *ngIf="session">
-    <ion-grid no-padding>
+  <div *ngIf="session" class="ion-padding">
+    <ion-grid class="ion-no-padding">
       <ion-row>
         <ion-col size="6">
           <span *ngFor="let track of session?.tracks" [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
         </ion-col>
-        <ion-col size="6" text-right [ngClass]="{'show-favorite': isFavorite}">
+        <ion-col size="6" [ngClass]="{'show-favorite': isFavorite}" class="ion-text-right">
           <ion-icon name="heart-empty" size="large" class="icon-heart-empty" (click)="toggleFavorite()"></ion-icon>
           <ion-icon name="heart" color="danger" size="large" class="icon-heart" (click)="toggleFavorite()"></ion-icon>
         </ion-col>
