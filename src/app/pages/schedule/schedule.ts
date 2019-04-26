@@ -5,6 +5,9 @@ import { AlertController, IonList, LoadingController, ModalController, ToastCont
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
+import { map } from 'rxjs/operators';
+import { CalendarComponentOptions, DayConfig, DefaultDate } from 'ion2-calendar';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-schedule',
@@ -15,14 +18,18 @@ export class SchedulePage implements OnInit {
   // Gets a reference to the list element
   @ViewChild('scheduleList') scheduleList: IonList;
 
-  dayIndex = 0;
   queryText = '';
   segment = 'all';
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
   confDate: string;
-
+  selectDate: string;
+  daysConfig: DayConfig[] = [];
+  calOptions: CalendarComponentOptions = {
+    from: 1293683278, // the start unix timestamp
+    daysConfig: this.daysConfig
+  };
   constructor(
     public alertCtrl: AlertController,
     public confData: ConferenceData,
@@ -35,16 +42,33 @@ export class SchedulePage implements OnInit {
 
   ngOnInit() {
     // this.app.setTitle('Schedule');
-    this.updateSchedule();
+    this.findFirstSchedueDay();
   }
 
-  updateSchedule() {
+  findFirstSchedueDay() {
+    this.confData.load().pipe().subscribe((data: any) => {
+      this.selectDate = data.schedule[0].date;
+      data.schedule.forEach((v) => {
+        this.daysConfig.push({
+          date: moment(v.date, 'YYYY-MM-DD').toDate(),
+          marked: true
+        });
+      });
+      this.updateSchedule();
+    });
+  }
+
+  changeDay($event) {
+    this.updateSchedule($event);
+  }
+
+  updateSchedule(date: string = this.selectDate) {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
       this.scheduleList.closeSlidingItems();
     }
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+    this.confData.getTimeline(date, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });

@@ -65,14 +65,21 @@ export class ConferenceData {
   }
 
   getTimeline(
-    dayIndex: number,
+    selectDate: string,
     queryText = '',
     excludeTracks: any[] = [],
     segment = 'all'
   ) {
     return this.load().pipe(
       map((data: any) => {
-        const day = data.schedule[dayIndex];
+        let day = data.schedule.filter((scheduleEntity: any) => {
+          return scheduleEntity.date === selectDate;
+        })[0];
+        if (!day) {
+          day = {};
+          day.shownSessions = 0;
+          return day;
+        }
         day.shownSessions = 0;
 
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');

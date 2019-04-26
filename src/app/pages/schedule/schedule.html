@@ -25,6 +25,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-calendar [(ngModel)]="selectDate" (change)="changeDay($event)" [format]="'YYYY-MM-DD'" [options]="calOptions">
+  </ion-calendar>
+</ion-content>
+<ion-content>
   <ion-list #scheduleList [hidden]="shownSessions === 0">
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
       <ion-item-divider sticky>
@@ -33,7 +37,8 @@
         </ion-label>
       </ion-item-divider>
 
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
+      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase"
+        [hidden]="session.hide">
         <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
           <ion-label>
             <h3>{{session.name}}</h3>
@@ -59,7 +64,9 @@
   </ion-list-header>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-    <ion-fab-button><ion-icon name="share"></ion-icon></ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
         <ion-icon name="logo-vimeo"></ion-icon>
