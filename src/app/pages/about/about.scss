@@ -2,21 +2,21 @@
   background-color: var(--ion-color-dark);
   padding: 16px;
   width: 100%;
+  height: 30%;
   text-align: center;
 }
 
 .about-header img {
-  max-width: 200px;
-  padding: 25px 5px 20px 0;
+  max-height: 100%;
 }
 
 .about-info p {
-  color: var(--ion-color-medium);
+  color: var(--ion-color-dark);
   text-align: left;
 }
 
 .about-info ion-icon {
-  color: var(--ion-color-primary);
+  margin-inline-end: 32px;
 }
 
 .ios .about-info {
