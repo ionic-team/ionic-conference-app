@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-import { IonicServerModule } from '@ionic/angular';
+import { IonicServerModule } from '@ionic/angular/server';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
