@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-import { IonicHydrateModule } from '@ionic/angular';
+import { IonicServerModule } from '@ionic/angular';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
-    IonicHydrateModule
+    IonicServerModule
   ],
   bootstrap: [AppComponent],
 })
