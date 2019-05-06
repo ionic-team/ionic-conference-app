@@ -30,11 +30,6 @@ module.exports = {
       },
     ]
   },
-  resolve: {
-    alias: {
-      '@ionic/core/loader': path.resolve(__dirname, 'node_modules/@ionic/angular/server')
-    }
-  },
   plugins: [
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
