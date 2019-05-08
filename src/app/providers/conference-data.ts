@@ -28,8 +28,6 @@ export class ConferenceData {
     // build up the data by linking speakers to sessions
     this.data = data;
 
-    this.data.tracks = [];
-
     // loop through each day in the schedule
     this.data.schedule.forEach((day: any) => {
       // loop through each timeline group in the day
@@ -46,14 +44,6 @@ export class ConferenceData {
                 session.speakers.push(speaker);
                 speaker.sessions = speaker.sessions || [];
                 speaker.sessions.push(session);
-              }
-            });
-          }
-
-          if (session.tracks) {
-            session.tracks.forEach((track: any) => {
-              if (this.data.tracks.indexOf(track) < 0) {
-                this.data.tracks.push(track);
               }
             });
           }
@@ -126,7 +116,7 @@ export class ConferenceData {
       }
     });
 
-    // if the segement is 'favorites', but session is not a user favorite
+    // if the segment is 'favorites', but session is not a user favorite
     // then this session does not pass the segment test
     let matchesSegment = false;
     if (segment === 'favorites') {

@@ -11,7 +11,7 @@ import { ConferenceData } from '../../providers/conference-data';
 })
 export class ScheduleFilterPage implements AfterViewInit {
 
-  tracks: {name: string, isChecked: boolean}[] = [];
+  tracks: {name: string, icon: string, isChecked: boolean}[] = [];
 
   constructor(
     public confData: ConferenceData,
@@ -24,20 +24,21 @@ export class ScheduleFilterPage implements AfterViewInit {
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.navParams.get('excludedTracks');
 
-    this.confData.getTracks().subscribe((trackNames: string[]) => {
-      trackNames.forEach(trackName => {
+    this.confData.getTracks().subscribe((tracks: any[]) => {
+      tracks.forEach(track => {
         this.tracks.push({
-          name: trackName,
-          isChecked: (excludedTrackNames.indexOf(trackName) === -1)
+          name: track.name,
+          icon: track.icon,
+          isChecked: (excludedTrackNames.indexOf(track.name) === -1)
         });
       });
     });
   }
 
-  resetFilters() {
-    // reset all of the toggles to be checked
+  selectAll(check: boolean) {
+    // set all to checked or unchecked
     this.tracks.forEach(track => {
-      track.isChecked = true;
+      track.isChecked = check;
     });
   }
 
