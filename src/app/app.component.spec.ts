@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
 import { TestBed, async } from '@angular/core/testing';
 
 import { Events, MenuController, Platform } from '@ionic/angular';
@@ -16,6 +17,7 @@ describe('AppComponent', () => {
     userDataSpy,
     statusBarSpy,
     splashScreenSpy,
+    swUpdateSpy,
     platformReadySpy,
     platformSpy,
     app,
@@ -28,6 +30,7 @@ describe('AppComponent', () => {
     userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);
     splashScreenSpy = jasmine.createSpyObj('SplashScreen', ['hide']);
+    swUpdateSpy = jasmine.createSpyObj('SwUpdate', ['available', 'activateUpdate']);
     platformReadySpy = Promise.resolve();
     platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
 
@@ -42,6 +45,7 @@ describe('AppComponent', () => {
         { provide: UserData, useValue: userDataSpy },
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
+        { provide: SwUpdate, useValue: swUpdateSpy },
         { provide: Platform, useValue: platformSpy }
       ]
     }).compileComponents();
