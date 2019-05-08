@@ -402,6 +402,10 @@
       "icon": "logo-angular"
     },
     {
+      "name": "Documentation",
+      "icon": "document"
+    },
+    {
       "name": "Food",
       "icon": "restaurant"
     },

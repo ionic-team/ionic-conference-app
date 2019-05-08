@@ -1,7 +1,8 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="dismiss()">Cancel</ion-button>
+      <ion-button *ngIf="ios" (click)="dismiss()">Cancel</ion-button>
+      <ion-button *ngIf="!ios" (click)="selectAll(false)">Reset</ion-button>
     </ion-buttons>
 
     <ion-title>
@@ -14,14 +15,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
-  <ion-list>
+  <ion-list [lines]="ios ? 'inset' : 'full'">
     <ion-list-header>Tracks</ion-list-header>
 
     <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
-      <ion-icon slot="start" [name]="track.icon" color="medium"></ion-icon>
-      <ion-label color="primary">{{track.name}}</ion-label>
+      <ion-icon *ngIf="ios" slot="start" [name]="track.icon" color="medium"></ion-icon>
+      <ion-label>{{track.name}}</ion-label>
       <ion-checkbox [(ngModel)]="track.isChecked"></ion-checkbox>
     </ion-item>
 
@@ -29,7 +30,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer translucent *ngIf="ios">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="selectAll(false)">Deselect All</ion-button>
