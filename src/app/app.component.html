@@ -14,7 +14,7 @@
             Navigate
           </ion-list-header>
           <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item [routerLink]="p.url">
+            <ion-item [routerLink]="p.url"  routerLinkActive="active">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
