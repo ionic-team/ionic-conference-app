@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="speaker-detail">
-  <div text-center *ngIf="speaker">
+<ion-content class="ion-padding speaker-detail">
+  <div *ngIf="speaker" class="ion-text-center">
     <img [src]="speaker.profilePic" [alt]="speaker.name">
     <br>
 

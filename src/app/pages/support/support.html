@@ -22,12 +22,12 @@
     </ion-list>
 
     <ion-text color="danger">
-      <p [hidden]="supportQuestion.valid || submitted === false" padding-left>
+      <p [hidden]="supportQuestion.valid || submitted === false" class="ion-padding-start">
         Support message is required
       </p>
     </ion-text>
 
-    <div padding>
+    <div class="ion-padding">
       <ion-button expand="block" type="submit">Submit</ion-button>
     </div>
   </form>
