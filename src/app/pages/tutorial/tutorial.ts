@@ -24,7 +24,7 @@ export class TutorialPage {
   startApp() {
     this.router
       .navigateByUrl('/app/tabs/schedule')
-      .then(() => this.storage.set('ion_did_tutorial', 'true'));
+      .then(() => this.storage.set('ion_did_tutorial', true));
   }
 
   onSlideChangeStart(event) {
