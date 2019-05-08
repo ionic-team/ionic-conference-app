@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AfterViewInit, Component } from '@angular/core';
+import { ModalController, NavParams } from '@ionic/angular';
 
 import { ConferenceData } from '../../providers/conference-data';
 
@@ -15,13 +15,14 @@ export class ScheduleFilterPage implements AfterViewInit {
 
   constructor(
     public confData: ConferenceData,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public navParams: NavParams
   ) { }
 
   // TODO use the ionViewDidEnter event
   ngAfterViewInit() {
     // passed in array of track names that should be excluded (unchecked)
-    const excludedTrackNames = []; // this.navParams.data.excludedTracks;
+    const excludedTrackNames = this.navParams.get('excludedTracks');
 
     this.confData.getTracks().subscribe((trackNames: string[]) => {
       trackNames.forEach(trackName => {
