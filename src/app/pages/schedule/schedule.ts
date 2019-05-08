@@ -34,7 +34,6 @@ export class SchedulePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.app.setTitle('Schedule');
     this.updateSchedule();
   }
 
