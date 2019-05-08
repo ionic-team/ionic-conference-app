@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.13.5",
-    "@angular-devkit/build-angular": "0.13.5",
+    "@angular-devkit/build-angular": "0.13.9",
     "@angular-devkit/core": "7.3.5",
     "@angular-devkit/schematics": "7.3.5",
     "@angular/cli": "7.3.9",
@@ -65,7 +65,7 @@
     "husky": "^0.14.3",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
-    "karma": "3.1.1",
+    "karma": "4.1.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage-istanbul-reporter": "2.0.4",
     "karma-jasmine": "1.1.2",
