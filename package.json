@@ -56,7 +56,7 @@
     "@angular-devkit/architect": "0.13.9",
     "@angular-devkit/build-angular": "0.13.9",
     "@angular-devkit/core": "7.3.9",
-    "@angular-devkit/schematics": "7.3.5",
+    "@angular-devkit/schematics": "7.3.9",
     "@angular/cli": "7.3.9",
     "@angular/compiler": "7.2.9",
     "@angular/compiler-cli": "7.2.9",
