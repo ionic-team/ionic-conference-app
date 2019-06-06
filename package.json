@@ -2,6 +2,7 @@
   "name": "ionic-conference-app",
   "version": "0.0.0",
   "description": "Ionic Conference App",
+  "author": "Ionic Team <hi@ionicframework.com>",
   "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
