@@ -1,18 +1,46 @@
-@import '../schedule/schedule';
 
-.reset-filters {
-  color: var(--ion-color-danger);
+ion-content.md {
+  --background: #eee;
 }
 
-@each $track, $value in map-remove($categories) {
-  ion-item[track='#{$track}'] .dot {
-    display: inline-block;
+.md {
+  ion-toolbar {
+    --background: white;
+    --color: #424242;
+  }
 
-    height: 10px;
-    width: 10px;
+  ion-toolbar ion-button {
+    text-transform: capitalize;
+    letter-spacing: 0;
+  }
 
-    background-color: $value;
-    border-radius: 5px;
-    margin-right: 10px;
+  ion-content {
+    --background: #eee;
+  }
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-checkbox {
+    --background-checked: transparent;
+    --border-color: transparent;
+    --border-color-checked: transparent;
+    --checkmark-color: var(--ion-color-primary);
+  }
+}
+
+.ios {
+  // TODO this needs to be added to Ionic:
+  // https://github.com/ionic-team/ionic/pull/16574
+  ion-list-header {
+    height: 50px;
+    font-size: 22px;
+    letter-spacing: 0;
+    text-transform: capitalize;
+  }
+
+  ion-label {
+    color: var(--ion-color-primary);
   }
 }
