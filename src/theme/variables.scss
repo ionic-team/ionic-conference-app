@@ -1,23 +1,21 @@
-// Ionic Variables and Theming. For more information, please see
-// https://beta.ionicframework.com/docs/theming/
+// Ionic Variables and Theming
+// --------------------------------------------------
+// For more information, please see
+// https://www.ionicframework.com/docs/theming/
 
-// The app direction is used to include
-// rtl styles in your app. For more information, please see
-// https://beta.ionicframework.com/docs/layout/rtl
-// $app-direction: ltr;
 
 // Ionic Colors
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
 // It's highly recommended to change the default colors
-// to match your app's branding. Ionic provides eight layered colors
+// to match your app's branding. Ionic provides nine layered colors
 // that can be changed to theme an app. Additional colors can be
 // added as well (see below). For more information, please see
-// https://beta.ionicframework.com/docs/theming/advanced
-
+// https://www.ionicframework.com/docs/theming/advanced
+//
 // To easily create custom color palettes for your app’s UI,
 // check out our color generator:
-// https://beta.ionicframework.com/docs/theming/color-generator
+// https://www.ionicframework.com/docs/theming/color-generator
 
 :root {
   --ion-color-primary: #3880ff;
@@ -145,8 +143,6 @@
 // https://beta.ionicframework.com/docs/theming/css-variables#ionic-variables
 
 :root {
-  // TODO
-  // $headings-font-weight: 300;
   --ion-headings-font-weight: 300;
 
   --ion-color-angular: #ac282b;
@@ -165,6 +161,7 @@
 // iOS only CSS variables can go here
 
 .ios {
+
 }
 
 // App Material Design Variables
@@ -191,19 +188,12 @@
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can
-// then be future customized. This import comes last
-// so that the above variables are used and Ionic's
-// default are overridden.
+// then be further customized. These variables come last
+// so that the above variables are used by default.
 
-// @import "ionic.theme.default";
 
-// Fonts
+// Dark Theme
 // --------------------------------------------------
-// Roboto font is used by default for Material Design. Noto sans
-// is used by default for Windows.
-
-// @import "roboto";
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -234,21 +224,20 @@
     --ion-color-step-950: #f3f3f3;
   }
 
+  .md {
+    // Use the dark color as the background for the toolbar
+    --ion-toolbar-background: var(--ion-color-dark);
 
-.md {
-  // Use the primary color as the background for the toolbar
-  --ion-toolbar-background: var(--ion-color-dark);
+    // Change the color of the toolbar components
+    --ion-toolbar-color: #fff;
 
-  // Change the color of the toolbar components
-  --ion-toolbar-color: #fff;
+    // Change the color of the activated toolbar components
+    --ion-toolbar-color-activated: #fff;
 
-  // Change the color of the activated toolbar components
-  --ion-toolbar-color-activated: #fff;
+    // Change the color of the unchecked segment buttons
+    --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
 
-  // Change the color of the unchecked segment buttons
-  --ion-toolbar-color-unchecked: rgba(255, 255, 255, .6);
-
-  // Change the color of the checked segment button
-  --ion-toolbar-color-checked: #fff;
-}
+    // Change the color of the checked segment button
+    --ion-toolbar-color-checked: #fff;
+  }
 }
