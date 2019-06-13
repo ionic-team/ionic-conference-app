@@ -79,7 +79,7 @@
     "protractor": "5.4.2",
     "puppeteer": "1.17.0",
     "ts-node": "8.2.0",
-    "tslint": "^5.16.0",
+    "tslint": "^5.17.0",
     "typescript": "~3.2.4"
   },
   "cordova": {
