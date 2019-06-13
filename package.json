@@ -29,7 +29,7 @@
     "@angular/http": "~7.2.9",
     "@angular/platform-browser": "7.2.9",
     "@angular/platform-browser-dynamic": "7.2.9",
-    "@angular/pwa": "0.13.9",
+    "@angular/pwa": "0.800.2",
     "@angular/router": "7.2.9",
     "@angular/service-worker": "~7.2.9",
     "@ionic-native/core": "5.0.0-beta.15",
