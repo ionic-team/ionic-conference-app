@@ -15,8 +15,12 @@
           <span *ngFor="let track of session?.tracks" [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
         </ion-col>
         <ion-col size="6" [ngClass]="{'show-favorite': isFavorite}" class="ion-text-right">
-          <ion-icon name="heart-empty" size="large" class="icon-heart-empty" (click)="toggleFavorite()"></ion-icon>
-          <ion-icon name="heart" color="danger" size="large" class="icon-heart" (click)="toggleFavorite()"></ion-icon>
+          <ion-button fill="clear" color="dark" (click)="toggleFavorite()" class="icon-heart-empty">
+            <ion-icon slot="icon-only" name="heart-empty"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" color="danger" (click)="toggleFavorite()" class="icon-heart">
+            <ion-icon slot="icon-only" name="heart"></ion-icon>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -38,24 +38,38 @@
   color: var(--ion-color-navigation);
 }
 
+// Favorite Icon
+// --------------------------------------------------------
+
 .show-favorite {
   position: relative;
 }
 
-.icon-heart-empty {
+.icon-heart-empty,
+.icon-heart {
+  --border-radius: 50%;
+  --padding-start: 0;
+  --padding-end: 0;
+
   position: absolute;
+
   top: 5px;
   right: 5px;
+
+  width: 48px;
+  height: 48px;
+
+  font-size: 16px;
+
+  transition: transform 300ms ease;
+}
+
+.icon-heart-empty {
   transform: scale(1);
-  transition: transform 0.3s ease;
 }
 
 .icon-heart {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   transform: scale(0);
-  transition: transform 0.3s ease;
 }
 
 .show-favorite .icon-heart {
