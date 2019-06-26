@@ -135,6 +135,24 @@
   --ion-color-tint: #4f6aa2;
 }
 
+.ion-color-github {
+  --ion-color-base: #211F1F;
+  --ion-color-base-rgb: 33,31,31;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255,255,255;
+  --ion-color-shade: #1d1b1b;
+  --ion-color-tint: #373535;
+}
+
+.ion-color-instagram {
+  --ion-color-base: #9537BC;
+  --ion-color-base-rgb: 149,55,188;
+  --ion-color-contrast: #ffffff;
+  --ion-color-contrast-rgb: 255,255,255;
+  --ion-color-shade: #8330a5;
+  --ion-color-tint: #a04bc3;
+}
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
