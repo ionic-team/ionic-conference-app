@@ -1,12 +1,12 @@
 
 ion-content.md {
-  --background: #eee;
+  --background: var(--ion-color-step-100);
 }
 
 .md {
   ion-toolbar {
-    --background: white;
-    --color: #424242;
+    --background: var(--ion-background-color);
+    --color: var(--ion-color-step-750);
   }
 
   ion-toolbar ion-button {
@@ -15,7 +15,7 @@ ion-content.md {
   }
 
   ion-content {
-    --background: #eee;
+    --background: var(--ion-color-step-100);
   }
 
   ion-list {
