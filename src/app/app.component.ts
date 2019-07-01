@@ -69,8 +69,6 @@ export class AppComponent implements OnInit {
         closeButtonText: `Reload`
       });
 
-      console.log('update ready', res);
-
       await toast.present();
 
       toast
