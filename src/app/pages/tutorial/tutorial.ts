@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 export class TutorialPage {
   showSkip = true;
 
-  @ViewChild('slides') slides: IonSlides;
+  @ViewChild('slides', { static: true }) slides: IonSlides;
 
   constructor(
     public menu: MenuController,

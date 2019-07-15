@@ -10,27 +10,27 @@ const routes: Routes = [
   },
   {
     path: 'account',
-    loadChildren: './pages/account/account.module#AccountModule'
+    loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule)
   },
   {
     path: 'support',
-    loadChildren: './pages/support/support.module#SupportModule'
+    loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule)
   },
   {
     path: 'login',
-    loadChildren: './pages/login/login.module#LoginModule'
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'signup',
-    loadChildren: './pages/signup/signup.module#SignUpModule'
+    loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignUpModule)
   },
   {
     path: 'app',
-    loadChildren: './pages/tabs-page/tabs-page.module#TabsModule'
+    loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
   },
   {
     path: 'tutorial',
-    loadChildren: './pages/tutorial/tutorial.module#TutorialModule',
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule),
     canLoad: [CheckTutorial]
   }
 ];
