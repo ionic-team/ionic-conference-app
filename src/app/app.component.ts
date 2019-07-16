@@ -123,8 +123,4 @@ export class AppComponent implements OnInit {
     this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
   }
-
-  toggleDarkTheme(ev: Event) {
-    console.log('toggling dark theme', ev);
-  }
 }
