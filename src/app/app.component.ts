@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
     }
   ];
   loggedIn = false;
+  dark = false;
 
   constructor(
     private events: Events,
@@ -121,5 +122,9 @@ export class AppComponent implements OnInit {
     this.menu.enable(false);
     this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
+  }
+
+  toggleDarkTheme(ev: Event) {
+    console.log('toggling dark theme', ev);
   }
 }

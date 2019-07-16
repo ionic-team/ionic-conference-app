@@ -16,6 +16,7 @@ ion-toolbar {
   max-height: 50%;
   max-width: 60%;
   margin: 36px 0;
+  pointer-events: none;
 }
 
 b {
@@ -26,9 +27,9 @@ p {
   padding: 0 40px;
   font-size: 14px;
   line-height: 1.5;
-  color: #60646b;
+  color: var(--ion-color-step-600, #60646b);
 
   b {
-    color: #000000;
+    color: var(--ion-text-color, #000000);
   }
 }
