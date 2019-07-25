@@ -2,9 +2,8 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "baseUrl": "./",
-    "module": "es2015"
-  },
+    "baseUrl": "./"
+},
 //  "angularCompilerOptions": {
 //    "enableIvy": true
 //  },
