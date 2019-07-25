@@ -18,7 +18,7 @@ const routes: Routes = [
           },
           {
             path: 'session/:sessionId',
-            loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
+            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           }
         ]
       },
@@ -27,15 +27,15 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../speaker-list/speaker-list.module#SpeakerListModule'
+            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakerListModule)
           },
           {
             path: 'session/:sessionId',
-            loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
+            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           },
           {
             path: 'speaker-details/:speakerId',
-            loadChildren: '../speaker-detail/speaker-detail.module#SpeakerDetailModule'
+            loadChildren: () => import('../speaker-detail/speaker-detail.module').then(m => m.SpeakerDetailModule)
           }
         ]
       },
@@ -44,7 +44,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../map/map.module#MapModule'
+            loadChildren: () => import('../map/map.module').then(m => m.MapModule)
           }
         ]
       },
@@ -53,7 +53,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../about/about.module#AboutModule'
+            loadChildren: () => import('../about/about.module').then(m => m.AboutModule)
           }
         ]
       },
