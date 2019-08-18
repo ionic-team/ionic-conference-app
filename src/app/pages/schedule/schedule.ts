@@ -13,7 +13,7 @@ import { UserData } from '../../providers/user-data';
 })
 export class SchedulePage implements OnInit {
   // Gets a reference to the list element
-  @ViewChild('scheduleList') scheduleList: IonList;
+  @ViewChild('scheduleList', { static: true }) scheduleList: IonList;
 
   dayIndex = 0;
   queryText = '';

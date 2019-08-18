@@ -8,7 +8,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./map.scss']
 })
 export class MapPage implements AfterViewInit {
-  @ViewChild('mapCanvas') mapElement: ElementRef;
+  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(public confData: ConferenceData, public platform: Platform) {}
 
