@@ -1,6 +1,9 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform } from '@ionic/angular';
+import { DOCUMENT} from '@angular/common';
+
+import { darkStyle } from './map-dark-style';
 
 @Component({
   selector: 'page-map',
@@ -10,16 +13,25 @@ import { Platform } from '@ionic/angular';
 export class MapPage implements AfterViewInit {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
-  constructor(public confData: ConferenceData, public platform: Platform) {}
+  constructor(
+    @Inject(DOCUMENT) private doc: Document,
+    public confData: ConferenceData,
+    public platform: Platform) {}
 
   async ngAfterViewInit() {
+    const appEl = this.doc.querySelector('ion-app');
+    let isDark = false;
+
     const googleMaps = await getGoogleMaps(
       'AIzaSyB8pf6ZdFQj5qw7rc_HSGrhUwQKfIe9ICw'
     );
+
+    let map;
+
     this.confData.getMap().subscribe((mapData: any) => {
       const mapEle = this.mapElement.nativeElement;
 
-      const map = new googleMaps.Map(mapEle, {
+      map = new googleMaps.Map(mapEle, {
         center: mapData.find((d: any) => d.center),
         zoom: 16
       });
@@ -43,6 +55,24 @@ export class MapPage implements AfterViewInit {
       googleMaps.event.addListenerOnce(map, 'idle', () => {
         mapEle.classList.add('show-map');
       });
+    });
+
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          console.log(`The ${mutation.attributeName} attribute was modified.`);
+          const el = mutation.target as HTMLElement;
+          isDark = el.classList.contains('dark-theme');
+          if (map && isDark) {
+            map.setOptions({styles: darkStyle});
+          } else if (map) {
+            map.setOptions({styles: []});
+          }
+        }
+      });
+    });
+    observer.observe(appEl, {
+      attributes: true
     });
   }
 }
@@ -70,3 +100,4 @@ function getGoogleMaps(apiKey: string): Promise<any> {
     };
   });
 }
+
