@@ -60,7 +60,6 @@ export class MapPage implements AfterViewInit {
     const observer = new MutationObserver(function (mutations) {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
-          console.log(`The ${mutation.attributeName} attribute was modified.`);
           const el = mutation.target as HTMLElement;
           isDark = el.classList.contains('dark-theme');
           if (map && isDark) {
