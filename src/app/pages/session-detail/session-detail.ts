@@ -60,4 +60,8 @@ export class SessionDetailPage {
       this.isFavorite = true;
     }
   }
+
+  shareSession() {
+    console.log('Clicked share session');
+  }
 }
