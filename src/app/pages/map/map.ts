@@ -21,6 +21,10 @@ export class MapPage implements AfterViewInit {
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
     let isDark = false;
+    let style = [];
+    if (appEl.classList.contains('dark-theme')) {
+      style = darkStyle;
+    }
 
     const googleMaps = await getGoogleMaps(
       'AIzaSyB8pf6ZdFQj5qw7rc_HSGrhUwQKfIe9ICw'
@@ -33,7 +37,8 @@ export class MapPage implements AfterViewInit {
 
       map = new googleMaps.Map(mapEle, {
         center: mapData.find((d: any) => d.center),
-        zoom: 16
+        zoom: 16,
+        styles: style
       });
 
       mapData.forEach((markerData: any) => {
