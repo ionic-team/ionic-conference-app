@@ -1,25 +1,7 @@
-
-ion-content.md {
-  --background: var(--ion-color-step-100);
-}
-
 .md {
-  ion-toolbar {
-    --background: var(--ion-background-color);
-    --color: var(--ion-color-step-750);
-  }
-
   ion-toolbar ion-button {
     text-transform: capitalize;
     letter-spacing: 0;
-  }
-
-  ion-content {
-    --background: var(--ion-color-step-100);
-  }
-
-  ion-list {
-    background: transparent;
   }
 
   ion-checkbox {
@@ -27,6 +9,10 @@ ion-content.md {
     --border-color: transparent;
     --border-color-checked: transparent;
     --checkmark-color: var(--ion-color-primary);
+  }
+
+  ion-list {
+    background: inherit;
   }
 }
 
