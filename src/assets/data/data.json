@@ -247,7 +247,7 @@
   "speakers": [
     {
       "name": "Burt Bear",
-      "profilePic": "/assets/img/speakers/bear.jpg",
+      "profilePic": "assets/img/speakers/bear.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -259,7 +259,7 @@
     },
     {
       "name": "Charlie Cheetah",
-      "profilePic": "/assets/img/speakers/cheetah.jpg",
+      "profilePic": "assets/img/speakers/cheetah.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -271,7 +271,7 @@
     },
     {
       "name": "Donald Duck",
-      "profilePic": "/assets/img/speakers/duck.jpg",
+      "profilePic": "assets/img/speakers/duck.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -283,7 +283,7 @@
     },
     {
       "name": "Eva Eagle",
-      "profilePic": "/assets/img/speakers/eagle.jpg",
+      "profilePic": "assets/img/speakers/eagle.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -295,7 +295,7 @@
     },
     {
       "name": "Ellie Elephant",
-      "profilePic": "/assets/img/speakers/elephant.jpg",
+      "profilePic": "assets/img/speakers/elephant.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -307,7 +307,7 @@
     },
     {
       "name": "Gino Giraffe",
-      "profilePic": "/assets/img/speakers/giraffe.jpg",
+      "profilePic": "assets/img/speakers/giraffe.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -319,7 +319,7 @@
     },
     {
       "name": "Isabella Iguana",
-      "profilePic": "/assets/img/speakers/iguana.jpg",
+      "profilePic": "assets/img/speakers/iguana.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -331,7 +331,7 @@
     },
     {
       "name": "Karl Kitten",
-      "profilePic": "/assets/img/speakers/kitten.jpg",
+      "profilePic": "assets/img/speakers/kitten.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -343,7 +343,7 @@
     },
     {
       "name": "Lionel Lion",
-      "profilePic": "/assets/img/speakers/lion.jpg",
+      "profilePic": "assets/img/speakers/lion.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -355,7 +355,7 @@
     },
     {
       "name": "Molly Mouse",
-      "profilePic": "/assets/img/speakers/mouse.jpg",
+      "profilePic": "assets/img/speakers/mouse.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -367,7 +367,7 @@
     },
     {
       "name": "Paul Puppy",
-      "profilePic": "/assets/img/speakers/puppy.jpg",
+      "profilePic": "assets/img/speakers/puppy.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -379,7 +379,7 @@
     },
     {
       "name": "Rachel Rabbit",
-      "profilePic": "/assets/img/speakers/rabbit.jpg",
+      "profilePic": "assets/img/speakers/rabbit.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",
@@ -391,7 +391,7 @@
     },
     {
       "name": "Ted Turtle",
-      "profilePic": "/assets/img/speakers/turtle.jpg",
+      "profilePic": "assets/img/speakers/turtle.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "github": "ionic-team/ionic",

@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
     }
   ];
   loggedIn = false;
+  dark = false;
 
   constructor(
     private events: Events,
