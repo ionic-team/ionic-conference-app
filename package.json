@@ -31,7 +31,7 @@
     "@ionic-native/status-bar": "5.0.0-beta.15",
     "@ionic/angular": "^4.9.1",
     "@ionic/storage": "^2.1.3",
-    "cordova-android": "8.0.0",
+    "cordova-android": "8.1.0",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-inappbrowser": "^3.1.0",
