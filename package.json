@@ -70,7 +70,7 @@
     "karma-jasmine-html-reporter": "1.4.2",
     "protractor": "5.4.2",
     "puppeteer": "1.17.0",
-    "ts-node": "8.2.0",
+    "ts-node": "8.4.1",
     "tslint": "^5.17.0",
     "typescript": "~3.4.5"
   },
