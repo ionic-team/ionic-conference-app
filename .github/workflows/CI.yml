@@ -1,4 +1,4 @@
-name: CI
+name: npm install, build and test
 
 on: [push]
 
@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: [8, 10, 12]
+        node_version: [10, 12]
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
