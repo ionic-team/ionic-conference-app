@@ -107,6 +107,13 @@
               },
               "src/manifest.json"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "progress": false,
+              "browsers": "ChromeHeadlessCI"
+            }
           }
         },
         "lint": {
