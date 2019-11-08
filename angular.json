@@ -162,7 +162,17 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app:serve"
+            "devServerTarget": "app:serve",
+            "webdriverUpdate": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "app:serve:production"
+            },
+            "ci": {
+              "devServerTarget": "app:serve:production",
+              "protractorConfig": "e2e/protractor-ci.conf.js"
+            }
           }
         },
         "lint": {
