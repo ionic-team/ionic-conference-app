@@ -23,6 +23,7 @@ export class SchedulePage implements OnInit {
   shownSessions: any = [];
   groups: any = [];
   confDate: string;
+  showSearchbar: boolean;
 
   constructor(
     public alertCtrl: AlertController,
