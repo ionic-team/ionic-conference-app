@@ -13,7 +13,7 @@ describe('new App', () => {
   });
   fit('should get the slides text', () => {
     page.navigateTo();
-    expect(page.getFirstSlide()).toBe('ION-SLIDE');
+    expect(page.getFirstSlide()).toBe('ion-slide');
     // console.log(page.getFirstSlide());
   });
 
