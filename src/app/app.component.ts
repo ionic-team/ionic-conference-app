@@ -101,11 +101,11 @@ export class AppComponent implements OnInit {
     window.addEventListener('user:login', () => {
       this.updateLoggedInStatus(true);
     });
-    
+
     window.addEventListener('user:signup', () => {
       this.updateLoggedInStatus(true);
     });
-    
+
     window.addEventListener('user:logout', () => {
       this.updateLoggedInStatus(false);
     });
