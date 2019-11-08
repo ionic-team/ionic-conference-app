@@ -22,9 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node_version }}
     - name: Install Dependencies
-      run: |
-        npm ci
-        ./node_modules/protractor/bin/webdriver-manager update
+      run: npm ci
     - name: Lint
       run: npm run lint
     - name: Build
