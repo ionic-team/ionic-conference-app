@@ -11,10 +11,10 @@ describe('new App', () => {
     page.navigateTo();
     expect(page.getMenu()).toBeTruthy();
   });
-  fit('should get the slides text', () => {
+
+  it('should get the slides text', () => {
     page.navigateTo();
-    expect(page.getFirstSlide()).toBe('ION-SLIDE');
-    // console.log(page.getFirstSlide());
+    expect(page.getFirstSlide()).toBe('ion-slide');
   });
 
   it('should create a router outlet', () => {

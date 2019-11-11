@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 
-import { Events, MenuController, Platform, ToastController } from '@ionic/angular';
+import { MenuController, Platform, ToastController } from '@ionic/angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
   dark = false;
 
   constructor(
-    private events: Events,
     private menu: MenuController,
     private platform: Platform,
     private router: Router,
@@ -99,15 +98,15 @@ export class AppComponent implements OnInit {
   }
 
   listenForLoginEvents() {
-    this.events.subscribe('user:login', () => {
+    window.addEventListener('user:login', () => {
       this.updateLoggedInStatus(true);
     });
 
-    this.events.subscribe('user:signup', () => {
+    window.addEventListener('user:signup', () => {
       this.updateLoggedInStatus(true);
     });
 
-    this.events.subscribe('user:logout', () => {
+    window.addEventListener('user:logout', () => {
       this.updateLoggedInStatus(false);
     });
   }
