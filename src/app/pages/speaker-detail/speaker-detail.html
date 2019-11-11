@@ -8,60 +8,20 @@
 </ion-header>
 
 <ion-content class="ion-padding speaker-detail">
-  <ion-grid *ngIf="speaker" fixed>
-    <ion-row>
-      <ion-col size="6">
-        <div class="ion-text-center">
-          <img [src]="speaker.profilePic" [alt]="speaker.name">
-          <br>
+  <div *ngIf="speaker" class="ion-text-center">
+    <img [src]="speaker.profilePic" [alt]="speaker.name">
+    <br>
 
-          <div class="speaker-icons">
-            <ion-button fill="clear" size="small" color="twitter" (click)="openSpeakerSocial('twitter', speaker)">
-              <ion-icon name="logo-twitter" slot="icon-only"></ion-icon>
-            </ion-button>
-            <ion-button fill="clear" size="small" color="github" (click)="openSpeakerSocial('github', speaker)">
-              <ion-icon name="logo-github" slot="icon-only"></ion-icon>
-            </ion-button>
-            <ion-button fill="clear" size="small" color="instagram" (click)="openSpeakerSocial('instagram', speaker)">
-              <ion-icon name="logo-instagram" slot="icon-only"></ion-icon>
-            </ion-button>
-          </div>
-        </div>
+    <ion-button fill="clear" size="small" color="twitter">
+      <ion-icon name="logo-twitter" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="github">
+      <ion-icon name="logo-github" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" size="small" color="instagram">
+      <ion-icon name="logo-instagram" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
 
-        <p>{{speaker?.about}}</p>
-
-        <ion-grid>
-          <ion-row class="ion-no-padding ion-justify-content-center">
-            <ion-col size="4" class="ion-text-center">
-              <ion-button fill="clear" size="small" color="primary" (click)="openSpeakerShare(speaker)">
-                <ion-icon name="share-alt" slot="start"></ion-icon>
-                Share
-              </ion-button>
-            </ion-col>
-            <ion-col size="4" lass="ion-text-right">
-              <ion-button fill="clear" size="small" color="primary" (click)="openContact(speaker)">
-                <ion-icon name="chatboxes" slot="start"></ion-icon>
-                Contact
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-      <ion-col size="6">
-        <ion-list inset>
-          <ion-list-header>Sessions</ion-list-header>
-          <ion-item *ngFor="let session of speaker.sessions" routerLink="/app/tabs/speakers/session/{{session.id}}">
-            <ion-label>
-              <h3>{{session.name}}</h3>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <p *ngIf="!speaker">
-    An error has occurred.
-  </p>
-
+  <p>{{speaker?.about}}</p>
 </ion-content>
