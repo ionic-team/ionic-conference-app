@@ -1,6 +1,14 @@
+ion-item {
+  --transition: unset;
+}
+
 .active {
-  color: var(--ion-color-primary);
+  --color: var(--ion-color-primary);
+  --background: rgba(var(--ion-color-primary-rgb), 0.12);
+  --background-hover: rgba(var(--ion-color-primary-rgb), 0.16);
+  --background-focused: rgba(var(--ion-color-primary-rgb), 0.24);
+
   ion-icon {
-    color: var(--ion-color-primary);
+    color: inherit;
   }
 }
