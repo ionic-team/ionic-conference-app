@@ -33,3 +33,9 @@
  */
 
 @import "./app/app.scss";
+
+
+// TODO remove once fixed in framework
+.ios .header-collapse-condense ion-toolbar {
+  --background: var(--ion-background-color, #fff);
+}

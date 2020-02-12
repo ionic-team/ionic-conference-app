@@ -172,6 +172,15 @@
   --ion-color-tint: var(--ion-color-google-tint);
 }
 
+.ion-color-instagram {
+  --ion-color-base: var(--ion-color-instagram);
+  --ion-color-base-rgb: var(--ion-color-instagram-rgb);
+  --ion-color-contrast: var(--ion-color-instagram-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-instagram-contrast-rgb);
+  --ion-color-shade: var(--ion-color-instagram-shade);
+  --ion-color-tint: var(--ion-color-instagram-tint);
+}
+
 .ion-color-vimeo {
   --ion-color-base: var(--ion-color-vimeo);
   --ion-color-base-rgb: var(--ion-color-vimeo-rgb);
@@ -345,8 +354,7 @@
 
   --ion-toolbar-background: #0d0d0d;
 
-  --ion-item-background: #1c1c1c;
-  --ion-item-background-activated: #313131;
+  --ion-item-background: #000000;
 }
 
 
