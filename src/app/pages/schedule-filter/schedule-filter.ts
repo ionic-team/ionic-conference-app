@@ -9,7 +9,7 @@ import { ConferenceData } from '../../providers/conference-data';
   templateUrl: 'schedule-filter.html',
   styleUrls: ['./schedule-filter.scss'],
 })
-export class ScheduleFilterPage implements AfterViewInit {
+export class ScheduleFilterPage {
   ios: boolean;
 
   tracks: {name: string, icon: string, isChecked: boolean}[] = [];
@@ -23,10 +23,7 @@ export class ScheduleFilterPage implements AfterViewInit {
 
   ionViewWillEnter() {
     this.ios = this.config.get('mode') === `ios`;
-  }
 
-  // TODO use the ionViewDidEnter event
-  ngAfterViewInit() {
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.navParams.get('excludedTracks');
 

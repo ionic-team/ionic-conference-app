@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, IonList, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
+import { AlertController, IonList, IonRouterOutlet, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -31,6 +31,7 @@ export class SchedulePage implements OnInit {
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public router: Router,
+    public routerOutlet: IonRouterOutlet,
     public toastCtrl: ToastController,
     public user: UserData,
     public config: Config
@@ -57,6 +58,8 @@ export class SchedulePage implements OnInit {
   async presentFilter() {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
+      swipeToClose: true,
+      presentingElement: this.routerOutlet.nativeEl,
       componentProps: { excludedTracks: this.excludeTracks }
     });
     await modal.present();
@@ -70,26 +73,26 @@ export class SchedulePage implements OnInit {
 
   async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
     if (this.user.hasFavorite(sessionData.name)) {
-      // woops, they already favorited it! What shall we do!?
-      // prompt them to remove it
+      // Prompt to remove favorite
       this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
     } else {
-      // remember this session as a user favorite
+      // Add as a favorite
       this.user.addFavorite(sessionData.name);
 
-      // create an alert instance
-      const alert = await this.alertCtrl.create({
-        header: 'Favorite Added',
+      // Close the open item
+      slidingItem.close();
+
+      // Create a toast
+      const toast = await this.toastCtrl.create({
+        header: `${sessionData.name} was successfully added as a favorite.`,
+        duration: 3000,
         buttons: [{
-          text: 'OK',
-          handler: () => {
-            // close the sliding item
-            slidingItem.close();
-          }
+          text: 'Close',
+          role: 'cancel'
         }]
       });
-      // now present the alert on top of all other content
-      await alert.present();
+      // Present the toast at the bottom of the page
+      await toast.present();
     }
 
   }
