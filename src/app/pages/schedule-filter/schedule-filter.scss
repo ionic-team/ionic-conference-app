@@ -17,10 +17,8 @@
 }
 
 .ios {
-  // TODO this needs to be added to Ionic:
-  // https://github.com/ionic-team/ionic/pull/16574
   ion-list-header {
-    height: 50px;
+    margin-top: 10px;
     font-size: 22px;
     letter-spacing: 0;
     text-transform: capitalize;
