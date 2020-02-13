@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { TestBed, async } from '@angular/core/testing';
 
-import { Events, MenuController, Platform } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage';
@@ -11,8 +11,7 @@ import { AppComponent } from './app.component';
 import { UserData } from './providers/user-data';
 
 describe('AppComponent', () => {
-  let eventsSpy,
-    menuSpy,
+  let menuSpy,
     routerSpy,
     userDataSpy,
     statusBarSpy,
@@ -24,7 +23,6 @@ describe('AppComponent', () => {
     fixture;
 
   beforeEach(async(() => {
-    eventsSpy = jasmine.createSpyObj('Events', ['subscribe']);
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
     routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
@@ -39,7 +37,6 @@ describe('AppComponent', () => {
       imports: [IonicStorageModule.forRoot()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        { provide: Events, useValue: eventsSpy },
         { provide: MenuController, useValue: menuSpy },
         { provide: Router, useValue: routerSpy },
         { provide: UserData, useValue: userDataSpy },
