@@ -1,3 +1,8 @@
+.md ion-fab-button {
+  --background: var(--ion-color-step-150, #fff);
+  --color: var(--ion-color-primary, #3880ff);
+}
+
 $categories: (
   ionic: var(--ion-color-primary),
   angular: #ac282b,
