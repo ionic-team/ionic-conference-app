@@ -7,7 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Speakers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-grid fixed>
     <ion-row class="ion-align-items-stretch">
       <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
