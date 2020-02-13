@@ -6,7 +6,7 @@
     <ion-title>About</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="presentPopover($event)">
-        <ion-icon slot="icon-only" name="more"></ion-icon>
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -21,16 +21,16 @@
 
     <ion-list lines="none">
       <ion-item>
-        <ion-icon name="calendar" slot="start"></ion-icon>
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
         <ion-label position="stacked">Date</ion-label>
         <ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
       </ion-item>
 
       <ion-item>
-        <ion-icon name="pin" slot="start"></ion-icon>
+        <ion-icon name="location-outline" slot="start"></ion-icon>
         <ion-label position="stacked">Location</ion-label>
-        <ion-select>
-          <ion-select-option value="madison" selected>Madison, WI</ion-select-option>
+        <ion-select value="madison">
+          <ion-select-option value="madison">Madison, WI</ion-select-option>
           <ion-select-option value="austin">Austin, TX</ion-select-option>
           <ion-select-option value="chicago">Chicago, IL</ion-select-option>
           <ion-select-option value="seattle">Seattle, WA</ion-select-option>
