@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
 import { TestBed, async } from '@angular/core/testing';
 
 import { TabsPage } from './tabs-page';
