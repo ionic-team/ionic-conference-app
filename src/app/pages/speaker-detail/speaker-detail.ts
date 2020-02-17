@@ -52,10 +52,10 @@ export class SpeakerDetailPage {
               'Copy link clicked on https://twitter.com/' + speaker.twitter
             );
             if (
-              (window as any)['cordova'] &&
-              (window as any)['cordova'].plugins.clipboard
+              (window as any).cordova &&
+              (window as any).cordova.plugins.clipboard
             ) {
-              (window as any)['cordova'].plugins.clipboard.copy(
+              (window as any).cordova.plugins.clipboard.copy(
                 'https://twitter.com/' + speaker.twitter
               );
             }
