@@ -1,48 +1,41 @@
-<ion-header>
+<ion-content class="speaker-detail">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/app/tabs/speakers"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{speaker?.name}}</ion-title>
+    <ion-buttons *ngIf="speaker" slot="end">
+      <ion-button (click)="openContact(speaker)">
+        <ion-icon slot="icon-only" ios="call-outline" md="call-sharp"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openSpeakerShare(speaker)">
+        <ion-icon slot="icon-only" ios="share-outline" md="share-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
 
-<ion-content class="ion-padding speaker-detail">
-  <div *ngIf="speaker" class="ion-text-center">
-    <img [src]="speaker.profilePic" [alt]="speaker.name">
-    <br>
-
-    <ion-button fill="clear" size="small" color="twitter">
-      <ion-icon name="logo-twitter" slot="icon-only"></ion-icon>
-    </ion-button>
-    <ion-button fill="clear" size="small" color="github">
-      <ion-icon name="logo-github" slot="icon-only"></ion-icon>
-    </ion-button>
-    <ion-button fill="clear" size="small" color="instagram">
-      <ion-icon name="logo-instagram" slot="icon-only"></ion-icon>
-    </ion-button>
+  <div class="speaker-background">
+    <img [src]="speaker?.profilePic" [alt]="speaker?.name">
+    <h2>{{speaker?.name}}</h2>
   </div>
 
-  <p>{{speaker?.about}}</p>
+  <div class="ion-padding speaker-detail">
+    <p>{{speaker?.about}} Social media information is below.</p>
 
-  <ion-row class="ion-no-padding ion-justify-content-center">
-    <ion-col size="4" class="ion-text-left">
-      <ion-button fill="clear" size="small" color="primary" (click)="goToSpeakerTwitter(speaker)">
-        <ion-icon name="logo-twitter" slot="start"></ion-icon>
-        Tweet
-      </ion-button>
-    </ion-col>
-    <ion-col size="4" class="ion-text-center">
-      <ion-button fill="clear" size="small" color="primary" (click)="openSpeakerShare(speaker)">
-        <ion-icon name="share-social" slot="start"></ion-icon>
-        Share
-      </ion-button>
-    </ion-col>
-    <ion-col size="4" class="ion-text-right">
-      <ion-button fill="clear" size="small" color="primary" (click)="openContact(speaker)">
-        <ion-icon name="chatbubbles-outline" slot="start"></ion-icon>
-        Contact
-      </ion-button>
-    </ion-col>
-  </ion-row>
+    <hr>
+
+    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + speaker.twitter)">
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-label>Twitter</ion-label>
+    </ion-chip>
+
+    <ion-chip color="dark" button (click)="openExternalUrl('https://github.com/ionic-team/ionic')">
+      <ion-icon name="logo-github"></ion-icon>
+      <ion-label>GitHub</ion-label>
+    </ion-chip>
+
+    <ion-chip color="instagram" button (click)="openExternalUrl('https://instagram.com/ionicframework')">
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-label>Instagram</ion-label>
+    </ion-chip>
+  </div>
 </ion-content>

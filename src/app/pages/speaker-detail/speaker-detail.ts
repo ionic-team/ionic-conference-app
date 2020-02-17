@@ -34,9 +34,9 @@ export class SpeakerDetailPage {
     });
   }
 
-  goToSpeakerTwitter(speaker: any) {
+  openExternalUrl(url: string) {
     this.inAppBrowser.create(
-      `https://twitter.com/${speaker.twitter}`,
+      url,
       '_blank'
     );
   }
@@ -93,6 +93,10 @@ export class SpeakerDetailPage {
           handler: () => {
             window.open('tel:' + speaker.phone);
           }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
         }
       ]
     });
