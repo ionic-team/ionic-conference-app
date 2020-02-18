@@ -21,27 +21,34 @@ ion-toolbar ion-menu-button {
 }
 
 .speaker-background {
+  position: relative;
+
   display: flex;
+
+  padding-top: var(--ion-safe-area-top);
 
   align-items: center;
   justify-content: center;
 
   flex-direction: column;
 
-  height: 250px;
+  height: calc(250px + var(--ion-safe-area-top));
 
   background: center / cover url(/assets/img/speaker-background.png) no-repeat;
 }
 
 .speaker-background img {
-  height: 70px;
+  width: 70px;
   border-radius: 50%;
-  margin-top: 68px;
+  margin-top: calc(-1 * var(--ion-safe-area-top));
 }
 
 .speaker-background h2 {
+  position: absolute;
+
+  bottom: 10px;
+
   color: white;
-  margin-top: 30px;
 }
 
 .md .speaker-background {
