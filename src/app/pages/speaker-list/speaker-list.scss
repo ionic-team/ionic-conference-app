@@ -3,9 +3,14 @@
 }
 
 .speaker-card {
-  height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+// Due to the fact the cards are inside of columns the margins don't overlap
+// properly so we want to remove the extra margin between cards
+ion-col:not(:last-of-type) .speaker-card {
+  margin-bottom: 0;
 }
 
 .speaker-card .speaker-item {
@@ -31,6 +36,10 @@
   flex: 1 1 auto;
 
   padding: 0;
+}
+
+.ios ion-list {
+  margin-bottom: 10px;
 }
 
 .md ion-list {
