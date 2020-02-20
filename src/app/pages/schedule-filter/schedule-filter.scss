@@ -1,30 +1,32 @@
-.md {
-  ion-toolbar ion-button {
-    text-transform: capitalize;
-    letter-spacing: 0;
-  }
+/*
+ * Material Design
+ */
 
-  ion-checkbox {
-    --background-checked: transparent;
-    --border-color: transparent;
-    --border-color-checked: transparent;
-    --checkmark-color: var(--ion-color-primary);
-  }
-
-  ion-list {
-    background: inherit;
-  }
+.md ion-toolbar ion-button {
+  text-transform: capitalize;
+  letter-spacing: 0;
 }
 
-.ios {
-  ion-list-header {
-    margin-top: 10px;
-    font-size: 22px;
-    letter-spacing: 0;
-    text-transform: capitalize;
-  }
+.md ion-checkbox {
+  --background-checked: transparent;
+  --border-color: transparent;
+  --border-color-checked: transparent;
+  --checkmark-color: var(--ion-color-primary);
+}
 
-  ion-label {
-    color: var(--ion-color-primary);
-  }
+.md ion-list {
+  background: inherit;
+}
+
+
+/*
+ * iOS
+ */
+
+.ios ion-list-header {
+  margin-top: 10px;
+}
+
+.ios ion-label {
+  color: var(--ion-color-primary);
 }
