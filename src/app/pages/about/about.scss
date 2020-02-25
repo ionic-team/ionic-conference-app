@@ -8,6 +8,7 @@ ion-toolbar {
   --background: transparent;
   --color: white;
 }
+
 /* TODO remove !important with a fix for button */
 ion-toolbar ion-button,
 ion-toolbar ion-back-button,
@@ -52,60 +53,6 @@ ion-toolbar ion-menu-button {
   background-image: url(/assets/img/about/seattle.jpg);
 }
 
-.about-header .inputs-wrapper {
-  position: absolute;
-
-  display: flex;
-
-  text-align: center;
-
-  left: 0;
-  right: 0;
-  bottom: 30px;
-}
-
-.about-header .input-wrapper {
-  margin: 0 auto;
-}
-
-.about-header .input-wrapper label {
-  font-size: 12px;
-  font-weight: 500;
-
-  color: white;
-}
-
-.about-header ion-select,
-.about-header ion-datetime {
-  width: 140px;
-
-  margin: 6px auto 0;
-
-  background: var(--ion-background-color, #fff);
-
-  align-items: center;
-
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: .03em;
-
-  border-radius: 4px;
-  padding: 8px 8px;
-}
-
-.about-header ion-select::part(placeholder),
-.about-header ion-select::part(text) {
-  padding-left: 10px;
-}
-
-.about-header ion-select::part(icon) {
-  padding-right: 10px;
-}
-
-.about-header ion-datetime {
-  padding: 9px 18px;
-}
-
 .about-info {
   position: absolute;
   margin-top: -10px;
@@ -113,9 +60,12 @@ ion-toolbar ion-menu-button {
   background: var(--ion-background-color, #fff);
 }
 
-.about-info h4 {
+.about-info h3 {
   margin-top: 0;
-  padding-top: 16px;
+}
+
+.about-info ion-list {
+  padding-top: 0;
 }
 
 .about-info p {
@@ -124,4 +74,8 @@ ion-toolbar ion-menu-button {
 
 .about-info ion-icon {
   margin-inline-end: 32px;
+}
+
+.ios .about-info h3 {
+  font-weight: 700;
 }
