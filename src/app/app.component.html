@@ -18,14 +18,14 @@
           </ion-menu-toggle>
         </ion-list>
 
-        <ion-list lines="none" *ngIf="loggedIn">
+        <ion-list *ngIf="loggedIn" lines="none">
           <ion-list-header>
             Account
           </ion-list-header>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" routerLink="/account" routerLinkActive="selected" routerDirection="root">
-              <ion-icon slot="start" name="person-outline"></ion-icon>
+            <ion-item routerLink="/account" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="person"></ion-icon>
               <ion-label>
                 Account
               </ion-label>
@@ -33,8 +33,8 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" routerLink="/support" routerLinkActive="selected" routerDirection="root">
-              <ion-icon slot="start" name="help-outline"></ion-icon>
+            <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
               </ion-label>
@@ -42,8 +42,8 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" button (click)="logout()">
-              <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-item button (click)="logout()" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
               <ion-label>
                 Logout
               </ion-label>
@@ -52,14 +52,14 @@
 
         </ion-list>
 
-        <ion-list lines="none" *ngIf="!loggedIn">
+        <ion-list *ngIf="!loggedIn" lines="none">
           <ion-list-header>
             Account
           </ion-list-header>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" routerLink="/login" routerLinkActive="selected" routerDirection="root">
-              <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            <ion-item routerLink="/login" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="log-in"></ion-icon>
               <ion-label>
                 Login
               </ion-label>
@@ -67,8 +67,8 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" routerLink="/support" routerLinkActive="selected" routerDirection="root">
-              <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+            <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
               </ion-label>
@@ -76,8 +76,8 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" routerLink="/signup" routerLinkActive="selected" routerDirection="root">
-              <ion-icon slot="start" name="person-add-outline"></ion-icon>
+            <ion-item routerLink="/signup" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="person-add"></ion-icon>
               <ion-label>
                 Signup
               </ion-label>
@@ -98,8 +98,8 @@
             Tutorial
           </ion-list-header>
           <ion-menu-toggle autoHide="false">
-            <ion-item detail="false" button (click)="openTutorial()">
-              <ion-icon slot="start" name="bulb-outline"></ion-icon>
+            <ion-item button (click)="openTutorial()" detail="false">
+              <ion-icon slot="start" name="hammer"></ion-icon>
               <ion-label>Show Tutorial</ion-label>
             </ion-item>
           </ion-menu-toggle>
