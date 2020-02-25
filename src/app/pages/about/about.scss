@@ -8,8 +8,7 @@ ion-toolbar {
   --background: transparent;
   --color: white;
 }
-
-// TODO remove !important with a fix for button
+/* TODO remove !important with a fix for button */
 ion-toolbar ion-button,
 ion-toolbar ion-back-button,
 ion-toolbar ion-menu-button {
@@ -20,7 +19,7 @@ ion-toolbar ion-menu-button {
   position: relative;
 
   width: 100%;
-  height: 55%;
+  height: 30%;
 }
 
 .about-header .about-image {
@@ -117,19 +116,12 @@ ion-toolbar ion-menu-button {
 .about-info h4 {
   margin-top: 0;
   padding-top: 16px;
-
-  text-align: left;
 }
 
 .about-info p {
   color: var(--ion-color-dark);
-  text-align: left;
 }
 
 .about-info ion-icon {
   margin-inline-end: 32px;
-}
-
-.ios .about-info {
-  text-align: center;
 }
