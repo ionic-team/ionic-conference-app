@@ -69,11 +69,21 @@ ion-toolbar ion-menu-button {
 }
 
 .about-info p {
+  line-height: 130%;
+
   color: var(--ion-color-dark);
 }
 
 .about-info ion-icon {
   margin-inline-end: 32px;
+}
+
+/*
+ * iOS Only
+ */
+
+.ios .about-info {
+  --ion-padding: 19px;
 }
 
 .ios .about-info h3 {
