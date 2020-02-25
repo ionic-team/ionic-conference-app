@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-header>
+  <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
@@ -19,27 +19,28 @@
     <div class="about-image chicago" [ngStyle]="location === 'chicago' && {'opacity': '1'}"></div>
     <div class="about-image seattle" [ngStyle]="location === 'seattle' && {'opacity': '1'}"></div>
 
-    <div class="select-wrapper">
-      <label>Location</label>
-      <ion-select [(ngModel)]="location" interface="popover">
-        <ion-select-option value="madison">Madison, WI</ion-select-option>
-        <ion-select-option value="austin">Austin, TX</ion-select-option>
-        <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-        <ion-select-option value="seattle">Seattle, WA</ion-select-option>
-      </ion-select>
+    <div class="inputs-wrapper">
+      <div class="input-wrapper">
+        <label>Location</label>
+        <ion-select [(ngModel)]="location" [interfaceOptions]="selectOptions">
+          <ion-select-option value="madison">Madison, WI</ion-select-option>
+          <ion-select-option value="austin">Austin, TX</ion-select-option>
+          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
+          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
+        </ion-select>
+      </div>
+      <div class="input-wrapper">
+        <label>Date</label>
+        <ion-datetime
+          displayFormat="MMM DD, YYYY"
+          max="2056"
+          [(ngModel)]="conferenceDate"></ion-datetime>
+      </div>
     </div>
   </div>
 
   <div class="about-info">
-    <h4 class="ion-padding-start">Ionic Conference</h4>
-
-    <ion-list lines="none">
-      <ion-item>
-        <ion-icon name="calendar-outline" slot="start"></ion-icon>
-        <ion-label position="stacked">Date</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
-      </ion-item>
-    </ion-list>
+    <h4 class="ion-padding-start">About</h4>
 
     <p class="ion-padding-start ion-padding-end">
       The Ionic Conference is a one-day conference on {{ conferenceDate | date: 'mediumDate' }} featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!

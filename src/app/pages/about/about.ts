@@ -13,6 +13,10 @@ export class AboutPage {
   location = 'madison';
   conferenceDate = '2047-05-17';
 
+  selectOptions = {
+    header: 'Select a Location'
+  };
+
   constructor(public popoverCtrl: PopoverController) { }
 
   async presentPopover(event: Event) {

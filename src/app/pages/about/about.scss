@@ -20,7 +20,7 @@ ion-toolbar ion-menu-button {
   position: relative;
 
   width: 100%;
-  height: 40%;
+  height: 55%;
 }
 
 .about-header .about-image {
@@ -53,29 +53,36 @@ ion-toolbar ion-menu-button {
   background-image: url(/assets/img/about/seattle.jpg);
 }
 
-.about-header .select-wrapper {
+.about-header .inputs-wrapper {
   position: absolute;
+
+  display: flex;
 
   text-align: center;
 
   left: 0;
   right: 0;
-  bottom: 10px;
+  bottom: 30px;
 }
 
-.about-header .select-wrapper label {
+.about-header .input-wrapper {
+  margin: 0 auto;
+}
+
+.about-header .input-wrapper label {
   font-size: 12px;
   font-weight: 500;
 
   color: white;
 }
 
-.about-header ion-select {
-  width: 150px;
+.about-header ion-select,
+.about-header ion-datetime {
+  width: 140px;
 
   margin: 6px auto 0;
 
-  background: white;
+  background: var(--ion-background-color, #fff);
 
   align-items: center;
 
@@ -94,6 +101,24 @@ ion-toolbar ion-menu-button {
 
 .about-header ion-select::part(icon) {
   padding-right: 10px;
+}
+
+.about-header ion-datetime {
+  padding: 9px 18px;
+}
+
+.about-info {
+  position: absolute;
+  margin-top: -10px;
+  border-radius: 10px;
+  background: var(--ion-background-color, #fff);
+}
+
+.about-info h4 {
+  margin-top: 0;
+  padding-top: 16px;
+
+  text-align: left;
 }
 
 .about-info p {
