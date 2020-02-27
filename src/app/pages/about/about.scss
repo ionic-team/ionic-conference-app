@@ -9,11 +9,10 @@ ion-toolbar {
   --color: white;
 }
 
-/* TODO remove !important with a fix for button */
 ion-toolbar ion-button,
 ion-toolbar ion-back-button,
 ion-toolbar ion-menu-button {
-  --color: white !important;
+  --color: white;
 }
 
 .about-header {
