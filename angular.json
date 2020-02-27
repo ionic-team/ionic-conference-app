@@ -74,7 +74,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {
@@ -98,7 +99,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [],
+            "styles": [
+              {
+                "input": "src/theme/variables.scss"
+              },
+              {
+                "input": "src/global.scss"
+              }
+            ],
             "scripts": [],
             "assets": [
               {
