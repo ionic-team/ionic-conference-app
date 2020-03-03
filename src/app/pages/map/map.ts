@@ -62,7 +62,7 @@ export class MapPage implements AfterViewInit {
       });
     });
 
-    const observer = new MutationObserver(function (mutations) {
+    const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
           const el = mutation.target as HTMLElement;

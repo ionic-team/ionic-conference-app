@@ -1,4 +1,4 @@
-<ion-header translucent>
+<ion-header translucent="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button *ngIf="ios" (click)="dismiss()">Cancel</ion-button>
@@ -15,8 +15,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-
+<ion-content>
   <ion-list [lines]="ios ? 'inset' : 'full'">
     <ion-list-header>Tracks</ion-list-header>
 
@@ -30,7 +29,7 @@
 
 </ion-content>
 
-<ion-footer translucent *ngIf="ios">
+<ion-footer translucent="true" *ngIf="ios">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="selectAll(false)">Deselect All</ion-button>

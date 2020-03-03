@@ -7,52 +7,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Speakers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-grid fixed>
-    <ion-row class="ion-align-items-stretch">
+    <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
         <ion-card class="speaker-card">
           <ion-card-header>
-            <ion-item detail="false" lines="none" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
+            <ion-item detail="false" lines="none" class="speaker-item" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
               <ion-avatar slot="start">
                 <img [src]="speaker.profilePic" [alt]="speaker.name + ' profile picture'">
               </ion-avatar>
-              {{speaker.name}}
+              <ion-label>
+                <h2>{{speaker.name}}</h2>
+                <p>{{speaker.title}}</p>
+              </ion-label>
             </ion-item>
           </ion-card-header>
 
           <ion-card-content>
-            <ion-list>
-              <ion-item *ngFor="let session of speaker.sessions" routerLink="/app/tabs/speakers/session/{{session.id}}">
-                <h3>{{session.name}}</h3>
+            <ion-list lines="none">
+              <ion-item *ngFor="let session of speaker.sessions" detail="false" routerLink="/app/tabs/speakers/session/{{session.id}}">
+                <ion-label>
+                  <h3>{{session.name}}</h3>
+                </ion-label>
               </ion-item>
 
-              <ion-item routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
-                <h3>About {{speaker.name}}</h3>
+              <ion-item detail="false" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
+                <ion-label>
+                  <h3>About {{speaker.name}}</h3>
+                </ion-label>
               </ion-item>
             </ion-list>
           </ion-card-content>
-
-          <ion-row class="ion-no-padding ion-justify-content-center">
-            <ion-col size="4" class="ion-text-left">
-              <ion-button fill="clear" size="small" color="primary" (click)="goToSpeakerTwitter(speaker)">
-                <ion-icon name="logo-twitter" slot="start"></ion-icon>
-                Tweet
-              </ion-button>
-            </ion-col>
-            <ion-col size="4" class="ion-text-center">
-              <ion-button fill="clear" size="small" color="primary" (click)="openSpeakerShare(speaker)">
-                <ion-icon name="share-alt" slot="start"></ion-icon>
-                Share
-              </ion-button>
-            </ion-col>
-            <ion-col size="4" class="ion-text-right">
-              <ion-button fill="clear" size="small" color="primary" (click)="openContact(speaker)">
-                <ion-icon name="chatboxes" slot="start"></ion-icon>
-                Contact
-              </ion-button>
-            </ion-col>
-          </ion-row>
         </ion-card>
       </ion-col>
     </ion-row>
