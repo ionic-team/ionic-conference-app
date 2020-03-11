@@ -91,6 +91,7 @@ export class SchedulePage implements OnInit {
           role: 'cancel'
         }]
       });
+
       // Present the toast at the bottom of the page
       await toast.present();
     }
