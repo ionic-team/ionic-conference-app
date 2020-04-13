@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
 import { AccountPage } from './account';
-import { AccountPageRoutingModule } from './account-routing.module';
+import { routes } from './account-routes';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    AccountPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [
     AccountPage,

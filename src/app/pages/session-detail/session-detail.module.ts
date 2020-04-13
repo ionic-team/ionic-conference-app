@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 import { SessionDetailPage } from './session-detail';
-import { SessionDetailPageRoutingModule } from './session-detail-routing.module';
-import { IonicModule } from '@ionic/angular';
+import { routes } from './session-detail-routes'
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    SessionDetailPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [
     SessionDetailPage,

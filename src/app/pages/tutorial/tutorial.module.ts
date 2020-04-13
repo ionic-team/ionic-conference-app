@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
 
 import { TutorialPage } from './tutorial';
-import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { routes } from './tutorial-routes';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    TutorialPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [TutorialPage],
   entryComponents: [TutorialPage],

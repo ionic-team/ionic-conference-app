@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { TabsPage } from './tabs-page';
-import { TabsPageRoutingModule } from './tabs-page-routing.module';
+import { TabsPageRoutingModule } from './tabs-page-routes';
 
 import { AboutModule } from '../about/about.module';
 import { MapModule } from '../map/map.module';

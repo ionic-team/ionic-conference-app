@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 import { SpeakerDetailPage } from './speaker-detail';
-import { SpeakerDetailPageRoutingModule } from './speaker-detail-routing.module';
-import { IonicModule } from '@ionic/angular';
+import { routes } from './speaker-detail-routes';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    SpeakerDetailPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [
     SpeakerDetailPage,
