@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SessionDetailPage } from './session-detail';
-import { routes } from './session-detail-routes'
+import { routes } from './session-detail-routes';
 
 @NgModule({
   imports: [
