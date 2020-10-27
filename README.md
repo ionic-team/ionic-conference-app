@@ -6,9 +6,10 @@ This application is purely a kitchen-sink demo of the Ionic Framework and Angula
 
 ## React and Vue Versions
 
-We've built versions of this Conference app in React and Vue, as well:
+We've built versions of this Conference app in React and Vue, as well, for developers that would prefer to use one of those framework options:
 
 [https://github.com/ionic-team/ionic-react-conference-app](https://github.com/ionic-team/ionic-react-conference-app)
+
 [https://github.com/ionic-team/ionic-vue-conference-app](https://github.com/ionic-team/ionic-vue-conference-app)
 
 ## Table of Contents
