@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MenuController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -22,7 +22,7 @@ describe('AppComponent', () => {
     app,
     fixture;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
     routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
