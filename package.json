@@ -24,7 +24,6 @@
     "@angular/forms": "^9.1.13",
     "@angular/platform-browser": "^9.1.13",
     "@angular/platform-browser-dynamic": "^9.1.13",
-    "@angular/pwa": "^0.803.23",
     "@angular/router": "^9.1.13",
     "@angular/service-worker": "^9.1.13",
     "@ionic-native/core": "5.0.0-beta.15",
@@ -46,11 +45,11 @@
     "rxjs": "^6.5.4",
     "sw-toolbox": "3.6.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.803.23",
-    "@angular-devkit/build-angular": "^0.901.15",
+    "@angular-devkit/build-angular": "~0.901.15",
     "@angular-devkit/core": "^9.1.15",
     "@angular-devkit/schematics": "^9.1.15",
     "@angular/cli": "^9.1.15",
@@ -61,8 +60,8 @@
     "@ionic/lab": "^2.0.19",
     "@types/jasmine": "3.4.6",
     "@types/jasminewd2": "2.0.8",
-    "@types/node": "^12.12.26",
-    "codelyzer": "^5.2.1",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "4.4.1",
