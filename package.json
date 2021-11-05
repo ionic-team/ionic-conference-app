@@ -19,13 +19,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^11.2.14",
-    "@angular/core": "^11.2.14",
-    "@angular/forms": "^11.2.14",
-    "@angular/platform-browser": "^11.2.14",
-    "@angular/platform-browser-dynamic": "^11.2.14",
-    "@angular/router": "^11.2.14",
-    "@angular/service-worker": "^11.2.14",
+    "@angular/common": "^12.2.13",
+    "@angular/core": "^12.2.13",
+    "@angular/forms": "^12.2.13",
+    "@angular/platform-browser": "^12.2.13",
+    "@angular/platform-browser-dynamic": "^12.2.13",
+    "@angular/router": "^12.2.13",
+    "@angular/service-worker": "^12.2.13",
     "@ionic-native/core": "5.0.0-beta.15",
     "@ionic-native/in-app-browser": "5.0.0-beta.15",
     "@ionic-native/splash-screen": "5.0.0-beta.15",
@@ -46,17 +46,17 @@
     "sw-toolbox": "3.6.0",
     "tslib": "^2.0.0",
     "webdriver-manager": "^12.1.8",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1102.15",
-    "@angular-devkit/build-angular": "~0.1102.15",
-    "@angular-devkit/core": "^11.2.15",
-    "@angular-devkit/schematics": "^11.2.15",
-    "@angular/cli": "^11.2.15",
-    "@angular/compiler": "^11.2.14",
-    "@angular/compiler-cli": "^11.2.14",
-    "@angular/language-service": "^11.2.14",
+    "@angular-devkit/architect": "^0.1202.13",
+    "@angular-devkit/build-angular": "~12.2.13",
+    "@angular-devkit/core": "^12.2.13",
+    "@angular-devkit/schematics": "^12.2.13",
+    "@angular/cli": "^12.2.13",
+    "@angular/compiler": "^12.2.13",
+    "@angular/compiler-cli": "^12.2.13",
+    "@angular/language-service": "^12.2.13",
     "@ionic/angular-toolkit": "^2.1.2",
     "@ionic/lab": "^2.0.19",
     "@types/jasmine": "~3.6.0",
@@ -74,7 +74,7 @@
     "puppeteer": "^1.20.0",
     "ts-node": "8.5.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.8"
+    "typescript": "~4.3.5"
   },
   "cordova": {
     "platforms": [
