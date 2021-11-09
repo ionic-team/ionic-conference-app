@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MenuController, IonSlides } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 import { Storage } from '@ionic/storage';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'page-tutorial',
@@ -12,13 +13,13 @@ import { Storage } from '@ionic/storage';
 })
 export class TutorialPage {
   showSkip = true;
-
-  @ViewChild('slides', { static: true }) slides: IonSlides;
+  private slides: Swiper;
 
   constructor(
     public menu: MenuController,
     public router: Router,
-    public storage: Storage
+    public storage: Storage,
+    private cd: ChangeDetectorRef
   ) {}
 
   startApp() {
@@ -27,10 +28,13 @@ export class TutorialPage {
       .then(() => this.storage.set('ion_did_tutorial', true));
   }
 
-  onSlideChangeStart(event) {
-    event.target.isEnd().then(isEnd => {
-      this.showSkip = !isEnd;
-    });
+  setSwiperInstance(swiper: Swiper) {
+    this.slides = swiper;
+  }
+
+  onSlideChangeStart() {
+    this.showSkip = !this.slides.isEnd;
+    this.cd.detectChanges();
   }
 
   ionViewWillEnter() {

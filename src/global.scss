@@ -33,3 +33,10 @@
  */
 
 @import "./app/app.scss";
+
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
+
+.swiper-slide {
+  display: block;
+}
