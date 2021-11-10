@@ -46,7 +46,7 @@
           Date
         </ion-label>
         <ion-text slot="end">{{ conferenceDate | date: 'mediumDate' }}</ion-text>
-        <ion-popover id="date-input-popover" trigger="open-date-input" show-backdrop="false" side="top" alignment="end">
+        <ion-popover id="date-input-popover" trigger="open-date-input" [showBackdrop]="false" side="top" alignment="end">
           <ng-template>
             <ion-datetime max="2056" [(ngModel)]="conferenceDate" presentation="date"></ion-datetime>
           </ng-template>
