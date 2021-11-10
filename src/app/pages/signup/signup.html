@@ -21,7 +21,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger">
-        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+        <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
           Username is required
         </p>
       </ion-text>
@@ -32,7 +32,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger">
-        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+        <p [hidden]="password.valid || submitted === false" class="ion-padding-start">
           Password is required
         </p>
       </ion-text>
