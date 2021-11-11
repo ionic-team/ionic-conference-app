@@ -41,15 +41,16 @@
           <ion-select-option value="seattle">Seattle, WA</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
+      <ion-item button="true" id="open-date-input">
         <ion-label>
           Date
         </ion-label>
-        <ion-datetime
-          displayFormat="MMM DD, YYYY"
-          max="2056"
-          [(ngModel)]="conferenceDate">
-        </ion-datetime>
+        <ion-text slot="end">{{ conferenceDate | date: 'mediumDate' }}</ion-text>
+        <ion-popover id="date-input-popover" trigger="open-date-input" [showBackdrop]="false" side="top" alignment="end">
+          <ng-template>
+            <ion-datetime max="2056" [(ngModel)]="conferenceDate" presentation="date"></ion-datetime>
+          </ng-template>
+        </ion-popover>
       </ion-item>
     </ion-list>
 

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "importHelpers": true,
-    "module": "esnext",
+    "module": "es2020",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -10,6 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015",
+    "skipLibCheck": true,
     "lib": [
       "es2017",
       "dom"

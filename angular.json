@@ -33,13 +33,21 @@
             ],
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "src/theme/variables.scss",
+                "inject": true
               },
               {
-                "input": "src/global.scss"
+                "input": "src/global.scss",
+                "inject": true
               }
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -52,9 +60,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -64,13 +70,24 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             },
             "ci": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "progress": false
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -82,9 +99,7 @@
             "production": {
               "browserTarget": "app:build:production"
             },
-            "ci": {
-              "progress": false
-            }
+            "ci": {}
           }
         },
         "extract-i18n": {
@@ -102,10 +117,12 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "input": "src/theme/variables.scss",
+                "inject": true
               },
               {
-                "input": "src/global.scss"
+                "input": "src/global.scss",
+                "inject": true
               }
             ],
             "scripts": [],
@@ -127,17 +144,6 @@
               "progress": false,
               "watch": false
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -178,12 +184,21 @@
               "devServerTarget": "app:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
