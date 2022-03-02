@@ -17,7 +17,7 @@ export class MapPage implements AfterViewInit {
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
     public platform: Platform) {}
-    // ehfiefoew
+    
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
