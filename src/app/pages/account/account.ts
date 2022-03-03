@@ -13,6 +13,8 @@ import { UserData } from '../../providers/user-data';
 })
 export class AccountPage implements AfterViewInit {
   username: string;
+  bio: string;
+  worklevel: string;
 
   constructor(
     public alertCtrl: AlertController,
@@ -22,6 +24,8 @@ export class AccountPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getUsername();
+    this.getWorklevel();
+    this.getBio();
   }
 
   updatePicture() {
@@ -37,7 +41,7 @@ export class AccountPage implements AfterViewInit {
       buttons: [
         'Cancel',
         {
-          text: 'Ok',
+          text: 'OK',
           handler: (data: any) => {
             this.userData.setUsername(data.username);
             this.getUsername();
@@ -56,9 +60,74 @@ export class AccountPage implements AfterViewInit {
     await alert.present();
   }
 
+
   getUsername() {
     this.userData.getUsername().then((username) => {
       this.username = username;
+    });
+  }
+
+  async changeBio(){
+    const alert = await this.alertCtrl.create({
+      header: 'Change Bio',
+      buttons: [
+        'Cancel',
+        {
+          text: 'OK',
+          handler: (data: any) => {
+            this.userData.setBio(data.bio);
+            this.getBio();
+          }
+        }
+      ],
+      inputs: [
+        {
+          type: 'text',
+          name: 'bio',
+          value: this.bio,
+          placeholder: 'bio'
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  getBio() {
+    this.userData.getBio().then((bio) => {
+      this.bio = bio;
+    });
+  }
+
+
+  async changeWorklevel(){
+    const alert = await this.alertCtrl.create({
+      header: 'Change Worklevel',
+      buttons: [
+        'Cancel',
+        {
+          text: 'OK',
+          handler: (data: any) => {
+            this.userData.setWorklevel(data.worklevel);
+            this.getWorklevel();
+          }
+        }
+      ],
+      inputs: [
+        {
+          type: 'text',
+          name: 'worklevel',
+          value: this.worklevel,
+          placeholder: 'worklevel'
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+
+  getWorklevel() {
+    this.userData.getWorklevel().then((worklevel) => {
+      this.worklevel = worklevel;
     });
   }
 
@@ -74,4 +143,5 @@ export class AccountPage implements AfterViewInit {
   support() {
     this.router.navigateByUrl('/support');
   }
+
 }

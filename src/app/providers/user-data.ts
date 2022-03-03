@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ValueAccessor } from '@ionic/angular/directives/control-value-accessors/value-accessor';
 import { Storage } from '@ionic/storage';
 
 
@@ -57,6 +58,26 @@ export class UserData {
 
   getUsername(): Promise<string> {
     return this.storage.get('username').then((value) => {
+      return value;
+    });
+  }
+
+  setBio(bio: string): Promise<any>{
+    return this.storage.set('bio', bio);
+  }
+
+  getBio(): Promise<string> {
+    return this.storage.get('bio').then((value) => {
+      return value;
+    });
+  }
+
+  setWorklevel(worklevel: string): Promise<any>{
+    return this.storage.set('worklevel', worklevel);
+  }
+
+  getWorklevel(): Promise<string> {
+    return this.storage.get('worklevel').then((value) => {
       return value;
     });
   }

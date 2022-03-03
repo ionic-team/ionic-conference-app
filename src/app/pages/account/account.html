@@ -11,11 +11,14 @@
   <div *ngIf="username" class="ion-padding-top ion-text-center">
     <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
     <h2>{{username}}</h2>
-
-    <ion-list inset>
+    <p style="font-size:60%;"> {{worklevel}} </p>
+    <p style="font-size:40%;"> {{bio}} </p>
+    <ion-list lines="none"> 
       <ion-item (click)="updatePicture()">Update Picture</ion-item>
       <ion-item (click)="changeUsername()">Change Username</ion-item>
       <ion-item (click)="changePassword()">Change Password</ion-item>
+      <ion-item (click)="changeWorklevel()">Change Worklevel</ion-item>
+      <ion-item (click)="changeBio()">Change Bio</ion-item>
       <ion-item (click)="support()">Support</ion-item>
       <ion-item (click)="logout()">Logout</ion-item>
     </ion-list>
