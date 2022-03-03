@@ -1,11 +1,11 @@
 <ion-app [class.dark-theme]="dark">
   <ion-split-pane contentId="main-content">
 
-    <ion-menu contentId="main-content">
+    <ion-menu contentId="main-content" >
       <ion-content>
         <ion-list lines="none">
           <ion-list-header>
-            Conference
+            Home
           </ion-list-header>
           <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
@@ -14,9 +14,22 @@
                 {{p.title}}
               </ion-label>
             </ion-item>
-
           </ion-menu-toggle>
         </ion-list>
+
+        <!-- <ion-list lines="none">
+          <ion-list-header>
+            Conference
+          </ion-list-header>
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="/app/tabs/schedule" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="calendar"></ion-icon>
+              <ion-label>
+                {{Schedule}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list> -->
 
         <ion-list *ngIf="loggedIn" lines="none">
           <ion-list-header>
@@ -32,14 +45,14 @@
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
+          <!-- <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
 
           <ion-menu-toggle autoHide="false">
             <ion-item button (click)="logout()" detail="false">
@@ -66,14 +79,14 @@
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
+          <!-- <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
 
           <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/signup" routerLinkActive="active" routerDirection="root" detail="false">
@@ -84,16 +97,11 @@
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-item>
-            <ion-icon slot="start" name="moon-outline"></ion-icon>
-            <ion-label>
-              Dark Mode
-            </ion-label>
-            <ion-toggle [(ngModel)]="dark"></ion-toggle>
-          </ion-item>
+
         </ion-list>
 
-        <ion-list lines="none">
+
+        <!-- <ion-list lines="none">
           <ion-list-header>
             Tutorial
           </ion-list-header>
@@ -103,8 +111,17 @@
               <ion-label>Show Tutorial</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
+        </ion-list> -->
       </ion-content>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="moon-outline"></ion-icon>
+        <ion-label>
+          Dark Mode
+        </ion-label>
+        <ion-toggle [(ngModel)]="dark"></ion-toggle>
+      </ion-item>
+
     </ion-menu>
 
     <ion-router-outlet id="main-content"></ion-router-outlet>

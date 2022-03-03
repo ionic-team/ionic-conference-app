@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
+      <!-- <ion-back-button defaultHref="MapPage"></ion-back-button> -->
     </ion-buttons>
     <ion-title>Account</ion-title>
   </ion-toolbar>
@@ -10,6 +11,7 @@
 <ion-content>
   <div *ngIf="username" class="ion-padding-top ion-text-center">
     <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
+    <!-- <img src={{image}} (click)="getImage()" > -->
     <h2>{{username}}</h2>
     <p style="font-size:60%;"> {{worklevel}} </p>
     <p style="font-size:40%;"> {{bio}} </p>

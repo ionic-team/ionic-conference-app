@@ -15,6 +15,7 @@ export class AccountPage implements AfterViewInit {
   username: string;
   bio: string;
   worklevel: string;
+  // myphoto: any="assets/imgs/registration_default_image.png"
 
   constructor(
     public alertCtrl: AlertController,
@@ -143,5 +144,21 @@ export class AccountPage implements AfterViewInit {
   support() {
     this.router.navigateByUrl('/support');
   }
+
+  // getImage(){
+  //   const options: CameraOptions = {
+  //     quality: 70,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  //     saveToPhotoAlbum:false
+  //   }
+  //   this.camera.getPicture(options).then((imageData) => {
+  //     // imageData is either a base64 encoded string or a file URI
+  //     // If it's base64:
+  //     this.myphoto = 'data:image/jpeg;base64,' + imageData;
+  //   }, (err) => {
+  //     // Handle error
+  //   });
+  // }
 
 }
