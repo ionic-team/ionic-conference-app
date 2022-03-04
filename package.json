@@ -59,7 +59,7 @@
     "@angular-eslint/eslint-plugin-template": "13.0.0-alpha.0",
     "@angular-eslint/schematics": "13.0.0-alpha.0",
     "@angular-eslint/template-parser": "13.0.0-alpha.0",
-    "@angular/cli": "^13.0.1",
+    "@angular/cli": "13.2.5",
     "@angular/compiler": "^13.0.0",
     "@angular/compiler-cli": "^13.0.0",
     "@angular/language-service": "^13.0.0",
