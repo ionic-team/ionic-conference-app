@@ -1,31 +1,58 @@
+
+
+
 <ion-tabs>
 
-  <ion-tab-bar slot="top">
+  <!-- <ion-header>
+    <ion-menu-button></ion-menu-button>
+    <ion-searchbar></ion-searchbar>   
+  </ion-header> -->
+
+  <!-- <ion-toolbar slot="top">
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+      <ion-searchbar></ion-searchbar>
+    </ion-buttons>
+  </ion-toolbar> -->
+
+  <ion-tab-bar slot="top" class="tabbar1">
       <ion-menu-button></ion-menu-button>
       <ion-searchbar ></ion-searchbar>
-    
-  </ion-tab-bar>
+  </ion-tab-bar> 
+  <!-- currently not unique to each tabs/segment -->
+
+  <!-- <ion-tab-bar slot="top">
+    <ion-segment scrollable value="spot" color="light">
+      <ion-segment-button value="map">
+        <ion-label>Map</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="spot">
+        <ion-label>Spot</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="people">
+        <ion-label>Jio</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-tab-bar> -->
+
+
 
   <ion-tab-bar slot="top">
 
-
     <ion-tab-button tab="map">
-      <ion-icon name="map"></ion-icon>
+      <!-- <ion-icon name="map"></ion-icon> -->
       <ion-label>Map</ion-label>
     </ion-tab-button>
 
-
     <ion-tab-button tab="schedule">
-      <ion-icon name="location"></ion-icon>
+      <!-- <ion-icon name="location"></ion-icon> -->
       <ion-label>Spot</ion-label>
     </ion-tab-button>
 
-
     <ion-tab-button tab="speakers">
-      <ion-icon name="people"></ion-icon>
+      <!-- <ion-icon name="people"></ion-icon> -->
       <ion-label>Jio</ion-label>
     </ion-tab-button>
-
 
     <!-- <ion-tab-button tab="about">
       <ion-icon name="information-circle"></ion-icon>
@@ -35,3 +62,4 @@
   </ion-tab-bar>
 
 </ion-tabs>
+

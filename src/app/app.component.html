@@ -1,9 +1,21 @@
 <ion-app [class.dark-theme]="dark">
   <ion-split-pane contentId="main-content">
 
+
     <ion-menu contentId="main-content" >
+
+      <ion-menu-toggle autoHide="false">
+        <ion-button>
+          Close
+        </ion-button>
+      </ion-menu-toggle>
+
+
       <ion-content>
-        <ion-list lines="none">
+
+
+        <!-- <ion-list lines="none">
+
           <ion-list-header>
             Home
           </ion-list-header>
@@ -15,7 +27,7 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
+        </ion-list> -->
 
         <!-- <ion-list lines="none">
           <ion-list-header>
@@ -32,9 +44,9 @@
         </ion-list> -->
 
         <ion-list *ngIf="loggedIn" lines="none">
-          <ion-list-header>
+          <!-- <ion-list-header>
             Account
-          </ion-list-header>
+          </ion-list-header> -->
 
           <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/account" routerLinkActive="active" routerDirection="root" detail="false">
@@ -66,9 +78,9 @@
         </ion-list>
 
         <ion-list *ngIf="!loggedIn" lines="none">
-          <ion-list-header>
+          <!-- <ion-list-header>
             Account
-          </ion-list-header>
+          </ion-list-header> -->
 
           <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/login" routerLinkActive="active" routerDirection="root" detail="false">
@@ -114,6 +126,7 @@
         </ion-list> -->
       </ion-content>
 
+
       <ion-item lines="none">
         <ion-icon slot="start" name="moon-outline"></ion-icon>
         <ion-label>
@@ -122,10 +135,14 @@
         <ion-toggle [(ngModel)]="dark"></ion-toggle>
       </ion-item>
 
+  
     </ion-menu>
+
+
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
 
   </ion-split-pane>
+
 
 </ion-app>

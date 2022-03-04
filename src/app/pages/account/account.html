@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <!-- <ion-back-button defaultHref="MapPage"></ion-back-button> -->
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button defaultHref="/app/tabs/map" text=""></ion-back-button>
+      <!-- can work on return back to where it came from instead of always back to map page -->
     </ion-buttons>
-    <ion-title>Account</ion-title>
+    <!-- <ion-title>Account</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
@@ -21,8 +22,8 @@
       <ion-item (click)="changePassword()">Change Password</ion-item>
       <ion-item (click)="changeWorklevel()">Change Worklevel</ion-item>
       <ion-item (click)="changeBio()">Change Bio</ion-item>
-      <ion-item (click)="support()">Support</ion-item>
-      <ion-item (click)="logout()">Logout</ion-item>
+      <!-- <ion-item (click)="support()">Support</ion-item> -->
+      <!-- <ion-item (click)="logout()">Logout</ion-item> -->
     </ion-list>
   </div>
 </ion-content>
