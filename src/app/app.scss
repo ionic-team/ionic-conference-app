@@ -1,0 +1,9 @@
+page-tutorial {
+  .swiper .swiper-slide {
+    flex-direction: column;
+
+    img {
+      max-height: 40vh;
+    }
+  }
+}
