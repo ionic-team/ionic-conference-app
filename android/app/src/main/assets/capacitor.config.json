@@ -17,8 +17,5 @@
 			"splashFullScreen": true,
 			"splashImmersive": true
 		}
-	},
-	"server": {
-		"url": "http://192.168.79.58:8110"
 	}
 }

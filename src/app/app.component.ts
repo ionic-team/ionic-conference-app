@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      StatusBar.setStyle({ style: Style.Dark });
+      StatusBar.hide();
       SplashScreen.hide();
     });
   }
