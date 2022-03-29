@@ -4,19 +4,7 @@ const config: CapacitorConfig = {
   appId: 'ionic.conference.app',
   appName: 'ionic-conference-app',
   webDir: 'www',
-  bundledWebRuntime: false,
-  cordova: {
-    preferences: {
-      ScrollEnabled: 'false',
-      'android-minSdkVersion': '19',
-      BackupWebStorage: 'none',
-      SplashMaintainAspectRatio: 'true',
-      FadeSplashScreenDuration: '300',
-      SplashShowOnlyFirstTime: 'false',
-      SplashScreen: 'screen',
-      SplashScreenDelay: '3000'
-    }
-  }
+  bundledWebRuntime: false
 };
 
 export default config;
