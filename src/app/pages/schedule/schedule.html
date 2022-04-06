@@ -37,6 +37,19 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-modal [isOpen]="true" [breakpoints]="[0, 0.57, 1]" [initialBreakpoint]="0.57">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Select Date</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-datetime size="cover" presentation="date" [isDateEnabled]="isDateEnabled"></ion-datetime>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
 <ion-content fullscreen="true">
   <ion-header collapse="condense">
     <ion-toolbar>

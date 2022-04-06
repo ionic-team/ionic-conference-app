@@ -55,6 +55,12 @@ export class SchedulePage implements OnInit {
     });
   }
 
+  isDateEnabled(dateIsoString: string) {
+    const date = new Date(dateIsoString);
+    const dayOfWeek = date.getDay();
+    return dayOfWeek !== 4 && dayOfWeek !== 5;
+  }
+
   async presentFilter() {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
