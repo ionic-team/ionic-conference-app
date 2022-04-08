@@ -14,7 +14,7 @@ describe('new App', () => {
 
   it('should get the slides text', () => {
     page.navigateTo();
-    expect(page.getFirstSlide()).toBe('ion-slide');
+    expect(page.getFirstSlide()).toBe('swiper');
   });
 
   it('should create a router outlet', () => {
