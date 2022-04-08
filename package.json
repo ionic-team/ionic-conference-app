@@ -10,7 +10,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "webdriver-manager update --standalone false --gecko false && ng e2e --no-webdriver-update",
     "postinstall": "webdriver-manager update --standalone false --gecko false"
   },
   "repository": {
