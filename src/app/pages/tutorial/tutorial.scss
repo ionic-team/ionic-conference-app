@@ -7,10 +7,14 @@ ion-toolbar {
   margin-top: 2.8rem;
 }
 
+.slide-container {
+  width: 100%;
+}
+
 .slide-image {
-  max-height: 50%;
-  max-width: 60%;
-  margin: 36px 0;
+  max-height: 50% !important;
+  max-width: 80% !important;
+  margin: 5vh 0;
   pointer-events: none;
 }
 

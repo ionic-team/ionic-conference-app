@@ -4,8 +4,8 @@ import { SwUpdate } from '@angular/service-worker';
 
 import { MenuController, Platform, ToastController } from '@ionic/angular';
 
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
@@ -47,8 +47,6 @@ export class AppComponent implements OnInit {
     private menu: MenuController,
     private platform: Platform,
     private router: Router,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private storage: Storage,
     private userData: UserData,
     private swUpdate: SwUpdate,
@@ -84,8 +82,8 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      StatusBar.hide();
+      SplashScreen.hide();
     });
   }
 
