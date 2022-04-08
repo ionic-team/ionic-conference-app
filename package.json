@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e --no-webdriver-update",
-    "postinstall": "npx webdriver-manager update --standalone false --gecko false"
+    "postinstall": "webdriver-manager update --standalone false --gecko false"
   },
   "repository": {
     "type": "git",
