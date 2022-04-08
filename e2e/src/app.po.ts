@@ -12,7 +12,7 @@ export class AppPage {
   }
 
   async getFirstSlide() {
-    const el = this.getElement('app-root ion-slides ion-slide:first-child');
+    const el = this.getElement('app-root swiper');
     await this.waitForSelector(el);
     return el.getTagName();
   }
