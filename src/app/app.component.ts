@@ -4,7 +4,7 @@ import { SwUpdate } from '@angular/service-worker';
 
 import { MenuController, Platform, ToastController } from '@ionic/angular';
 
-import { StatusBar, Style } from '@capacitor/status-bar';
+import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
 
 import { Storage } from '@ionic/storage';
@@ -82,8 +82,10 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      StatusBar.hide();
-      SplashScreen.hide();
+      if (this.platform.is('hybrid')) {
+        StatusBar.hide();
+        SplashScreen.hide();
+      }
     });
   }
 
