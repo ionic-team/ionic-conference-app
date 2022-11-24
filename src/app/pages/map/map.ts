@@ -1,7 +1,13 @@
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, OnDestroy, OnInit, AfterViewInit } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform } from '@ionic/angular';
 import { DOCUMENT} from '@angular/common';
+import * as Leaflet from 'leaflet';
+import { antPath } from 'leaflet-ant-path';
+
+import { IonModal } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
+
 
 import { darkStyle } from './map-dark-style';
 
@@ -10,8 +16,13 @@ import { darkStyle } from './map-dark-style';
   templateUrl: 'map.html',
   styleUrls: ['./map.scss']
 })
-export class MapPage implements AfterViewInit {
-  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+export class MapPage implements OnInit, OnDestroy,  AfterViewInit {
+  //@ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+  @ViewChild(IonModal) modal: IonModal;
+
+  map: Leaflet.Map;
+  message:string;
+  name: string;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
@@ -26,82 +37,76 @@ export class MapPage implements AfterViewInit {
       style = darkStyle;
     }
 
-    const googleMaps = await getGoogleMaps(
-      'YOUR_API_KEY_HERE'
-    );
 
-    let map;
-
-    this.confData.getMap().subscribe((mapData: any) => {
-      const mapEle = this.mapElement.nativeElement;
-
-      map = new googleMaps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
-        zoom: 16,
-        styles: style
-      });
-
-      mapData.forEach((markerData: any) => {
-        const infoWindow = new googleMaps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`
-        });
-
-        const marker = new googleMaps.Marker({
-          position: markerData,
-          map,
-          title: markerData.name
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      });
-
-      googleMaps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
-    });
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class') {
-          const el = mutation.target as HTMLElement;
-          isDark = el.classList.contains('dark-theme');
-          if (map && isDark) {
-            map.setOptions({styles: darkStyle});
-          } else if (map) {
-            map.setOptions({styles: []});
-          }
-        }
-      });
-    });
-    observer.observe(appEl, {
-      attributes: true
-    });
-  }
-}
-
-function getGoogleMaps(apiKey: string): Promise<any> {
-  const win = window as any;
-  const googleModule = win.google;
-  if (googleModule && googleModule.maps) {
-    return Promise.resolve(googleModule.maps);
   }
 
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.31`;
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    script.onload = () => {
-      const googleModule2 = win.google;
-      if (googleModule2 && googleModule2.maps) {
-        resolve(googleModule2.maps);
-      } else {
-        reject('google maps not available');
-      }
-    };
-  });
-}
 
+  ngOnInit() {
+    console.log('init: MapPage');
+    // this.leafletMap();
+  }
+
+  showPopOver(): void{
+    console.log('cliked!')
+  }
+
+  ionViewDidEnter(): void {
+    // this.leafletMap();
+    // this.leafletMap();
+
+   }
+
+
+  leafletMap() {
+
+    this.map = Leaflet.map('mapCanvas').setView([3.860518, 11.515800], 15);
+    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'GIZ CM -- Angular LeafLet',
+    }).addTo(this.map);
+
+    Leaflet.marker([3.860518, 11.515800]).addTo(this.map).bindPopup('Le Musée National de Yaoundé').openPopup();
+    Leaflet.marker([3.863922, 11.514487]).addTo(this.map).bindPopup('Centre administratif, Yaoundé').openPopup();
+
+    antPath([[3.8639, 11.5144] , [3.861688, 11.516832] ,[3.8605, 11.5158]],
+      { color: '#FF0000', weight: 5, opacity: 0.4 ,
+        delay : 1000
+    }).addTo(this.map);
+  }
+
+  /** Remove map when we have multiple map object */
+  ngOnDestroy() {
+    this.map.off();
+    this.map.remove();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad MapPage');
+  }
+
+
+
+
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+      this.message = `Hello, ${ev.detail.data}!`;
+    }
+  }
+
+  // fix map id already loaded
+  ionViewCanLeave(){
+    this.map.off();
+    // this.map.remove();
+      //document.getElementById("mapId").outerHTML = "";
+
+  }
+}

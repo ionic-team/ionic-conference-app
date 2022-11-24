@@ -1,12 +1,71 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Map</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Map</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div #mapCanvas class="map-canvas"></div>
+    <div id="mapCanvas**" #mapCanvas class="map-canvas" style="width: 100%; height: 100%"></div>
+
+    <ion-button (click)="showPopOver()">test</ion-button>
+
+
+
+    <svg id="open-modal2" width="150" height="150" scale="0.5" style="position: absolute; left: 0 ; top: 100">
+      <polygon points="100,10 40,198 190,78 10,78 160,198"
+      style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+    </svg>
+
+    <!-- <img src="assets/img/map_layer.svg" alt=""> -->
+    <!-- <img src="assets/img/map_layer.svg" class="slide-image" /> -->
+
+    <object type="image/svg+xml" data="assets/img/map_layer.svg" style="width: 100%; height: 100% overlay: hidden">
+      Your browser does not support SVG
+    </object>
+
+
+
+    <!-- <ion-button id="open-modal" expand="block">Open</ion-button>
+    <p>{{ message }}</p> -->
+    <ion-modal trigger="open-modal2">
+        <ng-template>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-buttons slot="start">
+                        <ion-button (click)="cancel()">Cancel</ion-button>
+                    </ion-buttons>
+                    <ion-title>Details Page</ion-title>
+                    <ion-buttons slot="end">
+                        <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+                <ion-item>
+                    <!-- <ion-label position="stacked">Enter your name</ion-label>
+                    <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input> -->
+
+                    <ion-card>
+                        <img alt="Santé" class="img-rounded" src="assets/img/pics/jcgcpic001.png" />
+                        <ion-card-header>
+                            <ion-card-title>Stand Title</ion-card-title>
+                            <ion-card-subtitle>Priority sector</ion-card-subtitle>
+                        </ion-card-header>
+
+                        <ion-card-content>
+                            Short Description : <br> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel deleniti provident voluptatibus non ipsum molestias iste laboriosam. Repellat amet, dolores ad obcaecati in fugiat quas ducimus atque, necessitatibus,
+                            sed optio.
+                        </ion-card-content>
+                    </ion-card>
+
+
+                </ion-item>
+            </ion-content>
+        </ng-template>
+    </ion-modal>
+
+
 </ion-content>

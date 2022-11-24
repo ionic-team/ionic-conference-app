@@ -1,58 +1,59 @@
 <ion-app [class.dark-theme]="dark">
-  <ion-split-pane contentId="main-content">
+    <ion-split-pane contentId="main-content">
 
-    <ion-menu contentId="main-content">
-      <ion-content>
-        <ion-list lines="none">
-          <ion-list-header>
-            Conference
-          </ion-list-header>
-          <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
-              <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
+        <ion-menu contentId="main-content">
+            <ion-content>
+                <ion-list lines="none">
+                    <ion-list-header>
+                        La Journ&eacute;e Germano-Camerounaise <br> 7 D&eacute;c 2022
+                    </ion-list-header>
+                    <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
+                            <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
+                            <ion-label>
+                                {{p.title}}
+                            </ion-label>
+                        </ion-item>
 
-          </ion-menu-toggle>
-        </ion-list>
+                    </ion-menu-toggle>
+                </ion-list>
 
-        <ion-list *ngIf="loggedIn" lines="none">
-          <ion-list-header>
-            Account
-          </ion-list-header>
+                <!--<ion-list *ngIf="loggedIn" lines="none">
+                    <ion-list-header>
+                        Account
+                    </ion-list-header>
 
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="/account" routerLinkActive="active" routerDirection="root" detail="false">
-              <ion-icon slot="start" name="person"></ion-icon>
-              <ion-label>
-                Account
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+                    <ion-menu-toggle autoHide="false">
+                        <ion-item routerLink="/account" routerLinkActive="active" routerDirection="root" detail="false">
+                            <ion-icon slot="start" name="person"></ion-icon>
+                            <ion-label>
+                                Account
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
-              <ion-icon slot="start" name="help"></ion-icon>
-              <ion-label>
-                Support
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+                    <ion-menu-toggle autoHide="false">
+                        <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
+                            <ion-icon slot="start" name="help"></ion-icon>
+                            <ion-label>
+                                Support
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
-            <ion-item button (click)="logout()" detail="false">
-              <ion-icon slot="start" name="log-out"></ion-icon>
-              <ion-label>
-                Logout
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+                     <ion-menu-toggle autoHide="false">
+                        <ion-item button (click)="logout()" detail="false">
+                          <ion-icon slot="start" name="log-out"></ion-icon>
+                          <ion-label>
+                            Logout
+                          </ion-label>
+                        </ion-item>
+                      </ion-menu-toggle>
 
-        </ion-list>
 
-        <ion-list *ngIf="!loggedIn" lines="none">
+                </ion-list>-->
+
+                <!-- <ion-list *ngIf="!loggedIn" lines="none">
           <ion-list-header>
             Account
           </ion-list-header>
@@ -91,24 +92,24 @@
             </ion-label>
             <ion-toggle [(ngModel)]="dark"></ion-toggle>
           </ion-item>
-        </ion-list>
+        </ion-list> -->
 
-        <ion-list lines="none">
-          <ion-list-header>
-            Tutorial
-          </ion-list-header>
-          <ion-menu-toggle autoHide="false">
-            <ion-item button (click)="openTutorial()" detail="false">
-              <ion-icon slot="start" name="hammer"></ion-icon>
-              <ion-label>Show Tutorial</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+                <ion-list lines="none">
+                    <ion-list-header>
+                        Tutorial
+                    </ion-list-header>
+                    <ion-menu-toggle autoHide="false">
+                        <ion-item button (click)="openTutorial()" detail="false">
+                            <ion-icon slot="start" name="hammer"></ion-icon>
+                            <ion-label>Show Tutorial</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
 
-    <ion-router-outlet id="main-content"></ion-router-outlet>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
 
-  </ion-split-pane>
+    </ion-split-pane>
 
 </ion-app>

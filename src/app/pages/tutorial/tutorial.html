@@ -1,57 +1,78 @@
 <ion-header no-border>
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <swiper [slidesPerView]="1" (swiper)="setSwiperInstance($event)" (slideChangeTransitionStart)="onSlideChangeStart()">
-    <ng-template swiperSlide>
-      <div class="slide-container">
-      <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
-      <h2 class="slide-title">
-        Welcome to
-        <b>ICA</b>
-      </h2>
-      <p>
-        The
-        <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code
-        use.
-      </p>
-    </div>
-    </ng-template>
+    <swiper [slidesPerView]="1" (swiper)="setSwiperInstance($event)" (slideChangeTransitionStart)="onSlideChangeStart()">
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
+                <h2 class="slide-title">
+                    Bienvenue &agrave; la
+                    <b>JCGC - 2022</b>
+                </h2>
+                <p>
+                    La
+                    <b>JOURNEE DE LA COOPERATION GERMANO-CAMEROUNAISE</b> <br> la première édition de la Journée de la Coopération Germano-Camerounaise (JCGC) marque le lancement de la stratégie de renforcement de la visibilité de la coopération allemande
+                    au Cameroun. Cette journée vous présente le partenariat germano-camerounais pour le développement durable, l?action de la coopération allemande dans l?atteinte des ODD au Cameroun et l?action de la coopération allemande dans la mise
+                    en ?uvre de la SND 30 au Cameroun.
 
-    <ng-template swiperSlide>
-      <div class="slide-container">
-      <img src="assets/img/ica-slidebox-img-2.png" class="slide-image" />
-      <h2 class="slide-title">What is Ionic?</h2>
-      <p>
-        <b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies
-        like HTML, CSS, and JavaScript.</p>
-        </div>
-    </ng-template>
+                </p>
+            </div>
+        </ng-template>
 
-    <ng-template swiperSlide>
-      <div class="slide-container">
-      <img src="assets/img/ica-slidebox-img-3.png" class="slide-image" />
-      <h2 class="slide-title">What is Ionic Appflow?</h2>
-      <p>
-        <b>Ionic Appflow</b> is a powerful set of services and features built on top of Ionic Framework that brings a totally new
-        level of app development agility to mobile dev teams.</p>
-        </div>
-    </ng-template>
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-2.png" class="slide-image" />
+                <h2 class="slide-title">About the German cooperation in Cameroon?</h2>
+                <p>
+                    <b>GIZ Framework</b> is Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iure dignissimos vero non hic ad vel praesentium quae commodi voluptates. Aut voluptate, consequatur quibusdam velit perferendis expedita reiciendis
+                    dolore repellat.</p>
+            </div>
+        </ng-template>
 
-    <ng-template swiperSlide>
-      <div class="slide-container">
-      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
-      <h2 class="slide-title">Ready to Play?</h2>
-      <ion-button fill="clear" (click)="startApp()">
-        Continue
-        <ion-icon slot="end" name="arrow-forward"></ion-icon>
-      </ion-button>
-      </div>
-    </ng-template>
-  </swiper>
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-2.png" class="slide-image" />
+                <h2 class="slide-title">A propos de la Coopération germano-camerounaise </h2>
+                <p>
+                    <b>GIZ Framework</b>La <b> coopération bilatérale au développement</b> entre l?Allemagne et le Cameroun dure depuis plus de 60 ans. Cette coopération s?appuie sur la volonté commune d??uvrer ensemble pour le développement durable au
+                    profit des populations camerounaises. L?Agenda 2030 des Nations Unies, l?Agenda 2063 de l?Union Africaine et surtout la Stratégie Nationale de Développement du Cameroun (SND30) ainsi que son ambition de devenir un pays émergent à l?horizon
+                    de 2035 constituent le cadre structurant la Coopération germano-camerounaise.</p>
+            </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-3.png" class="slide-image" />
+                <h2 class="slide-title">What is KfW?</h2>
+                <p>
+                    <b>KfW </b> is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error omnis quis iure, illo maiores qui! Fuga facere in nihil quam nobis dicta porro, autem quas laboriosam expedita nisi aut harum.</p>
+            </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-3.png" class="slide-image" />
+                <h2 class="slide-title">What is BGR?</h2>
+                <p>
+                    <b>BGR</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, voluptatum? Voluptatem praesentium repudiandae eos ea dignissimos beatae aperiam voluptatibus dolor, architecto quisquam ipsa at modi, minus sint rem neque pariatur.</p>
+            </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+            <div class="slide-container">
+                <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />
+                <h2 class="slide-title">Ready to Play?</h2>
+                <ion-button fill="clear" (click)="startApp()">
+                    Continue
+                    <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+            </div>
+        </ng-template>
+    </swiper>
 </ion-content>
