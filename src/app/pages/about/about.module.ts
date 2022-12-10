@@ -8,14 +8,13 @@ import { PopoverPage } from '../about-popover/about-popover';
 import { AboutPageRoutingModule } from './about-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AboutPageRoutingModule
-  ],
-  declarations: [AboutPage, PopoverPage],
-  entryComponents: [PopoverPage],
-  bootstrap: [AboutPage],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AboutPageRoutingModule
+    ],
+    declarations: [AboutPage, PopoverPage],
+    bootstrap: [AboutPage]
 })
 export class AboutModule {}
