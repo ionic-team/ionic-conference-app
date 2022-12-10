@@ -7,13 +7,12 @@ import { TutorialPage } from './tutorial';
 import { TutorialPageRoutingModule } from './tutorial-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    IonicModule,
-    TutorialPageRoutingModule,
-    SwiperModule
-  ],
-  declarations: [TutorialPage],
-  entryComponents: [TutorialPage],
+    imports: [
+        CommonModule,
+        IonicModule,
+        TutorialPageRoutingModule,
+        SwiperModule
+    ],
+    declarations: [TutorialPage]
 })
 export class TutorialModule {}

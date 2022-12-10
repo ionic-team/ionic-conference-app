@@ -8,18 +8,15 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { SchedulePageRoutingModule } from './schedule-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    SchedulePageRoutingModule
-  ],
-  declarations: [
-    SchedulePage,
-    ScheduleFilterPage
-  ],
-  entryComponents: [
-    ScheduleFilterPage
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        SchedulePageRoutingModule
+    ],
+    declarations: [
+        SchedulePage,
+        ScheduleFilterPage
+    ]
 })
 export class ScheduleModule { }
