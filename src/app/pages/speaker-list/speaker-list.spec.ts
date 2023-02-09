@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ActionSheetController } from '@ionic/angular';
 
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SpeakerListPage } from './speaker-list';
 import { ConferenceData } from '../../providers/conference-data';
 
