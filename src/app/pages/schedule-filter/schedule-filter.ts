@@ -21,6 +21,44 @@ export class ScheduleFilterPage {
     public navParams: NavParams
   ) { }
 
+  highlightedDates = [
+    {
+      date: '2023-01-02',
+      textColor: 'var(--ion-color-secondary-contrast)',
+      backgroundColor: 'var(--ion-color-secondary)'
+    },
+    {
+      date: '2023-01-03',
+      textColor: 'var(--ion-color-secondary-contrast)',
+      backgroundColor: 'var(--ion-color-secondary)'
+    },
+    {
+      date: '2023-01-04',
+      textColor: 'var(--ion-color-warning-contrast)',
+      backgroundColor: 'var(--ion-color-warning)'
+    },
+    {
+      date: '2023-01-05',
+      textColor: 'var(--ion-color-danger-contrast)',
+      backgroundColor: 'var(--ion-color-danger)',
+    },
+    {
+      date: '2023-01-17',
+      textColor: 'var(--ion-color-secondary-contrast)',
+      backgroundColor: 'var(--ion-color-secondary)'
+    },
+    {
+      date: '2023-01-20',
+      textColor: 'var(--ion-color-success-contrast)',
+      backgroundColor: 'var(--ion-color-success)',
+    },
+    {
+      date: '2023-01-23',
+      textColor: 'rgb(255, 255, 255)',
+      backgroundColor: 'rgb(68, 10, 184)'
+    }
+  ];
+
   ionViewWillEnter() {
     this.ios = this.config.get('mode') === `ios`;
 

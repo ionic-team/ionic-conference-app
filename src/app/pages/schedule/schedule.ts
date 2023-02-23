@@ -58,9 +58,10 @@ export class SchedulePage implements OnInit {
   async presentFilter() {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
-      swipeToClose: true,
-      presentingElement: this.routerOutlet.nativeEl,
-      componentProps: { excludedTracks: this.excludeTracks }
+      // presentingElement: this.routerOutlet.nativeEl,
+      componentProps: { excludedTracks: this.excludeTracks },
+      breakpoints: [0.48],
+      initialBreakpoint: 0.48
     });
     await modal.present();
 
