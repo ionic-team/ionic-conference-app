@@ -19,11 +19,12 @@
   <ion-list [lines]="ios ? 'inset' : 'full'">
     <ion-list-header>Tracks</ion-list-header>
 
-    <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
-      <ion-icon *ngIf="ios" slot="start" [name]="track.icon" color="medium"></ion-icon>
-      <ion-label>{{track.name}}</ion-label>
-      <ion-checkbox [(ngModel)]="track.isChecked"></ion-checkbox>
-    </ion-item>
+<ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
+  <ion-icon *ngIf="ios" slot="start" [name]="track.icon" color="medium"></ion-icon>
+  <ion-checkbox [(ngModel)]="track.isChecked">
+    {{track.name}}
+  </ion-checkbox>
+</ion-item>
 
   </ion-list>
 

@@ -86,10 +86,9 @@
 
           <ion-item>
             <ion-icon slot="start" name="moon-outline"></ion-icon>
-            <ion-label>
+            <ion-toggle [(ngModel)]="dark">
               Dark Mode
-            </ion-label>
-            <ion-toggle [(ngModel)]="dark"></ion-toggle>
+            </ion-toggle>
           </ion-item>
         </ion-list>
 
