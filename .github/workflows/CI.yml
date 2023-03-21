@@ -29,5 +29,7 @@ jobs:
       run: npm run build -- --configuration=production
     - name: Test
       run: npm test -- --configuration=ci
+    - name: Install Web Driver
+      run: npm run install-webdriver
     - name: E2E
       run: npm run e2e -- --configuration=ci
