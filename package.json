@@ -10,8 +10,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "install-webdriver": "npx webdriver-manager update --standalone false --gecko false --versions.chrome=109.0.5414.120",
-    "e2e": "npx webdriver-manager update --standalone false --gecko false --versions.chrome=109.0.5414.120 && ng e2e --no-webdriver-update"
+    "install-webdriver": "npx webdriver-manager update --standalone false --gecko false --versions.chrome='>=109.0.5414.120'",
+    "e2e": "npx webdriver-manager update --standalone false --gecko false --versions.chrome='>=109.0.5414.120' && ng e2e --no-webdriver-update"
   },
   "repository": {
     "type": "git",
