@@ -10,7 +10,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "npx webdriver-manager update --standalone false --gecko false --versions.chrome=109.0.5414.120 && ng e2e --no-webdriver-update"
+    "e2e": "ng e2e",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,7 @@
     "@angular/compiler-cli": "^14.3.0",
     "@angular/language-service": "^14.3.0",
     "@capacitor/cli": "4.6.3",
+    "@cypress/schematic": "^2.5.0",
     "@ionic/angular-toolkit": "6.1.0",
     "@ionic/cli": "6.19.0",
     "@ionic/lab": "^2.0.19",
@@ -71,6 +74,7 @@
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "cordova-res": "0.15.4",
+    "cypress": "latest",
     "eslint": "^8.1.0",
     "jasmine-core": "~3.8.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -79,7 +83,6 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
     "puppeteer": "^11.0.0",
     "ts-node": "8.5.0",
     "tslint": "~6.1.0",
