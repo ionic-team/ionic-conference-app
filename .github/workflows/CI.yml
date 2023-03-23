@@ -28,6 +28,6 @@ jobs:
     - name: Build
       run: npm run build -- --configuration=production
     - name: Test
-      run: npm test -- --configuration=ci
+      run: npm test
     - name: E2E
-      run: npm run e2e -- --configuration=ci
+      run: npm run e2e
