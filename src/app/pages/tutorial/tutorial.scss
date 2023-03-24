@@ -6,11 +6,7 @@ ion-content {
   --overflow: hidden;
 }
 
-.slide-title {
-  margin-top: 2.8rem;
-}
-
-.slider {
+.slide-container {
 	display: grid;
 	grid-template-columns: repeat(4, 100%);
 	grid-template-rows: 1fr;
@@ -21,7 +17,7 @@ ion-content {
 	scroll-snap-type: x mandatory;
 }
 
-section {
+.slide {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +27,10 @@ section {
   width: 100%;
 
   scroll-snap-align: center;
+}
+
+.slide-title {
+  margin-top: 2.8rem;
 }
 
 .slide-image {

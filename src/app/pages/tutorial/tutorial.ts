@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MenuController } from '@ionic/angular';
@@ -17,7 +17,6 @@ export class TutorialPage {
     public menu: MenuController,
     public router: Router,
     public storage: Storage,
-    private cd: ChangeDetectorRef
   ) {}
 
   startApp() {
