@@ -2,18 +2,41 @@ ion-toolbar {
   --background: transparent;
 }
 
+ion-content {
+  --overflow: hidden;
+}
+
 .slide-title {
   margin-top: 2.8rem;
 }
 
-.slide-container {
+.slider {
+	display: grid;
+	grid-template-columns: repeat(4, 100%);
+	grid-template-rows: 1fr;
+
+	height: 100%;
+
+  overflow: scroll;
+	scroll-snap-type: x mandatory;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
   width: 100%;
+
+  scroll-snap-align: center;
 }
 
 .slide-image {
   max-height: 50% !important;
   max-width: 80% !important;
-  margin: 5vh 0;
+  margin: -5vh 0 0;
   pointer-events: none;
 }
 
