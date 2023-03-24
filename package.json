@@ -6,11 +6,11 @@
   "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 8100",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "npm start & wait-on http://localhost:8100 && npm run cypress:run",
+    "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },

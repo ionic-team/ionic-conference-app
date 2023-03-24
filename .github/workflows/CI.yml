@@ -30,4 +30,4 @@ jobs:
     - name: Test
       run: npm test
     - name: E2E
-      run: npm run e2e
+      run: npm run e2e -- --configuration=ci
