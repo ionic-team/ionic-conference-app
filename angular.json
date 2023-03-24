@@ -153,11 +153,11 @@
             "headless": false
           },
           "configurations": {
-            "ci": {
-              "headless": true
-            },
             "production": {
               "devServerTarget": "app:serve:production"
+            },
+            "ci": {
+              "headless": true
             }
           }
         },
