@@ -157,6 +157,7 @@
               "devServerTarget": "app:serve:production"
             },
             "ci": {
+              "watch": false,
               "headless": true
             }
           }
