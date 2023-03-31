@@ -21,10 +21,12 @@
 
     <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
       <ion-icon *ngIf="ios" slot="start" [name]="track.icon" color="medium"></ion-icon>
-      <ion-label>{{track.name}}</ion-label>
-      <ion-checkbox [(ngModel)]="track.isChecked"></ion-checkbox>
-    </ion-item>
 
+      <!-- TODO(FW-3891): remove aria-label once bug is resolved -->
+      <ion-checkbox [(ngModel)]="track.isChecked" [attr.aria-label]="track.name">
+        {{track.name}}
+      </ion-checkbox>
+    </ion-item>
   </ion-list>
 
 </ion-content>

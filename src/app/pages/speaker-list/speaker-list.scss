@@ -1,5 +1,6 @@
 .speaker-card {
   display: flex;
+
   flex-direction: column;
 }
 
@@ -17,11 +18,13 @@ ion-col:not(:last-of-type) .speaker-card {
 .speaker-card .speaker-item h2 {
   font-size: 18px;
   font-weight: 500;
+
   letter-spacing: 0.02em;
 }
 
 .speaker-card .speaker-item p {
   font-size: 13px;
+
   letter-spacing: 0.02em;
 }
 
@@ -40,7 +43,7 @@ ion-col:not(:last-of-type) .speaker-card {
 }
 
 .md ion-list {
-  border-top: 1px solid var(--ion-color-step-150, #d7d8da);
-
   padding: 0;
+
+  border-top: 1px solid var(--ion-color-step-150, #d7d8da);
 }

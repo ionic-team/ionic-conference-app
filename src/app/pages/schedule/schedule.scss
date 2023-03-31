@@ -1,8 +1,7 @@
 ion-fab-button {
-  --background: var(--ion-color-step-150, #fff);
+  --background: var(--ion-color-step-150, #ffffff);
   --background-hover: var(--ion-color-step-200, #f2f2f2);
   --background-focused: var(--ion-color-step-250, #d9d9d9);
-
   --color: var(--ion-color-primary, #3880ff);
 }
 
@@ -29,7 +28,8 @@ $categories: (
 
 @each $track, $value in map-remove($categories) {
   ion-item-sliding[track='#{$track}'] ion-label {
-    border-left: 2px solid $value;
     padding-left: 10px;
+
+    border-left: 2px solid $value;
   }
 }

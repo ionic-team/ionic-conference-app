@@ -31,10 +31,7 @@
 
     <ion-list lines="none">
       <ion-item>
-        <ion-label>
-          Location
-        </ion-label>
-        <ion-select [(ngModel)]="location" [interfaceOptions]="selectOptions">
+        <ion-select label="Location" [(ngModel)]="location" [interfaceOptions]="selectOptions">
           <ion-select-option value="madison">Madison, WI</ion-select-option>
           <ion-select-option value="austin">Austin, TX</ion-select-option>
           <ion-select-option value="chicago">Chicago, IL</ion-select-option>
