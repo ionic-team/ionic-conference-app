@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // When a command from ./commands is ready to use, import with `import './commands'` syntax
-import "./commands";
+import './commands';
 
 beforeEach(() => {
   // bypass the app tutorial screens before each test

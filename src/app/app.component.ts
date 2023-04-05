@@ -7,7 +7,7 @@ import { MenuController, Platform, ToastController } from '@ionic/angular';
 import { StatusBar } from '@capacitor/status-bar';
 import { SplashScreen } from '@capacitor/splash-screen';
 
-import { Storage } from "@ionic/storage-angular";
+import { Storage } from '@ionic/storage-angular';
 
 import { UserData } from './providers/user-data';
 
