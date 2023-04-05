@@ -5,7 +5,7 @@ import { MenuController } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial';
 
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage-angular';
 describe('TutorialPage', () => {
   let fixture, app;
   beforeEach(waitForAsync(() => {
