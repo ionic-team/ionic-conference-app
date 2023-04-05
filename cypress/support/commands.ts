@@ -43,9 +43,8 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import { Storage } from "@ionic/storage";
-const storage = new Storage({
-  driverOrder: ["sqlite", "indexeddb", "websql", "localstorage"],
-});
+const storage = new Storage();
+storage.create();
 
 Cypress.Commands.add("bypassTutorial", () => {
   cy.log("bypass tutorial");

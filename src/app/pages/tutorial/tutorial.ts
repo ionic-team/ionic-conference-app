@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { MenuController } from '@ionic/angular';
 
-import { Storage } from '@ionic/storage';
+import { Storage } from "@ionic/storage-angular";
 
 @Component({
   selector: 'page-tutorial',
