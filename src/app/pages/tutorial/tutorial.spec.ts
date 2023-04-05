@@ -29,6 +29,7 @@ describe('TutorialPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TutorialPage);
     app = fixture.debugElement.componentInstance;
+    app.storage.create();
   });
   it('should create the tutorial page', () => {
     expect(app).toBeTruthy();
