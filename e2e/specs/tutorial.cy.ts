@@ -1,6 +1,6 @@
 describe('Tutorial Page', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.enableTutorial();
   });
 
   it('visits the tutorial page', () => {

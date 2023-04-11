@@ -5,7 +5,7 @@ import { MenuController } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial';
 
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage-angular';
 describe('TutorialPage', () => {
   let fixture, app;
   beforeEach(waitForAsync(() => {
@@ -29,6 +29,7 @@ describe('TutorialPage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TutorialPage);
     app = fixture.debugElement.componentInstance;
+    app.storage.create();
   });
   it('should create the tutorial page', () => {
     expect(app).toBeTruthy();

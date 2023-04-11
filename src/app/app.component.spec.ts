@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { MenuController, Platform } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppComponent } from './app.component';
 import { UserData } from './providers/user-data';
 
