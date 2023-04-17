@@ -2,7 +2,7 @@
 
 This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
 
-**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) before submitting an issue.
+**There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/main/.github/CONTRIBUTING.md) before submitting an issue.
 
 ## React and Vue Versions
 
@@ -35,37 +35,37 @@ _Note: See [How to Prevent Permissions Errors](https://docs.npmjs.com/getting-st
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/master/.github/CONTRIBUTING.md) :tada::+1:
+See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/main/.github/CONTRIBUTING.md) :tada::+1:
 
 
 ## App Preview
 
-### [Menu](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/menu/menu.html)
+### [Menu](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/app.component.html)
 
 | Material Design  | iOS  |
 | -----------------| -----|
 | ![Android Menu](/resources/screenshots/android-menu.png) | ![iOS Menu](/resources/screenshots/ios-menu.png) |
 
 
-### [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/schedule/schedule.html)
+### [Schedule Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/schedule/schedule.html)
 
 | Material Design  | iOS  |
 | -----------------| -----|
 | ![Android Schedule](/resources/screenshots/android-schedule.png) | ![iOS Schedule](/resources/screenshots/ios-schedule.png) |
 
-### [Speakers Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/speaker-list/speaker-list.html)
+### [Speakers Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/speaker-list/speaker-list.html)
 
 | Material Design  | iOS  |
 | -----------------| -----|
 | ![Android Speakers](/resources/screenshots/android-speakers.png) | ![iOS Speakers](/resources/screenshots/ios-speakers.png) |
 
-### [Speaker Detail Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/speaker-detail/speaker-detail.html)
+### [Speaker Detail Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/speaker-detail/speaker-detail.html)
 
 | Material Design  | iOS  |
 | -----------------| -----|
 | ![Android Speaker Detail](/resources/screenshots/android-speaker-detail.png) | ![iOS Speaker Detail](/resources/screenshots/ios-speaker-detail.png) |
 
-### [About Page](https://github.com/ionic-team/ionic-conference-app/blob/master/src/app/pages/about/about.html)
+### [About Page](https://github.com/ionic-team/ionic-conference-app/blob/main/src/app/pages/about/about.html)
 
 | Material Design  | iOS  |
 | -----------------| -----|
@@ -76,9 +76,8 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 
 ### Progressive Web App
 
-1. Un-comment [these lines](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L21)
-2. Run `ionic build --prod`
-3. Push the `www` folder to your hosting service
+1. Run `ionic build --prod`
+2. Push the `www` folder to your hosting service
 
 ### Android
 
