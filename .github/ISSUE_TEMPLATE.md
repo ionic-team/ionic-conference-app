@@ -7,7 +7,7 @@ If you are having problems formatting your issue please refer to this article on
 **I'm submitting a ...**  (check one with "x")
 [ ] bug report
 [ ] feature request
-[ ] support request => Please do not submit support requests here, use one of these channels: https://forum.ionicframework.com/ or https://discord.com/invite/UPYYRhtyzp
+[ ] support request => Please do not submit support requests here, use one of these channels: https://forum.ionicframework.com/ or https://ionic.link/discord
 
 **Current behavior:**
 <!-- Describe how the bug manifests. -->
