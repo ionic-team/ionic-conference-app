@@ -14,6 +14,6 @@ export const checkTutorialGuard = () => {
           router.navigate(['/app', 'tabs', 'schedule']);
         }
       }),
-      map(didTutorial => didTutorial !== false)
+      map(didTutorial => !didTutorial)
     );
 }
