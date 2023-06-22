@@ -1,3 +1,14 @@
+ion content{
+  --ion-background-color:#4c8bf7 !important;
+}
+ion-header{
+  position:absolute;
+  
+}
+ion-toolbar{
+ --ion-background-color:transparent;
+ --opacity:0;
+}
 .login-logo {
   min-height: 200px;
 
@@ -7,7 +18,7 @@
 }
 
 .login-logo img {
-  max-width: 150px;
+  max-width: 250px;
 }
 
 .login-form {
@@ -16,4 +27,9 @@
 
 ion-input {
   margin-bottom: 10px;
+}
+.login-logo img {
+  max-width: 250px;
+  padding: 20px 0;
+  text-align: bottom;
 }
