@@ -36,3 +36,8 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 
 cypress/videos
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

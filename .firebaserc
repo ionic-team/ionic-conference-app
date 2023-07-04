@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "ionic-ng-conf-app"
+    "default": "mining-expo-bc804"
+  },
+  "targets": {
+    "mining-expo-bc804": {
+      "hosting": {
+        "app": [
+          "mining-expo-bc804"
+        ]
+      }
+    }
   }
 }

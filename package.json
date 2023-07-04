@@ -23,6 +23,7 @@
   "dependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0",
+    "@angular/fire": "^7.6.1",
     "@angular/forms": "^16.0.0",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
@@ -30,7 +31,7 @@
     "@angular/service-worker": "^16.0.0",
     "@awesome-cordova-plugins/core": "6.3.0",
     "@awesome-cordova-plugins/in-app-browser": "6.3.0",
-    "@capacitor/android": "4.6.3",
+    "@capacitor/android": "^4.6.3",
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "^4.6.3",
     "@capacitor/device": "4.1.0",

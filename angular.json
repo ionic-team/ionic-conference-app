@@ -47,7 +47,9 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["localforage"]
+            "allowedCommonJsDependencies": [
+              "localforage"
+            ]
           },
           "configurations": {
             "production": {
@@ -166,7 +168,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         },
         "cypress-run": {
@@ -199,6 +204,13 @@
             "development": {
               "devServerTarget": "app:serve:development"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "app:build:production"
           }
         }
       }
