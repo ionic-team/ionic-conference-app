@@ -1,19 +1,121 @@
-.signup-logo {
-  min-height: 200px;
-
-  padding: 20px 0;
-
+.heading{
+  margin-top: 10vh;
   text-align: center;
-}
+  h1{
+    font-size: 2.5rem;
+    font-weight: 1000;
 
-.signup-logo img {
-  max-width: 150px;
-}
+  }
+  p{
+    color: #838383;
 
-.signup-form {
-  padding: 16px;
+  }
 }
+.social-login{
+  margin-top: 45px;
+  text-align: center;
+  p{
+    color: #838383;
+  }
+  ion-button{
+    width: 35%;
+    height: 50px;
+    ion-icon{
+      font-size: 1.6rem;
+    }
+  }
+  .twitter {
+    --background: #00acee;
+    margin-right: 20px;
+  }
+  .facebook{
+    --background: #4267b2;
+    margin-left: 20px
+  }
+}
+.email-login{
+  margin-top: 45px;
+  text-align: center;
 
-ion-input {
+  p{
+    color: #838383
+  }
+}
+.formfield {
+  position: relative;
+  margin: auto;
+  padding: 0px;
+  border: 0px;
+  font-size: 1rem;
   margin-bottom: 10px;
 }
+.formfield > input,
+.formfield > label {
+  padding: 1.4em;
+  margin: 0.5em;
+  width: 87%;
+}
+.formfield > input {
+  border: 1px solid #ddd;
+  outline: none;
+}
+.formfield > label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  text-align: start;
+  color: #ccc;
+  padding-left: 40px;
+}
+input:focus + label,
+input:valid + label {
+  font-size: 1rem;
+  width: auto;
+  height: 1.3em;
+  padding: 0px 0.5em 0px 0.5em;
+  margin: 0px;
+  background: #ffffff;
+  transition: 0.2s ease-in-out;
+  top: 0em;
+  left: 2em;
+}
+
+.other-links {
+  margin-left: 7%;
+  display: flex;
+  justify-content: space-between;
+  .remember-me {
+    display: flex;
+    align-items: center;
+    p{
+      margin-left: 10px !important;
+    }
+  }
+  .forgot{
+    margin-right:7%;
+  }
+}
+
+.login-button{  
+  text-align: center;
+  margin-top: 25px;
+  .login{
+    --background: #f4a637;
+    width: 73%;
+    height: 50x;
+    text-transform: none;
+    font-size: 1.6rem;
+  }
+  p{
+    color: #838383;
+    span{
+      color: #3880ff;
+    }
+  }
+
+}
+
+
+
+

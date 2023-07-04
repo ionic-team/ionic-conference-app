@@ -22,12 +22,14 @@
 
  :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  :root {
+    --ion-color-new: #f0bf9d;
+    --ion-color-new-rgb: 240,191,157;
+    --ion-color-new-contrast: #ffffff;
+    --ion-color-new-contrast-rgb: 255,255,255;
+    --ion-color-new-shade: #d3a88a;
+    --ion-color-new-tint: #f2c5a7;
+  }
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;

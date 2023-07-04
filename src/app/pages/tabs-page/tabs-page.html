@@ -1,18 +1,31 @@
 <ion-tabs>
+  <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button routerLink="/tabs/scanner">
+      <ion-icon name="aperture-outline"></ion-icon>
+    </ion-fab-button>
+    </ion-fab>
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="schedule">
-      <ion-icon name="calendar"></ion-icon>
-      <ion-label>Schedule</ion-label>
+      <ion-icon name="calendar-number"></ion-icon>
+      <ion-label label>Schedule</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="speakers">
-      <ion-icon name="people"></ion-icon>
-      <ion-label>Speakers</ion-label>
+    <ion-tab-button tab="speakers" class="speakers">
+      <ion-icon name="people-circle"></ion-icon>
+      <ion-label label>Speakers</ion-label>
     </ion-tab-button>
-
-    <ion-tab-button tab="map">
-      <ion-icon name="location"></ion-icon>
+<!-- 
+    <ion-tab-button tab="scanner">
+      <ion-icon name="aperture-outline"></ion-icon>
+      <ion-label>Scan QR code</ion-label>
+    </ion-tab-button> -->
+    <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg" style="border: none;">
+      <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path>
+    </svg>
+    
+    <ion-tab-button tab="map" class="map">
+      <ion-icon name="compass"></ion-icon>
       <ion-label>Map</ion-label>
     </ion-tab-button>
 

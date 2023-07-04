@@ -1,48 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Signup</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
-  <div class="signup-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic Logo">
+  <div class="heading">
+    <h1>Sign Up</h1>
+    <p>Please Sign Up to continue.</p>
   </div>
-
-  <div class="signup-form">
-    <form #signupForm="ngForm" novalidate>
-      <ion-input
-        label="Username"
-        labelPlacement="stacked"
-        fill="solid"
-        [(ngModel)]="signup.username"
-        name="username"
-        type="text"
-        #username="ngModel"
-        errorText="Username is required"
-        required>
-      </ion-input>
-
-      <ion-input
-        label="Password"
-        labelPlacement="stacked"
-        fill="solid"
-        [(ngModel)]="signup.password"
-        name="password"
-        type="password"
-        #password="ngModel"
-        errorText="Password is required"
-        required>
-      </ion-input>
-
-      <div class="ion-padding">
-        <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Create</ion-button>
+  <div class="social-login">
+    <p>Enter through social networks</p>
+    <div class="links">
+      <ion-button class="twitter" routerLink="/app/tabs/schedule">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-button>
+      <ion-button class="facebook" routerLink="/app/tabs/schedule">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  <div class="email-login">
+    <p>Or signup with email</p>
+    <div class="formfield">
+      <input type="text" name="email" id="email">
+      <label for="email" placeholder="Email">Email</label>
+    </div>
+    <div class="formfield">
+      <input type="password" name="password" id="password">
+      <label for="password" placeholder="Password">Password</label>
+    </div>
+    <div class="other-links">
+      <div class="remember-me">
+        <ion-checkbox></ion-checkbox>
+        <p>I agree with privacy policy</p>
       </div>
-    </form>
+    </div>
   </div>
-
-</ion-content>
+  <div class="login-button">
+    <ion-button class="login" routerLink="/app/tabs/schedule">Sign Up</ion-button>
+    <p>Already have an account?<span routerLink="/login"> Login</span><p>
+    </div>
+  </ion-content>
