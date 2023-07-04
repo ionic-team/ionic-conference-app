@@ -47,7 +47,9 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["localforage"]
+            "allowedCommonJsDependencies": [
+              "localforage"
+            ]
           },
           "configurations": {
             "production": {
@@ -166,7 +168,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         },
         "cypress-run": {
@@ -200,6 +205,13 @@
               "devServerTarget": "app:serve:development"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2,
+            "browserTarget": "app:build:production"
+          }
         }
       }
     }
@@ -212,5 +224,23 @@
     ],
     "analytics": false
   },
+<<<<<<< HEAD
  
 }
+=======
+  "schematics": {
+    "@ionic/angular-toolkit:component": {
+      "styleext": "scss"
+    },
+    "@ionic/angular-toolkit:page": {
+      "styleext": "scss"
+    },
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
+  }
+}
+>>>>>>> 466d6a5154b361a9f4c3c342a2a16dfa6c8256f1
