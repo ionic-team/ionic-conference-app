@@ -224,10 +224,6 @@
     ],
     "analytics": false
   },
-<<<<<<< HEAD
- 
-}
-=======
   "schematics": {
     "@ionic/angular-toolkit:component": {
       "styleext": "scss"
@@ -243,4 +239,3 @@
     }
   }
 }
->>>>>>> 466d6a5154b361a9f4c3c342a2a16dfa6c8256f1

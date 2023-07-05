@@ -14,15 +14,22 @@
       </ion-button>
     </div>
   </div>
+
+
+  <form (ngSubmit)="login()" [formGroup]="credentials">
   <div class="email-login">
     <p>Or login with email</p>
     <div class="formfield">
-      <input type="text" name="email" id="email">
+      <input type="email" formControlName="email" name="email" id="email">
       <label for="email" placeholder="Email">Email</label>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+      >Email is invalid</ion-note>
     </div>
     <div class="formfield">
-      <input type="password" name="password" id="password">
+      <input type="password" formControlName="password" name="password" id="password">
       <label for="password" placeholder="Password">Password</label>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+      >Password needs to be 6 characters</ion-note>
     </div>
     <div class="other-links">
       <div class="remember-me">
@@ -33,7 +40,8 @@
     </div>
   </div>
   <div class="login-button">
-    <ion-button class="login" routerLink="/app/tabs/schedule">Login</ion-button>
+    <ion-button type="submit" class="login" [disabled]="!credentials.valid">Login</ion-button>
     <p>Don't have an account?<span routerLink="/signup">  Signup</span><p>
     </div>
-  </ion-content>
+  </form>
+</ion-content>
