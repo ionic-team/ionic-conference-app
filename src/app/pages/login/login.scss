@@ -18,13 +18,13 @@
     color: #838383;
   }
   ion-button{
-    width: 35%;
+    width: 25%;
     height: 50px;
     ion-icon{
       font-size: 1.6rem;
     }
   }
-  .twitter {
+  .google {
     --background: #00acee;
     margin-right: 20px;
   }
@@ -101,11 +101,11 @@ input:valid + label {
   text-align: center;
   margin-top: 25px;
   .login{
-    --background: #f4a637;
-    width: 73%;
-    height: 50x;
+    --background: linear-gradient(to bottom, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644);
+    width: 43%;
+    height: 20x;
     text-transform: none;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
   p{
     color: #838383;
