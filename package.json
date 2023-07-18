@@ -1,8 +1,8 @@
 {
-  "name": "ionic-conference-app",
+  "name": "mining-expo",
   "version": "0.0.0",
-  "description": "Ionic Conference App",
-  "author": "Ionic Team <hi@ionicframework.com>",
+  "description": "mining-expo",
+  "author": "BI-Dynamics <support@bidynamics.com>",
   "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",

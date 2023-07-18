@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.miningexpo',
-  appName: 'ionic-conference-app',
+  appName: 'miningexpo',
   webDir: 'www',
   bundledWebRuntime: false,
   cordova: {

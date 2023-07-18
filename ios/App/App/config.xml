@@ -7,6 +7,10 @@
     <param name="onload" value="true"/>
   </feature>
 
+  <feature name="BarcodeScanner">
+    <param name="ios-package" value="CDVBarcodeScanner"/>
+  </feature>
+
   
   <preference name="ScrollEnabled" value="false" />
   <preference name="BackupWebStorage" value="none" />

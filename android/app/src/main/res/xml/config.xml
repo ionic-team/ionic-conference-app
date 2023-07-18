@@ -6,6 +6,10 @@
     <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser"/>
   </feature>
 
+  <feature name="BarcodeScanner">
+    <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner"/>
+  </feature>
+
   
   <preference name="ScrollEnabled" value="false" />
   <preference name="BackupWebStorage" value="none" />

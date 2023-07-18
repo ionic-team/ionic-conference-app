@@ -3,7 +3,10 @@
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:amazon="http://schemas.amazon.com/apk/res/android">
 <application  >
-
+<activity android:name="com.google.zxing.client.android.CaptureActivity" android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" android:exported="false"/>
+<activity android:name="com.google.zxing.client.android.encode.EncodeActivity" android:label="Share"/>
 </application>
-
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.FLASHLIGHT"/>
+<uses-feature android:name="android.hardware.camera" android:required="true"/>
 </manifest>

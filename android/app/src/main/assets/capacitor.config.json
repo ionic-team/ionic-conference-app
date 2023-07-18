@@ -1,6 +1,6 @@
 {
 	"appId": "com.miningexpo",
-	"appName": "ionic-conference-app",
+	"appName": "miningexpo",
 	"webDir": "www",
 	"bundledWebRuntime": false,
 	"cordova": {

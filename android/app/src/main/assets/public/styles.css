@@ -1,6 +1,10 @@
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/theme/variables.scss?ngGlobalStyle ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/global.scss?ngGlobalStyle ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/theme/variables.scss?ngGlobalStyle ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /*
  * Ionic Variables and Theming
@@ -24,12 +28,6 @@
  */
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;
@@ -86,6 +84,14 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+}
+:root :root {
+  --ion-color-new: #f0bf9d;
+  --ion-color-new-rgb: 240,191,157;
+  --ion-color-new-contrast: #ffffff;
+  --ion-color-new-contrast-rgb: 255,255,255;
+  --ion-color-new-shade: #d3a88a;
+  --ion-color-new-tint: #f2c5a7;
 }
 
 /*
@@ -369,9 +375,9 @@
   --ion-toolbar-background: #1f1f1f;
   --ion-tab-bar-background: #1f1f1f;
 }
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/core.css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/core.css ***!
+  \**********************************************************************************************************************************************************************************************************************************/
 html.ios {
   --ion-default-font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
 }
@@ -749,9 +755,9 @@ ion-input input::-webkit-date-and-time-value {
 
 /*# sourceMappingURL=core.css.map */
 
-/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/normalize.css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/normalize.css ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 audio,
 canvas,
 progress,
@@ -903,9 +909,9 @@ th {
 
 /*# sourceMappingURL=normalize.css.map */
 
-/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/structure.css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/structure.css ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -982,9 +988,9 @@ body {
 
 /*# sourceMappingURL=structure.css.map */
 
-/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/typography.css ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/typography.css ***!
+  \****************************************************************************************************************************************************************************************************************************************/
 html {
   font-family: var(--ion-font-family);
 }
@@ -1005,14 +1011,17 @@ h6 {
   font-weight: 500;
   line-height: 1.2;
 }
+
 h1 {
   margin-top: 20px;
   font-size: 26px;
 }
+
 h2 {
   margin-top: 18px;
   font-size: 24px;
 }
+
 h3 {
   font-size: 22px;
 }
@@ -1051,9 +1060,9 @@ sub {
 
 /*# sourceMappingURL=typography.css.map */
 
-/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/padding.css ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/padding.css ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 .ion-no-padding {
   --padding-start: 0;
   --padding-end: 0;
@@ -1070,75 +1079,50 @@ sub {
   --padding-end: var(--ion-padding, 16px);
   --padding-top: var(--ion-padding, 16px);
   --padding-bottom: var(--ion-padding, 16px);
-  padding-left: var(--ion-padding, 16px);
-  padding-right: var(--ion-padding, 16px);
+  -webkit-padding-start: var(--ion-padding, 16px);
+  padding-inline-start: var(--ion-padding, 16px);
+  -webkit-padding-end: var(--ion-padding, 16px);
+  padding-inline-end: var(--ion-padding, 16px);
   padding-top: var(--ion-padding, 16px);
   padding-bottom: var(--ion-padding, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-padding {
-    padding-left: unset;
-    padding-right: unset;
-    -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: var(--ion-padding, 16px);
-    -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: var(--ion-padding, 16px);
-  }
 }
 
 .ion-padding-top {
   --padding-top: var(--ion-padding, 16px);
   padding-top: var(--ion-padding, 16px);
 }
+
 .ion-padding-start {
   --padding-start: var(--ion-padding, 16px);
-  padding-left: var(--ion-padding, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-padding-start {
-    padding-left: unset;
-    -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: var(--ion-padding, 16px);
-  }
+  -webkit-padding-start: var(--ion-padding, 16px);
+  padding-inline-start: var(--ion-padding, 16px);
 }
 
 .ion-padding-end {
   --padding-end: var(--ion-padding, 16px);
-  padding-right: var(--ion-padding, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-padding-end {
-    padding-right: unset;
-    -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: var(--ion-padding, 16px);
-  }
+  -webkit-padding-end: var(--ion-padding, 16px);
+  padding-inline-end: var(--ion-padding, 16px);
 }
 
 .ion-padding-bottom {
   --padding-bottom: var(--ion-padding, 16px);
   padding-bottom: var(--ion-padding, 16px);
 }
+
 .ion-padding-vertical {
   --padding-top: var(--ion-padding, 16px);
   --padding-bottom: var(--ion-padding, 16px);
   padding-top: var(--ion-padding, 16px);
   padding-bottom: var(--ion-padding, 16px);
 }
+
 .ion-padding-horizontal {
   --padding-start: var(--ion-padding, 16px);
   --padding-end: var(--ion-padding, 16px);
-  padding-left: var(--ion-padding, 16px);
-  padding-right: var(--ion-padding, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-padding-horizontal {
-    padding-left: unset;
-    padding-right: unset;
-    -webkit-padding-start: var(--ion-padding, 16px);
-    padding-inline-start: var(--ion-padding, 16px);
-    -webkit-padding-end: var(--ion-padding, 16px);
-    padding-inline-end: var(--ion-padding, 16px);
-  }
+  -webkit-padding-start: var(--ion-padding, 16px);
+  padding-inline-start: var(--ion-padding, 16px);
+  -webkit-padding-end: var(--ion-padding, 16px);
+  padding-inline-end: var(--ion-padding, 16px);
 }
 
 .ion-no-margin {
@@ -1157,82 +1141,57 @@ sub {
   --margin-end: var(--ion-margin, 16px);
   --margin-top: var(--ion-margin, 16px);
   --margin-bottom: var(--ion-margin, 16px);
-  margin-left: var(--ion-margin, 16px);
-  margin-right: var(--ion-margin, 16px);
+  -webkit-margin-start: var(--ion-margin, 16px);
+  margin-inline-start: var(--ion-margin, 16px);
+  -webkit-margin-end: var(--ion-margin, 16px);
+  margin-inline-end: var(--ion-margin, 16px);
   margin-top: var(--ion-margin, 16px);
   margin-bottom: var(--ion-margin, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-margin {
-    margin-left: unset;
-    margin-right: unset;
-    -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: var(--ion-margin, 16px);
-    -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: var(--ion-margin, 16px);
-  }
 }
 
 .ion-margin-top {
   --margin-top: var(--ion-margin, 16px);
   margin-top: var(--ion-margin, 16px);
 }
+
 .ion-margin-start {
   --margin-start: var(--ion-margin, 16px);
-  margin-left: var(--ion-margin, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-margin-start {
-    margin-left: unset;
-    -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: var(--ion-margin, 16px);
-  }
+  -webkit-margin-start: var(--ion-margin, 16px);
+  margin-inline-start: var(--ion-margin, 16px);
 }
 
 .ion-margin-end {
   --margin-end: var(--ion-margin, 16px);
-  margin-right: var(--ion-margin, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-margin-end {
-    margin-right: unset;
-    -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: var(--ion-margin, 16px);
-  }
+  -webkit-margin-end: var(--ion-margin, 16px);
+  margin-inline-end: var(--ion-margin, 16px);
 }
 
 .ion-margin-bottom {
   --margin-bottom: var(--ion-margin, 16px);
   margin-bottom: var(--ion-margin, 16px);
 }
+
 .ion-margin-vertical {
   --margin-top: var(--ion-margin, 16px);
   --margin-bottom: var(--ion-margin, 16px);
   margin-top: var(--ion-margin, 16px);
   margin-bottom: var(--ion-margin, 16px);
 }
+
 .ion-margin-horizontal {
   --margin-start: var(--ion-margin, 16px);
   --margin-end: var(--ion-margin, 16px);
-  margin-left: var(--ion-margin, 16px);
-  margin-right: var(--ion-margin, 16px);
-}
-@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0) {
-  .ion-margin-horizontal {
-    margin-left: unset;
-    margin-right: unset;
-    -webkit-margin-start: var(--ion-margin, 16px);
-    margin-inline-start: var(--ion-margin, 16px);
-    -webkit-margin-end: var(--ion-margin, 16px);
-    margin-inline-end: var(--ion-margin, 16px);
-  }
+  -webkit-margin-start: var(--ion-margin, 16px);
+  margin-inline-start: var(--ion-margin, 16px);
+  -webkit-margin-end: var(--ion-margin, 16px);
+  margin-inline-end: var(--ion-margin, 16px);
 }
 
 /*# sourceMappingURL=padding.css.map */
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/float-elements.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/float-elements.css ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 .ion-float-left {
   float: left !important;
 }
@@ -1244,15 +1203,35 @@ sub {
 .ion-float-start {
   float: left !important;
 }
-[dir=rtl] .ion-float-start, :host-context([dir=rtl]) .ion-float-start {
+:host-context([dir=rtl]) .ion-float-start {
   float: right !important;
+}
+
+[dir=rtl] .ion-float-start {
+  float: right !important;
+}
+
+@supports selector(:dir(rtl)) {
+  .ion-float-start:dir(rtl) {
+    float: right !important;
+  }
 }
 
 .ion-float-end {
   float: right !important;
 }
-[dir=rtl] .ion-float-end, :host-context([dir=rtl]) .ion-float-end {
+:host-context([dir=rtl]) .ion-float-end {
   float: left !important;
+}
+
+[dir=rtl] .ion-float-end {
+  float: left !important;
+}
+
+@supports selector(:dir(rtl)) {
+  .ion-float-end:dir(rtl) {
+    float: left !important;
+  }
 }
 
 @media (min-width: 576px) {
@@ -1267,15 +1246,35 @@ sub {
   .ion-float-sm-start {
     float: left !important;
   }
-  [dir=rtl] .ion-float-sm-start, :host-context([dir=rtl]) .ion-float-sm-start {
+  :host-context([dir=rtl]) .ion-float-sm-start {
     float: right !important;
+  }
+
+  [dir=rtl] .ion-float-sm-start {
+    float: right !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-sm-start:dir(rtl) {
+      float: right !important;
+    }
   }
 
   .ion-float-sm-end {
     float: right !important;
   }
-  [dir=rtl] .ion-float-sm-end, :host-context([dir=rtl]) .ion-float-sm-end {
+  :host-context([dir=rtl]) .ion-float-sm-end {
     float: left !important;
+  }
+
+  [dir=rtl] .ion-float-sm-end {
+    float: left !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-sm-end:dir(rtl) {
+      float: left !important;
+    }
   }
 }
 @media (min-width: 768px) {
@@ -1290,15 +1289,35 @@ sub {
   .ion-float-md-start {
     float: left !important;
   }
-  [dir=rtl] .ion-float-md-start, :host-context([dir=rtl]) .ion-float-md-start {
+  :host-context([dir=rtl]) .ion-float-md-start {
     float: right !important;
+  }
+
+  [dir=rtl] .ion-float-md-start {
+    float: right !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-md-start:dir(rtl) {
+      float: right !important;
+    }
   }
 
   .ion-float-md-end {
     float: right !important;
   }
-  [dir=rtl] .ion-float-md-end, :host-context([dir=rtl]) .ion-float-md-end {
+  :host-context([dir=rtl]) .ion-float-md-end {
     float: left !important;
+  }
+
+  [dir=rtl] .ion-float-md-end {
+    float: left !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-md-end:dir(rtl) {
+      float: left !important;
+    }
   }
 }
 @media (min-width: 992px) {
@@ -1313,15 +1332,35 @@ sub {
   .ion-float-lg-start {
     float: left !important;
   }
-  [dir=rtl] .ion-float-lg-start, :host-context([dir=rtl]) .ion-float-lg-start {
+  :host-context([dir=rtl]) .ion-float-lg-start {
     float: right !important;
+  }
+
+  [dir=rtl] .ion-float-lg-start {
+    float: right !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-lg-start:dir(rtl) {
+      float: right !important;
+    }
   }
 
   .ion-float-lg-end {
     float: right !important;
   }
-  [dir=rtl] .ion-float-lg-end, :host-context([dir=rtl]) .ion-float-lg-end {
+  :host-context([dir=rtl]) .ion-float-lg-end {
     float: left !important;
+  }
+
+  [dir=rtl] .ion-float-lg-end {
+    float: left !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-lg-end:dir(rtl) {
+      float: left !important;
+    }
   }
 }
 @media (min-width: 1200px) {
@@ -1336,23 +1375,43 @@ sub {
   .ion-float-xl-start {
     float: left !important;
   }
-  [dir=rtl] .ion-float-xl-start, :host-context([dir=rtl]) .ion-float-xl-start {
+  :host-context([dir=rtl]) .ion-float-xl-start {
     float: right !important;
+  }
+
+  [dir=rtl] .ion-float-xl-start {
+    float: right !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-xl-start:dir(rtl) {
+      float: right !important;
+    }
   }
 
   .ion-float-xl-end {
     float: right !important;
   }
-  [dir=rtl] .ion-float-xl-end, :host-context([dir=rtl]) .ion-float-xl-end {
+  :host-context([dir=rtl]) .ion-float-xl-end {
     float: left !important;
+  }
+
+  [dir=rtl] .ion-float-xl-end {
+    float: left !important;
+  }
+
+  @supports selector(:dir(rtl)) {
+    .ion-float-xl-end:dir(rtl) {
+      float: left !important;
+    }
   }
 }
 
 /*# sourceMappingURL=float-elements.css.map */
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/text-alignment.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/text-alignment.css ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 .ion-text-center {
   text-align: center !important;
 }
@@ -1520,9 +1579,9 @@ sub {
 
 /*# sourceMappingURL=text-alignment.css.map */
 
-/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/text-transformation.css ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/text-transformation.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
 .ion-text-uppercase {
   /* stylelint-disable-next-line declaration-no-important */
   text-transform: uppercase !important;
@@ -1605,9 +1664,9 @@ sub {
 
 /*# sourceMappingURL=text-transformation.css.map */
 
-/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/flex-utils.css ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/@ionic/angular/css/flex-utils.css ***!
+  \****************************************************************************************************************************************************************************************************************************************/
 .ion-align-self-start {
   align-self: flex-start !important;
 }
@@ -1690,9 +1749,9 @@ sub {
 
 /*# sourceMappingURL=flex-utils.css.map */
 
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/@angular-devkit/build-angular/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/global.scss?ngGlobalStyle ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].rules[0].oneOf[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[6].rules[1].use[0]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[6].rules[1].use[1]!./src/global.scss?ngGlobalStyle (1) ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -1706,6 +1765,10 @@ sub {
 /* Core CSS required for Ionic components to work properly */
 /* Basic CSS for apps built with Ionic */
 /* Optional CSS utils that can be commented out */
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 /*
  * App CSS
  * ----------------------------------------------------------------------------

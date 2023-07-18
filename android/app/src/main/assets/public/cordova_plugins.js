@@ -8,12 +8,21 @@
         "clobbers": [
           "cordova.InAppBrowser.open"
         ]
+        },
+      {
+          "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+          "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+          "pluginId": "phonegap-plugin-barcodescanner",
+        "clobbers": [
+          "cordova.plugins.barcodeScanner"
+        ]
         }
     ];
     module.exports.metadata =
     // TOP OF METADATA
     {
-      "cordova-plugin-inappbrowser": "5.0.0"
+      "cordova-plugin-inappbrowser": "5.0.0",
+      "phonegap-plugin-barcodescanner": "8.1.0"
     };
     // BOTTOM OF METADATA
     });
