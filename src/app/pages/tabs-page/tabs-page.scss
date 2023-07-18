@@ -1,48 +1,48 @@
 ion-tabs {
 
-  // --------------Custom Semi Transparent & Rounded Tabs----------------------
-  ion-tab-bar {
-      position: absolute;
-      bottom: 0;
-      width: 100%;        
-      --background: white;
-      border-radius: 20px 20px 0 0;
-      --border: 0;
-      ion-tab-button {
-          --background: var(--ion-color-white);
-          --color: var(--ion-color-medium);
-          --color-selected: var(--ion-color-white);
-          font-size: 0.7rem;
-          ion-icon {
-              font-size: 1rem;
-          }
-      }
-  }
-  svg {
-      width: 78px;
-      margin-top: 16px;
-      path {
-          fill: transparent;
-      }
-  }
-
-  ion-tab-button.speakers {
-      margin-right: -1px;
-      margin-left: -2px;
-      border-top-right-radius: 20px;
-  }
-  ion-tab-button.map {
-      margin-left: -1px;
-      margin-right: -2px;
-      border-top-left-radius: 20px;
-  }
+    // --------------Custom Semi Transparent & Rounded Tabs----------------------
+    ion-tab-bar {
+        position: absolute;
+        bottom: 0;
+        width: 100%;        
+        --background: white;
+        border-radius: 20px 20px 0 0;
+        --border: 0;
+        ion-tab-button {
+            --background: var(--ion-color-white);
+            --color: var(--ion-color-medium);
+            --color-selected: var(--ion-color-white);
+            font-size: 0.7rem;
+            ion-icon {
+                font-size: 1rem;
+            }
+        }
+    }
+    svg {
+        width: 78px;
+        margin-top: 16px;
+        path {
+            fill: transparent;
+        }
+    }
   
-  ion-fab {
-      ion-fab-button {
-          --background: linear-gradient(to bottom, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644);
-          ion-icon {
-              font-size: 2rem;
-          }
-      }
+    ion-tab-button.speakers {
+        margin-right: -1px;
+        margin-left: -2px;
+        border-top-right-radius: 20px;
+    }
+    ion-tab-button.map {
+        margin-left: -1px;
+        margin-right: -2px;
+        border-top-left-radius: 20px;
+    }
+    
+    ion-fab {
+        ion-fab-button {
+            --background: linear-gradient(to bottom, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644, #fac644);
+            ion-icon {
+                font-size: 2rem;
+            }
+        }
+    }
   }
-}

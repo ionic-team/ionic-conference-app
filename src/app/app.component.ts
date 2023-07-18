@@ -11,6 +11,7 @@ import { Storage } from '@ionic/storage-angular';
 
 import { UserData } from './providers/user-data';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -30,10 +31,15 @@ export class AppComponent implements OnInit {
       icon: 'people'
     },
     {
+      title: 'Scan',
+      url: '/app/tabs/scanner',
+      icon: 'scan'
+    },
+    {
       title: 'Map',
       url: '/app/tabs/map',
       icon: 'map'
-    },
+    },    
     {
       title: 'About',
       url: '/app/tabs/about',

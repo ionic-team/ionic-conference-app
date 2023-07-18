@@ -1,35 +1,32 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [style.visibility]="content_visibility">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Support</ion-title>
+    <ion-title>QR Scan</ion-title>
   </ion-toolbar>
-
 </ion-header>
 
-<ion-content>
-  <div class="support-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic Logo">
-  </div>
+<ion-content [style.visibility]="content_visibility">
+   <ion-card-content>
+   <qrcode 
+   [qrdata]="qrCodeString"
+   [width]="356" 
+   [errorCorrectionLevel]="'M'"></qrcode>    
+  </ion-card-content>
+  <ion-button expand="block" (click)="startScan()">
+  <ion-icon name="scan" slot="start"></ion-icon>
+  Scan QR Code
+</ion-button>
 
-  <div class="support-form">
-    <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
-      <ion-textarea
-        label="Enter your support message below"
-        labelPlacement="stacked"
-        fill="solid"
-        [(ngModel)]="supportMessage"
-        name="supportQuestion"
-        #supportQuestion="ngModel"
-        rows="6"
-        errorText="Support message is required"
-        required>
-      </ion-textarea>
+<ion-item *ngIf="scannedResult">
+  <ion-label class="ion-text-wrap">Scanned Result: {{scannedResult}}</ion-label>
+</ion-item>
 
-      <div class="ion-padding">
-        <ion-button expand="block" type="submit">Submit</ion-button>
-      </div>
-    </form>
-  </div>
+<ion-row class="scanner-buttons">
+  <ion-col class="ion-no-padding">
+    <ion-button expand="full" (click)="stopScan()">Create</ion-button>
+  </ion-col>
+</ion-row>
 </ion-content>
+

@@ -22,6 +22,8 @@ const routes: Routes = [
           }
         ]
       },
+      
+               
       {
         path: 'speakers',
         children: [
@@ -49,6 +51,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'scanner',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../scanner/scanner.module').then(m => m.ScannerModule)
+          }
+        ]
+      },
+      {
         path: 'about',
         children: [
           {
@@ -57,6 +68,7 @@ const routes: Routes = [
           }
         ]
       },
+            
       {
         path: '',
         redirectTo: '/app/tabs/schedule',

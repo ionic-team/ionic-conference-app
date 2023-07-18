@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs-page-routing.module';
 
 import { AboutModule } from '../about/about.module';
 import { MapModule } from '../map/map.module';
+import { ScannerModule } from '../scanner/scanner.module';
 import { ScheduleModule } from '../schedule/schedule.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
@@ -18,6 +19,7 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
     CommonModule,
     IonicModule,
     MapModule,
+    ScannerModule,
     ScheduleModule,
     SessionDetailModule,
     SpeakerDetailModule,

@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { SupportPage } from './support';
-import { SupportPageRoutingModule } from './support-routing.module';
+import { ScannerPage } from './scanner';
+import { ScannerPageRoutingModule } from './scanner-routing.module';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
-    SupportPageRoutingModule
+    ScannerPageRoutingModule,
+    QRCodeModule
   ],
   declarations: [
-    SupportPage,
+    ScannerPage,
+    
   ]
 })
-export class SupportModule { }
+export class ScannerModule { }
