@@ -11,7 +11,7 @@ import { PopoverPage } from '../about-popover/about-popover';
 })
 export class AboutPage {
   location = 'madison';
-  conferenceDate = '2047-05-17';
+  conferenceDate = '2023-08-31';
 
   selectOptions = {
     header: 'Select a Location'

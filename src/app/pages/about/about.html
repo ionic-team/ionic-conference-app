@@ -24,7 +24,7 @@
     <h3 class="ion-padding-top ion-padding-start">About</h3>
 
     <p class="ion-padding-start ion-padding-end">
-      The Ionic Conference is a one-day conference on {{ conferenceDate | date: 'mediumDate' }} featuring talks from the Ionic team. It is focused on Ionic applications being built with Ionic Framework. This includes migrating apps to the latest version of the framework, Angular concepts, Webpack, Sass, and many other technologies used in Ionic 2. Tickets are completely sold out, and we’re expecting more than 1000 developers – making this the largest Ionic conference ever!
+      Mining Expo and Conference promises to be a dynamic event bringing together industry leaders, experts, and stakeholders in the mining sector. This year's expo centers around the theme of "Embracing Innovation for Sustainable Mining," reflecting the growing emphasis on responsible practices and cutting-edge technologies in the mining industry.  
     </p>
 
     <h3 class="ion-padding-top ion-padding-start">Details</h3>
@@ -32,10 +32,10 @@
     <ion-list lines="none">
       <ion-item>
         <ion-select label="Location" [(ngModel)]="location" [interfaceOptions]="selectOptions">
-          <ion-select-option value="madison">Madison, WI</ion-select-option>
-          <ion-select-option value="austin">Austin, TX</ion-select-option>
-          <ion-select-option value="chicago">Chicago, IL</ion-select-option>
-          <ion-select-option value="seattle">Seattle, WA</ion-select-option>
+          <ion-select-option value="madison">Windhoek Showgrounds</ion-select-option>
+          <ion-select-option value="austin">Aussanplatz</ion-select-option>
+          <ion-select-option value="chicago">Windhoek</ion-select-option>
+          <ion-select-option value="seattle">Namibia</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item button="true" id="open-date-input">
@@ -59,7 +59,7 @@
           Wifi network
         </ion-label>
         <ion-label class="ion-text-end">
-          ica{{conferenceDate | date: 'y'}}
+          miningexpo{{conferenceDate | date: 'y'}}
         </ion-label>
       </ion-item>
       <ion-item>
@@ -67,7 +67,7 @@
           Password
         </ion-label>
         <ion-label class="ion-text-end">
-          makegoodthings
+          miningexpo
         </ion-label>
       </ion-item>
     </ion-list>

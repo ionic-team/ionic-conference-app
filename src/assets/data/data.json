@@ -1,16 +1,17 @@
 {
   "schedule": [
     {
-      "date": "2047-05-17",
+      "date": "2023-05-17",
       "groups": [
         {
           "time": "8:00 am",
           "sessions": [
             {
-              "name": "Breakfast",
+              "name": "Breakfast and Registration",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
-              "location": "Dining Hall",
+              "location": "Hall",
+              "description": "Attendees arrive and check-in. Breakfast is served, providing an opportunity for networking",
               "tracks": ["Food"],
               "id": "1"
             }
@@ -20,33 +21,33 @@
           "time": "9:15 am",
           "sessions": [
             {
-              "name": "Getting Started with Ionic",
+              "name": "Mining Expo Presentation",
               "location": "Hall 2",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Ted Turtle"],
+              "description": "Welcome address by the event organizer. Introduction of keynote speakers and special guests. Overview of the day's events and activities.",
+              "speakerNames": ["Vusi Thembakwayo"],
               "timeStart": "9:30 am",
               "timeEnd": "9:45 am",
-              "tracks": ["Ionic"],
+              "tracks": ["Presentation"],
               "id": "2"
             },
             {
-              "name": "Ionic Tooling",
-              "location": "Executive Ballroom",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Rachel Rabbit"],
+              "name": "Keynote Speeches",
+              "location": "Hall",
+              "description": "Prominent figures from the mining industry deliver informative and inspiring talks",
+              "speakerNames": ["Les Brown"],
               "timeStart": "9:45 am",
               "timeEnd": "10:00 am",
-              "tracks": ["Tooling"],
+              "tracks": ["Speech"],
               "id": "3"
             },
             {
-              "name": "University of Ionic",
+              "name": "Technical Presentations and Workshops",
               "location": "Hall 3",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Ellie Elephant"],
+              "description": "Parallel sessions with industry experts sharing insights on various mining-related topics. Attendees can choose which presentations or workshops to attend based on their interests.",
+              "speakerNames": ["Fred Swaniker"],
               "timeStart": "9:15 am",
               "timeEnd": "9:30 am",
-              "tracks": ["Ionic"],
+              "tracks": ["Workshop"],
               "id": "4"
             }
           ]
@@ -55,43 +56,43 @@
           "time": "10:00 am",
           "sessions": [
             {
-              "name": "Migrating to Ionic",
+              "name": "Panel Discussions",
               "location": "Hall 1",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Eva Eagle", "Lionel Lion"],
+              "description": "Panels of experts discuss current challenges and trends in the mining industry. Audience Q&A session allows attendees to engage with panelists.",
+              "speakerNames": ["Eva Monroe", "Lionel Richie"],
               "timeStart": "10:00 am",
               "timeEnd": "10:15 am",
-              "tracks": ["Ionic"],
+              "tracks": ["Discussions"],
               "id": "5"
             },
             {
-              "name": "What's New in Angular",
+              "name": "Panel Discussions",
               "location": "Hall 3",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Rachel Rabbit"],
+              "description": "Panels of experts discuss current challenges and trends in the mining industry. Audience Q&A session allows attendees to engage with panelists.",
+              "speakerNames": ["Rachel Richard"],
               "timeStart": "10:15 am",
               "timeEnd": "10:30 am",
-              "tracks": ["Angular"],
+              "tracks": ["Discussions"],
               "id": "6"
             },
             {
-              "name": "The Evolution of Ionicons",
+              "name": "Technical Presentations (Concurrent Sessions)",
               "location": "Hall 2",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Isabella Iguana", "Eva Eagle"],
+              "description": "Session 1: Sustainable Mining Practices",
+              "speakerNames": ["Isabella Iguana", "Eva Marie"],
               "timeStart": "10:15 am",
               "timeEnd": "10:30 am",
-              "tracks": ["Design"],
+              "tracks": ["Presentations"],
               "id": "7"
             },
             {
-              "name": "Ionic Pro",
-              "location": "Grand Ballroom A",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Charlie Cheetah"],
+              "name": "Technical Presentations (Concurrent Sessions)",
+              "location": "Conference Room B",
+              "description": "Session 2: Innovations in Mineral Exploration",
+              "speakerNames": ["Charlie Puth"],
               "timeStart": "10:45 am",
               "timeEnd": "11:00 am",
-              "tracks": ["Services"],
+              "tracks": ["Presentations"],
               "id": "8"
             }
           ]
@@ -100,33 +101,33 @@
           "time": "11:00 am",
           "sessions": [
             {
-              "name": "Ionic Workshop",
-              "location": "Hall 1",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Karl Kitten", "Lionel Lion"],
+              "name": "Workshop - Safety Measures in Mining Operations",
+              "location": "Conference Room A",
+              "description": "A workshop is conducted to educate attendees on safety protocols and best practices in mining",
+              "speakerNames": ["Karl Kross", "Lionel Richie"],
               "timeStart": "11:00 am",
               "timeEnd": "11:45 am",
               "tracks": ["Workshop"],
               "id": "9"
             },
             {
-              "name": "Community Interaction",
-              "location": "Hall 3",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Lionel Lion", "Gino Giraffe"],
+              "name": "Presentation - Mining in the Digital Age",
+              "location": "Conference Room C",
+              "description": "Experts present on how digital technologies are transforming the mining industry",
+              "speakerNames": ["Peter Shimbangu", "Gino Anderson"],
               "timeStart": "11:30 am",
               "timeEnd": "11:50 am",
-              "tracks": ["Communication"],
+              "tracks": ["Presentation"],
               "id": "10"
             },
             {
-              "name": "Navigation in Ionic",
-              "location": "Grand Ballroom A",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Rachel Rabbit", "Eva Eagle"],
+              "name": "Advances in Mining Technologies",
+              "location": "Conference Room B",
+              "description": "The mining industry has witnessed significant advancements in technology",
+              "speakerNames": ["Dr. Sarah Smith", "John Anderson"],
               "timeStart": "11:30 am",
               "timeEnd": "12:00 pm",
-              "tracks": ["Navigation"],
+              "tracks": ["Technology Advancements"],
               "id": "11"
             }
           ]
@@ -135,9 +136,9 @@
           "time": "12:00 pm",
           "sessions": [
             {
-              "name": "Lunch",
+              "name": "Lunch and Exhibition",
               "location": "Dining Hall",
-              "description": "Come grab lunch with all the Ionic fanatics and talk all things Ionic",
+              "description": "Lunch is served. Participants explore the exhibition area to learn about the latest products and services in the mining sector",
               "timeStart": "12:00 pm",
               "timeEnd": "1:00 pm",
               "tracks": ["Food"],
@@ -149,30 +150,30 @@
           "time": "1:00 pm",
           "sessions": [
             {
-              "name": "Ionic in the Enterprise",
-              "location": "Hall 1",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Paul Puppy"],
+              "name": "Technology Showcase",
+              "location": "Conference Room D",
+              "description": "Companies demonstrate their cutting-edge mining technologies and solutions.",
+              "speakerNames": ["Paul Pierce"],
               "timeStart": "1:00 pm",
               "timeEnd": "1:15 pm",
               "tracks": ["Communication"],
               "id": "13"
             },
             {
-              "name": "Ionic Worldwide",
-              "location": "Hall 1",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Gino Giraffe"],
+              "name": "Panel Discussion - Environmental Responsibility in Mining",
+              "location": "Conference Room A",
+              "description": "Experts discuss sustainable mining practices and minimizing the environmental impact",
+              "speakerNames": ["Gino Goerseb"],
               "timeStart": "1:15 pm",
               "timeEnd": "1:30 pm",
               "tracks": ["Communication"],
               "id": "14"
             },
             {
-              "name": "The Ionic Package",
-              "location": "Grand Ballroom B",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Molly Mouse", "Burt Bear"],
+              "name": "Panel Discussion: Mining in Developing Economies: Challenges and Opportunities",
+              "location": "Conference Room B",
+              "description": "Experts discuss sustainable mining practices and minimizing the environmental impact",
+              "speakerNames": ["Molly Van der Merwe", "Burt Reynolds"],
               "timeStart": "1:30 pm",
               "timeEnd": "2:00 pm",
               "tracks": ["Services"],
@@ -187,7 +188,7 @@
               "name": "Push Notifications in Ionic",
               "location": "Hall 2",
               "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Burt Bear", "Charlie Cheetah"],
+              "speakerNames": ["Peter Shimbangu", "Charlie Cheetah"],
               "timeStart": "2:00 pm",
               "timeEnd": "2:30 pm",
               "tracks": ["Services"],
@@ -246,12 +247,12 @@
 
   "speakers": [
     {
-      "name": "Burt Bear",
+      "name": "Peter Shimbangu",
       "profilePic": "/assets/img/speakers/bear.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
-      "about": "Burt is a Bear. Burt's interests include poetry, dashing space heroes, and lions.",
-      "title": "Software Engineer",
+      "instagram": "instagram",
+      "twitter": "twitter",
+      "about": "Peter Shimbangu is a world renown environmentalist",
+      "title": "Engineer",
       "location": "Everywhere",
       "email": "burt@example.com",
       "phone": "+1-541-754-3010",
@@ -260,8 +261,8 @@
     {
       "name": "Charlie Cheetah",
       "profilePic": "/assets/img/speakers/cheetah.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Charlie is a Cheetah. Charlie's interests include country music, plush animals, pyrotechnics, and skeletons.",
       "title": "Software Engineer",
       "location": "Everywhere",
@@ -272,8 +273,8 @@
     {
       "name": "Donald Duck",
       "profilePic": "/assets/img/speakers/duck.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Donald is a Duck. Donald's interests include carpentry, superheroes, merpeople, and glam rock.",
       "title": "Software Engineer",
       "location": "Everywhere",
@@ -284,8 +285,8 @@
     {
       "name": "Eva Eagle",
       "profilePic": "/assets/img/speakers/eagle.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Eva is an Eagle. Eva's interests include ants, seashells, and cupcakes.",
       "title": "Developer Advocate",
       "location": "Everywhere",
@@ -296,8 +297,8 @@
     {
       "name": "Ellie Elephant",
       "profilePic": "/assets/img/speakers/elephant.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Ellie is an Elephant. Ellie's interests include pocket watches, pool, hand fans, and ninjas.",
       "title": "Software Engineer",
       "location": "Everywhere",
@@ -308,8 +309,8 @@
     {
       "name": "Gino Giraffe",
       "profilePic": "/assets/img/speakers/giraffe.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Gino is a Giraffe. Gino's interests include candy-making, unicorns, and birdhouses.",
       "title": "Software Engineer",
       "location": "Everywhere",
@@ -320,8 +321,8 @@
     {
       "name": "Isabella Iguana",
       "profilePic": "/assets/img/speakers/iguana.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Isabella is an Iguana. Isabella's interests include crystals, architecture, and candle-making.",
       "title": "Software Engineer",
       "location": "Everywhere",
@@ -332,8 +333,8 @@
     {
       "name": "Karl Kitten",
       "profilePic": "/assets/img/speakers/kitten.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Karl is a Kitten. Karl's interests include skiing, jewelry, and needlepoint.",
       "title": "Developer Advocate",
       "location": "Everywhere",
@@ -344,8 +345,8 @@
     {
       "name": "Lionel Lion",
       "profilePic": "/assets/img/speakers/lion.jpg",
-      "instagram": "ionicframework",
-      "twitter": "ionicframework",
+      "instagram": "instagram",
+      "twitter": "twitter",
       "about": "Lionel is a Lion. Lionel's interests include lizards and mathematics.",
       "title": "Developer Advocate",
       "location": "Everywhere",
