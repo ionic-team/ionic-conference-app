@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mining Expo</string>
+    <string name="title_activity_main">Mining Expo</string>
+    <string name="package_name">com.bid.miningexpo</string>
+    <string name="custom_url_scheme">com.bid.miningexpo</string>
+</resources>

@@ -16,9 +16,9 @@ dependencies {
     implementation project(':capacitor-keyboard')
     implementation project(':capacitor-splash-screen')
     implementation project(':capacitor-status-bar')
-    implementation "com.android.support:support-v4:27.+"
+
 }
-apply from: "../../node_modules/phonegap-plugin-barcodescanner/src/android/barcodescanner.gradle"
+
 
 if (hasProperty('postBuildExtras')) {
   postBuildExtras()

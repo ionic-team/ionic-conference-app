@@ -1,5 +1,5 @@
 {
-  "name": "Mining Expo",
+  "name": "mining-expo",
   "type": "angular",
   "integrations": {
     "capacitor": {},
