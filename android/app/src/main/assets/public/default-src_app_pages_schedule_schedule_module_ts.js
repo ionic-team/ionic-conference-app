@@ -889,6 +889,15 @@ class ConferenceData {
       });
     }));
   }
+  getExhibitors() {
+    return this.load().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(data => {
+      return data.exhibitors.sort((a, b) => {
+        const aName = a.name.split(' ').pop();
+        const bName = b.name.split(' ').pop();
+        return aName.localeCompare(bName);
+      });
+    }));
+  }
   getTracks() {
     return this.load().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(data => {
       return data.tracks.sort();
