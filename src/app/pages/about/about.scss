@@ -1,6 +1,6 @@
 ion-toolbar {
   --background: transparent;
-  --color: white;
+  --color: rgb(238, 146, 9);
   position: absolute;
 
   top: 0;
@@ -37,7 +37,7 @@ ion-toolbar ion-menu-button {
 }
 
 .about-header .madison {
-  background-image: url("/assets/img/about/madison.jpg");
+  background-image: url("/assets/img/about/windhoek.jpg");
 }
 
 .about-header .austin {
@@ -64,6 +64,10 @@ ion-toolbar ion-menu-button {
 
 .about-info h3 {
   margin-top: 0;
+}
+.theme{
+   color:rgb(238, 146, 9) 
+   
 }
 
 .about-info ion-list {

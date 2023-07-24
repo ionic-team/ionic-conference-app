@@ -42,6 +42,23 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'exhibitor-list',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../exhibitor-list/exhibitor-list.module').then(m => m.ExhibitorListPageModule)
+          },
+          {
+            path: 'session/:sessionId',
+            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
+          },
+          {
+            path: 'exhibitor-details/:exhibitorId',
+            loadChildren: () => import('../exhibitor-detail/exhibitor-detail.module').then(m => m.ExhibitorDetailModule)
+          }
+        ]
+      },
+      {
         path: 'map',
         children: [
           {
@@ -59,6 +76,16 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'register',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../register/register.module').then(m => m.RegisterModule)
+          }
+        ]
+      },
+      
       {
         path: 'about',
         children: [

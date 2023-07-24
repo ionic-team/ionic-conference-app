@@ -1,0 +1,43 @@
+<ion-content class="exhibitor-detail">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/app/tabs/exhibitor-list"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons *ngIf="exhibitor" slot="end">
+        <ion-button (click)="openContact(exhibitor)">
+          <ion-icon slot="icon-only" ios="call-outline" md="call-sharp"></ion-icon>
+        </ion-button>
+        <ion-button (click)="openExhibitorShare(exhibitor)">
+          <ion-icon slot="icon-only" ios="share-outline" md="share-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="exhibitor-background">
+    <img [src]="exhibitor?.profilePic" [alt]="exhibitor?.name">
+    <h2>{{exhibitor?.name}}</h2>
+  </div>
+
+  <div class="ion-padding speaker-detail">
+    <p>{{exhibitor?.about}} Say hello on social media!</p>
+
+    <hr>
+
+    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + exhibitor.twitter)">
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-label>Twitter</ion-label>
+    </ion-chip>
+
+    <ion-chip color="facebook" button (click)="openExternalUrl('https://facebook.com/' + exhibitor.facebook)">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-label>Facebook</ion-label>
+    </ion-chip>
+
+    <ion-chip color="linkedin" button (click)="openExternalUrl('https://linkedin.com/' + exhibitor.linkedin)">
+      <ion-icon name="logo-linkedin"></ion-icon>
+      <ion-label>Instagram</ion-label>
+    </ion-chip>
+  </div>
+</ion-content>

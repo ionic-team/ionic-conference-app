@@ -7,126 +7,126 @@
           "time": "8:00 am",
           "sessions": [
             {
-              "name": "Breakfast and Registration",
+              "name": "Registration",
               "timeStart": "8:00 am",
-              "timeEnd": "9:00 am",
-              "location": "Hall",
+              "timeEnd": "8:10 am",
+              "location": "Windhoek Show Grounds",
               "description": "Attendees arrive and check-in. Breakfast is served, providing an opportunity for networking",
-              "tracks": ["Food"],
+              "tracks": ["registration"],
               "id": "1"
             }
           ]
         },
         {
-          "time": "9:15 am",
+          "time": "8:10 am",
           "sessions": [
             {
-              "name": "Mining Expo Presentation",
-              "location": "Hall 2",
-              "description": "Welcome address by the event organizer. Introduction of keynote speakers and special guests. Overview of the day's events and activities.",
-              "speakerNames": ["Vusi Thembakwayo"],
-              "timeStart": "9:30 am",
-              "timeEnd": "9:45 am",
+              "name": "Safety Moment",
+              "location": "Room 200",
+              "description": "Safety Moment.",
+              "speakerNames": ["Ms Barcelona Tsauses"],
+              "timeStart": "8:10 am",
+              "timeEnd": "8:20 am",
               "tracks": ["Presentation"],
               "id": "2"
             },
             {
-              "name": "Keynote Speeches",
-              "location": "Hall",
-              "description": "Prominent figures from the mining industry deliver informative and inspiring talks",
-              "speakerNames": ["Les Brown"],
-              "timeStart": "9:45 am",
-              "timeEnd": "10:00 am",
+              "name": "Welcoming Remarks",
+              "location": "Room 202",
+              "description": "Welcome Remarks",
+              "speakerNames": ["Mr. Zebra Kasete"],
+              "timeStart": "8:20 am",
+              "timeEnd": "8:30 am",
               "tracks": ["Speech"],
               "id": "3"
             },
             {
-              "name": "Technical Presentations and Workshops",
-              "location": "Hall 3",
-              "description": "Parallel sessions with industry experts sharing insights on various mining-related topics. Attendees can choose which presentations or workshops to attend based on their interests.",
-              "speakerNames": ["Fred Swaniker"],
-              "timeStart": "9:15 am",
-              "timeEnd": "9:30 am",
+              "name": "Remarks",
+              "location": "Room 204",
+              "description": "Remarks",
+              "speakerNames": ["Klaus Endresen"],
+              "timeStart": "8:30 am",
+              "timeEnd": "8:40 am",
               "tracks": ["Workshop"],
               "id": "4"
             }
           ]
         },
         {
-          "time": "10:00 am",
+          "time": "8.40am",
           "sessions": [
             {
-              "name": "Panel Discussions",
-              "location": "Hall 1",
-              "description": "Panels of experts discuss current challenges and trends in the mining industry. Audience Q&A session allows attendees to engage with panelists.",
-              "speakerNames": ["Eva Monroe", "Lionel Richie"],
-              "timeStart": "10:00 am",
-              "timeEnd": "10:15 am",
-              "tracks": ["Discussions"],
+              "name": "Official Opening",
+              "location": "Room 206",
+              "description": "Official Opening",
+              "speakerNames": ["Hon, Tom Alweendo"],
+              "timeStart": "8:40 am",
+              "timeEnd": "9:00 am",
+              "tracks": ["Remarks"],
               "id": "5"
             },
             {
-              "name": "Panel Discussions",
-              "location": "Hall 3",
-              "description": "Panels of experts discuss current challenges and trends in the mining industry. Audience Q&A session allows attendees to engage with panelists.",
-              "speakerNames": ["Rachel Richard"],
-              "timeStart": "10:15 am",
-              "timeEnd": "10:30 am",
-              "tracks": ["Discussions"],
+              "name": "2022 Inter-Mine Safety Competition Awards",
+              "location": "Room 206",
+              "description": "2022 Inter-Mine Safety Competition Awards",
+              "speakerNames": ["Ms Barcelona Tsauses"],
+              "timeStart": "9:00 am",
+              "timeEnd": "10:00 am",
+              "tracks": ["Awards"],
               "id": "6"
             },
             {
-              "name": "Technical Presentations (Concurrent Sessions)",
-              "location": "Hall 2",
-              "description": "Session 1: Sustainable Mining Practices",
-              "speakerNames": ["Isabella Iguana", "Eva Marie"],
+              "name": "Cutting of the Ribbon and Visiting of the booth",
+              "location": "Room 206",
+              "description": "Cutting of the Ribbon and Visiting of the booth",
+              "speakerNames": ["Minister of Mines and Energy"],
               "timeStart": "10:15 am",
               "timeEnd": "10:30 am",
               "tracks": ["Presentations"],
               "id": "7"
             },
             {
-              "name": "Technical Presentations (Concurrent Sessions)",
-              "location": "Conference Room B",
-              "description": "Session 2: Innovations in Mineral Exploration",
-              "speakerNames": ["Charlie Puth"],
-              "timeStart": "10:45 am",
-              "timeEnd": "11:00 am",
+              "name": "Exhibitor Opening",
+              "location": "Room 206",
+              "description": "Exhibitor Opens to the general public",
+              "speakerNames": [],
+              "timeStart": "12:30 pm",
+              "timeEnd": "14:00 pm",
               "tracks": ["Presentations"],
               "id": "8"
             }
           ]
         },
         {
-          "time": "11:00 am",
+          "time": "14:00 am",
           "sessions": [
             {
-              "name": "Workshop - Safety Measures in Mining Operations",
-              "location": "Conference Room A",
-              "description": "A workshop is conducted to educate attendees on safety protocols and best practices in mining",
-              "speakerNames": ["Karl Kross", "Lionel Richie"],
-              "timeStart": "11:00 am",
-              "timeEnd": "11:45 am",
+              "name": "Lunch Break",
+              "location": "General",
+              "description": "Lunch Break",
+              "speakerNames": [""],
+              "timeStart": "14:00 pm",
+              "timeEnd": "17:00 pm",
               "tracks": ["Workshop"],
               "id": "9"
             },
             {
-              "name": "Presentation - Mining in the Digital Age",
-              "location": "Conference Room C",
-              "description": "Experts present on how digital technologies are transforming the mining industry",
+              "name": "Programme",
+              "location": "Room 206",
+              "description": "Conference Programme",
               "speakerNames": ["Peter Shimbangu", "Gino Anderson"],
-              "timeStart": "11:30 am",
-              "timeEnd": "11:50 am",
+              "timeStart": "18:00 pm",
+              "timeEnd": "18:00 pm",
               "tracks": ["Presentation"],
               "id": "10"
             },
             {
-              "name": "Advances in Mining Technologies",
-              "location": "Conference Room B",
-              "description": "The mining industry has witnessed significant advancements in technology",
-              "speakerNames": ["Dr. Sarah Smith", "John Anderson"],
-              "timeStart": "11:30 am",
-              "timeEnd": "12:00 pm",
+              "name": "Closing",
+              "location": "Room 206",
+              "description": "Exhibitor Closes",
+              "speakerNames": [],
+              "timeStart": "18:00 pm",
+              "timeEnd": "18:00 pm",
               "tracks": ["Technology Advancements"],
               "id": "11"
             }
@@ -147,98 +147,88 @@
           ]
         },
         {
-          "time": "1:00 pm",
+          "time": "7:00 am",
           "sessions": [
             {
-              "name": "Technology Showcase",
-              "location": "Conference Room D",
-              "description": "Companies demonstrate their cutting-edge mining technologies and solutions.",
-              "speakerNames": ["Paul Pierce"],
-              "timeStart": "1:00 pm",
-              "timeEnd": "1:15 pm",
-              "tracks": ["Communication"],
+              "name": "Registration",
+              "location": "Room 206",
+              "description": "Registration",
+              "speakerNames": [],
+              "timeStart": "7:00 am",
+              "timeEnd": "8:00 am",
+              "tracks": ["Registration"],
               "id": "13"
             },
             {
-              "name": "Panel Discussion - Environmental Responsibility in Mining",
-              "location": "Conference Room A",
-              "description": "Experts discuss sustainable mining practices and minimizing the environmental impact",
-              "speakerNames": ["Gino Goerseb"],
-              "timeStart": "1:15 pm",
-              "timeEnd": "1:30 pm",
-              "tracks": ["Communication"],
+              "name": "Conference Programme",
+              "location": "Room 204",
+              "description": "Conference Programme",
+              "speakerNames": [],
+              "timeStart": "8:00 am",
+              "timeEnd": "13:00 pm",
+              "tracks": ["Conference"],
               "id": "14"
             },
             {
-              "name": "Panel Discussion: Mining in Developing Economies: Challenges and Opportunities",
-              "location": "Conference Room B",
-              "description": "Experts discuss sustainable mining practices and minimizing the environmental impact",
-              "speakerNames": ["Molly Van der Merwe", "Burt Reynolds"],
-              "timeStart": "1:30 pm",
-              "timeEnd": "2:00 pm",
-              "tracks": ["Services"],
+              "name": "Opening",
+              "location": "Room 202",
+              "description": "Exhibitor Opens to the general public",
+              "speakerNames": [""],
+              "timeStart": "8:00 am",
+              "timeEnd": "18:00 pm",
+              "tracks": ["Presentations"],
               "id": "15"
             }
           ]
         },
         {
-          "time": "2:00 pm",
+          "time": "10:30 am",
           "sessions": [
             {
-              "name": "Push Notifications in Ionic",
-              "location": "Hall 2",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Peter Shimbangu", "Charlie Cheetah"],
-              "timeStart": "2:00 pm",
-              "timeEnd": "2:30 pm",
-              "tracks": ["Services"],
+              "name": "Judging of Stands",
+              "location": "Room 206",
+              "description": "Judging of Stands",
+              "speakerNames": [""],
+              "timeStart": "10:30 am",
+              "timeEnd": "14:0 pm",
+              "tracks": ["Conference"],
               "id": "16"
             },
             {
-              "name": "Ionic Documentation",
-              "location": "Grand Ballroom B",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Donald Duck"],
-              "timeStart": "2:30 pm",
-              "timeEnd": "2:45 pm",
-              "tracks": ["Documentation"],
+              "name": "Lunch Break",
+              "location": "General",
+              "description": "Lunch is served. Participants explore the exhibition area to learn about the latest products and services in the mining sector",
+              "speakerNames": [""],
+              "timeStart": "12:30 pm",
+              "timeEnd": "14:00 pm",
+              "tracks": ["General"],
               "id": "17"
             },
             {
-              "name": "UX in Ionic",
-              "location": "Hall 3",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Isabella Iguana", "Ellie Elephant"],
-              "timeStart": "2:45 pm",
-              "timeEnd": "3:00 pm",
-              "tracks": ["Design"],
+              "name": "Closing",
+              "location": "Room 206",
+              "description": "Closing Ceremony. Exhibition closes ",
+              "speakerNames": [],
+              "timeStart": "18:00 pm",
+              "timeEnd": "18:00 pm",
+              "tracks": ["Conference"],
               "id": "18"
             }
           ]
         },
         {
-          "time": "3:00",
+          "time": "18:00",
           "sessions": [
             {
-              "name": "Angular Directives in Ionic",
-              "location": "Hall 1",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Ted Turtle"],
-              "timeStart": "3:00 pm",
-              "timeEnd": "3:30 pm",
-              "tracks": ["Angular"],
+              "name": "Networking Cocktail Function",
+              "location": "Room 206",
+              "description": "Presentation of Awards for the best stand/booth (BY INVITATION ONLY)",
+              "speakerNames": [],
+              "timeStart": "18:30 pm",
+              "timeEnd": "20:30 pm",
+              "tracks": ["Conference"],
               "id": "19"
-            },
-            {
-              "name": "Mobile States",
-              "location": "Hall 2",
-              "description": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
-              "speakerNames": ["Rachel Rabbit"],
-              "timeStart": "3:30 pm",
-              "timeEnd": "3:45 pm",
-              "tracks": ["Navigation"],
-              "id": "20"
-            }
+            }            
           ]
         }
       ]
@@ -248,7 +238,7 @@
   "speakers": [
     {
       "name": "Peter Shimbangu",
-      "profilePic": "/assets/img/speakers/bear.jpg",
+      "profilePic": "/assets/img/speakers/b1.png",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Peter Shimbangu is a world renown environmentalist",
@@ -259,35 +249,35 @@
       "id": "1"
     },
     {
-      "name": "Charlie Cheetah",
-      "profilePic": "/assets/img/speakers/cheetah.jpg",
+      "name": "Paul Patrick",
+      "profilePic": "/assets/img/speakers/b2.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Charlie is a Cheetah. Charlie's interests include country music, plush animals, pyrotechnics, and skeletons.",
-      "title": "Software Engineer",
+      "about": "Paul is a data specialist.",
+      "title": "Data Specialist",
       "location": "Everywhere",
-      "email": "charlie@example.com",
+      "email": "paul@example.com",
       "phone": "+1-541-754-3010",
       "id": "2"
     },
     {
-      "name": "Donald Duck",
-      "profilePic": "/assets/img/speakers/duck.jpg",
+      "name": "Silas Ndapandula",
+      "profilePic": "/assets/img/speakers/b3.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Donald is a Duck. Donald's interests include carpentry, superheroes, merpeople, and glam rock.",
-      "title": "Software Engineer",
+      "about": "Silas is a speaker.",
+      "title": "Speaker",
       "location": "Everywhere",
-      "email": "donald@example.com",
+      "email": "silas@example.com",
       "phone": "+1-541-754-3010",
       "id": "3"
     },
     {
-      "name": "Eva Eagle",
-      "profilePic": "/assets/img/speakers/eagle.jpg",
+      "name": "Eva Laura",
+      "profilePic": "/assets/img/speakers/b4.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Eva is an Eagle. Eva's interests include ants, seashells, and cupcakes.",
+      "about": "Eva is a speaker",
       "title": "Developer Advocate",
       "location": "Everywhere",
       "email": "eva@example.com",
@@ -295,47 +285,47 @@
       "id": "4"
     },
     {
-      "name": "Ellie Elephant",
-      "profilePic": "/assets/img/speakers/elephant.jpg",
+      "name": "Ellie Ross",
+      "profilePic": "/assets/img/speakers/b5.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Ellie is an Elephant. Ellie's interests include pocket watches, pool, hand fans, and ninjas.",
-      "title": "Software Engineer",
+      "about": "Ellie is a speaker",
+      "title": "Guest Speaker",
       "location": "Everywhere",
       "email": "ellie@example.com",
       "phone": "+1-541-754-3010",
       "id": "5"
     },
     {
-      "name": "Gino Giraffe",
-      "profilePic": "/assets/img/speakers/giraffe.jpg",
+      "name": "Ginoelle Gauseb",
+      "profilePic": "/assets/img/speakers/b6.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Gino is a Giraffe. Gino's interests include candy-making, unicorns, and birdhouses.",
-      "title": "Software Engineer",
+      "about": "Ginoelle is a speaker",
+      "title": "Guest Speaker",
       "location": "Everywhere",
       "email": "gino@example.com",
       "phone": "+1-541-754-3010",
       "id": "6"
     },
     {
-      "name": "Isabella Iguana",
-      "profilePic": "/assets/img/speakers/iguana.jpg",
+      "name": "Isabella Shikongo",
+      "profilePic": "/assets/img/speakers/b7.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Isabella is an Iguana. Isabella's interests include crystals, architecture, and candle-making.",
-      "title": "Software Engineer",
+      "about": "Isabella is a speaker.",
+      "title": "Graphic Design",
       "location": "Everywhere",
       "email": "isabella@example.com",
       "phone": "+1-541-754-3010",
       "id": "7"
     },
     {
-      "name": "Karl Kitten",
-      "profilePic": "/assets/img/speakers/kitten.jpg",
+      "name": "Karl Lenz",
+      "profilePic": "/assets/img/speakers/b10.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Karl is a Kitten. Karl's interests include skiing, jewelry, and needlepoint.",
+      "about": "Karl is a speaker.",
       "title": "Developer Advocate",
       "location": "Everywhere",
       "email": "karl@example.com",
@@ -343,11 +333,11 @@
       "id": "8"
     },
     {
-      "name": "Lionel Lion",
-      "profilePic": "/assets/img/speakers/lion.jpg",
+      "name": "Lionel Lucas",
+      "profilePic": "/assets/img/speakers/b8.png",
       "instagram": "instagram",
       "twitter": "twitter",
-      "about": "Lionel is a Lion. Lionel's interests include lizards and mathematics.",
+      "about": "Lionel is a speaker",
       "title": "Developer Advocate",
       "location": "Everywhere",
       "email": "lionel@example.com",
@@ -355,23 +345,23 @@
       "id": "9"
     },
     {
-      "name": "Molly Mouse",
-      "profilePic": "/assets/img/speakers/mouse.jpg",
+      "name": "Molly Richards",
+      "profilePic": "/assets/img/speakers/b5.png",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
-      "about": "Molly is a Mouse. Molly's interests include werewolves and magic.",
-      "title": "Software Engineer",
+      "about": "Molly is a speaker.",
+      "title": "Graphic Design",
       "location": "Everywhere",
       "email": "molly@example.com",
       "phone": "+1-541-754-3010",
       "id": "10"
     },
     {
-      "name": "Paul Puppy",
-      "profilePic": "/assets/img/speakers/puppy.jpg",
+      "name": "Pauline Paulus",
+      "profilePic": "/assets/img/speakers/b6.png",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
-      "about": "Paul is a Puppy. Paul's interests include maps, whales, and dragons.",
+      "about": "Pauline is a speaker.",
       "title": "Software Engineer",
       "location": "Everywhere",
       "email": "paul@example.com",
@@ -379,11 +369,11 @@
       "id": "11"
     },
     {
-      "name": "Rachel Rabbit",
-      "profilePic": "/assets/img/speakers/rabbit.jpg",
+      "name": "Rachel Bourne",
+      "profilePic": "/assets/img/speakers/b5.png",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
-      "about": "Rachel is a Rabbit. Rachel's interests include clowns, skeletons, and yo-yos.",
+      "about": "Rachel is a speaker.",
       "title": "Senior Software Engineer",
       "location": "Everywhere",
       "email": "rachel@example.com",
@@ -391,11 +381,11 @@
       "id": "12"
     },
     {
-      "name": "Ted Turtle",
-      "profilePic": "/assets/img/speakers/turtle.jpg",
+      "name": "Timothy Francis",
+      "profilePic": "/assets/img/speakers/b10.png",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
-      "about": "Ted is a Turtle. Ted's interests include butterflies, skiing, and cupcakes.",
+      "about": "Ted is a speaker",
       "title": "Software Engineer",
       "location": "Everywhere",
       "email": "ted@example.com",
@@ -403,12 +393,25 @@
       "id": "13"
     }
   ],
+  "exhibitors": [
+    {
+      "name": "Namibian Companies & Other Chamber Members",
+      "profilePic": "/assets/img/speakers/b1.png",
+      "twitter": "ionicframework",
+      "about": "Peter Shimbangu is a world renown environmentalist",
+      "title": "President",
+      "location": "Everywhere",
+      "email": "burt@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "1"
+    }
+  ],
 
   "map": [
     {
-      "name": "Monona Terrace Convention Center",
-      "lat": 43.071584,
-      "lng": -89.38012,
+      "name": "Windhoek",
+      "lat": 22.5840,
+      "lng": 17.0895,
       "center": true
     },
     {

@@ -70,10 +70,3 @@ export class ScannerPage implements OnDestroy {
     this.stopScan();
   }  
 }
-
-  
-
-
-
-  
-

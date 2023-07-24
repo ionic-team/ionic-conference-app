@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>QR Scan</ion-title>
+    <ion-title>Scan QR Code</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
   </ion-card-content>
   <ion-button expand="block" (click)="startScan()">
   <ion-icon name="scan" slot="start"></ion-icon>
-  Scan QR Code
+  Scan
 </ion-button>
 
 <ion-item *ngIf="scannedResult">
@@ -25,7 +25,7 @@
 
 <ion-row class="scanner-buttons">
   <ion-col class="ion-no-padding">
-    <ion-button expand="full" (click)="stopScan()">Create</ion-button>
+    <ion-button expand="full" (click)="stopScan()">Stop</ion-button>
   </ion-col>
 </ion-row>
 </ion-content>

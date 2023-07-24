@@ -12,6 +12,10 @@ import { ScheduleModule } from '../schedule/schedule.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
 import { SpeakerListModule } from '../speaker-list/speaker-list.module';
+import { RegisterModule } from "../register/register.module";
+import { ExhibitorDetailModule } from '../exhibitor-detail/exhibitor-detail.module';
+import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
+
 
 @NgModule({
   imports: [
@@ -24,6 +28,9 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
     SessionDetailModule,
     SpeakerDetailModule,
     SpeakerListModule,
+    RegisterModule,
+    ExhibitorDetailModule,
+    ExhibitorListPageModule,
     TabsPageRoutingModule
   ],
   declarations: [
