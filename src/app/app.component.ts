@@ -21,31 +21,62 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Schedule',
-      url: '/app/tabs/schedule',
-      icon: 'calendar'
+      title: 'Registration',
+      url: '/app/tabs/register',
+      icon: 'hammer'
     },
     {
-      title: 'Speakers',
-      url: '/app/tabs/speakers',
-      icon: 'people'
+      title: 'Exhibitor Information',
+      url: '/app/tabs/exhibitor-list',
+      icon: 'information-circle'
     },
     {
-      title: 'Scan',
-      url: '/app/tabs/scanner',
-      icon: 'scan'
-    },
-    {
-      title: 'Map',
+      title: 'Floor Plan',
       url: '/app/tabs/map',
       icon: 'map'
-    },    
+    }, 
     {
-      title: 'About',
-      url: '/app/tabs/about',
-      icon: 'information-circle'
-    }
+      title: 'Event Schedule',
+      url: '/app/tabs/schedule',
+      icon: 'calendar'
+    },    
   ];
+  appPages_1 = [{
+
+    title: 'Programme',
+    url: '/app/tabs/schedule',
+    icon: 'time'
+  },
+  {    
+    title: 'Speakers',
+    url: '/app/tabs/speakers',
+    icon: 'people'
+  },
+  {
+    title: 'Scan',
+    url: '/app/tabs/scanner',
+    icon: 'scan'
+  }, 
+  {
+    title: 'Broadcasting',
+    url: '/app/tabs/scanner',
+    icon: 'caret-forward'
+  }, 
+ ]
+  appPages_2 = [
+    {
+      title: "Supplier's Platform",
+      url: '/app/tabs/',
+      icon: 'briefcase'
+    },       
+    {
+      title: "B2B",
+      url: '/app/tabs/speakers',
+      icon: 'cafe'
+    },
+    
+
+  ]
   loggedIn = false;
   dark = false;
 

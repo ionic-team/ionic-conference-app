@@ -1,0 +1,76 @@
+/*
+ * Speaker Background
+ */
+
+ion-toolbar {
+  --background: transparent;
+  --color: white;
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+ion-toolbar ion-button,
+ion-toolbar ion-back-button,
+ion-toolbar ion-menu-button {
+  --color: white;
+}
+
+.speaker-background {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  height: calc(250px + var(--ion-safe-area-top));
+
+  padding-top: var(--ion-safe-area-top);
+
+  background: center / cover url("/assets/img/speaker-background.png") no-repeat;
+}
+
+.speaker-background img {
+  width: 70px;
+
+  margin-top: calc(-1 * var(--ion-safe-area-top));
+
+  border-radius: 50%;
+}
+
+.speaker-background h2 {
+  position: absolute;
+
+  bottom: 10px;
+
+  color: white;
+}
+
+.md .speaker-background {
+  box-shadow: rgb(0 0 0 / 20%) 0 3px 1px -2px, rgb(0 0 0 / 14%) 0 2px 2px 0, rgb(0 0 0 / 12%) 0 1px 5px 0;
+}
+
+.ios .speaker-background {
+  box-shadow: rgb(0 0 0 / 12%) 0 4px 16px;
+}
+
+/*
+ * Speaker Details
+ */
+
+.speaker-detail p {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.speaker-detail hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  background: var(--ion-color-step-150, #d7d8da);
+}

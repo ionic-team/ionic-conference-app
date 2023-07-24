@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <button ion-button menuToggle item-start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+<ion-title>Register</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="register-logo">
+    <img src="assets/img/Expologo.jpg" alt="Ionic Logo">
+    <h2 ion-text class="text-primary"></h2>
+    <p>Welcome to the</p> <strong>Mining Expo</strong> 
+  </div>
+ 
+  
+  <div class="register-form">
+    <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+      <ion-textarea
+        label=""
+        labelPlacement="stacked"
+        fill="solid"
+        [(ngModel)]="supportMessage"
+        name="supportQuestion"
+        #supportQuestion="ngModel"
+        rows="6"
+        errorText=""
+        required>
+      </ion-textarea>
+
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" color="warning">Register Now</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

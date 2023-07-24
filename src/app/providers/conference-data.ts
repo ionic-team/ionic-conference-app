@@ -142,6 +142,17 @@ export class ConferenceData {
       })
     );
   }
+  getExhibitors() {
+    return this.load().pipe(
+      map((data: any) => {
+        return data.exhibitors.sort((a: any, b: any) => {
+          const aName = a.name.split(' ').pop();
+          const bName = b.name.split(' ').pop();
+          return aName.localeCompare(bName);
+        });
+      })
+    );
+  }
 
   getTracks() {
     return this.load().pipe(
