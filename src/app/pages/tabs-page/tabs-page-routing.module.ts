@@ -21,8 +21,7 @@ const routes: Routes = [
             loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           }
         ]
-      },
-      
+      },     
                
       {
         path: 'speakers',
@@ -53,7 +52,7 @@ const routes: Routes = [
             loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           },
           {
-            path: 'exhibitor-details/:exhibitorId',
+            path: 'exhibitor-detail/:exhibitorId',
             loadChildren: () => import('../exhibitor-detail/exhibitor-detail.module').then(m => m.ExhibitorDetailModule)
           }
         ]

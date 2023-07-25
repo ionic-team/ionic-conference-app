@@ -1,4 +1,4 @@
-.speaker-card {
+.exhibitor-card {
   display: flex;
 
   flex-direction: column;
@@ -7,32 +7,32 @@
 /* Due to the fact the cards are inside of columns the margins don't overlap
  * properly so we want to remove the extra margin between cards
  */
-ion-col:not(:last-of-type) .speaker-card {
+ion-col:not(:last-of-type) .exhibitor-card {
   margin-bottom: 0;
 }
 
-.speaker-card .speaker-item {
+.exhibitor-card .exhibitor-item {
   --min-height: 85px;
 }
 
-.speaker-card .speaker-item h2 {
+.exhibitor-card .exbihitor-item h2 {
   font-size: 18px;
   font-weight: 500;
 
   letter-spacing: 0.02em;
 }
 
-.speaker-card .speaker-item p {
+.exhibitor-card .speaker-item p {
   font-size: 13px;
 
   letter-spacing: 0.02em;
 }
 
-.speaker-card ion-card-header {
+.exhibitor-card ion-card-header {
   padding: 0;
 }
 
-.speaker-card ion-card-content {
+.exhibitor-card ion-card-content {
   flex: 1 1 auto;
 
   padding: 0;
@@ -46,4 +46,11 @@ ion-col:not(:last-of-type) .speaker-card {
   padding: 0;
 
   border-top: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+.register-button-orange {
+  --background: #e99909;
+}
+
+.register-button-green {
+  --background: green;
 }
