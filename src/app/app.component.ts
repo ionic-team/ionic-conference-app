@@ -11,6 +11,8 @@ import { Storage } from '@ionic/storage-angular';
 
 import { UserData } from './providers/user-data';
 
+import { AuthService } from './services/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -34,12 +36,12 @@ export class AppComponent implements OnInit {
       title: 'Floor Plan',
       url: '/app/tabs/map',
       icon: 'map'
-    }, 
+    },
     {
       title: 'Event Schedule',
       url: '/app/tabs/schedule',
       icon: 'calendar'
-    },    
+    },
   ];
   appPages_1 = [{
 
@@ -47,7 +49,7 @@ export class AppComponent implements OnInit {
     url: '/app/tabs/schedule',
     icon: 'time'
   },
-  {    
+  {
     title: 'Speakers',
     url: '/app/tabs/speakers',
     icon: 'people'
@@ -56,25 +58,25 @@ export class AppComponent implements OnInit {
     title: 'Scan',
     url: '/app/tabs/scanner',
     icon: 'scan'
-  }, 
+  },
   {
     title: 'Broadcasting',
     url: '/app/tabs/scanner',
     icon: 'caret-forward'
-  }, 
+  },
  ]
   appPages_2 = [
     {
       title: "Supplier's Platform",
       url: '/app/tabs/',
       icon: 'briefcase'
-    },       
+    },
     {
       title: "B2B",
       url: '/app/tabs/speakers',
       icon: 'cafe'
     },
-    
+
 
   ]
   loggedIn = false;
@@ -84,6 +86,7 @@ export class AppComponent implements OnInit {
     private menu: MenuController,
     private platform: Platform,
     private router: Router,
+    private authService: AuthService,
     private storage: Storage,
     private userData: UserData,
     private swUpdate: SwUpdate,
@@ -117,6 +120,11 @@ export class AppComponent implements OnInit {
         .then(() => window.location.reload());
     });
   }
+
+  async logout() {
+		await this.authService.logout();
+		this.router.navigateByUrl('/', { replaceUrl: true });
+	  }
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -153,11 +161,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.userData.logout().then(() => {
-      return this.router.navigateByUrl('/app/tabs/schedule');
-    });
-  }
+  // logout() {
+    // this.userData.logout().then(() => {
+      // return this.router.navigateByUrl('/app/tabs/schedule');
+    // });
+  // }
 
   openTutorial() {
     this.menu.enable(false);

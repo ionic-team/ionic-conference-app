@@ -13,7 +13,7 @@
                 {{p.title}}
               </ion-label>
             </ion-item>
-            
+
 
           </ion-menu-toggle>
         </ion-list>
@@ -28,7 +28,7 @@
                 {{p.title}}
               </ion-label>
             </ion-item>
-            
+
 
           </ion-menu-toggle>
         </ion-list>
@@ -43,12 +43,12 @@
                 {{p.title}}
               </ion-label>
             </ion-item>
-            
+
 
           </ion-menu-toggle>
         </ion-list>
-        
-        
+
+
 
         <ion-list *ngIf="loggedIn" lines="none">
           <ion-list-header>
@@ -114,7 +114,16 @@
                 Signup
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>          
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide="false">
+             <ion-item (click)="logout()" routerLink="/" routerLinkActive="active" routerDirection="root" detail="false">
+              <ion-icon slot="start" name="log-out"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
 
           <ion-item>
             <ion-icon slot="start" name="moon-outline"></ion-icon>

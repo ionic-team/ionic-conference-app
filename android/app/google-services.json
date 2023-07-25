@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "62716428182",
+    "project_id": "mining-expo-bc804",
+    "storage_bucket": "mining-expo-bc804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62716428182:android:2a0502e6fe5e95e3aa67b7",
+        "android_client_info": {
+          "package_name": "com.bid.miningexpo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62716428182-dkglnvi6c0rf1a70cmtkkcc4lu617quv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXpFP6vogVm286fvLiRZwFhBINUimj51A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62716428182-dkglnvi6c0rf1a70cmtkkcc4lu617quv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
