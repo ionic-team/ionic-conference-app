@@ -46,7 +46,7 @@ const routes = [{
   loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_pages_signup_signup_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/signup/signup.module */ 94025)).then(m => m.SignUpModule)
 }, {
   path: 'exhibitor',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_providers_conference-data_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/exhibitor-list/exhibitor-list.module */ 37281)).then(m => m.ExhibitorListPageModule)
+  loadChildren: () => __webpack_require__.e(/*! import() */ "common").then(__webpack_require__.bind(__webpack_require__, /*! ./pages/exhibitor-list/exhibitor-list.module */ 37281)).then(m => m.ExhibitorListPageModule)
 }, {
   path: 'app',
   loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_pages_schedule_schedule_module_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_pages_tabs-page_tabs-page_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./pages/tabs-page/tabs-page.module */ 95595)).then(m => m.TabsModule)
