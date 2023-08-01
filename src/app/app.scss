@@ -1,4 +1,7 @@
-[hidden] {
-  /* stylelint-disable-next-line declaration-no-important */
-  display: none !important;
+ion-app {
+  // background: radial-gradient(circle, #e99909, #ffa726, #ffca28, #ffd54f, #ffe082, #fff3e0);
+  /* Set the background color for the entire app */
+  /* Or you can use a background image */
+    background-image: url('../assets/img/bg2.png'); 
+   background-size: cover;
 }

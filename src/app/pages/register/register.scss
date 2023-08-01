@@ -1,20 +1,25 @@
 .register-logo {
-    min-height: 200px;
-  
-    padding: 60px 0;
-  
-    text-align: center;
-  }
-  
-  .register-logo img {
-    max-width: 150px;
-  }
-  
-  .list {
-    margin-bottom: 0;
-  }
-  
-  .register-form {
-    padding: 6px;
-  }
-  
+  min-height: 350px;
+  padding: 160px 0;
+  text-align: center;
+  min-width: 250px;
+   
+
+}
+
+.register-logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+.list {
+  margin-bottom: 0;
+}
+
+.register-form {
+  padding: 6px;
+}
+.ion-content {
+  background-color: #fc9705; /* Replace with your desired background color */
+}
+

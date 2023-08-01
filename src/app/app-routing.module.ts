@@ -44,6 +44,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exhibitor-list/exhibitor-list.module').then(m => m.ExhibitorListPageModule)
   },
   {
+    path: 'broadcasting',
+    loadChildren: () => import('./pages/broadcasting/broadcasting.module').then(m => m.BroadcastingPageModule)
+  },
+  {
+    path: 'supplier',
+    loadChildren: () => import('./pages/supplierplatform/supplier.module').then(m => m.SupplierPageModule)
+  },
+  {
+    path: 'btb',
+    loadChildren: () => import('./pages/btb/btb.module').then(m => m.BtbPageModule)
+  },
+  {
     path: 'app',
     loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
   },

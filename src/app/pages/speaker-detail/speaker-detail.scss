@@ -28,19 +28,20 @@ ion-toolbar ion-menu-button {
   align-items: center;
   justify-content: center;
 
-  height: calc(250px + var(--ion-safe-area-top));
+  height: calc(500px + var(--ion-safe-area-top));
 
   padding-top: var(--ion-safe-area-top);
 
-  background: center / cover url("/assets/img/speaker-background.png") no-repeat;
+  background: center / cover url("/assets/img/speaker-bg.png") no-repeat;
 }
 
 .speaker-background img {
-  width: 70px;
+  width: 170px;
+  height: 170px;
 
   margin-top: calc(-1 * var(--ion-safe-area-top));
 
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .speaker-background h2 {

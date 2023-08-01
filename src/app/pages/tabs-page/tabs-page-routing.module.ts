@@ -67,6 +67,33 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'broadcasting',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../broadcasting/broadcasting.module').then(m => m.BroadcastingPageModule)
+          }
+        ]
+      },
+      {
+        path: 'supplier',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../supplierplatform/supplier.module').then(m => m.SupplierPageModule)
+          }
+        ]
+      },
+      {
+        path: 'btb',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../btb/btb.module').then(m => m.BtbPageModule)
+          }
+        ]
+      },
+      {
         path: 'scanner',
         children: [
           {

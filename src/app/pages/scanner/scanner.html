@@ -1,5 +1,5 @@
 <ion-header [style.visibility]="content_visibility">
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="warning">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -14,7 +14,7 @@
    [width]="356" 
    [errorCorrectionLevel]="'M'"></qrcode>    
   </ion-card-content>
-  <ion-button expand="block" (click)="startScan()">
+  <ion-button color="warning" expand="block" (click)="startScan()">
   <ion-icon name="scan" slot="start"></ion-icon>
   Scan
 </ion-button>
@@ -23,9 +23,14 @@
   <ion-label class="ion-text-wrap">Scanned Result: {{scannedResult}}</ion-label>
 </ion-item>
 
-<ion-row class="scanner-buttons">
+<!-- <ion-row class="scanner-buttons">
   <ion-col class="ion-no-padding">
-    <ion-button expand="full" (click)="stopScan()">Stop</ion-button>
+    <ion-button expand="full" (click)="stopScan()">Stop Scan</ion-button>
+  </ion-col>
+</ion-row> -->
+<ion-row class="generateqr">
+  <ion-col class="ion-no-padding">
+    <ion-button color="warning" expand="full">Generate QR</ion-button>
   </ion-col>
 </ion-row>
 </ion-content>

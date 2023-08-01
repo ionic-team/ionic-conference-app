@@ -1,0 +1,28 @@
+<ion-header translucent="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+     Business-to-Business
+    </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p>The Business-to-Business allows the individual supplier or potential customer to set up person-to-person meetings during the Expo. The platform allows exhibitors direct engagement with potential clients to negotiate and conclude deals or explore future business opportunities.</p>
+      <p><strong>NB: The B2B is a service offering for Exhibitors ONLY.</strong></p>
+      <p><strong>The platform to arrange meetings will close a few days prior to the event.</strong></p>
+      <p><strong>How it will work: For more information on how to use the B2B function, please download the user Manual <a href="user-manual-link-here" target="_blank">here</a>.</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full"
+        [ngClass]="{ 'register-button-orange': !registerForBtB, 'register-button-dark-blue': registerForBtB }"
+        (click)="registerForBtB()">
+    <ion-icon name="person-add" slot="start"></ion-icon>
+    Register Now
+  </ion-button>
+</ion-content>

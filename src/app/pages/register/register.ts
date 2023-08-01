@@ -9,16 +9,11 @@ import { AlertController, ToastController } from '@ionic/angular';
   templateUrl: 'register.html',
   styleUrls: ['./register.scss'],
 })
-export class RegisterPage {
-  submitted = false;
-  supportMessage: string;
+export class RegisterPage {   
 
-  constructor(
-    public alertCtrl: AlertController,
-    public toastCtrl: ToastController
-  ) { }
+  constructor() { }
 
-  async ionViewDidEnter() {
+  /* async ionViewDidEnter() {
     const toast = await this.toastCtrl.create({
       message: 'This does not actually send a support request.',
       duration: 3000
@@ -38,7 +33,7 @@ export class RegisterPage {
         duration: 3000
       });
       await toast.present();
-    }
+    } */
   }
 
   // If the user enters text in the support question and then navigates
@@ -62,4 +57,5 @@ export class RegisterPage {
   //     await alert.present();
   //   });
   // }
-}
+
+

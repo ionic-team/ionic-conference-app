@@ -1,14 +1,14 @@
 <ion-header translucent="true">
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-buttons *ngIf="!showSearchbar" slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-segment *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
-      <ion-segment-button value="all">
-        All
+    <ion-segment *ngIf="ios" [(ngModel)]="dayIndex" (ionChange)="updateSchedule()">
+      <ion-segment-button value="0">
+        Day 1
       </ion-segment-button>
-      <ion-segment-button value="favorites">
-        Favorites
+      <ion-segment-button value="1">
+        Day 2
       </ion-segment-button>
     </ion-segment>
     <ion-title *ngIf="!ios && !showSearchbar">Schedule</ion-title>
@@ -28,10 +28,10 @@
   <ion-toolbar *ngIf="!ios">
     <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
-        All
+        Day 1
       </ion-segment-button>
       <ion-segment-button value="favorites">
-        Favorites
+        Day 2
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -40,13 +40,10 @@
 <ion-content fullscreen="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Schedule</ion-title>
-    </ion-toolbar>
-    <ion-toolbar>
+      <ion-title size="large">Schedule for {{ dayIndex === 0 ? 'Day 1' : 'Day 2' }}</ion-title>
       <ion-searchbar [(ngModel)]="queryText" (ionInput)="updateSchedule()" placeholder="Search"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
-
   <ion-list #scheduleList [hidden]="shownSessions === 0">
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
       <ion-item-divider sticky>
@@ -55,26 +52,21 @@
         </ion-label>
       </ion-item-divider>
 
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase"
-        [hidden]="session.hide">
-        <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
-          <ion-label>
-            <h3>{{session.name}}</h3>
-            <p>
-              {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
-            </p>
-          </ion-label>
-        </ion-item>
-        <ion-item-options>
-          <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
-            Favorite
-          </ion-item-option>
-          <ion-item-option color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')"
-            *ngIf="segment === 'favorites'">
-            Remove
-          </ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
+      <ng-container *ngIf="dayIndex === 0 && group.day === 'Day 1' || dayIndex === 1 && group.day === 'Day 2'">
+        <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase"
+          [hidden]="session.hide">
+          <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
+            <ion-label>
+              <h3>{{session.name}}</h3>
+              <p>
+                {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ng-container>
     </ion-item-group>
   </ion-list>
 

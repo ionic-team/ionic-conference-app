@@ -21,7 +21,7 @@
   </div>
 
   <div class="ion-padding speaker-detail">
-    <p>{{speaker?.about}} Say hello on social media!</p>
+    <p>{{speaker?.about}}</p>
 
     <hr>
 
@@ -30,14 +30,14 @@
       <ion-label>Twitter</ion-label>
     </ion-chip>
 
-    <ion-chip color="dark" button (click)="openExternalUrl('https://github.com/ionic-team/ionic')">
-      <ion-icon name="logo-github"></ion-icon>
-      <ion-label>GitHub</ion-label>
+    <ion-chip color="facebook" button (click)="openExternalUrl('https://facebook.com/' + speaker.facebook)">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-label>Facebook</ion-label>
     </ion-chip>
 
-    <ion-chip color="instagram" button (click)="openExternalUrl('https://instagram.com/ionicframework')">
-      <ion-icon name="logo-instagram"></ion-icon>
-      <ion-label>Instagram</ion-label>
+    <ion-chip color="linkedin" button (click)="openExternalUrl('https://linkedin.com/' + speaker.linkedin)">
+      <ion-icon name="logo-linkedin"></ion-icon>
+      <ion-label>LinkedIn</ion-label>
     </ion-chip>
   </div>
 </ion-content>

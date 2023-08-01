@@ -61,19 +61,19 @@ export class AppComponent implements OnInit {
   },
   {
     title: 'Broadcasting',
-    url: '/app/tabs/scanner',
+    url: '/app/tabs/broadcasting',
     icon: 'caret-forward'
   },
  ]
   appPages_2 = [
     {
       title: "Supplier's Platform",
-      url: '/app/tabs/',
+      url: '/app/tabs/supplier',
       icon: 'briefcase'
     },
     {
       title: "B2B",
-      url: '/app/tabs/speakers',
+      url: '/app/tabs/btb',
       icon: 'cafe'
     },
 

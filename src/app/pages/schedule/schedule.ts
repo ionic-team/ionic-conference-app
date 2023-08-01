@@ -24,6 +24,7 @@ export class SchedulePage implements OnInit {
   groups: any = [];
   confDate: string;
   showSearchbar: boolean;
+  
 
   constructor(
     public alertCtrl: AlertController,
@@ -49,9 +50,12 @@ export class SchedulePage implements OnInit {
       this.scheduleList.closeSlidingItems();
     }
 
+    // Update the schedule based on the selected day (Day 1 or Day 2)
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
+      // Filter the data to show only sessions for the selected day
+      const day = this.dayIndex === 0 ? 'Day 1' : 'Day 2';
+      this.shownSessions = data.shownSessions.filter((session: any) => session.day === day);
+      this.groups = data.groups.filter((group: any) => group.day === day);
     });
   }
 

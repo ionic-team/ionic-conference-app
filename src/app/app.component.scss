@@ -1,8 +1,20 @@
 ion-menu ion-content {
-  --padding-top: 20px;
+  --padding-: 20px;
+  --padding-middle: 20px;
   --padding-bottom: 20px;
   --background: var(--ion-item-background, var(--ion-background-color, #ffffff));
 }
+   ion-toolbar-title {
+    display: flex;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    pointer-events: auto;
+    align-content: space-between;
+  justify-content: center
+}
+
 
 /* Remove background transitions for switching themes */
 ion-menu ion-item {
@@ -17,28 +29,25 @@ ion-item.selected {
  * Material Design Menu
 */
 ion-menu.md ion-list {
-  padding: 20px 0;
+  background: var(--ion-item-background, var(--ion-background-color, #ffffff));
+  padding: 4px 0;
 }
 
 ion-menu.md ion-list-header {
-  padding-right: 18px;
-  padding-left: 18px;
-
-  font-weight: 450;
-
+  background: linear-gradient(to right, #fc9705, #F5A936);
+  padding: 6px;
   letter-spacing: .1em;
-
   text-transform: uppercase;
+  font-weight: 150;
+  border-radius: 0 150px 0px 0; 
+ 
 }
 
 ion-menu.md ion-item {
   --padding-start: 18px;
-
+  --color: black;
   margin-right: 10px;
-
-  border-radius: 0 50px 50px 0;
-
-  font-weight: 500;
+  
 }
 
 ion-menu.md ion-item.selected {
@@ -51,7 +60,7 @@ ion-menu.md ion-item.selected ion-icon {
 
 ion-menu.md ion-list-header,
 ion-menu.md ion-item ion-icon {
-  color: var(--ion-color-step-650, #5f6368);
+ 
 }
 
 ion-menu.md ion-list:not(:last-of-type) {

@@ -15,6 +15,9 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
 import { RegisterModule } from "../register/register.module";
 import { ExhibitorDetailModule } from '../exhibitor-detail/exhibitor-detail.module';
 import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
+import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
+import { SupplierPageModule } from "../supplierplatform/supplier.module";
+import { BtbPageModule } from "../btb/btb.module";
 
 
 @NgModule({
@@ -31,6 +34,8 @@ import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module
     RegisterModule,
     ExhibitorDetailModule,
     ExhibitorListPageModule,
+    SupplierPageModule,
+    BtbPageModule,
     TabsPageRoutingModule
   ],
   declarations: [
