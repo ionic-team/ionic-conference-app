@@ -237,8 +237,8 @@
 
   "speakers": [
     {
-      "name": "Peter Shimbangu",
-      "profilePic": "/assets/img/speakers/b1.png",
+      "name": "Hon. Tom Alweendo",
+      "profilePic": "/assets/img/speakers/Hon. Tom Alweendo High resolution Official Image.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Peter Shimbangu is a world renown environmentalist",
@@ -249,8 +249,8 @@
       "id": "1"
     },
     {
-      "name": "Paul Patrick",
-      "profilePic": "/assets/img/speakers/b2.png",
+      "name": "Willy Mertens",
+      "profilePic": "/assets/img/speakers/Image_Willy Mertens_Debmarine Namibia CEO_2023.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Paul is a data specialist.",
@@ -261,8 +261,8 @@
       "id": "2"
     },
     {
-      "name": "Silas Ndapandula",
-      "profilePic": "/assets/img/speakers/b3.png",
+      "name": "Alphary Muyongo",
+      "profilePic": "/assets/img/speakers/Aphary Muyongo.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Silas is a speaker.",
@@ -273,8 +273,8 @@
       "id": "3"
     },
     {
-      "name": "Eva Laura",
-      "profilePic": "/assets/img/speakers/b4.png",
+      "name": "Anthony Viljoen",
+      "profilePic": "/assets/img/speakers/Anthony Viljoen_Headshot.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Eva is a speaker",
@@ -285,8 +285,8 @@
       "id": "4"
     },
     {
-      "name": "Ellie Ross",
-      "profilePic": "/assets/img/speakers/b5.png",
+      "name": "Christopher Drysdale",
+      "profilePic": "/assets/img/speakers/Christopher Drysdale .webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Ellie is a speaker",
@@ -309,8 +309,8 @@
       "id": "6"
     },
     {
-      "name": "Isabella Shikongo",
-      "profilePic": "/assets/img/speakers/b7.png",
+      "name": "Gerda Brand",
+      "profilePic": "/assets/img/speakers/Gerda Brand 1.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Isabella is a speaker.",
@@ -321,8 +321,8 @@
       "id": "7"
     },
     {
-      "name": "Karl Lenz",
-      "profilePic": "/assets/img/speakers/b10.png",
+      "name": "Gosia Lachut",
+      "profilePic": "/assets/img/speakers/Gosia Lachut EU.webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Karl is a speaker.",
@@ -333,8 +333,8 @@
       "id": "8"
     },
     {
-      "name": "Lionel Lucas",
-      "profilePic": "/assets/img/speakers/b8.png",
+      "name": "John Borshoff",
+      "profilePic": "/assets/img/speakers/John Borshoff (2).webp",
       "instagram": "instagram",
       "twitter": "twitter",
       "about": "Lionel is a speaker",
@@ -345,8 +345,8 @@
       "id": "9"
     },
     {
-      "name": "Molly Richards",
-      "profilePic": "/assets/img/speakers/b5.png",
+      "name": "John Roos",
+      "profilePic": "/assets/img/speakers/John Roos.webp",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Molly is a speaker.",
@@ -357,8 +357,8 @@
       "id": "10"
     },
     {
-      "name": "Pauline Paulus",
-      "profilePic": "/assets/img/speakers/b6.png",
+      "name": "Julian Grieve",
+      "profilePic": "/assets/img/speakers/Julian Grieve.webp",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Pauline is a speaker.",
@@ -369,8 +369,8 @@
       "id": "11"
     },
     {
-      "name": "Rachel Bourne",
-      "profilePic": "/assets/img/speakers/b5.png",
+      "name": "Kirsty Liddicoat",
+      "profilePic": "/assets/img/speakers/Kirsty-30.webp",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Rachel is a speaker.",
@@ -381,8 +381,20 @@
       "id": "12"
     },
     {
-      "name": "Timothy Francis",
-      "profilePic": "/assets/img/speakers/b10.png",
+      "name": "Olavi Hangula",
+      "profilePic": "/speakers/Olavi Hangula.webp",
+      "instagram": "ionicframework",
+      "twitter": "ionicframework",
+      "about": "Ted is a speaker",
+      "title": "Software Engineer",
+      "location": "Everywhere",
+      "email": "ted@example.com",
+      "phone": "+1-541-754-3010",
+      "id": "13"
+    },
+    {
+      "name": "Salo Aleksi",
+      "profilePic": "/assets/img/speakers/salo aleksi 2021.webp",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Ted is a speaker",
