@@ -297,18 +297,6 @@
       "id": "5"
     },
     {
-      "name": "Ginoelle Gauseb",
-      "profilePic": "/assets/img/speakers/b6.png",
-      "instagram": "instagram",
-      "twitter": "twitter",
-      "about": "Ginoelle is a speaker",
-      "title": "Guest Speaker",
-      "location": "Everywhere",
-      "email": "gino@example.com",
-      "phone": "+1-541-754-3010",
-      "id": "6"
-    },
-    {
       "name": "Gerda Brand",
       "profilePic": "/assets/img/speakers/Gerda Brand 1.webp",
       "instagram": "instagram",
@@ -382,7 +370,7 @@
     },
     {
       "name": "Olavi Hangula",
-      "profilePic": "/speakers/Olavi Hangula.webp",
+      "profilePic": "/assets/img/speakers/Olavi Hangula.webp",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Ted is a speaker",
