@@ -3,19 +3,6 @@
     <h1>Sign Up</h1>
     <p>Please Sign Up to continue.</p>
   </div>
-  <div class="social-login">
-    <p>Enter through social networks</p>
-    <div class="links">
-      <ion-button class="google" routerLink="/app/tabs/schedule">
-        <ion-icon name="logo-google"></ion-icon>
-      </ion-button>
-      <ion-button class="facebook" routerLink="/app/tabs/schedule">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-button>
-    </div>
-  </div>
-
-
 
   <form (ngSubmit)="register()" [formGroup]="credentials">
     <div class="email-login">
@@ -45,6 +32,8 @@
       <p>Already have an account?<span routerLink="/login">  Login</span><p>
       </div>
     </form>
+    <ion-img src="/assets/img/rmbLogo.png" alt="rmblogo">
+    </ion-img>
   </ion-content>
 
 

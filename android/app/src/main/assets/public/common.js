@@ -1,6 +1,188 @@
 "use strict";
 (self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([["common"],{
 
+/***/ 67314:
+/*!*************************************************!*\
+  !*** ./src/app/pages/btb/btb-routing.module.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BtbPageRoutingModule: () => (/* binding */ BtbPageRoutingModule)
+/* harmony export */ });
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 27947);
+/* harmony import */ var _btb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./btb */ 38530);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 61699);
+
+
+
+
+const routes = [{
+  path: '',
+  component: _btb__WEBPACK_IMPORTED_MODULE_0__.BtbPage
+}];
+class BtbPageRoutingModule {}
+BtbPageRoutingModule.ɵfac = function BtbPageRoutingModule_Factory(t) {
+  return new (t || BtbPageRoutingModule)();
+};
+BtbPageRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+  type: BtbPageRoutingModule
+});
+BtbPageRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forChild(routes), _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
+});
+
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](BtbPageRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
+  });
+})();
+
+/***/ }),
+
+/***/ 33081:
+/*!*****************************************!*\
+  !*** ./src/app/pages/btb/btb.module.ts ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BtbPageModule: () => (/* binding */ BtbPageModule)
+/* harmony export */ });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 26575);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 64210);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 28849);
+/* harmony import */ var _btb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./btb */ 38530);
+/* harmony import */ var _btb_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./btb-routing.module */ 67314);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 61699);
+
+
+
+
+
+
+class BtbPageModule {}
+BtbPageModule.ɵfac = function BtbPageModule_Factory(t) {
+  return new (t || BtbPageModule)();
+};
+BtbPageModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({
+  type: BtbPageModule
+});
+BtbPageModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({
+  imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.IonicModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _btb_routing_module__WEBPACK_IMPORTED_MODULE_1__.BtbPageRoutingModule]
+});
+
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](BtbPageModule, {
+    declarations: [_btb__WEBPACK_IMPORTED_MODULE_0__.BtbPage],
+    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.IonicModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _btb_routing_module__WEBPACK_IMPORTED_MODULE_1__.BtbPageRoutingModule]
+  });
+})();
+
+/***/ }),
+
+/***/ 38530:
+/*!**********************************!*\
+  !*** ./src/app/pages/btb/btb.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BtbPage: () => (/* binding */ BtbPage)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 61699);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ 64210);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 26575);
+
+
+
+
+const _c0 = function (a0, a1) {
+  return {
+    "register-button-orange": a0,
+    "register-button-dark-blue": a1
+  };
+};
+class BtbPage {
+  constructor(platform) {
+    this.platform = platform;
+    this.userManualLink = 'https://miningexponamibia.com/wp-content/uploads/2023/07/b2b.pdf'; // Replace with the actual user manual link
+    this.buttonColor = '#e99909';
+    this.isButtonClicked = false;
+  }
+  registerForBtB() {
+    // Open the registration link in a new browser tab/window
+    this.platform.ready().then(() => {
+      window.open('https://b2b.miningexponamibia.com/index.php'); // Replace with the actual registration link
+    });
+    // Update button colors when clicked
+    this.buttonColor = '#3f51b5';
+    this.isButtonClicked = true;
+    // Reset button colors after a short delay (if needed)
+    setTimeout(() => {
+      this.buttonColor = '#e99909';
+      this.isButtonClicked = false;
+    }, 1000); // Change 1000 to the desired delay in milliseconds (1 second in this example)
+    console.log('Register for btb');
+  }
+}
+BtbPage.ɵfac = function BtbPage_Factory(t) {
+  return new (t || BtbPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_1__.Platform));
+};
+BtbPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: BtbPage,
+  selectors: [["app-btb"]],
+  decls: 26,
+  vars: 4,
+  consts: [["translucent", "true"], ["color", "warning"], ["slot", "start"], ["href", "user-manual-link-here", "target", "_blank"], ["expand", "full", 3, "ngClass", "click"], ["name", "person-add", "slot", "start"]],
+  template: function BtbPage_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar", 1)(2, "ion-buttons", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-menu-button");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-title");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Business-to-Business ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ion-content")(7, "ion-card")(8, "ion-card-content")(9, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "The Business-to-Business allows the individual supplier or potential customer to set up person-to-person meetings during the Expo. The platform allows exhibitors direct engagement with potential clients to negotiate and conclude deals or explore future business opportunities.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "p")(12, "strong");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "NB: The B2B is a service offering for Exhibitors ONLY.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p")(15, "strong");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "The platform to arrange meetings will close a few days prior to the event.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "p")(18, "strong");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "How it will work: For more information on how to use the B2B function, please download the user Manual ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "a", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "here");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, ".");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "ion-button", 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function BtbPage_Template_ion_button_click_23_listener() {
+        return ctx.registerForBtB();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "ion-icon", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, " Register Now ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+    }
+    if (rf & 2) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](23);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](1, _c0, !ctx.registerForBtB, ctx.registerForBtB));
+    }
+  },
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCard, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCardContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonIcon, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonMenuButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonToolbar],
+  styles: ["\n\n.register-button-orange[_ngcontent-%COMP%] {\n  --background: #e99909;\n  --background-activated: #3f51b5;\n}\n\n.register-button-dark-blue[_ngcontent-%COMP%] {\n  --background: #e99909;\n  --background-activated: #3f51b5;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvcGFnZXMvYnRiL2J0Yi5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGFBQUE7QUFDQTtFQUNFLHFCQUFBO0VBQ0EsK0JBQUE7QUFDRjs7QUFFQTtFQUNFLHFCQUFBO0VBQ0EsK0JBQUE7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi8qIGJ0Yi5zY3NzICovXG4ucmVnaXN0ZXItYnV0dG9uLW9yYW5nZSB7XG4gIC0tYmFja2dyb3VuZDogI2U5OTkwOTtcbiAgLS1iYWNrZ3JvdW5kLWFjdGl2YXRlZDogIzNmNTFiNTtcbn1cblxuLnJlZ2lzdGVyLWJ1dHRvbi1kYXJrLWJsdWUge1xuICAtLWJhY2tncm91bmQ6ICNlOTk5MDk7XG4gIC0tYmFja2dyb3VuZC1hY3RpdmF0ZWQ6ICMzZjUxYjU7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */"]
+});
+
+
+/***/ }),
+
 /***/ 35183:
 /*!***********************************************************************!*\
   !*** ./src/app/pages/exhibitor-list/exhibitor-list-routing.module.ts ***!
@@ -106,7 +288,7 @@ __webpack_require__.r(__webpack_exports__);
 const _c0 = function (a0, a1) {
   return {
     "register-button-orange": a0,
-    "register-button-green": a1
+    "register-button-dark-blue": a1
   };
 };
 function ExhibitorListPage_ion_card_7_Template(rf, ctx) {
@@ -118,7 +300,7 @@ function ExhibitorListPage_ion_card_7_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-card-content")(5, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ion-button", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ion-button", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ExhibitorListPage_ion_card_7_Template_ion_button_click_7_listener() {
       const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
       const category_r1 = restoredCtx.$implicit;
@@ -183,17 +365,17 @@ ExhibitorListPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0_
   selectors: [["app-exhibitor-list"]],
   decls: 8,
   vars: 1,
-  consts: [["translucent", "true"], ["slot", "start"], [4, "ngFor", "ngForOf"], ["expand", "full", 3, "ngClass", "click"]],
+  consts: [["translucent", "true"], ["color", "warning"], ["slot", "start"], [4, "ngFor", "ngForOf"], ["expand", "full", 3, "ngClass", "click"]],
   template: function ExhibitorListPage_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar")(2, "ion-buttons", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar", 1)(2, "ion-buttons", 2);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-menu-button");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-title");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Membership Types ");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ion-content");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, ExhibitorListPage_ion_card_7_Template, 9, 6, "ion-card", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, ExhibitorListPage_ion_card_7_Template, 9, 6, "ion-card", 3);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
@@ -203,6 +385,141 @@ ExhibitorListPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0_
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgForOf, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonCard, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonCardContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonCardHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonCardTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonMenuButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonToolbar],
   styles: [".exhibitor-card[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n\n\n\n\nion-col[_ngcontent-%COMP%]:not(:last-of-type)   .exhibitor-card[_ngcontent-%COMP%] {\n  margin-bottom: 0;\n}\n\n.exhibitor-card[_ngcontent-%COMP%]   .exhibitor-item[_ngcontent-%COMP%] {\n  --min-height: 85px;\n}\n\n.exhibitor-card[_ngcontent-%COMP%]   .exbihitor-item[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 18px;\n  font-weight: 500;\n  letter-spacing: 0.02em;\n}\n\n.exhibitor-card[_ngcontent-%COMP%]   .speaker-item[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 13px;\n  letter-spacing: 0.02em;\n}\n\n.exhibitor-card[_ngcontent-%COMP%]   ion-card-header[_ngcontent-%COMP%] {\n  padding: 0;\n}\n\n.exhibitor-card[_ngcontent-%COMP%]   ion-card-content[_ngcontent-%COMP%] {\n  flex: 1 1 auto;\n  padding: 0;\n}\n\n.ios[_ngcontent-%COMP%]   ion-list[_ngcontent-%COMP%] {\n  margin-bottom: 10px;\n}\n\n.md[_ngcontent-%COMP%]   ion-list[_ngcontent-%COMP%] {\n  padding: 0;\n  border-top: 1px solid var(--ion-color-step-150, #d7d8da);\n}\n\n.register-button-orange[_ngcontent-%COMP%] {\n  --background: #e99909;\n}\n\n.register-button-green[_ngcontent-%COMP%] {\n  --background: green;\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvcGFnZXMvZXhoaWJpdG9yLWxpc3QvZXhoaWJpdG9yLWxpc3Quc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7RUFFQSxzQkFBQTtBQUFGOztBQUdBOztFQUFBO0FBR0E7RUFDRSxnQkFBQTtBQUFGOztBQUdBO0VBQ0Usa0JBQUE7QUFBRjs7QUFHQTtFQUNFLGVBQUE7RUFDQSxnQkFBQTtFQUVBLHNCQUFBO0FBREY7O0FBSUE7RUFDRSxlQUFBO0VBRUEsc0JBQUE7QUFGRjs7QUFLQTtFQUNFLFVBQUE7QUFGRjs7QUFLQTtFQUNFLGNBQUE7RUFFQSxVQUFBO0FBSEY7O0FBTUE7RUFDRSxtQkFBQTtBQUhGOztBQU1BO0VBQ0UsVUFBQTtFQUVBLHdEQUFBO0FBSkY7O0FBTUE7RUFDRSxxQkFBQTtBQUhGOztBQU1BO0VBQ0UsbUJBQUE7QUFIRiIsInNvdXJjZXNDb250ZW50IjpbIi5leGhpYml0b3ItY2FyZCB7XG4gIGRpc3BsYXk6IGZsZXg7XG5cbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cblxuLyogRHVlIHRvIHRoZSBmYWN0IHRoZSBjYXJkcyBhcmUgaW5zaWRlIG9mIGNvbHVtbnMgdGhlIG1hcmdpbnMgZG9uJ3Qgb3ZlcmxhcFxuICogcHJvcGVybHkgc28gd2Ugd2FudCB0byByZW1vdmUgdGhlIGV4dHJhIG1hcmdpbiBiZXR3ZWVuIGNhcmRzXG4gKi9cbmlvbi1jb2w6bm90KDpsYXN0LW9mLXR5cGUpIC5leGhpYml0b3ItY2FyZCB7XG4gIG1hcmdpbi1ib3R0b206IDA7XG59XG5cbi5leGhpYml0b3ItY2FyZCAuZXhoaWJpdG9yLWl0ZW0ge1xuICAtLW1pbi1oZWlnaHQ6IDg1cHg7XG59XG5cbi5leGhpYml0b3ItY2FyZCAuZXhiaWhpdG9yLWl0ZW0gaDIge1xuICBmb250LXNpemU6IDE4cHg7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG5cbiAgbGV0dGVyLXNwYWNpbmc6IDAuMDJlbTtcbn1cblxuLmV4aGliaXRvci1jYXJkIC5zcGVha2VyLWl0ZW0gcCB7XG4gIGZvbnQtc2l6ZTogMTNweDtcblxuICBsZXR0ZXItc3BhY2luZzogMC4wMmVtO1xufVxuXG4uZXhoaWJpdG9yLWNhcmQgaW9uLWNhcmQtaGVhZGVyIHtcbiAgcGFkZGluZzogMDtcbn1cblxuLmV4aGliaXRvci1jYXJkIGlvbi1jYXJkLWNvbnRlbnQge1xuICBmbGV4OiAxIDEgYXV0bztcblxuICBwYWRkaW5nOiAwO1xufVxuXG4uaW9zIGlvbi1saXN0IHtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cblxuLm1kIGlvbi1saXN0IHtcbiAgcGFkZGluZzogMDtcblxuICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLCAjZDdkOGRhKTtcbn1cbi5yZWdpc3Rlci1idXR0b24tb3JhbmdlIHtcbiAgLS1iYWNrZ3JvdW5kOiAjZTk5OTA5O1xufVxuXG4ucmVnaXN0ZXItYnV0dG9uLWdyZWVuIHtcbiAgLS1iYWNrZ3JvdW5kOiBncmVlbjtcbn0iXSwic291cmNlUm9vdCI6IiJ9 */"]
+});
+
+
+/***/ }),
+
+/***/ 62286:
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/supplierplatform/supplier-routing.module.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SupplierPageRoutingModule: () => (/* binding */ SupplierPageRoutingModule)
+/* harmony export */ });
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 27947);
+/* harmony import */ var _supplier__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./supplier */ 11769);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 61699);
+
+
+
+
+const routes = [{
+  path: '',
+  component: _supplier__WEBPACK_IMPORTED_MODULE_0__.SupplierPage
+}];
+class SupplierPageRoutingModule {}
+SupplierPageRoutingModule.ɵfac = function SupplierPageRoutingModule_Factory(t) {
+  return new (t || SupplierPageRoutingModule)();
+};
+SupplierPageRoutingModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+  type: SupplierPageRoutingModule
+});
+SupplierPageRoutingModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+  imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forChild(routes), _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
+});
+
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](SupplierPageRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
+  });
+})();
+
+/***/ }),
+
+/***/ 53138:
+/*!***********************************************************!*\
+  !*** ./src/app/pages/supplierplatform/supplier.module.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SupplierPageModule: () => (/* binding */ SupplierPageModule)
+/* harmony export */ });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 26575);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ 64210);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 28849);
+/* harmony import */ var _supplier__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./supplier */ 11769);
+/* harmony import */ var _supplier_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./supplier-routing.module */ 62286);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 61699);
+
+
+
+
+
+
+class SupplierPageModule {}
+SupplierPageModule.ɵfac = function SupplierPageModule_Factory(t) {
+  return new (t || SupplierPageModule)();
+};
+SupplierPageModule.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({
+  type: SupplierPageModule
+});
+SupplierPageModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({
+  imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.IonicModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _supplier_routing_module__WEBPACK_IMPORTED_MODULE_1__.SupplierPageRoutingModule]
+});
+
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](SupplierPageModule, {
+    declarations: [_supplier__WEBPACK_IMPORTED_MODULE_0__.SupplierPage],
+    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CommonModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_4__.IonicModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _supplier_routing_module__WEBPACK_IMPORTED_MODULE_1__.SupplierPageRoutingModule]
+  });
+})();
+
+/***/ }),
+
+/***/ 11769:
+/*!****************************************************!*\
+  !*** ./src/app/pages/supplierplatform/supplier.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   SupplierPage: () => (/* binding */ SupplierPage)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 61699);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ 64210);
+
+
+class SupplierPage {
+  constructor() {}
+}
+SupplierPage.ɵfac = function SupplierPage_Factory(t) {
+  return new (t || SupplierPage)();
+};
+SupplierPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+  type: SupplierPage,
+  selectors: [["app-supplier"]],
+  decls: 18,
+  vars: 0,
+  consts: [["translucent", "true"], ["color", "warning"], ["slot", "start"]],
+  template: function SupplierPage_Template(rf, ctx) {
+    if (rf & 1) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar", 1)(2, "ion-buttons", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-menu-button");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-title");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Supplier's Platform ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ion-content")(7, "ion-card")(8, "ion-card-content")(9, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "The Supplier\u2019s platform is a centrally located presentation area for exhibitors to display their unique service and product offerings to a broader spectrum of Expo-goers and other exhibitors. This platform provides suppliers with greater exposure and access to business opportunities by directing participants and interested customers to exhibitor stands for further meetings and engagements.");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ion-card")(12, "ion-card-header")(13, "ion-card-title");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Program Schedule");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ion-card-content")(16, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "The programme for this platform will be divided into 15-minute slots for each supplier. Once all the slots have been booked and allocated, the event organisers will advertise the programme on their marketing channels");
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
+    }
+  },
+  dependencies: [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCard, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCardContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCardHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonCardTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonMenuButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonToolbar],
+  styles: ["/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
 });
 
 
