@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Browser } from '@capacitor/browser';
 
 import { AlertController, ToastController } from '@ionic/angular';
 
@@ -14,9 +13,12 @@ export class RegisterPage {
 
   constructor() { }
 
-  async openDelegateReigistration () {
-    await Browser.open({ url: 'https://miningexponamibia.com/delegate-registration/'});
-};
+  registerDelegate() {
+    { // Redirect to an external URL
+     window.location.href = 'https://miningexponamibia.com/delegate-registration/';
+     // Implement your registration logic here, e.g., navigate to a registration page
+   }
+ }
 
   /* async ionViewDidEnter() {
     const toast = await this.toastCtrl.create({

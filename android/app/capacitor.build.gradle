@@ -11,7 +11,6 @@ apply from: "../capacitor-cordova-android-plugins/cordova.variables.gradle"
 dependencies {
     implementation project(':capacitor-community-barcode-scanner')
     implementation project(':capacitor-app')
-    implementation project(':capacitor-browser')
     implementation project(':capacitor-device')
     implementation project(':capacitor-haptics')
     implementation project(':capacitor-keyboard')
