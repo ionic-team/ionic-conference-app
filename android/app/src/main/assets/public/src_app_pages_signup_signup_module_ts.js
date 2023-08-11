@@ -115,14 +115,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function SignupPage_ion_note_14_Template(rf, ctx) {
+function SignupPage_ion_note_12_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "ion-note", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "Email is invalid");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
 }
-function SignupPage_ion_note_19_Template(rf, ctx) {
+function SignupPage_ion_note_17_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "ion-note", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](1, "Password needs to be 6 characters");
@@ -201,7 +201,7 @@ SignupPage.ɵfac = function SignupPage_Factory(t) {
 SignupPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
   type: SignupPage,
   selectors: [["page-signup"]],
-  decls: 36,
+  decls: 34,
   vars: 4,
   consts: [[1, "heading"], [3, "formGroup", "ngSubmit"], [1, "email-login"], [1, "formfield"], ["type", "email", "formControlName", "email", "name", "email", "id", "email"], ["for", "email", "placeholder", "Email"], ["slot", "error", 4, "ngIf"], ["type", "password", "formControlName", "password", "name", "password", "id", "password"], ["for", "password", "placeholder", "Password"], [1, "other-links"], [1, "remember-me"], [1, "forgot"], [1, "login-button"], ["type", "submit", 1, "login", 3, "disabled"], ["routerLink", "/login"], ["src", "/assets/img/rmbLogo.png", "alt", "rmblogo"], ["slot", "error"]],
   template: function SignupPage_Template(rf, ctx) {
@@ -216,48 +216,45 @@ SignupPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵ
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngSubmit", function SignupPage_Template_form_ngSubmit_6_listener() {
         return ctx.register();
       });
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 2)(8, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9, "Or login with email");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "div", 2)(8, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](9, "input", 4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "label", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](11, "Email");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](11, "input", 4);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](12, "label", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](13, "Email");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](12, SignupPage_ion_note_12_Template, 2, 0, "ion-note", 6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](14, SignupPage_ion_note_14_Template, 2, 0, "ion-note", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](13, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](14, "input", 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "label", 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](16, "Password");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](16, "input", 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "label", 8);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](18, "Password");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](17, SignupPage_ion_note_17_Template, 2, 0, "ion-note", 6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, SignupPage_ion_note_19_Template, 2, 0, "ion-note", 6);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "div", 9)(21, "div", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](22, "ion-checkbox");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](23, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](24, "Remember Me");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 9)(19, "div", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](20, "ion-checkbox");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](22, "Remember Me");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](25, "p", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](26, "Forgot Password");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](23, "p", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](24, "Forgot Password");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](27, "div", 12)(28, "ion-button", 13);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](29, "Signup");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](25, "div", 12)(26, "ion-button", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](27, "Signup");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](31, "Already have an account?");
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](32, "span", 14);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](33, " Login");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](28, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](29, "Already have an account?");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](30, "span", 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](31, " Login");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](34, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](32, "p");
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](35, "ion-img", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](33, "ion-img", 15);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("formGroup", ctx.credentials);
-      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", (ctx.email.dirty || ctx.email.touched) && ctx.email.errors);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
       _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", (ctx.password.dirty || ctx.password.touched) && ctx.password.errors);

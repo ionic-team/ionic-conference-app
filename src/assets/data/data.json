@@ -1,16 +1,16 @@
 {
   "schedule": [
     {
-      "date": "2023-05-17",
+      "date": "2023-08-30",
       "groups": [
         {
-          "time": "8:00 am",
+          "time": "Day 1, 2023-08-30 7:00 am",
           "sessions": [
             {
               "name": "Registration",
-              "timeStart": "8:00 am",
-              "timeEnd": "8:10 am",
-              "location": "Windhoek Show Grounds",
+              "timeStart": "7:00 am",
+              "timeEnd": "8:00 am",
+              "location": "Windhoek Show Grounds Office",
               "description": "Attendees arrive and check-in. Breakfast is served, providing an opportunity for networking",
               "tracks": ["registration"],
               "id": "1"
@@ -18,150 +18,146 @@
           ]
         },
         {
-          "time": "8:10 am",
+          "time": "Day 1, 2023-08-30 8:00 am",
           "sessions": [
             {
               "name": "Safety Moment",
-              "location": "Room 200",
+              "location": "Makalani Hall",
               "description": "Safety Moment.",
               "speakerNames": ["Ms Barcelona Tsauses"],
-              "timeStart": "8:10 am",
-              "timeEnd": "8:20 am",
+              "timeStart": "8:00 am",
+              "timeEnd": "8:10 am",
               "tracks": ["Presentation"],
               "id": "2"
             },
             {
-              "name": "Welcoming Remarks",
-              "location": "Room 202",
-              "description": "Welcome Remarks",
+              "name": "Welcoming Remarks & Opening",
+              "location": "Makalani Hall",
+              "description": "Welcome Remarks & Opening",
               "speakerNames": ["Mr. Zebra Kasete"],
-              "timeStart": "8:20 am",
-              "timeEnd": "8:30 am",
+              "timeStart": "8:10 am",
+              "timeEnd": "8:20 am",
               "tracks": ["Speech"],
               "id": "3"
             },
             {
               "name": "Remarks",
-              "location": "Room 204",
+              "location": "Makalani Hall",
               "description": "Remarks",
               "speakerNames": ["Klaus Endresen"],
-              "timeStart": "8:30 am",
-              "timeEnd": "8:40 am",
+              "timeStart": "8:20 am",
+              "timeEnd": "8:30 am",
               "tracks": ["Workshop"],
               "id": "4"
             }
           ]
         },
         {
-          "time": "8.40am",
+          "time": "Day 1, 2023-08-30 8:30am",
           "sessions": [
             {
               "name": "Official Opening",
-              "location": "Room 206",
+              "location": "Makalani Hall",
               "description": "Official Opening",
               "speakerNames": ["Hon, Tom Alweendo"],
-              "timeStart": "8:40 am",
-              "timeEnd": "9:00 am",
+              "timeStart": "8:30 am",
+              "timeEnd": "8:40 am",
               "tracks": ["Remarks"],
               "id": "5"
             },
             {
-              "name": "2022 Inter-Mine Safety Competition Awards",
-              "location": "Room 206",
+              "name": "2022 Inter - Mine Safety Competition Awards",
+              "location": "Makalani Hall",
               "description": "2022 Inter-Mine Safety Competition Awards",
-              "speakerNames": ["Ms Barcelona Tsauses"],
-              "timeStart": "9:00 am",
-              "timeEnd": "10:00 am",
+              "speakerNames": ["Ms. Barcelona Tsauses"],
+              "timeStart": "8:40 am",
+              "timeEnd": "9:00 am",
               "tracks": ["Awards"],
               "id": "6"
             },
             {
               "name": "Cutting of the Ribbon and Visiting of the booth",
-              "location": "Room 206",
+              "location": "Makalani Hall",
               "description": "Cutting of the Ribbon and Visiting of the booth",
-              "speakerNames": ["Minister of Mines and Energy"],
-              "timeStart": "10:15 am",
-              "timeEnd": "10:30 am",
+              "speakerNames": ["Hon. Tom Alweendo"],
+              "timeStart": "9:00 am",
+              "timeEnd": "10:00 am",
               "tracks": ["Presentations"],
               "id": "7"
             },
             {
-              "name": "Exhibitor Opening",
-              "location": "Room 206",
+              "name": "Exhibition Opening",
+              "location": "Windhoek Show Grounds",
               "description": "Exhibitor Opens to the general public",
               "speakerNames": [],
-              "timeStart": "12:30 pm",
-              "timeEnd": "14:00 pm",
+              "timeStart": "10:15 am",
+              "timeEnd": "onwards",
               "tracks": ["Presentations"],
               "id": "8"
             }
           ]
         },
         {
-          "time": "14:00 am",
+          "time": "Day 1, 2023-08-31 12:30 pm",
           "sessions": [
             {
               "name": "Lunch Break",
-              "location": "General",
+              "location": "Jacaranda Hall",
               "description": "Lunch Break",
               "speakerNames": [""],
-              "timeStart": "14:00 pm",
-              "timeEnd": "17:00 pm",
-              "tracks": ["Workshop"],
+              "timeStart": "12:30 pm",
+              "timeEnd": "14:00 pm",
+              "tracks": ["General"],
               "id": "9"
             },
             {
-              "name": "Programme",
-              "location": "Room 206",
-              "description": "Conference Programme",
-              "speakerNames": ["Peter Shimbangu", "Gino Anderson"],
-              "timeStart": "18:00 pm",
-              "timeEnd": "18:00 pm",
+              "name": "Conference Registration",
+              "location": "Makalani Hall",
+              "description": "Conference Registration",
+              "speakerNames": [""],
+              "timeStart": "12:30 pm",
+              "timeEnd": "14:00 pm",
               "tracks": ["Presentation"],
               "id": "10"
             },
             {
-              "name": "Closing",
-              "location": "Room 206",
-              "description": "Exhibitor Closes",
-              "speakerNames": [],
+              "name": "Conference Programme",
+              "location": "Makalani Hall",
+              "description": "Conference Programme",
+              "speakerNames": [""],
+              "timeStart": "14:00 pm",
+              "timeEnd": "17:00 pm",
+              "tracks": ["Technology Advancements"],
+              "id": "11"
+            },
+            {
+              "name": "Exhibition Closes",
+              "location": "All Exhibition Halls",
+              "description": "Exhibition Closes",
+              "speakerNames": [""],
               "timeStart": "18:00 pm",
-              "timeEnd": "18:00 pm",
+              "timeEnd": "",
               "tracks": ["Technology Advancements"],
               "id": "11"
             }
           ]
         },
         {
-          "time": "12:00 pm",
-          "sessions": [
-            {
-              "name": "Lunch and Exhibition",
-              "location": "Dining Hall",
-              "description": "Lunch is served. Participants explore the exhibition area to learn about the latest products and services in the mining sector",
-              "timeStart": "12:00 pm",
-              "timeEnd": "1:00 pm",
-              "tracks": ["Food"],
-              "id": "12"
-            }
-          ]
-        },
-        {
-          "time": "7:00 am",
+          "time": "Day 2, 2023-08-31 7:30 am",
           "sessions": [
             {
               "name": "Registration",
-              "location": "Room 206",
+              "location": "Makalani Hall",
               "description": "Registration",
               "speakerNames": [],
-              "timeStart": "7:00 am",
+              "timeStart": "7:30 am",
               "timeEnd": "8:00 am",
               "tracks": ["Registration"],
               "id": "13"
             },
             {
               "name": "Conference Programme",
-              "location": "Room 204",
+              "location": "Makalani Hall",
               "description": "Conference Programme",
               "speakerNames": [],
               "timeStart": "8:00 am",
@@ -170,9 +166,9 @@
               "id": "14"
             },
             {
-              "name": "Opening",
-              "location": "Room 202",
-              "description": "Exhibitor Opens to the general public",
+              "name": "Exhibition Opens to the general public",
+              "location": "All Exhibition Halls",
+              "description": "Exhibition Opens to the general public",
               "speakerNames": [""],
               "timeStart": "8:00 am",
               "timeEnd": "18:00 pm",
@@ -182,21 +178,21 @@
           ]
         },
         {
-          "time": "10:30 am",
+          "time": "Day 2, 2023-08-31 10:30 am",
           "sessions": [
             {
               "name": "Judging of Stands",
-              "location": "Room 206",
+              "location": "All Exhibition Halls",
               "description": "Judging of Stands",
               "speakerNames": [""],
               "timeStart": "10:30 am",
-              "timeEnd": "14:0 pm",
+              "timeEnd": "onwards",
               "tracks": ["Conference"],
               "id": "16"
             },
             {
               "name": "Lunch Break",
-              "location": "General",
+              "location": "Jacaranda Hall",
               "description": "Lunch is served. Participants explore the exhibition area to learn about the latest products and services in the mining sector",
               "speakerNames": [""],
               "timeStart": "12:30 pm",
@@ -206,26 +202,26 @@
             },
             {
               "name": "Closing",
-              "location": "Room 206",
+              "location": "All Exhibition Halls",
               "description": "Closing Ceremony. Exhibition closes ",
               "speakerNames": [],
               "timeStart": "18:00 pm",
-              "timeEnd": "18:00 pm",
+              "timeEnd": "",
               "tracks": ["Conference"],
               "id": "18"
             }
           ]
         },
         {
-          "time": "18:00",
+          "time": "Day 2, 2023-08-31 18:00",
           "sessions": [
             {
               "name": "Networking Cocktail Function",
-              "location": "Room 206",
+              "location": "Wag a Bietjie Hall",
               "description": "Presentation of Awards for the best stand/booth (BY INVITATION ONLY)",
               "speakerNames": [],
               "timeStart": "18:30 pm",
-              "timeEnd": "20:30 pm",
+              "timeEnd": "onwards",
               "tracks": ["Conference"],
               "id": "19"
             }
