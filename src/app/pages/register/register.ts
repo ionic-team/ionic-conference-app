@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Browser } from '@capacitor/browser';
 
 import { AlertController, ToastController } from '@ionic/angular';
 
@@ -9,9 +10,13 @@ import { AlertController, ToastController } from '@ionic/angular';
   templateUrl: 'register.html',
   styleUrls: ['./register.scss'],
 })
-export class RegisterPage {   
+export class RegisterPage {
 
   constructor() { }
+
+  async openDelegateReigistration () {
+    await Browser.open({ url: 'https://miningexponamibia.com/delegate-registration/'});
+};
 
   /* async ionViewDidEnter() {
     const toast = await this.toastCtrl.create({
