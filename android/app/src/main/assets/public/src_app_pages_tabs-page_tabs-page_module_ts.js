@@ -950,43 +950,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RegisterPage: () => (/* binding */ RegisterPage)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 61699);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ 64210);
+/* harmony import */ var _Users_ohrionmartin_dev_mining_expo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _capacitor_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @capacitor/browser */ 58335);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 61699);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ 64210);
+
+
 
 
 class RegisterPage {
   constructor() {}
+  openDelegateReigistration() {
+    return (0,_Users_ohrionmartin_dev_mining_expo_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      yield _capacitor_browser__WEBPACK_IMPORTED_MODULE_1__.Browser.open({
+        url: 'https://miningexponamibia.com/delegate-registration/'
+      });
+    })();
+  }
 }
 RegisterPage.ɵfac = function RegisterPage_Factory(t) {
   return new (t || RegisterPage)();
 };
-RegisterPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+RegisterPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
   type: RegisterPage,
   selectors: [["page-register"]],
   decls: 16,
   vars: 0,
-  consts: [["translucent", "true"], ["color", "warning"], ["slot", "start"], [1, "register-logo"], ["src", "assets/img/Expologo.jpg", "alt", "Logo"], ["ion-text", "", 1, "text-primary"], ["color", "transparent", 1, "ion-padding"], ["expand", "block", "type", "submit", "color", "warning"]],
+  consts: [["translucent", "true"], ["color", "warning"], ["slot", "start"], [1, "register-logo"], ["src", "assets/img/Expologo.jpg", "alt", "Logo"], ["ion-text", "", 1, "text-primary"], ["color", "transparent", 1, "ion-padding"], ["expand", "block", "type", "submit", "color", "warning", 3, "click"]],
   template: function RegisterPage_Template(rf, ctx) {
     if (rf & 1) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar", 1)(2, "ion-buttons", 2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "ion-menu-button");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "ion-title");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Register Now ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "ion-content")(7, "div", 3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "img", 4)(9, "h2", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Welcome To The");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Mining Expo ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 6)(14, "ion-button", 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Register Now ");
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "ion-header", 0)(1, "ion-toolbar", 1)(2, "ion-buttons", 2);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "ion-menu-button");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "ion-title");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, " Register Now ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "ion-content")(7, "div", 3);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](8, "img", 4)(9, "h2", 5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "p");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](11, "Welcome To The");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](12, "Mining Expo ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "div", 6)(14, "ion-button", 7);
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function RegisterPage_Template_ion_button_click_14_listener() {
+        return ctx.openDelegateReigistration();
+      });
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](15, "Register Now ");
+      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()()();
     }
   },
-  dependencies: [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonMenuButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.IonToolbar],
+  dependencies: [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonMenuButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonTitle, _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.IonToolbar],
   styles: [".register-logo[_ngcontent-%COMP%] {\n  min-height: 350px;\n  padding: 160px 0;\n  text-align: center;\n  min-width: 250px;\n}\n\n.register-logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 200px;\n  height: auto;\n}\n\n.list[_ngcontent-%COMP%] {\n  margin-bottom: 0;\n}\n\n.register-form[_ngcontent-%COMP%] {\n  padding: 6px;\n}\n\n.ion-content[_ngcontent-%COMP%] {\n  background-color: #fc9705; \n\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvcGFnZXMvcmVnaXN0ZXIvcmVnaXN0ZXIuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0FBQ0Y7O0FBSUE7RUFDRSxnQkFBQTtFQUNBLFlBQUE7QUFERjs7QUFJQTtFQUNFLGdCQUFBO0FBREY7O0FBSUE7RUFDRSxZQUFBO0FBREY7O0FBR0E7RUFDRSx5QkFBQSxFQUFBLCtDQUFBO0FBQUYiLCJzb3VyY2VzQ29udGVudCI6WyIucmVnaXN0ZXItbG9nbyB7XG4gIG1pbi1oZWlnaHQ6IDM1MHB4O1xuICBwYWRkaW5nOiAxNjBweCAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1pbi13aWR0aDogMjUwcHg7XG4gICBcblxufVxuXG4ucmVnaXN0ZXItbG9nbyBpbWcge1xuICBtYXgtd2lkdGg6IDIwMHB4O1xuICBoZWlnaHQ6IGF1dG87XG59XG5cbi5saXN0IHtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbn1cblxuLnJlZ2lzdGVyLWZvcm0ge1xuICBwYWRkaW5nOiA2cHg7XG59XG4uaW9uLWNvbnRlbnQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmM5NzA1OyAvKiBSZXBsYWNlIHdpdGggeW91ciBkZXNpcmVkIGJhY2tncm91bmQgY29sb3IgKi9cbn1cblxuIl0sInNvdXJjZVJvb3QiOiIifQ== */"]
 });
 
@@ -2330,6 +2344,40 @@ __webpack_require__.r(__webpack_exports__);
 
 const BarcodeScanner = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('BarcodeScanner', {
   web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor-community_barcode-scanner_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 62665)).then(m => new m.BarcodeScannerWeb())
+});
+
+
+
+/***/ }),
+
+/***/ 69143:
+/*!*****************************************************************!*\
+  !*** ./node_modules/@capacitor/browser/dist/esm/definitions.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+
+/***/ }),
+
+/***/ 58335:
+/*!***********************************************************!*\
+  !*** ./node_modules/@capacitor/browser/dist/esm/index.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Browser: () => (/* binding */ Browser)
+/* harmony export */ });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ 78626);
+/* harmony import */ var _definitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./definitions */ 69143);
+
+const Browser = (0,_capacitor_core__WEBPACK_IMPORTED_MODULE_0__.registerPlugin)('Browser', {
+  web: () => __webpack_require__.e(/*! import() */ "node_modules_capacitor_browser_dist_esm_web_js").then(__webpack_require__.bind(__webpack_require__, /*! ./web */ 44060)).then(m => new m.BrowserWeb())
 });
 
 
