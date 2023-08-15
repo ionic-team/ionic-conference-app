@@ -33,7 +33,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideStorage(() => getStorage())
   ],
   declarations: [AppComponent],
-  // providers: [InAppBrowser, BarcodeScanner],
+  providers: [InAppBrowser],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
