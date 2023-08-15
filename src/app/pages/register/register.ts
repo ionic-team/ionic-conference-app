@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AlertController, ToastController } from '@ionic/angular';
+// import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -11,7 +12,11 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class RegisterPage {
 
-  constructor() { }
+  constructor() {
+    // this.dataService.getSpeakers().subscribe(res => {
+      // console.log(res);
+    // })
+  }
 
   registerDelegate() {
     { // Redirect to an external URL
