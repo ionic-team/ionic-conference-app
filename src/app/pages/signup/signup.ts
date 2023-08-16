@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { UserData } from '../../providers/user-data';
 
-import { UserOptions } from '../../interfaces/user-options';
+// import { UserOptions } from '../../interfaces/user-options';
 
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
@@ -56,7 +56,7 @@ async register() {
 }
 async login() {
 	const loading = await this.loadingController.create();
-	await loading.present();
+  await loading.present();
 	const user = await this.authService.login(this.credentials.value);
 	await loading.dismiss();
 	if (user) {

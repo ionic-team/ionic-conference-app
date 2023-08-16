@@ -44,6 +44,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exhibitor-list/exhibitor-list.module').then(m => m.ExhibitorListPageModule)
   },
   {
+    path: 'exposchedule',
+    loadChildren: () => import('./pages/expo-schedule/expo-schedule.module').then(m => m.ExpoScheduleModule)
+  },
+  {
     path: 'broadcasting',
     loadChildren: () => import('./pages/broadcasting/broadcasting.module').then(m => m.BroadcastingPageModule)
   },

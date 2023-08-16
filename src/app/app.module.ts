@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+import { getApp, initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { indexedDBLocalPersistence, initializeAuth, provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { Capacitor } from '@capacitor/core';
 // import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 
 
@@ -28,7 +29,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
       enabled: environment.production
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    provideAuth(() => {
+      if (Capacitor.isNativePlatform()) {
+        return initializeAuth(getApp(), {
+          persistence: indexedDBLocalPersistence,
+        });
+      } else {
+        return getAuth();
+      }
+    }),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
   ],
