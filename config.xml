@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.bid.miningexpo" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Mining Expo</name>
     <description>Mining Expo.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">@bi-dynamics</author>
+    <author email="support@bi-dynamics.com" href="http://www.bi-dynamics.com/"></author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
