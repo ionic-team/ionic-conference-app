@@ -21,8 +21,8 @@ const routes: Routes = [
             loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
           }
         ]
-      },     
-               
+      },
+
       {
         path: 'speakers',
         children: [
@@ -54,6 +54,15 @@ const routes: Routes = [
           {
             path: 'exhibitor-detail/:exhibitorId',
             loadChildren: () => import('../exhibitor-detail/exhibitor-detail.module').then(m => m.ExhibitorDetailModule)
+          }
+        ]
+      },
+      {
+        path: 'exposchedule',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../expo-schedule/expo-schedule.module').then(m => m.ExpoScheduleModule)
           }
         ]
       },
@@ -111,7 +120,7 @@ const routes: Routes = [
           }
         ]
       },
-      
+
       {
         path: 'about',
         children: [
@@ -121,7 +130,7 @@ const routes: Routes = [
           }
         ]
       },
-            
+
       {
         path: '',
         redirectTo: '/app/tabs/schedule',

@@ -18,6 +18,7 @@ import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module
 import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
 import { SupplierPageModule } from "../supplierplatform/supplier.module";
 import { BtbPageModule } from "../btb/btb.module";
+import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BtbPageModule } from "../btb/btb.module";
     MapModule,
     ScannerModule,
     ScheduleModule,
+    ExpoScheduleModule,
     SessionDetailModule,
     SpeakerDetailModule,
     SpeakerListModule,
