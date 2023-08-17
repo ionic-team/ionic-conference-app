@@ -24,12 +24,10 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-
-	<key>NSCameraUsageDescription</key>
-	<string>This application makes use of your camera to allo scanning of QR Codes during the event</string>
-
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses your camera to scan QR codes at the event</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
