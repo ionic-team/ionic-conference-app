@@ -1,26 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { checkTutorialGuard } from './providers/check-tutorial.guard';
-import {
-  redirectUnauthorizedTo,
-  redirectLoggedInTo,
-  canActivate
-} from '@angular/fire/auth-guard';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
-const redirectLoggedInToSchedule = () => redirectLoggedInTo(['schedule']);
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
-    pathMatch: 'full',
-    ...canActivate(redirectLoggedInToSchedule)
+    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule),
+    pathMatch: 'full'
   },
   {
     path: 'schedule',
-    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule)
   },
   {
     path: 'account',
@@ -32,8 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
-    ...canActivate(redirectLoggedInToSchedule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'signup',
