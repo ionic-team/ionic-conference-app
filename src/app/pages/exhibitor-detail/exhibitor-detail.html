@@ -15,29 +15,42 @@
     </ion-toolbar>
   </ion-header>
 
-  <div class="exhibitor-background">
-    <img [src]="exhibitor?.profilePic" [alt]="exhibitor?.name">
-    <h2>{{exhibitor?.name}}</h2>
-  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
 
-  <div class="ion-padding exhibitor-detail">
-    <p>{{exhibitor?.about}} Say hello on social media!</p>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
 
-    <hr>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
 
-    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + exhibitor.twitter)">
-      <ion-icon name="logo-twitter"></ion-icon>
-      <ion-label>Twitter</ion-label>
-    </ion-chip>
+        <ion-item lines="none">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-thumbnail>
+          <ion-label>Item</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
-    <ion-chip color="facebook" button (click)="openExternalUrl('https://facebook.com/' + exhibitor.facebook)">
-      <ion-icon name="logo-facebook"></ion-icon>
-      <ion-label>Facebook</ion-label>
-    </ion-chip>
-
-    <ion-chip color="linkedin" button (click)="openExternalUrl('https://linkedin.com/' + exhibitor.linkedin)">
-      <ion-icon name="logo-linkedin"></ion-icon>
-      <ion-label>LinkedIn</ion-label>
-    </ion-chip>
-  </div>
 </ion-content>

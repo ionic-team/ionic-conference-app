@@ -4,26 +4,35 @@
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
     <ion-title>
-      Membership Types
+      Exhibitors
     </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let category of membershipTypes">
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>
-        {{ category.title }}
-      </ion-card-title>
+      <ion-card-title>Who to see at the Expo</ion-card-title>
+      <ion-card-subtitle>Exhibitors</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <p>Booth Price: {{ category.boothPrice }}</p>
-      <!-- Include other details like lunch tickets, cocktail function access, suppliers platform, etc. -->
-      <ion-button expand="full"
-        [ngClass]="{ 'register-button-orange': !category.clicked, 'register-button-dark-blue': category.clicked }"
-        (click)="register(category)">
-        Register Now
-      </ion-button>
+      <ion-list>
+        <ion-item>
+            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/4Sight -  Colour Logo - 2021.webp" />
+        </ion-item>
+
+        <ion-item>
+            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/Adamas Logo.webp" />
+        </ion-item>
+
+        <ion-item>
+            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/adp-vertical-logo-full-color-cmyk.webp" />
+        </ion-item>
+
+        <ion-item>
+            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/Afrideca.webp" />
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>
