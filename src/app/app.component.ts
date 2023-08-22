@@ -23,12 +23,12 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Registration',
+      title: 'Register as a Conf. Delegate',
       url: '/app/tabs/register',
       icon: 'hammer'
     },
     {
-      title: 'Exhibitor Information',
+      title: 'Who to see at the Expo',
       url: '/app/tabs/exhibitor-list',
       icon: 'information-circle'
     },

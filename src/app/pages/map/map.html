@@ -32,7 +32,17 @@
 </ion-header>
 
 <ion-content>
-
+  <ng-container [ngSwitch]="type">
+    <ion-list *ngSwitchCase="'all'">
+      <ion-item>Nathan liked your message</ion-item>
+      <ion-item>Hashnode retweeted yuor article</ion-item>
+      <ion-item>Marcus liked a message you're mentioned in</ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'mentions'">
+      <ion-item>Paul mentioned you in this article</ion-item>
+      <ion-item>Adrian mentioned you in a comment</ion-item>
+    </ion-list>
+  </ng-container>
   <div class="floor-plan-container">
     <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
   </div>

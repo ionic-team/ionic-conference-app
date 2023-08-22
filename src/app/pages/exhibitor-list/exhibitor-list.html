@@ -4,26 +4,29 @@
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
     <ion-title>
-      Membership Types
+      Exhibitors
     </ion-title>
     </ion-toolbar>
+    <ion-searchbar>
+    </ion-searchbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let category of membershipTypes">
+  <ion-list no-padding>
+    <ion-item  *ngFor="let exhibitor of exhibitors">
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>
-        {{ category.title }}
-      </ion-card-title>
+      <ion-card-title>{{ exhibitor.name }}</ion-card-title>
+      <ion-card-subtitle>{{ exhibitor.description }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <p>Booth Price: {{ category.boothPrice }}</p>
-      <!-- Include other details like lunch tickets, cocktail function access, suppliers platform, etc. -->
-      <ion-button expand="full"
-        [ngClass]="{ 'register-button-orange': !category.clicked, 'register-button-dark-blue': category.clicked }"
-        (click)="register(category)">
-        Register Now
-      </ion-button>
+      <ion-list>
+        <ion-item>
+            <img alt="2023 Mining Expo & Conference" src="{{ exhibitor.logo }}" />
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
+</ion-item>
+</ion-list>
 </ion-content>

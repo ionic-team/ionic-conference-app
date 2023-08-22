@@ -9,7 +9,7 @@
             {
               "name": "Registration",
               "timeStart": "7:00 am",
-              "timeEnd": "8:00 am",
+              "timeEnd": "9:00 am",
               "location": "Windhoek Show Grounds Office",
               "description": "Attendees arrive and check-in. Breakfast is served, providing an opportunity for networking",
               "tracks": ["registration"],
@@ -18,15 +18,15 @@
           ]
         },
         {
-          "time": "Day 1, 2023-08-30 8:00 am",
+          "time": "Day 1, 2023-08-30 9:00 am",
           "sessions": [
             {
               "name": "Arrival by H.E. Dr Hage Geingob, President of the Republic of Namibia, AU & Namibia Anthems, Mr Ricardo Goagoseb - Director of ceremonies",
               "location": "Arrival by H.E. Dr Hage Geingob, President of the Republic of Namibia, AU & Namibia Anthems, Mr Ricardo Goagoseb - Director of ceremonies",
               "description": "Safety Moment.",
               "speakerNames": ["Mr Ricardo Goagoseb"],
-              "timeStart": "8:00 am",
-              "timeEnd": "8:10 am",
+              "timeStart": "9:00 am",
+              "timeEnd": "9:10 am",
               "tracks": ["Presentation"],
               "id": "2"
             },
@@ -35,8 +35,8 @@
               "location": "Makalani Hall",
               "description": "Welcome Remarks & Opening",
               "speakerNames": ["Mr. Zebra Kasete"],
-              "timeStart": "8:10 am",
-              "timeEnd": "8:20 am",
+              "timeStart": "9:10 am",
+              "timeEnd": "9:20 am",
               "tracks": ["Speech"],
               "id": "3"
             },
@@ -45,65 +45,75 @@
               "location": "Makalani Hall",
               "description": "Remarks",
               "speakerNames": ["Klaus Endresen"],
-              "timeStart": "8:20 am",
-              "timeEnd": "8:30 am",
+              "timeStart": "9:20 am",
+              "timeEnd": "9:30 am",
               "tracks": ["Workshop"],
               "id": "4"
             },
             {
-              "name": "Remarks",
+              "name": "Remarks: Introduction of the Guest of Honour by the Minister of Mines and Energy",
               "location": "Makalani Hall",
               "description": "Remarks",
               "speakerNames": ["Hon. Tom Alweendo"],
-              "timeStart": "8:30 am",
-              "timeEnd": "8:40 am",
+              "timeStart": "9:30 am",
+              "timeEnd": "9:40 am",
               "tracks": ["Workshop"],
               "id": "5"
             }
           ]
         },
         {
-          "time": "Day 1, 2023-08-30 8:40am",
+          "time": "Day 1, 2023-08-30 9:40am",
           "sessions": [
             {
-              "name": "Official opening of the 2023 Mining Expo and Conference",
+              "name": "Key Note address by H.E. Dr Hage Geingob, President of the Republic of Namibia and official opening of the 2023 Mining Expo and Conference",
               "location": "Makalani Hall",
-              "description": "Key Note address by H.E. Dr Hage Geingob, President of the Republic of Namibia and Vote of thanks by Mr John Roos, 2nd Vice President of the Chamber of Mines of Namibia",
+              "description": "Official opening of the Mining Expo",
               "speakerNames": [""],
-              "timeStart": "8:40 am",
-              "timeEnd": "9:00 am",
+              "timeStart": "9:40 am",
+              "timeEnd": "10:10 am",
               "tracks": ["Remarks"],
               "id": "6"
+            },
+            {
+              "name": "Vote of thanks by Mr George Botshiwe, 1st Vice President of the Chamber of Mines of Namibia",
+              "location": "Makalani Hall",
+              "description": "Vote of thanks by Mr George Botshiwe, 1st Vice President of the Chamber of Mines of Namibia",
+              "speakerNames": [""],
+              "timeStart": "10:10 am",
+              "timeEnd": "10:20 am",
+              "tracks": ["Remarks"],
+              "id": "7"
             },
             {
               "name": "Cutting of the Ribbon and Visiting of the booth by Delegation",
               "location": "Makalani Hall",
               "description": "Cutting of the Ribbon and Visiting of the booth by Delegation",
               "speakerNames": [""],
-              "timeStart": "9:00 am",
-              "timeEnd": "10:00 am",
+              "timeStart": "10:20 am",
+              "timeEnd": "11:20 am",
               "tracks": ["Presentations"],
-              "id": "7"
+              "id": "8"
             },
             {
               "name": "Exhibition Opening",
               "location": "Windhoek Show Grounds",
               "description": "Exhibitor Opens to the general public",
               "speakerNames": [],
-              "timeStart": "10:15 am",
+              "timeStart": "11:30 am",
               "timeEnd": "onwards",
               "tracks": ["Presentations"],
-              "id": "8"
+              "id": "9"
             },
             {
               "name": "Judging of Stands",
               "location": "All Exhibition Halls",
               "description": "Judging of Stands",
               "speakerNames": [],
-              "timeStart": "10:30 am",
+              "timeStart": "11:30 am",
               "timeEnd": "onwards",
               "tracks": ["Presentations"],
-              "id": "9"
+              "id": "10"
             }
           ]
         },
@@ -118,7 +128,7 @@
               "timeStart": "12:30 pm",
               "timeEnd": "14:00 pm",
               "tracks": ["General"],
-              "id": "10"
+              "id": "11"
             },
             {
               "name": "Conference Registration",
@@ -128,7 +138,7 @@
               "timeStart": "12:30 pm",
               "timeEnd": "14:00 pm",
               "tracks": ["Presentation"],
-              "id": "11"
+              "id": "12"
             },
             {
               "name": "Conference Programme",
@@ -138,7 +148,7 @@
               "timeStart": "14:00 pm",
               "timeEnd": "17:00 pm",
               "tracks": ["Technology Advancements"],
-              "id": "12"
+              "id": "13"
             },
             {
               "name": "Exhibition Closes",
@@ -148,7 +158,7 @@
               "timeStart": "18:00 pm",
               "timeEnd": "",
               "tracks": ["Advancements"],
-              "id": "13"
+              "id": "14"
             }
           ]
         },
@@ -163,7 +173,7 @@
               "timeStart": "7:30 am",
               "timeEnd": "8:00 am",
               "tracks": ["Registration"],
-              "id": "14"
+              "id": "15"
             },
             {
               "name": "Conference Programme",
@@ -173,7 +183,7 @@
               "timeStart": "8:00 am",
               "timeEnd": "13:00 pm",
               "tracks": ["Conference"],
-              "id": "15"
+              "id": "16"
             },
             {
               "name": "Exhibition Opens to the general public",
@@ -183,7 +193,7 @@
               "timeStart": "8:00 am",
               "timeEnd": "18:00 pm",
               "tracks": ["Presentations"],
-              "id": "16"
+              "id": "17"
             }
           ]
         },
@@ -198,7 +208,7 @@
               "timeStart": "12:30 pm",
               "timeEnd": "14:00 pm",
               "tracks": ["General"],
-              "id": "17"
+              "id": "18"
             },
             {
               "name": "Closing",
@@ -208,7 +218,7 @@
               "timeStart": "18:00 pm",
               "timeEnd": "",
               "tracks": ["Conference"],
-              "id": "18"
+              "id": "19"
             }
           ]
         },
@@ -223,7 +233,7 @@
               "timeStart": "18:30 pm",
               "timeEnd": "onwards",
               "tracks": ["Conference"],
-              "id": "19"
+              "id": "20"
             }
           ]
         }

@@ -12,4 +12,9 @@ export class DataService {
       const speakersRef = collection(this.firestore, 'speakers');
       return collectionData(speakersRef);
     }
+
+    getExhibitors() {
+      const exhibitorsRef = collection(this.firestore, 'exhibitors');
+      return collectionData(exhibitorsRef);
+    }
 }
