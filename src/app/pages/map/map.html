@@ -5,10 +5,35 @@
     </ion-buttons>
     <ion-title>Floor Plan</ion-title>
   </ion-toolbar>
+  <ion-segment [scrollable]="true" value="heart">
+    <ion-segment-button value="home">
+      Map
+    </ion-segment-button>
+    <ion-segment-button value="heart">
+     Camelthorn Balcony
+    </ion-segment-button>
+    <ion-segment-button value="pin">
+      Camelthorn
+    </ion-segment-button>
+    <ion-segment-button value="star">
+     Galpini
+    </ion-segment-button>
+    <ion-segment-button value="call">
+      Baobab
+    </ion-segment-button>
+    <ion-segment-button value="globe">
+      Mopane Hall
+    </ion-segment-button>
+    <ion-segment-button value="basket">
+      Maerua Hall
+    </ion-segment-button>
+    
+  </ion-segment>
 </ion-header>
 
 <ion-content>
+
   <div class="floor-plan-container">
-    <ion-img [src]="'./assets/img/exhibition-hall-plan.png'" class="floor-plan-image"></ion-img>
+    <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
   </div>
 </ion-content>

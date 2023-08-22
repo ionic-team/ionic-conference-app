@@ -12,6 +12,9 @@ ion-fab-button {
 .ios ion-fab-button {
   --background-activated: var(--ion-color-step-250, #d9d9d9);
 }
+ion-segment {
+  --background: #54dc98;
+}
 
 $categories: (
   ionic: var(--ion-color-primary),
