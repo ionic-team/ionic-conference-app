@@ -7,32 +7,26 @@
       Exhibitors
     </ion-title>
     </ion-toolbar>
+    <ion-searchbar>
+    </ion-searchbar>
 </ion-header>
 
 <ion-content>
+  <ion-list no-padding>
+    <ion-item  *ngFor="let exhibitor of exhibitors">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Who to see at the Expo</ion-card-title>
-      <ion-card-subtitle>Exhibitors</ion-card-subtitle>
+      <ion-card-title>{{ exhibitor.name }}</ion-card-title>
+      <ion-card-subtitle>{{ exhibitor.description }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
         <ion-item>
-            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/4Sight -  Colour Logo - 2021.webp" />
-        </ion-item>
-
-        <ion-item>
-            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/Adamas Logo.webp" />
-        </ion-item>
-
-        <ion-item>
-            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/adp-vertical-logo-full-color-cmyk.webp" />
-        </ion-item>
-
-        <ion-item>
-            <img alt="Silhouette of mountains" src="/assets/img/exhibitors/Afrideca.webp" />
+            <img alt="2023 Mining Expo & Conference" src="{{ exhibitor.logo }}" />
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
+</ion-item>
+</ion-list>
 </ion-content>
