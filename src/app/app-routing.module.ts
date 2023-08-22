@@ -5,7 +5,7 @@ import { checkTutorialGuard } from './providers/check-tutorial.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule),
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule),
     pathMatch: 'full'
   },
   {
