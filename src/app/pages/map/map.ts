@@ -10,6 +10,7 @@ import { darkStyle } from './map-dark-style';
   templateUrl: 'map.html',
   styleUrls: ['./map.scss']
 })
+//galleryType = 'regular';
 export class MapPage implements AfterViewInit {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
