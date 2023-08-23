@@ -5,26 +5,26 @@
     </ion-buttons>
     <ion-title>Floor Plan</ion-title>
   </ion-toolbar>
-  <ion-segment [scrollable]="true" value="heart">
-    <ion-segment-button value="home">
+  <ion-segment [scrollable]="true" (ionChange)="segmentChanged($event)" value="list">
+    <ion-segment-button value="list">
       Map
     </ion-segment-button>
-    <ion-segment-button value="heart">
+    <ion-segment-button value="balcony">
      Camelthorn Balcony
     </ion-segment-button>
-    <ion-segment-button value="pin">
+    <ion-segment-button value="camelthorn">
       Camelthorn
     </ion-segment-button>
-    <ion-segment-button value="star">
+    <ion-segment-button value="galpini">
       Galpini
     </ion-segment-button>
-    <ion-segment-button value="call">
+    <ion-segment-button value="baobab">
       Baobab
     </ion-segment-button>
-    <ion-segment-button value="globe">
+    <ion-segment-button value="mopane">
       Mopane Hall
     </ion-segment-button>
-    <ion-segment-button value="basket">
+    <ion-segment-button value="maerua">
       Maerua Hall
     </ion-segment-button>
     
@@ -32,18 +32,48 @@
 </ion-header>
 
 <ion-content>
-  <ng-container >
-    <ion-list *ngSwitchCase="'all'">
-      <ion-item>Nathan liked your message</ion-item>
-      <ion-item>Hashnode retweeted yuor article</ion-item>
-      <ion-item>Marcus liked a message you're mentioned in</ion-item>
+
+  <ion-content>
+    <ion-list
+      class="animate__animated animate__slideInUp animate__fast"
+      *ngIf="segment === 'list'"
+    >
+    <div class="floor-plan-container">
+      <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
+    </div>
     </ion-list>
-    <ion-list *ngSwitchCase="'mentions'">
-      <ion-item>Paul mentioned you in this article</ion-item>
-      <ion-item>Adrian mentioned you in a comment</ion-item>
-    </ion-list>
-  </ng-container>
+    <ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'balcony'">
+       <div class="floor-plan-container">
+    <ion-img [src]="'./assets/img/CamelthornBalcony.png'" class="floor-plan-image"></ion-img>
+  </div></ion-list>
+        
+  <ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'camelthorn'">
+    <div class="floor-plan-container">
+ <ion-img [src]="'./assets/img/Camelthorn.png'" class="floor-plan-image"></ion-img>
+</div></ion-list>
+
+<ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'galpini'">
   <div class="floor-plan-container">
-    <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
-  </div>
+<ion-img [src]="'./assets/img/Galpini.png'" class="floor-plan-image"></ion-img>
+</div></ion-list>
+
+
+<ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'baobab'">
+  <div class="floor-plan-container">
+<ion-img [src]="'./assets/img/Boabab.png'" class="floor-plan-image"></ion-img>
+</div></ion-list>
+
+<ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'mopane'">
+  <div class="floor-plan-container">
+<ion-img [src]="'./assets/img/Mopane.png'" class="floor-plan-image"></ion-img>
+</div></ion-list>
+
+<ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'maerua'">
+  <div class="floor-plan-container">
+<ion-img [src]="'./assets/img/Maerua.png'" class="floor-plan-image"></ion-img>
+</div></ion-list>
+
+  </ion-content>
+
+
 </ion-content>

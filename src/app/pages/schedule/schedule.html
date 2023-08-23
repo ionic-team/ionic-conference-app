@@ -5,10 +5,10 @@
     </ion-buttons>
     <ion-segment *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
-        All
+        Day 1
       </ion-segment-button>
       <ion-segment-button value="favorites">
-        Favorites
+        Day 2
       </ion-segment-button>
     </ion-segment>
     <ion-title *ngIf="!ios && !showSearchbar">Schedule</ion-title>
@@ -28,10 +28,10 @@
   <ion-toolbar *ngIf="!ios">
     <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
-        All
+        Day 1
       </ion-segment-button>
       <ion-segment-button value="favorites">
-        Favorites
+        Day 2
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
