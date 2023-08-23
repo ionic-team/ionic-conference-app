@@ -23,12 +23,12 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Register as a Conf. Delegate',
-      url: '/app/tabs/register',
-      icon: 'hammer'
+      title: 'Main Expo Programme',
+      url: '/app/tabs/schedule',
+      icon: 'calendar'
     },
     {
-      title: 'Who to see at the Expo',
+      title: 'Exhibitors',
       url: '/app/tabs/exhibitor-list',
       icon: 'information-circle'
     },
@@ -37,15 +37,15 @@ export class AppComponent implements OnInit {
       url: '/app/tabs/map',
       icon: 'map'
     },
-    {
-      title: 'Expo Programme',
-      url: '/app/tabs/schedule',
-      icon: 'calendar'
-    },
   ];
-  appPages_1 = [{
-
-    title: 'Conference Programme',
+  appPages_1 = [
+    {
+      title: 'Register as a Conf. Delegate',
+      url: '/app/tabs/register',
+      icon: 'hammer'
+    },
+  {
+    title: 'Mining Conference Programme',
     url: '/app/tabs/exposchedule',
     icon: 'time'
   },
