@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AlertController, ToastController } from '@ionic/angular';
-import { Preferences } from '@capacitor/preferences';
+// import { Preferences } from '@capacitor/preferences';
 
 
 
@@ -21,46 +21,46 @@ export class SupportPage {
   ) { }
 
 // JSON "set" example
-async setObject() {
-  await Preferences.set({
-    key: 'user',
-    value: JSON.stringify({
-      id: 1,
-      name: 'Max'+this.supportMessage
-    })
-  });
-}
-
+// async setObject() {
+  // await Preferences.set({
+    // key: 'user',
+    // value: JSON.stringify({
+      // id: 1,
+      // name: 'Max'+this.supportMessage
+    // })
+  // });
+// }
+//
 // JSON "get" example
-async getObject() {
-  const ret = await Preferences.get({ key: 'user' });
-  const user = JSON.parse(ret.value);
-}
+// async getObject() {
+  // const ret = await Preferences.get({ key: 'user' });
+  // const user = JSON.parse(ret.value);
+// }
 
   async ionViewDidEnter() {
     const toast = await this.toastCtrl.create({
-      message: 'This does not actually send a support request.',
+      message: 'Send a support request.',
       duration: 3000
     });
     await toast.present();
   }
 
-  async submit(form: NgForm) {
-    this.submitted = true;
-
-    if (form.valid) {
-     // this.supportMessage = '';
-      this.submitted = false;
-
-      const toast = await this.toastCtrl.create({
-        message: 'Your support request has been sent.' + this.supportMessage ,
-        duration: 3000
-      });
-      await toast.present();
-      this.setObject();
-      this.getObject();
-    }
-  }
+  // async submit(form: NgForm) {
+    // this.submitted = true;
+//
+    // if (form.valid) {
+    //  this.supportMessage = '';
+      // this.submitted = false;
+//
+      // const toast = await this.toastCtrl.create({
+        // message: 'Your support request has been sent.' + this.supportMessage ,
+        // duration: 3000
+      // });
+      // await toast.present();
+      // this.setObject();
+      // this.getObject();
+    // }
+  // }
 
   // If the user enters text in the support question and then navigates
   // without submitting first, ask if they meant to leave the page
