@@ -38,14 +38,14 @@ export class AppComponent implements OnInit {
       icon: 'map'
     },
     {
-      title: 'Conference Schedule',
+      title: 'Expo Programme',
       url: '/app/tabs/schedule',
       icon: 'calendar'
     },
   ];
   appPages_1 = [{
 
-    title: 'Expo Programme',
+    title: 'Conference Programme',
     url: '/app/tabs/exposchedule',
     icon: 'time'
   },
