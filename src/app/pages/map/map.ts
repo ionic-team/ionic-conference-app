@@ -12,6 +12,7 @@ import { darkStyle } from './map-dark-style';
 })
 //galleryType = 'regular';
 export class MapPage implements AfterViewInit {
+  public segment: string = "list";
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(
@@ -19,6 +20,7 @@ export class MapPage implements AfterViewInit {
     public confData: ConferenceData,
     public platform: Platform) {}
 
+    
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
     let isDark = false;
@@ -80,7 +82,12 @@ export class MapPage implements AfterViewInit {
       attributes: true
     });
   }
+  segmentChanged(ev: any) {
+    this.segment = ev.detail.value;
+  }
 }
+
+
 
 function getGoogleMaps(apiKey: string): Promise<any> {
   const win = window as any;
