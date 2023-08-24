@@ -40,7 +40,6 @@
     "@capacitor/haptics": "4.1.0",
     "@capacitor/ios": "4.8.1",
     "@capacitor/keyboard": "4.1.1",
-    "@capacitor/preferences": "^5.0.6",
     "@capacitor/splash-screen": "4.1.4",
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^7.0.0",
