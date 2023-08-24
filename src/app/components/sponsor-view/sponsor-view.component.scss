@@ -1,0 +1,41 @@
+#close-button {
+  position: fixed;
+
+  top: max(var(--ion-safe-area-top), 16px);
+  right: 8px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+ion-content {
+  --padding-bottom: var(--ion-safe-area-bottom);
+}
+
+ion-text {
+  color: var(--ion-color-step-650);
+
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 24px;
+}
+
+.connect-button {
+  width: 80px;
+  height: 56px;
+
+  margin: 0 6px;
+
+  font-size: 14px;
+}
+
+.connect-button div {
+  color: var(--ion-color-primary);
+}
+
+.connect-button ion-icon {
+  height: 22px;
+  width: 100%;
+}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SpeakerListPage } from './speaker-list';
+import { PermissionsModalComponent } from './permissions-modal.component';
 
-describe('SpeakersPage', () => {
-  let component: SpeakerListPage;
-  let fixture: ComponentFixture<SpeakerListPage>;
+describe('PermissionsModalComponent', () => {
+  let component: PermissionsModalComponent;
+  let fixture: ComponentFixture<PermissionsModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpeakerListPage ],
+      declarations: [ PermissionsModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SpeakerListPage);
+    fixture = TestBed.createComponent(PermissionsModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,4 +22,3 @@ describe('SpeakersPage', () => {
     expect(component).toBeTruthy();
   });
 });
-

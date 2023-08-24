@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <h1 class="eas-header-large" slot="start">Don't miss a thing</h1>
+    <ion-buttons id="close-button" slot="end">
+      <ion-button color="medium" (click)="closeModal()">
+        <ion-icon name="close-circle" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end" [scrollY]="false">
+  <ion-text>Get reminders when the event is about to start, talk recordings have been published,
+    and more!
+  </ion-text> <br /><br />
+  <ion-button (click)="onContinue()" expand="block">Continue</ion-button>
+</ion-content>

@@ -1,0 +1,344 @@
+<ion-header [translucent]="true" collapse="fade">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Enter to win</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="submitForm()">Submit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="page-content">
+  <form (ngSubmit)="onSubmit()" #hubspotForm="ngForm">
+    <ion-list-header>Contact Info</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>First Name</ion-label>
+        <ion-input placeholder="John" [(ngModel)]="hubspotData.firstname" name="firstname" #firstName="ngModel" required></ion-input>
+
+        <ion-text slot="error" *ngIf="!firstName.valid && (!firstName.pristine || hubspotForm.submitted)">First name is required</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-input placeholder="Doe" [(ngModel)]="hubspotData.lastname" name="lastname" #lastName="ngModel" required></ion-input>
+        <ion-text slot="error" *ngIf="!lastName.valid && (!lastName.pristine || hubspotForm.submitted)">Last name is required</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Work Email</ion-label>
+        <ion-input type="email" placeholder="jdoe@ionic.io" [(ngModel)]="hubspotData.email" name="email" #email="ngModel" required></ion-input>
+        <ion-text class="ion-padding-bottom" slot="error" *ngIf="!email.valid && (!email.pristine || hubspotForm.submitted)">Email is required</ion-text>
+
+      </ion-item>
+    </ion-list>
+    <ion-list-header>Mailing Address</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>Street</ion-label>
+        <ion-input placeholder="123 Any Street" [(ngModel)]="hubspotData.address" name="address" #street="ngModel" required></ion-input>
+        <ion-text slot="error" *ngIf="!street.valid && (!street.pristine || hubspotForm.submitted)">Street is required</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>City</ion-label>
+        <ion-input placeholder="Boston" [(ngModel)]="hubspotData.city" name="city" #city="ngModel" required></ion-input>
+        <ion-text slot="error" *ngIf="!city.valid && (!city.pristine || hubspotForm.submitted)">City is required</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Zip</ion-label>
+        <ion-input placeholder="02215" [(ngModel)]="hubspotData.zip" name="zip"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Country</ion-label>
+        <ion-select [(ngModel)]="hubspotData.country_pl_" value="United States" name="country" #country="ngModel" okText="OK" cancelText="Dismiss" required>
+          <ion-select-option value="United States">United States</ion-select-option>
+          <ion-select-option value="Aland Islands">Aland Islands</ion-select-option>
+          <ion-select-option value="Angola">Angola</ion-select-option>
+          <ion-select-option value="Anguilla">Anguilla</ion-select-option>
+          <ion-select-option value="Antarctica">Antarctica</ion-select-option>
+          <ion-select-option value="Antigua & Barbuda">Antigua & Barbuda</ion-select-option>
+          <ion-select-option value="Argentina">Argentina</ion-select-option>
+          <ion-select-option value="Armenia">Armenia</ion-select-option>
+          <ion-select-option value="Aruba">Aruba</ion-select-option>
+          <ion-select-option value="Australia">Australia</ion-select-option>
+          <ion-select-option value="Austria">Austria</ion-select-option>
+          <ion-select-option value="Azerbaijan">Azerbaijan</ion-select-option>
+          <ion-select-option value="Baden">Baden</ion-select-option>
+          <ion-select-option value="Bahamas">Bahamas</ion-select-option>
+          <ion-select-option value="Bahrain">Bahrain</ion-select-option>
+          <ion-select-option value="Bangladesh">Bangladesh</ion-select-option>
+          <ion-select-option value="Barbados">Barbados</ion-select-option>
+          <ion-select-option value="Belarus">Belarus</ion-select-option>
+          <ion-select-option value="Belgium">Belgium</ion-select-option>
+          <ion-select-option value="Belize">Belize</ion-select-option>
+          <ion-select-option value="Benin">Benin</ion-select-option>
+          <ion-select-option value="Bhutan">Bhutan</ion-select-option>
+          <ion-select-option value="Bolivia">Bolivia</ion-select-option>
+          <ion-select-option value="Bosnia & Herzegovina">Bosnia & Herzegovina</ion-select-option>
+          <ion-select-option value="Botswana">Botswana</ion-select-option>
+          <ion-select-option value="British Indian Ocean Territory">British Indian Ocean Territory</ion-select-option>
+          <ion-select-option value="Brazil">Brazil</ion-select-option>
+          <ion-select-option value="Brunei">Brunei</ion-select-option>
+          <ion-select-option value="Bulgaria">Bulgaria</ion-select-option>
+          <ion-select-option value="Burkina Faso">Burkina Faso</ion-select-option>
+          <ion-select-option value="Burundi">Burundi</ion-select-option>
+          <ion-select-option value="Cabo Verde">Cabo Verde</ion-select-option>
+          <ion-select-option value="Cambodia">Cambodia</ion-select-option>
+          <ion-select-option value="Cameroon">Cameroon</ion-select-option>
+          <ion-select-option value="Canada">Canada</ion-select-option>
+          <ion-select-option value="Cape Verde">Cape Verde</ion-select-option>
+          <ion-select-option value="Cayman Islands">Cayman Islands</ion-select-option>
+          <ion-select-option value="Central African Republic">Central African Republic</ion-select-option>
+          <ion-select-option value="Chad">Chad</ion-select-option>
+          <ion-select-option value="Chile">Chile</ion-select-option>
+          <ion-select-option value="China">China</ion-select-option>
+          <ion-select-option value="Christmas Island">Christmas Island</ion-select-option>
+          <ion-select-option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</ion-select-option>
+          <ion-select-option value="Colombia">Colombia</ion-select-option>
+          <ion-select-option value="Comoros">Comoros</ion-select-option>
+          <ion-select-option value="Cook Islands">Cook Islands</ion-select-option>
+          <ion-select-option value="Costa Rica">Costa Rica</ion-select-option>
+          <ion-select-option value="Croatia">Croatia</ion-select-option>
+          <ion-select-option value="Cuba">Cuba</ion-select-option>
+          <ion-select-option value="Cyprus">Cyprus</ion-select-option>
+          <ion-select-option value="Czech Republic">Czech Republic</ion-select-option>
+          <ion-select-option value="Côte d'Ivoire">Côte d'Ivoire</ion-select-option>
+          <ion-select-option value="Democratic Republic of the Congo">Democratic Republic of the Congo</ion-select-option>
+          <ion-select-option value="Denmark">Denmark</ion-select-option>
+          <ion-select-option value="Djibouti">Djibouti</ion-select-option>
+          <ion-select-option value="Dominica">Dominica</ion-select-option>
+          <ion-select-option value="Dominican Republic">Dominican Republic</ion-select-option>
+          <ion-select-option value="Ecuador">Ecuador</ion-select-option>
+          <ion-select-option value="Egypt">Egypt</ion-select-option>
+          <ion-select-option value="El Salvador">El Salvador</ion-select-option>
+          <ion-select-option value="Equatorial Guinea">Equatorial Guinea</ion-select-option>
+          <ion-select-option value="Eritrea">Eritrea</ion-select-option>
+          <ion-select-option value="Estonia">Estonia</ion-select-option>
+          <ion-select-option value="Eswatini">Eswatini</ion-select-option>
+          <ion-select-option value="Ethiopia">Ethiopia</ion-select-option>
+          <ion-select-option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</ion-select-option>
+          <ion-select-option value="Faroe Islands">Faroe Islands</ion-select-option>
+          <ion-select-option value="Fiji">Fiji</ion-select-option>
+          <ion-select-option value="Finland">Finland</ion-select-option>
+          <ion-select-option value="France">France</ion-select-option>
+          <ion-select-option value="French Guiana">French Guiana</ion-select-option>
+          <ion-select-option value="French Southern Territories">French Southern Territories</ion-select-option>
+          <ion-select-option value="Gabon">Gabon</ion-select-option>
+          <ion-select-option value="Gambia">Gambia</ion-select-option>
+          <ion-select-option value="Georgia">Georgia</ion-select-option>
+          <ion-select-option value="Germany">Germany</ion-select-option>
+          <ion-select-option value="Ghana">Ghana</ion-select-option>
+          <ion-select-option value="Gibraltar">Gibraltar</ion-select-option>
+          <ion-select-option value="Greece">Greece</ion-select-option>
+          <ion-select-option value="Greenland">Greenland</ion-select-option>
+          <ion-select-option value="Grenada">Grenada</ion-select-option>
+          <ion-select-option value="Guatemala">Guatemala</ion-select-option>
+          <ion-select-option value="Guinea">Guinea</ion-select-option>
+          <ion-select-option value="Guinea-Bissau">Guinea-Bissau</ion-select-option>
+          <ion-select-option value="Guyana">Guyana</ion-select-option>
+          <ion-select-option value="Haiti">Haiti</ion-select-option>
+          <ion-select-option value="Holy See">Holy See</ion-select-option>
+          <ion-select-option value="Honduras">Honduras</ion-select-option>
+          <ion-select-option value="Hungary">Hungary</ion-select-option>
+          <ion-select-option value="Iceland">Iceland</ion-select-option>
+          <ion-select-option value="India">India</ion-select-option>
+          <ion-select-option value="Indonesia">Indonesia</ion-select-option>
+          <ion-select-option value="Iran">Iran</ion-select-option>
+          <ion-select-option value="Iraq">Iraq</ion-select-option>
+          <ion-select-option value="Ireland">Ireland</ion-select-option>
+          <ion-select-option value="Israel">Israel</ion-select-option>
+          <ion-select-option value="Italy">Italy</ion-select-option>
+          <ion-select-option value="Jamaica">Jamaica</ion-select-option>
+          <ion-select-option value="Japan">Japan</ion-select-option>
+          <ion-select-option value="Jordan">Jordan</ion-select-option>
+          <ion-select-option value="Kazakhstan">Kazakhstan</ion-select-option>
+          <ion-select-option value="Kenya">Kenya</ion-select-option>
+          <ion-select-option value="Kiribati">Kiribati</ion-select-option>
+          <ion-select-option value="Kosovo">Kosovo</ion-select-option>
+          <ion-select-option value="Kuwait">Kuwait</ion-select-option>
+          <ion-select-option value="Kyrgyzstan">Kyrgyzstan</ion-select-option>
+          <ion-select-option value="Laos">Laos</ion-select-option>
+          <ion-select-option value="Latvia">Latvia</ion-select-option>
+          <ion-select-option value="Lebanon">Lebanon</ion-select-option>
+          <ion-select-option value="Lesotho">Lesotho</ion-select-option>
+          <ion-select-option value="Liberia">Liberia</ion-select-option>
+          <ion-select-option value="Libya">Libya</ion-select-option>
+          <ion-select-option value="Liechtenstein">Liechtenstein</ion-select-option>
+          <ion-select-option value="Lithuania">Lithuania</ion-select-option>
+          <ion-select-option value="Luxembourg">Luxembourg</ion-select-option>
+          <ion-select-option value="Macedonia, the former Yugoslav Republic of">Macedonia</ion-select-option>
+          <ion-select-option value="Madagascar">Madagascar</ion-select-option>
+          <ion-select-option value="Malawi">Malawi</ion-select-option>
+          <ion-select-option value="Malaysia">Malaysia</ion-select-option>
+          <ion-select-option value="Maldives">Maldives</ion-select-option>
+          <ion-select-option value="Mali">Mali</ion-select-option>
+          <ion-select-option value="Malta">Malta</ion-select-option>
+          <ion-select-option value="Marshall Islands">Marshall Islands</ion-select-option>
+          <ion-select-option value="Mauritania">Mauritania</ion-select-option>
+          <ion-select-option value="Mauritius">Mauritius</ion-select-option>
+          <ion-select-option value="Mexico">Mexico</ion-select-option>
+          <ion-select-option value="Micronesia">Micronesia</ion-select-option>
+          <ion-select-option value="Moldova">Moldova</ion-select-option>
+          <ion-select-option value="Monaco">Monaco</ion-select-option>
+          <ion-select-option value="Mongolia">Mongolia</ion-select-option>
+          <ion-select-option value="Montenegro">Montenegro</ion-select-option>
+          <ion-select-option value="Morocco">Morocco</ion-select-option>
+          <ion-select-option value="Mozambique">Mozambique</ion-select-option>
+          <ion-select-option value="Myanmar/Burma">Myanmar/Burma</ion-select-option>
+          <ion-select-option value="Namibia">Namibia</ion-select-option>
+          <ion-select-option value="Nauru">Nauru</ion-select-option>
+          <ion-select-option value="Nepal">Nepal</ion-select-option>
+          <ion-select-option value="Netherlands">Netherlands</ion-select-option>
+          <ion-select-option value="New Zealand">New Zealand</ion-select-option>
+          <ion-select-option value="Nicaragua">Nicaragua</ion-select-option>
+          <ion-select-option value="Niger">Niger</ion-select-option>
+          <ion-select-option value="Nigeria">Nigeria</ion-select-option>
+          <ion-select-option value="North Korea">North Korea</ion-select-option>
+          <ion-select-option value="Norway">Norway</ion-select-option>
+          <ion-select-option value="Oman">Oman</ion-select-option>
+          <ion-select-option value="Pacific Islands">Pacific Islands</ion-select-option>
+          <ion-select-option value="Pakistan">Pakistan</ion-select-option>
+          <ion-select-option value="Palau">Palau</ion-select-option>
+          <ion-select-option value="Panama">Panama</ion-select-option>
+          <ion-select-option value="Papua New Guinea">Papua New Guinea</ion-select-option>
+          <ion-select-option value="Paraguay">Paraguay</ion-select-option>
+          <ion-select-option value="Peru">Peru</ion-select-option>
+          <ion-select-option value="Philippines">Philippines</ion-select-option>
+          <ion-select-option value="Poland">Poland</ion-select-option>
+          <ion-select-option value="Portugal">Portugal</ion-select-option>
+          <ion-select-option value="Puerto Rico">Puerto Rico</ion-select-option>
+          <ion-select-option value="Qatar">Qatar</ion-select-option>
+          <ion-select-option value="Romania">Romania</ion-select-option>
+          <ion-select-option value="Russia">Russia</ion-select-option>
+          <ion-select-option value="Rwanda">Rwanda</ion-select-option>
+          <ion-select-option value="Saint Kitts and Nevis">Saint Kitts and Nevis</ion-select-option>
+          <ion-select-option value="Saint Lucia">Saint Lucia</ion-select-option>
+          <ion-select-option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</ion-select-option>
+          <ion-select-option value="Samoa">Samoa</ion-select-option>
+          <ion-select-option value="San Marino">San Marino</ion-select-option>
+          <ion-select-option value="Sao Tome and Principe">Sao Tome and Principe</ion-select-option>
+          <ion-select-option value="Saudi Arabia">Saudi Arabia</ion-select-option>
+          <ion-select-option value="Senegal">Senegal</ion-select-option>
+          <ion-select-option value="Serbia">Serbia</ion-select-option>
+          <ion-select-option value="Seychelles">Seychelles</ion-select-option>
+          <ion-select-option value="Sierra Leone">Sierra Leone</ion-select-option>
+          <ion-select-option value="Singapore">Singapore</ion-select-option>
+          <ion-select-option value="Slovakia">Slovakia</ion-select-option>
+          <ion-select-option value="Slovenia">Slovenia</ion-select-option>
+          <ion-select-option value="Solomon Islands">Solomon Islands</ion-select-option>
+          <ion-select-option value="Somalia">Somalia</ion-select-option>
+          <ion-select-option value="South Africa">South Africa</ion-select-option>
+          <ion-select-option value="South Korea">South Korea</ion-select-option>
+          <ion-select-option value="South Sudan">South Sudan</ion-select-option>
+          <ion-select-option value="Spain">Spain</ion-select-option>
+          <ion-select-option value="Sri Lanka">Sri Lanka</ion-select-option>
+          <ion-select-option value="Sudan">Sudan</ion-select-option>
+          <ion-select-option value="Suriname">Suriname</ion-select-option>
+          <ion-select-option value="Swaziland">Swaziland</ion-select-option>
+          <ion-select-option value="Sweden">Sweden</ion-select-option>
+          <ion-select-option value="Switzerland">Switzerland</ion-select-option>
+          <ion-select-option value="Syria">Syria</ion-select-option>
+          <ion-select-option value="Taiwan">Taiwan</ion-select-option>
+          <ion-select-option value="Tajikistan">Tajikistan</ion-select-option>
+          <ion-select-option value="Tanzania">Tanzania</ion-select-option>
+          <ion-select-option value="Thailand">Thailand</ion-select-option>
+          <ion-select-option value="Togo">Togo</ion-select-option>
+          <ion-select-option value="Tonga">Tonga</ion-select-option>
+          <ion-select-option value="Trinidad & Tobago">Trinidad & Tobago</ion-select-option>
+          <ion-select-option value="Tunisia">Tunisia</ion-select-option>
+          <ion-select-option value="Turkey">Turkey</ion-select-option>
+          <ion-select-option value="Turkmenistan">Turkmenistan</ion-select-option>
+          <ion-select-option value="Tuvalu">Tuvalu</ion-select-option>
+          <ion-select-option value="Uganda">Uganda</ion-select-option>
+          <ion-select-option value="Ukraine">Ukraine</ion-select-option>
+          <ion-select-option value="United Arab Emirates">United Arab Emirates</ion-select-option>
+          <ion-select-option value="United Kingdom">United Kingdom</ion-select-option>
+          <ion-select-option value="Uruguay">Uruguay</ion-select-option>
+          <ion-select-option value="Uzbekistan">Uzbekistan</ion-select-option>
+          <ion-select-option value="Vanuatu">Vanuatu</ion-select-option>
+          <ion-select-option value="Vatican City">Vatican City</ion-select-option>
+          <ion-select-option value="Venezuela">Venezuela</ion-select-option>
+          <ion-select-option value="Vietnam">Vietnam</ion-select-option>
+          <ion-select-option value="Yemen">Yemen</ion-select-option>
+          <ion-select-option value="Zambia">Zambia</ion-select-option>
+          <ion-select-option value="Zimbabwe">Zimbabwe</ion-select-option>
+        </ion-select>
+        <ion-text class="ion-padding-bottom" slot="error" *ngIf="!country.valid && (!country.pristine || hubspotForm.submitted)">Country is required</ion-text>
+      </ion-item>
+      <ion-item *ngIf="hubspotData.country_pl_ === 'United States'">
+        <ion-label>State</ion-label>
+        <ion-select [(ngModel)]="hubspotData.state" value="Alabama" name="state" #state="ngModel" okText="OK" cancelText="Dismiss" required>
+          <!-- <ion-select-option *ngFor="let item in states; let i = index" [value]="states[i]">{{ states[i] }}</ion-select-option> -->
+          <ion-select-option value="Alabama">Alabama</ion-select-option>
+          <ion-select-option value="Alaska">Alaska</ion-select-option>
+          <ion-select-option value="Arizona">Arizona</ion-select-option>
+          <ion-select-option value="Arkansas">Arkansas</ion-select-option>
+          <ion-select-option value="California">California</ion-select-option>
+          <ion-select-option value="Colorado">Colorado</ion-select-option>
+          <ion-select-option value="Connecticut">Connecticut</ion-select-option>
+          <ion-select-option value="Delaware">Delaware</ion-select-option>
+          <ion-select-option value="District Of Columbia">District Of Columbia</ion-select-option>
+          <ion-select-option value="Florida">Florida</ion-select-option>
+          <ion-select-option value="Georgia">Georgia</ion-select-option>
+          <ion-select-option value="Hawaii">Hawaii</ion-select-option>
+          <ion-select-option value="Idaho">Idaho</ion-select-option>
+          <ion-select-option value="Illinois">Illinois</ion-select-option>
+          <ion-select-option value="Indiana">Indiana</ion-select-option>
+          <ion-select-option value="Iowa">Iowa</ion-select-option>
+          <ion-select-option value="Kansas">Kansas</ion-select-option>
+          <ion-select-option value="Kentucky">Kentucky</ion-select-option>
+          <ion-select-option value="Louisiana">Louisiana</ion-select-option>
+          <ion-select-option value="Maine">Maine</ion-select-option>
+          <ion-select-option value="Maryland">Maryland</ion-select-option>
+          <ion-select-option value="Massachusetts">Massachusetts</ion-select-option>
+          <ion-select-option value="Michigan">Michigan</ion-select-option>
+          <ion-select-option value="Minnesota">Minnesota</ion-select-option>
+          <ion-select-option value="Mississippi">Mississippi</ion-select-option>
+          <ion-select-option value="Missouri">Missouri</ion-select-option>
+          <ion-select-option value="Montana">Montana</ion-select-option>
+          <ion-select-option value="Nebraska">Nebraska</ion-select-option>
+          <ion-select-option value="Nevada">Nevada</ion-select-option>
+          <ion-select-option value="New Hampshire">New Hampshire</ion-select-option>
+          <ion-select-option value="New Jersey">New Jersey</ion-select-option>
+          <ion-select-option value="New Mexico">New Mexico</ion-select-option>
+          <ion-select-option value="New York">New York</ion-select-option>
+          <ion-select-option value="North Carolina">North Carolina</ion-select-option>
+          <ion-select-option value="North Dakota">North Dakota</ion-select-option>
+          <ion-select-option value="Ohio">Ohio</ion-select-option>
+          <ion-select-option value="Oklahoma">Oklahoma</ion-select-option>
+          <ion-select-option value="Oregon">Oregon</ion-select-option>
+          <ion-select-option value="Pennsylvania">Pennsylvania</ion-select-option>
+          <ion-select-option value="Puerto Rico">Puerto Rico</ion-select-option>
+          <ion-select-option value="Rhode Island">Rhode Island</ion-select-option>
+          <ion-select-option value="South Carolina">South Carolina</ion-select-option>
+          <ion-select-option value="South Dakota">South Dakota</ion-select-option>
+          <ion-select-option value="Tennessee">Tennessee</ion-select-option>
+          <ion-select-option value="Texas">Texas</ion-select-option>
+          <ion-select-option value="Utah">Utah</ion-select-option>
+          <ion-select-option value="Vermont">Vermont</ion-select-option>
+          <ion-select-option value="Virginia">Virginia</ion-select-option>
+          <ion-select-option value="Washington">Washington</ion-select-option>
+          <ion-select-option value="West Virginia">West Virginia</ion-select-option>
+          <ion-select-option value="Wisconsin">Wisconsin</ion-select-option>
+          <ion-select-option value="Wyoming">Wyoming</ion-select-option>
+        </ion-select>
+        <ion-text class="ion-padding-bottom" slot="error" *ngIf="!state.valid && hubspotData.country_pl_ === 'United States' && (!state.pristine || hubspotForm.submitted)">State is required</ion-text>
+      </ion-item>
+    </ion-list>
+    <ion-list-header>Preferences</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>T-shirt Size</ion-label>
+        <ion-select [(ngModel)]="hubspotData.t_shirt_size" value="Small" #tshirt="ngModel" name="tshirt" okText="OK" cancelText="Dismiss" required>
+          <ion-select-option value="Small">Small</ion-select-option>
+          <ion-select-option value="Medium">Medium</ion-select-option>
+          <ion-select-option value="Large">Large</ion-select-option>
+          <ion-select-option value="X-Large">X-Large</ion-select-option>
+          <ion-select-option value="2X- Large">2X-Large</ion-select-option>
+        </ion-select>
+        <ion-text class="ion-padding-bottom" slot="error" *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)">T-shirt Size is required</ion-text>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,43 @@
+ion-card.card-button {
+  border-radius: 16px;
+}
+
+ion-card {
+  margin: 0;
+
+  border-radius: 0px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: none;
+
+  aspect-ratio: 1.5 / 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@supports not (aspect-ratio: 1.5 / 1) {
+  ion-card::before {
+    float: left;
+    padding-top: 66.67%;
+    content: '';
+  }
+
+  ion-card::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+ion-card.card-button::part(native) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 60%;
+}

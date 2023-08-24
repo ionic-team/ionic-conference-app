@@ -1,0 +1,15 @@
+<ion-card
+  (click)="navigateToAgendaItemPage()"
+  [button]="true"
+>
+  <ion-card-header>
+    <app-agenda-avatars size="48px" [urls]="photoUrls"></app-agenda-avatars>
+    <ion-card-title clas="eas-header-small">{{ agenda.title }}</ion-card-title>
+    <ion-card-subtitle>
+      <div *ngFor="let speaker of speakers">
+        {{ speaker.firstName }} {{ speaker.lastName }}, {{ speaker.role }}, {{ getCompanyName(speaker.companyId) }}
+      </div>
+      </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>{{ formatTalkTime(agenda) }}</ion-card-content>
+</ion-card>

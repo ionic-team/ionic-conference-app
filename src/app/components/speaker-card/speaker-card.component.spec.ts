@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SpeakerListPage } from './speaker-list';
+import { SpeakerCardComponent } from './speaker-card.component';
 
-describe('SpeakersPage', () => {
-  let component: SpeakerListPage;
-  let fixture: ComponentFixture<SpeakerListPage>;
+describe('SpeakerCardComponent', () => {
+  let component: SpeakerCardComponent;
+  let fixture: ComponentFixture<SpeakerCardComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpeakerListPage ],
+      declarations: [ SpeakerCardComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SpeakerListPage);
+    fixture = TestBed.createComponent(SpeakerCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,4 +22,3 @@ describe('SpeakersPage', () => {
     expect(component).toBeTruthy();
   });
 });
-

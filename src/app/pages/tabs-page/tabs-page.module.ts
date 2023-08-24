@@ -11,7 +11,7 @@ import { ScannerModule } from '../scanner/scanner.module';
 import { ScheduleModule } from '../schedule/schedule.module';
 import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
-import { SpeakerListModule } from '../speaker-list/speaker-list.module';
+import { SpeakersPageModule } from '../speaker-list/speaker-list.module';
 import { RegisterModule } from "../register/register.module";
 import { ExhibitorDetailModule } from '../exhibitor-detail/exhibitor-detail.module';
 import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
@@ -32,7 +32,7 @@ import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
     ExpoScheduleModule,
     SessionDetailModule,
     SpeakerDetailModule,
-    SpeakerListModule,
+    SpeakersPageModule,
     RegisterModule,
     ExhibitorDetailModule,
     ExhibitorListPageModule,

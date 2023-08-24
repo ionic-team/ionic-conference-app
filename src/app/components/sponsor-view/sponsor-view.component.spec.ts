@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SpeakerListPage } from './speaker-list';
+import { SponsorViewComponent } from './sponsor-view.component';
 
-describe('SpeakersPage', () => {
-  let component: SpeakerListPage;
-  let fixture: ComponentFixture<SpeakerListPage>;
+describe('SponsorViewComponent', () => {
+  let component: SponsorViewComponent;
+  let fixture: ComponentFixture<SponsorViewComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpeakerListPage ],
+      declarations: [ SponsorViewComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SpeakerListPage);
+    fixture = TestBed.createComponent(SponsorViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,4 +22,3 @@ describe('SpeakersPage', () => {
     expect(component).toBeTruthy();
   });
 });
-

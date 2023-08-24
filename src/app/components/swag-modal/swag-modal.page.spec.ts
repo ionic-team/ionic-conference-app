@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SpeakerListPage } from './speaker-list';
+import { SwagModalPage } from './swag-modal.page';
 
-describe('SpeakersPage', () => {
-  let component: SpeakerListPage;
-  let fixture: ComponentFixture<SpeakerListPage>;
+describe('SwagModalPage', () => {
+  let component: SwagModalPage;
+  let fixture: ComponentFixture<SwagModalPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpeakerListPage ],
+      declarations: [ SwagModalPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SpeakerListPage);
+    fixture = TestBed.createComponent(SwagModalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
@@ -22,4 +22,3 @@ describe('SpeakersPage', () => {
     expect(component).toBeTruthy();
   });
 });
-

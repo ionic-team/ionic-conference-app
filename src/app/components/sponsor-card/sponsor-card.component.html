@@ -1,0 +1,10 @@
+<ion-card
+  [ngClass]="{
+    'card-button': button
+  }"
+  [button]="button"
+  [style.--background]="sponsor.accentColor"
+  (click)="openLink(sponsor.homepage)"
+>
+  <img [src]="sponsor.logoUrl" />
+</ion-card>

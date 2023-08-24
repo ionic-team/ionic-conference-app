@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
 import { SchedulePage } from '../schedule/schedule';
 
-
 const routes: Routes = [
   {
     path: 'tabs',
@@ -28,7 +27,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakerListModule)
+            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakersPageModule)
           },
           {
             path: 'session/:sessionId',

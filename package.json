@@ -34,6 +34,7 @@
     "@capacitor-community/barcode-scanner": "^3.0.3",
     "@capacitor/android": "4.8.1",
     "@capacitor/app": "4.1.1",
+    "@capacitor/browser": "^5.0.6",
     "@capacitor/core": "^4.8.1",
     "@capacitor/device": "^4.1.0",
     "@capacitor/haptics": "4.1.0",
