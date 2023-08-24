@@ -13,7 +13,7 @@ import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
 import { SpeakerListModule } from '../speaker-list/speaker-list.module';
 import { RegisterModule } from "../register/register.module";
-import { ExhibitorDetailModule } from '../exhibitor-detail/exhibitor-detail.module';
+import { DetailsModule } from '../details/details.module';
 import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
 import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
 import { SupplierPageModule } from "../supplierplatform/supplier.module";
@@ -34,7 +34,7 @@ import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
     SpeakerDetailModule,
     SpeakerListModule,
     RegisterModule,
-    ExhibitorDetailModule,
+    DetailsModule,
     ExhibitorListPageModule,
     SupplierPageModule,
     BtbPageModule,

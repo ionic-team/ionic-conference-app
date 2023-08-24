@@ -2,11 +2,7 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content">
       <ion-content>
-        <ion-toolbar>
-          <ion-title>
-            <img src="/assets/img/miningexpologo.png" alt="miningexpologo" />
-          </ion-title>
-        </ion-toolbar>
+          <ion-img src="/assets/img/meclogo.png" alt="miningexpologo" ></ion-img>
         <ion-list lines="none">
           <ion-list-header>
             Mining Expo
@@ -18,7 +14,6 @@
                 {{p.title}}
               </ion-label>
             </ion-item>
-
           </ion-menu-toggle>
         </ion-list>
         <ion-list lines="none">
@@ -80,20 +75,13 @@
               <ion-icon slot="start" name="hammer"></ion-icon>
               <ion-label>Welcome</ion-label>
             </ion-item>
-            <ion-toolbar>
-              <ion-title>
-                <ion-img src="/assets/img/rmbLogo.png" alt="rmblogo">
-                </ion-img>
-              </ion-title>
-            </ion-toolbar>
+              <ion-img src="/assets/img/rmbLogo.png" alt="rmblogo">
+              </ion-img>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
-
-
     <ion-router-outlet id="main-content"></ion-router-outlet>
-
   </ion-split-pane>
 
 </ion-app>
