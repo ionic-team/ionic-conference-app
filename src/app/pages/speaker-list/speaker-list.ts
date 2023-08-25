@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
-import { ConferenceData } from '../../providers/conference-data';
+import { SpeakerService } from '../../services/speaker.service';
+import { Speaker } from '../../types';
 
 @Component({
-  selector: 'page-speaker-list',
-  templateUrl: 'speaker-list.html',
+  selector: 'app-speakers',
+  templateUrl: './speaker-list.html',
   styleUrls: ['./speaker-list.scss'],
 })
 export class SpeakerListPage {
-  speakers: any[] = [];
+  public speakers: Speaker[] = [];
 
-  constructor(public confData: ConferenceData) {}
+  constructor(
+    speakerService: SpeakerService
+  ) {
+    this.speakers = speakerService.getSpeakers();
+  }
 
-  ionViewDidEnter() {
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
-    });
+  trackItems(index: number, itemObject: Speaker) {
+    return itemObject.id;
   }
 }

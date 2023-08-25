@@ -1,0 +1,61 @@
+@use "sass:math";
+$agenda-margin: 16px;
+
+.header {
+  text-align: center;
+
+  margin: 20px 0;
+}
+
+.header .avatars {
+  display: flex;
+  justify-content: center;
+
+  margin: 0 0 #{$agenda-margin} 0;
+}
+
+app-agenda-avatars {
+  --outline-color: var(--ion-color-light);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+
+  margin: 0 0 #{math.div($agenda-margin, 2)} 0;
+
+  color: var(--ion-color-step-950);
+}
+
+.header h2 {
+  font-size: 16px;
+  font-weight: 500;
+
+  margin: 0;
+
+  color: var(--ion-color-step-650);
+}
+
+ion-list.list-inset {
+  margin-top: 8px;
+}
+
+.description-list ion-item ion-text {
+  color: var(--ion-color-step-800);
+}
+
+.when-list ion-item ion-label {
+  font-weight: 600;
+}
+
+.when-list ion-item ion-note {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: var(--ion-color-step-650);
+}
+
+ion-item.watch-live {
+  --color: var(--ion-color-primary);
+  --border-color: var(--ion-color-step-200);
+}

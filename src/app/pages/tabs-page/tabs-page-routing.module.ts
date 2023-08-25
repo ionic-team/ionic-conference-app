@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs-page';
 import { SchedulePage } from '../schedule/schedule';
-
+import { Tab1Page } from '../tab1/tab1.page';
 
 const routes: Routes = [
   {
@@ -10,15 +10,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'schedule',
+        path: 'agenda',
         children: [
           {
             path: '',
-            component: SchedulePage,
+            component: Tab1Page,
           },
           {
-            path: 'session/:sessionId',
-            loadChildren: () => import('../session-detail/session-detail.module').then(m => m.SessionDetailModule)
+            path: 'agenda',
+            loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
           }
         ]
       },
@@ -28,7 +28,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakerListModule)
+            loadChildren: () => import('../speaker-list/speaker-list.module').then(m => m.SpeakersPageModule)
           },
           {
             path: 'session/:sessionId',

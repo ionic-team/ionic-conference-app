@@ -1,0 +1,23 @@
+ion-header::after {
+  content: none;
+}
+
+ion-toolbar {
+  --padding-top: 8px;
+  --background: transparent;
+  --border-color: transparent;
+}
+
+.ios h1 {
+  margin: 0 0 0 5px;
+}
+
+.md h1 {
+  margin: 0 0 0 16px;
+}
+
+ion-text {
+  color: var(--ion-color-step-650);
+  font-size: 16px;
+  line-height: 22px;
+}

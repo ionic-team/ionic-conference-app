@@ -1,0 +1,32 @@
+@use "sass:math";
+$card-margin: 16px;
+
+ion-card {
+  border-radius: 16px;
+
+  margin: 0 0 #{$card-margin} 0;
+
+  background: var(--ion-background-color);
+  box-shadow: none;
+}
+
+ion-card-header {
+  padding-bottom: 2px;
+}
+
+ion-card-header ion-card-title {
+  margin: #{$card-margin} 0 math.div($card-margin, 2) 0;
+
+  font-size: 18px;
+}
+
+ion-card-header ion-card-subtitle {
+  text-transform: none;
+
+  font-weight: 500;
+  font-size: 14px;
+}
+
+ion-card-content {
+  font-size: 12px;
+}

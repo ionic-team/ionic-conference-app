@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     },
   {
     title: 'Mining Conference Programme',
-    url: '/app/tabs/exposchedule',
+    url: '/app/tabs/agenda',
     icon: 'time'
   },
   {

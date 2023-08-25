@@ -1,39 +1,25 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { ActionSheetController } from '@ionic/angular';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
 
-import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SpeakerListPage } from './speaker-list';
-import { ConferenceData } from '../../providers/conference-data';
 
-const confDataSub = {};
+describe('SpeakersPage', () => {
+  let component: SpeakerListPage;
+  let fixture: ComponentFixture<SpeakerListPage>;
 
-describe('SpeakerListPage', () => {
-  let fixture, app;
   beforeEach(waitForAsync(() => {
-    const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', [
-      'create'
-    ]);
-    const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
-    const iabSpy = jasmine.createSpyObj('InAppBrowser', ['create']);
-
     TestBed.configureTestingModule({
-      declarations: [SpeakerListPage],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        { provide: ActionSheetController, useValue: actionSheetSpy },
-        { provide: InAppBrowser, useValue: iabSpy },
-        { provide: Router, useValue: routerSpy },
-        { provide: ConferenceData, useValue: confDataSub }
-      ]
+      declarations: [ SpeakerListPage ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
-  }));
-  beforeEach(() => {
+
     fixture = TestBed.createComponent(SpeakerListPage);
-    app = fixture.debugElement.componentInstance;
-  });
-  it('should create the speaker list page', () => {
-    expect(app).toBeTruthy();
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
+
