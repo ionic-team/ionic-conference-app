@@ -20,7 +20,7 @@ import { SupplierPageModule } from "../supplierplatform/supplier.module";
 import { BtbPageModule } from "../btb/btb.module";
 import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
 import { Tab1PageModule } from '../tab1/tab1.module';
-import { AgendaItemPageModule } from '../tab1/agenda-item/agenda-item.module'
+import { AgendaItemPageModule } from '../tab1/agenda-item/agenda-item.module';
 
 @NgModule({
   imports: [
@@ -35,13 +35,9 @@ import { AgendaItemPageModule } from '../tab1/agenda-item/agenda-item.module'
     SpeakerDetailModule,
     SpeakersPageModule,
     RegisterModule,
-<<<<<<< HEAD
     Tab1PageModule,
     AgendaItemPageModule,
     ExhibitorDetailModule,
-=======
-    DetailsModule,
->>>>>>> b8810ccd7a9a430434baf6ce59760bcd54d2c49f
     ExhibitorListPageModule,
     SupplierPageModule,
     BtbPageModule,
