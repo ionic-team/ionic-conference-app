@@ -9,10 +9,10 @@
 
 <ion-content [style.visibility]="content_visibility">
    <ion-card-content>
-   <qrcode 
+   <qrcode
    [qrdata]="qrCodeString"
-   [width]="356" 
-   [errorCorrectionLevel]="'M'"></qrcode>    
+   [width]="356"
+   [errorCorrectionLevel]="'M'"></qrcode>
   </ion-card-content>
   <ion-button color="warning" expand="block" (click)="startScan()">
   <ion-icon name="scan" slot="start"></ion-icon>
@@ -30,7 +30,7 @@
 </ion-row> -->
 <ion-row class="generateqr">
   <ion-col class="ion-no-padding">
-    <ion-button color="warning" expand="full">Generate QR</ion-button>
+    <ion-button color="warning" expand="full" (click)="addScan">Submit</ion-button>
   </ion-col>
 </ion-row>
 </ion-content>

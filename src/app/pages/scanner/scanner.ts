@@ -6,6 +6,8 @@ import { darkStyle } from './scanner-dark-style';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { any, reject, resolve } from 'cypress/types/bluebird';
 import { async } from 'rxjs/internal/scheduler/async';
+import { DataService } from '../../services/data.service';
+import { result } from 'cypress/types/lodash';
 
 
 @Component({
@@ -18,8 +20,9 @@ export class ScannerPage implements OnDestroy {
   scannedResult: any;
   content_visibility = '';
 
-   constructor () {}
-       
+   constructor (private dataService: DataService) {}
+
+
     async checkPermission() {
     try {
       const status = await BarcodeScanner.checkPermission({ force:true });
@@ -30,43 +33,49 @@ export class ScannerPage implements OnDestroy {
     } catch(e) {
       console.log(e);
     }
-    
+
     }
 
-   async startScan() {    
+   async startScan() {
     try {
-      const permission = await this.checkPermission();  // Check camera permission    
+      const permission = await this.checkPermission();  // Check camera permission
       if(!permission) {
         return true;
       }
      await BarcodeScanner.hideBackground();
      document.querySelector('body').classList.add('scanner-active');
      this.content_visibility = 'hidden';
-     const result = await BarcodeScanner.startScan(); // start scanning and wait for a result 
+     const result = await BarcodeScanner.startScan(); // start scanning and wait for a result
       console.log(result);
       BarcodeScanner.showBackground();
       document.querySelector('body').classList.remove('scanner-active');
       this.content_visibility = '';
       // if the result has content
       if(result?.hasContent) {
-        this.scannedResult = result.content;       
+        this.scannedResult = result.content;
         console.log(this.scannedResult); // log the raw scanned content
       }
     } catch(e) {
         console.log(e);
         this.stopScan();
-      }   
+      }
    }
-   
+
+
+   async addScan(){
+    // handler: res => {
+      this.dataService.addScan(this.scannedResult);
+  }
+
    stopScan() {
     BarcodeScanner.showBackground();
     BarcodeScanner.stopScan();
     document.querySelector('body').classList.remove('scanner-active');
-    this.content_visibility = ''; 
+    this.content_visibility = '';
   }
 
 
    ngOnDestroy(): void {
     this.stopScan();
-  }  
+  }
 }
