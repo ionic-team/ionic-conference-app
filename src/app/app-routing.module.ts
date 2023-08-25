@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'schedule',
-    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule)
+    loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
   },
   {
     path: 'account',

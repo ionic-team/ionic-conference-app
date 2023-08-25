@@ -8,17 +8,17 @@ export class AgendaService {
   private agenda: AgendaItem[] = [
     {
       id: 1,
-      title: 'The Future of Enterprise App Development',
-      speakerIds: [1],
-      startTime: '08:00 AM',
-      endTime: '09:00 AM',
-      description: 'The trends in enterprise app development are constantly evolving. Ionic works closely with enterprise engineering teams from around the world to shape the way we think about developing world-class applications.<p>Learn how Ionic layers enterprise offerings on top of an open source foundation. Max Lynch, CEO and co-founder at Ionic, will dive into the newest Ionic products and solutions, uncover some of the latest industry trends involving design systems, internet-of-things, and micro frontend technology, and share his vision for the future of app development.</p>'
-    },
+      title: 'Conference Delegate Registration (Collection of Delegate Cards)',
+      speakerIds: [],
+      startTime: '08/30/2023 12:30 PM',
+      endTime: '14:00 PM',
+      description: ''
+      },
     {
       id: 2,
       title: 'The 80/20 Rule and Building UX Superpowers',
       speakerIds: [2],
-      startTime: '09:00 AM',
+      startTime: '08/30/2023 09:00 AM',
       endTime: '10:00 AM',
       description: 'Software architecture describes the building blocks on which solutions are created. Done right, those building blocks can provide superpowers to your UX team. Tom will bring you end-to-end through a modern microservices architecture, and discuss the design that enables a modern user experience along with the technology and tools behind it. <p>Through a detailed breakdown of the client-side architecture and abstraction layers that provide clear separation of concerns and simplified unit testing, you’ll discover how US Foods delivers first-class web, mobile and tablet experiences.</p>'
     },
@@ -26,7 +26,7 @@ export class AgendaService {
       id: 3,
       title: 'Between Standard and Flexibility: Volkswagen Group’s Multi-Brand Design System GroupUI',
       speakerIds: [3,27,28,24],
-      startTime: '10:00 AM',
+      startTime: '08/30/2023 10:00 AM',
       endTime: '11:00 AM',
       description: 'Volkswagen Group’s full-stack design system GroupUI delivers a seamless experience from figma and sketch to web components built with Stencil JS—Ionic’s toolchain for building reusable, scalable design systems. In a multi-brand environment featuring over five brands—with more to come soon—a perfect collaboration between teams and brands is vital for success.<p>      Discover how the designers at Volkswagen add value with maximum flexibility for their brands. Learn how they are managing collaboration, communication, and contribution in their cross-brand and interdisciplinary environment.</p>'
     },
@@ -34,7 +34,7 @@ export class AgendaService {
       id: 4,
       title: 'Building Micro Frontends with StencilJS',
       speakerIds: [4],
-      startTime: '11:00 AM',
+      startTime: '08/30/2023 11:00 AM',
       endTime: '11:30 AM',
       description: 'Managing the Front-End for large organizations can be a difficult task; the larger the application, the greater the need to divide it into smaller and more manageable, de-centralized artifacts in order to deliver a clean and consistent user experience.<p>In this talk we will explore multiple ways in which enterprises can leverage Micro-Front-end Architecture and Web Components compiled by Stencil JS in order to simplify the development, deployment, and consumption of third party content into large Front-End applications.</p>'
     },
@@ -42,7 +42,7 @@ export class AgendaService {
       id: 5,
       title: 'Speak Up: Employee Podcasting in the Age of Remote Work',
       speakerIds: [5, 6],
-      startTime: '11:30 AM',
+      startTime: '08/30/2023 11:30 AM',
       endTime: '12:00 PM',
       description: 'T-Mobile Human Resources has a small software development team, but big ideas. They first developed a media CMS with a tube-experience, and now they\'re on to their next big project: a mobile podcasting app for employees! <p>Learn about the team’s planning process, why they chose to build with Ionic, the challenges they\'ve faced along the way, and why they would want to create such an app in the first place.</p>'
     },
@@ -50,7 +50,7 @@ export class AgendaService {
       id: 6,
       title: 'Fleet Management: Bringing Wireless Technology to Construction Equipment',
       speakerIds: [7,22],
-      startTime: '12:00 PM',
+      startTime: '08/30/2023 12:00 PM',
       endTime: '12:30 PM',
       description: 'Bobcat Machine IQ is a digital telematics system that helps Bobcat equipment owners access machine info in real time from any location or device. Owners can check the health, maintenance, security, and performance of each connected machine at any time. How did the engineers behind Machine IQ decide the best technology stack for their needs? <p>Learn how Doosan Bobcat integrated functionality like geofencing in their application, and how they incorporated Ionic Appflow into their CI/CD pipeline.</p>'
     },
@@ -106,7 +106,7 @@ export class AgendaService {
       id: 12,
       title: 'Micro Frontends for Mobile with Ionic Portals',
       speakerIds: [20,23],
-      startTime: '16:00 PM',
+      startTime: '31-AUG-2023 16:00 PM',
       endTime: '16:30 PM',
       description: 'App development is rapidly evolving. Applications were originally built using a monolithic approach—a single-tiered code base combining UI and data into a single platform. Now, companies are moving towards micro frontends, an architectural style where UI front-end are composed of independent components that can be built by different teams at different times, saving development time and costs.<p>Micro frontends need to be reusable and portable. They need to be able to communicate with other parts of the app, provide a seamless and virtually invisible to users, and be easy to update without updating the larger app. Given these points, web technology is a great way to deliver micro experiences not only for the web but for mobile as well.</p><p>Discover how using Ionic Portals will allow your team to deliver micro experiences on mobile apps.</p>'
     },
@@ -131,7 +131,7 @@ export class AgendaService {
   }
 
   public formatTalkTime(agendaItem: AgendaItem) {
-    return `${this.convertToTwelveHourFormat(agendaItem.startTime)} - ${this.convertToTwelveHourFormat(agendaItem.endTime)} CT`;
+    return `${this.convertToTwelveHourFormat(agendaItem.startTime)} - ${this.convertToTwelveHourFormat(agendaItem.endTime)}`;
   }
 
   // Talk times are stored in military time to make it easier to work with 

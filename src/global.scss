@@ -16,6 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,6 +25,93 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+.md .eas-header-small {
+    font-size: 16px;
+    font-weight: 500;
+  
+    min-height: 20px;
+  }
+  
+  .ios .eas-header-small {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .md .eas-header-medium {
+    font-size: 16px;
+    font-weight: 500;
+  
+    min-height: 20px;
+  }
+  
+  .ios .eas-header-medium {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .md .eas-header-large {
+    font-size: 20px;
+    font-weight: 500;
+  
+    min-height: 20px;
+  }
+  
+  .ios .eas-header-large {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  
+  ion-content.page-content,
+  ion-content.page-content ion-toolbar {
+    --background: var(--ion-color-light);
+  }
+  
+  .permissions-modal {
+    --height: 260px;
+  }
+  
+  ion-list.list-inset.md {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  
+    border-radius: 12px;
+  }
+  
+  .connect-button.md {
+    --box-shadow: none;
+    --border-radius: 16px;
+  
+    width: 56px !important;
+  }
+  
+  .connect-button.md ion-label {
+    display: none;
+  }
+  
+  .connect-button.md ion-icon {
+    width: 24px !important;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 16px;
+  }
+  
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
 
 *{
     font-family: 'Roboto', sans-serif;

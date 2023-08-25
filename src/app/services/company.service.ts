@@ -70,6 +70,11 @@ export class CompanyService {
       id: 13,
       name: 'Ministry of Mines and Energy',
       logoUrl: 'assets/img/floor/mines.jpeg'
+    },
+    {
+      id: 14,
+      name: 'RMB Namibia',
+      logoUrl: 'assets/img/floor/rmb-promo-logo.png'
     }
   ];
 

@@ -4,7 +4,7 @@
 >
   <ion-card-header>
     <app-agenda-avatars size="48px" [urls]="photoUrls"></app-agenda-avatars>
-    <ion-card-title clas="eas-header-small">{{ agenda.title }}</ion-card-title>
+    <ion-card-title class="eas-header-small">{{ agenda.title }}</ion-card-title>
     <ion-card-subtitle>
       <div *ngFor="let speaker of speakers">
         {{ speaker.firstName }} {{ speaker.lastName }}, {{ speaker.role }}, {{ getCompanyName(speaker.companyId) }}

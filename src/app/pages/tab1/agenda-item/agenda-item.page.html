@@ -1,0 +1,50 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Agenda"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content" [fullscreen]="true">
+  <div class="header ion-padding">
+
+    <div class="avatars">
+      <app-agenda-avatars size="96px" [urls]="photoUrls"></app-agenda-avatars>
+    </div>
+
+    <h1>{{ agendaItem.title }}</h1>
+    <h2>
+      <div *ngFor="let speaker of speakers">
+        {{ speaker.firstName }} {{ speaker.lastName }}, {{ speaker.role }}, {{ getCompanyName(speaker.companyId) }}
+      </div>
+    </h2>
+  </div>
+
+  <ion-list-header class="eas-header-small">About this talk</ion-list-header>
+  <ion-list [inset]="true" class="description-list">
+    <ion-item lines="none">
+      <ion-text class="ion-padding-top ion-padding-bottom" [innerHtml]="agendaItem.description"></ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header class="eas-header-small">When</ion-list-header>
+  <ion-list [inset]="true" class="when-list">
+    <ion-item  lines="none">
+      <ion-label>
+        Wednesday, December 8th<br />
+        <ion-note>{{ formatTalkTime(agendaItem) }}</ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header class="eas-header-small">Watch</ion-list-header>
+  <ion-list [inset]="true">
+    <ion-item [detail]="false" lines="none" class="watch-live" (click)="triggerBrowser()">
+      <ion-label>Watch live at ionic.io/events/enterprise-app-summit-21</ion-label>
+    </ion-item>
+    <ion-item (click)="setReminder(agendaItem)" lines="none">
+      <ion-label>Remind Me</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

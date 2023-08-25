@@ -100,7 +100,7 @@ In addition to his finance experience, Olavi gained practical insight into Namib
 firstName: 'Julian ',
 lastName: 'Grieve',
 role: 'Co-head Resources Sector Solutions',
-companyId: 5,
+companyId: 14,
 photoUrl: '/assets/img/speakers/Julian.webp',
 twitter: "https://www.rmbprivatebank.com/",
 linkedin: "https://www.linkedin.com/in/julian-grieve-6771086/",
@@ -168,7 +168,7 @@ companyId: 11,
 photoUrl: '/assets/img/speakers/Willy.webp',
 twitter: "https://www.debmarinenamibia.com/",
 linkedin: "https://na.linkedin.com/in/willy-mertens-ca-sa-nam-60185449?original_referer=https%3A%2F%2Fwww.bing.com%2F",
-biography: ` `
+biography: ` Willy is the CEO of Debmarine`
     },
     {
       id: 13,
@@ -217,6 +217,53 @@ Inspector of Mine Machinery, Chief Engineer, Deputy Director of Mines, Director 
 
 Mr. Shivolo has also served on different boards and Committees, and has been involved in the development of several government policies and strategies as well as negotiations, representing and advancing the interest of the Government of the Republic of Namibia. `
    }
+   ,
+   {
+     id: 16,
+firstName: 'Zebra ',
+lastName: 'Kasete',
+role: 'President, CoM',
+companyId: 1,
+photoUrl: '/assets/img/speakers/Zebra.webp',
+twitter: "https://chamberofmines.org.na/",
+linkedin: "https://www.linkedin.com/",
+biography: `Mr. Zebra Kasete is the current president of the Chamber of Mines of Namibia`
+  }
+  ,
+  {
+    id: 17,
+firstName: 'George ',
+lastName: 'Botshiwe',
+role: 'Vice President, CoM',
+companyId: 1,
+photoUrl: '/assets/img/speakers/GeorgeBotshiwe.webp',
+twitter: "https://chamberofmines.org.na/",
+linkedin: "https://www.linkedin.com/",
+biography: `Mr. George Botshiwe is the current vice president of the Chamber of Mines of Namibia`
+ },
+ {
+   id: 18,
+firstName: 'Veston ',
+lastName: 'Malango',
+role: 'CEO, CoM',
+companyId: 1,
+photoUrl: '/assets/img/speakers/Veston.webp',
+twitter: "https://chamberofmines.org.na/",
+linkedin: "https://www.linkedin.com/",
+biography: `Mr. Veston Malango is the current Chief Executive Officer of the Chamber of Mines of Namibia`
+},
+{
+  id: 19,
+firstName: 'John ',
+lastName: 'Roos',
+role: '2nd Vice President, CoM',
+companyId: 1,
+photoUrl: '/assets/img/speakers/JohnRoos.webp',
+twitter: "https://chamberofmines.org.na/",
+linkedin: "https://www.linkedin.com/",
+biography: `Mr. John Roos is the second Vice President of the Chamber of Mines of Namibia`
+}
+
   ];
 
   constructor() {}
