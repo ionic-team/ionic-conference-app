@@ -37,7 +37,7 @@ import { AgendaItemPageModule } from '../tab1/agenda-item/agenda-item.module';
     RegisterModule,
     Tab1PageModule,
     AgendaItemPageModule,
-    ExhibitorDetailModule,
+    DetailsModule,
     ExhibitorListPageModule,
     SupplierPageModule,
     BtbPageModule,
