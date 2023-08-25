@@ -13,9 +13,9 @@ import { SessionDetailModule } from '../session-detail/session-detail.module';
 import { SpeakerDetailModule } from '../speaker-detail/speaker-detail.module';
 import { SpeakersPageModule } from '../speaker-list/speaker-list.module';
 import { RegisterModule } from "../register/register.module";
-import { ExhibitorDetailModule } from '../exhibitor-detail/exhibitor-detail.module';
+import { DetailsModule } from '../details/details.module';
 import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
-import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
+// import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
 import { SupplierPageModule } from "../supplierplatform/supplier.module";
 import { BtbPageModule } from "../btb/btb.module";
 import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
@@ -35,9 +35,13 @@ import { AgendaItemPageModule } from '../tab1/agenda-item/agenda-item.module'
     SpeakerDetailModule,
     SpeakersPageModule,
     RegisterModule,
+<<<<<<< HEAD
     Tab1PageModule,
     AgendaItemPageModule,
     ExhibitorDetailModule,
+=======
+    DetailsModule,
+>>>>>>> b8810ccd7a9a430434baf6ce59760bcd54d2c49f
     ExhibitorListPageModule,
     SupplierPageModule,
     BtbPageModule,

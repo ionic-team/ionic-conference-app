@@ -17,4 +17,9 @@ export class DataService {
       const exhibitorsRef = collection(this.firestore, 'exhibitors');
       return collectionData(exhibitorsRef);
     }
+
+    getSupPlatform() {
+      const supPlatformRef = collection(this.firestore, 'suppliers_platform');
+      return collectionData(supPlatformRef);
+    }
 }

@@ -5,11 +5,11 @@ import { ActionSheetController } from '@ionic/angular';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
-  selector: 'page-exhibitor-detail',
-  templateUrl: 'exhibitor-detail.html',
-  styleUrls: ['./exhibitor-detail.scss'],
+  selector: 'page-details',
+  templateUrl: 'details.html',
+  styleUrls: ['./details.scss'],
 })
-export class  ExhibitorDetailPage {
+export class  DetailsPage {
   exhibitor: any;
 
   constructor(

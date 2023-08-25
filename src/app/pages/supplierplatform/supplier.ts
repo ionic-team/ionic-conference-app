@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 
 @Component({
@@ -8,7 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./supplier.scss'],
 })
 export class SupplierPage {
-   
-  constructor() {}
- }
+
+  supPlatforms = [];
+
+  constructor(private dataService: DataService) {
+   this.dataService.getSupPlatform().subscribe(res => {
+      console.log(res);
+      this.supPlatforms = res;
+   })
+  }
+}
 
