@@ -11,7 +11,7 @@ export class AgendaService {
       title: 'Conference Delegate Registration (Collection of Delegate Cards)',
       speakerIds: [],
       startTime: '08/30/2023 12:30 PM',
-      endTime: '14:00 PM',
+      endTime: '2:00 PM',
       description: ''
       },
     {
