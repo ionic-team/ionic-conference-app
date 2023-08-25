@@ -15,7 +15,7 @@ import { SpeakerListModule } from '../speaker-list/speaker-list.module';
 import { RegisterModule } from "../register/register.module";
 import { DetailsModule } from '../details/details.module';
 import { ExhibitorListPageModule } from '../exhibitor-list/exhibitor-list.module';
-import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
+// import { BroadcastingPageModule } from "../broadcasting/broadcasting.module";
 import { SupplierPageModule } from "../supplierplatform/supplier.module";
 import { BtbPageModule } from "../btb/btb.module";
 import { ExpoScheduleModule } from '../expo-schedule/expo-schedule.module';
