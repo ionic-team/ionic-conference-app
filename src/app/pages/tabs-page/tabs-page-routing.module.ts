@@ -10,10 +10,10 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'agenda',
+        path: '',
         children: [
           {
-            path: '',
+            path: 'agenda',
             component: Tab1Page,
           },
           {
@@ -57,6 +57,11 @@ const routes: Routes = [
           }
         ]
       },
+
+  {
+    path: 'schedule',
+    loadChildren: () => import('../schedule/schedule-routing.module').then(m => m.SchedulePageRoutingModule)
+  },
       {
         path: 'exposchedule',
         children: [
@@ -133,7 +138,7 @@ const routes: Routes = [
 
       {
         path: '',
-        redirectTo: '/app/tabs/schedule',
+        redirectTo: '/agenda',
         pathMatch: 'full'
       }
     ]

@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'schedule',
-    loadChildren: () => import('./pages/tabs-page/tabs-page.module').then(m => m.TabsModule)
+    loadChildren: () => import('./pages/schedule/schedule.module').then(m => m.ScheduleModule)
   },
   {
     path: 'account',
@@ -31,10 +31,6 @@ const routes: Routes = [
   {
     path: 'exhibitor',
     loadChildren: () => import('./pages/exhibitor-list/exhibitor-list.module').then(m => m.ExhibitorListPageModule)
-  },
-  {
-    path: 'exposchedule',
-    loadChildren: () => import('./pages/expo-schedule/expo-schedule.module').then(m => m.ExpoScheduleModule)
   },
   {
     path: 'broadcasting',
@@ -60,6 +56,14 @@ const routes: Routes = [
   {
     path: 'details/:id',
     loadChildren: () => import('./pages/details/details.module').then(m => m.DetailsModule)
+  },,
+  {
+    path: 'session/:sessionId',
+    loadChildren: () => import('./pages/session-detail/session-detail.module').then(m => m.SessionDetailModule)
+  },
+  {
+    path: 'agenda-item/:id',
+    loadChildren: () => import('./pages/tab1/agenda-item/agenda-item.module').then(m => m.AgendaItemPageModule)
   }
 ];
 

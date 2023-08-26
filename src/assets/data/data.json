@@ -4,25 +4,25 @@
       "date": "2023-08-30",
       "groups": [
         {
-          "time": "Day 1, 2023-08-30 7:00 am",
+          "time": "Day 1, 30 August 2023 7:30 am",
           "sessions": [
             {
               "name": "Registration",
-              "timeStart": "7:00 am",
+              "timeStart": "7:30 am",
               "timeEnd": "9:00 am",
               "location": "Windhoek Show Grounds Office",
-              "description": "Attendees arrive and check-in. Breakfast is served, providing an opportunity for networking",
+              "description": "Arrival of Exhibitors",
               "tracks": ["registration"],
               "id": "1"
             }
           ]
         },
         {
-          "time": "Day 1, 2023-08-30 9:00 am",
+          "time": "Day 1, 30 August 2023 9:00 am",
           "sessions": [
             {
               "name": "Arrival by H.E. Dr Hage Geingob, President of the Republic of Namibia, AU & Namibia Anthems, Mr Ricardo Goagoseb - Director of ceremonies",
-              "location": "Arrival by H.E. Dr Hage Geingob, President of the Republic of Namibia, AU & Namibia Anthems, Mr Ricardo Goagoseb - Director of ceremonies",
+              "location": "Windhoek Show Grounds",
               "description": "Safety Moment.",
               "speakerNames": ["Mr Ricardo Goagoseb"],
               "timeStart": "9:00 am",
@@ -34,14 +34,14 @@
               "name": "Welcoming Remarks & Opening",
               "location": "Makalani Hall",
               "description": "Welcome Remarks & Opening",
-              "speakerNames": ["Mr. Zebra Kasete"],
+              "speakerNames": ["Mr. Zebra Kasete, President, Chamber of Mines of Namibia"],
               "timeStart": "9:10 am",
               "timeEnd": "9:20 am",
               "tracks": ["Speech"],
               "id": "3"
             },
             {
-              "name": "Remarks",
+              "name": "Remarks, Chairman, Namibian Petroleum Operators Association (NAMPOA)",
               "location": "Makalani Hall",
               "description": "Remarks",
               "speakerNames": ["Klaus Endresen"],
@@ -69,7 +69,7 @@
               "name": "Key Note address by H.E. Dr Hage Geingob, President of the Republic of Namibia and official opening of the 2023 Mining Expo and Conference",
               "location": "Makalani Hall",
               "description": "Official opening of the Mining Expo",
-              "speakerNames": [""],
+              "speakerNames": ["H.E. Dr Hage Geingob"],
               "timeStart": "9:40 am",
               "timeEnd": "10:10 am",
               "tracks": ["Remarks"],
@@ -86,7 +86,7 @@
               "id": "7"
             },
             {
-              "name": "Cutting of the Ribbon and Visiting of the booth by Delegation",
+              "name": "Cutting of the Ribbon and Visiting of the booth by Official Delegation",
               "location": "Makalani Hall",
               "description": "Cutting of the Ribbon and Visiting of the booth by Delegation",
               "speakerNames": [""],
@@ -96,7 +96,7 @@
               "id": "8"
             },
             {
-              "name": "Exhibition Opening",
+              "name": "Exhibition Opens to the general public",
               "location": "Windhoek Show Grounds",
               "description": "Exhibitor Opens to the general public",
               "speakerNames": [],
@@ -163,7 +163,7 @@
           ]
         },
         {
-          "time": "Day 2, 2023-08-31 7:30 am",
+          "time": "Day 2, 31 August 2023 7:30 am",
           "sessions": [
             {
               "name": "Conference Registration",
@@ -211,7 +211,7 @@
               "id": "18"
             },
             {
-              "name": "Closing",
+              "name": "Exhibition Closes",
               "location": "All Exhibition Halls",
               "description": "Closing Ceremony. Exhibition closes ",
               "speakerNames": [],
@@ -223,10 +223,10 @@
           ]
         },
         {
-          "time": "Day 2, 2023-08-31 18:00",
+          "time": "Day 2, 31 August 2023 18:00",
           "sessions": [
             {
-              "name": "Networking Cocktail Function",
+              "name": "Networking Cocktail Function, Presentation of awards for Best Stand/Booth (BY INVITATION ONLY)",
               "location": "Wag n Bietjie Hall",
               "description": "Presentation of Awards for the best stand/booth (BY INVITATION ONLY)",
               "speakerNames": [],

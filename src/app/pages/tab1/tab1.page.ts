@@ -32,6 +32,7 @@ export class Tab1Page implements OnInit {
   }
 
   async presentModal() {
+   
     // Call register every time the app launches
     // Show permission prompt the first time app is launched
     if (Capacitor.getPlatform() !== 'web') {
@@ -51,7 +52,9 @@ export class Tab1Page implements OnInit {
           breakpoints: [0, 1],
           cssClass: 'permissions-modal'
         });
+        
         return await modal.present();
+        
       }
     }
   }

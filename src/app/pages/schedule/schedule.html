@@ -1,17 +1,17 @@
 <ion-header translucent="true">
-  <ion-toolbar color="warning">
+  <ion-toolbar>
     <ion-buttons *ngIf="!showSearchbar" slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-segment *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
-        Day 1
+        All
       </ion-segment-button>
       <ion-segment-button value="favorites">
-        Day 2
+        Favorites
       </ion-segment-button>
     </ion-segment>
-    <ion-title *ngIf="!ios && !showSearchbar">Main Expo Programme</ion-title>
+    <ion-title *ngIf="!ios && !showSearchbar">Schedule</ion-title>
     <ion-searchbar *ngIf="showSearchbar" showCancelButton="always" [(ngModel)]="queryText" (ionInput)="updateSchedule()" (ionCancel)="showSearchbar = false" placeholder="Search"></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
@@ -28,10 +28,10 @@
   <ion-toolbar *ngIf="!ios">
     <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
-        Day 1
+        All
       </ion-segment-button>
       <ion-segment-button value="favorites">
-        Day 2
+        Favorites
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -59,7 +59,7 @@
         [hidden]="session.hide">
         <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
           <ion-label>
-            <h3>{{session.name}}</h3>
+            <h3 class="ion-text-wrap">{{session.name}}</h3>
             <p>
               {{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}
             </p>
@@ -77,6 +77,10 @@
       </ion-item-sliding>
     </ion-item-group>
   </ion-list>
+
+  <ion-list-header [hidden]="shownSessions > 0">
+    No Sessions Found
+  </ion-list-header>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
     <ion-fab-button>
