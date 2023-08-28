@@ -66,7 +66,7 @@ biography: `Aleksi is a team manager for Mineral potential research team at Mine
 firstName: 'Olavi ',
 lastName: 'Hangula',
 role: 'Relationship Manager – Mining & Energy',
-companyId: 5,
+companyId: 14,
 photoUrl: '/assets/img/speakers/Olavi.webp',
 twitter: "https://www.rmb.com.na/news/unlocking-the-potential-of-namibias-mining-sector",
 linkedin: "https://www.linkedin.com/in/olavi-hangula-1120a5108/?originalSubdomain=na",
@@ -159,17 +159,7 @@ biography: `Mr. Drysdale is an experienced professional with international exper
       
       He was appointed to the role of Managing Director/CEO of Deep Yellow in 2016, aiming to develop the Company into a Tier 1, multi-mine, global uranium producer. He has since built a capable, experienced team with a proven track record and initiated a dual pillar growth strategy of discovery of new deposits and mergers and acquisitions `
      },
-    {
-      id: 12,
-firstName: 'Willy ',
-lastName: 'Mertens',
-role: 'Chief Executive Officer',
-companyId: 11,
-photoUrl: '/assets/img/speakers/Willy.webp',
-twitter: "https://www.debmarinenamibia.com/",
-linkedin: "https://na.linkedin.com/in/willy-mertens-ca-sa-nam-60185449?original_referer=https%3A%2F%2Fwww.bing.com%2F",
-biography: ` Willy is the CEO of Debmarine`
-    },
+  
     {
       id: 13,
 firstName: 'Barcelona ',
@@ -251,6 +241,15 @@ photoUrl: '/assets/img/speakers/Veston.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
 biography: `Mr. Veston Malango is the current Chief Executive Officer of the Chamber of Mines of Namibia`
+},  {id: 12,
+  firstName: 'Willy ',
+  lastName: 'Mertens',
+  role: 'Chief Executive Officer',
+  companyId: 11,
+  photoUrl: '/assets/img/speakers/Willy2.png',
+  twitter: "https://www.debmarinenamibia.com/",
+  linkedin: "https://na.linkedin.com/in/willy-mertens",
+  biography: `Willy is the CEO of Debmarine`
 },
 {
   id: 19,

@@ -38,9 +38,17 @@
       class="animate__animated animate__slideInUp animate__fast"
       *ngIf="segment === 'list'"
     >
-    <div class="floor-plan-container">
-      <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
-    </div>
+    <div class="zoom-pane" id="mapImage"
+    zooming="true"
+    direction="xy"
+    delegate-handle="zoom-pane"
+    class="zoom-pane"
+    min-zoom="1"
+    max-zoom="15"
+    overflow-scroll="false">
+
+    <ion-img [src]="'./assets/img/MiningExpoPlan2023.png'" class="floor-plan-image"></ion-img>
+   </div>
     </ion-list>
     <ion-list  class="animate__animated animate__slideInUp animate__fast" *ngIf="segment === 'balcony'">
        <div class="floor-plan-container">
