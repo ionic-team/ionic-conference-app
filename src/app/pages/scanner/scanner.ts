@@ -1,5 +1,4 @@
-import { QRCodeModule } from 'angularx-qrcode';
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform, AlertController } from '@ionic/angular';
 import { DOCUMENT} from '@angular/common';
@@ -7,7 +6,7 @@ import { darkStyle } from './scanner-dark-style';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { any, reject, resolve } from 'cypress/types/bluebird';
 import { async } from 'rxjs/internal/scheduler/async';
-import { DataService } from '../../services/data.service';
+import { DataService, Scan } from '../../services/data.service';
 import { result } from 'cypress/types/lodash';
 
 
@@ -19,9 +18,17 @@ import { result } from 'cypress/types/lodash';
 export class ScannerPage implements OnDestroy {
   qrCodeString =  'This is the code for the mining expo'; 
   scannedResult: any;
+  qr: any;
   content_visibility = '';
+  dateTime = new Date();
+  sResult: Scan[] = [];
 
-   constructor (private dataService: DataService) {}
+   constructor (private dataService: DataService, private alertCtrl: AlertController) {
+    this.dataService.getScans().subscribe(res => {
+      console.log(res);
+      this.qr = res;
+    });
+   }
 
 
     async checkPermission() {
@@ -66,11 +73,45 @@ export class ScannerPage implements OnDestroy {
       }*/
    }
 
+   async addScan() {
 
-   async addScan(){
-    // handler: res => {
-      this.dataService.addScan(this.scannedResult);
+    this.dataService.addScan({ scan: this.scannedResult, dateTime: this.dateTime });
+    // const alert = await this.alertCtrl.create({
+    //   header: 'Add Scan',
+    //   inputs: [
+    //     {
+    //       name: 'scan',
+    //       placeholder: 'My cool scan',
+    //       type: 'text'
+    //     },
+    //     {
+    //       name: 'dateTime',
+    //       placeholder: '',
+    //       type: 'time'
+    //     }
+    //   ],
+    //   buttons: [
+    //     {
+    //       text: 'Cancel',
+    //       role: 'cancel'
+    //     }, {
+    //       text: 'Add',
+    //       handler: res => {
+    //         this.dataService.addScan({scan: res.scan, time: res.this.scannedResult});
+    //       }
+    //     }
+    //   ]
+    // });
+
+    // await alert.present();
   }
+
+
+  //  async addScan(){
+  //   // handler: res => {
+  //     this.dataService.addScan(this.sResult);
+  //     console.log(this.sResult);
+  // }
 
    stopScan() {
     BarcodeScanner.showBackground();

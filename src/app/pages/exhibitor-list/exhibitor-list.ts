@@ -31,7 +31,7 @@ export class ExhibitorListPage {
   //this.exhibitors = currentExhibitors;
 })
 
-  }
+   }
 
   async filterList(search) {
 this.initializeItems();
@@ -57,6 +57,12 @@ this.exhibitors = this.exhibitors.filter(Exhibitors => {
   console.log(Exhibitors);
  // this.initializeItems();
  }
+this.exhibitors = this.exhibitors.filter(currentExhibitors => {
+  if (currentExhibitors.name && search) {
+    // return (currentExhibitors.name.toLowerCase().indexOf(searchTerm.))
+  }
 })
+  })
+  
   }
-  }
+}
