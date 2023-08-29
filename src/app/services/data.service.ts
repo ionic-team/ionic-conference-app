@@ -27,4 +27,6 @@ export class DataService {
       const scanRef = collection(this.firestore, 'scanner');
       return addDoc(scanRef, scan);
     }
+
+    
 }

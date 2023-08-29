@@ -1,3 +1,4 @@
+import { QRCodeModule } from 'angularx-qrcode';
 import { Component, ElementRef, Inject, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { ConferenceData } from '../../providers/conference-data';
 import { Platform, AlertController } from '@ionic/angular';
@@ -16,7 +17,7 @@ import { result } from 'cypress/types/lodash';
   styleUrls: ['./scanner.scss']
 })
 export class ScannerPage implements OnDestroy {
-  qrCodeString = 'This is the code for the mining expo';
+  qrCodeString =  'This is the code for the mining expo'; 
   scannedResult: any;
   content_visibility = '';
 
@@ -37,7 +38,10 @@ export class ScannerPage implements OnDestroy {
     }
 
    async startScan() {
-    try {
+    console.log(JSON.parse(this.qrCodeString));
+    this.dataService.addScan(JSON.stringify(this.qrCodeString));
+    console.log('The post was successful');
+  /*  try {
       const permission = await this.checkPermission();  // Check camera permission
       if(!permission) {
         return true;
@@ -54,11 +58,12 @@ export class ScannerPage implements OnDestroy {
       if(result?.hasContent) {
         this.scannedResult = result.content;
         console.log(this.scannedResult); // log the raw scanned content
+        this.dataService.addScan(this.scannedResult);
       }
     } catch(e) {
         console.log(e);
         this.stopScan();
-      }
+      }*/
    }
 
 
