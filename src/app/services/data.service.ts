@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, docData, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, docData, addDoc, Timestamp } from '@angular/fire/firestore';
+
+export interface Scan {
+  id?: string;
+  scan: string;
+  dateTime: Date;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +29,15 @@ export class DataService {
       return collectionData(supPlatformRef);
     }
 
-    addScan(scan: String){
+
+    getScans() {
+      const scannerRef = collection(this.firestore, 'scanner');
+      return collectionData(scannerRef);
+    }
+
+    addScan(scan: Scan){
       const scanRef = collection(this.firestore, 'scanner');
       return addDoc(scanRef, scan);
     }
+
 }
