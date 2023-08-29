@@ -46,7 +46,7 @@ export class ScannerPage implements OnDestroy {
 
    async startScan() {
     console.log(JSON.parse(this.qrCodeString));
-    this.dataService.addScan(JSON.stringify(this.qrCodeString));
+  //  this.dataService.addScan(JSON.stringify(this.qrCodeString));
     console.log('The post was successful');
   /*  try {
       const permission = await this.checkPermission();  // Check camera permission
