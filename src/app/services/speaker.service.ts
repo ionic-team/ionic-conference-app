@@ -16,15 +16,15 @@ export class SpeakerService {
       twitter: "",
       linkedin: "",
       biography: ` Hon. Tom Alweendo, is the Minister of Mines and Energy in the Cabinet of the Republic of Namibia. Born on 17 March 1958, in Okahenge, Oshana Region, Hon. Thomas Kavaningilamo Alweendo was appointed as Minister of Mines and Energy in February 2018 by President Hage G. Geingob.
-      
+
       Prior to his appointment, Alweendo was the Director General of the National Planning Commission appointed by former President, H.E Hifikepunye Pohamba as Director General of the National Planning Commission (NPC). The National Planning Commission is a Constitutional body that is tasked with the responsibility to plan the priorities and direction of national development. In March 2015 he was appointed by President Hage G. Geingob as Minister of Economic Planning and also as Director General of the NPC.
-      
+
       His extensive economic experience stems from having served as the Governor of the Bank of Namibia from January 1997 to March 2010. Alweendo was the first Namibian to serve as Governor of the Central Bank when he was appointed by Namibia’s Founding President Sam Nujoma. Before being appointed as Governor, he served as Deputy Governor for four years (1993-1996). Among some of his achievements during his tenure at the Bank of Namibia are the establishment of the local currency, the Namibia Dollar; the localization of the payments and banking systems; and the establishment of the Financial Intelligence Center.
-      
+
       As Director General of the National Planning Commission, he presided over the drafting of Namibia’s fourth National Development Plan (NDP4). The NDP4 prioritized specific economic sectors that are perceived to have more potential to grow the economy and provide employment opportunities. This is notably agriculture, logistics, tourism, and manufacturing. The Plan also propounds a hands-on approach with regard to the Government’s role in economic development albeit in closer and effective collaboration with the private sector. Over the course of the NDP4 period the Namibian economy grew on average at 5.7 percent, despite the global economic crises and current global commodity crises.
-      
+
       The Ministry of Mines and Energy (MME) is the State’s lead agency in attracting private investment in resources exploration and development through the provision of geoscientific information on minerals and energy resources, and management of an equitable and secure titles systems for the mining, petroleum and geothermal industries. As the Minister of Mines and Energy, he seeks to provides access to Namibia's geological, mineral and energy resources for sustainable economic growth, equal benefit and prosperity to all Namibian citizens. He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.
-      
+
       He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.An avid reader and knowledge seeker, Hon. Tom Alweendo holds a Bachelor of Commerce from the University of Witwatersrand, Johannesburg, South Africa and a Masters in Business Administration (MBA) from the University of Wales. ` },
     { id: 2,
       firstName: 'Aphary ',
@@ -35,7 +35,7 @@ export class SpeakerService {
       twitter: "https://mme.gov.na/directorates/gsn/",
       linkedin: "https://www.linkedin.com/in/aphary-muyongo-15507775/?originalSubdomain=na",
       biography: `Aphary Muyongo is a Deputy Director and head of the Economic Geology Division at the Geological Survey of Namibia within the Ministry of Mines and Energy. He holds an M.Sc. degree in Applied Geoscience specialising in Exploration and Economic Geology (University of Namibia); a double major B.Sc. degree in Geology and Chemistry (University of Namibia); and a B.Sc.
-      
+
       Honours degree (ore deposit stream) from the University of KwaZulu-Natal, RSA. He has over 19 years of work experience including geological mapping and mineral exploration accumulated mainly at the Geological Survey of Namibia and private mineral exploration industry. `    },
     {
       id: 3,
@@ -76,7 +76,7 @@ Previously, Olavi worked as an Investment Banking Analyst at Jefferies in London
 
 In addition to his finance experience, Olavi gained practical insight into Namibian Private Equity, deepening his understanding of challenges in emerging markets. Holding a degree in International Relations with a Minor in Business from the University of Rochester, New York, Olavi is dedicated to driving positive change and collaborative achievements. `
          },
-    {  
+    {
       id: 6,
       firstName: 'Kirsty ',
       lastName: 'Liddicoat',
@@ -86,13 +86,13 @@ In addition to his finance experience, Olavi gained practical insight into Namib
       twitter: "https://www.northerngraphite.com/home/",
       linkedin: "https://www.linkedin.com/in/kirsty-liddicoat-a7203716/?originalSubdomain=ca",
       biography: `Kirsty is the Chief Operating Officer for Northern Graphite. Over 20 years’ in the mining industry has seen her career cover strategy, mine and project management, mine planning, engineering, geoscience and exploration in oil sands, coal, gold, iron ore, bauxite and copper-gold. Kirsty’s been instrumental in changing the way geoscience is undertaken in coal through the application of new technologies and methodologies.
-      
+
       Having worked in remote and regional areas Kirsty is well accustomed to working with people from a wide variety of backgrounds in demanding conditions. Her dedication to the progression of inclusion and diversity in the industry has developed into a passion for supporting women through their careers.
-      
+
       Kirsty has a Bachelor of Science in Geology (Honors), a Masters in Mining Engineering and a Masters in Business Administration. In 2018 Kirsty received a Chief Executive Women scholarship to attend INSEAD, in 2012 she received the Women in Leadership Australia Scholarship designed to develop high potential female leaders and in 2013 Kirsty was recognized in the inaugural 100 Global most Inspirational Women in Mining published by Women in Mining United Kingdom.
-      
+
       With a track record in team leadership, mine development, mine planning and systems establishment, Kirsty has been instrumental in changing the culture of two major sites in order to improve safety and increase productivity.
-      
+
       Kirsty has a love of the outdoors and all associated activities, has hiked to Everest Base Camp and is known to do anything to get a thrill - not limited to rock climbing and jumping out of planes. She travels extensively and enjoys time with family and friends. `
     },
     {
@@ -156,10 +156,10 @@ biography: `Mr. Drysdale is an experienced professional with international exper
       twitter: "https://deepyellow.com.au/",
       linkedin: "https://www.linkedin.com/in/john-borshoff-44b4a9156/?originalSubdomain=au",
       biography: `John is an experienced mining executive and geologist with more than 45 years’ uranium industry experience. He founded Paladin Energy Limited in 1993 and took it from a junior explorer to a multi-mine uranium company worth more than US$5 billion at its peak in the pre-Fukushima era.
-      
+
       He was appointed to the role of Managing Director/CEO of Deep Yellow in 2016, aiming to develop the Company into a Tier 1, multi-mine, global uranium producer. He has since built a capable, experienced team with a proven track record and initiated a dual pillar growth strategy of discovery of new deposits and mergers and acquisitions `
      },
-  
+
     {
       id: 13,
 firstName: 'Barcelona ',
@@ -241,12 +241,13 @@ photoUrl: '/assets/img/speakers/Veston.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
 biography: `Mr. Veston Malango is the current Chief Executive Officer of the Chamber of Mines of Namibia`
-},  {id: 12,
+},
+{id: 12,
   firstName: 'Willy ',
   lastName: 'Mertens',
   role: 'Chief Executive Officer',
   companyId: 11,
-  photoUrl: '/assets/img/speakers/Willy2.png',
+  photoUrl: '/assets/img/speakers/WillyM.webp',
   twitter: "https://www.debmarinenamibia.com/",
   linkedin: "https://na.linkedin.com/in/willy-mertens",
   biography: `Willy is the CEO of Debmarine`
