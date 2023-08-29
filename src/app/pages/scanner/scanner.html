@@ -28,6 +28,16 @@
     <ion-button expand="full" (click)="stopScan()">Stop Scan</ion-button>
   </ion-col>
 </ion-row> -->
+
+<ion-row>
+  <h4><span>Please Select an Action:</span></h4>
+  <select (change)="selectChangeHandler($event)">
+    <option value="select">Select</option>
+    <option value="in">In</option>
+    <option value="out">Out</option>
+  </select>
+</ion-row>
+
 <ion-row>
   <ion-col class="ion-no-padding">
     <ion-button color="warning" expand="full" (click)="addScan()">Submit</ion-button>

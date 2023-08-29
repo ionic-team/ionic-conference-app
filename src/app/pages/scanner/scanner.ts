@@ -16,12 +16,15 @@ import { result } from 'cypress/types/lodash';
   styleUrls: ['./scanner.scss']
 })
 export class ScannerPage implements OnDestroy {
-  qrCodeString =  'This is the code for the mining expo'; 
+  qrCodeString =  'This is the code for the mining expo';
   scannedResult: any;
   qr: any;
   content_visibility = '';
   dateTime = new Date();
   sResult: Scan[] = [];
+
+
+  selectedAction: String = '';
 
    constructor (private dataService: DataService, private alertCtrl: AlertController) {
     this.dataService.getScans().subscribe(res => {
@@ -29,6 +32,13 @@ export class ScannerPage implements OnDestroy {
       this.qr = res;
     });
    }
+
+
+  //event handler for the select element's change event
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.selectedAction = event.target.value;
+  }
 
 
     async checkPermission() {
@@ -45,9 +55,9 @@ export class ScannerPage implements OnDestroy {
     }
 
    async startScan() {
-   // console.log(JSON.parse(this.qrCodeString));
+    console.log(this.selectedAction);
   //  this.dataService.addScan(JSON.stringify(this.qrCodeString));
-    console.log('The post was successful');
+
     try {
       const permission = await this.checkPermission();  // Check camera permission
       if(!permission) {
@@ -74,36 +84,17 @@ export class ScannerPage implements OnDestroy {
    }
 
    async addScan() {
+    // console.log(this.selectedAction);
+    this.dataService.addScan({ scan: this.scannedResult, dateTime: this.dateTime, action: this.selectedAction });
 
-    this.dataService.addScan({ scan: this.scannedResult, dateTime: this.dateTime });
-    // const alert = await this.alertCtrl.create({
-    //   header: 'Add Scan',
-    //   inputs: [
-    //     {
-    //       name: 'scan',
-    //       placeholder: 'My cool scan',
-    //       type: 'text'
-    //     },
-    //     {
-    //       name: 'dateTime',
-    //       placeholder: '',
-    //       type: 'time'
-    //     }
-    //   ],
-    //   buttons: [
-    //     {
-    //       text: 'Cancel',
-    //       role: 'cancel'
-    //     }, {
-    //       text: 'Add',
-    //       handler: res => {
-    //         this.dataService.addScan({scan: res.scan, time: res.this.scannedResult});
-    //       }
-    //     }
-    //   ]
-    // });
+    const alert = await this.alertCtrl.create({
+      header: 'Submitted!',
+      message: 'Your Scan Results have Successfully been Submitted!',
+      buttons: ['OK']
+    });
 
-    // await alert.present();
+    await alert.present();
+    // this.router.navigateByUrl('/app/tabs/scanner', { replaceUrl: true });
   }
 
 

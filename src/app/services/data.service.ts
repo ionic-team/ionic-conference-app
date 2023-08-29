@@ -5,6 +5,7 @@ export interface Scan {
   id?: string;
   scan: string;
   dateTime: Date;
+  action: String;
 }
 
 @Injectable({
@@ -40,6 +41,6 @@ export class DataService {
       return addDoc(scanRef, scan);
     }
 
-    
+
 
 }
