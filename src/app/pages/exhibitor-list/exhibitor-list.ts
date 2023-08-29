@@ -27,6 +27,9 @@ export class ExhibitorListPage {
   async initializeItems() {
  this.dataService.getExhibitors().subscribe(res => {
   this.exhibitors = res;
+  // this.exhibitors = this.exhibitors.filter(currentExhibitors => {
+
+  // })
  // console.log(currentExhibitors);
   //this.exhibitors = currentExhibitors;
 })
@@ -34,7 +37,7 @@ export class ExhibitorListPage {
    }
 
   async filterList(search) {
-this.initializeItems();
+// this.initializeItems();
 
 console.log(search);
 if (!search) {
@@ -52,16 +55,17 @@ if (!search) {
 //)
 
 this.exhibitors = this.exhibitors.filter(Exhibitors => {
-  if (Exhibitors.name.includes(search)) {
+ // if (Exhibitors.name.includes(search)) {
    // return (Exhibitors.name.toLowerCase().indexOf(searchTerm.))
-  console.log(Exhibitors);
+ // console.log(Exhibitors);
  // this.initializeItems();
- }
-this.exhibitors = this.exhibitors.filter(currentExhibitors => {
-  if (currentExhibitors.name && search) {
+ //}
+//this.exhibitors = this.exhibitors.filter(currentExhibitors => {
+//  if (currentExhibitors.name.includes(search)) {
+//    console.log(currentExhibitors);
     // return (currentExhibitors.name.toLowerCase().indexOf(searchTerm.))
-  }
-})
+//  }
+//})
   })
   
   }
