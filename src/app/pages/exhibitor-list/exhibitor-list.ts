@@ -15,6 +15,7 @@ export class ExhibitorListPage {
   exhibitors = [];
   currentExhibitors = [];
   Exhibitors = [];
+  items: string[];
 //  filterList = [];
 
   constructor(private dataService: DataService) {
@@ -37,6 +38,22 @@ export class ExhibitorListPage {
    }
 
   async filterList(search) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the searchbar
+    const val = search.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.exhibitors = this.exhibitors.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
+
+  async filterList2(search) {
 // this.initializeItems();
 
 console.log(search);
