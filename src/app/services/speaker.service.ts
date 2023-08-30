@@ -17,15 +17,15 @@ export class SpeakerService {
       linkedin: "",
       biography: ` Hon. Tom Alweendo, is the Minister of Mines and Energy in the Cabinet of the Republic of Namibia. Born on 17 March 1958, in Okahenge, Oshana Region, Hon. Thomas Kavaningilamo Alweendo was appointed as Minister of Mines and Energy in February 2018 by President Hage G. Geingob.
 
-      Prior to his appointment, Alweendo was the Director General of the National Planning Commission appointed by former President, H.E Hifikepunye Pohamba as Director General of the National Planning Commission (NPC). The National Planning Commission is a Constitutional body that is tasked with the responsibility to plan the priorities and direction of national development. In March 2015 he was appointed by President Hage G. Geingob as Minister of Economic Planning and also as Director General of the NPC.
+Prior to his appointment, Alweendo was the Director General of the National Planning Commission appointed by former President, H.E Hifikepunye Pohamba as Director General of the National Planning Commission (NPC). The National Planning Commission is a Constitutional body that is tasked with the responsibility to plan the priorities and direction of national development. In March 2015 he was appointed by President Hage G. Geingob as Minister of Economic Planning and also as Director General of the NPC.
 
-      His extensive economic experience stems from having served as the Governor of the Bank of Namibia from January 1997 to March 2010. Alweendo was the first Namibian to serve as Governor of the Central Bank when he was appointed by Namibia’s Founding President Sam Nujoma. Before being appointed as Governor, he served as Deputy Governor for four years (1993-1996). Among some of his achievements during his tenure at the Bank of Namibia are the establishment of the local currency, the Namibia Dollar; the localization of the payments and banking systems; and the establishment of the Financial Intelligence Center.
+His extensive economic experience stems from having served as the Governor of the Bank of Namibia from January 1997 to March 2010. Alweendo was the first Namibian to serve as Governor of the Central Bank when he was appointed by Namibia’s Founding President Sam Nujoma. Before being appointed as Governor, he served as Deputy Governor for four years (1993-1996). Among some of his achievements during his tenure at the Bank of Namibia are the establishment of the local currency, the Namibia Dollar; the localization of the payments and banking systems; and the establishment of the Financial Intelligence Center.
 
-      As Director General of the National Planning Commission, he presided over the drafting of Namibia’s fourth National Development Plan (NDP4). The NDP4 prioritized specific economic sectors that are perceived to have more potential to grow the economy and provide employment opportunities. This is notably agriculture, logistics, tourism, and manufacturing. The Plan also propounds a hands-on approach with regard to the Government’s role in economic development albeit in closer and effective collaboration with the private sector. Over the course of the NDP4 period the Namibian economy grew on average at 5.7 percent, despite the global economic crises and current global commodity crises.
+As Director General of the National Planning Commission, he presided over the drafting of Namibia’s fourth National Development Plan (NDP4). The NDP4 prioritized specific economic sectors that are perceived to have more potential to grow the economy and provide employment opportunities. This is notably agriculture, logistics, tourism, and manufacturing. The Plan also propounds a hands-on approach with regard to the Government’s role in economic development albeit in closer and effective collaboration with the private sector. Over the course of the NDP4 period the Namibian economy grew on average at 5.7 percent, despite the global economic crises and current global commodity crises.
 
-      The Ministry of Mines and Energy (MME) is the State’s lead agency in attracting private investment in resources exploration and development through the provision of geoscientific information on minerals and energy resources, and management of an equitable and secure titles systems for the mining, petroleum and geothermal industries. As the Minister of Mines and Energy, he seeks to provides access to Namibia's geological, mineral and energy resources for sustainable economic growth, equal benefit and prosperity to all Namibian citizens. He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.
+The Ministry of Mines and Energy (MME) is the State’s lead agency in attracting private investment in resources exploration and development through the provision of geoscientific information on minerals and energy resources, and management of an equitable and secure titles systems for the mining, petroleum and geothermal industries. As the Minister of Mines and Energy, he seeks to provides access to Namibia's geological, mineral and energy resources for sustainable economic growth, equal benefit and prosperity to all Namibian citizens. He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.
 
-      He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.An avid reader and knowledge seeker, Hon. Tom Alweendo holds a Bachelor of Commerce from the University of Witwatersrand, Johannesburg, South Africa and a Masters in Business Administration (MBA) from the University of Wales. ` },
+He is a firm believer that with ordinary talent, combined with extraordinary perseverance and buttressed by meritocracy, all things are achievable.An avid reader and knowledge seeker, Hon. Tom Alweendo holds a Bachelor of Commerce from the University of Witwatersrand, Johannesburg, South Africa and a Masters in Business Administration (MBA) from the University of Wales. ` },
     { id: 2,
       firstName: 'Aphary ',
       lastName: 'Muyongo',
@@ -36,7 +36,7 @@ export class SpeakerService {
       linkedin: "https://www.linkedin.com/in/aphary-muyongo-15507775/?originalSubdomain=na",
       biography: `Aphary Muyongo is a Deputy Director and head of the Economic Geology Division at the Geological Survey of Namibia within the Ministry of Mines and Energy. He holds an M.Sc. degree in Applied Geoscience specialising in Exploration and Economic Geology (University of Namibia); a double major B.Sc. degree in Geology and Chemistry (University of Namibia); and a B.Sc.
 
-      Honours degree (ore deposit stream) from the University of KwaZulu-Natal, RSA. He has over 19 years of work experience including geological mapping and mineral exploration accumulated mainly at the Geological Survey of Namibia and private mineral exploration industry. `    },
+Honours degree (ore deposit stream) from the University of KwaZulu-Natal, RSA. He has over 19 years of work experience including geological mapping and mineral exploration accumulated mainly at the Geological Survey of Namibia and private mineral exploration industry. `    },
     {
       id: 3,
 firstName: 'Anthony ',
@@ -60,7 +60,9 @@ companyId: 4,
 photoUrl: '/assets/img/speakers/Aleksi.webp',
 twitter: "https://www.gtk.fi/en/",
 linkedin: "https://www.linkedin.com/in/jaleksi/?originalSubdomain=fi",
-biography: `Aleksi is a team manager for Mineral potential research team at Mineral economy solutions unit at the Geological Survey of Finland. Aleksi has worked in near mine exploration and resource drilling programs at the industry before his career at GTK, in both underground and open pit operations. At GTK Aleksi has worked as geologist, team manager and Head of unit. Current Team manager tasks include customer relations and project generation responsibilities. Aleksi’s GTK project background include critical mineral evaluation for the EC and project management for the Koillismaa deephole. Main research topics Aleksi is interested in are the different aspects of utilization of mineral resources from research to national strategy and policies. `   },
+biography: `Aleksi is a team manager for Mineral potential research team at Mineral economy solutions unit at the Geological Survey of Finland. Aleksi has worked in near mine exploration and resource drilling programs at the industry before his career at GTK, in both underground and open pit operations.
+
+At GTK Aleksi has worked as geologist, team manager and Head of unit. Current Team manager tasks include customer relations and project generation responsibilities. Aleksi’s GTK project background include critical mineral evaluation for the EC and project management for the Koillismaa deephole. Main research topics Aleksi is interested in are the different aspects of utilization of mineral resources from research to national strategy and policies. `   },
     {
       id: 5,
 firstName: 'Olavi ',
@@ -87,13 +89,13 @@ In addition to his finance experience, Olavi gained practical insight into Namib
       linkedin: "https://www.linkedin.com/in/kirsty-liddicoat-a7203716/?originalSubdomain=ca",
       biography: `Kirsty is the Chief Operating Officer for Northern Graphite. Over 20 years’ in the mining industry has seen her career cover strategy, mine and project management, mine planning, engineering, geoscience and exploration in oil sands, coal, gold, iron ore, bauxite and copper-gold. Kirsty’s been instrumental in changing the way geoscience is undertaken in coal through the application of new technologies and methodologies.
 
-      Having worked in remote and regional areas Kirsty is well accustomed to working with people from a wide variety of backgrounds in demanding conditions. Her dedication to the progression of inclusion and diversity in the industry has developed into a passion for supporting women through their careers.
+Having worked in remote and regional areas Kirsty is well accustomed to working with people from a wide variety of backgrounds in demanding conditions. Her dedication to the progression of inclusion and diversity in the industry has developed into a passion for supporting women through their careers.
 
-      Kirsty has a Bachelor of Science in Geology (Honors), a Masters in Mining Engineering and a Masters in Business Administration. In 2018 Kirsty received a Chief Executive Women scholarship to attend INSEAD, in 2012 she received the Women in Leadership Australia Scholarship designed to develop high potential female leaders and in 2013 Kirsty was recognized in the inaugural 100 Global most Inspirational Women in Mining published by Women in Mining United Kingdom.
+Kirsty has a Bachelor of Science in Geology (Honors), a Masters in Mining Engineering and a Masters in Business Administration. In 2018 Kirsty received a Chief Executive Women scholarship to attend INSEAD, in 2012 she received the Women in Leadership Australia Scholarship designed to develop high potential female leaders and in 2013 Kirsty was recognized in the inaugural 100 Global most Inspirational Women in Mining published by Women in Mining United Kingdom.
 
-      With a track record in team leadership, mine development, mine planning and systems establishment, Kirsty has been instrumental in changing the culture of two major sites in order to improve safety and increase productivity.
+With a track record in team leadership, mine development, mine planning and systems establishment, Kirsty has been instrumental in changing the culture of two major sites in order to improve safety and increase productivity.
 
-      Kirsty has a love of the outdoors and all associated activities, has hiked to Everest Base Camp and is known to do anything to get a thrill - not limited to rock climbing and jumping out of planes. She travels extensively and enjoys time with family and friends. `
+Kirsty has a love of the outdoors and all associated activities, has hiked to Everest Base Camp and is known to do anything to get a thrill - not limited to rock climbing and jumping out of planes. She travels extensively and enjoys time with family and friends. `
     },
     {
       id: 7,
@@ -145,7 +147,11 @@ companyId: 9,
 photoUrl: '/assets/img/speakers/Christopher.webp',
 twitter: "https://www.antlergold.com/",
 linkedin: "https://www.linkedin.com/in/christopher-drysdale-2a140b47/",
-biography: `Mr. Drysdale is an experienced professional with international expertise in the mineral and exploration industry. He currently holds the position of CEO at Antler Gold Inc. (TSX.V:ANTL) and serves as a Director at E-Tech Resources Inc. (TSX.V:REE). With a diverse background and extensive work experience in Namibia and Africa, he actively promotes environmentally conscious practices in the extraction and production of critical minerals necessary for the global energy transition. `
+biography: `Mr. Drysdale is an experienced professional with international expertise in the mineral and exploration industry.
+
+He currently holds the position of CEO at Antler Gold Inc. (TSX.V:ANTL) and serves as a Director at E-Tech Resources Inc.
+
+(TSX.V:REE). With a diverse background and extensive work experience in Namibia and Africa, he actively promotes environmentally conscious practices in the extraction and production of critical minerals necessary for the global energy transition. `
     },
     {id: 11,
       firstName: 'John ',
@@ -157,7 +163,7 @@ biography: `Mr. Drysdale is an experienced professional with international exper
       linkedin: "https://www.linkedin.com/in/john-borshoff-44b4a9156/?originalSubdomain=au",
       biography: `John is an experienced mining executive and geologist with more than 45 years’ uranium industry experience. He founded Paladin Energy Limited in 1993 and took it from a junior explorer to a multi-mine uranium company worth more than US$5 billion at its peak in the pre-Fukushima era.
 
-      He was appointed to the role of Managing Director/CEO of Deep Yellow in 2016, aiming to develop the Company into a Tier 1, multi-mine, global uranium producer. He has since built a capable, experienced team with a proven track record and initiated a dual pillar growth strategy of discovery of new deposits and mergers and acquisitions `
+He was appointed to the role of Managing Director/CEO of Deep Yellow in 2016, aiming to develop the Company into a Tier 1, multi-mine, global uranium producer. He has since built a capable, experienced team with a proven track record and initiated a dual pillar growth strategy of discovery of new deposits and mergers and acquisitions `
      },
 
     {
@@ -217,7 +223,13 @@ companyId: 1,
 photoUrl: '/assets/img/speakers/Zebra.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
-biography: `Mr. Zebra Kasete is the current president of the Chamber of Mines of Namibia`
+biography: `Zebra Kasete is the General Manager, Vice President and Managing Director at Dundee Precious Metals Tsumeb.
+
+He brings over 30 years of mining and smelting experience to the operation, having held senior positions within the mining industry, serving both Rio Tinto and Rossing Uranium. He has extensive experience in the areas of production, processing, procurement, business and strategic development.
+
+Prior to joining DPM, Mr. Kasete was the Managing Director of Murowa Diamonds, Zimbabwe, and has held positions internationally including Namibia, Australia and the United States. Mr. Kasete is a metallurgist and holds a Master's in Business Administration from the University of Maastricht in the Netherlands.
+
+Mr. Kasete was appointed Vice President and Managing Director of DPM Tsumeb in February 2016.`
   }
   ,
   {
@@ -229,7 +241,14 @@ companyId: 1,
 photoUrl: '/assets/img/speakers/GeorgeBotshiwe.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
-biography: `Mr. George Botshiwe is the current vice president of the Chamber of Mines of Namibia`
+biography: `George is a Mining Engineer by Training and joined Navachab Gold Mine as a mining engineer in 2004.
+
+He was appointed as the youngest MD of Navachab Gold Mine in January 2018. George took over a mine in financial distress and led the mine team in a turnaround strategy to resolve the financial situation of the mine.
+
+The strategy implemented was all inclusive and involved the whole workforce and key was honest communication and teamwork. With the Team, he achieved positive results in a short space time through tenacity, grit, and courage.
+
+The mine is now able to sustain its operations and has embarked on several expansion projects. George Holds a Mining Engineering Honours Degree from the University of Zimbabwe, a Post Graduate Mining Engineering degree from Wits University and an MBA from the London School of Business and Finance.
+`
  },
  {
    id: 18,
@@ -240,7 +259,12 @@ companyId: 1,
 photoUrl: '/assets/img/speakers/Veston.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
-biography: `Mr. Veston Malango is the current Chief Executive Officer of the Chamber of Mines of Namibia`
+biography: `Mr. Veston Malango is the Chief Executive Officer of the Chamber of Mines of Namibia. He is a Mining Engineer with a M.Sc. Degree (1985) from the Technical University Bergakademie Freiberg, Germany and a qualified Gemmologist with Diplomas (1993) in Diamond Grading and in Coloured Gemstones from the German Gemmological Training Centre in Idar-Oberstein, Germany. Mr. Malango holds an MBA (2004) from the Maastricht School of Management, The Netherlands.
+
+Mr. Malango has 34 years of experience in the mining industry in the SADC region. He worked in the Zambian copper mines after university studies as a graduate mining engineer, then at the Ministry of Mines and the SADC Mining Sector Coordinating Unit in Lusaka. Mr Malango was the Deputy Director of Mines at the Ministry of Mines and Energy of Namibia for eight years and then joined Ongopolo Mining & Processing Ltd, now Weatherly Mining Namibia for one and half years as Director responsible for strategic projects. He has been heading the Chamber of Mines of Namibia since October 2005.
+
+Mr. Malango currently serves on Boards of the Namibia University of Science and Technology – Mining & Process Engineering Advisory Board (Board Chairperson), Namibian Institute of Mining and Technology (NIMT) and the Minerals Development Fund of Namibia (MDF). He has previously served on several other Boards; i.e. Bank of Namibia (Chairperson of the BoN Remuneration Committee), the Council of the Namibia University of Science and Technology as Vice-Chairperson, Namibia Trade Forum and the Namibia Medical Care (NMC) Fund. He is the past President of the Mining Industry Association of Southern Africa (MIASA), a private sector regional body of all Chambers of Mines in the SADC Region. MIASA membership comprises the Chambers of Mines of Botswana, the Democratic Republic of Congo, Madagascar, Malawi, Namibia, South Africa, Tanzania, Zambia & Zimbabwe
+`
 },
 {id: 12,
   firstName: 'Willy ',
@@ -250,7 +274,13 @@ biography: `Mr. Veston Malango is the current Chief Executive Officer of the Cha
   photoUrl: '/assets/img/speakers/WillyM.webp',
   twitter: "https://www.debmarinenamibia.com/",
   linkedin: "https://na.linkedin.com/in/willy-mertens",
-  biography: `Willy is the CEO of Debmarine`
+  biography: `Willy Mertens is the Chief Executive Officer of Debmarine Namibia.
+
+Before taking position as CEO in November 2022, Willy held the position of Chief Financial Officer at Debmarine Namibia with oversight financial accountability of Namdeb Holdings.
+
+A registered Chartered Accountant by profession with a Graduate Diploma in Mining Engineering from the University of the Witwatersrand, South Africa. He also completed a Senior Executive Development Programme through the London Business School.
+
+He serves on the boards of Ashburton Investment Managers and the Development Bank of Namibia and previously served on boards in various industries, including electricity distribution, banking, aviationandvocationaltraining.`
 },
 {
   id: 19,
@@ -261,7 +291,13 @@ companyId: 1,
 photoUrl: '/assets/img/speakers/JohnRoos.webp',
 twitter: "https://chamberofmines.org.na/",
 linkedin: "https://www.linkedin.com/",
-biography: `Mr. John Roos is the second Vice President of the Chamber of Mines of Namibia`
+biography: `John Roos is a Director and Country Manager for B2Gold Namibia.
+
+He is a registered Chartered Accountant with the South African Institute of Chartered Accountants.
+
+Apart from heading the financial affairs of B2Gold Namibia, John has been involved in several significant renewable projects within the company with a combined project value of more than N$ 300 Million.
+
+He is also keenly involved in B2Gold’s Corporate Social Investments (CSI) projects and is a member of B2Gold Namibia’s CSI Board.`
 }
 
   ];
