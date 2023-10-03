@@ -4,7 +4,7 @@
     "importHelpers": true,
     "module": "es2020",
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
