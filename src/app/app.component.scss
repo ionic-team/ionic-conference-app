@@ -24,6 +24,8 @@ ion-menu.md ion-list-header {
   padding-right: 18px;
   padding-left: 18px;
 
+  font-size: min(0.875rem, 32px);
+
   font-weight: 450;
 
   letter-spacing: .1em;
@@ -67,6 +69,8 @@ ion-menu.ios ion-list-header {
 
   padding-right: 16px;
   padding-left: 16px;
+
+  font-size: clamp(22px, 1.375rem, 40px);
 }
 
 ion-menu.ios ion-list {
