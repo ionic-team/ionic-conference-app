@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
-    this.swUpdate.available.subscribe(async res => {
+    this.swUpdate.versionUpdates.subscribe(async res => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
         position: 'bottom',
