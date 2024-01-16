@@ -1,26 +1,7 @@
 {
-  "name": "mining-expo",
-  "version": "0.0.0",
-  "description": "mining-expo",
-  "author": "BI-Dynamics <support@bidynamics.com>",
-  "license": "Apache-2.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint && npm run lint:sass",
-    "lint:sass": "stylelint \"src/**/*.scss\"",
-    "e2e": "ng e2e",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/ionic-conference-app.git"
-  },
-  "private": true,
-  "dependencies": {
+  "version": "6.0",
+  "nxVersion": "16.5.1",
+  "deps": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0",
     "@angular/fire": "^7.6.1",
@@ -56,9 +37,7 @@
     "tslib": "^2.0.0",
     "wait-on": "^7.0.1",
     "webdriver-manager": "12.1.9",
-    "zone.js": "~0.13.0"
-  },
-  "devDependencies": {
+    "zone.js": "~0.13.0",
     "@angular-devkit/architect": "^0.1600.0",
     "@angular-devkit/build-angular": "^16.0.0",
     "@angular-devkit/core": "^16.0.0",
@@ -102,5 +81,8 @@
     "ts-node": "8.5.0",
     "tslint": "~6.1.0",
     "typescript": "~5.0.4"
-  }
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "projectFileMap": {}
 }
