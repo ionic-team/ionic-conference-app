@@ -84,8 +84,9 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       if (this.platform.is('hybrid')) {
-        StatusBar.hide();
-        SplashScreen.hide();
+        setTimeout(() => {
+          SplashScreen.hide();
+        }, 250);
       }
     });
   }

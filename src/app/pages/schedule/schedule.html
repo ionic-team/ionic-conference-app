@@ -3,7 +3,7 @@
     <ion-buttons *ngIf="!showSearchbar" slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-segment *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
+    <ion-segment class="in-toolbar" *ngIf="ios" [(ngModel)]="segment" (ionChange)="updateSchedule()">
       <ion-segment-button value="all">
         All
       </ion-segment-button>
