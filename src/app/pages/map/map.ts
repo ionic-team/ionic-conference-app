@@ -22,7 +22,7 @@ export class MapPage implements AfterViewInit {
     const appEl = this.doc.querySelector('ion-app');
     let isDark = false;
     let style = [];
-    if (appEl.classList.contains('dark-theme')) {
+    if (appEl.classList.contains('ion-palette-dark')) {
       style = darkStyle;
     }
 
@@ -66,7 +66,7 @@ export class MapPage implements AfterViewInit {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
           const el = mutation.target as HTMLElement;
-          isDark = el.classList.contains('dark-theme');
+          isDark = el.classList.contains('ion-palette-dark');
           if (map && isDark) {
             map.setOptions({styles: darkStyle});
           } else if (map) {
