@@ -39,7 +39,7 @@
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/splash-screen": "4.1.4",
     "@capacitor/status-bar": "4.1.1",
-    "@ionic/angular": "^8.0.0-rc.1",
+    "@ionic/angular": "^8.0.0",
     "@ionic/storage-angular": "^4.0.0",
     "cordova-plugin-inappbrowser": "5.0.0",
     "core-js": "^3.6.4",
