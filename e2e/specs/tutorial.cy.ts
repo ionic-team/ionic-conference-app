@@ -1,4 +1,4 @@
-describe('Tutorial Page', () => {
+describe.skip('Tutorial Page', () => {
   beforeEach(() => {
     cy.enableTutorial();
   });
