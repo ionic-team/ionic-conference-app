@@ -12,6 +12,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        # When node version is updated, update the version in the GitHub repository settings:
+        # Branches -> Edit `main` -> Protect matching branches -> 
+        # Require status checks to pass before merging -> Search for the new version -> Add them to the list ->
+        # Remove the old version from the list -> Save changes
         node_version: [18]
         os: [windows-latest, macOS-latest]
 
