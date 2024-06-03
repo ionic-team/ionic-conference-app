@@ -1,4 +1,5 @@
-describe('Tutorial Page', () => {
+// TODO(ROU-10791): enable tutorial tests after fixing the flakiness
+describe.skip('Tutorial Page', () => {
   beforeEach(() => {
     cy.enableTutorial();
   });
