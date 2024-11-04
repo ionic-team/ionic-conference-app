@@ -1,24 +1,44 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertController } from '@ionic/angular';
-
-import { UserData } from '../../providers/user-data';
-
+import { NgOptimizedImage } from '@angular/common';
+import {
+  AlertController,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonList,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
+import { UserService } from '../../providers/user.service';
 
 @Component({
   selector: 'page-account',
+  standalone: true,
   templateUrl: 'account.html',
   styleUrls: ['./account.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonTitle,
+    IonContent,
+    IonItem,
+    IonList,
+    NgOptimizedImage,
+  ],
+  providers: [AlertController],
 })
 export class AccountPage implements AfterViewInit {
-  username: string;
+  private alertCtrl = inject(AlertController);
+  private router = inject(Router);
+  private user = inject(UserService);
 
-  constructor(
-    public alertCtrl: AlertController,
-    public router: Router,
-    public userData: UserData
-  ) { }
+  username: string;
 
   ngAfterViewInit() {
     this.getUsername();
@@ -38,26 +58,26 @@ export class AccountPage implements AfterViewInit {
         'Cancel',
         {
           text: 'Ok',
-          handler: (data: any) => {
-            this.userData.setUsername(data.username);
+          handler: (data: { username: string }) => {
+            this.user.setUsername(data.username);
             this.getUsername();
-          }
-        }
+          },
+        },
       ],
       inputs: [
         {
           type: 'text',
           name: 'username',
           value: this.username,
-          placeholder: 'username'
-        }
-      ]
+          placeholder: 'username',
+        },
+      ],
     });
     await alert.present();
   }
 
   getUsername() {
-    this.userData.getUsername().then((username) => {
+    this.user.getUsername().then((username) => {
       this.username = username;
     });
   }
@@ -67,7 +87,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   logout() {
-    this.userData.logout();
+    this.user.logout();
     this.router.navigateByUrl('/login');
   }
 

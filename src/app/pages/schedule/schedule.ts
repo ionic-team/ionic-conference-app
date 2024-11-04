@@ -1,15 +1,94 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController, IonList, IonRouterOutlet, LoadingController, ModalController, ToastController, Config } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
+import { addIcons } from 'ionicons';
+import {
+  logoFacebook,
+  logoInstagram,
+  logoTwitter,
+  logoVimeo,
+  options,
+  search,
+  shareSocial,
+} from 'ionicons/icons';
+
+import { LowerCasePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {
+  AlertController,
+  Config,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonFab,
+  IonFabButton,
+  IonFabList,
+  IonHeader,
+  IonIcon,
+  IonItemDivider,
+  IonItemGroup,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
+  IonLabel,
+  IonList,
+  IonListHeader,
+  IonMenuButton,
+  IonRouterOutlet,
+  IonSearchbar,
+  IonSegment,
+  IonSegmentButton,
+  IonTitle,
+  IonToolbar,
+  LoadingController,
+  ModalController,
+  ToastController,
+} from '@ionic/angular/standalone';
+import { Group, Session } from '../../interfaces/conference.interfaces';
+import { ConferenceService } from '../../providers/conference.service';
+import { UserService } from '../../providers/user.service';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
-import { ConferenceData } from '../../providers/conference-data';
-import { UserData } from '../../providers/user-data';
 
 @Component({
   selector: 'page-schedule',
+  standalone: true,
   templateUrl: 'schedule.html',
   styleUrls: ['./schedule.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonSegment,
+    IonSegmentButton,
+    IonContent,
+    IonTitle,
+    IonSearchbar,
+    IonButton,
+    IonIcon,
+    IonList,
+    IonListHeader,
+    IonFab,
+    IonFabButton,
+    IonFabList,
+    IonRouterOutlet,
+    FormsModule,
+    IonItemSliding,
+    LowerCasePipe,
+    RouterLink,
+    IonItemGroup,
+    IonItemDivider,
+    IonItemOption,
+    IonItemOptions,
+    IonLabel,
+    IonMenuButton,
+  ],
+  providers: [
+    ModalController,
+    AlertController,
+    LoadingController,
+    ToastController,
+    Config,
+  ],
 })
 export class SchedulePage implements OnInit {
   // Gets a reference to the list element
@@ -19,23 +98,33 @@ export class SchedulePage implements OnInit {
   dayIndex = 0;
   queryText = '';
   segment = 'all';
-  excludeTracks: any = [];
-  shownSessions: any = [];
-  groups: any = [];
+  excludeTrackNames: string[] = [];
+  shownSessions: number;
+  groups: Group[] = [];
   confDate: string;
   showSearchbar: boolean;
 
   constructor(
     public alertCtrl: AlertController,
-    public confData: ConferenceData,
+    public confService: ConferenceService,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
     public router: Router,
     public routerOutlet: IonRouterOutlet,
     public toastCtrl: ToastController,
-    public user: UserData,
+    public user: UserService,
     public config: Config
-  ) { }
+  ) {
+    addIcons({
+      search,
+      options,
+      shareSocial,
+      logoVimeo,
+      logoInstagram,
+      logoTwitter,
+      logoFacebook,
+    });
+  }
 
   ngOnInit() {
     this.updateSchedule();
@@ -49,28 +138,35 @@ export class SchedulePage implements OnInit {
       this.scheduleList.closeSlidingItems();
     }
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-    });
+    this.confService
+      .getTimeline(
+        this.dayIndex,
+        this.queryText,
+        this.excludeTrackNames,
+        this.segment
+      )
+      .subscribe((data) => {
+        this.shownSessions = data.shownSessions;
+        this.groups = data.groups;
+      });
   }
 
   async presentFilter() {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
       presentingElement: this.routerOutlet.nativeEl,
-      componentProps: { excludedTracks: this.excludeTracks }
+      componentProps: { excludedTracks: this.excludeTrackNames },
     });
     await modal.present();
 
     const { data } = await modal.onWillDismiss();
     if (data) {
-      this.excludeTracks = data;
+      this.excludeTrackNames = data;
       this.updateSchedule();
     }
   }
 
-  async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
+  async addFavorite(slidingItem: IonItemSliding, sessionData: Session) {
     if (this.user.hasFavorite(sessionData.name)) {
       // Prompt to remove favorite
       this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
@@ -85,19 +181,24 @@ export class SchedulePage implements OnInit {
       const toast = await this.toastCtrl.create({
         header: `${sessionData.name} was successfully added as a favorite.`,
         duration: 3000,
-        buttons: [{
-          text: 'Close',
-          role: 'cancel'
-        }]
+        buttons: [
+          {
+            text: 'Close',
+            role: 'cancel',
+          },
+        ],
       });
 
       // Present the toast at the bottom of the page
       await toast.present();
     }
-
   }
 
-  async removeFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any, title: string) {
+  async removeFavorite(
+    slidingItem: IonItemSliding,
+    sessionData: Session,
+    title: string
+  ) {
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -108,7 +209,7 @@ export class SchedulePage implements OnInit {
             // they clicked the cancel button, do not remove the session
             // close the sliding item and hide the option buttons
             slidingItem.close();
-          }
+          },
         },
         {
           text: 'Remove',
@@ -119,18 +220,18 @@ export class SchedulePage implements OnInit {
 
             // close the sliding item and hide the option buttons
             slidingItem.close();
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     // now present the alert on top of all other content
     await alert.present();
   }
 
-  async openSocial(network: string, fab: HTMLIonFabElement) {
+  async openSocial(network: string, fab: IonFab) {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
-      duration: (Math.random() * 1000) + 500
+      duration: Math.random() * 1000 + 500,
     });
     await loading.present();
     await loading.onWillDismiss();

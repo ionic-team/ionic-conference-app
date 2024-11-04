@@ -8,9 +8,8 @@
 </ion-header>
 
 <ion-content>
-
   <div class="signup-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic Logo">
+    <img src="assets/img/appicon.svg" alt="Ionic Logo" />
   </div>
 
   <div class="signup-form">
@@ -24,7 +23,8 @@
         type="text"
         #username="ngModel"
         errorText="Username is required"
-        required>
+        required
+      >
       </ion-input>
 
       <ion-input
@@ -36,13 +36,15 @@
         type="password"
         #password="ngModel"
         errorText="Password is required"
-        required>
+        required
+      >
       </ion-input>
 
       <div class="ion-padding">
-        <ion-button (click)="onSignup(signupForm)" type="submit" expand="block">Create</ion-button>
+        <ion-button (click)="onSignup(signupForm)" type="submit" expand="block"
+          >Create</ion-button
+        >
       </div>
     </form>
   </div>
-
 </ion-content>

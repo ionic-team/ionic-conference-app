@@ -7,13 +7,12 @@ export const checkTutorialGuard = () => {
   const storage = inject(Storage);
   const router = inject(Router);
 
-  return from(storage.get('ion_did_tutorial'))
-    .pipe(
-      tap(didTutorial => {
-        if (didTutorial === true) {
-          router.navigate(['/app', 'tabs', 'schedule']);
-        }
-      }),
-      map(didTutorial => !didTutorial)
-    );
-}
+  return from(storage.get('ion_did_tutorial')).pipe(
+    tap((didTutorial) => {
+      if (didTutorial === true) {
+        router.navigate(['/app', 'tabs', 'schedule']);
+      }
+    }),
+    map((didTutorial) => !didTutorial)
+  );
+};

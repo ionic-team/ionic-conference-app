@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 import { TutorialPage } from './tutorial';
@@ -11,7 +11,7 @@ describe('TutorialPage', () => {
   beforeEach(waitForAsync(() => {
     const menuSpy = jasmine.createSpyObj('MenuController', [
       'toggle',
-      'enable'
+      'enable',
     ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
@@ -21,8 +21,8 @@ describe('TutorialPage', () => {
       imports: [IonicStorageModule.forRoot()],
       providers: [
         { provide: MenuController, useValue: menuSpy },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
   }));
 

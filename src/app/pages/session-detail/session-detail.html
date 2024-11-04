@@ -5,8 +5,11 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="toggleFavorite()">
-        <ion-icon *ngIf="!isFavorite" slot="icon-only" name="star-outline"></ion-icon>
-        <ion-icon *ngIf="isFavorite" slot="icon-only" name="star"></ion-icon>
+        @if (!isFavorite) {
+        <ion-icon slot="icon-only" name="star-outline"></ion-icon>
+        } @if (isFavorite) {
+        <ion-icon slot="icon-only" name="star"></ion-icon>
+        }
       </ion-button>
       <ion-button (click)="shareSession()">
         <ion-icon slot="icon-only" name="share"></ion-icon>
@@ -16,15 +19,20 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="session" class="ion-padding">
+  @if (session) {
+  <div class="ion-padding">
     <h1>{{session.name}}</h1>
-    <span *ngFor="let track of session?.tracks" [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
+    @for (track of session?.tracks; track $index) {
+    <span [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
+    }
     <p>{{session.description}}</p>
     <ion-text color="medium">
       {{session.timeStart}} &ndash; {{session.timeEnd}}
-      <br /> {{session.location}}
+      <br />
+      {{session.location}}
     </ion-text>
   </div>
+  }
 
   <ion-list>
     <ion-item (click)="sessionClick('watch')" button>
@@ -38,7 +46,12 @@
     </ion-item>
     <ion-item (click)="sessionClick('download video')" button>
       <ion-label color="primary">Download Video</ion-label>
-      <ion-icon slot="end" color="primary" size="small" name="cloud-download"></ion-icon>
+      <ion-icon
+        slot="end"
+        color="primary"
+        size="small"
+        name="cloud-download"
+      ></ion-icon>
     </ion-item>
     <ion-item (click)="sessionClick('leave feedback')" button>
       <ion-label color="primary">Leave Feedback</ion-label>

@@ -1,11 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { ConferenceService } from '../../providers/conference.service';
 import { SpeakerListPage } from './speaker-list';
-import { ConferenceData } from '../../providers/conference-data';
 
 const confDataSub = {};
 
@@ -13,7 +13,7 @@ describe('SpeakerListPage', () => {
   let fixture, app;
   beforeEach(waitForAsync(() => {
     const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', [
-      'create'
+      'create',
     ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     const iabSpy = jasmine.createSpyObj('InAppBrowser', ['create']);
@@ -25,8 +25,8 @@ describe('SpeakerListPage', () => {
         { provide: ActionSheetController, useValue: actionSheetSpy },
         { provide: InAppBrowser, useValue: iabSpy },
         { provide: Router, useValue: routerSpy },
-        { provide: ConferenceData, useValue: confDataSub }
-      ]
+        { provide: ConferenceService, useValue: confDataSub },
+      ],
     }).compileComponents();
   }));
   beforeEach(() => {

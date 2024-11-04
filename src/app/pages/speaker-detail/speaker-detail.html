@@ -4,40 +4,78 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/app/tabs/speakers"></ion-back-button>
       </ion-buttons>
-      <ion-buttons *ngIf="speaker" slot="end">
+
+      @if (speaker) {
+      <ion-buttons slot="end">
         <ion-button (click)="openContact(speaker)">
-          <ion-icon slot="icon-only" ios="call-outline" md="call-sharp"></ion-icon>
+          <ion-icon
+            slot="icon-only"
+            [ios]="'call-outline'"
+            [md]="'call-sharp'"
+          ></ion-icon>
         </ion-button>
         <ion-button (click)="openSpeakerShare(speaker)">
-          <ion-icon slot="icon-only" ios="share-outline" md="share-sharp"></ion-icon>
+          <ion-icon
+            slot="icon-only"
+            [ios]="'share-outline'"
+            [md]="'share-sharp'"
+          ></ion-icon>
         </ion-button>
       </ion-buttons>
+      }
     </ion-toolbar>
   </ion-header>
 
   <div class="speaker-background">
-    <img [src]="speaker?.profilePic" [alt]="speaker?.name">
-    <h2>{{speaker?.name}}</h2>
+    <img
+      ngSrc="{{speaker?.profilePic ?? '/assets/placeholder.jpg'}}"
+      [alt]="speaker?.name ?? 'Speaker profile'"
+      width="70"
+      height="70"
+      priority
+    />
+    <h2>{{speaker?.name ?? 'Loading...'}}</h2>
   </div>
 
   <div class="ion-padding speaker-detail">
-    <p>{{speaker?.about}} Say hello on social media!</p>
+    <p>
+      {{speaker?.about ?? 'Loading biography...'}} Say hello on social media!
+    </p>
 
-    <hr>
+    <hr />
 
-    <ion-chip color="twitter" button (click)="openExternalUrl('https://twitter.com/' + speaker.twitter)">
-      <ion-icon name="logo-twitter"></ion-icon>
-      <ion-label>Twitter</ion-label>
-    </ion-chip>
+    @if (speaker) {
+    <div class="social-links">
+      <ion-chip
+        color="twitter"
+        button
+        (click)="openExternalUrl('https://twitter.com/' + speaker.twitter)"
+        aria-label="Visit Twitter profile"
+      >
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-label>Twitter</ion-label>
+      </ion-chip>
 
-    <ion-chip color="dark" button (click)="openExternalUrl('https://github.com/ionic-team/ionic')">
-      <ion-icon name="logo-github"></ion-icon>
-      <ion-label>GitHub</ion-label>
-    </ion-chip>
+      <ion-chip
+        color="dark"
+        button
+        (click)="openExternalUrl('https://github.com/ionic-team/ionic')"
+        aria-label="Visit GitHub profile"
+      >
+        <ion-icon name="logo-github"></ion-icon>
+        <ion-label>GitHub</ion-label>
+      </ion-chip>
 
-    <ion-chip color="instagram" button (click)="openExternalUrl('https://instagram.com/ionicframework')">
-      <ion-icon name="logo-instagram"></ion-icon>
-      <ion-label>Instagram</ion-label>
-    </ion-chip>
+      <ion-chip
+        color="instagram"
+        button
+        (click)="openExternalUrl('https://instagram.com/ionicframework')"
+        aria-label="Visit Instagram profile"
+      >
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-label>Instagram</ion-label>
+      </ion-chip>
+    </div>
+    }
   </div>
 </ion-content>
