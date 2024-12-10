@@ -1,6 +1,6 @@
 # Ionic Angular Conference Application
 
-This application is purely a kitchen-sink demo of the Ionic Framework and Angular.
+This application is purely a kitchen-sink demo of the Ionic Framework and Angular with Trackingplan.
 
 **There is not an actual Ionic Conference at this time.** This project is just to show off Ionic components in a real-world application. Please go through the steps in [CONTRIBUTING](https://github.com/ionic-team/ionic-conference-app/blob/main/.github/CONTRIBUTING.md) before submitting an issue.
 
