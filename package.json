@@ -26,6 +26,7 @@
     "@angular/forms": "^19.1.6",
     "@angular/platform-browser": "^19.1.6",
     "@angular/platform-browser-dynamic": "^19.1.6",
+    "@angular/pwa": "^19.1.7",
     "@angular/router": "^19.1.6",
     "@angular/service-worker": "^19.1.6",
     "@awesome-cordova-plugins/core": "6.3.0",

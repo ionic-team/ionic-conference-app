@@ -50,7 +50,7 @@
                 "fonts": true
               },
               "outputHashing": "all",
-              "serviceWorker": "ngsw-worker.js"
+              "serviceWorker": "ngsw-config.json"
             }
           },
           "defaultConfiguration": "",
