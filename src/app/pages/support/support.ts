@@ -15,23 +15,22 @@ import {
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'page-support',
-  standalone: true,
-  templateUrl: 'support.html',
-  styleUrls: ['./support.scss'],
-  imports: [
-    FormsModule,
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonTitle,
-    IonContent,
-    IonTextarea,
-    IonButton,
-    NgOptimizedImage,
-  ],
-  providers: [AlertController, ToastController],
+    selector: 'page-support',
+    templateUrl: 'support.html',
+    styleUrls: ['./support.scss'],
+    imports: [
+        FormsModule,
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+        IonTextarea,
+        IonButton,
+        NgOptimizedImage,
+    ],
+    providers: [AlertController, ToastController]
 })
 export class SupportPage {
   private toastCtrl = inject(ToastController);

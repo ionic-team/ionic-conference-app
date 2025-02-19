@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import {
   IonIcon,
   IonLabel,
-  IonRouterOutlet,
   IonTabBar,
   IonTabButton,
   IonTabs,
@@ -12,17 +11,15 @@ import { addIcons } from 'ionicons';
 import { calendar, informationCircle, location, people } from 'ionicons/icons';
 
 @Component({
-  standalone: true,
-  templateUrl: 'tabs-page.html',
-  imports: [
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet,
-    RouterModule,
-  ],
+    templateUrl: 'tabs-page.html',
+    imports: [
+        IonTabs,
+        IonTabBar,
+        IonTabButton,
+        IonIcon,
+        IonLabel,
+        RouterModule,
+    ]
 })
 export class TabsPage {
   constructor() {

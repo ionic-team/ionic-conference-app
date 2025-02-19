@@ -70,7 +70,10 @@
             "browser": "src/main.ts",
             "namedChunks": true,
             "optimization": false,
-            "outputPath": "www",
+            "outputPath": {
+              "base": "www",
+              "browser": ""
+            },
             "polyfills": ["src/polyfills.ts"],
             "scripts": [],
             "sourceMap": true,

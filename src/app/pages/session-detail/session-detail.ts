@@ -11,7 +11,6 @@ import {
   IonLabel,
   IonList,
   IonText,
-  IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
@@ -28,24 +27,22 @@ import { ConferenceService } from '../../providers/conference.service';
 import { UserService } from '../../providers/user.service';
 
 @Component({
-  selector: 'page-session-detail',
-  styleUrls: ['./session-detail.scss'],
-  templateUrl: 'session-detail.html',
-  standalone: true,
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonBackButton,
-    IonTitle,
-    IonContent,
-    IonButton,
-    IonIcon,
-    IonList,
-    IonItem,
-    IonLabel,
-    IonText,
-  ],
+    selector: 'page-session-detail',
+    styleUrls: ['./session-detail.scss'],
+    templateUrl: 'session-detail.html',
+    imports: [
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonBackButton,
+        IonContent,
+        IonButton,
+        IonIcon,
+        IonList,
+        IonItem,
+        IonLabel,
+        IonText,
+    ]
 })
 export class SessionDetailPage {
   private confService = inject(ConferenceService);

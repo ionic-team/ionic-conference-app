@@ -34,27 +34,26 @@ import {
 import { ConferenceService } from '../../providers/conference.service';
 
 @Component({
-  selector: 'page-schedule-filter',
-  standalone: true,
-  templateUrl: 'schedule-filter.html',
-  styleUrls: ['./schedule-filter.scss'],
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonButton,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonListHeader,
-    IonCheckbox,
-    IonFooter,
-    IonItem,
-    FormsModule,
-    LowerCasePipe,
-    IonIcon,
-  ],
-  providers: [ModalController],
+    selector: 'page-schedule-filter',
+    templateUrl: 'schedule-filter.html',
+    styleUrls: ['./schedule-filter.scss'],
+    imports: [
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonButton,
+        IonTitle,
+        IonContent,
+        IonList,
+        IonListHeader,
+        IonCheckbox,
+        IonFooter,
+        IonItem,
+        FormsModule,
+        LowerCasePipe,
+        IonIcon,
+    ],
+    providers: [ModalController]
 })
 export class ScheduleFilterPage {
   private config = inject(Config);

@@ -8,7 +8,7 @@ import {
 } from '@ionic/angular/standalone';
 
 @Component({
-  template: `
+    template: `
     <ion-list>
       <ion-item
         button
@@ -30,9 +30,8 @@ import {
       </ion-item>
     </ion-list>
   `,
-  standalone: true,
-  imports: [IonList, IonItem, IonLabel],
-  providers: [PopoverController],
+    imports: [IonList, IonItem, IonLabel],
+    providers: [PopoverController]
 })
 export class PopoverPage {
   private router = inject(Router);

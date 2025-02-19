@@ -8,9 +8,6 @@ import {
   IonContent,
   IonHeader,
   IonInput,
-  IonItem,
-  IonLabel,
-  IonList,
   IonMenuButton,
   IonRow,
   IonTitle,
@@ -22,27 +19,23 @@ import { UserOptions } from '../../interfaces/user-options';
 import { UserService } from '../../providers/user.service';
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
-  styleUrls: ['./login.scss'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonTitle,
-    IonContent,
-    IonList,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonButton,
-    IonRow,
-    IonCol,
-    NgOptimizedImage,
-  ],
+    selector: 'page-login',
+    templateUrl: 'login.html',
+    styleUrls: ['./login.scss'],
+    imports: [
+        FormsModule,
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+        IonInput,
+        IonButton,
+        IonRow,
+        IonCol,
+        NgOptimizedImage,
+    ]
 })
 export class LoginPage {
   private router = inject(Router);

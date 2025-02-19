@@ -16,11 +16,10 @@ import { addIcons } from 'ionicons';
 import { arrowForward, close } from 'ionicons/icons';
 
 @Component({
-  selector: 'page-tutorial',
-  templateUrl: 'tutorial.html',
-  styleUrls: ['./tutorial.scss'],
-  standalone: true,
-  imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon],
+    selector: 'page-tutorial',
+    templateUrl: 'tutorial.html',
+    styleUrls: ['./tutorial.scss'],
+    imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon]
 })
 export class TutorialPage {
   showSkip = true;

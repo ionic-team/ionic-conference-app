@@ -16,22 +16,21 @@ import {
 import { UserService } from '../../providers/user.service';
 
 @Component({
-  selector: 'page-account',
-  standalone: true,
-  templateUrl: 'account.html',
-  styleUrls: ['./account.scss'],
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonTitle,
-    IonContent,
-    IonItem,
-    IonList,
-    NgOptimizedImage,
-  ],
-  providers: [AlertController],
+    selector: 'page-account',
+    templateUrl: 'account.html',
+    styleUrls: ['./account.scss'],
+    imports: [
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+        IonItem,
+        IonList,
+        NgOptimizedImage,
+    ],
+    providers: [AlertController]
 })
 export class AccountPage implements AfterViewInit {
   private alertCtrl = inject(AlertController);

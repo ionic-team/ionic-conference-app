@@ -18,18 +18,17 @@ import { ConferenceService } from '../../providers/conference.service';
 import { darkStyle } from './map-dark-style';
 
 @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html',
-  styleUrls: ['./map.scss'],
-  standalone: true,
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonTitle,
-    IonContent,
-  ],
+    selector: 'page-map',
+    templateUrl: 'map.html',
+    styleUrls: ['./map.scss'],
+    imports: [
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+    ]
 })
 export class MapPage implements AfterViewInit {
   private doc = inject(DOCUMENT);

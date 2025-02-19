@@ -42,29 +42,28 @@ import {
 import { UserService } from './providers/user.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    IonRouterOutlet,
-    IonLabel,
-    IonIcon,
-    IonMenuToggle,
-    IonToggle,
-    IonList,
-    IonListHeader,
-    IonItem,
-    IonContent,
-    IonMenu,
-    IonSplitPane,
-    IonApp,
-    FormsModule,
-  ],
-  providers: [MenuController, ToastController],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        IonRouterOutlet,
+        IonLabel,
+        IonIcon,
+        IonMenuToggle,
+        IonToggle,
+        IonList,
+        IonListHeader,
+        IonItem,
+        IonContent,
+        IonMenu,
+        IonSplitPane,
+        IonApp,
+        FormsModule,
+    ],
+    providers: [MenuController, ToastController],
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);

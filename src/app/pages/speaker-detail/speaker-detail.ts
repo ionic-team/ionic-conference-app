@@ -1,4 +1,4 @@
-import { NgIf, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
@@ -28,24 +28,22 @@ import { Speaker } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 
 @Component({
-  selector: 'page-speaker-detail',
-  templateUrl: 'speaker-detail.html',
-  styleUrls: ['./speaker-detail.scss'],
-  standalone: true,
-  imports: [
-    NgIf,
-    IonContent,
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonBackButton,
-    IonButton,
-    IonIcon,
-    IonChip,
-    IonLabel,
-    NgOptimizedImage,
-  ],
-  providers: [InAppBrowser, ActionSheetController],
+    selector: 'page-speaker-detail',
+    templateUrl: 'speaker-detail.html',
+    styleUrls: ['./speaker-detail.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonBackButton,
+        IonButton,
+        IonIcon,
+        IonChip,
+        IonLabel,
+        NgOptimizedImage,
+    ],
+    providers: [InAppBrowser, ActionSheetController]
 })
 export class SpeakerDetailPage {
   speaker: Speaker;
