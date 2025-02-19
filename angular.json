@@ -36,7 +36,6 @@
                   "type": "anyComponentStyle"
                 }
               ],
-              "buildOptimizer": true,
               "extractLicenses": true,
               "fileReplacements": [
                 {
@@ -45,7 +44,11 @@
                 }
               ],
               "namedChunks": false,
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
               "outputHashing": "all",
               "serviceWorker": "ngsw-worker.js"
             }
