@@ -17,5 +17,14 @@
 			"splashFullScreen": true,
 			"splashImmersive": true
 		}
-	}
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"DevicePlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"SplashScreenPlugin",
+		"StatusBarPlugin",
+		"CDVPlugin"
+	]
 }
