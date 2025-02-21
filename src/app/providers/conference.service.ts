@@ -75,7 +75,7 @@ export class ConferenceService {
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
         const queryWords = queryText
           .split(' ')
-          .filter((w) => !!w.trim().length);
+          .filter(w => !!w.trim().length);
 
         day.groups.forEach((group: Group) => {
           group.hide = true;

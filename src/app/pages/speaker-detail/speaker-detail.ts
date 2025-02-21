@@ -66,7 +66,7 @@ export class SpeakerDetailPage {
   }
 
   ionViewWillEnter() {
-    this.confService.load().subscribe((data) => {
+    this.confService.load().subscribe(data => {
       const speakerId = this.route.snapshot.paramMap.get('speakerId');
       if (data && data.speakers) {
         for (const speaker of data.speakers) {

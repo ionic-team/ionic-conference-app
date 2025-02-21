@@ -143,7 +143,7 @@ export class SchedulePage implements OnInit {
         this.excludeTrackNames,
         this.segment
       )
-      .subscribe((data) => {
+      .subscribe(data => {
         this.shownSessions = data.shownSessions;
         this.groups = data.groups;
       });

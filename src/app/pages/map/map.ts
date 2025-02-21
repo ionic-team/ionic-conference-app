@@ -48,16 +48,16 @@ export class MapPage implements AfterViewInit {
 
     let map;
 
-    this.confService.getMap().subscribe((mapData) => {
+    this.confService.getMap().subscribe(mapData => {
       const mapEle = this.mapElement.nativeElement;
 
       map = new googleMaps.Map(mapEle, {
-        center: mapData.find((d) => d.center),
+        center: mapData.find(d => d.center),
         zoom: 16,
         styles: style,
       });
 
-      mapData.forEach((markerData) => {
+      mapData.forEach(markerData => {
         const infoWindow = new googleMaps.InfoWindow({
           content: `<h5>${markerData.name}</h5>`,
         });
@@ -78,8 +78,8 @@ export class MapPage implements AfterViewInit {
       });
     });
 
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
         if (mutation.attributeName === 'class') {
           const el = mutation.target as HTMLElement;
           isDark = el.classList.contains('ion-palette-dark');

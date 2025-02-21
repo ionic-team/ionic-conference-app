@@ -121,7 +121,7 @@ export class AppComponent implements OnInit {
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
-    this.swUpdate.versionUpdates.subscribe(async (res) => {
+    this.swUpdate.versionUpdates.subscribe(async () => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
         position: 'bottom',
@@ -152,7 +152,7 @@ export class AppComponent implements OnInit {
   }
 
   checkLoginStatus() {
-    return this.userService.isLoggedIn().then((loggedIn) => {
+    return this.userService.isLoggedIn().then(loggedIn => {
       return this.updateLoggedInStatus(loggedIn);
     });
   }

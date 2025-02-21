@@ -58,7 +58,7 @@ export class SessionDetailPage {
   }
 
   ionViewWillEnter() {
-    this.confService.load().subscribe((data) => {
+    this.confService.load().subscribe(data => {
       if (
         data &&
         data.schedule &&
@@ -86,7 +86,7 @@ export class SessionDetailPage {
   }
 
   ionViewDidEnter() {
-    this.defaultHref = `/app/tabs/schedule`;
+    this.defaultHref = '/app/tabs/schedule';
   }
 
   sessionClick(item: string) {

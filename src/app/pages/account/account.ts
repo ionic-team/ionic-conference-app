@@ -76,7 +76,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   getUsername() {
-    this.user.getUsername().then((username) => {
+    this.user.getUsername().then(username => {
       this.username = username;
     });
   }

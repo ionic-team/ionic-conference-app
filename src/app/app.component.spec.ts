@@ -11,11 +11,10 @@ import { routes } from './app.routes';
 import { UserService } from './providers/user.service';
 
 describe('AppComponent', () => {
-  let menuSpy, routerSpy, userDataSpy, swUpdateSpy, app, fixture;
+  let menuSpy, userDataSpy, swUpdateSpy, app, fixture;
 
   beforeEach(async () => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
-    routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
     swUpdateSpy = jasmine.createSpyObj('SwUpdate', [
       'available',
@@ -31,10 +30,8 @@ describe('AppComponent', () => {
         provideHttpClientTesting(),
         importProvidersFrom(IonicStorageModule.forRoot()),
         { provide: MenuController, useValue: menuSpy },
-        // { provide: Router, useValue: routerSpy },
         { provide: UserService, useValue: userDataSpy },
         { provide: SwUpdate, useValue: swUpdateSpy },
-        // { provide: Platform, useValue: platformSpy }
       ],
     }).compileComponents();
   });
