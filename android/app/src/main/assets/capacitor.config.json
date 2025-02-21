@@ -2,7 +2,6 @@
 	"appId": "ionic.conference.app",
 	"appName": "ionic-conference-app",
 	"webDir": "www",
-	"bundledWebRuntime": false,
 	"plugins": {
 		"SplashScreen": {
 			"launchShowDuration": 3000,
