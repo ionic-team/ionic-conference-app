@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MenuController } from '@ionic/angular';
-
 import {
   IonButton,
   IonButtons,
@@ -10,6 +8,7 @@ import {
   IonHeader,
   IonIcon,
   IonToolbar,
+  MenuController,
 } from '@ionic/angular/standalone';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';

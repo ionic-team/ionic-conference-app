@@ -1,10 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouteReuseStrategy, Router } from '@angular/router';
-import { ActionSheetController, IonicRouteStrategy } from '@ionic/angular';
+import { ActionSheetController, IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
-import { provideIonicAngular } from '@ionic/angular/standalone';
 import { ConferenceService } from '../../providers/conference.service';
 import { SpeakerListPage } from './speaker-list';
 

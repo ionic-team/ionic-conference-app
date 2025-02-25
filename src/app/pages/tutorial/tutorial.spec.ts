@@ -1,13 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-
-import { TutorialPage } from './tutorial';
-
-import { provideIonicAngular } from '@ionic/angular/standalone';
+import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { routes } from '../../app.routes';
+import { TutorialPage } from './tutorial';
+
 describe('TutorialPage', () => {
   let fixture, app;
   beforeEach(async () => {
