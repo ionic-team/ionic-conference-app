@@ -1,38 +1,42 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
-import { TestBed, async } from '@angular/core/testing';
-import { ActionSheetController } from '@ionic/angular';
+import { TestBed } from '@angular/core/testing';
+import { RouteReuseStrategy, Router } from '@angular/router';
+import { ActionSheetController, IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { ConferenceService } from '../../providers/conference.service';
 import { SpeakerListPage } from './speaker-list';
-import { ConferenceData } from '../../providers/conference-data';
 
 const confDataSub = {};
 
 describe('SpeakerListPage', () => {
   let fixture, app;
-  beforeEach(async(() => {
+  beforeEach(async () => {
     const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', [
-      'create'
+      'create',
     ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
     const iabSpy = jasmine.createSpyObj('InAppBrowser', ['create']);
 
-    TestBed.configureTestingModule({
-      declarations: [SpeakerListPage],
+    await TestBed.configureTestingModule({
+      declarations: [],
+      imports: [SpeakerListPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
+        provideIonicAngular(),
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         { provide: ActionSheetController, useValue: actionSheetSpy },
         { provide: InAppBrowser, useValue: iabSpy },
         { provide: Router, useValue: routerSpy },
-        { provide: ConferenceData, useValue: confDataSub }
-      ]
+        { provide: ConferenceService, useValue: confDataSub },
+      ],
     }).compileComponents();
-  }));
-  beforeEach(() => {
+
     fixture = TestBed.createComponent(SpeakerListPage);
     app = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
   });
+
   it('should create the speaker list page', () => {
     expect(app).toBeTruthy();
   });

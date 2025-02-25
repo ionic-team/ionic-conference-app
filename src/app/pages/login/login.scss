@@ -1,6 +1,8 @@
 .login-logo {
-  padding: 20px 0;
   min-height: 200px;
+
+  padding: 20px 0;
+
   text-align: center;
 }
 
@@ -8,6 +10,10 @@
   max-width: 150px;
 }
 
-.list {
-  margin-bottom: 0;
+.login-form {
+  padding: 16px;
+}
+
+ion-input {
+  margin-bottom: 10px;
 }

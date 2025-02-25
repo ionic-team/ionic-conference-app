@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
-
-import { PopoverController } from '@ionic/angular';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import {
+  IonItem,
+  IonLabel,
+  IonList,
+  PopoverController,
+} from '@ionic/angular/standalone';
 
 @Component({
-  template: `
+    template: `
     <ion-list>
-      <ion-item button (click)="close('https://ionicframework.com/getting-started')">
+      <ion-item
+        button
+        (click)="close('https://ionicframework.com/getting-started')"
+      >
         <ion-label>Learn Ionic</ion-label>
       </ion-item>
       <ion-item button (click)="close('https://ionicframework.com/docs/')">
@@ -21,13 +29,16 @@ import { PopoverController } from '@ionic/angular';
         <ion-label>Support</ion-label>
       </ion-item>
     </ion-list>
-  `
+  `,
+    imports: [IonList, IonItem, IonLabel],
+    providers: [PopoverController]
 })
 export class PopoverPage {
-  constructor(public popoverCtrl: PopoverController) {}
+  private router = inject(Router);
+  private popoverCtrl = inject(PopoverController);
 
   support() {
-    // this.app.getRootNavs()[0].push('/support');
+    this.router.navigate(['/support']);
     this.popoverCtrl.dismiss();
   }
 

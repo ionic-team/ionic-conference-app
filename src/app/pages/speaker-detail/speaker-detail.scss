@@ -3,14 +3,14 @@
  */
 
 ion-toolbar {
+  --background: transparent;
+  --color: white;
+
   position: absolute;
 
   top: 0;
-  left: 0;
   right: 0;
-
-  --background: transparent;
-  --color: white;
+  left: 0;
 }
 
 ion-toolbar ion-button,
@@ -20,26 +20,28 @@ ion-toolbar ion-menu-button {
 }
 
 .speaker-background {
+  display: flex;
   position: relative;
 
-  display: flex;
-
-  padding-top: var(--ion-safe-area-top);
+  flex-direction: column;
 
   align-items: center;
   justify-content: center;
 
-  flex-direction: column;
-
   height: calc(250px + var(--ion-safe-area-top));
 
-  background: center / cover url(/assets/img/speaker-background.png) no-repeat;
+  padding-top: var(--ion-safe-area-top);
+
+  background: center / cover url('/assets/img/speaker-background.png') no-repeat;
 }
 
 .speaker-background img {
   width: 70px;
-  border-radius: 50%;
+  height: auto;
+
   margin-top: calc(-1 * var(--ion-safe-area-top));
+
+  border-radius: 50%;
 }
 
 .speaker-background h2 {
@@ -51,11 +53,12 @@ ion-toolbar ion-menu-button {
 }
 
 .md .speaker-background {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+  box-shadow: rgb(0 0 0 / 20%) 0 3px 1px -2px, rgb(0 0 0 / 14%) 0 2px 2px 0,
+    rgb(0 0 0 / 12%) 0 1px 5px 0;
 }
 
 .ios .speaker-background {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+  box-shadow: rgb(0 0 0 / 12%) 0 4px 16px;
 }
 
 /*
@@ -63,8 +66,8 @@ ion-toolbar ion-menu-button {
  */
 
 .speaker-detail p {
-  margin-left: 6px;
   margin-right: 6px;
+  margin-left: 6px;
 }
 
 .speaker-detail hr {

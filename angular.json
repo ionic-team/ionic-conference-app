@@ -1,24 +1,61 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "defaultProject": "app",
+  "cli": {
+    "analytics": false,
+    "schematicCollections": [
+      "@angular-eslint/schematics",
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
+  },
   "newProjectRoot": "projects",
   "projects": {
     "app": {
-      "root": "",
-      "sourceRoot": "src",
-      "projectType": "application",
-      "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
+          "configurations": {
+            "ci": {
+              "budgets": [
+                {
+                  "maximumWarning": "6kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "progress": false
+            },
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "5mb",
+                  "maximumWarning": "2mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumWarning": "6kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "namedChunks": false,
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
+            }
+          },
+          "defaultConfiguration": "",
           "options": {
-            "outputPath": "www",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "allowedCommonJsDependencies": ["localforage"],
             "assets": [
               {
                 "glob": "**/*",
@@ -31,84 +68,114 @@
                 "output": "./svg"
               }
             ],
+            "extractLicenses": false,
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "namedChunks": true,
+            "optimization": false,
+            "outputPath": {
+              "base": "www",
+              "browser": ""
+            },
+            "polyfills": ["src/polyfills.ts"],
+            "scripts": [],
+            "sourceMap": true,
             "styles": [
               {
-                "input": "src/theme/variables.scss"
+                "inject": true,
+                "input": "src/global.scss"
               },
               {
-                "input": "src/global.scss"
+                "inject": true,
+                "input": "src/theme/variables.scss"
               }
             ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "serviceWorker": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            },
-            "ci": {
-              "progress": false
-            }
+            "tsConfig": "tsconfig.app.json"
           }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "app:build",
-            "disableHostCheck": true
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "configurations": {
+            "development": {
+              "devServerTarget": "app:serve:development"
+            }
           },
+          "options": {
+            "devServerTarget": "app:serve",
+            "headless": false,
+            "testingType": "component",
+            "watch": true
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "headless": false,
+            "watch": true
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
-            },
-            "ci": {
-              "progress": false
+              "devServerTarget": "app:serve:production"
             }
+          },
+          "options": {
+            "devServerTarget": "app:serve"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "configurations": {
+            "ci": {
+              "headless": true,
+              "watch": false
+            },
+            "production": {
+              "devServerTarget": "app:serve:production"
+            }
+          },
+          "options": {
+            "devServerTarget": "app:serve",
+            "headless": false,
+            "watch": true
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "app:build"
+            "buildTarget": "app:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.html", "src/**/*.ts"]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "ci": {},
+            "production": {
+              "buildTarget": "app:build:production"
+            }
+          },
+          "options": {
+            "buildTarget": "app:build",
+            "disableHostCheck": true
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
+          "configurations": {
+            "ci": {
+              "progress": false,
+              "watch": false
+            }
+          },
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              {
-                "input": "src/theme/variables.scss"
-              },
-              {
-                "input": "src/global.scss"
-              }
-            ],
-            "scripts": [],
             "assets": [
               {
                 "glob": "favicon.ico",
@@ -120,77 +187,45 @@
                 "input": "src/assets",
                 "output": "/assets"
               }
-            ]
-          },
-          "configurations": {
-            "ci": {
-              "progress": false,
-              "watch": false
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "app:serve:production"
-            },
-            "ci": {
-              "devServerTarget": "app:serve:ci"
-            }
-          }
-        },
-        "ionic-cordova-build": {
-          "builder": "@ionic/angular-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "app:build:production"
-            }
-          }
-        },
-        "ionic-cordova-serve": {
-          "builder": "@ionic/angular-toolkit:cordova-serve",
-          "options": {
-            "cordovaBuildTarget": "app:ionic-cordova-build",
-            "devServerTarget": "app:serve"
-          },
-          "configurations": {
-            "production": {
-              "cordovaBuildTarget": "app:ionic-cordova-build:production",
-              "devServerTarget": "app:serve:production"
-            }
+            "karmaConfig": "src/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "scripts": [],
+            "styles": [
+              {
+                "inject": true,
+                "input": "src/global.scss"
+              },
+              {
+                "inject": true,
+                "input": "src/theme/variables.scss"
+              }
+            ],
+            "tsConfig": "tsconfig.spec.json"
           }
         }
-      }
+      },
+      "prefix": "app",
+      "projectType": "application",
+      "root": "",
+      "schematics": {},
+      "sourceRoot": "src"
     }
   },
-  "cli": {
-    "defaultCollection": "@ionic/angular-toolkit"
-  },
   "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    },
     "@ionic/angular-toolkit:component": {
       "styleext": "scss"
     },
     "@ionic/angular-toolkit:page": {
       "styleext": "scss"
     }
-  }
+  },
+  "version": 1
 }

@@ -1,12 +1,11 @@
 ion-toolbar {
+  --background: transparent;
+  --color: white;
   position: absolute;
 
   top: 0;
-  left: 0;
   right: 0;
-
-  --background: transparent;
-  --color: white;
+  left: 0;
 }
 
 ion-toolbar ion-button,
@@ -25,38 +24,44 @@ ion-toolbar ion-menu-button {
 .about-header .about-image {
   position: absolute;
 
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
+
+  transition: opacity 500ms ease-in-out;
+
+  background-repeat: no-repeat;
 
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
 
   opacity: 0;
-
-  transition: opacity 500ms ease-in-out;
 }
 
 .about-header .madison {
-  background-image: url(/assets/img/about/madison.jpg);
+  background-image: url('/assets/img/about/madison.jpg');
 }
+
 .about-header .austin {
-  background-image: url(/assets/img/about/austin.jpg);
+  background-image: url('/assets/img/about/austin.jpg');
 }
+
 .about-header .chicago {
-  background-image: url(/assets/img/about/chicago.jpg);
+  background-image: url('/assets/img/about/chicago.jpg');
 }
+
 .about-header .seattle {
-  background-image: url(/assets/img/about/seattle.jpg);
+  background-image: url('/assets/img/about/seattle.jpg');
 }
 
 .about-info {
-  position: absolute;
+  position: relative;
+
   margin-top: -10px;
+
   border-radius: 10px;
-  background: var(--ion-background-color, #fff);
+
+  background: var(--ion-background-color, #ffffff);
+
+  z-index: 2; // display rounded border above header image
 }
 
 .about-info h3 {
@@ -68,13 +73,19 @@ ion-toolbar ion-menu-button {
 }
 
 .about-info p {
-  line-height: 130%;
-
   color: var(--ion-color-dark);
+
+  line-height: 130%;
 }
 
 .about-info ion-icon {
   margin-inline-end: 32px;
+}
+
+#date-input-popover {
+  --offset-y: -var(--ion-safe-area-bottom);
+  --max-width: 90%;
+  --width: 336px;
 }
 
 /*
