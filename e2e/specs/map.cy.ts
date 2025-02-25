@@ -7,4 +7,4 @@ describe('Map Page', () => {
     cy.get('ion-tab-button').contains('Map').click();
     cy.contains('Map');
   });
-})
+});

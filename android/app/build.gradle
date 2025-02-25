@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace "com.ionicframework.conferenceapp"
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.ionicframework.conferenceapp"
         minSdkVersion rootProject.ext.minSdkVersion

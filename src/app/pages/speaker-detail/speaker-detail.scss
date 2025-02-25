@@ -32,11 +32,12 @@ ion-toolbar ion-menu-button {
 
   padding-top: var(--ion-safe-area-top);
 
-  background: center / cover url("/assets/img/speaker-background.png") no-repeat;
+  background: center / cover url('/assets/img/speaker-background.png') no-repeat;
 }
 
 .speaker-background img {
   width: 70px;
+  height: auto;
 
   margin-top: calc(-1 * var(--ion-safe-area-top));
 
@@ -52,7 +53,8 @@ ion-toolbar ion-menu-button {
 }
 
 .md .speaker-background {
-  box-shadow: rgb(0 0 0 / 20%) 0 3px 1px -2px, rgb(0 0 0 / 14%) 0 2px 2px 0, rgb(0 0 0 / 12%) 0 1px 5px 0;
+  box-shadow: rgb(0 0 0 / 20%) 0 3px 1px -2px, rgb(0 0 0 / 14%) 0 2px 2px 0,
+    rgb(0 0 0 / 12%) 0 1px 5px 0;
 }
 
 .ios .speaker-background {

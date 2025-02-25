@@ -1,32 +1,48 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonInput,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 
-import { UserData } from '../../providers/user-data';
+import { UserService } from '../../providers/user.service';
 
 import { UserOptions } from '../../interfaces/user-options';
 
-
-
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
-  styleUrls: ['./signup.scss'],
+    selector: 'page-signup',
+    templateUrl: 'signup.html',
+    styleUrls: ['./signup.scss'],
+    imports: [
+        FormsModule,
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+        IonInput,
+        IonButton,
+    ]
 })
 export class SignupPage {
   signup: UserOptions = { username: '', password: '' };
   submitted = false;
 
-  constructor(
-    public router: Router,
-    public userData: UserData
-  ) {}
+  constructor(public router: Router, public userService: UserService) {}
 
   onSignup(form: NgForm) {
     this.submitted = true;
 
     if (form.valid) {
-      this.userData.signup(this.signup.username);
+      this.userService.signup(this.signup.username);
       this.router.navigateByUrl('/app/tabs/schedule');
     }
   }

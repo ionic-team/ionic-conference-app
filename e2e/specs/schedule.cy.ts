@@ -10,4 +10,4 @@ describe('Schedule Page', () => {
   it('has a menu', () => {
     cy.get('ion-menu');
   });
-})
+});

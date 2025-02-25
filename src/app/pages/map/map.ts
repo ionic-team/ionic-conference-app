@@ -1,22 +1,40 @@
-import { Component, ElementRef, Inject, ViewChild, AfterViewInit } from '@angular/core';
-import { ConferenceData } from '../../providers/conference-data';
-import { Platform } from '@ionic/angular';
-import { DOCUMENT} from '@angular/common';
-
+import { DOCUMENT } from '@angular/common';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  ViewChild,
+} from '@angular/core';
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
+import { ConferenceService } from '../../providers/conference.service';
 import { darkStyle } from './map-dark-style';
 
 @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html',
-  styleUrls: ['./map.scss']
+    selector: 'page-map',
+    templateUrl: 'map.html',
+    styleUrls: ['./map.scss'],
+    imports: [
+        IonHeader,
+        IonToolbar,
+        IonButtons,
+        IonMenuButton,
+        IonTitle,
+        IonContent,
+    ]
 })
 export class MapPage implements AfterViewInit {
-  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+  private doc = inject(DOCUMENT);
+  private confService = inject(ConferenceService);
 
-  constructor(
-    @Inject(DOCUMENT) private doc: Document,
-    public confData: ConferenceData,
-    public platform: Platform) {}
+  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
@@ -26,30 +44,28 @@ export class MapPage implements AfterViewInit {
       style = darkStyle;
     }
 
-    const googleMaps = await getGoogleMaps(
-      'YOUR_API_KEY_HERE'
-    );
+    const googleMaps = await getGoogleMaps('YOUR_API_KEY_HERE');
 
     let map;
 
-    this.confData.getMap().subscribe((mapData: any) => {
+    this.confService.getMap().subscribe(mapData => {
       const mapEle = this.mapElement.nativeElement;
 
       map = new googleMaps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
+        center: mapData.find(d => d.center),
         zoom: 16,
-        styles: style
+        styles: style,
       });
 
-      mapData.forEach((markerData: any) => {
+      mapData.forEach(markerData => {
         const infoWindow = new googleMaps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`
+          content: `<h5>${markerData.name}</h5>`,
         });
 
         const marker = new googleMaps.Marker({
           position: markerData,
           map,
-          title: markerData.name
+          title: markerData.name,
         });
 
         marker.addListener('click', () => {
@@ -62,21 +78,21 @@ export class MapPage implements AfterViewInit {
       });
     });
 
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
         if (mutation.attributeName === 'class') {
           const el = mutation.target as HTMLElement;
           isDark = el.classList.contains('ion-palette-dark');
           if (map && isDark) {
-            map.setOptions({styles: darkStyle});
+            map.setOptions({ styles: darkStyle });
           } else if (map) {
-            map.setOptions({styles: []});
+            map.setOptions({ styles: [] });
           }
         }
       });
     });
     observer.observe(appEl, {
-      attributes: true
+      attributes: true,
     });
   }
 }
@@ -104,4 +120,3 @@ function getGoogleMaps(apiKey: string): Promise<any> {
     };
   });
 }
-

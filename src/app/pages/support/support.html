@@ -5,12 +5,17 @@
     </ion-buttons>
     <ion-title>Support</ion-title>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
   <div class="support-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic Logo">
+    <img
+      ngSrc="assets/img/appicon.svg"
+      alt="Ionic Logo"
+      width="200"
+      height="200"
+      priority
+    />
   </div>
 
   <div class="support-form">
@@ -24,7 +29,8 @@
         #supportQuestion="ngModel"
         rows="6"
         errorText="Support message is required"
-        required>
+        required
+      >
       </ion-textarea>
 
       <div class="ion-padding">

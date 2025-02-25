@@ -8,8 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="username" class="ion-padding-top ion-text-center">
-    <img src="https://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
+  @if(username) {
+  <div class="ion-padding-top ion-text-center">
+    <img
+      ngSrc="https://www.gravatar.com/avatar?d=mm&s=140"
+      width="140"
+      height="140"
+      priority
+      alt="User avatar"
+      class="user-avatar"
+    />
     <h2>{{username}}</h2>
 
     <ion-list inset>
@@ -20,4 +28,5 @@
       <ion-item (click)="logout()">Logout</ion-item>
     </ion-list>
   </div>
+  }
 </ion-content>

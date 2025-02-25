@@ -1,3 +1,5 @@
+@use "sass:map";
+
 ion-fab-button {
   --background: var(--ion-color-step-150, #ffffff);
   --background-hover: var(--ion-color-step-200, #f2f2f2);
@@ -23,10 +25,10 @@ $categories: (
   workshop: #69bb7b,
   food: #3bc7c4,
   documentation: #b16be3,
-  navigation: #6600cc
+  navigation: #6600cc,
 );
 
-@each $track, $value in map-remove($categories) {
+@each $track, $value in map.remove($categories) {
   ion-item-sliding[track='#{$track}'] ion-label {
     padding-left: 10px;
 
