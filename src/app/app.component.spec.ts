@@ -1,23 +1,23 @@
-import { provideHttpClientTesting } from "@angular/common/http/testing";
-import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from "@angular/core";
-import { TestBed } from "@angular/core/testing";
-import { provideRouter } from "@angular/router";
-import { SwUpdate } from "@angular/service-worker";
-import { MenuController, provideIonicAngular } from "@ionic/angular/standalone";
-import { IonicStorageModule } from "@ionic/storage-angular";
-import { AppComponent } from "./app.component";
-import { routes } from "./app.routes";
-import { UserService } from "./providers/user.service";
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
+import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { AppComponent } from './app.component';
+import { routes } from './app.routes';
+import { UserService } from './providers/user.service';
 
-describe("AppComponent", () => {
+describe('AppComponent', () => {
   let menuSpy, userDataSpy, swUpdateSpy, app, fixture;
 
   beforeEach(async () => {
-    menuSpy = jasmine.createSpyObj("MenuController", ["toggle", "enable"]);
-    userDataSpy = jasmine.createSpyObj("UserData", ["isLoggedIn", "logout"]);
-    swUpdateSpy = jasmine.createSpyObj("SwUpdate", [
-      "available",
-      "activateUpdate",
+    menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
+    userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
+    swUpdateSpy = jasmine.createSpyObj('SwUpdate', [
+      'available',
+      'activateUpdate',
     ]);
 
     await TestBed.configureTestingModule({
@@ -41,7 +41,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create the app", () => {
+  it('should create the app', () => {
     expect(app).toBeTruthy();
   });
 });
