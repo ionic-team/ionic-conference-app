@@ -10,7 +10,13 @@
 
 <ion-content>
   <div class="login-logo">
-    <img src="assets/img/appicon.svg" alt="Ionic logo">
+    <img
+      ngSrc="assets/img/appicon.svg"
+      alt="Ionic logo"
+      width="140"
+      height="140"
+      priority
+    />
   </div>
 
   <div class="login-form">
@@ -26,7 +32,8 @@
         spellcheck="false"
         autocapitalize="off"
         errorText="Username is required"
-        required>
+        required
+      >
       </ion-input>
 
       <ion-input
@@ -38,18 +45,22 @@
         type="password"
         #password="ngModel"
         errorText="Password is required"
-        required>
+        required
+      >
       </ion-input>
 
       <ion-row>
         <ion-col>
-          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login</ion-button>
+          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block"
+            >Login</ion-button
+          >
         </ion-col>
         <ion-col>
-          <ion-button (click)="onSignup()" color="light" expand="block">Signup</ion-button>
+          <ion-button (click)="onSignup()" color="light" expand="block"
+            >Signup</ion-button
+          >
         </ion-col>
       </ion-row>
     </form>
   </div>
-
 </ion-content>

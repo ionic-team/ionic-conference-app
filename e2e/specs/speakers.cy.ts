@@ -7,4 +7,4 @@ describe('Speakers Page', () => {
     cy.get('ion-tab-button').contains('Speakers').click();
     cy.contains('Speakers');
   });
-})
+});

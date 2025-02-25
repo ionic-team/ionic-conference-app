@@ -7,4 +7,4 @@ describe('About Page', () => {
     cy.get('ion-tab-button').contains('About').click();
     cy.contains('About');
   });
-})
+});

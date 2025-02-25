@@ -1,30 +1,33 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Router } from '@angular/router';
-import { TestBed, waitForAsync } from '@angular/core/testing';
-import { MenuController } from '@ionic/angular';
-
+import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { Router, provideRouter } from '@angular/router';
+import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { routes } from '../../app.routes';
 import { TutorialPage } from './tutorial';
 
-import { IonicStorageModule } from '@ionic/storage-angular';
 describe('TutorialPage', () => {
   let fixture, app;
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     const menuSpy = jasmine.createSpyObj('MenuController', [
       'toggle',
-      'enable'
+      'enable',
     ]);
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
-    TestBed.configureTestingModule({
-      declarations: [TutorialPage],
+    await TestBed.configureTestingModule({
+      declarations: [],
+      imports: [TutorialPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [IonicStorageModule.forRoot()],
       providers: [
+        provideIonicAngular(),
+        provideRouter(routes),
+        importProvidersFrom(IonicStorageModule.forRoot()),
         { provide: MenuController, useValue: menuSpy },
-        { provide: Router, useValue: routerSpy }
-      ]
+        { provide: Router, useValue: routerSpy },
+      ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TutorialPage);
