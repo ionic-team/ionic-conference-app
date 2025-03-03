@@ -131,6 +131,13 @@ export class ScheduleFilterPage implements OnInit {
     this.modalCtrl.dismiss(data);
   }
 
+  // This was added to show that the blur is not being called
+  // for the 2nd radio group unless you click off of it
+  @HostListener('ionBlur', ['$event'])
+  handleBlur(event: Event) {
+    console.log('Blur event fired:', event.target);
+  }
+
   trackValidator(control: AbstractControl): { [key: string]: boolean } | null {
     return control.value === 'Angular' ? { invalidTrack: true } : null;
   }
