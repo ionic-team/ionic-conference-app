@@ -30,3 +30,8 @@
 .ios ion-checkbox {
   color: var(--ion-color-primary);
 }
+
+ion-radio-group.ion-invalid.ion-touched ion-radio {
+  --color: var(--ion-color-danger);
+  --color-checked: var(--ion-color-danger);
+}

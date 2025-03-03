@@ -1,13 +1,13 @@
 import { LowerCasePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   Config,
   IonButton,
   IonButtons,
-  IonCheckbox,
+  IonRadio,
+  IonRadioGroup,
   IonContent,
-  IonFooter,
   IonHeader,
   IonIcon,
   IonItem,
@@ -32,6 +32,8 @@ import {
   restaurant,
 } from 'ionicons/icons';
 import { ConferenceService } from '../../providers/conference.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
     selector: 'page-schedule-filter',
@@ -46,26 +48,29 @@ import { ConferenceService } from '../../providers/conference.service';
         IonContent,
         IonList,
         IonListHeader,
-        IonCheckbox,
-        IonFooter,
+        IonRadio,
+        IonRadioGroup,
         IonItem,
         FormsModule,
         LowerCasePipe,
         IonIcon,
+        ReactiveFormsModule
     ],
     providers: [ModalController]
 })
-export class ScheduleFilterPage {
+export class ScheduleFilterPage implements OnInit {
   private config = inject(Config);
   private modalCtrl = inject(ModalController);
   private navParams = inject(NavParams);
   private confService = inject(ConferenceService);
+  private fb: FormBuilder;
 
   ios: boolean;
 
   tracks: { name: string; icon: string; isChecked: boolean }[] = [];
+  scheduleFilterForm: FormGroup;
 
-  constructor() {
+  constructor(fb: FormBuilder) {
     addIcons({
       logoAngular,
       document,
@@ -77,6 +82,14 @@ export class ScheduleFilterPage {
       construct,
       call,
       compass,
+    });
+    this.fb = fb;
+  }
+
+  ngOnInit() {
+    this.scheduleFilterForm = this.fb.group({
+      selectedTrack: ['', [Validators.required, this.trackValidator]],
+      selectedLocation: ['', [Validators.required, this.locationValidator]]
     });
   }
 
@@ -116,5 +129,13 @@ export class ScheduleFilterPage {
     // using the injected ModalController this page
     // can "dismiss" itself and pass back data
     this.modalCtrl.dismiss(data);
+  }
+
+  trackValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    return control.value === 'Angular' ? { invalidTrack: true } : null;
+  }
+
+  locationValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    return control.value === 'executive-ballroom' ? { invalidOption: true } : null;
   }
 }

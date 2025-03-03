@@ -20,29 +20,44 @@
   <ion-list [lines]="ios ? 'inset' : 'full'">
     <ion-list-header>Tracks</ion-list-header>
 
-    @for(track of tracks; track track.name){
-    <ion-item [attr.track]="track.name | lowercase">
-      @if(ios) {
-      <ion-icon slot="start" [name]="track.icon" color="medium"></ion-icon>
-      }
+    <form [formGroup]="scheduleFilterForm">
+      <ion-radio-group formControlName="selectedTrack" helper-text="Select a track" error-text="Angular is an invalid track" required>
+        @for (track of tracks; track track.name) {
+          <ion-item [attr.track]="track.name | lowercase">
+            @if(ios) {
+            <ion-icon slot="start" [name]="track.icon" color="medium"></ion-icon>
+            }
+            <ion-radio [value]="track.name">
+              {{track.name}}
+            </ion-radio>
+          </ion-item>
+        }
+      </ion-radio-group>
 
-      <ion-checkbox
-        [(ngModel)]="track.isChecked"
-      >
-        {{track.name}}
-      </ion-checkbox>
-    </ion-item>
-    }
+      <ion-list-header>Locations</ion-list-header>
+      <ion-radio-group formControlName="selectedLocation" helper-text="Select a location" error-text="Executive ballroom is an invalid location" required>
+        <ion-item>
+          <ion-radio value="dining-hall">Dining Hall</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="executive-ballroom">Executive Ballroom</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="grand-ballroom-a">Grand Ballroom A</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="grand-ballroom-b">Grand Ballroom B</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="hall-1">Hall 1</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="hall-2">Hall 2</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="hall-3">Hall 3</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </form>
   </ion-list>
 </ion-content>
-
-<ion-footer translucent="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="selectAll(false)">Deselect All</ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="selectAll(true)">Select All</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
