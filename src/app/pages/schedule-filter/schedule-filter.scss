@@ -35,3 +35,11 @@ ion-radio-group.ion-invalid.ion-touched ion-radio {
   --color: var(--ion-color-danger);
   --color-checked: var(--ion-color-danger);
 }
+
+ion-radio {
+  display: flex;
+
+  padding: 16px;
+
+  border-bottom: 1px solid var(--ion-color-light);
+}
