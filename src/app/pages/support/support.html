@@ -21,7 +21,7 @@
   <div class="support-form">
     <form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
       <ion-textarea
-        label="Enter your support message below"
+        label="Enter your  support message below"
         labelPlacement="stacked"
         fill="solid"
         [(ngModel)]="supportMessage"
@@ -33,9 +33,11 @@
       >
       </ion-textarea>
 
-      <div class="ion-padding">
-        <ion-button expand="block" type="submit">Submit</ion-button>
-      </div>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit">Submit</ion-button>
+        </ion-col>
+      </ion-row>
     </form>
   </div>
 </ion-content>

@@ -10,6 +10,8 @@ import {
   IonMenuButton,
   IonTitle,
   IonToolbar,
+  IonCol,
+  IonRow
 } from '@ionic/angular/standalone';
 
 import { UserService } from '../../providers/user.service';
@@ -17,20 +19,22 @@ import { UserService } from '../../providers/user.service';
 import { UserOptions } from '../../interfaces/user-options';
 
 @Component({
-    selector: 'page-signup',
-    templateUrl: 'signup.html',
-    styleUrls: ['./signup.scss'],
-    imports: [
-        FormsModule,
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonTitle,
-        IonContent,
-        IonInput,
-        IonButton,
-    ]
+  selector: 'page-signup',
+  templateUrl: 'signup.html',
+  styleUrls: ['./signup.scss'],
+  imports: [
+    IonRow,
+    IonCol,
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonTitle,
+    IonContent,
+    IonInput,
+    IonButton,
+  ]
 })
 export class SignupPage {
   signup: UserOptions = { username: '', password: '' };
