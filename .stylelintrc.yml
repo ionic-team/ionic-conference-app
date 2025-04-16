@@ -5,8 +5,6 @@
 ignoreFiles:
   - src/theme/variables.scss
 
-indentation: 2
-
 extends:
   - stylelint-config-standard-scss
 
@@ -40,9 +38,6 @@ rules:
 
   declaration-no-important:
     - true
-
-  indentation:
-    - 2
 
   no-descending-specificity:
     - null
