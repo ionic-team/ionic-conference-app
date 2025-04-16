@@ -3,8 +3,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  inject,
+  OnDestroy,
   ViewChild,
+  inject,
 } from '@angular/core';
 import {
   IonButtons,
@@ -14,109 +15,130 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { ConferenceService } from '../../providers/conference.service';
-import { darkStyle } from './map-dark-style';
+import { LocationService } from '../../providers/location.service';
+import { Location } from '../../interfaces/conference.interfaces';
+import * as L from 'leaflet';
+import { Subscription, firstValueFrom } from 'rxjs';
 
 @Component({
-    selector: 'page-map',
-    templateUrl: 'map.html',
-    styleUrls: ['./map.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonTitle,
-        IonContent,
-    ]
+  selector: 'page-map',
+  template: `
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Map</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div #mapCanvas class="map-canvas"></div>
+    </ion-content>
+  `,
+  styleUrls: ['./map.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonTitle,
+    IonContent,
+  ],
+  standalone: true,
 })
-export class MapPage implements AfterViewInit {
+export class MapPage implements AfterViewInit, OnDestroy {
   private doc = inject(DOCUMENT);
-  private confService = inject(ConferenceService);
+  private locationService = inject(LocationService);
+  private map: L.Map | null = null;
+  private markers: L.Marker[] = [];
+  private subscription: Subscription;
 
-  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+  @ViewChild('mapCanvas', { static: true }) mapElement!: ElementRef;
 
-  async ngAfterViewInit() {
-    const appEl = this.doc.querySelector('ion-app');
-    let isDark = false;
-    let style = [];
-    if (appEl.classList.contains('ion-palette-dark')) {
-      style = darkStyle;
+  ngAfterViewInit() {
+    this.locationService.loadLocations().subscribe(() => {
+      this.initializeMap();
+    });
+
+    // Subscribe to location changes
+    this.subscription = this.locationService.getLocations().subscribe(() => {
+      if (this.map) {
+        this.initializeMap();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    if (this.map) {
+      this.map.remove();
+    }
+  }
+
+  private async initializeMap() {
+    const mapEle = this.mapElement.nativeElement;
+
+    // Remove existing map if it exists
+    if (this.map) {
+      this.map.remove();
+      this.markers.forEach(marker => marker.remove());
+      this.markers = [];
     }
 
-    const googleMaps = await getGoogleMaps('YOUR_API_KEY_HERE');
-
-    let map;
-
-    this.confService.getMap().subscribe(mapData => {
-      const mapEle = this.mapElement.nativeElement;
-
-      map = new googleMaps.Map(mapEle, {
-        center: mapData.find(d => d.center),
-        zoom: 16,
-        styles: style,
-      });
-
-      mapData.forEach(markerData => {
-        const infoWindow = new googleMaps.InfoWindow({
-          content: `<h5>${markerData.name}</h5>`,
-        });
-
-        const marker = new googleMaps.Marker({
-          position: markerData,
-          map,
-          title: markerData.name,
-        });
-
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      });
-
-      googleMaps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
-    });
-
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        if (mutation.attributeName === 'class') {
-          const el = mutation.target as HTMLElement;
-          isDark = el.classList.contains('ion-palette-dark');
-          if (map && isDark) {
-            map.setOptions({ styles: darkStyle });
-          } else if (map) {
-            map.setOptions({ styles: [] });
-          }
-        }
-      });
-    });
-    observer.observe(appEl, {
-      attributes: true,
-    });
-  }
-}
-
-function getGoogleMaps(apiKey: string): Promise<any> {
-  const win = window as any;
-  const googleModule = win.google;
-  if (googleModule && googleModule.maps) {
-    return Promise.resolve(googleModule.maps);
-  }
-
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.31`;
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    script.onload = () => {
-      const googleModule2 = win.google;
-      if (googleModule2 && googleModule2.maps) {
-        resolve(googleModule2.maps);
-      } else {
-        reject('google maps not available');
+    try {
+      // Get center location
+      const centerLocation = await firstValueFrom(this.locationService.getCenterLocation());
+      if (!centerLocation) {
+        return;
       }
-    };
-  });
+
+      // Initialize map
+      this.map = L.map(mapEle, {
+        center: [centerLocation.lat, centerLocation.lng],
+        zoom: 16,
+        preferCanvas: true
+      });
+
+      // Configure default marker icon with shadow
+      L.Marker.prototype.options.icon = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41]
+      });
+
+      // Add tile layer
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(this.map);
+
+      // Add markers for all locations
+      const locations = await firstValueFrom(this.locationService.getLocations());
+      if (this.map && locations) {
+        locations.forEach((location: Location) => {
+          const marker = L.marker([location.lat, location.lng])
+            .addTo(this.map as L.Map)
+            .bindPopup(`${location.name}`, {
+              className: 'location-popup'
+            });
+          this.markers.push(marker);
+        });
+      }
+
+      mapEle.classList.add('show-map');
+
+      // Force a resize after a short delay to ensure proper rendering
+      setTimeout(() => {
+        this.map?.invalidateSize();
+      }, 100);
+    } catch (error) {
+      console.error('Error initializing map:', error);
+    }
+  }
 }

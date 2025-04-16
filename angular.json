@@ -81,14 +81,8 @@
             "scripts": [],
             "sourceMap": true,
             "styles": [
-              {
-                "inject": true,
-                "input": "src/global.scss"
-              },
-              {
-                "inject": true,
-                "input": "src/theme/variables.scss"
-              }
+              "src/global.scss",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "tsConfig": "tsconfig.app.json"
           }

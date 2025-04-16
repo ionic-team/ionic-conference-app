@@ -14,28 +14,26 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 
-import { NgOptimizedImage } from '@angular/common';
 import { UserOptions } from '../../interfaces/user-options';
 import { UserService } from '../../providers/user.service';
 
 @Component({
-    selector: 'page-login',
-    templateUrl: 'login.html',
-    styleUrls: ['./login.scss'],
-    imports: [
-        FormsModule,
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonTitle,
-        IonContent,
-        IonInput,
-        IonButton,
-        IonRow,
-        IonCol,
-        NgOptimizedImage,
-    ]
+  selector: 'page-login',
+  templateUrl: 'login.html',
+  styleUrls: ['./login.scss'],
+  imports: [
+    FormsModule,
+    IonButton,
+    IonButtons,
+    IonCol,
+    IonContent,
+    IonHeader,
+    IonInput,
+    IonMenuButton,
+    IonRow,
+    IonTitle,
+    IonToolbar,
+  ],
 })
 export class LoginPage {
   private router = inject(Router);
