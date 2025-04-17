@@ -19,7 +19,7 @@ Before submitting an issue, please go through [the list below](#before-submittin
 
 ### Before Submitting an Issue
 
-* Make sure you get the latest version of the code and run through the [Getting Started](https://github.com/ionic-team/ionic-conference-app/blob/main/README.md#getting-started) steps to see if this resolves your issue.
+* Make sure you get the latest version of the code and run through the [Getting Started](https://github.com/ionic-team/ionic-conference-app#getting-started) steps to see if this resolves your issue.
 * Check the [forum](https://forum.ionicframework.com) for similar questions and answers.
 * Go through [all issues](https://github.com/ionic-team/ionic-conference-app/issues?utf8=%E2%9C%93&q=is%3Aissue) on this repository to see if the issue has already been created. It could have been closed with a resolution, so check closed issues, too.
 * Chat with us on [Discord](https://ionic.link/discord) to see if we can find a solution to the problem!
