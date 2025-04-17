@@ -44,7 +44,7 @@ ion-menu.md ion-item {
 }
 
 ion-menu.md ion-item.selected {
-  --background: rgb(var(--ion-color-primary-rgb) / 14%);
+  --background: rgb(var(--ion-color-primary-rgb), 14%);
 }
 
 ion-menu.md ion-item.selected ion-icon {
