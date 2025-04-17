@@ -80,6 +80,13 @@ export class ConferenceService {
         day.groups.forEach((group: Group) => {
           group.hide = true;
 
+          // Sort sessions within each group by start time
+          group.sessions.sort((a, b) => {
+            const timeA = new Date('1970/01/01 ' + a.timeStart).getTime();
+            const timeB = new Date('1970/01/01 ' + b.timeStart).getTime();
+            return timeA - timeB;
+          });
+
           group.sessions.forEach((session: Session) => {
             // check if this session should show or not
             this.filterSession(session, queryWords, excludeTracks, segment);
