@@ -94,6 +94,8 @@ export class ScheduleFilterPage {
           isChecked: excludedTrackNames.indexOf(track.name) === -1,
         });
       });
+      // Sort tracks alphabetically by name
+      this.tracks.sort((a, b) => a.name.localeCompare(b.name));
     });
   }
 
