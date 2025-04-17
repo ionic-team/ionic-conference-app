@@ -1,4 +1,5 @@
 @use "sass:map";
+@import '../../../theme/variables';
 
 ion-fab-button {
   --background: var(--ion-color-step-150, #ffffff);
@@ -14,19 +15,6 @@ ion-fab-button {
 .ios ion-fab-button {
   --background-activated: var(--ion-color-step-250, #d9d9d9);
 }
-
-$tracks: (
-  ionic,
-  angular,
-  communication,
-  tooling,
-  services,
-  design,
-  workshop,
-  food,
-  documentation,
-  navigation
-);
 
 @each $track in $tracks {
   ion-item-sliding[track='#{$track}'] ion-label {

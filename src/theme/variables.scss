@@ -136,6 +136,19 @@
  * https://ionicframework.com/docs/theming/css-variables#ionic-variables
  */
 
+$tracks: (
+  ionic,
+  angular,
+  communication,
+  tooling,
+  services,
+  design,
+  workshop,
+  food,
+  documentation,
+  navigation
+);
+
 :root {
   --ion-headings-font-weight: 300;
 
