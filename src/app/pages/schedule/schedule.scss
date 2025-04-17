@@ -19,6 +19,7 @@ ion-fab-button {
 @each $track in $tracks {
   ion-item-sliding[track='#{$track}'] ion-label {
     padding-left: 10px;
+
     border-left: 2px solid var(--ion-color-#{$track});
   }
 }
