@@ -14,11 +14,15 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
-    userDataSpy = jasmine.createSpyObj('UserData', ['isLoggedIn', 'logout']);
+    userDataSpy = jasmine.createSpyObj('UserService', ['isLoggedIn', 'logout']);
+    userDataSpy.isLoggedIn.and.returnValue(Promise.resolve(false));
     swUpdateSpy = jasmine.createSpyObj('SwUpdate', [
       'available',
       'activateUpdate',
     ]);
+    swUpdateSpy.versionUpdates = {
+      subscribe: jasmine.createSpy('subscribe').and.returnValue({ unsubscribe: () => {} })
+    };
 
     await TestBed.configureTestingModule({
       imports: [AppComponent],

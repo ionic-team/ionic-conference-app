@@ -126,7 +126,6 @@ export class SchedulePage implements OnInit {
 
   ngOnInit() {
     this.updateSchedule();
-
     this.ios = this.config.get('mode') === 'ios';
   }
 

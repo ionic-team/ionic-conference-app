@@ -100,7 +100,6 @@ export class AppComponent implements OnInit {
   dark = false;
 
   constructor() {
-    this.initializeApp();
     addIcons({
       calendarOutline,
       peopleOutline,
@@ -117,6 +116,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.initializeApp();
     await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
