@@ -1,12 +1,14 @@
-import { DOCUMENT } from '@angular/common';
+
 import {
   AfterViewInit,
   Component,
+  DOCUMENT,
+  DestroyRef,
   ElementRef,
-  OnDestroy,
   ViewChild,
-  inject,
+  inject
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   IonButtons,
   IonContent,
@@ -15,10 +17,10 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { LocationService } from '../../providers/location.service';
-import { Location } from '../../interfaces/conference.interfaces';
 import * as L from 'leaflet';
-import { Subscription, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+import { Location } from '../../interfaces/conference.interfaces';
+import { LocationService } from '../../providers/location.service';
 
 @Component({
   selector: 'page-map',
@@ -47,35 +49,37 @@ import { Subscription, firstValueFrom } from 'rxjs';
   ],
   standalone: true,
 })
-export class MapPage implements AfterViewInit, OnDestroy {
+export class MapPage implements AfterViewInit {
   private doc = inject(DOCUMENT);
   private locationService = inject(LocationService);
+  private destroyRef = inject(DestroyRef);
   private map: L.Map | null = null;
   private markers: L.Marker[] = [];
-  private subscription: Subscription;
 
   @ViewChild('mapCanvas', { static: true }) mapElement!: ElementRef;
 
   ngAfterViewInit() {
-    this.locationService.loadLocations().subscribe(() => {
-      this.initializeMap();
-    });
+    this.locationService.loadLocations()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.initializeMap();
+      });
 
     // Subscribe to location changes
-    this.subscription = this.locationService.getLocations().subscribe(() => {
+    this.locationService.getLocations()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        if (this.map) {
+          this.initializeMap();
+        }
+      });
+
+    // Clean up map on destroy
+    this.destroyRef.onDestroy(() => {
       if (this.map) {
-        this.initializeMap();
+        this.map.remove();
       }
     });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-    if (this.map) {
-      this.map.remove();
-    }
   }
 
   private async initializeMap() {

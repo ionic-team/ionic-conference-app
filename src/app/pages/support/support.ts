@@ -1,4 +1,3 @@
-import { NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import {
@@ -33,7 +32,6 @@ import {
         IonTextarea,
         IonTitle,
         IonToolbar,
-        NgOptimizedImage,
     ],
     providers: [AlertController, ToastController]
 })
