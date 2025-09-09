@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1901.7",
-    "@angular-devkit/build-angular": "^20.0.0",
+    "@angular-devkit/build-angular": "^20.1.6",
     "@angular-devkit/core": "^20.0.0",
     "@angular-devkit/schematics": "^20.0.0",
     "@angular-eslint/builder": "^20.0.0",
