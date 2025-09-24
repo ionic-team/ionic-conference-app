@@ -81,7 +81,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "puppeteer": "^11.0.0",
+    "puppeteer": "^24.22.2",
     "stylelint": "15.3.0",
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.3",
