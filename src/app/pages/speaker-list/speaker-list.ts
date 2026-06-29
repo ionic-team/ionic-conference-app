@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonAvatar,
@@ -48,11 +48,11 @@ import { ConferenceService } from '../../providers/conference.service';
 export class SpeakerListPage {
   private confData = inject(ConferenceService);
 
-  speakers: Speaker[] = [];
+  speakers = signal<Speaker[]>([]);
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe(speakers => {
-      this.speakers = speakers;
+      this.speakers.set(speakers);
     });
   }
 }

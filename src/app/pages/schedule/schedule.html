@@ -62,8 +62,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list #scheduleList [hidden]="shownSessions === 0">
-    @for (group of groups; track $index) {
+  <ion-list #scheduleList [hidden]="shownSessions() === 0">
+    @for (group of groups(); track $index) {
     <ion-item-group [hidden]="group.hide">
       <ion-item-divider sticky>
         <ion-label> {{group.time}} </ion-label>
@@ -107,7 +107,7 @@
     }
   </ion-list>
 
-  <ion-list-header [hidden]="shownSessions > 0">
+  <ion-list-header [hidden]="shownSessions() > 0">
     No Sessions Found
   </ion-list-header>
 

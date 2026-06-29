@@ -16,7 +16,7 @@
 
   <ion-grid fixed>
     <ion-row>
-      @for (speaker of speakers; track speaker.id) {
+      @for (speaker of speakers(); track speaker.id) {
       <ion-col size="12" size-md="6">
         <ion-card class="speaker-card">
           <ion-card-header>

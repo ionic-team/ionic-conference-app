@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  @if(username) {
+  @if(username()) {
   <div class="ion-padding-top ion-text-center">
     <img
       ngSrc="https://www.gravatar.com/avatar?d=mm&s=140"
@@ -18,7 +18,7 @@
       alt="User avatar"
       class="user-avatar"
     />
-    <h2>{{username}}</h2>
+    <h2>{{username()}}</h2>
 
     <ion-list inset>
       <ion-item (click)="updatePicture()">Update Picture</ion-item>

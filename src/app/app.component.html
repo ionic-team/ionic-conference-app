@@ -20,7 +20,7 @@
           </ion-menu-toggle>
           }
         </ion-list>
-        @if(loggedIn) {
+        @if(loggedIn()) {
         <ion-list lines="none">
           <ion-list-header> Account </ion-list-header>
 
@@ -55,7 +55,7 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-        } @if(!loggedIn) {
+        } @if(!loggedIn()) {
         <ion-list lines="none">
           <ion-list-header> Account </ion-list-header>
 

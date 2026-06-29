@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgOptimizedImage } from '@angular/common';
@@ -37,7 +37,7 @@ export class AccountPage implements AfterViewInit {
   private router = inject(Router);
   private user = inject(UserService);
 
-  username: string;
+  username = signal<string>('');
 
   ngAfterViewInit() {
     this.getUsername();
@@ -67,7 +67,7 @@ export class AccountPage implements AfterViewInit {
         {
           type: 'text',
           name: 'username',
-          value: this.username,
+          value: this.username(),
           placeholder: 'username',
         },
       ],
@@ -77,7 +77,7 @@ export class AccountPage implements AfterViewInit {
 
   getUsername() {
     this.user.getUsername().then(username => {
-      this.username = username;
+      this.username.set(username ?? '');
     });
   }
 

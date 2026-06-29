@@ -1,5 +1,5 @@
 import { LowerCasePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   Config,
@@ -61,9 +61,9 @@ export class ScheduleFilterPage {
   private navParams = inject(NavParams);
   private confService = inject(ConferenceService);
 
-  ios: boolean;
+  ios = signal(false);
 
-  tracks: { name: string; icon: string; isChecked: boolean }[] = [];
+  tracks = signal<{ name: string; icon: string; isChecked: boolean }[]>([]);
 
   constructor() {
     addIcons({
@@ -81,34 +81,33 @@ export class ScheduleFilterPage {
   }
 
   ionViewWillEnter() {
-    this.ios = this.config.get('mode') === 'ios';
+    this.ios.set(this.config.get('mode') === 'ios');
 
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.navParams.get('excludedTracks');
 
     this.confService.getTracks().subscribe(tracks => {
-      tracks.forEach(track => {
-        this.tracks.push({
-          name: track.name,
-          icon: track.icon,
-          isChecked: excludedTrackNames.indexOf(track.name) === -1,
-        });
-      });
+      const filterTracks = tracks.map(track => ({
+        name: track.name,
+        icon: track.icon,
+        isChecked: excludedTrackNames.indexOf(track.name) === -1,
+      }));
       // Sort tracks alphabetically by name
-      this.tracks.sort((a, b) => a.name.localeCompare(b.name));
+      filterTracks.sort((a, b) => a.name.localeCompare(b.name));
+      this.tracks.set(filterTracks);
     });
   }
 
   selectAll(check: boolean) {
     // set all to checked or unchecked
-    this.tracks.forEach(track => {
-      track.isChecked = check;
-    });
+    this.tracks.update(tracks =>
+      tracks.map(track => ({ ...track, isChecked: check }))
+    );
   }
 
   applyFilters() {
     // Pass back a new array of track names to exclude
-    const excludedTrackNames = this.tracks
+    const excludedTrackNames = this.tracks()
       .filter(c => !c.isChecked)
       .map(c => c.name);
     this.dismiss(excludedTrackNames);

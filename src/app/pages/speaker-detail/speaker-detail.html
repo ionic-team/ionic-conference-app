@@ -5,7 +5,7 @@
         <ion-back-button defaultHref="/app/tabs/speakers"></ion-back-button>
       </ion-buttons>
 
-      @if (speaker) {
+      @if (speaker(); as speaker) {
       <ion-buttons slot="end">
         <ion-button (click)="openContact(speaker)">
           <ion-icon
@@ -28,23 +28,23 @@
 
   <div class="speaker-background">
     <img
-      ngSrc="{{speaker?.profilePic ?? '/assets/placeholder.jpg'}}"
-      [alt]="speaker?.name ?? 'Speaker profile'"
+      ngSrc="{{speaker()?.profilePic ?? '/assets/placeholder.jpg'}}"
+      [alt]="speaker()?.name ?? 'Speaker profile'"
       width="70"
       height="70"
       priority
     />
-    <h2>{{speaker?.name ?? 'Loading...'}}</h2>
+    <h2>{{speaker()?.name ?? 'Loading...'}}</h2>
   </div>
 
   <div class="ion-padding speaker-detail">
     <p>
-      {{speaker?.about ?? 'Loading biography...'}} Say hello on social media!
+      {{speaker()?.about ?? 'Loading biography...'}} Say hello on social media!
     </p>
 
     <hr />
 
-    @if (speaker) {
+    @if (speaker(); as speaker) {
     <div class="social-links">
       <ion-chip
         color="twitter"

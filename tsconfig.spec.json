@@ -4,7 +4,17 @@
     "outDir": "./out-tsc/spec",
     "types": ["jasmine"]
   },
-  "files": ["src/test.ts", "src/zone-flags.ts", "src/polyfills.ts"],
+  "files": ["src/test.ts", "src/polyfills.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
-  "exclude": ["**/node_modules"]
+  "exclude": [
+    "**/node_modules"
+  ],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }

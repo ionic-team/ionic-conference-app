@@ -20,19 +20,19 @@
     <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
     <div
       class="about-image madison"
-      [ngStyle]="location === 'madison' && {'opacity': '1'}"
+      [ngStyle]="location === 'madison' ? {'opacity': '1'} : null"
     ></div>
     <div
       class="about-image austin"
-      [ngStyle]="location === 'austin' && {'opacity': '1'}"
+      [ngStyle]="location === 'austin' ? {'opacity': '1'} : null"
     ></div>
     <div
       class="about-image chicago"
-      [ngStyle]="location === 'chicago' && {'opacity': '1'}"
+      [ngStyle]="location === 'chicago' ? {'opacity': '1'} : null"
     ></div>
     <div
       class="about-image seattle"
-      [ngStyle]="location === 'seattle' && {'opacity': '1'}"
+      [ngStyle]="location === 'seattle' ? {'opacity': '1'} : null"
     ></div>
   </div>
 

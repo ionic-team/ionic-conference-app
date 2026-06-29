@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
   IonBackButton,
@@ -49,9 +49,9 @@ export class SessionDetailPage {
   private userService = inject(UserService);
   private route = inject(ActivatedRoute);
 
-  session: Session;
-  isFavorite = false;
-  defaultHref = '';
+  session = signal<Session | undefined>(undefined);
+  isFavorite = signal(false);
+  defaultHref = signal('');
 
   constructor() {
     addIcons({ shareOutline, starOutline, star, cloudDownload, share });
@@ -70,10 +70,10 @@ export class SessionDetailPage {
           if (group && group.sessions) {
             for (const session of group.sessions) {
               if (session && session.id === sessionId) {
-                this.session = session;
+                this.session.set(session);
 
-                this.isFavorite = this.userService.hasFavorite(
-                  this.session.name
+                this.isFavorite.set(
+                  this.userService.hasFavorite(session.name)
                 );
 
                 break;
@@ -86,7 +86,7 @@ export class SessionDetailPage {
   }
 
   ionViewDidEnter() {
-    this.defaultHref = '/app/tabs/schedule';
+    this.defaultHref.set('/app/tabs/schedule');
   }
 
   sessionClick(item: string) {
@@ -94,13 +94,16 @@ export class SessionDetailPage {
   }
 
   toggleFavorite() {
-    const sessionName = this.session.name;
+    const sessionName = this.session()?.name;
+    if (!sessionName) {
+      return;
+    }
     if (this.userService.hasFavorite(sessionName)) {
       this.userService.removeFavorite(sessionName);
-      this.isFavorite = false;
+      this.isFavorite.set(false);
     } else {
-      this.userService.addFavorite(this.session.name);
-      this.isFavorite = true;
+      this.userService.addFavorite(sessionName);
+      this.isFavorite.set(true);
     }
   }
 

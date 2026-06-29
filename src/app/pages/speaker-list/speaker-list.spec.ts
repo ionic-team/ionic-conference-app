@@ -1,4 +1,7 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouteReuseStrategy, Router } from '@angular/router';
 import { ActionSheetController, IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
@@ -10,7 +13,7 @@ import { SpeakerListPage } from './speaker-list';
 const confDataSub = {};
 
 describe('SpeakerListPage', () => {
-  let fixture, app;
+  let fixture, app: SpeakerListPage;
   beforeEach(async () => {
     const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', [
       'create',
@@ -23,6 +26,7 @@ describe('SpeakerListPage', () => {
       imports: [SpeakerListPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
+        provideZonelessChangeDetection(),
         provideIonicAngular(),
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
         { provide: ActionSheetController, useValue: actionSheetSpy },

@@ -6,7 +6,7 @@ import {
   DestroyRef,
   ElementRef,
   ViewChild,
-  inject
+  inject,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {

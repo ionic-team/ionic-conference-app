@@ -36,21 +36,23 @@ export class ConferenceService {
     this.data = data;
 
     // loop through each day in the schedule
-    this.data.schedule.forEach((day: ScheduleDay) => {
+    data.schedule.forEach((day: ScheduleDay) => {
       // loop through each timeline group in the day
       day.groups.forEach((group: Group) => {
         // loop through each session in the timeline group
         group.sessions.forEach((session: Session) => {
-          session.speakers = [];
+          const sessionSpeakers: Speaker[] = [];
+          session.speakers = sessionSpeakers;
           if (session.speakerNames) {
             session.speakerNames.forEach((speakerName: string) => {
-              const speaker = this.data.speakers.find(
+              const speaker = data.speakers.find(
                 (s: Speaker) => s.name === speakerName
               );
               if (speaker) {
-                session.speakers.push(speaker);
-                speaker.sessions = speaker.sessions || [];
-                speaker.sessions.push(session);
+                sessionSpeakers.push(speaker);
+                const speakerSessions = speaker.sessions ?? [];
+                speakerSessions.push(session);
+                speaker.sessions = speakerSessions;
               }
             });
           }
@@ -58,7 +60,7 @@ export class ConferenceService {
       });
     });
 
-    return this.data;
+    return data;
   }
 
   getTimeline(
@@ -70,7 +72,7 @@ export class ConferenceService {
     return this.load().pipe(
       map((data: ConferenceData) => {
         const day = data.schedule[dayIndex];
-        day.shownSessions = 0;
+        let shownSessions = 0;
 
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
         const queryWords = queryText
@@ -94,11 +96,12 @@ export class ConferenceService {
             if (!session.hide) {
               // if this session is not hidden then this group should show
               group.hide = false;
-              day.shownSessions++;
+              shownSessions++;
             }
           });
         });
 
+        day.shownSessions = shownSessions;
         return day;
       })
     );

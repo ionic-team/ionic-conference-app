@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import {
@@ -46,7 +46,7 @@ import { ConferenceService } from '../../providers/conference.service';
     providers: [InAppBrowser, ActionSheetController]
 })
 export class SpeakerDetailPage {
-  speaker: Speaker;
+  speaker = signal<Speaker | undefined>(undefined);
 
   private confService = inject(ConferenceService);
   private route = inject(ActivatedRoute);
@@ -71,7 +71,7 @@ export class SpeakerDetailPage {
       if (data && data.speakers) {
         for (const speaker of data.speakers) {
           if (speaker && speaker.id === speakerId) {
-            this.speaker = speaker;
+            this.speaker.set(speaker);
             break;
           }
         }
@@ -124,14 +124,14 @@ export class SpeakerDetailPage {
       buttons: [
         {
           text: `Email ( ${speaker.email} )`,
-          icon: mode !== 'ios' ? 'mail' : null,
+          icon: mode !== 'ios' ? 'mail' : undefined,
           handler: () => {
             window.open('mailto:' + speaker.email);
           },
         },
         {
           text: `Call ( ${speaker.phone} )`,
-          icon: mode !== 'ios' ? 'call' : null,
+          icon: mode !== 'ios' ? 'call' : undefined,
           handler: () => {
             window.open('tel:' + speaker.phone);
           },
