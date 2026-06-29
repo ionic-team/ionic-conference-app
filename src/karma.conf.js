@@ -1,7 +1,9 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
-process.env.CHROME_BIN = process.env.CHROME_BIN || require('puppeteer').executablePath();
+// Use the Chrome found on PATH (set CHROME_BIN to override). Do not fall back to
+// puppeteer's bundled Chromium: v11's binary is x86_64-only (won't spawn on
+// arm64) and is absent on the Windows CI runner.
 
 module.exports = function (config) {
   config.set({
