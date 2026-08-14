@@ -13,7 +13,7 @@ import {
   IonIcon,
   IonLabel,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import {
   callOutline,

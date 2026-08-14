@@ -12,7 +12,7 @@ import {
   IonList,
   IonText,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import {
   cloudDownload,

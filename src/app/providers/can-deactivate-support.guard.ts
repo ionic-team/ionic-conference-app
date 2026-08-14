@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanDeactivateFn } from '@angular/router';
-import { AlertController } from '@ionic/angular/standalone';
+import { AlertController } from '@ionic/angular';
 import { SupportPage } from '../pages/support/support';
 
 export const canDeactivateSupportPage: CanDeactivateFn<SupportPage> = async (

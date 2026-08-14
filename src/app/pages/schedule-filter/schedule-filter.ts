@@ -1,5 +1,5 @@
 import { LowerCasePipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   Config,
@@ -16,8 +16,7 @@ import {
   IonTitle,
   IonToolbar,
   ModalController,
-  NavParams,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import {
   call,
@@ -58,8 +57,10 @@ import { ConferenceService } from '../../providers/conference.service';
 export class ScheduleFilterPage {
   private config = inject(Config);
   private modalCtrl = inject(ModalController);
-  private navParams = inject(NavParams);
   private confService = inject(ConferenceService);
+
+  // Set from the modal's componentProps, via useSetInputAPI in main.ts.
+  excludedTracks = input<string[]>([]);
 
   ios = signal(false);
 
@@ -84,7 +85,7 @@ export class ScheduleFilterPage {
     this.ios.set(this.config.get('mode') === 'ios');
 
     // passed in array of track names that should be excluded (unchecked)
-    const excludedTrackNames = this.navParams.get('excludedTracks');
+    const excludedTrackNames = this.excludedTracks();
 
     this.confService.getTracks().subscribe(tracks => {
       const filterTracks = tracks.map(track => ({

@@ -12,7 +12,7 @@ import {
   IonMenuButton,
   IonTitle,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { UserService } from '../../providers/user.service';
 
 @Component({
@@ -58,8 +58,9 @@ export class AccountPage implements AfterViewInit {
         {
           text: 'Ok',
           handler: (data: { username: string }) => {
-            this.user.setUsername(data.username);
-            this.getUsername();
+            // Wait for the write to land, otherwise getUsername races it and reads
+            // the old value back out of storage.
+            this.user.setUsername(data.username).then(() => this.getUsername());
           },
         },
       ],

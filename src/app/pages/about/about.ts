@@ -18,7 +18,7 @@ import {
   IonText,
   IonToolbar,
   PopoverController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { ellipsisHorizontal, ellipsisVertical } from 'ionicons/icons';
 import { PopoverPage } from '../about-popover/about-popover';

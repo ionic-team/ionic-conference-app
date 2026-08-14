@@ -25,7 +25,7 @@ import {
   MenuController,
   Platform,
   ToastController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import {
   calendarOutline,
   hammer,

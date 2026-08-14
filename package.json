@@ -40,7 +40,7 @@
     "@capacitor/keyboard": "^6.0.0",
     "@capacitor/splash-screen": "^6.0.0",
     "@capacitor/status-bar": "^6.0.0",
-    "@ionic/angular": "8.8.9-dev.11781098612.122c6758",
+    "@ionic/angular": "8.8.14-dev.11784563563.137a903a",
     "@ionic/storage-angular": "^4.0.0",
     "cordova-plugin-inappbrowser": "5.0.0",
     "core-js": "^3.6.4",
@@ -90,10 +90,10 @@
     "typescript-eslint": "^8.62.0"
   },
   "browserslist": [
-    "Chrome >=107",
-    "Firefox >=106",
-    "Edge >=107",
-    "Safari >=16.1",
-    "iOS >=16.1"
+    "Chrome >=111",
+    "Firefox >=112",
+    "Edge >=111",
+    "Safari >=16.4",
+    "iOS >=16.4"
   ]
 }

@@ -12,7 +12,7 @@ import {
   IonToolbar,
   IonCol,
   IonRow
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 import { UserService } from '../../providers/user.service';
 

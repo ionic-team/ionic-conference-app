@@ -43,7 +43,7 @@ import {
   LoadingController,
   ModalController,
   ToastController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Group, Session } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 import { UserService } from '../../providers/user.service';

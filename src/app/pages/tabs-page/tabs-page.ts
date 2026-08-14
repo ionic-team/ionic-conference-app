@@ -6,7 +6,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { calendar, informationCircle, location, people } from 'ionicons/icons';
 

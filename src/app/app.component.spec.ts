@@ -8,7 +8,7 @@ import {
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
+import { MenuController, provideIonicAngular } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
@@ -34,7 +34,7 @@ describe('AppComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         provideZonelessChangeDetection(),
-        provideIonicAngular(),
+        provideIonicAngular({ useSetInputAPI: true }),
         provideRouter(routes),
         provideHttpClient(),
         provideHttpClientTesting(),
