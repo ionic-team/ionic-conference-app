@@ -58,7 +58,7 @@
     "@angular-devkit/schematics": "^22.0.4",
     "@angular-eslint/builder": "^22.0.0",
     "@angular-eslint/schematics": "^22.0.0",
-    "@angular/cli": "^22.0.4",
+    "@angular/cli": "^22.1.5",
     "@angular/compiler": "^22.0.2",
     "@angular/compiler-cli": "^22.0.2",
     "@angular/language-service": "^22.0.2",
