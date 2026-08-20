@@ -13,7 +13,7 @@ import {
   IonTitle,
   IonToolbar,
   ToastController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 @Component({
     selector: 'page-support',

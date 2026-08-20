@@ -9,7 +9,7 @@ import {
   IonIcon,
   IonToolbar,
   MenuController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';
 import { arrowForward, close } from 'ionicons/icons';

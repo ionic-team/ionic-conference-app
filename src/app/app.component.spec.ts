@@ -1,16 +1,21 @@
+import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  importProvidersFrom,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
+import { MenuController, provideIonicAngular } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { UserService } from './providers/user.service';
 
 describe('AppComponent', () => {
-  let menuSpy, userDataSpy, swUpdateSpy, app, fixture;
+  let menuSpy, userDataSpy, swUpdateSpy, app: AppComponent, fixture;
 
   beforeEach(async () => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
@@ -28,8 +33,10 @@ describe('AppComponent', () => {
       imports: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideIonicAngular(),
+        provideZonelessChangeDetection(),
+        provideIonicAngular({ useSetInputAPI: true }),
         provideRouter(routes),
+        provideHttpClient(),
         provideHttpClientTesting(),
         importProvidersFrom(IonicStorageModule.forRoot()),
         { provide: MenuController, useValue: menuSpy },
@@ -41,7 +48,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.debugElement.componentInstance;
-    app.storage.create();
+    app['storage'].create();
     fixture.detectChanges();
   });
 

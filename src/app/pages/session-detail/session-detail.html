@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+      <ion-back-button [defaultHref]="defaultHref()"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="toggleFavorite()">
-        @if (!isFavorite) {
+        @if (!isFavorite()) {
         <ion-icon slot="icon-only" name="star-outline"></ion-icon>
-        } @if (isFavorite) {
+        } @if (isFavorite()) {
         <ion-icon slot="icon-only" name="star"></ion-icon>
         }
       </ion-button>
@@ -19,10 +19,10 @@
 </ion-header>
 
 <ion-content>
-  @if (session) {
+  @if (session(); as session) {
   <div class="ion-padding">
     <h1>{{session.name}}</h1>
-    @for (track of session?.tracks; track $index) {
+    @for (track of session.tracks; track $index) {
     <span [class]="'session-track-'+track.toLowerCase()">{{track}}</span>
     }
     <p>{{session.description}}</p>

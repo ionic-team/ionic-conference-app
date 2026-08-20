@@ -4,7 +4,7 @@ import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
 import {
   IonicRouteStrategy,
   provideIonicAngular,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 import { provideHttpClient } from '@angular/common/http';
 import { bootstrapApplication } from '@angular/platform-browser';
@@ -31,7 +31,9 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
+    // Lets Ionic pass overlay componentProps through ComponentRef.setInput, so pages can
+    // read them as signal inputs instead of the deprecated NavParams.
+    provideIonicAngular({ useSetInputAPI: true }),
     provideRouter(
       routes,
       withPreloading(PreloadAllModules),

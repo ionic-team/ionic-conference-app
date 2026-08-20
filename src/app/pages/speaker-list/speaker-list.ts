@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonAvatar,
@@ -17,7 +17,7 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Speaker } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 
@@ -48,11 +48,11 @@ import { ConferenceService } from '../../providers/conference.service';
 export class SpeakerListPage {
   private confData = inject(ConferenceService);
 
-  speakers: Speaker[] = [];
+  speakers = signal<Speaker[]>([]);
 
   ionViewDidEnter() {
     this.confData.getSpeakers().subscribe(speakers => {
-      this.speakers = speakers;
+      this.speakers.set(speakers);
     });
   }
 }

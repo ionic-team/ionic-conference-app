@@ -1,13 +1,17 @@
-import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  importProvidersFrom,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter } from '@angular/router';
-import { MenuController, provideIonicAngular } from '@ionic/angular/standalone';
+import { MenuController, provideIonicAngular } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { routes } from '../../app.routes';
 import { TutorialPage } from './tutorial';
 
 describe('TutorialPage', () => {
-  let fixture, app;
+  let fixture, app: TutorialPage;
   beforeEach(async () => {
     const menuSpy = jasmine.createSpyObj('MenuController', [
       'toggle',
@@ -20,7 +24,8 @@ describe('TutorialPage', () => {
       imports: [TutorialPage],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        provideIonicAngular(),
+        provideZonelessChangeDetection(),
+        provideIonicAngular({ useSetInputAPI: true }),
         provideRouter(routes),
         importProvidersFrom(IonicStorageModule.forRoot()),
         { provide: MenuController, useValue: menuSpy },

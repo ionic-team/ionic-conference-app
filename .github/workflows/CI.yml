@@ -17,7 +17,7 @@ jobs:
         # Require status checks to pass before merging ->
         # Search for the new version -> Add them to the list ->
         # Remove the old version from the list -> Save changes
-        node_version: [20]
+        node_version: [24]
         os: [windows-latest, macOS-latest]
 
     steps:

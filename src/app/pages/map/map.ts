@@ -6,7 +6,7 @@ import {
   DestroyRef,
   ElementRef,
   ViewChild,
-  inject
+  inject,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -16,7 +16,7 @@ import {
   IonMenuButton,
   IonTitle,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import * as L from 'leaflet';
 import { firstValueFrom } from 'rxjs';
 import { Location } from '../../interfaces/conference.interfaces';

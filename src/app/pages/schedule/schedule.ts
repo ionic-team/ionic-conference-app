@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, signal, ViewChild, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 import { addIcons } from 'ionicons';
@@ -43,7 +43,7 @@ import {
   LoadingController,
   ModalController,
   ToastController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { Group, Session } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 import { UserService } from '../../providers/user.service';
@@ -107,8 +107,8 @@ export class SchedulePage implements OnInit {
   queryText = '';
   segment = 'all';
   excludeTrackNames: string[] = [];
-  shownSessions: number;
-  groups: Group[] = [];
+  shownSessions = signal(0);
+  groups = signal<Group[]>([]);
   confDate: string;
   showSearchbar: boolean;
 
@@ -143,8 +143,13 @@ export class SchedulePage implements OnInit {
         this.segment
       )
       .subscribe(data => {
-        this.shownSessions = data.shownSessions;
-        this.groups = data.groups;
+        this.shownSessions.set(data.shownSessions ?? 0);
+        // getTimeline mutates group.hide in place on the cached day object and
+        // returns the same groups array reference each call. Spread into a new
+        // array so the signal's Object.is check notifies and the list re-renders
+        // under zoneless change detection (a same-count filter change otherwise
+        // leaves the view stale).
+        this.groups.set([...data.groups]);
       });
   }
 

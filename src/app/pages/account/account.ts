@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgOptimizedImage } from '@angular/common';
@@ -12,7 +12,7 @@ import {
   IonMenuButton,
   IonTitle,
   IonToolbar,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { UserService } from '../../providers/user.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class AccountPage implements AfterViewInit {
   private router = inject(Router);
   private user = inject(UserService);
 
-  username: string;
+  username = signal<string>('');
 
   ngAfterViewInit() {
     this.getUsername();
@@ -58,8 +58,9 @@ export class AccountPage implements AfterViewInit {
         {
           text: 'Ok',
           handler: (data: { username: string }) => {
-            this.user.setUsername(data.username);
-            this.getUsername();
+            // Wait for the write to land, otherwise getUsername races it and reads
+            // the old value back out of storage.
+            this.user.setUsername(data.username).then(() => this.getUsername());
           },
         },
       ],
@@ -67,7 +68,7 @@ export class AccountPage implements AfterViewInit {
         {
           type: 'text',
           name: 'username',
-          value: this.username,
+          value: this.username(),
           placeholder: 'username',
         },
       ],
@@ -77,7 +78,7 @@ export class AccountPage implements AfterViewInit {
 
   getUsername() {
     this.user.getUsername().then(username => {
-      this.username = username;
+      this.username.set(username ?? '');
     });
   }
 

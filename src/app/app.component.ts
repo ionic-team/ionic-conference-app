@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { addIcons } from 'ionicons';
@@ -25,7 +25,7 @@ import {
   MenuController,
   Platform,
   ToastController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import {
   calendarOutline,
   hammer,
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
       icon: 'information-circle',
     },
   ];
-  loggedIn = false;
+  loggedIn = signal(false);
   dark = false;
 
   constructor() {
@@ -159,7 +159,7 @@ export class AppComponent implements OnInit {
 
   updateLoggedInStatus(loggedIn: boolean) {
     setTimeout(() => {
-      this.loggedIn = loggedIn;
+      this.loggedIn.set(loggedIn);
     }, 300);
   }
 

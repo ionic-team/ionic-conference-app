@@ -5,7 +5,7 @@ import {
   IonLabel,
   IonList,
   PopoverController,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 
 @Component({
     template: `
