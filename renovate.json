@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "minimumReleaseAge": "3 days",
+  "schedule": ["every weekday before 11am"],
+  "semanticCommits": "enabled",
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^@ionic/"],
+      "minimumReleaseAge": "0 days",
+      "groupName": "ionic"
+    },
+    {
+      "matchPackagePatterns": ["^@angular/", "^@angular-devkit/", "^@angular-eslint/"],
+      "groupName": "angular",
+      "schedule": ["on the first day of the month"]
+    },
+    {
+      "matchPackagePatterns": ["^@capacitor/"],
+      "groupName": "capacitor"
+    },
+    {
+      "matchPackagePatterns": ["karma", "jasmine", "puppeteer", "@types/"],
+      "groupName": "testing"
+    },
+    {
+      "matchPackagePatterns": ["eslint", "stylelint", "typescript"],
+      "groupName": "dev-tools"
+    }
+  ]
+}
