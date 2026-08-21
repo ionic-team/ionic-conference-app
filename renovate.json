@@ -44,7 +44,7 @@
       "groupName": "testing"
     },
     {
-      "matchPackageNames": ["eslint", "@eslint/**", "stylelint", "stylelint-*", "typescript-eslint"],
+      "matchPackageNames": ["eslint", "@eslint/**", "stylelint*", "typescript-eslint"],
       "groupName": "dev-tools"
     }
   ]
