@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
   "minimumReleaseAge": "3 days",
   "schedule": ["every weekday before 11am"],
   "semanticCommits": "enabled",
@@ -12,7 +12,13 @@
       "groupName": "ionic"
     },
     {
-      "matchPackageNames": ["@angular/**", "@angular-devkit/**", "@angular-eslint/**"],
+      "matchPackageNames": [
+        "@angular/**",
+        "@angular-devkit/**",
+        "@angular-eslint/**",
+        "angular-eslint",
+        "typescript"
+      ],
       "groupName": "angular",
       "schedule": ["on the first day of the month"]
     },
@@ -21,11 +27,24 @@
       "groupName": "capacitor"
     },
     {
-      "matchPackageNames": ["karma", "jasmine", "puppeteer", "@types/**"],
+      "matchPackageNames": ["@awesome-cordova-plugins/**"],
+      "groupName": "awesome-cordova-plugins"
+    },
+    {
+      "matchPackageNames": ["leaflet", "@types/leaflet"],
+      "groupName": "leaflet"
+    },
+    {
+      "matchPackageNames": [
+        "karma*",
+        "jasmine*",
+        "@types/jasmine",
+        "puppeteer"
+      ],
       "groupName": "testing"
     },
     {
-      "matchPackageNames": ["eslint", "stylelint", "typescript"],
+      "matchPackageNames": ["eslint", "@eslint/**", "stylelint", "stylelint-*", "typescript-eslint"],
       "groupName": "dev-tools"
     }
   ]
