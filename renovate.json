@@ -7,25 +7,25 @@
   "dependencyDashboard": true,
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@ionic/"],
+      "matchPackageNames": ["@ionic/**"],
       "minimumReleaseAge": "0 days",
       "groupName": "ionic"
     },
     {
-      "matchPackagePatterns": ["^@angular/", "^@angular-devkit/", "^@angular-eslint/"],
+      "matchPackageNames": ["@angular/**", "@angular-devkit/**", "@angular-eslint/**"],
       "groupName": "angular",
       "schedule": ["on the first day of the month"]
     },
     {
-      "matchPackagePatterns": ["^@capacitor/"],
+      "matchPackageNames": ["@capacitor/**"],
       "groupName": "capacitor"
     },
     {
-      "matchPackagePatterns": ["karma", "jasmine", "puppeteer", "@types/"],
+      "matchPackageNames": ["karma", "jasmine", "puppeteer", "@types/**"],
       "groupName": "testing"
     },
     {
-      "matchPackagePatterns": ["eslint", "stylelint", "typescript"],
+      "matchPackageNames": ["eslint", "stylelint", "typescript"],
       "groupName": "dev-tools"
     }
   ]
