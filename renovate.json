@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
   "minimumReleaseAge": "3 days",
-  "schedule": ["every weekday before 11am"],
+  "schedule": ["every monday before 11am"],
   "semanticCommits": "enabled",
   "dependencyDashboard": true,
   "packageRules": [
