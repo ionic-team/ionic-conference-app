@@ -10,6 +10,8 @@ This is a **kitchen-sink demo application** built with **Ionic Framework** and *
 
 👉 [Try the Live Demo](https://ionic-conference-app-git-main-ionic1.vercel.app/app/tabs/schedule)
 
+testing 1 2 3
+
 ## 🧱 Framework Variants
 
 This app is also available in other frameworks:
