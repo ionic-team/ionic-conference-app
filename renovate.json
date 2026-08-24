@@ -1,8 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
+  "extends": [
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "timezone": "America/New_York",
   "minimumReleaseAge": "3 days",
-  "schedule": ["every monday before 11am"],
+  "schedule": ["* 6-10 * * 1"],
   "semanticCommits": "enabled",
   "dependencyDashboard": true,
   "packageRules": [
@@ -20,7 +24,7 @@
         "typescript"
       ],
       "groupName": "angular",
-      "schedule": ["on the first day of the month"]
+      "schedule": ["* 6-10 1 * *"]
     },
     {
       "matchPackageNames": ["@capacitor/**"],
