@@ -1,6 +1,51 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
+  "minimumReleaseAge": "3 days",
+  "schedule": ["every monday before 11am"],
+  "semanticCommits": "enabled",
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchPackageNames": ["@ionic/**"],
+      "minimumReleaseAge": "0 days",
+      "groupName": "ionic"
+    },
+    {
+      "matchPackageNames": [
+        "@angular/**",
+        "@angular-devkit/**",
+        "@angular-eslint/**",
+        "angular-eslint",
+        "typescript"
+      ],
+      "groupName": "angular",
+      "schedule": ["on the first day of the month"]
+    },
+    {
+      "matchPackageNames": ["@capacitor/**"],
+      "groupName": "capacitor"
+    },
+    {
+      "matchPackageNames": ["@awesome-cordova-plugins/**"],
+      "groupName": "awesome-cordova-plugins"
+    },
+    {
+      "matchPackageNames": ["leaflet", "@types/leaflet"],
+      "groupName": "leaflet"
+    },
+    {
+      "matchPackageNames": [
+        "karma*",
+        "jasmine*",
+        "@types/jasmine",
+        "puppeteer"
+      ],
+      "groupName": "testing"
+    },
+    {
+      "matchPackageNames": ["eslint", "@eslint/**", "stylelint*", "typescript-eslint"],
+      "groupName": "dev-tools"
+    }
   ]
 }
