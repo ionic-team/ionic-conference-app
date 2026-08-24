@@ -16,9 +16,9 @@ testing 1 2 3
 
 This app is also available in other frameworks:
 
+- ✅ **You're viewing the Angular version**
 - 🔗 [Ionic React Conference App](https://github.com/ionic-team/ionic-react-conference-app)
 - 🔗 [Ionic Vue Conference App](https://github.com/ionic-team/ionic-vue-conference-app)
-- ✅ **You're viewing the Angular version**
 
 ## ✨ Features
 
