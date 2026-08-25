@@ -4,11 +4,12 @@
     "config:recommended",
     ":semanticCommitTypeAll(chore)"
   ],
+  "description": "Renovate may only open or update PRs on Mondays, 6-10am ET.",
   "timezone": "America/New_York",
   "minimumReleaseAge": "3 days",
   "schedule": ["* 6-10 * * 1"],
   "semanticCommits": "enabled",
-  "dependencyDashboard": true,
+  "ignorePaths": ["android/**", "ios/**"],
   "packageRules": [
     {
       "matchPackageNames": ["@ionic/**"],
@@ -16,6 +17,7 @@
       "groupName": "ionic"
     },
     {
+      "description": "Angular majors land on a fixed cadence, so this group is restricted to the 1st of each month, 6-10am ET.",
       "matchPackageNames": [
         "@angular/**",
         "@angular-devkit/**",
@@ -25,6 +27,11 @@
       ],
       "groupName": "angular",
       "schedule": ["* 6-10 1 * *"]
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7.0.0",
+      "description": "Angular 22 requires typescript >=6.0 <6.1. Raise this when Angular widens its typescript range."
     },
     {
       "matchPackageNames": ["@capacitor/**"],
@@ -46,6 +53,11 @@
         "puppeteer"
       ],
       "groupName": "testing"
+    },
+    {
+      "matchPackageNames": ["jasmine-core", "@types/jasmine"],
+      "allowedVersions": "<7.0.0",
+      "description": "@types/jasmine has no 7.x release. Raise this when it publishes one."
     },
     {
       "matchPackageNames": ["eslint", "@eslint/**", "stylelint*", "typescript-eslint"],
