@@ -21,7 +21,7 @@ jobs:
         os: [windows-latest, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v7
       with:
