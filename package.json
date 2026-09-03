@@ -52,7 +52,7 @@
     "webdriver-manager": "12.1.9"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.2200.4",
+    "@angular-devkit/architect": "^0.2201.0",
     "@angular-devkit/build-angular": "^22.0.4",
     "@angular-devkit/core": "^22.0.4",
     "@angular-devkit/schematics": "^22.0.4",
