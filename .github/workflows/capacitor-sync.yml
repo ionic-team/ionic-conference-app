@@ -1,0 +1,49 @@
+# Runs `cap sync` on Renovate's capacitor branches and commits the regenerated
+# native project files back to the branch.
+
+name: Capacitor Sync
+
+on:
+  push:
+    branches:
+      - 'renovate/**capacitor**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capacitor-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    # Run on macOS so that CocoaPods is available. Without it `cap sync`
+    # skips `pod install` and leaves ios on the old versions.
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        ref: ${{ github.ref_name }}
+        token: ${{ secrets.IONITRON_GITHUB_TOKEN }}
+    - name: Configure Node
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: 24
+    - name: Install Dependencies
+      run: npm ci
+    - name: Build
+      run: npm run build
+    - name: Sync native projects
+      run: npx cap sync
+    - name: Push changes
+      run: |
+        git config user.name ionitron
+        git config user.email hi@ionicframework.com
+        git add android ios
+        if git diff --staged --quiet; then
+          echo 'No native project changes to commit.'
+          exit 0
+        fi
+        git commit -m 'chore(deps): sync native projects'
+        git push

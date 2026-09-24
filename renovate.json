@@ -10,6 +10,7 @@
   "schedule": ["* 6-10 * * 1"],
   "semanticCommits": "enabled",
   "ignorePaths": ["android/**", "ios/**"],
+  "gitIgnoredAuthors": ["hi@ionicframework.com"],
   "packageRules": [
     {
       "matchPackageNames": ["@ionic/**"],
@@ -35,12 +36,7 @@
     },
     {
       "matchPackageNames": ["@capacitor/**"],
-      "groupName": "capacitor",
-      "postUpgradeTasks": {
-        "commands": ["npm run build", "npx cap sync"],
-        "fileFilters": ["android/**", "ios/**"],
-        "executionMode": "branch"
-      }
+      "groupName": "capacitor"
     },
     {
       "matchPackageNames": ["@awesome-cordova-plugins/**"],
