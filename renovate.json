@@ -10,6 +10,7 @@
   "schedule": ["* 6-10 * * 1"],
   "semanticCommits": "enabled",
   "ignorePaths": ["android/**", "ios/**"],
+  "gitIgnoredAuthors": ["hi@ionicframework.com"],
   "packageRules": [
     {
       "matchPackageNames": ["@ionic/**"],
