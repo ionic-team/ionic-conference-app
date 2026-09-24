@@ -36,12 +36,7 @@
     },
     {
       "matchPackageNames": ["@capacitor/**"],
-      "groupName": "capacitor",
-      "postUpgradeTasks": {
-        "commands": ["npm run build", "npx cap sync"],
-        "fileFilters": ["android/**", "ios/**"],
-        "executionMode": "branch"
-      }
+      "groupName": "capacitor"
     },
     {
       "matchPackageNames": ["@awesome-cordova-plugins/**"],
