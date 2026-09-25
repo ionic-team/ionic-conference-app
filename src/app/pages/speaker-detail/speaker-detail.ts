@@ -1,7 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import {
   ActionSheetController,
   IonBackButton,
@@ -43,7 +42,7 @@ import { ConferenceService } from '../../providers/conference.service';
         IonLabel,
         NgOptimizedImage,
     ],
-    providers: [InAppBrowser, ActionSheetController]
+    providers: [ActionSheetController]
 })
 export class SpeakerDetailPage {
   speaker = signal<Speaker | undefined>(undefined);
@@ -51,7 +50,6 @@ export class SpeakerDetailPage {
   private confService = inject(ConferenceService);
   private route = inject(ActivatedRoute);
   private actionSheetCtrl = inject(ActionSheetController);
-  private inAppBrowser = inject(InAppBrowser);
 
   constructor() {
     addIcons({
@@ -80,7 +78,7 @@ export class SpeakerDetailPage {
   }
 
   openExternalUrl(url: string) {
-    this.inAppBrowser.create(url, '_blank');
+    window.open(url, '_blank');
   }
 
   async openSpeakerShare(speaker: any) {

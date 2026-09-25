@@ -1,11 +1,10 @@
 {
-	"appId": "ionic.conference.app",
-	"appName": "ionic-conference-app",
+	"appId": "io.ionic.conference.angular",
+	"appName": "ionic-angular-conference-app",
 	"webDir": "www",
 	"plugins": {
 		"SplashScreen": {
-			"launchShowDuration": 3000,
-			"launchAutoHide": true,
+			"launchAutoHide": false,
 			"backgroundColor": "#ffffffff",
 			"androidSplashResourceName": "splash",
 			"androidScaleType": "CENTER_CROP",
@@ -23,7 +22,6 @@
 		"HapticsPlugin",
 		"KeyboardPlugin",
 		"SplashScreenPlugin",
-		"StatusBarPlugin",
-		"CDVPlugin"
+		"StatusBarPlugin"
 	]
 }
