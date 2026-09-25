@@ -9,7 +9,7 @@
         "files": [
           "/index.csr.html",
           "/index.html",
-          "/assets/manifest.webmanifest",
+          "/manifest.webmanifest",
           "/*.css",
           "/*.js"
         ]
