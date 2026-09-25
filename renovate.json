@@ -39,10 +39,6 @@
       "groupName": "capacitor"
     },
     {
-      "matchPackageNames": ["@awesome-cordova-plugins/**"],
-      "groupName": "awesome-cordova-plugins"
-    },
-    {
       "matchPackageNames": ["leaflet", "@types/leaflet"],
       "groupName": "leaflet"
     },

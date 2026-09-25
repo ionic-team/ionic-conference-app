@@ -54,8 +54,12 @@
           },
           "defaultConfiguration": "",
           "options": {
-            "allowedCommonJsDependencies": ["localforage", "leaflet"],
+            "allowedCommonJsDependencies": [
+              "localforage",
+              "leaflet"
+            ],
             "assets": [
+              "src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "src/assets",
@@ -76,7 +80,9 @@
               "base": "www",
               "browser": ""
             },
-            "polyfills": ["src/polyfills.ts"],
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "scripts": [],
             "sourceMap": true,
             "styles": [
@@ -96,7 +102,10 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.html", "src/**/*.ts"]
+            "lintFilePatterns": [
+              "src/**/*.html",
+              "src/**/*.ts"
+            ]
           }
         },
         "serve": {

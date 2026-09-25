@@ -36,6 +36,8 @@ jobs:
       run: npm run build
     - name: Sync native projects
       run: npx cap sync
+    - name: Resolve Swift packages
+      run: xcodebuild -resolvePackageDependencies -project ios/App/App.xcodeproj
     - name: Push changes
       run: |
         git config user.name ionitron
