@@ -47,6 +47,11 @@
       "groupName": "testing"
     },
     {
+      "matchPackageNames": ["vitest"],
+      "allowedVersions": "<6.0.0",
+      "description": "@angular/build supports vitest ^4.0.8 || ^5.0.0. Raise this when Angular widens its vitest range."
+    },
+    {
       "matchPackageNames": [
         "eslint",
         "@eslint/**",

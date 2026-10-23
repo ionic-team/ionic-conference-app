@@ -14,7 +14,8 @@
     "eslint": "ng lint --max-warnings 0",
     "prettier": "prettier \"**/*.{ts,html}\"",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "ng test",
+    "test:unit": "ng test --no-watch",
+    "test:unit:watch": "ng test --watch",
     "test:e2e": "playwright test"
   },
   "repository": {
@@ -75,7 +76,6 @@
     "@types/node": "^24.19.2",
     "angular-eslint": "^22.6.0",
     "eslint": "^10.13.0",
-    "istanbul-lib-instrument": "^6.0.3",
     "jsdom": "^30.1.3",
     "prettier": "^3.9.10",
     "puppeteer": "^11.0.0",
