@@ -64,6 +64,6 @@ Code is linted with ESLint and formatted with Prettier, and pull requests must p
 
 Unit tests use [Vitest](https://vitest.dev/) and end-to-end tests use [Playwright](https://playwright.dev/). Pull requests must pass both in CI.
 
-- Run the unit tests: `npm run test:unit`
+- Run the unit tests: `npm run test:unit` (or `npm run test:unit:watch` to rerun on changes)
 - Run the end-to-end tests: `npm run test:e2e`. The first time, install the browser with `npx playwright install chromium`.
 - Run both: `npm test`
