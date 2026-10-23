@@ -1,12 +1,7 @@
 import '@angular/compiler';
 
-import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
-import {
-  IonicRouteStrategy,
-  provideIonicAngular,
-} from '@ionic/angular';
-
 import { provideHttpClient } from '@angular/common/http';
+import { enableProdMode, importProvidersFrom, isDevMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import {
   PreloadAllModules,
@@ -15,11 +10,10 @@ import {
   withComponentInputBinding,
   withPreloading,
 } from '@angular/router';
-import {
-  provideServiceWorker,
-  ServiceWorkerModule,
-} from '@angular/service-worker';
+import { provideServiceWorker, ServiceWorkerModule } from '@angular/service-worker';
+import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
+
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
@@ -34,21 +28,17 @@ bootstrapApplication(AppComponent, {
     // Lets Ionic pass overlay componentProps through ComponentRef.setInput, so pages can
     // read them as signal inputs instead of the deprecated NavParams.
     provideIonicAngular({ useSetInputAPI: true }),
-    provideRouter(
-      routes,
-      withPreloading(PreloadAllModules),
-      withComponentInputBinding()
-    ),
+    provideRouter(routes, withPreloading(PreloadAllModules), withComponentInputBinding()),
     provideHttpClient(),
     importProvidersFrom(
       IonicStorageModule.forRoot(),
       ServiceWorkerModule.register('ngsw-worker.js', {
         enabled: environment.production,
-      })
+      }),
     ),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-}).catch(err => console.error(err));
+}).catch((err) => console.error(err));

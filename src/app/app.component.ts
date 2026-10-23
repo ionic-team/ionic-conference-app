@@ -1,14 +1,10 @@
-import { Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { Component, inject, signal, ViewEncapsulation } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { addIcons } from 'ionicons';
-
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar } from '@capacitor/status-bar';
-
-import { Storage } from '@ionic/storage-angular';
-
-import { FormsModule } from '@angular/forms';
 import {
   IonApp,
   IonContent,
@@ -26,6 +22,8 @@ import {
   Platform,
   ToastController,
 } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
+import { addIcons } from 'ionicons';
 import {
   calendarOutline,
   hammer,
@@ -39,31 +37,32 @@ import {
   person,
   personAdd,
 } from 'ionicons/icons';
+
 import { UserService } from './providers/user.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        IonRouterOutlet,
-        IonLabel,
-        IonIcon,
-        IonMenuToggle,
-        IonToggle,
-        IonList,
-        IonListHeader,
-        IonItem,
-        IonContent,
-        IonMenu,
-        IonSplitPane,
-        IonApp,
-        FormsModule,
-    ],
-    providers: [MenuController, ToastController],
-    encapsulation: ViewEncapsulation.None
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    IonRouterOutlet,
+    IonLabel,
+    IonIcon,
+    IonMenuToggle,
+    IonToggle,
+    IonList,
+    IonListHeader,
+    IonItem,
+    IonContent,
+    IonMenu,
+    IonSplitPane,
+    IonApp,
+    FormsModule,
+  ],
+  providers: [MenuController, ToastController],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);
@@ -152,7 +151,7 @@ export class AppComponent implements OnInit {
   }
 
   checkLoginStatus() {
-    return this.userService.isLoggedIn().then(loggedIn => {
+    return this.userService.isLoggedIn().then((loggedIn) => {
       return this.updateLoggedInStatus(loggedIn);
     });
   }

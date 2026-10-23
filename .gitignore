@@ -11,7 +11,8 @@ www/
 log.txt
 *.sublime-project
 *.sublime-workspace
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 npm-debug.log*
 .firebase/
 .idea/

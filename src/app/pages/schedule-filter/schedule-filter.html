@@ -26,11 +26,7 @@
       <ion-icon slot="start" [name]="track.icon" color="medium"></ion-icon>
       }
 
-      <ion-checkbox
-        [(ngModel)]="track.isChecked"
-      >
-        {{track.name}}
-      </ion-checkbox>
+      <ion-checkbox [(ngModel)]="track.isChecked"> {{track.name}} </ion-checkbox>
     </ion-item>
     }
   </ion-list>
