@@ -12,8 +12,12 @@ const confDataSub = {};
 describe('SpeakerListPage', () => {
   let fixture, app: SpeakerListPage;
   beforeEach(async () => {
-    const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', ['create']);
-    const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
+    const actionSheetSpy = {
+      create: vi.fn().mockName('ActionSheetController.create'),
+    };
+    const routerSpy = {
+      navigateByUrl: vi.fn().mockName('Router.navigateByUrl'),
+    };
 
     await TestBed.configureTestingModule({
       declarations: [],

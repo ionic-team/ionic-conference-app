@@ -3,18 +3,23 @@ import { TestBed } from '@angular/core/testing';
 import { Router, provideRouter } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import { MenuController, provideIonicAngular } from '@ionic/angular';
+import type { Mock } from 'vitest';
 
 import { routes } from '../../app.routes';
 
 import { TutorialPage } from './tutorial';
 
 describe('TutorialPage', () => {
-  let fixture, app: TutorialPage, routerSpy: jasmine.SpyObj<Router>;
+  let fixture, app: TutorialPage, routerSpy: { navigateByUrl: Mock };
   beforeEach(async () => {
     await Preferences.clear();
-    const menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
-    routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
-    routerSpy.navigateByUrl.and.returnValue(Promise.resolve(true));
+    const menuSpy = {
+      toggle: vi.fn().mockName('MenuController.toggle'),
+      enable: vi.fn().mockName('MenuController.enable'),
+    };
+    routerSpy = {
+      navigateByUrl: vi.fn().mockName('Router.navigateByUrl').mockResolvedValue(true),
+    };
 
     await TestBed.configureTestingModule({
       declarations: [],
@@ -47,7 +52,7 @@ describe('TutorialPage', () => {
 
   it('should persist the tutorial as done when starting the app', async () => {
     app.startApp();
-    await routerSpy.navigateByUrl.calls.mostRecent().returnValue;
+    await routerSpy.navigateByUrl.mock.results.at(-1)?.value;
 
     expect(routerSpy.navigateByUrl).toHaveBeenCalledWith('/app/tabs/schedule', { replaceUrl: true });
     expect((await Preferences.get({ key: 'ion_did_tutorial' })).value).toBe('true');

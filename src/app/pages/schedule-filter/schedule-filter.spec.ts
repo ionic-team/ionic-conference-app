@@ -86,7 +86,7 @@ describe('ScheduleFilterPage', () => {
     const checkedFor = (name: string) =>
       modal.querySelector<HTMLIonCheckboxElement>(`ion-item[track="${name}"] ion-checkbox`)?.checked;
 
-    expect(checkedFor('angular')).withContext('tracks rendered').toBeDefined();
+    expect(checkedFor('angular'), 'tracks rendered').toBeDefined();
     expect(checkedFor('angular')).toBe(false);
     expect(checkedFor('tooling')).toBe(true);
 
