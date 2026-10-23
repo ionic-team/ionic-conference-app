@@ -27,10 +27,7 @@
               routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}"
             >
               <ion-avatar slot="start">
-                <img
-                  [src]="speaker.profilePic"
-                  [alt]="speaker.name + ' profile picture'"
-                />
+                <img [src]="speaker.profilePic" [alt]="speaker.name + ' profile picture'" />
               </ion-avatar>
               <ion-label>
                 <h2>{{speaker.name}}</h2>
@@ -42,20 +39,14 @@
           <ion-card-content>
             <ion-list lines="none">
               @for (session of speaker.sessions; track session.id) {
-              <ion-item
-                detail="false"
-                routerLink="/app/tabs/speakers/session/{{session.id}}"
-              >
+              <ion-item detail="false" routerLink="/app/tabs/speakers/session/{{session.id}}">
                 <ion-label>
                   <h3>{{session.name}}</h3>
                 </ion-label>
               </ion-item>
               }
 
-              <ion-item
-                detail="false"
-                routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}"
-              >
+              <ion-item detail="false" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
                 <ion-label>
                   <h3>About {{speaker.name}}</h3>
                 </ion-label>

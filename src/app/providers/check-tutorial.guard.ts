@@ -8,11 +8,11 @@ export const checkTutorialGuard = () => {
 
   return from(Preferences.get({ key: 'ion_did_tutorial' })).pipe(
     map(({ value }) => value === 'true'),
-    tap(didTutorial => {
+    tap((didTutorial) => {
       if (didTutorial) {
         router.navigate(['/app', 'tabs', 'schedule']);
       }
     }),
-    map(didTutorial => !didTutorial)
+    map((didTutorial) => !didTutorial),
   );
 };

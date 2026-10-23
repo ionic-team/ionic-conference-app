@@ -1,24 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonToolbar,
-  MenuController,
-} from '@ionic/angular';
 import { Preferences } from '@capacitor/preferences';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonToolbar, MenuController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { arrowForward, close } from 'ionicons/icons';
 
 @Component({
-    selector: 'page-tutorial',
-    templateUrl: 'tutorial.html',
-    styleUrls: ['./tutorial.scss'],
-    imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon]
+  selector: 'page-tutorial',
+  templateUrl: 'tutorial.html',
+  styleUrls: ['./tutorial.scss'],
+  imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon],
 })
 export class TutorialPage {
   menu = inject(MenuController);

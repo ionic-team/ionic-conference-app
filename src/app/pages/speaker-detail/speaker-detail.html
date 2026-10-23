@@ -8,18 +8,10 @@
       @if (speaker(); as speaker) {
       <ion-buttons slot="end">
         <ion-button (click)="openContact(speaker)">
-          <ion-icon
-            slot="icon-only"
-            [ios]="'call-outline'"
-            [md]="'call-sharp'"
-          ></ion-icon>
+          <ion-icon slot="icon-only" [ios]="'call-outline'" [md]="'call-sharp'"></ion-icon>
         </ion-button>
         <ion-button (click)="openSpeakerShare(speaker)">
-          <ion-icon
-            slot="icon-only"
-            [ios]="'share-outline'"
-            [md]="'share-sharp'"
-          ></ion-icon>
+          <ion-icon slot="icon-only" [ios]="'share-outline'" [md]="'share-sharp'"></ion-icon>
         </ion-button>
       </ion-buttons>
       }
@@ -38,9 +30,7 @@
   </div>
 
   <div class="ion-padding speaker-detail">
-    <p>
-      {{speaker()?.about ?? 'Loading biography...'}} Say hello on social media!
-    </p>
+    <p>{{speaker()?.about ?? 'Loading biography...'}} Say hello on social media!</p>
 
     <hr />
 

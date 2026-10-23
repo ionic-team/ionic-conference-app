@@ -2,7 +2,9 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
-import { Observable, firstValueFrom } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+
 import { checkTutorialGuard } from './check-tutorial.guard';
 
 describe('checkTutorialGuard', () => {
@@ -12,17 +14,12 @@ describe('checkTutorialGuard', () => {
     await Preferences.clear();
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
     TestBed.configureTestingModule({
-      providers: [
-        provideZonelessChangeDetection(),
-        { provide: Router, useValue: routerSpy },
-      ],
+      providers: [provideZonelessChangeDetection(), { provide: Router, useValue: routerSpy }],
     });
   });
 
   const runGuard = () =>
-    firstValueFrom(
-      TestBed.runInInjectionContext(() => checkTutorialGuard()) as Observable<boolean>
-    );
+    firstValueFrom(TestBed.runInInjectionContext(() => checkTutorialGuard()) as Observable<boolean>);
 
   it('should allow the tutorial route when the tutorial was not done', async () => {
     expect(await runGuard()).toBe(true);

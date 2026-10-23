@@ -1,13 +1,12 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  provideZonelessChangeDetection,
-} from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, provideZonelessChangeDetection } from '@angular/core';
+import type { ComponentFixture } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { ModalController, provideIonicAngular } from '@ionic/angular';
 import { of } from 'rxjs';
 
-import { Track } from '../../interfaces/conference.interfaces';
+import type { Track } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
+
 import { ScheduleFilterPage } from './schedule-filter';
 
 const tracks: Track[] = [
@@ -48,7 +47,7 @@ describe('ScheduleFilterPage', () => {
 
     app.ionViewWillEnter();
 
-    const byName = new Map(app.tracks().map(t => [t.name, t.isChecked]));
+    const byName = new Map(app.tracks().map((t) => [t.name, t.isChecked]));
     expect(byName.get('Angular')).toBe(false);
     expect(byName.get('Tooling')).toBe(true);
     expect(byName.get('Documentation')).toBe(true);
@@ -60,7 +59,7 @@ describe('ScheduleFilterPage', () => {
     app.ionViewWillEnter();
 
     expect(app.tracks().length).toBe(tracks.length);
-    expect(app.tracks().every(t => t.isChecked)).toBe(true);
+    expect(app.tracks().every((t) => t.isChecked)).toBe(true);
   });
 
   it('should sort tracks alphabetically by name', () => {
@@ -68,11 +67,7 @@ describe('ScheduleFilterPage', () => {
 
     app.ionViewWillEnter();
 
-    expect(app.tracks().map(t => t.name)).toEqual([
-      'Angular',
-      'Documentation',
-      'Tooling',
-    ]);
+    expect(app.tracks().map((t) => t.name)).toEqual(['Angular', 'Documentation', 'Tooling']);
   });
 
   // Presents a real modal, so this covers the componentProps wiring the tests above don't.
@@ -86,12 +81,10 @@ describe('ScheduleFilterPage', () => {
     await modal.present();
 
     // Let the presented page finish its first render before reading the checkboxes.
-    await new Promise(resolve => setTimeout(resolve));
+    await new Promise((resolve) => setTimeout(resolve));
 
     const checkedFor = (name: string) =>
-      modal.querySelector<HTMLIonCheckboxElement>(
-        `ion-item[track="${name}"] ion-checkbox`
-      )?.checked;
+      modal.querySelector<HTMLIonCheckboxElement>(`ion-item[track="${name}"] ion-checkbox`)?.checked;
 
     expect(checkedFor('angular')).withContext('tracks rendered').toBeDefined();
     expect(checkedFor('angular')).toBe(false);

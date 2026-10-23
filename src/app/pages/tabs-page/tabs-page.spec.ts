@@ -1,11 +1,9 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  provideZonelessChangeDetection,
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-
 import { provideRouter } from '@angular/router';
+
 import { routes } from '../../app.routes';
+
 import { TabsPage } from './tabs-page';
 
 describe('TabsPage', () => {

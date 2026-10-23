@@ -1,25 +1,11 @@
-
-import {
-  AfterViewInit,
-  Component,
-  DOCUMENT,
-  DestroyRef,
-  ElementRef,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import type { AfterViewInit, ElementRef } from '@angular/core';
+import { Component, DOCUMENT, DestroyRef, ViewChild, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import {
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonMenuButton,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/angular';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonTitle, IonToolbar } from '@ionic/angular';
 import * as L from 'leaflet';
 import { firstValueFrom } from 'rxjs';
-import { Location } from '../../interfaces/conference.interfaces';
+
+import type { Location } from '../../interfaces/conference.interfaces';
 import { LocationService } from '../../providers/location.service';
 
 @Component({
@@ -39,14 +25,7 @@ import { LocationService } from '../../providers/location.service';
     </ion-content>
   `,
   styleUrls: ['./map.scss'],
-  imports: [
-    IonHeader,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonTitle,
-    IonContent,
-  ],
+  imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent],
   standalone: true,
 })
 export class MapPage implements AfterViewInit {
@@ -59,14 +38,16 @@ export class MapPage implements AfterViewInit {
   @ViewChild('mapCanvas', { static: true }) mapElement!: ElementRef;
 
   ngAfterViewInit() {
-    this.locationService.loadLocations()
+    this.locationService
+      .loadLocations()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.initializeMap();
       });
 
     // Subscribe to location changes
-    this.locationService.getLocations()
+    this.locationService
+      .getLocations()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         if (this.map) {
@@ -88,7 +69,7 @@ export class MapPage implements AfterViewInit {
     // Remove existing map if it exists
     if (this.map) {
       this.map.remove();
-      this.markers.forEach(marker => marker.remove());
+      this.markers.forEach((marker) => marker.remove());
       this.markers = [];
     }
 
@@ -103,7 +84,7 @@ export class MapPage implements AfterViewInit {
       this.map = L.map(mapEle, {
         center: [centerLocation.lat, centerLocation.lng],
         zoom: 16,
-        preferCanvas: true
+        preferCanvas: true,
       });
 
       // Configure default marker icon with shadow
@@ -114,12 +95,12 @@ export class MapPage implements AfterViewInit {
         popupAnchor: [1, -34],
         shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
         shadowSize: [41, 41],
-        shadowAnchor: [12, 41]
+        shadowAnchor: [12, 41],
       });
 
       // Add tile layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        attribution: '© OpenStreetMap contributors',
       }).addTo(this.map);
 
       // Add markers for all locations
@@ -129,7 +110,7 @@ export class MapPage implements AfterViewInit {
           const marker = L.marker([location.lat, location.lng])
             .addTo(this.map as L.Map)
             .bindPopup(`${location.name}`, {
-              className: 'location-popup'
+              className: 'location-popup',
             });
           this.markers.push(marker);
         });

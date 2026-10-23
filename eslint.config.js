@@ -1,38 +1,29 @@
 // @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
+const ionic = require('@ionic/eslint-config/recommended');
 const angular = require('angular-eslint');
+const { defineConfig } = require('eslint/config');
 
-module.exports = tseslint.config(
+module.exports = defineConfig([
   {
-    ignores: ['www/**', 'dist/**', 'coverage/**', '.angular/**'],
+    ignores: ['www/**', 'dist/**', 'coverage/**', '.angular/**', 'android/**', 'ios/**'],
   },
+  ionic,
   {
     files: ['**/*.ts'],
-    extends: [
-      eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...angular.configs.tsRecommended,
-    ],
+    extends: [angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
+      // Ionic's base level; `recommended` makes it an error, which is meant for libraries.
+      '@typescript-eslint/explicit-module-boundary-types': 'warn',
       '@typescript-eslint/explicit-member-accessibility': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-inferrable-types': [
-        'error',
-        { ignoreParameters: true },
-      ],
+      '@typescript-eslint/no-inferrable-types': ['error', { ignoreParameters: true }],
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/member-ordering': [
         'error',
         {
-          default: [
-            'static-field',
-            'instance-field',
-            'static-method',
-            'instance-method',
-          ],
+          default: ['static-field', 'instance-field', 'static-method', 'instance-method'],
         },
       ],
       '@typescript-eslint/naming-convention': [
@@ -47,23 +38,16 @@ module.exports = tseslint.config(
       '@angular-eslint/no-output-rename': 'error',
       '@angular-eslint/use-lifecycle-interface': 'error',
       '@angular-eslint/use-pipe-transform-interface': 'error',
-      quotes: ['error', 'single'],
-      semi: ['error', 'always'],
-      'max-len': ['error', { code: 140 }],
       'no-console': 'off',
       curly: 'error',
       eqeqeq: 'error',
       'no-empty': 'off',
-      'arrow-parens': ['error', 'as-needed'],
       'object-shorthand': 'error',
-      'eol-last': 'error',
-      'no-multiple-empty-lines': ['error', { max: 1 }],
-      'no-trailing-spaces': 'error',
     },
   },
   {
     files: ['**/*.html'],
-    extends: [...angular.configs.templateRecommended],
+    extends: [angular.configs.templateRecommended],
     rules: {},
-  }
-);
+  },
+]);

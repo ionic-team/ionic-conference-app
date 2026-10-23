@@ -21,33 +21,34 @@ import {
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { ellipsisHorizontal, ellipsisVertical } from 'ionicons/icons';
+
 import { PopoverPage } from '../about-popover/about-popover';
 
 @Component({
-    selector: 'page-about',
-    templateUrl: 'about.html',
-    styleUrls: ['./about.scss'],
-    imports: [
-        NgStyle,
-        FormsModule,
-        DatePipe,
-        IonContent,
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonButton,
-        IonIcon,
-        IonList,
-        IonItem,
-        IonLabel,
-        IonSelect,
-        IonSelectOption,
-        IonPopover,
-        IonDatetime,
-        IonText,
-    ],
-    providers: [PopoverController]
+  selector: 'page-about',
+  templateUrl: 'about.html',
+  styleUrls: ['./about.scss'],
+  imports: [
+    NgStyle,
+    FormsModule,
+    DatePipe,
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonButton,
+    IonIcon,
+    IonList,
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonPopover,
+    IonDatetime,
+    IonText,
+  ],
+  providers: [PopoverController],
 })
 export class AboutPage {
   location = 'madison';
