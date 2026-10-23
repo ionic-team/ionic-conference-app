@@ -13,8 +13,6 @@ module.exports = defineConfig([
     extends: [angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
-      // Ionic's base level; `recommended` makes it an error, which is meant for libraries.
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
       '@typescript-eslint/explicit-member-accessibility': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-inferrable-types': ['error', { ignoreParameters: true }],

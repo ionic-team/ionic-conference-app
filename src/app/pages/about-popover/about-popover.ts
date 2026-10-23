@@ -29,12 +29,12 @@ export class PopoverPage {
   private router = inject(Router);
   private popoverCtrl = inject(PopoverController);
 
-  support() {
+  support(): void {
     this.router.navigate(['/support']);
     this.popoverCtrl.dismiss();
   }
 
-  close(url: string) {
+  close(url: string): void {
     window.open(url, '_blank');
     this.popoverCtrl.dismiss();
   }
