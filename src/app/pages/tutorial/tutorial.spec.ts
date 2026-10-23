@@ -11,8 +11,13 @@ import { TutorialPage } from './tutorial';
 describe('TutorialPage', () => {
   let fixture, app: TutorialPage;
   beforeEach(async () => {
-    const menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
-    const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
+    const menuSpy = {
+      toggle: vi.fn().mockName('MenuController.toggle'),
+      enable: vi.fn().mockName('MenuController.enable'),
+    };
+    const routerSpy = {
+      navigateByUrl: vi.fn().mockName('Router.navigateByUrl'),
+    };
 
     await TestBed.configureTestingModule({
       declarations: [],

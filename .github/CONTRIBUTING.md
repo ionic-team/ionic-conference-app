@@ -59,3 +59,11 @@ Code is linted with ESLint and formatted with Prettier, and pull requests must p
 * Use flat Sass:
   * **Don't** use [BEM conventions](https://css-tricks.com/bem-101/)
   * Avoid nesting selectors. This is done to make it easier for users without Sass experience to understand and read.
+
+### Testing
+
+Unit tests use [Vitest](https://vitest.dev/) and end-to-end tests use [Playwright](https://playwright.dev/). Pull requests must pass both in CI.
+
+- Run the unit tests: `npm run test:unit` (or `npm run test:unit:watch` to rerun on changes)
+- Run the end-to-end tests: `npm run test:e2e`. The first time, install the browser with `npx playwright install chromium`.
+- Run both: `npm test`
