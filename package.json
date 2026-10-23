@@ -12,7 +12,7 @@
     "lint": "npm run eslint && npm run lint:sass && npm run prettier -- --check",
     "lint:sass": "stylelint \"src/**/*.scss\"",
     "lint:fix": "npm run eslint -- --fix && npm run prettier -- --write",
-    "eslint": "ng lint",
+    "eslint": "ng lint --max-warnings 0",
     "prettier": "prettier \"**/*.{ts,html}\""
   },
   "repository": {
