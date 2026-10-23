@@ -1,0 +1,5 @@
+# Prettier only reads the root .gitignore, not the ones inside the native
+# projects, so ignore them here to skip Capacitor's copied web build and
+# Gradle's build output.
+android/
+ios/
