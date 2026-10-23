@@ -43,7 +43,7 @@ export class LoginPage {
   login: UserOptions = { username: '', password: '' };
   submitted = false;
 
-  onLogin(form: NgForm) {
+  onLogin(form: NgForm): void {
     this.submitted = true;
 
     if (form.valid) {
@@ -52,7 +52,7 @@ export class LoginPage {
     }
   }
 
-  onSignup() {
+  onSignup(): void {
     this.router.navigateByUrl('/signup');
   }
 }

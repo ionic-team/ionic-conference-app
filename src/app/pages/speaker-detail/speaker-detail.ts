@@ -64,7 +64,7 @@ export class SpeakerDetailPage {
     });
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(): void {
     this.confService.load().subscribe((data) => {
       const speakerId = this.route.snapshot.paramMap.get('speakerId');
       if (data && data.speakers) {
@@ -78,11 +78,11 @@ export class SpeakerDetailPage {
     });
   }
 
-  openExternalUrl(url: string) {
+  openExternalUrl(url: string): void {
     window.open(url, '_blank');
   }
 
-  async openSpeakerShare(speaker: any) {
+  async openSpeakerShare(speaker: any): Promise<void> {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Share ' + speaker.name,
       buttons: [
@@ -108,7 +108,7 @@ export class SpeakerDetailPage {
     await actionSheet.present();
   }
 
-  async openContact(speaker: Speaker) {
+  async openContact(speaker: Speaker): Promise<void> {
     const mode = 'ios'; // this.config.get('mode');
 
     const actionSheet = await this.actionSheetCtrl.create({

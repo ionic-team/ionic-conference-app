@@ -1,9 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import type { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import type { ConferenceData, Group, ScheduleDay, Session, Speaker } from '../interfaces/conference.interfaces';
+import type {
+  ConferenceData,
+  Group,
+  MapLocation,
+  ScheduleDay,
+  Session,
+  Speaker,
+  Track,
+} from '../interfaces/conference.interfaces';
 
 import { UserService } from './user.service';
 
@@ -15,7 +24,7 @@ export class ConferenceService {
   user = inject(UserService);
   data: ConferenceData | null = null;
 
-  load() {
+  load(): Observable<ConferenceData> {
     if (this.data) {
       return of(this.data);
     } else {
@@ -54,7 +63,12 @@ export class ConferenceService {
     return data;
   }
 
-  getTimeline(dayIndex: number, queryText = '', excludeTracks: string[] = [], segment = 'all') {
+  getTimeline(
+    dayIndex: number,
+    queryText = '',
+    excludeTracks: string[] = [],
+    segment = 'all',
+  ): Observable<ScheduleDay> {
     return this.load().pipe(
       map((data: ConferenceData) => {
         const day = data.schedule[dayIndex];
@@ -91,7 +105,7 @@ export class ConferenceService {
     );
   }
 
-  filterSession(session: Session, queryWords: string[], excludeTracks: string[], segment: string) {
+  filterSession(session: Session, queryWords: string[], excludeTracks: string[], segment: string): void {
     let matchesQueryText = false;
     if (queryWords.length) {
       // of any query word is in the session name than it passes the query test
@@ -129,15 +143,15 @@ export class ConferenceService {
     session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
   }
 
-  getSpeakers() {
+  getSpeakers(): Observable<Speaker[]> {
     return this.load().pipe(map((data: ConferenceData) => data.speakers));
   }
 
-  getTracks() {
+  getTracks(): Observable<Track[]> {
     return this.load().pipe(map((data: ConferenceData) => data.tracks));
   }
 
-  getMap() {
+  getMap(): Observable<MapLocation[]> {
     return this.load().pipe(map((data: ConferenceData) => data.map));
   }
 }

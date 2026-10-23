@@ -42,7 +42,7 @@ export class SupportPage {
   submitted = false;
   supportMessage: string;
 
-  async ionViewDidEnter() {
+  async ionViewDidEnter(): Promise<void> {
     const toast = await this.toastCtrl.create({
       message: 'This does not actually send a support request.',
       duration: 3000,
@@ -50,7 +50,7 @@ export class SupportPage {
     await toast.present();
   }
 
-  async submit(form: NgForm) {
+  async submit(form: NgForm): Promise<void> {
     this.submitted = true;
 
     if (form.valid) {
