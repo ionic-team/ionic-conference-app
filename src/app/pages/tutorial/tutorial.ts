@@ -1,24 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonToolbar,
-  MenuController,
-} from '@ionic/angular';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonToolbar, MenuController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { addIcons } from 'ionicons';
 import { arrowForward, close } from 'ionicons/icons';
 
 @Component({
-    selector: 'page-tutorial',
-    templateUrl: 'tutorial.html',
-    styleUrls: ['./tutorial.scss'],
-    imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon]
+  selector: 'page-tutorial',
+  templateUrl: 'tutorial.html',
+  styleUrls: ['./tutorial.scss'],
+  imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonContent, IonIcon],
 })
 export class TutorialPage {
   menu = inject(MenuController);
@@ -41,7 +32,7 @@ export class TutorialPage {
   }
 
   ionViewWillEnter() {
-    this.storage.get('ion_did_tutorial').then(res => {
+    this.storage.get('ion_did_tutorial').then((res) => {
       if (res === true) {
         this.router.navigateByUrl('/app/tabs/schedule', { replaceUrl: true });
       }

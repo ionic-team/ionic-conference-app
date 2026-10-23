@@ -1,12 +1,10 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  provideZonelessChangeDetection,
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouteReuseStrategy, Router } from '@angular/router';
 import { ActionSheetController, IonicRouteStrategy, provideIonicAngular } from '@ionic/angular';
 
 import { ConferenceService } from '../../providers/conference.service';
+
 import { SpeakerListPage } from './speaker-list';
 
 const confDataSub = {};
@@ -14,9 +12,7 @@ const confDataSub = {};
 describe('SpeakerListPage', () => {
   let fixture, app: SpeakerListPage;
   beforeEach(async () => {
-    const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', [
-      'create',
-    ]);
+    const actionSheetSpy = jasmine.createSpyObj('ActionSheetController', ['create']);
     const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
     await TestBed.configureTestingModule({
