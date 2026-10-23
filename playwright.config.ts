@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const baseURL = 'http://localhost:4200';
+const baseURL = 'http://localhost:4312';
 
 export default defineConfig({
   testDir: './e2e',
@@ -19,8 +19,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm start -- --port 4200',
+    command: 'npm start -- --port 4312',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
   },
 });
