@@ -4,15 +4,18 @@ import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 import type { Observable } from 'rxjs';
 import { firstValueFrom } from 'rxjs';
+import type { Mock } from 'vitest';
 
 import { checkTutorialGuard } from './check-tutorial.guard';
 
 describe('checkTutorialGuard', () => {
-  let routerSpy: jasmine.SpyObj<Router>;
+  let routerSpy: { navigate: Mock };
 
   beforeEach(async () => {
     await Preferences.clear();
-    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+    routerSpy = {
+      navigate: vi.fn().mockName('Router.navigate'),
+    };
     TestBed.configureTestingModule({
       providers: [provideZonelessChangeDetection(), { provide: Router, useValue: routerSpy }],
     });

@@ -43,18 +43,8 @@
       "groupName": "leaflet"
     },
     {
-      "matchPackageNames": [
-        "karma*",
-        "jasmine*",
-        "@types/jasmine",
-        "puppeteer"
-      ],
+      "matchPackageNames": ["vitest", "jsdom", "@playwright/test", "puppeteer"],
       "groupName": "testing"
-    },
-    {
-      "matchPackageNames": ["jasmine-core", "@types/jasmine"],
-      "allowedVersions": "<7.0.0",
-      "description": "@types/jasmine has no 7.x release. Raise this when it publishes one."
     },
     {
       "matchPackageNames": [
