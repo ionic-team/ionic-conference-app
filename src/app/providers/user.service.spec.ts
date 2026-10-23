@@ -1,6 +1,7 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Preferences } from '@capacitor/preferences';
+
 import { UserService } from './user.service';
 
 describe('UserService', () => {

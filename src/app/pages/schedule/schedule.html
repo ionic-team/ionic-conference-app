@@ -54,11 +54,7 @@
       <ion-title size="large">Schedule</ion-title>
     </ion-toolbar>
     <ion-toolbar>
-      <ion-searchbar
-        [(ngModel)]="queryText"
-        (ionInput)="updateSchedule()"
-        placeholder="Search"
-      ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="queryText" (ionInput)="updateSchedule()" placeholder="Search"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
 
@@ -70,33 +66,18 @@
       </ion-item-divider>
 
       @for (session of group.sessions; track session.id) {
-      <ion-item-sliding
-        #slidingItem
-        [attr.track]="session.tracks[0] | lowercase"
-        [hidden]="session.hide"
-      >
+      <ion-item-sliding #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
         <ion-item routerLink="/app/tabs/schedule/session/{{session.id}}">
           <ion-label>
             <h3>{{session.name}}</h3>
-            <p>
-              {{session.timeStart}} &mdash; {{session.timeEnd}}:
-              {{session.location}}
-            </p>
+            <p>{{session.timeStart}} &mdash; {{session.timeEnd}}: {{session.location}}</p>
           </ion-label>
         </ion-item>
         <ion-item-options>
           @if (segment === 'all') {
-          <ion-item-option
-            color="favorite"
-            (click)="addFavorite(slidingItem, session)"
-          >
-            Favorite
-          </ion-item-option>
+          <ion-item-option color="favorite" (click)="addFavorite(slidingItem, session)"> Favorite </ion-item-option>
           } @if (segment === 'favorites') {
-          <ion-item-option
-            color="danger"
-            (click)="removeFavorite(slidingItem, session, 'Remove Favorite')"
-          >
+          <ion-item-option color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')">
             Remove
           </ion-item-option>
           }
@@ -107,9 +88,7 @@
     }
   </ion-list>
 
-  <ion-list-header [hidden]="shownSessions() > 0">
-    No Sessions Found
-  </ion-list-header>
+  <ion-list-header [hidden]="shownSessions() > 0"> No Sessions Found </ion-list-header>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
     <ion-fab-button>

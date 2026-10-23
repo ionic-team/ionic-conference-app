@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import type { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   IonButton,
@@ -14,7 +15,7 @@ import {
   IonToolbar,
 } from '@ionic/angular';
 
-import { UserOptions } from '../../interfaces/user-options';
+import type { UserOptions } from '../../interfaces/user-options';
 import { UserService } from '../../providers/user.service';
 
 @Component({

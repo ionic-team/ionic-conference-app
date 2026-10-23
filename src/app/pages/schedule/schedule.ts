@@ -1,19 +1,8 @@
-import { Component, OnInit, signal, ViewChild, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-
-import { addIcons } from 'ionicons';
-import {
-  logoFacebook,
-  logoInstagram,
-  logoTwitter,
-  logoVimeo,
-  options,
-  search,
-  shareSocial,
-} from 'ionicons/icons';
-
 import { LowerCasePipe } from '@angular/common';
+import type { OnInit } from '@angular/core';
+import { Component, signal, ViewChild, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 import {
   AlertController,
   Config,
@@ -44,49 +33,46 @@ import {
   ModalController,
   ToastController,
 } from '@ionic/angular';
-import { Group, Session } from '../../interfaces/conference.interfaces';
+import { addIcons } from 'ionicons';
+import { logoFacebook, logoInstagram, logoTwitter, logoVimeo, options, search, shareSocial } from 'ionicons/icons';
+
+import type { Group, Session } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 import { UserService } from '../../providers/user.service';
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 
 @Component({
-    selector: 'page-schedule',
-    templateUrl: 'schedule.html',
-    styleUrls: ['./schedule.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonSegment,
-        IonSegmentButton,
-        IonContent,
-        IonTitle,
-        IonSearchbar,
-        IonButton,
-        IonIcon,
-        IonList,
-        IonListHeader,
-        IonFab,
-        IonFabButton,
-        IonFabList,
-        FormsModule,
-        IonItemSliding,
-        LowerCasePipe,
-        RouterLink,
-        IonItemGroup,
-        IonItemDivider,
-        IonItemOption,
-        IonItemOptions,
-        IonLabel,
-        IonMenuButton,
-    ],
-    providers: [
-        ModalController,
-        AlertController,
-        LoadingController,
-        ToastController,
-        Config,
-    ]
+  selector: 'page-schedule',
+  templateUrl: 'schedule.html',
+  styleUrls: ['./schedule.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonSegment,
+    IonSegmentButton,
+    IonContent,
+    IonTitle,
+    IonSearchbar,
+    IonButton,
+    IonIcon,
+    IonList,
+    IonListHeader,
+    IonFab,
+    IonFabButton,
+    IonFabList,
+    FormsModule,
+    IonItemSliding,
+    LowerCasePipe,
+    RouterLink,
+    IonItemGroup,
+    IonItemDivider,
+    IonItemOption,
+    IonItemOptions,
+    IonLabel,
+    IonMenuButton,
+  ],
+  providers: [ModalController, AlertController, LoadingController, ToastController, Config],
 })
 export class SchedulePage implements OnInit {
   alertCtrl = inject(AlertController);
@@ -136,13 +122,8 @@ export class SchedulePage implements OnInit {
     }
 
     this.confService
-      .getTimeline(
-        this.dayIndex,
-        this.queryText,
-        this.excludeTrackNames,
-        this.segment
-      )
-      .subscribe(data => {
+      .getTimeline(this.dayIndex, this.queryText, this.excludeTrackNames, this.segment)
+      .subscribe((data) => {
         this.shownSessions.set(data.shownSessions ?? 0);
         // getTimeline mutates group.hide in place on the cached day object and
         // returns the same groups array reference each call. Spread into a new
@@ -196,11 +177,7 @@ export class SchedulePage implements OnInit {
     }
   }
 
-  async removeFavorite(
-    slidingItem: IonItemSliding,
-    sessionData: Session,
-    title: string
-  ) {
+  async removeFavorite(slidingItem: IonItemSliding, sessionData: Session, title: string) {
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',

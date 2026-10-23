@@ -1,25 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {
-  IonIcon,
-  IonLabel,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-} from '@ionic/angular';
+import { IonIcon, IonLabel, IonTabBar, IonTabButton, IonTabs } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { calendar, informationCircle, location, people } from 'ionicons/icons';
 
 @Component({
-    templateUrl: 'tabs-page.html',
-    imports: [
-        IonTabs,
-        IonTabBar,
-        IonTabButton,
-        IonIcon,
-        IonLabel,
-        RouterModule,
-    ]
+  templateUrl: 'tabs-page.html',
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, RouterModule],
 })
 export class TabsPage {
   constructor() {

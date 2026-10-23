@@ -1,19 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  IonItem,
-  IonLabel,
-  IonList,
-  PopoverController,
-} from '@ionic/angular';
+import { IonItem, IonLabel, IonList, PopoverController } from '@ionic/angular';
 
 @Component({
-    template: `
+  template: `
     <ion-list>
-      <ion-item
-        button
-        (click)="close('https://ionicframework.com/getting-started')"
-      >
+      <ion-item button (click)="close('https://ionicframework.com/getting-started')">
         <ion-label>Learn Ionic</ion-label>
       </ion-item>
       <ion-item button (click)="close('https://ionicframework.com/docs/')">
@@ -30,8 +22,8 @@ import {
       </ion-item>
     </ion-list>
   `,
-    imports: [IonList, IonItem, IonLabel],
-    providers: [PopoverController]
+  imports: [IonList, IonItem, IonLabel],
+  providers: [PopoverController],
 })
 export class PopoverPage {
   private router = inject(Router);
