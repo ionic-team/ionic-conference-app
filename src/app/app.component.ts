@@ -113,7 +113,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  async ngOnInit() {
+  async ngOnInit(): Promise<void> {
     this.initializeApp();
     this.checkLoginStatus();
     this.listenForLoginEvents();
@@ -139,7 +139,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  initializeApp() {
+  initializeApp(): void {
     this.platform.ready().then(() => {
       if (this.platform.is('hybrid')) {
         StatusBar.hide();
@@ -148,19 +148,19 @@ export class AppComponent implements OnInit {
     });
   }
 
-  checkLoginStatus() {
+  checkLoginStatus(): Promise<void> {
     return this.userService.isLoggedIn().then((loggedIn) => {
       return this.updateLoggedInStatus(loggedIn);
     });
   }
 
-  updateLoggedInStatus(loggedIn: boolean) {
+  updateLoggedInStatus(loggedIn: boolean): void {
     setTimeout(() => {
       this.loggedIn.set(loggedIn);
     }, 300);
   }
 
-  listenForLoginEvents() {
+  listenForLoginEvents(): void {
     window.addEventListener('user:login', () => {
       this.updateLoggedInStatus(true);
     });
@@ -174,19 +174,19 @@ export class AppComponent implements OnInit {
     });
   }
 
-  logout() {
+  logout(): void {
     this.userService.logout().then(() => {
       return this.router.navigateByUrl('/app/tabs/schedule');
     });
   }
 
-  openTutorial() {
+  openTutorial(): void {
     this.menu.enable(false);
     Preferences.set({ key: 'ion_did_tutorial', value: 'false' });
     this.router.navigateByUrl('/tutorial');
   }
 
-  toggleDarkMode() {
+  toggleDarkMode(): void {
     document.documentElement.classList.toggle('ion-palette-dark', this.dark);
   }
 }

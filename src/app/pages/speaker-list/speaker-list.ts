@@ -51,7 +51,7 @@ export class SpeakerListPage {
 
   speakers = signal<Speaker[]>([]);
 
-  ionViewDidEnter() {
+  ionViewDidEnter(): void {
     this.confData.getSpeakers().subscribe((speakers) => {
       this.speakers.set(speakers);
     });

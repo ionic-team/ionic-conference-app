@@ -64,7 +64,7 @@ export class AboutPage {
     addIcons({ ellipsisHorizontal, ellipsisVertical });
   }
 
-  async presentPopover(event: Event) {
+  async presentPopover(event: Event): Promise<void> {
     const popover = await this.popoverCtrl.create({
       component: PopoverPage,
       event,

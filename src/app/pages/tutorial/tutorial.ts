@@ -24,13 +24,13 @@ export class TutorialPage {
     });
   }
 
-  startApp() {
+  startApp(): void {
     this.router
       .navigateByUrl('/app/tabs/schedule', { replaceUrl: true })
       .then(() => Preferences.set({ key: 'ion_did_tutorial', value: 'true' }));
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(): void {
     Preferences.get({ key: 'ion_did_tutorial' }).then(({ value }) => {
       if (value === 'true') {
         this.router.navigateByUrl('/app/tabs/schedule', { replaceUrl: true });
@@ -40,7 +40,7 @@ export class TutorialPage {
     this.menu.enable(false);
   }
 
-  ionViewWillLeave() {
+  ionViewWillLeave(): void {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
   }
