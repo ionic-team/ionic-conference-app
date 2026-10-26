@@ -43,7 +43,7 @@ export class SignupPage {
   signup: UserOptions = { username: '', password: '' };
   submitted = false;
 
-  onSignup(form: NgForm) {
+  onSignup(form: NgForm): void {
     this.submitted = true;
 
     if (form.valid) {

@@ -51,7 +51,7 @@ export class SessionDetailPage {
     addIcons({ shareOutline, starOutline, star, cloudDownload, share });
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(): void {
     this.confService.load().subscribe((data) => {
       if (data && data.schedule && data.schedule[0] && data.schedule[0].groups) {
         const sessionId = this.route.snapshot.paramMap.get('sessionId');
@@ -72,15 +72,15 @@ export class SessionDetailPage {
     });
   }
 
-  ionViewDidEnter() {
+  ionViewDidEnter(): void {
     this.defaultHref.set('/app/tabs/schedule');
   }
 
-  sessionClick(item: string) {
+  sessionClick(item: string): void {
     console.log('Clicked', item);
   }
 
-  toggleFavorite() {
+  toggleFavorite(): void {
     const sessionName = this.session()?.name;
     if (!sessionName) {
       return;
@@ -94,7 +94,7 @@ export class SessionDetailPage {
     }
   }
 
-  shareSession() {
+  shareSession(): void {
     console.log('Clicked share session');
   }
 }
