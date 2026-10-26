@@ -7,6 +7,23 @@ name: Install Dependencies, Lint, Build and Test
 on: [pull_request]
 
 jobs:
+  lint:
+    name: Lint
+    # Lint once on Linux. Windows runners check out with CRLF line endings,
+    # which Prettier would report as formatting changes.
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - name: Use Node.js 24
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: 24
+    - name: Install Dependencies
+      run: npm ci
+    - name: Lint
+      run: npm run lint
+
   test:
     name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -21,15 +38,13 @@ jobs:
         os: [windows-latest, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v7
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v7
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version: ${{ matrix.node_version }}
     - name: Install Dependencies
       run: npm ci
-    - name: Lint
-      run: npm run lint
     - name: Build
       run: npm run build -- --configuration=production
     - name: Test

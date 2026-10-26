@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
-
 import { NgOptimizedImage } from '@angular/common';
+import type { AfterViewInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   AlertController,
   IonButtons,
@@ -13,24 +13,15 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular';
+
 import { UserService } from '../../providers/user.service';
 
 @Component({
-    selector: 'page-account',
-    templateUrl: 'account.html',
-    styleUrls: ['./account.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonTitle,
-        IonContent,
-        IonItem,
-        IonList,
-        NgOptimizedImage,
-    ],
-    providers: [AlertController]
+  selector: 'page-account',
+  templateUrl: 'account.html',
+  styleUrls: ['./account.scss'],
+  imports: [IonHeader, IonToolbar, IonButtons, IonMenuButton, IonTitle, IonContent, IonItem, IonList, NgOptimizedImage],
+  providers: [AlertController],
 })
 export class AccountPage implements AfterViewInit {
   private alertCtrl = inject(AlertController);
@@ -77,7 +68,7 @@ export class AccountPage implements AfterViewInit {
   }
 
   getUsername() {
-    this.user.getUsername().then(username => {
+    this.user.getUsername().then((username) => {
       this.username.set(username ?? '');
     });
   }

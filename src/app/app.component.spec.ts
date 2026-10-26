@@ -1,15 +1,12 @@
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  importProvidersFrom,
-  provideZonelessChangeDetection,
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { MenuController, provideIonicAngular } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
+
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { UserService } from './providers/user.service';
@@ -21,12 +18,9 @@ describe('AppComponent', () => {
     menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
     userDataSpy = jasmine.createSpyObj('UserService', ['isLoggedIn', 'logout']);
     userDataSpy.isLoggedIn.and.returnValue(Promise.resolve(false));
-    swUpdateSpy = jasmine.createSpyObj('SwUpdate', [
-      'available',
-      'activateUpdate',
-    ]);
+    swUpdateSpy = jasmine.createSpyObj('SwUpdate', ['available', 'activateUpdate']);
     swUpdateSpy.versionUpdates = {
-      subscribe: jasmine.createSpy('subscribe').and.returnValue({ unsubscribe: () => {} })
+      subscribe: jasmine.createSpy('subscribe').and.returnValue({ unsubscribe: () => {} }),
     };
 
     await TestBed.configureTestingModule({
