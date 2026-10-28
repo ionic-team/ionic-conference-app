@@ -53,7 +53,7 @@ Talk to us before creating a PR that refactors the code or directory structure o
 
 Make sure to follow the existing code style as much as possible.
 
-Code is linted with ESLint and formatted with Prettier, and pull requests must pass `npm run lint`. Run `npm run lint:fix` to fix what can be fixed automatically.
+Code is linted with ESLint and formatted with Prettier, and pull requests must pass `npm run lint`. `npm run lint` also type-checks the Playwright tests, which ESLint and Playwright don't do on their own. Run `npm run lint:fix` to fix what can be fixed automatically.
 
 * No underscores prefixing JS functions.
 * Use flat Sass:
