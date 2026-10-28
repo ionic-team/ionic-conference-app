@@ -15,12 +15,24 @@ describe('AppComponent', () => {
   let menuSpy, userDataSpy, swUpdateSpy, app: AppComponent, fixture;
 
   beforeEach(async () => {
-    menuSpy = jasmine.createSpyObj('MenuController', ['toggle', 'enable']);
-    userDataSpy = jasmine.createSpyObj('UserService', ['isLoggedIn', 'logout']);
-    userDataSpy.isLoggedIn.and.returnValue(Promise.resolve(false));
-    swUpdateSpy = jasmine.createSpyObj('SwUpdate', ['available', 'activateUpdate']);
-    swUpdateSpy.versionUpdates = {
-      subscribe: jasmine.createSpy('subscribe').and.returnValue({ unsubscribe: () => {} }),
+    menuSpy = {
+      toggle: vi.fn().mockName('MenuController.toggle'),
+      enable: vi.fn().mockName('MenuController.enable'),
+    };
+    userDataSpy = {
+      isLoggedIn: vi.fn().mockName('UserService.isLoggedIn'),
+      logout: vi.fn().mockName('UserService.logout'),
+    };
+    userDataSpy.isLoggedIn.mockResolvedValue(false);
+    swUpdateSpy = {
+      available: vi.fn().mockName('SwUpdate.available'),
+      activateUpdate: vi.fn().mockName('SwUpdate.activateUpdate'),
+      versionUpdates: {
+        subscribe: vi
+          .fn()
+          .mockName('subscribe')
+          .mockReturnValue({ unsubscribe: () => {} }),
+      },
     };
 
     await TestBed.configureTestingModule({

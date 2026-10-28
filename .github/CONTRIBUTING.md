@@ -53,9 +53,17 @@ Talk to us before creating a PR that refactors the code or directory structure o
 
 Make sure to follow the existing code style as much as possible.
 
-Code is linted with ESLint and formatted with Prettier, and pull requests must pass `npm run lint`. Run `npm run lint:fix` to fix what can be fixed automatically.
+Code is linted with ESLint and formatted with Prettier, and pull requests must pass `npm run lint`. `npm run lint` also type-checks the Playwright tests, which ESLint and Playwright don't do on their own. Run `npm run lint:fix` to fix what can be fixed automatically.
 
 * No underscores prefixing JS functions.
 * Use flat Sass:
   * **Don't** use [BEM conventions](https://css-tricks.com/bem-101/)
   * Avoid nesting selectors. This is done to make it easier for users without Sass experience to understand and read.
+
+### Testing
+
+Unit tests use [Vitest](https://vitest.dev/) and end-to-end tests use [Playwright](https://playwright.dev/). Pull requests must pass both in CI.
+
+- Run the unit tests: `npm run test:unit` (or `npm run test:unit:watch` to rerun on changes)
+- Run the end-to-end tests: `npm run test:e2e`. The first time, install the browser with `npx playwright install chromium`.
+- Run both: `npm test`
