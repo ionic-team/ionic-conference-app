@@ -1,12 +1,10 @@
-import { Injectable, inject } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
+import { Injectable } from '@angular/core';
+import { Preferences } from '@capacitor/preferences';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  storage = inject(Storage);
-
   favorites: string[] = [];
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
@@ -27,24 +25,23 @@ export class UserService {
   }
 
   login(username: string): Promise<boolean> {
-    return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
+    return Preferences.set({ key: this.HAS_LOGGED_IN, value: 'true' }).then(() => {
       this.setUsername(username);
       return window.dispatchEvent(new CustomEvent('user:login'));
     });
   }
 
   signup(username: string): Promise<boolean> {
-    return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
+    return Preferences.set({ key: this.HAS_LOGGED_IN, value: 'true' }).then(() => {
       this.setUsername(username);
       return window.dispatchEvent(new CustomEvent('user:signup'));
     });
   }
 
   logout(): Promise<any> {
-    return this.storage
-      .remove(this.HAS_LOGGED_IN)
+    return Preferences.remove({ key: this.HAS_LOGGED_IN })
       .then(() => {
-        return this.storage.remove('username');
+        return Preferences.remove({ key: 'username' });
       })
       .then(() => {
         window.dispatchEvent(new CustomEvent('user:logout'));
@@ -52,18 +49,18 @@ export class UserService {
   }
 
   setUsername(username: string): Promise<any> {
-    return this.storage.set('username', username);
+    return Preferences.set({ key: 'username', value: username });
   }
 
-  getUsername(): Promise<string> {
-    return this.storage.get('username').then(value => {
+  getUsername(): Promise<string | null> {
+    return Preferences.get({ key: 'username' }).then(({ value }) => {
       return value;
     });
   }
 
   isLoggedIn(): Promise<boolean> {
-    return this.storage.get(this.HAS_LOGGED_IN).then(value => {
-      return value === true;
+    return Preferences.get({ key: this.HAS_LOGGED_IN }).then(({ value }) => {
+      return value === 'true';
     });
   }
 }

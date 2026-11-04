@@ -19,7 +19,6 @@ import {
   provideServiceWorker,
   ServiceWorkerModule,
 } from '@angular/service-worker';
-import { IonicStorageModule } from '@ionic/storage-angular';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
@@ -41,7 +40,6 @@ bootstrapApplication(AppComponent, {
     ),
     provideHttpClient(),
     importProvidersFrom(
-      IonicStorageModule.forRoot(),
       ServiceWorkerModule.register('ngsw-worker.js', {
         enabled: environment.production,
       })

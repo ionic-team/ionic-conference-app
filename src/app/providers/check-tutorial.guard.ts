@@ -1,15 +1,15 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage-angular';
+import { Preferences } from '@capacitor/preferences';
 import { from, map, tap } from 'rxjs';
 
 export const checkTutorialGuard = () => {
-  const storage = inject(Storage);
   const router = inject(Router);
 
-  return from(storage.get('ion_did_tutorial')).pipe(
+  return from(Preferences.get({ key: 'ion_did_tutorial' })).pipe(
+    map(({ value }) => value === 'true'),
     tap(didTutorial => {
-      if (didTutorial === true) {
+      if (didTutorial) {
         router.navigate(['/app', 'tabs', 'schedule']);
       }
     }),

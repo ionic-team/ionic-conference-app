@@ -3,10 +3,9 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { addIcons } from 'ionicons';
 
+import { Preferences } from '@capacitor/preferences';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar } from '@capacitor/status-bar';
-
-import { Storage } from '@ionic/storage-angular';
 
 import { FormsModule } from '@angular/forms';
 import {
@@ -67,7 +66,6 @@ import { UserService } from './providers/user.service';
 })
 export class AppComponent implements OnInit {
   private router = inject(Router);
-  private storage = inject(Storage);
   private userService = inject(UserService);
   private swUpdate = inject(SwUpdate);
   private toastCtrl = inject(ToastController);
@@ -117,7 +115,6 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     this.initializeApp();
-    await this.storage.create();
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
@@ -185,7 +182,7 @@ export class AppComponent implements OnInit {
 
   openTutorial() {
     this.menu.enable(false);
-    this.storage.set('ion_did_tutorial', false);
+    Preferences.set({ key: 'ion_did_tutorial', value: 'false' });
     this.router.navigateByUrl('/tutorial');
   }
 
