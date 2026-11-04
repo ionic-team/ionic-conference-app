@@ -10,7 +10,7 @@ import {
   IonToolbar,
   MenuController,
 } from '@ionic/angular';
-import { Storage } from '@ionic/storage-angular';
+import { Preferences } from '@capacitor/preferences';
 import { addIcons } from 'ionicons';
 import { arrowForward, close } from 'ionicons/icons';
 
@@ -23,7 +23,6 @@ import { arrowForward, close } from 'ionicons/icons';
 export class TutorialPage {
   menu = inject(MenuController);
   router = inject(Router);
-  storage = inject(Storage);
 
   showSkip = true;
 
@@ -37,12 +36,12 @@ export class TutorialPage {
   startApp() {
     this.router
       .navigateByUrl('/app/tabs/schedule', { replaceUrl: true })
-      .then(() => this.storage.set('ion_did_tutorial', true));
+      .then(() => Preferences.set({ key: 'ion_did_tutorial', value: 'true' }));
   }
 
   ionViewWillEnter() {
-    this.storage.get('ion_did_tutorial').then(res => {
-      if (res === true) {
+    Preferences.get({ key: 'ion_did_tutorial' }).then(({ value }) => {
+      if (value === 'true') {
         this.router.navigateByUrl('/app/tabs/schedule', { replaceUrl: true });
       }
     });
