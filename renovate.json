@@ -11,6 +11,11 @@
   "semanticCommits": "enabled",
   "ignorePaths": ["android/**", "ios/**"],
   "gitIgnoredAuthors": ["hi@ionicframework.com"],
+  "platformAutomerge": false,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "packageRules": [
     {
       "matchPackageNames": ["@ionic/**", "!@ionic/eslint-config", "!@ionic/prettier-config"],
@@ -61,6 +66,18 @@
         "typescript-eslint"
       ],
       "groupName": "dev-tools"
+    },
+    {
+      "description": "Automerge minor and patch updates once CI passes. Majors and 0.x packages, where a minor can break, still need review.",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+    {
+      "description": "CI only tests the web build, so Capacitor updates still need review for native changes. Pinned so lockfile maintenance can't update it either.",
+      "matchPackageNames": ["@capacitor/**"],
+      "rangeStrategy": "pin",
+      "automerge": false
     }
   ]
 }
