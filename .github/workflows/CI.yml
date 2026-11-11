@@ -6,6 +6,11 @@ name: Install Dependencies, Lint, Build and Test
 
 on: [pull_request]
 
+# Cancel a pull request's in-progress run when a newer commit is pushed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     name: Lint
