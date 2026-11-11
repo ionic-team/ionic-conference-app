@@ -21,7 +21,6 @@
       "description": "Angular majors land on a fixed cadence, so this group is restricted to the 1st of each month, 6-10am ET.",
       "matchPackageNames": [
         "@angular/**",
-        "@angular-devkit/**",
         "@angular-eslint/**",
         "angular-eslint",
         "typescript"

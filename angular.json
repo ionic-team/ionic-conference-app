@@ -79,9 +79,6 @@
               "base": "www",
               "browser": ""
             },
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
             "scripts": [],
             "sourceMap": true,
             "styles": [
