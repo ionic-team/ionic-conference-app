@@ -65,8 +65,8 @@
     },
     {
       "matchPackageNames": ["@types/node"],
-      "allowedVersions": "<25",
-      "description": "Keep Node's types on the major version CI runs (24)"
+      "allowedVersions": "<27",
+      "description": "Keep Node's types on the major version CI runs (26)"
     }
   ]
 }
