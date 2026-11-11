@@ -82,7 +82,7 @@ export class SpeakerDetailPage {
     window.open(url, '_blank');
   }
 
-  async openSpeakerShare(speaker: any): Promise<void> {
+  async openSpeakerShare(speaker: Speaker): Promise<void> {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Share ' + speaker.name,
       buttons: [

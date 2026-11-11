@@ -113,7 +113,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.initializeApp();
     this.checkLoginStatus();
     this.listenForLoginEvents();
