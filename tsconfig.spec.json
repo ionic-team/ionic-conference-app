@@ -4,7 +4,7 @@
     "outDir": "./out-tsc/spec",
     "types": ["vitest/globals"]
   },
-  "files": ["src/polyfills.ts", "src/test-setup.ts"],
+  "files": ["src/test-setup.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
   "exclude": [
     "**/node_modules"

@@ -2,7 +2,6 @@ import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
-import type { Observable } from 'rxjs';
 import { firstValueFrom } from 'rxjs';
 import type { Mock } from 'vitest';
 
@@ -21,8 +20,7 @@ describe('checkTutorialGuard', () => {
     });
   });
 
-  const runGuard = () =>
-    firstValueFrom(TestBed.runInInjectionContext(() => checkTutorialGuard()) as Observable<boolean>);
+  const runGuard = () => firstValueFrom(TestBed.runInInjectionContext(() => checkTutorialGuard()));
 
   it('should allow the tutorial route when the tutorial was not done', async () => {
     expect(await runGuard()).toBe(true);
