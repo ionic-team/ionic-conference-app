@@ -19,7 +19,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm start -- --port 4312',
+    // CI tests the production build, which is what gets deployed, so build-tool
+    // updates are checked at runtime and not only by `npm run build` succeeding.
+    command: process.env.CI ? 'npm start -- --port 4312 --configuration=production' : 'npm start -- --port 4312',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
