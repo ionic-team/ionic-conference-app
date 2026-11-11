@@ -6,6 +6,7 @@ import { firstValueFrom } from 'rxjs';
 
 import conferenceData from '../../assets/data/data.json';
 
+import { ConferenceService } from './conference.service';
 import { LocationService } from './location.service';
 
 const DATA_URL = 'assets/data/data.json';
@@ -52,6 +53,22 @@ describe('LocationService', () => {
       { id: 3, name: 'Afterparty - Brocach Irish Pub' },
     ]);
     expect(await firstValueFrom(service.getLocations())).toEqual(locations);
+  });
+
+  it('should reuse the conference data ConferenceService already loaded', async () => {
+    const conference = TestBed.inject(ConferenceService);
+    const conferenceLoaded = firstValueFrom(conference.load());
+    httpTesting.expectOne(DATA_URL).flush(structuredClone(conferenceData));
+    await conferenceLoaded;
+
+    // httpTesting.verify() in afterEach fails if this makes a second request.
+    const locations = await firstValueFrom(service.loadLocations());
+
+    expect(locations.map(({ name }) => name)).toEqual([
+      'Monona Terrace Convention Center',
+      'Ionic HQ',
+      'Afterparty - Brocach Irish Pub',
+    ]);
   });
 
   it('should return the location marked as the center', async () => {

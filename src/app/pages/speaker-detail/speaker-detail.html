@@ -7,10 +7,10 @@
 
       @if (speaker(); as speaker) {
       <ion-buttons slot="end">
-        <ion-button (click)="openContact(speaker)">
+        <ion-button (click)="openContact(speaker)" aria-label="Contact">
           <ion-icon slot="icon-only" [ios]="'call-outline'" [md]="'call-sharp'"></ion-icon>
         </ion-button>
-        <ion-button (click)="openSpeakerShare(speaker)">
+        <ion-button (click)="openSpeakerShare(speaker)" aria-label="Share">
           <ion-icon slot="icon-only" [ios]="'share-outline'" [md]="'share-sharp'"></ion-icon>
         </ion-button>
       </ion-buttons>

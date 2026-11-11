@@ -1,14 +1,14 @@
 import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
-import { iconButton, openSchedule, sessionItem, shownSessions, swipeOpen, visibleTitle } from './helpers';
+import { openSchedule, sessionItem, shownSessions, swipeOpen, visibleButton, visibleTitle } from './helpers';
 
 const angularSessions = ["What's New in Angular", 'Bulding with Ionic and Angular'];
 
 const noSessionsFound = (page: Page) => page.getByText('No Sessions Found');
 
 const openFilter = async (page: Page) => {
-  await iconButton(page, 'options').click();
+  await visibleButton(page, 'Filter').click();
   // The dialog role sits in the modal's shadow root, so search the modal element itself.
   const modal = page.locator('ion-modal');
   await expect(modal.getByText('Filter Sessions')).toBeVisible();
@@ -19,11 +19,6 @@ const applyFilter = async (page: Page) => {
   await page.locator('ion-modal').getByRole('button', { name: 'Done' }).click();
   await expect(page.locator('ion-modal')).toHaveCount(0);
 };
-
-// The share button and the social share buttons only hold an icon and have no accessible name,
-// so find them by icon.
-const fabButton = (page: Page, icon: string) =>
-  page.locator('ion-fab-button').filter({ visible: true, has: page.locator(`ion-icon[name="${icon}"]`) });
 
 const showFavorites = async (page: Page) => {
   // ion-segment-button covers its inner tab button, so click the segment button itself.
@@ -51,11 +46,17 @@ test.describe('Schedule', () => {
     await expect(noSessionsFound(page)).toBeHidden();
   });
 
+  test('the icon-only buttons have accessible names', async ({ page }) => {
+    await expect(visibleButton(page, 'Search')).toBeVisible();
+    await expect(visibleButton(page, 'Filter')).toBeVisible();
+    await expect(visibleButton(page, 'Share')).toBeVisible();
+  });
+
   test('the share button opens the social share buttons', async ({ page }) => {
-    const networks = ['logo-vimeo', 'logo-instagram', 'logo-twitter', 'logo-facebook'];
-    await fabButton(page, 'share-social').click();
-    for (const icon of networks) {
-      await expect(fabButton(page, icon)).toBeVisible();
+    const networks = ['Vimeo', 'Instagram', 'Twitter', 'Facebook'];
+    await visibleButton(page, 'Share').click();
+    for (const name of networks) {
+      await expect(visibleButton(page, name)).toBeVisible();
     }
 
     // The posting message only shows for 0.5 to 1.5 seconds, so record it when it is presented.
@@ -66,19 +67,19 @@ test.describe('Schedule', () => {
         ).message;
       });
     });
-    await fabButton(page, 'logo-vimeo').click();
+    await visibleButton(page, 'Vimeo').click();
 
     await expect
       .poll(() => page.evaluate(() => (window as Window & { loadingMessage?: string }).loadingMessage))
       .toBe('Posting to Vimeo');
     // Choosing a network closes the share buttons while it posts.
-    for (const icon of networks) {
-      await expect(fabButton(page, icon)).toHaveCount(0);
+    for (const name of networks) {
+      await expect(visibleButton(page, name)).toHaveCount(0);
     }
   });
 
   test('search filters the sessions by name and clearing it restores the list', async ({ page }) => {
-    await iconButton(page, 'search').click();
+    await visibleButton(page, 'Search').click();
     const search = page.getByRole('searchbox');
 
     await search.fill('angular');
@@ -93,7 +94,7 @@ test.describe('Schedule', () => {
   });
 
   test('search shows an empty state when no session matches', async ({ page }) => {
-    await iconButton(page, 'search').click();
+    await visibleButton(page, 'Search').click();
     await page.getByRole('searchbox').fill('xyzzy');
 
     await expect(shownSessions(page)).toHaveCount(0);
@@ -215,7 +216,7 @@ test.describe('Schedule', () => {
     await modal.getByRole('checkbox', { name: 'Angular' }).click();
     await applyFilter(page);
 
-    await iconButton(page, 'search').click();
+    await visibleButton(page, 'Search').click();
     await page.getByRole('searchbox').fill('ionic');
 
     await expect(shownSessions(page)).not.toHaveCount(0);

@@ -1,21 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject, catchError, map, of } from 'rxjs';
 
 import type { Location } from '../interfaces/conference.interfaces';
 
+import { ConferenceService } from './conference.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class LocationService {
-  private http = inject(HttpClient);
+  private conference = inject(ConferenceService);
 
   private locationsSubject = new BehaviorSubject<Location[]>([]);
   public readonly locations$ = this.locationsSubject.asObservable();
 
   loadLocations(): Observable<Location[]> {
-    return this.http.get<any>('assets/data/data.json').pipe(
+    // Reuse the conference data ConferenceService loads and caches instead of fetching it again.
+    return this.conference.load().pipe(
       map((data) => {
         if (data.map && Array.isArray(data.map)) {
           // Add IDs to locations

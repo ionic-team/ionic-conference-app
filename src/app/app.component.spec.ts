@@ -121,6 +121,13 @@ describe('AppComponent', () => {
       expect(menuLabels()).toContain('Login');
       expect(hasDarkModeToggle()).toBe(true);
     });
+
+    it('should show the Dark Mode toggle when logged in', async () => {
+      await start(true);
+
+      expect(menuLabels()).toContain('Logout');
+      expect(hasDarkModeToggle()).toBe(true);
+    });
   });
 
   describe('once started', () => {
