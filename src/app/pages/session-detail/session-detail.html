@@ -4,14 +4,14 @@
       <ion-back-button [defaultHref]="defaultHref()"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="toggleFavorite()">
+      <ion-button (click)="toggleFavorite()" [attr.aria-label]="isFavorite() ? 'Remove favorite' : 'Favorite'">
         @if (!isFavorite()) {
         <ion-icon slot="icon-only" name="star-outline"></ion-icon>
         } @if (isFavorite()) {
         <ion-icon slot="icon-only" name="star"></ion-icon>
         }
       </ion-button>
-      <ion-button (click)="shareSession()">
+      <ion-button (click)="shareSession()" aria-label="Share">
         <ion-icon slot="icon-only" name="share"></ion-icon>
       </ion-button>
     </ion-buttons>

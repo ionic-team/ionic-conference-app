@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
-import { openMenu, visibleTitle } from './helpers';
+import { login, openMenu, visibleButton, visibleTitle } from './helpers';
 
 const tabPages = [
   { name: 'Speakers', url: /\/app\/tabs\/speakers$/, title: 'Speakers' },
@@ -38,8 +38,7 @@ const aboutLinks = [
 const aboutOptions = (page: Page) => page.locator('ion-popover').filter({ hasText: 'Learn Ionic' });
 
 const openAboutOptions = async (page: Page) => {
-  // The options button only holds an icon and has no accessible name, so find it by position.
-  await page.locator('page-about ion-buttons[slot="end"] ion-button').filter({ visible: true }).click();
+  await visibleButton(page, 'More options').click();
   await expect(aboutOptions(page)).toBeVisible();
 };
 
@@ -120,14 +119,14 @@ test.describe('Navigation', () => {
     for (const { name, url } of aboutLinks) {
       await openAboutOptions(page);
       const popup = page.waitForEvent('popup');
-      await aboutOptions(page).getByRole('button', { name, exact: true }).click();
+      await visibleButton(page, name).click();
 
       await expect(await popup).toHaveURL(url);
       await expect(aboutOptions(page)).toHaveCount(0);
     }
 
     await openAboutOptions(page);
-    await aboutOptions(page).getByRole('button', { name: 'Support', exact: true }).click();
+    await visibleButton(page, 'Support').click();
 
     await expect(page).toHaveURL(/\/support$/);
     await expect(visibleTitle(page)).toHaveText('Support');
@@ -150,6 +149,19 @@ test.describe('Navigation', () => {
 
     await expect(toggle).not.toBeChecked();
     await expect(html).not.toHaveClass(/ion-palette-dark/);
+  });
+
+  test('the dark mode toggle is in the menu when logged in', async ({ page }) => {
+    await login(page, 'ionitron');
+    const html = page.locator('html');
+
+    const menu = await openMenu(page);
+    await expect(menu.getByRole('button', { name: 'Logout' })).toBeVisible();
+    const toggle = menu.getByRole('switch', { name: 'Dark Mode' });
+    await toggle.click();
+
+    await expect(toggle).toBeChecked();
+    await expect(html).toHaveClass(/ion-palette-dark/);
   });
 });
 

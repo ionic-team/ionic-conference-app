@@ -60,6 +60,8 @@ describe('SchedulePage', () => {
     fixture = TestBed.createComponent(SchedulePage);
     app = fixture.componentInstance;
     user = TestBed.inject(UserService);
+    // Ionic calls this when the page is shown, including the first time.
+    app.ionViewWillEnter();
     fixture.detectChanges();
     await fixture.whenStable();
   });
@@ -76,7 +78,7 @@ describe('SchedulePage', () => {
     };
   };
 
-  it('should load the whole timeline on init', () => {
+  it('should load the whole timeline when the page is shown', () => {
     expect(confService.getTimeline).toHaveBeenCalledWith(0, '', [], 'all');
     expect(app.shownSessions()).toBe(2);
     expect(app.groups().map((group) => group.time)).toEqual(['9:00 am', '10:00 am', '11:00 am']);
@@ -117,6 +119,30 @@ describe('SchedulePage', () => {
     app.updateSchedule();
 
     expect(confService.getTimeline).toHaveBeenLastCalledWith(0, 'ionic', ['Angular'], 'favorites');
+  });
+
+  it('should reload the timeline every time the page is shown, so favorite changes made elsewhere show', () => {
+    app.segment = 'favorites';
+    confService.getTimeline.mockClear();
+    confService.getTimeline.mockReturnValue(of({ ...day, shownSessions: 0 }));
+
+    app.ionViewWillEnter();
+
+    expect(confService.getTimeline).toHaveBeenCalledWith(0, '', [], 'favorites');
+    expect(app.shownSessions()).toBe(0);
+  });
+
+  it('should label the icon-only toolbar and share buttons', async () => {
+    const element: HTMLElement = fixture.nativeElement;
+    // Ionic moves a button's aria-label onto the native button inside its shadow root.
+    const labels = () =>
+      [...element.querySelectorAll('ion-toolbar ion-button, ion-fab ion-fab-button')].map((button) =>
+        button.shadowRoot?.querySelector('button')?.getAttribute('aria-label'),
+      );
+
+    await vi.waitFor(() =>
+      expect(labels()).toEqual(['Search', 'Filter', 'Share', 'Vimeo', 'Instagram', 'Twitter', 'Facebook']),
+    );
   });
 
   it('should hand out a new groups array on every update so the view re-renders', () => {

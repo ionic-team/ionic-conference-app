@@ -111,8 +111,13 @@ export class SchedulePage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateSchedule();
     this.ios = this.config.get('mode') === 'ios';
+  }
+
+  // Ionic keeps this page alive while a session or speaker is open on top of it, so reload the
+  // timeline every time it is shown: favorites may have changed on the session detail page.
+  ionViewWillEnter(): void {
+    this.updateSchedule();
   }
 
   updateSchedule(): void {
