@@ -15,10 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-    - name: Use Node.js 24
+    - name: Use Node.js 26
       uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
-        node-version: 24
+        node-version: 26
     - name: Install Dependencies
       run: npm ci
     - name: Lint
@@ -34,7 +34,7 @@ jobs:
         # Require status checks to pass before merging ->
         # Search for the new version -> Add them to the list ->
         # Remove the old version from the list -> Save changes
-        node_version: [24]
+        node_version: [26]
         os: [windows-latest, macOS-latest]
 
     steps:
