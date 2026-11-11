@@ -52,8 +52,7 @@
     "rxjs": "^7.8.0",
     "sw-toolbox": "3.6.0",
     "tslib": "^2.0.0",
-    "wait-on": "^7.0.1",
-    "webdriver-manager": "12.1.9"
+    "wait-on": "^7.0.1"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.2202.4",
@@ -82,7 +81,6 @@
     "stylelint": "15.11.0",
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.4",
-    "ts-node": "10.9.2",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.0",
     "vitest": "^5.0.5"
