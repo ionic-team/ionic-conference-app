@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "resolveJsonModule": true,
     "types": ["vitest/globals"]
   },
   "files": ["src/test-setup.ts"],

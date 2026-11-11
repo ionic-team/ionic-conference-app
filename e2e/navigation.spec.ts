@@ -1,0 +1,167 @@
+import type { Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+
+import { openMenu, visibleTitle } from './helpers';
+
+const tabPages = [
+  { name: 'Speakers', url: /\/app\/tabs\/speakers$/, title: 'Speakers' },
+  { name: 'Map', url: /\/app\/tabs\/map$/, title: 'Map' },
+  { name: 'About', url: /\/app\/tabs\/about$/, title: 'About' },
+  { name: 'Schedule', url: /\/app\/tabs\/schedule$/, title: 'Schedule' },
+];
+
+// The About page has no toolbar title, so check its heading instead.
+const expectPageTitle = async (page: Page, title: string) => {
+  if (title === 'About') {
+    await expect(page.locator('page-about').getByRole('heading', { name: 'About', exact: true })).toBeVisible();
+  } else {
+    await expect(visibleTitle(page)).toHaveText(title);
+  }
+};
+
+const openSupport = async (page: Page) => {
+  await page.goto('/app/tabs/schedule');
+  const menu = await openMenu(page);
+  await menu.getByRole('link', { name: 'Support' }).click();
+  await expect(page).toHaveURL(/\/support$/);
+  await expect(visibleTitle(page)).toHaveText('Support');
+};
+
+test.describe('Navigation', () => {
+  test('the side menu opens each conference page', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+
+    for (const tabPage of tabPages) {
+      const menu = await openMenu(page);
+      await menu.getByRole('link', { name: tabPage.name }).click();
+
+      await expect(page).toHaveURL(tabPage.url);
+      await expectPageTitle(page, tabPage.title);
+      await expect(page.getByRole('tab', { name: tabPage.name })).toHaveAttribute('aria-selected', 'true');
+    }
+  });
+
+  test('the side menu opens the Login, Signup and Support pages', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+
+    for (const { name, url } of [
+      { name: 'Login', url: /\/login$/ },
+      { name: 'Signup', url: /\/signup$/ },
+      { name: 'Support', url: /\/support$/ },
+    ]) {
+      const menu = await openMenu(page);
+      await menu.getByRole('link', { name }).click();
+
+      await expect(page).toHaveURL(url);
+      await expect(visibleTitle(page)).toHaveText(name);
+    }
+  });
+
+  test('the tab bar opens each tab page', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+
+    for (const tabPage of tabPages) {
+      await page.getByRole('tab', { name: tabPage.name }).click();
+
+      await expect(page).toHaveURL(tabPage.url);
+      await expectPageTitle(page, tabPage.title);
+      await expect(page.getByRole('tab', { name: tabPage.name })).toHaveAttribute('aria-selected', 'true');
+    }
+  });
+
+  test('the Map page shows the map with the conference locations', async ({ page }) => {
+    // Keep the test off the network: the map works without its tiles and marker images.
+    await page.route(/^https:\/\/(.+\.tile\.openstreetmap\.org|unpkg\.com)\//, (route) => route.abort());
+    await page.goto('/app/tabs/map');
+
+    await expect(visibleTitle(page)).toHaveText('Map');
+    const map = page.locator('.map-canvas');
+    await expect(map).toHaveClass(/show-map/);
+    await expect(map).toHaveClass(/leaflet-container/);
+    await expect(map.locator('.leaflet-marker-icon')).toHaveCount(3);
+
+    await map.locator('.leaflet-marker-icon').first().click();
+    await expect(map.locator('.location-popup .leaflet-popup-content')).toHaveText('Monona Terrace Convention Center');
+  });
+
+  test('the dark mode toggle switches the dark palette', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+    const html = page.locator('html');
+    await expect(html).not.toHaveClass(/ion-palette-dark/);
+
+    const menu = await openMenu(page);
+    const toggle = menu.getByRole('switch', { name: 'Dark Mode' });
+    await toggle.click();
+
+    await expect(toggle).toBeChecked();
+    await expect(html).toHaveClass(/ion-palette-dark/);
+
+    await toggle.click();
+
+    await expect(toggle).not.toBeChecked();
+    await expect(html).not.toHaveClass(/ion-palette-dark/);
+  });
+});
+
+test.describe('Support', () => {
+  test('tells the user that messages are not actually sent', async ({ page }) => {
+    await openSupport(page);
+
+    await expect(page.getByText('This does not actually send a support request.')).toBeVisible();
+  });
+
+  test('requires a message before sending', async ({ page }) => {
+    await openSupport(page);
+    const message = page.getByRole('textbox', { name: 'Enter your support message below' });
+
+    await message.focus();
+    await message.blur();
+    await page.getByRole('button', { name: 'Submit' }).click();
+
+    await expect(page.getByText('Support message is required')).toBeVisible();
+    await expect(page.getByText('Your support request has been sent.')).toHaveCount(0);
+  });
+
+  test('submitting a message shows a confirmation and clears the form', async ({ page }) => {
+    await openSupport(page);
+    const message = page.getByRole('textbox', { name: 'Enter your support message below' });
+
+    await message.fill('The schedule is great!');
+    await page.getByRole('button', { name: 'Submit' }).click();
+
+    await expect(page.getByText('Your support request has been sent.')).toBeVisible();
+    await expect(message).toHaveValue('');
+  });
+
+  test('asks before leaving with an unsent message', async ({ page }) => {
+    await openSupport(page);
+    await page.getByRole('textbox', { name: 'Enter your support message below' }).fill('Unsent message');
+
+    let menu = await openMenu(page);
+    await menu.getByRole('link', { name: 'Schedule' }).click();
+    const alert = page.locator('ion-alert');
+    await expect(alert).toContainText('Leave this page?');
+    await alert.getByRole('button', { name: 'Stay' }).click();
+
+    await expect(alert).toHaveCount(0);
+    await expect(page).toHaveURL(/\/support$/);
+    await expect(page.getByRole('textbox', { name: 'Enter your support message below' })).toHaveValue('Unsent message');
+
+    menu = await openMenu(page);
+    await menu.getByRole('link', { name: 'Schedule' }).click();
+    await alert.getByRole('button', { name: 'Leave' }).click();
+
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(visibleTitle(page)).toHaveText('Schedule');
+  });
+
+  test('leaves without asking when the message is empty', async ({ page }) => {
+    await openSupport(page);
+
+    const menu = await openMenu(page);
+    await menu.getByRole('link', { name: 'Schedule' }).click();
+
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('ion-alert')).toHaveCount(0);
+  });
+});
