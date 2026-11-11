@@ -12,6 +12,7 @@ The following is a set of guidelines for contributing to the conference app. The
 - [Submitting a Pull Request](#submitting-a-pull-request)
   - [Guidelines for Submitting](#guidelines-for-submitting)
   - [Code Style](#code-style)
+  - [Testing](#testing)
 
 ## Reporting Issues
 
