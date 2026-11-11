@@ -38,7 +38,7 @@ export class UserService {
     });
   }
 
-  logout(): Promise<any> {
+  logout(): Promise<void> {
     return Preferences.remove({ key: this.HAS_LOGGED_IN })
       .then(() => {
         return Preferences.remove({ key: 'username' });
@@ -48,7 +48,7 @@ export class UserService {
       });
   }
 
-  setUsername(username: string): Promise<any> {
+  setUsername(username: string): Promise<void> {
     return Preferences.set({ key: 'username', value: username });
   }
 
