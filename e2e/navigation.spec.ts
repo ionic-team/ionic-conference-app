@@ -192,6 +192,16 @@ test.describe('Support', () => {
 
     await expect(page.getByText('Your support request has been sent.')).toBeVisible();
     await expect(message).toHaveValue('');
+    await expect(page.getByText('Support message is required')).toBeHidden();
+  });
+
+  test('submitting an empty message shows the required message', async ({ page }) => {
+    await openSupport(page);
+
+    await page.getByRole('button', { name: 'Submit' }).click();
+
+    await expect(page.getByText('Support message is required')).toBeVisible();
+    await expect(page.getByText('Your support request has been sent.')).toHaveCount(0);
   });
 
   test('the Support page asks before leaving with an unsent message', async ({ page }) => {
