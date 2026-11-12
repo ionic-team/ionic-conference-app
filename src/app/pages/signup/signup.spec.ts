@@ -44,9 +44,12 @@ describe('SignupPage', () => {
   });
 
   it('should not sign up when the form is invalid', () => {
-    app.onSignup({ valid: false } as NgForm);
+    const markAllAsTouched = vi.fn();
+
+    app.onSignup({ valid: false, control: { markAllAsTouched } } as unknown as NgForm);
 
     expect(app.submitted).toBe(true);
+    expect(markAllAsTouched).toHaveBeenCalled();
     expect(user.signup).not.toHaveBeenCalled();
     expect(router.navigateByUrl).not.toHaveBeenCalled();
   });

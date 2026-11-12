@@ -44,9 +44,12 @@ describe('LoginPage', () => {
   });
 
   it('should not log in when the form is invalid', () => {
-    app.onLogin({ valid: false } as NgForm);
+    const markAllAsTouched = vi.fn();
+
+    app.onLogin({ valid: false, control: { markAllAsTouched } } as unknown as NgForm);
 
     expect(app.submitted).toBe(true);
+    expect(markAllAsTouched).toHaveBeenCalled();
     expect(user.login).not.toHaveBeenCalled();
     expect(router.navigateByUrl).not.toHaveBeenCalled();
   });
