@@ -13,7 +13,7 @@
     "lint:sass": "stylelint \"src/**/*.scss\"",
     "lint:fix": "npm run eslint -- --fix && npm run prettier -- --write",
     "eslint": "ng lint",
-    "prettier": "prettier \"**/*.{ts,html}\""
+    "prettier": "prettier \"**/*.{ts,html}\" \"*.{js,mjs,cjs,mts}\""
   },
   "repository": {
     "type": "git",
