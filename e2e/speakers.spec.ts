@@ -1,7 +1,7 @@
 import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
-import { backButton, sessionDetail, visibleTitle } from './helpers';
+import { backButton, sessionDetail, visibleButton, visibleTitle } from './helpers';
 
 const speakerNames = [
   'Burt Bear',
@@ -54,6 +54,14 @@ test.describe('Speakers', () => {
     await expect(detail.getByRole('img', { name: 'Burt Bear' })).toBeVisible();
     await expect(detail).toContainText('Burt is a Bear.');
     await expect(detail.locator('ion-chip')).toHaveText(['Twitter', 'GitHub', 'Instagram']);
+  });
+
+  test('the speaker detail Contact and Share buttons have accessible names', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+
+    await expect(visibleButton(page, 'Contact')).toBeVisible();
+    await expect(visibleButton(page, 'Share')).toBeVisible();
   });
 
   test('About in a speaker card opens the speaker detail', async ({ page }) => {
