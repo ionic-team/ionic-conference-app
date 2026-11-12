@@ -20,6 +20,11 @@ const applyFilter = async (page: Page) => {
   await expect(page.locator('ion-modal')).toHaveCount(0);
 };
 
+// The share button and the social share buttons only hold an icon and have no accessible name,
+// so find them by icon.
+const fabButton = (page: Page, icon: string) =>
+  page.locator('ion-fab-button').filter({ visible: true, has: page.locator(`ion-icon[name="${icon}"]`) });
+
 const showFavorites = async (page: Page) => {
   // ion-segment-button covers its inner tab button, so click the segment button itself.
   await page.locator('ion-segment-button', { hasText: 'Favorites' }).click();
@@ -44,6 +49,22 @@ test.describe('Schedule', () => {
     ]);
     await expect(sessionItem(page, 'Getting Started with Ionic')).toContainText('9:30 am — 9:45 am: Hall 2');
     await expect(noSessionsFound(page)).toBeHidden();
+  });
+
+  test('the share button opens the social share buttons', async ({ page }) => {
+    const networks = ['logo-vimeo', 'logo-instagram', 'logo-twitter', 'logo-facebook'];
+    await fabButton(page, 'share-social').click();
+    for (const icon of networks) {
+      await expect(fabButton(page, icon)).toBeVisible();
+    }
+
+    await fabButton(page, 'logo-vimeo').click();
+
+    // Choosing a network closes the share buttons while it posts.
+    await expect(page.getByText('Posting to Vimeo')).toBeVisible();
+    for (const icon of networks) {
+      await expect(fabButton(page, icon)).toHaveCount(0);
+    }
   });
 
   test('search filters the sessions by name and clearing it restores the list', async ({ page }) => {
@@ -157,6 +178,8 @@ test.describe('Schedule', () => {
 
   test('Deselect All hides every session and Select All brings them back', async ({ page }) => {
     let modal = await openFilter(page);
+    // The filter's toolbar buttons keep their own casing, not Android's uppercase
+    await expect(modal.getByRole('button', { name: 'Deselect All' })).toHaveCSS('text-transform', 'capitalize');
     await modal.getByRole('button', { name: 'Deselect All' }).click();
     await expect(modal.getByRole('checkbox', { checked: true })).toHaveCount(0);
     await applyFilter(page);

@@ -30,6 +30,21 @@ test.describe('Session detail', () => {
     await expect(content).toContainText('Hall 2');
   });
 
+  test('opens a session from a direct link', async ({ page }) => {
+    await page.goto('/app/tabs/schedule/session/7');
+
+    const content = sessionDetail(page);
+    await expect(content.getByRole('heading', { level: 1 })).toHaveText('The Evolution of Ionicons');
+    await expect(content.locator('.session-track-design')).toHaveText('Design');
+    await expect(content).toContainText('10:15 am – 10:30 am');
+
+    // There is no earlier page to go back to, so the back button opens the schedule.
+    await backButton(page).click();
+
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(shownSessions(page)).toHaveCount(20);
+  });
+
   test('the back button returns to the schedule', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
 

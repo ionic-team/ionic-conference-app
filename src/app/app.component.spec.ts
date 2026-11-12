@@ -146,6 +146,18 @@ describe('AppComponent', () => {
     expect(navigate).toHaveBeenCalledWith('/tutorial');
   });
 
+  const hasDarkModeToggle = (): boolean =>
+    [...(fixture.nativeElement as HTMLElement).querySelectorAll('ion-menu ion-toggle')].some(
+      (toggle) => toggle.textContent?.trim() === 'Dark Mode',
+    );
+
+  it('should show the Dark Mode toggle when logged out', async () => {
+    await vi.waitFor(() => expect(userDataSpy.isLoggedIn).toHaveBeenCalled());
+
+    expect(app.loggedIn()).toBe(false);
+    expect(hasDarkModeToggle()).toBe(true);
+  });
+
   it('should toggle the dark palette on the document', () => {
     const root = document.documentElement;
 
