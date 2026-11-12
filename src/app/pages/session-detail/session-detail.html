@@ -4,7 +4,7 @@
       <ion-back-button [defaultHref]="defaultHref()"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="toggleFavorite()" [attr.aria-label]="isFavorite() ? 'Remove favorite' : 'Favorite'">
+      <ion-button (click)="toggleFavorite()" [attr.aria-label]="isFavorite() ? 'Remove favorite' : 'Add favorite'">
         @if (!isFavorite()) {
         <ion-icon slot="icon-only" name="star-outline"></ion-icon>
         } @if (isFavorite()) {
