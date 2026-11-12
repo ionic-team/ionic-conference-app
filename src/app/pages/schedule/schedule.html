@@ -16,7 +16,7 @@
       showCancelButton="always"
       [(ngModel)]="queryText"
       (ionInput)="updateSchedule()"
-      (ionCancel)="showSearchbar = false"
+      (ionCancel)="cancelSearch()"
       placeholder="Search"
     ></ion-searchbar>
     }

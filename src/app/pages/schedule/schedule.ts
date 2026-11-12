@@ -120,6 +120,13 @@ export class SchedulePage implements OnInit {
     this.updateSchedule();
   }
 
+  cancelSearch(): void {
+    // Cancelling hides the searchbar before it reports its cleared value, so clear the search here.
+    this.showSearchbar = false;
+    this.queryText = '';
+    this.updateSchedule();
+  }
+
   updateSchedule(): void {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
