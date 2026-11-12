@@ -1,6 +1,7 @@
 import type { Routes } from '@angular/router';
 
 import { canDeactivateSupportPage } from './providers/can-deactivate-support.guard';
+import { checkLoggedInGuard } from './providers/check-logged-in.guard';
 import { checkTutorialGuard } from './providers/check-tutorial.guard';
 
 export const routes: Routes = [
@@ -12,6 +13,7 @@ export const routes: Routes = [
   {
     path: 'account',
     loadComponent: () => import('./pages/account/account').then((m) => m.AccountPage),
+    canActivate: [checkLoggedInGuard],
   },
   {
     path: 'support',
