@@ -160,6 +160,19 @@ test.describe('Account', () => {
     { name: 'Login', path: '/login', selector: 'page-login', button: 'Login' },
     { name: 'Signup', path: '/signup', selector: 'page-signup', button: 'Create' },
   ]) {
+    test(`the ${form.name} page shows the required messages when submitted empty`, async ({ page }) => {
+      await page.goto(form.path);
+      const formPage = page.locator(form.selector);
+      await expect(formPage.getByText('Username is required')).toBeHidden();
+      await expect(formPage.getByText('Password is required')).toBeHidden();
+
+      await formPage.getByRole('button', { name: form.button }).click();
+
+      await expect(formPage.getByText('Username is required')).toBeVisible();
+      await expect(formPage.getByText('Password is required')).toBeVisible();
+      await expect(page).toHaveURL(new RegExp(`${form.path}$`));
+    });
+
     test(`the ${form.name} page shows a required message when an empty field is left`, async ({ page }) => {
       await page.goto(form.path);
       const formPage = page.locator(form.selector);
