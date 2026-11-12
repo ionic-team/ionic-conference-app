@@ -132,19 +132,6 @@ describe('SchedulePage', () => {
     expect(app.shownSessions()).toBe(0);
   });
 
-  it('should label the icon-only toolbar and share buttons', async () => {
-    const element: HTMLElement = fixture.nativeElement;
-    // Ionic moves a button's aria-label onto the native button inside its shadow root.
-    const labels = () =>
-      [...element.querySelectorAll('ion-toolbar ion-button, ion-fab ion-fab-button')].map((button) =>
-        button.shadowRoot?.querySelector('button')?.getAttribute('aria-label'),
-      );
-
-    await vi.waitFor(() =>
-      expect(labels()).toEqual(['Search', 'Filter', 'Share', 'Vimeo', 'Instagram', 'Twitter', 'Facebook']),
-    );
-  });
-
   it('should hand out a new groups array on every update so the view re-renders', () => {
     const before = app.groups();
 

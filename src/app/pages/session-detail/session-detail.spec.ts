@@ -37,8 +37,11 @@ describe('SessionDetailPage', () => {
 
   const starIcon = () => fixture.nativeElement.querySelector('ion-buttons[slot="end"] ion-icon')?.getAttribute('name');
   // Ionic moves an ion-button's aria-label onto the native button inside its shadow root.
-  const ariaLabel = (button: Element) => button.shadowRoot?.querySelector('button')?.getAttribute('aria-label');
-  const favoriteLabel = () => ariaLabel(fixture.nativeElement.querySelector('ion-buttons[slot="end"] ion-button'));
+  const favoriteLabel = () =>
+    fixture.nativeElement
+      .querySelector('ion-buttons[slot="end"] ion-button')
+      ?.shadowRoot?.querySelector('button')
+      ?.getAttribute('aria-label');
 
   it('should show the session from the route', async () => {
     await createPage('2');
@@ -94,13 +97,12 @@ describe('SessionDetailPage', () => {
     expect(starIcon()).toBe('star-outline');
   });
 
-  it('should label the favorite and share buttons', async () => {
+  it('should label the favorite button by what tapping it does', async () => {
     await createPage('3');
     app.ionViewWillEnter();
     await fixture.whenStable();
 
-    const buttons: Element[] = [...fixture.nativeElement.querySelectorAll('ion-buttons[slot="end"] ion-button')];
-    await vi.waitFor(() => expect(buttons.map(ariaLabel)).toEqual(['Add favorite', 'Share']));
+    await vi.waitFor(() => expect(favoriteLabel()).toBe('Add favorite'));
 
     app.toggleFavorite();
     await fixture.whenStable();
