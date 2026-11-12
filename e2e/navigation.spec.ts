@@ -195,6 +195,19 @@ test.describe('Support', () => {
     await expect(page.getByText('Support message is required')).toBeHidden();
   });
 
+  test('shows the confirmation even while the notice is still open', async ({ page }) => {
+    await openSupport(page);
+    const notice = page.getByText('This does not actually send a support request.');
+    await expect(notice).toBeVisible();
+
+    await page.getByRole('textbox', { name: 'Enter your support message below' }).fill('The schedule is great!');
+    await page.getByRole('button', { name: 'Submit' }).click();
+
+    await expect(page.getByText('Your support request has been sent.')).toBeVisible();
+    // The notice closes on its own after 3 seconds, so check that it's gone well before then.
+    await expect(notice).toBeHidden({ timeout: 1000 });
+  });
+
   test('submitting an empty message shows the required message', async ({ page }) => {
     await openSupport(page);
 
