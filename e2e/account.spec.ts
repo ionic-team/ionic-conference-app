@@ -28,7 +28,7 @@ const openAccount = async (page: Page, menu?: Locator) => {
 const accountUsername = (page: Page) => page.locator('page-account h2');
 
 test.describe('Account', () => {
-  test('starts logged out', async ({ page }) => {
+  test('the menu starts logged out', async ({ page }) => {
     await page.goto('/app/tabs/schedule');
 
     await expectLoggedOut(await openMenu(page));
@@ -79,7 +79,7 @@ test.describe('Account', () => {
     await expect(accountUsername(page)).toHaveText('ionic-fan');
   });
 
-  test('cancelling the username change keeps the username', async ({ page }) => {
+  test('the Account page keeps the username when the change is cancelled', async ({ page }) => {
     await login(page, 'ionitron');
     await openAccount(page);
 
@@ -176,7 +176,7 @@ test.describe('Account', () => {
     });
   }
 
-  test('the logged-in state survives a reload', async ({ page }) => {
+  test('logging in survives a reload', async ({ page }) => {
     await login(page, 'ionitron');
     await expectLoggedIn(await openMenu(page));
 
