@@ -3,13 +3,8 @@ import { Injectable, inject } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import {
-  ConferenceData,
-  Group,
-  ScheduleDay,
-  Session,
-  Speaker,
-} from '../interfaces/conference.interfaces';
+import type { ConferenceData, Group, ScheduleDay, Session, Speaker } from '../interfaces/conference.interfaces';
+
 import { UserService } from './user.service';
 
 @Injectable({
@@ -24,9 +19,7 @@ export class ConferenceService {
     if (this.data) {
       return of(this.data);
     } else {
-      return this.http
-        .get<ConferenceData>('assets/data/data.json')
-        .pipe(map(this.processData, this));
+      return this.http.get<ConferenceData>('assets/data/data.json').pipe(map(this.processData, this));
     }
   }
 
@@ -45,9 +38,7 @@ export class ConferenceService {
           session.speakers = sessionSpeakers;
           if (session.speakerNames) {
             session.speakerNames.forEach((speakerName: string) => {
-              const speaker = data.speakers.find(
-                (s: Speaker) => s.name === speakerName
-              );
+              const speaker = data.speakers.find((s: Speaker) => s.name === speakerName);
               if (speaker) {
                 sessionSpeakers.push(speaker);
                 const speakerSessions = speaker.sessions ?? [];
@@ -63,21 +54,14 @@ export class ConferenceService {
     return data;
   }
 
-  getTimeline(
-    dayIndex: number,
-    queryText = '',
-    excludeTracks: string[] = [],
-    segment = 'all'
-  ) {
+  getTimeline(dayIndex: number, queryText = '', excludeTracks: string[] = [], segment = 'all') {
     return this.load().pipe(
       map((data: ConferenceData) => {
         const day = data.schedule[dayIndex];
         let shownSessions = 0;
 
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-        const queryWords = queryText
-          .split(' ')
-          .filter(w => !!w.trim().length);
+        const queryWords = queryText.split(' ').filter((w) => !!w.trim().length);
 
         day.groups.forEach((group: Group) => {
           group.hide = true;
@@ -103,16 +87,11 @@ export class ConferenceService {
 
         day.shownSessions = shownSessions;
         return day;
-      })
+      }),
     );
   }
 
-  filterSession(
-    session: Session,
-    queryWords: string[],
-    excludeTracks: string[],
-    segment: string
-  ) {
+  filterSession(session: Session, queryWords: string[], excludeTracks: string[], segment: string) {
     let matchesQueryText = false;
     if (queryWords.length) {
       // of any query word is in the session name than it passes the query test

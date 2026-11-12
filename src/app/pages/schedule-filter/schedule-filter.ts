@@ -30,29 +30,30 @@ import {
   logoIonic,
   restaurant,
 } from 'ionicons/icons';
+
 import { ConferenceService } from '../../providers/conference.service';
 
 @Component({
-    selector: 'page-schedule-filter',
-    templateUrl: 'schedule-filter.html',
-    styleUrls: ['./schedule-filter.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonButton,
-        IonTitle,
-        IonContent,
-        IonList,
-        IonListHeader,
-        IonCheckbox,
-        IonFooter,
-        IonItem,
-        FormsModule,
-        LowerCasePipe,
-        IonIcon,
-    ],
-    providers: [ModalController]
+  selector: 'page-schedule-filter',
+  templateUrl: 'schedule-filter.html',
+  styleUrls: ['./schedule-filter.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonButton,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonListHeader,
+    IonCheckbox,
+    IonFooter,
+    IonItem,
+    FormsModule,
+    LowerCasePipe,
+    IonIcon,
+  ],
+  providers: [ModalController],
 })
 export class ScheduleFilterPage {
   private config = inject(Config);
@@ -87,8 +88,8 @@ export class ScheduleFilterPage {
     // passed in array of track names that should be excluded (unchecked)
     const excludedTrackNames = this.excludedTracks();
 
-    this.confService.getTracks().subscribe(tracks => {
-      const filterTracks = tracks.map(track => ({
+    this.confService.getTracks().subscribe((tracks) => {
+      const filterTracks = tracks.map((track) => ({
         name: track.name,
         icon: track.icon,
         isChecked: excludedTrackNames.indexOf(track.name) === -1,
@@ -101,16 +102,14 @@ export class ScheduleFilterPage {
 
   selectAll(check: boolean) {
     // set all to checked or unchecked
-    this.tracks.update(tracks =>
-      tracks.map(track => ({ ...track, isChecked: check }))
-    );
+    this.tracks.update((tracks) => tracks.map((track) => ({ ...track, isChecked: check })));
   }
 
   applyFilters() {
     // Pass back a new array of track names to exclude
     const excludedTrackNames = this.tracks()
-      .filter(c => !c.isChecked)
-      .map(c => c.name);
+      .filter((c) => !c.isChecked)
+      .map((c) => c.name);
     this.dismiss(excludedTrackNames);
   }
 

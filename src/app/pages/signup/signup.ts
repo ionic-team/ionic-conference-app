@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import type { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   IonButton,
@@ -11,12 +12,11 @@ import {
   IonTitle,
   IonToolbar,
   IonCol,
-  IonRow
+  IonRow,
 } from '@ionic/angular';
 
+import type { UserOptions } from '../../interfaces/user-options';
 import { UserService } from '../../providers/user.service';
-
-import { UserOptions } from '../../interfaces/user-options';
 
 @Component({
   selector: 'page-signup',
@@ -34,7 +34,7 @@ import { UserOptions } from '../../interfaces/user-options';
     IonContent,
     IonInput,
     IonButton,
-  ]
+  ],
 })
 export class SignupPage {
   router = inject(Router);

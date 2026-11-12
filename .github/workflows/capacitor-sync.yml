@@ -26,10 +26,10 @@ jobs:
       with:
         ref: ${{ github.ref_name }}
         token: ${{ secrets.IONITRON_GITHUB_TOKEN }}
-    - name: Configure Node
+    - name: Set up Node.js
       uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
-        node-version: 24
+        node-version-file: .nvmrc
     - name: Install Dependencies
       run: npm ci
     - name: Build

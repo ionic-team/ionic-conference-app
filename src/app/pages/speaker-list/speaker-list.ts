@@ -18,32 +18,33 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular';
-import { Speaker } from '../../interfaces/conference.interfaces';
+
+import type { Speaker } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 
 @Component({
-    selector: 'page-speaker-list',
-    templateUrl: 'speaker-list.html',
-    styleUrls: ['./speaker-list.scss'],
-    imports: [
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonMenuButton,
-        IonTitle,
-        IonContent,
-        IonGrid,
-        IonRow,
-        IonCol,
-        IonCard,
-        IonCardHeader,
-        IonItem,
-        IonAvatar,
-        IonLabel,
-        IonCardContent,
-        IonList,
-        RouterLink,
-    ]
+  selector: 'page-speaker-list',
+  templateUrl: 'speaker-list.html',
+  styleUrls: ['./speaker-list.scss'],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonMenuButton,
+    IonTitle,
+    IonContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardHeader,
+    IonItem,
+    IonAvatar,
+    IonLabel,
+    IonCardContent,
+    IonList,
+    RouterLink,
+  ],
 })
 export class SpeakerListPage {
   private confData = inject(ConferenceService);
@@ -51,7 +52,7 @@ export class SpeakerListPage {
   speakers = signal<Speaker[]>([]);
 
   ionViewDidEnter() {
-    this.confData.getSpeakers().subscribe(speakers => {
+    this.confData.getSpeakers().subscribe((speakers) => {
       this.speakers.set(speakers);
     });
   }
