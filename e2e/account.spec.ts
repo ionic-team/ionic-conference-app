@@ -62,6 +62,13 @@ test.describe('Account', () => {
     await expectLoggedOut(await openMenu(page));
   });
 
+  test('the Account page redirects to Login while logged out', async ({ page }) => {
+    await page.goto('/account');
+
+    await expect(page).toHaveURL(/\/login$/);
+    await expect(visibleTitle(page)).toHaveText('Login');
+  });
+
   test('the Account page shows the username and can change it', async ({ page }) => {
     await login(page, 'ionitron');
     await openAccount(page);
