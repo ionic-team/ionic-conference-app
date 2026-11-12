@@ -110,12 +110,12 @@ export class SchedulePage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.updateSchedule();
     this.ios = this.config.get('mode') === 'ios';
   }
 
-  updateSchedule() {
+  updateSchedule(): void {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
       this.scheduleList.closeSlidingItems();
@@ -134,7 +134,7 @@ export class SchedulePage implements OnInit {
       });
   }
 
-  async presentFilter() {
+  async presentFilter(): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
       presentingElement: this.routerOutlet.nativeEl,
@@ -149,7 +149,7 @@ export class SchedulePage implements OnInit {
     }
   }
 
-  async addFavorite(slidingItem: IonItemSliding, sessionData: Session) {
+  async addFavorite(slidingItem: IonItemSliding, sessionData: Session): Promise<void> {
     if (this.user.hasFavorite(sessionData.name)) {
       // Prompt to remove favorite
       this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
@@ -177,7 +177,7 @@ export class SchedulePage implements OnInit {
     }
   }
 
-  async removeFavorite(slidingItem: IonItemSliding, sessionData: Session, title: string) {
+  async removeFavorite(slidingItem: IonItemSliding, sessionData: Session, title: string): Promise<void> {
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -207,7 +207,7 @@ export class SchedulePage implements OnInit {
     await alert.present();
   }
 
-  async openSocial(network: string, fab: IonFab) {
+  async openSocial(network: string, fab: IonFab): Promise<void> {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
       duration: Math.random() * 1000 + 500,

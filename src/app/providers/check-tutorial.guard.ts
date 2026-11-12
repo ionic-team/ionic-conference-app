@@ -1,9 +1,10 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
+import type { Observable } from 'rxjs';
 import { from, map, tap } from 'rxjs';
 
-export const checkTutorialGuard = () => {
+export const checkTutorialGuard = (): Observable<boolean> => {
   const router = inject(Router);
 
   return from(Preferences.get({ key: 'ion_did_tutorial' })).pipe(
