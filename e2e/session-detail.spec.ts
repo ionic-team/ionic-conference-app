@@ -54,6 +54,22 @@ test.describe('Session detail', () => {
     await expect(detail.getByRole('button', { name: 'Share', exact: true })).toBeVisible();
   });
 
+  test('Share opens a share sheet for the session that Cancel closes', async ({ page }) => {
+    await openSession(page, 'Ionic Tooling');
+
+    await sessionDetail(page).getByRole('button', { name: 'Share', exact: true }).click();
+
+    const sheet = page.locator('ion-action-sheet');
+    await expect(sheet.getByText('Share Ionic Tooling')).toBeVisible();
+    for (const name of ['Copy Link', 'Share via ...', 'Cancel']) {
+      await expect(sheet.getByRole('button', { name, exact: true })).toBeVisible();
+    }
+
+    await sheet.getByRole('button', { name: 'Cancel', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+  });
+
   test('the back button returns to the schedule', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
 
