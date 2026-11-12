@@ -58,10 +58,20 @@ test.describe('Schedule', () => {
       await expect(fabButton(page, icon)).toBeVisible();
     }
 
+    // The posting message only shows for 0.5 to 1.5 seconds, so record it when it is presented.
+    await page.evaluate(() => {
+      document.addEventListener('ionLoadingWillPresent', (event) => {
+        (window as Window & { loadingMessage?: string }).loadingMessage = (
+          event.target as HTMLElement & { message: string }
+        ).message;
+      });
+    });
     await fabButton(page, 'logo-vimeo').click();
 
+    await expect
+      .poll(() => page.evaluate(() => (window as Window & { loadingMessage?: string }).loadingMessage))
+      .toBe('Posting to Vimeo');
     // Choosing a network closes the share buttons while it posts.
-    await expect(page.getByText('Posting to Vimeo')).toBeVisible();
     for (const icon of networks) {
       await expect(fabButton(page, icon)).toHaveCount(0);
     }
@@ -176,10 +186,15 @@ test.describe('Schedule', () => {
     }
   });
 
+  test('the filter toolbar buttons keep their casing', async ({ page }) => {
+    const modal = await openFilter(page);
+
+    // Not Android's uppercase.
+    await expect(modal.getByRole('button', { name: 'Deselect All' })).toHaveCSS('text-transform', 'capitalize');
+  });
+
   test('Deselect All hides every session and Select All brings them back', async ({ page }) => {
     let modal = await openFilter(page);
-    // The filter's toolbar buttons keep their own casing, not Android's uppercase
-    await expect(modal.getByRole('button', { name: 'Deselect All' })).toHaveCSS('text-transform', 'capitalize');
     await modal.getByRole('button', { name: 'Deselect All' }).click();
     await expect(modal.getByRole('checkbox', { checked: true })).toHaveCount(0);
     await applyFilter(page);
