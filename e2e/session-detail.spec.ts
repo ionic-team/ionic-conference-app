@@ -50,7 +50,7 @@ test.describe('Session detail', () => {
 
     // The schedule's Share button can still be on screen while the detail page animates in.
     const detail = sessionDetail(page);
-    await expect(detail.getByRole('button', { name: 'Favorite', exact: true })).toBeVisible();
+    await expect(detail.getByRole('button', { name: 'Add favorite', exact: true })).toBeVisible();
     await expect(detail.getByRole('button', { name: 'Share', exact: true })).toBeVisible();
   });
 
@@ -66,7 +66,7 @@ test.describe('Session detail', () => {
   test('favoriting a session from the detail page adds it to Favorites', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
 
-    await visibleButton(page, 'Favorite').click();
+    await visibleButton(page, 'Add favorite').click();
     await expect(visibleButton(page, 'Remove favorite')).toBeVisible();
 
     await goBackToFavorites(page);
@@ -75,7 +75,7 @@ test.describe('Session detail', () => {
 
   test('unfavoriting a session from the detail page removes it from Favorites', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
-    await visibleButton(page, 'Favorite').click();
+    await visibleButton(page, 'Add favorite').click();
     await goBackToFavorites(page);
     await expect(shownSessions(page)).toHaveText(['Ionic Tooling']);
     await page.locator('ion-segment-button', { hasText: 'All' }).click();
@@ -84,7 +84,7 @@ test.describe('Session detail', () => {
     await openSession(page, 'Ionic Tooling');
     // The detail page shows the session is already a favorite.
     await visibleButton(page, 'Remove favorite').click();
-    await expect(visibleButton(page, 'Favorite')).toBeVisible();
+    await expect(visibleButton(page, 'Add favorite')).toBeVisible();
 
     await goBackToFavorites(page);
     await expect(shownSessions(page)).toHaveCount(0);
@@ -93,7 +93,7 @@ test.describe('Session detail', () => {
 
   test('unfavoriting a session opened from Favorites removes it from the list', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
-    await visibleButton(page, 'Favorite').click();
+    await visibleButton(page, 'Add favorite').click();
     await goBackToFavorites(page);
     await expect(shownSessions(page)).toHaveText(['Ionic Tooling']);
 

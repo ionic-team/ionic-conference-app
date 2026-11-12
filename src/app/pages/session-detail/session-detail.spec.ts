@@ -100,7 +100,7 @@ describe('SessionDetailPage', () => {
     await fixture.whenStable();
 
     const buttons: Element[] = [...fixture.nativeElement.querySelectorAll('ion-buttons[slot="end"] ion-button')];
-    await vi.waitFor(() => expect(buttons.map(ariaLabel)).toEqual(['Favorite', 'Share']));
+    await vi.waitFor(() => expect(buttons.map(ariaLabel)).toEqual(['Add favorite', 'Share']));
 
     app.toggleFavorite();
     await fixture.whenStable();
@@ -108,7 +108,7 @@ describe('SessionDetailPage', () => {
 
     app.toggleFavorite();
     await fixture.whenStable();
-    await vi.waitFor(() => expect(favoriteLabel()).toBe('Favorite'));
+    await vi.waitFor(() => expect(favoriteLabel()).toBe('Add favorite'));
   });
 
   it('should not change favorites before a session is shown', async () => {
