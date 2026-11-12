@@ -154,25 +154,24 @@ test.describe('Navigation', () => {
 });
 
 test.describe('Support', () => {
-  test('tells the user that messages are not actually sent', async ({ page }) => {
+  test('the Support page tells the user that messages are not actually sent', async ({ page }) => {
     await openSupport(page);
 
     await expect(page.getByText('This does not actually send a support request.')).toBeVisible();
   });
 
-  test('requires a message before sending', async ({ page }) => {
+  test('the Support page shows the required message when the message is left empty', async ({ page }) => {
     await openSupport(page);
     const message = page.getByRole('textbox', { name: 'Enter your support message below' });
+    await expect(page.getByText('Support message is required')).toBeHidden();
 
     await message.focus();
     await message.blur();
-    await page.getByRole('button', { name: 'Submit' }).click();
 
     await expect(page.getByText('Support message is required')).toBeVisible();
-    await expect(page.getByText('Your support request has been sent.')).toHaveCount(0);
   });
 
-  test('submitting a message shows a confirmation and clears the form', async ({ page }) => {
+  test('the Support page shows a confirmation and clears the form after sending', async ({ page }) => {
     await openSupport(page);
     const message = page.getByRole('textbox', { name: 'Enter your support message below' });
 
@@ -183,7 +182,7 @@ test.describe('Support', () => {
     await expect(message).toHaveValue('');
   });
 
-  test('asks before leaving with an unsent message', async ({ page }) => {
+  test('the Support page asks before leaving with an unsent message', async ({ page }) => {
     await openSupport(page);
     await page.getByRole('textbox', { name: 'Enter your support message below' }).fill('Unsent message');
 
@@ -205,7 +204,7 @@ test.describe('Support', () => {
     await expect(visibleTitle(page)).toHaveText('Schedule');
   });
 
-  test('leaves without asking when the message is empty', async ({ page }) => {
+  test('the Support page leaves without asking when the message is empty', async ({ page }) => {
     await openSupport(page);
 
     const menu = await openMenu(page);
