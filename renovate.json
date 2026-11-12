@@ -42,7 +42,7 @@
       "groupName": "leaflet"
     },
     {
-      "matchPackageNames": ["vitest", "jsdom", "@playwright/test", "puppeteer"],
+      "matchPackageNames": ["vitest", "jsdom", "@playwright/test"],
       "groupName": "testing"
     },
     {
