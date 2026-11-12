@@ -27,6 +27,22 @@ const openSupport = async (page: Page) => {
   await expect(visibleTitle(page)).toHaveText('Support');
 };
 
+const aboutLinks = [
+  { name: 'Learn Ionic', url: 'https://ionicframework.com/getting-started' },
+  { name: 'Documentation', url: 'https://ionicframework.com/docs/' },
+  { name: 'Showcase', url: 'https://showcase.ionicframework.com/' },
+  { name: 'GitHub Repo', url: 'https://github.com/ionic-team/ionic' },
+];
+
+// The About page also keeps its date picker popover in the DOM, so match the options by content.
+const aboutOptions = (page: Page) => page.locator('ion-popover').filter({ hasText: 'Learn Ionic' });
+
+const openAboutOptions = async (page: Page) => {
+  // The options button only holds an icon and has no accessible name, so find it by position.
+  await page.locator('page-about ion-buttons[slot="end"] ion-button').filter({ visible: true }).click();
+  await expect(aboutOptions(page)).toBeVisible();
+};
+
 test.describe('Navigation', () => {
   test('the side menu opens each conference page', async ({ page }) => {
     await page.goto('/app/tabs/schedule');
@@ -82,6 +98,40 @@ test.describe('Navigation', () => {
 
     await map.locator('.leaflet-marker-icon').first().click();
     await expect(map.locator('.location-popup .leaflet-popup-content')).toHaveText('Monona Terrace Convention Center');
+  });
+
+  test('the About page shows the conference date and location', async ({ page }) => {
+    await page.goto('/app/tabs/about');
+
+    const about = page.locator('page-about').filter({ visible: true });
+    await expect(about).toContainText('a one-day event happening on May 17, 2047');
+    await expect(about.locator('ion-item').filter({ hasText: 'Date' })).toContainText('May 17, 2047');
+    await expect(about.getByRole('button', { name: 'Location, Madison, WI' })).toBeVisible();
+    await expect(about).toContainText('ica2047');
+  });
+
+  test('the About page options open the Ionic links and the Support page', async ({ page }) => {
+    // The links open in a new tab, so answer them locally to keep the test off the network.
+    await page
+      .context()
+      .route(/^https:\/\/(\w+\.)?(ionicframework|github)\.com\//, (route) => route.fulfill({ body: '' }));
+    await page.goto('/app/tabs/about');
+
+    for (const { name, url } of aboutLinks) {
+      await openAboutOptions(page);
+      const popup = page.waitForEvent('popup');
+      await aboutOptions(page).getByRole('button', { name, exact: true }).click();
+
+      await expect(await popup).toHaveURL(url);
+      await expect(aboutOptions(page)).toHaveCount(0);
+    }
+
+    await openAboutOptions(page);
+    await aboutOptions(page).getByRole('button', { name: 'Support', exact: true }).click();
+
+    await expect(page).toHaveURL(/\/support$/);
+    await expect(visibleTitle(page)).toHaveText('Support');
+    await expect(aboutOptions(page)).toHaveCount(0);
   });
 
   test('the dark mode toggle switches the dark palette', async ({ page }) => {

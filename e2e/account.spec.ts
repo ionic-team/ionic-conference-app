@@ -28,6 +28,12 @@ const openAccount = async (page: Page, menu?: Locator) => {
 const accountUsername = (page: Page) => page.locator('page-account h2');
 
 test.describe('Account', () => {
+  test('starts logged out', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+
+    await expectLoggedOut(await openMenu(page));
+  });
+
   test('logging in marks the user as logged in', async ({ page }) => {
     await page.goto('/app/tabs/schedule');
     await expectLoggedOut(await openMenu(page));
@@ -128,6 +134,18 @@ test.describe('Account', () => {
     await expect(accountUsername(page)).toHaveText('newbie');
   });
 
+  test('the Login page links to Signup', async ({ page }) => {
+    await page.goto('/app/tabs/schedule');
+    const menu = await openMenu(page);
+    await menu.getByRole('link', { name: 'Login' }).click();
+    await expect(visibleTitle(page)).toHaveText('Login');
+
+    await page.getByRole('button', { name: 'Signup' }).click();
+
+    await expect(page).toHaveURL(/\/signup$/);
+    await expect(visibleTitle(page)).toHaveText('Signup');
+  });
+
   test('signing up requires a username and a password', async ({ page }) => {
     await page.goto('/signup');
 
@@ -137,6 +155,26 @@ test.describe('Account', () => {
     await expect(page).toHaveURL(/\/signup$/);
     await expectLoggedOut(await openMenu(page));
   });
+
+  for (const form of [
+    { name: 'Login', path: '/login', selector: 'page-login', button: 'Login' },
+    { name: 'Signup', path: '/signup', selector: 'page-signup', button: 'Create' },
+  ]) {
+    test(`the ${form.name} page shows a required message when an empty field is left`, async ({ page }) => {
+      await page.goto(form.path);
+      const formPage = page.locator(form.selector);
+      const username = formPage.getByRole('textbox', { name: 'Username' });
+
+      await username.focus();
+      await username.blur();
+
+      await expect(formPage.getByText('Username is required')).toBeVisible();
+      await expect(formPage.getByText('Password is required')).toBeHidden();
+
+      await username.fill('ionitron');
+      await expect(formPage.getByText('Username is required')).toBeHidden();
+    });
+  }
 
   test('the logged-in state survives a reload', async ({ page }) => {
     await login(page, 'ionitron');
