@@ -15,11 +15,19 @@ const form = (message: string): NgForm => {
 describe('SupportPage', () => {
   let app: SupportPage;
   let toast: { present: ReturnType<typeof vi.fn> };
-  let toastCtrl: { create: ReturnType<typeof vi.fn> };
+  let toastCtrl: {
+    create: ReturnType<typeof vi.fn>;
+    getTop: ReturnType<typeof vi.fn>;
+    dismiss: ReturnType<typeof vi.fn>;
+  };
 
   beforeEach(async () => {
     toast = { present: vi.fn().mockResolvedValue(undefined) };
-    toastCtrl = { create: vi.fn().mockResolvedValue(toast) };
+    toastCtrl = {
+      create: vi.fn().mockResolvedValue(toast),
+      getTop: vi.fn().mockResolvedValue(undefined),
+      dismiss: vi.fn().mockResolvedValue(true),
+    };
 
     await TestBed.configureTestingModule({
       imports: [SupportPage],
@@ -58,6 +66,17 @@ describe('SupportPage', () => {
       expect.objectContaining({ message: 'Your support request has been sent.' }),
     );
     expect(toast.present).toHaveBeenCalled();
+    // No toast is open, so there's nothing to close
+    expect(toastCtrl.dismiss).not.toHaveBeenCalled();
+  });
+
+  it('should close the open notice before confirming', async () => {
+    toastCtrl.getTop.mockResolvedValue(toast);
+
+    await app.submit(form('Help!'));
+
+    expect(toastCtrl.dismiss).toHaveBeenCalled();
+    expect(toastCtrl.dismiss.mock.invocationCallOrder[0]).toBeLessThan(toast.present.mock.invocationCallOrder[0]);
   });
 
   it('should keep the form when it is invalid', async () => {
