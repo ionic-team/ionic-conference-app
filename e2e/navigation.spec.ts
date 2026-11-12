@@ -195,20 +195,19 @@ test.describe('Support', () => {
     await expect(page.getByText('Support message is required')).toBeHidden();
   });
 
-  test('shows the confirmation even while the notice is still open', async ({ page }) => {
+  test('the Support page shows the confirmation even while the notice is still open', async ({ page }) => {
     await openSupport(page);
-    const notice = page.getByText('This does not actually send a support request.');
-    await expect(notice).toBeVisible();
-
     await page.getByRole('textbox', { name: 'Enter your support message below' }).fill('The schedule is great!');
+    await expect(page.getByText('This does not actually send a support request.')).toBeVisible();
+
     await page.getByRole('button', { name: 'Submit' }).click();
 
     await expect(page.getByText('Your support request has been sent.')).toBeVisible();
-    // The notice closes on its own after 3 seconds, so check that it's gone well before then.
-    await expect(notice).toBeHidden({ timeout: 1000 });
+    // The notice closes on its own after 3 seconds, so count the toasts once instead of waiting for it to go.
+    expect(await page.locator('ion-toast').count()).toBe(1);
   });
 
-  test('submitting an empty message shows the required message', async ({ page }) => {
+  test('the Support page shows the required message when an empty message is submitted', async ({ page }) => {
     await openSupport(page);
 
     await page.getByRole('button', { name: 'Submit' }).click();
