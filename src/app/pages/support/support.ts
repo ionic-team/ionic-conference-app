@@ -58,6 +58,11 @@ export class SupportPage {
       form.resetForm({ supportQuestion: '' });
       this.submitted = false;
 
+      // Replace the notice if it's still open, so the two toasts don't overlap
+      if (await this.toastCtrl.getTop()) {
+        await this.toastCtrl.dismiss();
+      }
+
       const toast = await this.toastCtrl.create({
         message: 'Your support request has been sent.',
         duration: 3000,
