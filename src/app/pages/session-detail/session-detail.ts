@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
+  ActionSheetController,
   IonBackButton,
   IonButton,
   IonButtons,
@@ -37,11 +38,13 @@ import { UserService } from '../../providers/user.service';
     IonLabel,
     IonText,
   ],
+  providers: [ActionSheetController],
 })
 export class SessionDetailPage {
   private confService = inject(ConferenceService);
   private userService = inject(UserService);
   private route = inject(ActivatedRoute);
+  private actionSheetCtrl = inject(ActionSheetController);
 
   session = signal<Session | undefined>(undefined);
   isFavorite = signal(false);
@@ -94,7 +97,35 @@ export class SessionDetailPage {
     }
   }
 
-  shareSession(): void {
-    console.log('Clicked share session');
+  async shareSession(): Promise<void> {
+    const session = this.session();
+    if (!session) {
+      return;
+    }
+    const link = window.location.href;
+
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Share ' + session.name,
+      buttons: [
+        {
+          text: 'Copy Link',
+          handler: () => {
+            console.log('Copy link clicked on ' + link);
+            if ((window as any).cordova && (window as any).cordova.plugins.clipboard) {
+              (window as any).cordova.plugins.clipboard.copy(link);
+            }
+          },
+        },
+        {
+          text: 'Share via ...',
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await actionSheet.present();
   }
 }

@@ -121,6 +121,13 @@ describe('AppComponent', () => {
       expect(menuLabels()).toContain('Login');
       expect(hasDarkModeToggle()).toBe(true);
     });
+
+    it('should show the Dark Mode toggle when logged in', async () => {
+      await start(true);
+
+      expect(menuLabels()).toContain('Logout');
+      expect(hasDarkModeToggle()).toBe(true);
+    });
   });
 
   describe('once started', () => {
@@ -134,10 +141,21 @@ describe('AppComponent', () => {
 
     it('should reset the tutorial flag when opening the tutorial', async () => {
       await Preferences.set({ key: 'ion_did_tutorial', value: 'true' });
+      vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
 
-      app.openTutorial();
+      await app.openTutorial();
 
       expect((await Preferences.get({ key: 'ion_did_tutorial' })).value).toBe('false');
+    });
+
+    it('should keep the tutorial flag and the menu when the tutorial does not open', async () => {
+      await Preferences.set({ key: 'ion_did_tutorial', value: 'true' });
+      vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(false);
+
+      await app.openTutorial();
+
+      expect((await Preferences.get({ key: 'ion_did_tutorial' })).value).toBe('true');
+      expect(menuSpy.enable).not.toHaveBeenCalledWith(false);
     });
 
     it('should list the conference pages in the menu', () => {
@@ -175,10 +193,10 @@ describe('AppComponent', () => {
       await vi.waitFor(() => expect(navigate).toHaveBeenCalledWith('/app/tabs/schedule'));
     });
 
-    it('should disable the menu and open the tutorial', () => {
+    it('should disable the menu and open the tutorial', async () => {
       const navigate = vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
 
-      app.openTutorial();
+      await app.openTutorial();
 
       expect(menuSpy.enable).toHaveBeenCalledWith(false);
       expect(navigate).toHaveBeenCalledWith('/tutorial');

@@ -1,12 +1,20 @@
 import { CUSTOM_ELEMENTS_SCHEMA, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import type { NgForm } from '@angular/forms';
+import { FormControl, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { provideIonicAngular } from '@ionic/angular';
 
 import { UserService } from '../../providers/user.service';
 
 import { SignupPage } from './signup';
+
+// A form with the page's required fields, filled with the given values.
+const form = (username: string, password: string): NgForm => {
+  const ngForm = new NgForm([], []);
+  ngForm.form.addControl('username', new FormControl(username, Validators.required));
+  ngForm.form.addControl('password', new FormControl(password, Validators.required));
+  return ngForm;
+};
 
 describe('SignupPage', () => {
   let app: SignupPage;
@@ -36,7 +44,7 @@ describe('SignupPage', () => {
   it('should sign up with the username and open the schedule', () => {
     app.signup = { username: 'newbie', password: 'secret' };
 
-    app.onSignup({ valid: true } as NgForm);
+    app.onSignup(form('newbie', 'secret'));
 
     expect(app.submitted).toBe(true);
     expect(user.signup).toHaveBeenCalledWith('newbie');
@@ -44,9 +52,14 @@ describe('SignupPage', () => {
   });
 
   it('should not sign up when the form is invalid', () => {
-    app.onSignup({ valid: false } as NgForm);
+    const invalid = form('', '');
+
+    app.onSignup(invalid);
 
     expect(app.submitted).toBe(true);
+    // Touching the fields shows their required messages
+    expect(invalid.form.get('username')?.touched).toBe(true);
+    expect(invalid.form.get('password')?.touched).toBe(true);
     expect(user.signup).not.toHaveBeenCalled();
     expect(router.navigateByUrl).not.toHaveBeenCalled();
   });

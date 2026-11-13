@@ -36,6 +36,12 @@ describe('SessionDetailPage', () => {
   };
 
   const starIcon = () => fixture.nativeElement.querySelector('ion-buttons[slot="end"] ion-icon')?.getAttribute('name');
+  // Ionic moves an ion-button's aria-label onto the native button inside its shadow root.
+  const favoriteLabel = () =>
+    fixture.nativeElement
+      .querySelector('ion-buttons[slot="end"] ion-button')
+      ?.shadowRoot?.querySelector('button')
+      ?.getAttribute('aria-label');
 
   it('should show the session from the route', async () => {
     await createPage('2');
@@ -89,6 +95,22 @@ describe('SessionDetailPage', () => {
 
     expect(user.hasFavorite('Ionic Tooling')).toBe(false);
     expect(starIcon()).toBe('star-outline');
+  });
+
+  it('should label the favorite button by what tapping it does', async () => {
+    await createPage('3');
+    app.ionViewWillEnter();
+    await fixture.whenStable();
+
+    await vi.waitFor(() => expect(favoriteLabel()).toBe('Add favorite'));
+
+    app.toggleFavorite();
+    await fixture.whenStable();
+    await vi.waitFor(() => expect(favoriteLabel()).toBe('Remove favorite'));
+
+    app.toggleFavorite();
+    await fixture.whenStable();
+    await vi.waitFor(() => expect(favoriteLabel()).toBe('Add favorite'));
   });
 
   it('should not change favorites before a session is shown', async () => {

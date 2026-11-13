@@ -16,17 +16,17 @@
       showCancelButton="always"
       [(ngModel)]="queryText"
       (ionInput)="updateSchedule()"
-      (ionCancel)="showSearchbar = false"
+      (ionCancel)="cancelSearch()"
       placeholder="Search"
     ></ion-searchbar>
     }
     <ion-buttons slot="end">
       @if (!ios && !showSearchbar) {
-      <ion-button (click)="showSearchbar = true">
+      <ion-button (click)="showSearchbar = true" aria-label="Search">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
       } @if (!showSearchbar) {
-      <ion-button (click)="presentFilter()">
+      <ion-button (click)="presentFilter()" aria-label="Filter">
         @if (ios) {
         <span>Filter</span>
         } @else {
@@ -90,21 +90,21 @@
 
   <ion-list-header [hidden]="shownSessions() > 0"> No Sessions Found </ion-list-header>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
-    <ion-fab-button>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button aria-label="Share">
       <ion-icon name="share-social"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button color="vimeo" (click)="openSocial('Vimeo', fab)">
+      <ion-fab-button color="vimeo" aria-label="Vimeo" (click)="openSocial('Vimeo')">
         <ion-icon name="logo-vimeo"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="instagram" (click)="openSocial('Instagram', fab)">
+      <ion-fab-button color="instagram" aria-label="Instagram" (click)="openSocial('Instagram')">
         <ion-icon name="logo-instagram"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="twitter" (click)="openSocial('Twitter', fab)">
+      <ion-fab-button color="twitter" aria-label="Twitter" (click)="openSocial('Twitter')">
         <ion-icon name="logo-twitter"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="facebook" (click)="openSocial('Facebook', fab)">
+      <ion-fab-button color="facebook" aria-label="Facebook" (click)="openSocial('Facebook')">
         <ion-icon name="logo-facebook"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
