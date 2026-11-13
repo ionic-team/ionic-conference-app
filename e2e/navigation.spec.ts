@@ -109,6 +109,38 @@ test.describe('Navigation', () => {
     await expect(about).toContainText('ica2047');
   });
 
+  test('choosing another location on the About page shows it and its image', async ({ page }) => {
+    await page.goto('/app/tabs/about');
+    const about = page.locator('page-about').filter({ visible: true });
+    await expect(about.locator('.about-image.madison')).toHaveCSS('opacity', '1');
+
+    // The select's own button sits under its visible control, so click the select itself.
+    await about.locator('ion-select').click();
+    const alert = page.getByRole('alertdialog', { name: 'Select a Location' });
+    await alert.getByRole('radio', { name: 'Austin, TX' }).click();
+    await alert.getByRole('button', { name: 'OK' }).click();
+
+    await expect(alert).toHaveCount(0);
+    await expect(about.getByRole('button', { name: 'Location, Austin, TX' })).toBeVisible();
+    await expect(about.locator('.about-image.austin')).toHaveCSS('opacity', '1');
+    await expect(about.locator('.about-image.madison')).toHaveCSS('opacity', '0');
+  });
+
+  test('choosing another date on the About page shows it', async ({ page }) => {
+    await page.goto('/app/tabs/about');
+    const about = page.locator('page-about').filter({ visible: true });
+
+    await about.locator('ion-item').filter({ hasText: 'Date' }).click();
+    const popover = page.locator('ion-popover').filter({ has: page.locator('ion-datetime') });
+    await popover.getByRole('button', { name: 'Monday, May 20' }).click();
+
+    await expect(about.locator('ion-item').filter({ hasText: 'Date' })).toContainText('May 20, 2047');
+    await expect(about).toContainText('a one-day event happening on May 20, 2047');
+
+    await page.keyboard.press('Escape');
+    await expect(popover).toBeHidden();
+  });
+
   test('the About page options open the Ionic links and the Support page', async ({ page }) => {
     // The links open in a new tab, so answer them locally to keep the test off the network.
     await page
