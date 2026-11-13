@@ -223,6 +223,17 @@ test.describe('Schedule', () => {
     await expect(shownSessions(page)).toHaveCount(20);
   });
 
+  test('Reset in the filter deselects every track', async ({ page }) => {
+    const modal = await openFilter(page);
+    await modal.getByRole('button', { name: 'Reset' }).click();
+    await expect(modal.getByRole('checkbox', { checked: true })).toHaveCount(0);
+
+    await modal.getByRole('checkbox', { name: 'Angular' }).click();
+    await applyFilter(page);
+
+    await expect(shownSessions(page)).toHaveText(angularSessions);
+  });
+
   test('search and the track filter combine', async ({ page }) => {
     const modal = await openFilter(page);
     await modal.getByRole('checkbox', { name: 'Angular' }).click();
