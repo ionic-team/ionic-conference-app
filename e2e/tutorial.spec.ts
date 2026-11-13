@@ -1,6 +1,15 @@
+import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
 import { openMenu, shownSessions, visibleTitle } from './helpers';
+
+// Drags from the left edge of the screen, which opens the side menu when it is enabled.
+const swipeFromLeftEdge = async (page: Page) => {
+  await page.mouse.move(5, 300);
+  await page.mouse.down();
+  await page.mouse.move(250, 300, { steps: 10 });
+  await page.mouse.up();
+};
 
 test.describe('Tutorial', () => {
   test('shows the tutorial on the first visit', async ({ page }) => {
@@ -59,5 +68,23 @@ test.describe('Tutorial', () => {
 
     await expect(page).toHaveURL(/\/tutorial$/);
     await expect(page.getByRole('heading', { name: 'Welcome to ICA' })).toBeVisible();
+  });
+
+  test('the side menu is disabled on the tutorial and works again after skipping it', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: 'Welcome to ICA' })).toBeVisible();
+    const menu = page.getByRole('navigation', { name: 'menu' });
+
+    await expect(page.locator('ion-menu')).toHaveJSProperty('disabled', true);
+    await expect(page.getByRole('button', { name: 'menu' }).filter({ visible: true })).toHaveCount(0);
+    await swipeFromLeftEdge(page);
+    await expect(menu).toBeHidden();
+
+    await page.getByRole('button', { name: 'Skip' }).click();
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('ion-menu')).toHaveJSProperty('disabled', false);
+
+    await swipeFromLeftEdge(page);
+    await expect(menu).toBeVisible();
   });
 });
