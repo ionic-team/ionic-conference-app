@@ -17,6 +17,11 @@ export default defineConfig({
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 7'] },
     },
+    {
+      // An iPhone user agent puts the app in iOS mode. Chromium runs it so WebKit does not need to be installed.
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 15'], browserName: 'chromium' },
+    },
   ],
   webServer: {
     // CI tests the production build, which is what gets deployed, so build-tool

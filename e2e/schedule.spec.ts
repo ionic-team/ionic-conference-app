@@ -1,11 +1,21 @@
 import type { Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
-import { openSchedule, sessionItem, shownSessions, swipeOpen, visibleButton, visibleTitle } from './helpers';
+import { isIos, openSchedule, sessionItem, shownSessions, swipeOpen, visibleButton, visibleTitle } from './helpers';
 
 const angularSessions = ["What's New in Angular", 'Bulding with Ionic and Angular'];
 
 const noSessionsFound = (page: Page) => page.getByText('No Sessions Found');
+
+// Android shows the searchbar after tapping Search, iOS shows it at the top of the list.
+const openSearch = async (page: Page) => {
+  if (!isIos()) {
+    await visibleButton(page, 'Search').click();
+  }
+  const search = page.getByRole('searchbox').filter({ visible: true });
+  await expect(search).toBeVisible();
+  return search;
+};
 
 const openFilter = async (page: Page) => {
   await visibleButton(page, 'Filter').click();
@@ -47,7 +57,13 @@ test.describe('Schedule', () => {
   });
 
   test('the icon-only buttons have accessible names', async ({ page }) => {
-    await expect(visibleButton(page, 'Search')).toBeVisible();
+    if (isIos()) {
+      // iOS shows the searchbar in the page instead of a Search button.
+      await expect(visibleButton(page, 'Search')).toHaveCount(0);
+      await expect(page.getByRole('searchbox', { name: 'Search' }).filter({ visible: true })).toBeVisible();
+    } else {
+      await expect(visibleButton(page, 'Search')).toBeVisible();
+    }
     await expect(visibleButton(page, 'Filter')).toBeVisible();
     await expect(visibleButton(page, 'Share')).toBeVisible();
   });
@@ -109,8 +125,7 @@ test.describe('Schedule', () => {
   });
 
   test('search filters the sessions by name and clearing it restores the list', async ({ page }) => {
-    await visibleButton(page, 'Search').click();
-    const search = page.getByRole('searchbox');
+    const search = await openSearch(page);
 
     await search.fill('angular');
     await expect(shownSessions(page)).toHaveText(angularSessions);
@@ -124,9 +139,10 @@ test.describe('Schedule', () => {
   });
 
   test('cancelling the search hides the searchbar and shows every session again', async ({ page }) => {
-    await visibleButton(page, 'Search').click();
+    test.skip(isIos(), 'iOS keeps the searchbar in the page without a cancel button');
+    const search = await openSearch(page);
     const searchbar = page.locator('ion-searchbar').filter({ visible: true });
-    await page.getByRole('searchbox').fill('angular');
+    await search.fill('angular');
     await expect(shownSessions(page)).toHaveText(angularSessions);
 
     await searchbar.getByRole('button', { name: 'cancel' }).click();
@@ -136,13 +152,13 @@ test.describe('Schedule', () => {
   });
 
   test('search shows an empty state when no session matches', async ({ page }) => {
-    await visibleButton(page, 'Search').click();
-    await page.getByRole('searchbox').fill('xyzzy');
+    const search = await openSearch(page);
+    await search.fill('xyzzy');
 
     await expect(shownSessions(page)).toHaveCount(0);
     await expect(noSessionsFound(page)).toBeVisible();
 
-    await page.getByRole('searchbox').fill('');
+    await search.fill('');
     await expect(shownSessions(page)).toHaveCount(20);
     await expect(noSessionsFound(page)).toBeHidden();
   });
@@ -230,6 +246,7 @@ test.describe('Schedule', () => {
   });
 
   test('the filter toolbar buttons keep their casing', async ({ page }) => {
+    test.skip(isIos(), 'iOS does not uppercase toolbar buttons');
     const modal = await openFilter(page);
 
     // Not Android's uppercase.
@@ -254,6 +271,7 @@ test.describe('Schedule', () => {
   });
 
   test('Reset in the filter deselects every track', async ({ page }) => {
+    test.skip(isIos(), 'iOS shows Cancel instead of Reset');
     const modal = await openFilter(page);
     await modal.getByRole('button', { name: 'Reset' }).click();
     await expect(modal.getByRole('checkbox', { checked: true })).toHaveCount(0);
@@ -264,13 +282,27 @@ test.describe('Schedule', () => {
     await expect(shownSessions(page)).toHaveText(angularSessions);
   });
 
+  test('Cancel in the filter closes it without applying the changes', async ({ page }) => {
+    test.skip(!isIos(), 'Android shows Reset instead of Cancel');
+    let modal = await openFilter(page);
+    await modal.getByRole('checkbox', { name: 'Angular' }).click();
+    await expect(modal.getByRole('checkbox', { name: 'Angular' })).not.toBeChecked();
+
+    await modal.getByRole('button', { name: 'Cancel' }).click();
+
+    await expect(page.locator('ion-modal')).toHaveCount(0);
+    await expect(shownSessions(page)).toHaveCount(20);
+    modal = await openFilter(page);
+    await expect(modal.getByRole('checkbox', { name: 'Angular' })).toBeChecked();
+  });
+
   test('search and the track filter combine', async ({ page }) => {
     const modal = await openFilter(page);
     await modal.getByRole('checkbox', { name: 'Angular' }).click();
     await applyFilter(page);
 
-    await visibleButton(page, 'Search').click();
-    await page.getByRole('searchbox').fill('ionic');
+    const search = await openSearch(page);
+    await search.fill('ionic');
 
     await expect(shownSessions(page)).not.toHaveCount(0);
     await expect(sessionItem(page, 'Bulding with Ionic and Angular')).toHaveCount(0);
