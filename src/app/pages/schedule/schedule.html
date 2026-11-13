@@ -90,21 +90,21 @@
 
   <ion-list-header [hidden]="shownSessions() > 0"> No Sessions Found </ion-list-header>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button aria-label="Share">
       <ion-icon name="share-social"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button color="vimeo" aria-label="Vimeo" (click)="openSocial('Vimeo', fab)">
+      <ion-fab-button color="vimeo" aria-label="Vimeo" (click)="openSocial('Vimeo')">
         <ion-icon name="logo-vimeo"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="instagram" aria-label="Instagram" (click)="openSocial('Instagram', fab)">
+      <ion-fab-button color="instagram" aria-label="Instagram" (click)="openSocial('Instagram')">
         <ion-icon name="logo-instagram"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="twitter" aria-label="Twitter" (click)="openSocial('Twitter', fab)">
+      <ion-fab-button color="twitter" aria-label="Twitter" (click)="openSocial('Twitter')">
         <ion-icon name="logo-twitter"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="facebook" aria-label="Facebook" (click)="openSocial('Facebook', fab)">
+      <ion-fab-button color="facebook" aria-label="Facebook" (click)="openSocial('Facebook')">
         <ion-icon name="logo-facebook"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
