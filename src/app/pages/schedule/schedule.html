@@ -53,6 +53,7 @@
     <ion-toolbar>
       <ion-title size="large">Schedule</ion-title>
     </ion-toolbar>
+    @if (ios) {
     <ion-toolbar>
       <ion-searchbar
         [(ngModel)]="queryText"
@@ -60,6 +61,7 @@
         placeholder="Search"
       ></ion-searchbar>
     </ion-toolbar>
+    }
   </ion-header>
 
   <ion-list #scheduleList [hidden]="shownSessions() === 0">
