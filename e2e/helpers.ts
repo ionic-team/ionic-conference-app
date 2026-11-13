@@ -1,5 +1,8 @@
 import type { Locator, Page } from '@playwright/test';
-import { expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+
+// The Mobile Safari project runs the app in iOS mode, the others in Android (md) mode.
+export const isIos = (): boolean => test.info().project.name === 'Mobile Safari';
 
 // Ionic keeps the pages it has shown in the DOM (hidden), so only look at visible elements.
 export const visibleTitle = (page: Page): Locator => page.locator('ion-title').filter({ visible: true }).first();
@@ -62,8 +65,13 @@ export const swipeOpen = async (page: Page, item: Locator): Promise<void> => {
   await expect(item).toHaveClass(/item-sliding-active-options-end/);
 };
 
+// Android shows an icon-only button named "back", iOS shows a "Back" label next to the icon. The iOS page
+// transition animates a copy of the back button outside the pages, so only look inside them.
 export const backButton = (page: Page): Locator =>
-  page.getByRole('button', { name: 'back', exact: true }).filter({ visible: true });
+  page
+    .locator('.ion-page')
+    .getByRole('button', { name: /^back$/i })
+    .filter({ visible: true });
 
 // The session detail page currently shown.
 export const sessionDetail = (page: Page): Locator => page.locator('page-session-detail').filter({ visible: true });
