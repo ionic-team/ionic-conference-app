@@ -238,6 +238,29 @@ test.describe('Support', () => {
     await expect(visibleTitle(page)).toHaveText('Schedule');
   });
 
+  test('the Support page asks before showing the tutorial with an unsent message', async ({ page }) => {
+    await openSupport(page);
+    await page.getByRole('textbox', { name: 'Enter your support message below' }).fill('Unsent message');
+
+    let menu = await openMenu(page);
+    await menu.getByRole('button', { name: 'Show Tutorial' }).click();
+    const alert = page.locator('ion-alert');
+    await expect(alert).toContainText('Leave this page?');
+    await alert.getByRole('button', { name: 'Stay' }).click();
+
+    // Staying leaves the menu and the tutorial state as they were.
+    await expect(alert).toHaveCount(0);
+    await expect(page).toHaveURL(/\/support$/);
+    await expect(page.getByRole('textbox', { name: 'Enter your support message below' })).toHaveValue('Unsent message');
+    expect(await page.evaluate(() => localStorage.getItem('CapacitorStorage.ion_did_tutorial'))).not.toBe('false');
+
+    menu = await openMenu(page);
+    await menu.getByRole('button', { name: 'Show Tutorial' }).click();
+    await alert.getByRole('button', { name: 'Leave' }).click();
+
+    await expect(page).toHaveURL(/\/tutorial$/);
+  });
+
   test('the Support page leaves without asking when the message is empty', async ({ page }) => {
     await openSupport(page);
 
