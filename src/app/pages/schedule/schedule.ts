@@ -219,13 +219,11 @@ export class SchedulePage implements OnInit {
     await alert.present();
   }
 
-  async openSocial(network: string, fab: IonFab): Promise<void> {
+  async openSocial(network: string): Promise<void> {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
-      duration: Math.random() * 1000 + 500,
+      duration: 1000,
     });
     await loading.present();
-    await loading.onWillDismiss();
-    fab.close();
   }
 }
