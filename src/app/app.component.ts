@@ -180,10 +180,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  openTutorial(): void {
-    this.menu.enable(false);
-    Preferences.set({ key: 'ion_did_tutorial', value: 'false' });
-    this.router.navigateByUrl('/tutorial');
+  async openTutorial(): Promise<void> {
+    const { value } = await Preferences.get({ key: 'ion_did_tutorial' });
+    await Preferences.set({ key: 'ion_did_tutorial', value: 'false' });
+
+    // The Support page can ask to stay, so keep the menu and put the tutorial state back if the tutorial does not open.
+    if (await this.router.navigateByUrl('/tutorial')) {
+      this.menu.enable(false);
+    } else if (value === null) {
+      await Preferences.remove({ key: 'ion_did_tutorial' });
+    } else {
+      await Preferences.set({ key: 'ion_did_tutorial', value });
+    }
   }
 
   toggleDarkMode(): void {
