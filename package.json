@@ -39,7 +39,7 @@
     "@capacitor/preferences": "^8.0.1",
     "@capacitor/splash-screen": "^8.0.0",
     "@capacitor/status-bar": "^8.0.0",
-    "@ionic/angular": "^9.0.0",
+    "@ionic/angular": "9.0.12-dev.11794527713.1ebd1ea1",
     "core-js": "^3.6.4",
     "leaflet": "^1.9.4",
     "rxjs": "^7.8.0",
