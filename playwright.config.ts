@@ -19,7 +19,7 @@ export default defineConfig({
     },
     {
       // An iPhone user agent puts the app in iOS mode. Chromium runs it so WebKit does not need to be installed.
-      name: 'Mobile Safari',
+      name: 'Mobile Chrome (iOS mode)',
       use: { ...devices['iPhone 15'], browserName: 'chromium' },
     },
   ],

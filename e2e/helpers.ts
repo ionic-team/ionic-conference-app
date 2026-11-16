@@ -1,8 +1,8 @@
 import type { Locator, Page } from '@playwright/test';
 import { expect, test } from '@playwright/test';
 
-// The Mobile Safari project runs the app in iOS mode, the others in Android (md) mode.
-export const isIos = (): boolean => test.info().project.name === 'Mobile Safari';
+// The iOS mode project runs the app with an iPhone user agent, the others in Android (md) mode.
+export const isIos = (): boolean => test.info().project.name === 'Mobile Chrome (iOS mode)';
 
 // Ionic keeps the pages it has shown in the DOM (hidden), so only look at visible elements.
 export const visibleTitle = (page: Page): Locator => page.locator('ion-title').filter({ visible: true }).first();
