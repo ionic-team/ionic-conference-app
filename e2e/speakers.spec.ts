@@ -107,6 +107,30 @@ test.describe('Speakers', () => {
     ]);
   });
 
+  test('the speaker detail social chips open the social profiles', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+    // Record the links instead of opening them, which would leave the app.
+    await page.evaluate(() => {
+      const opened: string[] = [];
+      (window as Window & { opened?: string[] }).opened = opened;
+      window.open = (url?: string | URL) => {
+        opened.push(String(url));
+        return null;
+      };
+    });
+
+    for (const name of ['Twitter', 'GitHub', 'Instagram']) {
+      await page.locator('ion-chip').filter({ visible: true, hasText: name }).click();
+    }
+
+    expect(await page.evaluate(() => (window as Window & { opened?: string[] }).opened)).toEqual([
+      'https://twitter.com/ionicframework',
+      'https://github.com/ionic-team/ionic-framework',
+      'https://instagram.com/ionicframework',
+    ]);
+  });
+
   test('Share in the speaker detail opens a share sheet for the speaker that Cancel closes', async ({ page }) => {
     await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
     await expect(page).toHaveURL(/\/speaker-details\/1$/);
