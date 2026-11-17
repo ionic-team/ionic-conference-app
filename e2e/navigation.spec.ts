@@ -31,7 +31,7 @@ const aboutLinks = [
   { name: 'Learn Ionic', url: 'https://ionicframework.com/getting-started' },
   { name: 'Documentation', url: 'https://ionicframework.com/docs/' },
   { name: 'Showcase', url: 'https://showcase.ionicframework.com/' },
-  { name: 'GitHub Repo', url: 'https://github.com/ionic-team/ionic' },
+  { name: 'GitHub Repo', url: 'https://github.com/ionic-team/ionic-framework' },
 ];
 
 // The About page also keeps its date picker popover in the DOM, so match the options by content.
