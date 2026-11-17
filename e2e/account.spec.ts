@@ -124,6 +124,26 @@ test.describe('Account', () => {
     await expectLoggedOut(await openMenu(page));
   });
 
+  test('logging in again after logging out from the Account page shows the schedule', async ({ page }) => {
+    await login(page, 'ionitron');
+    const menu = await openMenu(page);
+    await openAccount(page, menu);
+
+    await (await openMenu(page)).getByRole('button', { name: 'Logout' }).click();
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('page-account')).toBeHidden();
+
+    await (await openMenu(page)).getByRole('link', { name: 'Login' }).click();
+    await expect(page).toHaveURL(/\/login$/);
+    await page.getByRole('textbox', { name: 'Username' }).fill('ionitron');
+    await page.getByRole('textbox', { name: 'Password' }).fill('secret');
+    await page.getByRole('button', { name: 'Login' }).click();
+
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('page-account')).toBeHidden();
+    await expect(visibleTitle(page)).toHaveText('Schedule');
+  });
+
   test('signing up logs the user in', async ({ page }) => {
     await page.goto('/login');
     await page.getByRole('button', { name: 'Signup' }).click();

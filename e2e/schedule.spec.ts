@@ -229,6 +229,20 @@ test.describe('Schedule', () => {
     }
   });
 
+  test('closing the filter without Done keeps the tracks', async ({ page }) => {
+    let modal = await openFilter(page);
+    await modal.getByRole('checkbox', { name: 'Angular' }).click();
+    await expect(modal.getByRole('checkbox', { name: 'Angular' })).not.toBeChecked();
+
+    // Escape closes the modal the way swiping the card down or tapping the backdrop does.
+    await page.keyboard.press('Escape');
+    await expect(page.locator('ion-modal')).toHaveCount(0);
+
+    await expect(shownSessions(page)).toHaveCount(20);
+    modal = await openFilter(page);
+    await expect(modal.getByRole('checkbox', { name: 'Angular' })).toBeChecked();
+  });
+
   test('the filter toolbar buttons keep their casing', async ({ page }) => {
     const modal = await openFilter(page);
 
