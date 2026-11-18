@@ -64,6 +64,105 @@ test.describe('Speakers', () => {
     await expect(visibleButton(page, 'Share')).toBeVisible();
   });
 
+  test('Contact in the speaker detail opens the email and call options that Cancel closes', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+
+    await visibleButton(page, 'Contact').click();
+
+    const sheet = page.locator('ion-action-sheet');
+    await expect(sheet.getByText('Contact Burt Bear')).toBeVisible();
+    for (const name of ['Email ( burt@example.com )', 'Call ( +1-541-754-3010 )', 'Cancel']) {
+      await expect(sheet.getByRole('button', { name, exact: true })).toBeVisible();
+    }
+
+    await sheet.getByRole('button', { name: 'Cancel', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+  });
+
+  test('the speaker detail contact options open the email and phone links', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+    // Record the links instead of opening them, which would leave the app.
+    await page.evaluate(() => {
+      const opened: string[] = [];
+      (window as Window & { opened?: string[] }).opened = opened;
+      window.open = (url?: string | URL) => {
+        opened.push(String(url));
+        return null;
+      };
+    });
+    const sheet = page.locator('ion-action-sheet');
+
+    for (const name of ['Email ( burt@example.com )', 'Call ( +1-541-754-3010 )']) {
+      await visibleButton(page, 'Contact').click();
+      await sheet.getByRole('button', { name, exact: true }).click();
+      await expect(sheet).toHaveCount(0);
+    }
+
+    expect(await page.evaluate(() => (window as Window & { opened?: string[] }).opened)).toEqual([
+      'mailto:burt@example.com',
+      'tel:+1-541-754-3010',
+    ]);
+  });
+
+  test('the speaker detail social chips open the social profiles', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+    // Record the links instead of opening them, which would leave the app.
+    await page.evaluate(() => {
+      const opened: string[] = [];
+      (window as Window & { opened?: string[] }).opened = opened;
+      window.open = (url?: string | URL) => {
+        opened.push(String(url));
+        return null;
+      };
+    });
+
+    for (const name of ['Twitter', 'GitHub', 'Instagram']) {
+      await page.locator('ion-chip').filter({ visible: true, hasText: name }).click();
+    }
+
+    expect(await page.evaluate(() => (window as Window & { opened?: string[] }).opened)).toEqual([
+      'https://twitter.com/ionicframework',
+      'https://github.com/ionic-team/ionic-framework',
+      'https://instagram.com/ionicframework',
+    ]);
+  });
+
+  test('Share in the speaker detail opens a share sheet for the speaker that Cancel closes', async ({ page }) => {
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+
+    await visibleButton(page, 'Share').click();
+
+    const sheet = page.locator('ion-action-sheet');
+    await expect(sheet.getByText('Share Burt Bear')).toBeVisible();
+    for (const name of ['Copy Link', 'Share via ...', 'Cancel']) {
+      await expect(sheet.getByRole('button', { name, exact: true })).toBeVisible();
+    }
+
+    await sheet.getByRole('button', { name: 'Cancel', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+  });
+
+  test('Copy Link in the speaker share sheet copies the speaker Twitter link', async ({ context, page }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+
+    await visibleButton(page, 'Share').click();
+    const sheet = page.locator('ion-action-sheet');
+    await sheet.getByRole('button', { name: 'Copy Link', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+    await expect
+      .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+      .toBe('https://twitter.com/ionicframework');
+  });
+
   test('About in a speaker card opens the speaker detail', async ({ page }) => {
     await speakerCard(page, 'Rachel Rabbit').getByRole('link', { name: 'About Rachel Rabbit' }).click();
 
