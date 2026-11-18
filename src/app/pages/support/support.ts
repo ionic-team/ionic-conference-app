@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import type { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {
   AlertController,
   IonButton,
@@ -16,24 +17,24 @@ import {
 } from '@ionic/angular';
 
 @Component({
-    selector: 'page-support',
-    templateUrl: 'support.html',
-    styleUrls: ['./support.scss'],
-    imports: [
-        FormsModule,
-        IonHeader,
-        IonButton,
-        IonButtons,
-        IonContent,
-        IonCol,
-        IonHeader,
-        IonMenuButton,
-        IonRow,
-        IonTextarea,
-        IonTitle,
-        IonToolbar,
-    ],
-    providers: [AlertController, ToastController]
+  selector: 'page-support',
+  templateUrl: 'support.html',
+  styleUrls: ['./support.scss'],
+  imports: [
+    FormsModule,
+    IonHeader,
+    IonButton,
+    IonButtons,
+    IonContent,
+    IonCol,
+    IonHeader,
+    IonMenuButton,
+    IonRow,
+    IonTextarea,
+    IonTitle,
+    IonToolbar,
+  ],
+  providers: [AlertController, ToastController],
 })
 export class SupportPage {
   private toastCtrl = inject(ToastController);

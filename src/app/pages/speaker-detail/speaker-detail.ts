@@ -23,26 +23,27 @@ import {
   shareOutline,
   shareSharp,
 } from 'ionicons/icons';
-import { Speaker } from '../../interfaces/conference.interfaces';
+
+import type { Speaker } from '../../interfaces/conference.interfaces';
 import { ConferenceService } from '../../providers/conference.service';
 
 @Component({
-    selector: 'page-speaker-detail',
-    templateUrl: 'speaker-detail.html',
-    styleUrls: ['./speaker-detail.scss'],
-    imports: [
-        IonContent,
-        IonHeader,
-        IonToolbar,
-        IonButtons,
-        IonBackButton,
-        IonButton,
-        IonIcon,
-        IonChip,
-        IonLabel,
-        NgOptimizedImage,
-    ],
-    providers: [ActionSheetController]
+  selector: 'page-speaker-detail',
+  templateUrl: 'speaker-detail.html',
+  styleUrls: ['./speaker-detail.scss'],
+  imports: [
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonButton,
+    IonIcon,
+    IonChip,
+    IonLabel,
+    NgOptimizedImage,
+  ],
+  providers: [ActionSheetController],
 })
 export class SpeakerDetailPage {
   speaker = signal<Speaker | undefined>(undefined);
@@ -64,7 +65,7 @@ export class SpeakerDetailPage {
   }
 
   ionViewWillEnter() {
-    this.confService.load().subscribe(data => {
+    this.confService.load().subscribe((data) => {
       const speakerId = this.route.snapshot.paramMap.get('speakerId');
       if (data && data.speakers) {
         for (const speaker of data.speakers) {
@@ -88,16 +89,9 @@ export class SpeakerDetailPage {
         {
           text: 'Copy Link',
           handler: () => {
-            console.log(
-              'Copy link clicked on https://twitter.com/' + speaker.twitter
-            );
-            if (
-              (window as any).cordova &&
-              (window as any).cordova.plugins.clipboard
-            ) {
-              (window as any).cordova.plugins.clipboard.copy(
-                'https://twitter.com/' + speaker.twitter
-              );
+            console.log('Copy link clicked on https://twitter.com/' + speaker.twitter);
+            if ((window as any).cordova && (window as any).cordova.plugins.clipboard) {
+              (window as any).cordova.plugins.clipboard.copy('https://twitter.com/' + speaker.twitter);
             }
           },
         },

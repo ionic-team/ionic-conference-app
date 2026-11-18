@@ -14,27 +14,27 @@ const indexMatches = [
   'favicon',
   'index.html',
   'manifest.webmanifest',
-  '.svg'
+  '.svg',
 ];
 let results = '';
 async function main() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page._client.send('ServiceWorker.disable')
+  await page._client.send('ServiceWorker.disable');
 
-  page.on('console', msg => console.log(msg.text()));
+  page.on('console', (msg) => console.log(msg.text()));
 
   console.log('Page: loaded');
   await page.goto(host);
 
   const allRequests = new Map();
-  page.on('request', req => {
+  page.on('request', (req) => {
     allRequests.set(req.url(), req);
   });
 
   await page.reload({ waitUntil: 'networkidle2' });
 
-  Array.from(allRequests.values()).forEach(req => {
+  Array.from(allRequests.values()).forEach((req) => {
     const url = req.url();
 
     // filter out urls that match these extensions
@@ -58,20 +58,19 @@ async function main() {
 
     let type = url.substr(-3) == 'css' ? 'style' : 'script';
     results += `</${formatted}>;rel=preload;as=${type},`;
-
   });
   await browser.close();
   updateWith(results);
 }
 function updateWith(result) {
-  fs.readFile('firebase.json', 'utf8', function(err, data) {
+  fs.readFile('firebase.json', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
     }
     let re = /("headers":\s*\[\s*{\s*"key":\s*"Link",\s*"value":\s*")(.*)("\s*}\s*\])/gm;
     if (re.exec(data)) {
       let newConfig = data.replace(re, `$1${result}$3`);
-      fs.writeFile('firebase.json', newConfig, 'utf8', function(err) {
+      fs.writeFile('firebase.json', newConfig, 'utf8', function (err) {
         if (err) return console.log(err);
         console.log('firebase.json updated successfully.');
       });
