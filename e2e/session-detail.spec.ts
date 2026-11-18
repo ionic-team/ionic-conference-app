@@ -70,6 +70,18 @@ test.describe('Session detail', () => {
     await expect(sheet).toHaveCount(0);
   });
 
+  test('Copy Link in the share sheet copies the session link', async ({ context, page }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await openSession(page, 'Ionic Tooling');
+
+    await sessionDetail(page).getByRole('button', { name: 'Share', exact: true }).click();
+    const sheet = page.locator('ion-action-sheet');
+    await sheet.getByRole('button', { name: 'Copy Link', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toBe(page.url());
+  });
+
   test('the back button returns to the schedule', async ({ page }) => {
     await openSession(page, 'Ionic Tooling');
 

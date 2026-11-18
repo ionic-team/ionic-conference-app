@@ -110,10 +110,7 @@ export class SessionDetailPage {
         {
           text: 'Copy Link',
           handler: () => {
-            console.log('Copy link clicked on ' + link);
-            if ((window as any).cordova && (window as any).cordova.plugins.clipboard) {
-              (window as any).cordova.plugins.clipboard.copy(link);
-            }
+            navigator.clipboard.writeText(link);
           },
         },
         {

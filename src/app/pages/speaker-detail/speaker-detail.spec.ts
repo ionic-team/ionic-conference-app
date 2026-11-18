@@ -107,6 +107,19 @@ describe('SpeakerDetailPage', () => {
     expect(actionSheet.present).toHaveBeenCalled();
   });
 
+  it('should copy the speaker Twitter link from the share sheet', async () => {
+    await createPage('12');
+    app.ionViewWillEnter();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } });
+
+    await app.openSpeakerShare(app.speaker() as Speaker);
+    (actionSheetButton('Copy Link')?.handler as () => void)();
+
+    expect(writeText).toHaveBeenCalledWith('https://twitter.com/' + (app.speaker() as Speaker).twitter);
+    vi.unstubAllGlobals();
+  });
+
   it('should open social links in a new tab', async () => {
     await createPage('12');
     const open = vi.spyOn(window, 'open').mockReturnValue(null);
