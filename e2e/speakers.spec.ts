@@ -148,6 +148,21 @@ test.describe('Speakers', () => {
     await expect(sheet).toHaveCount(0);
   });
 
+  test('Copy Link in the speaker share sheet copies the speaker Twitter link', async ({ context, page }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await speakerCard(page, 'Burt Bear').getByRole('heading', { level: 2 }).click();
+    await expect(page).toHaveURL(/\/speaker-details\/1$/);
+
+    await visibleButton(page, 'Share').click();
+    const sheet = page.locator('ion-action-sheet');
+    await sheet.getByRole('button', { name: 'Copy Link', exact: true }).click();
+
+    await expect(sheet).toHaveCount(0);
+    await expect
+      .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+      .toBe('https://twitter.com/ionicframework');
+  });
+
   test('About in a speaker card opens the speaker detail', async ({ page }) => {
     await speakerCard(page, 'Rachel Rabbit').getByRole('link', { name: 'About Rachel Rabbit' }).click();
 
