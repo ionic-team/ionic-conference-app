@@ -14,7 +14,6 @@ log.txt
 .vscode/*
 !.vscode/extensions.json
 npm-debug.log*
-.firebase/
 .idea/
 .sourcemaps/
 .sass-cache/
@@ -35,3 +34,9 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
