@@ -163,6 +163,10 @@ describe('AppComponent', () => {
       window.dispatchEvent(new CustomEvent('user:logout'));
 
       await vi.waitFor(() => expect(app.loggedIn()).toBe(false));
+      await fixture.whenStable();
+      expect(menuLabels()).toEqual(expect.arrayContaining(['Login', 'Signup']));
+      expect(menuLabels()).not.toContain('Account');
+      expect(menuLabels()).not.toContain('Logout');
     });
 
     it('should log out and open the schedule', async () => {
