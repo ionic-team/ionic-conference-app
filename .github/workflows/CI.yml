@@ -14,8 +14,7 @@ concurrency:
 jobs:
   lint:
     name: Lint
-    # Lint once on Linux. Windows runners check out with CRLF line endings,
-    # which Prettier would report as formatting changes.
+    # Lint once on Linux, since the result doesn't depend on the OS.
     runs-on: ubuntu-latest
 
     steps:
