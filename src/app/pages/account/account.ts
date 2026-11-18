@@ -30,18 +30,18 @@ export class AccountPage implements AfterViewInit {
 
   username = signal<string>('');
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.getUsername();
   }
 
-  updatePicture() {
+  updatePicture(): void {
     console.log('Clicked to update picture');
   }
 
   // Present an alert with the current username populated
   // clicking OK will update the username and display it
   // clicking Cancel will close the alert and do nothing
-  async changeUsername() {
+  async changeUsername(): Promise<void> {
     const alert = await this.alertCtrl.create({
       header: 'Change Username',
       buttons: [
@@ -67,22 +67,22 @@ export class AccountPage implements AfterViewInit {
     await alert.present();
   }
 
-  getUsername() {
+  getUsername(): void {
     this.user.getUsername().then((username) => {
       this.username.set(username ?? '');
     });
   }
 
-  changePassword() {
+  changePassword(): void {
     console.log('Clicked to change password');
   }
 
-  logout() {
+  logout(): void {
     this.user.logout();
     this.router.navigateByUrl('/login');
   }
 
-  support() {
+  support(): void {
     this.router.navigateByUrl('/support');
   }
 }

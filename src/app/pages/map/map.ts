@@ -37,7 +37,7 @@ export class MapPage implements AfterViewInit {
 
   @ViewChild('mapCanvas', { static: true }) mapElement!: ElementRef;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.locationService
       .loadLocations()
       .pipe(takeUntilDestroyed(this.destroyRef))
