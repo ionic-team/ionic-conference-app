@@ -111,8 +111,20 @@ export class SchedulePage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateSchedule();
     this.ios = this.config.get('mode') === 'ios';
+  }
+
+  // Ionic keeps this page alive while a session or speaker is open on top of it, so reload the
+  // timeline every time it is shown: favorites may have changed on the session detail page.
+  ionViewWillEnter(): void {
+    this.updateSchedule();
+  }
+
+  cancelSearch(): void {
+    // Cancelling hides the searchbar before it reports its cleared value, so clear the search here.
+    this.showSearchbar = false;
+    this.queryText = '';
+    this.updateSchedule();
   }
 
   updateSchedule(): void {
@@ -207,13 +219,11 @@ export class SchedulePage implements OnInit {
     await alert.present();
   }
 
-  async openSocial(network: string, fab: IonFab): Promise<void> {
+  async openSocial(network: string): Promise<void> {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
-      duration: Math.random() * 1000 + 500,
+      duration: 1000,
     });
     await loading.present();
-    await loading.onWillDismiss();
-    fab.close();
   }
 }

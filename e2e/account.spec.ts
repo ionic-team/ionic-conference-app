@@ -62,6 +62,13 @@ test.describe('Account', () => {
     await expectLoggedOut(await openMenu(page));
   });
 
+  test('the Account page redirects to Login while logged out', async ({ page }) => {
+    await page.goto('/account');
+
+    await expect(page).toHaveURL(/\/login$/);
+    await expect(visibleTitle(page)).toHaveText('Login');
+  });
+
   test('the Account page shows the username and can change it', async ({ page }) => {
     await login(page, 'ionitron');
     await openAccount(page);
@@ -117,6 +124,26 @@ test.describe('Account', () => {
     await expectLoggedOut(await openMenu(page));
   });
 
+  test('logging in again after logging out from the Account page shows the schedule', async ({ page }) => {
+    await login(page, 'ionitron');
+    const menu = await openMenu(page);
+    await openAccount(page, menu);
+
+    await (await openMenu(page)).getByRole('button', { name: 'Logout' }).click();
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('page-account')).toBeHidden();
+
+    await (await openMenu(page)).getByRole('link', { name: 'Login' }).click();
+    await expect(page).toHaveURL(/\/login$/);
+    await page.getByRole('textbox', { name: 'Username' }).fill('ionitron');
+    await page.getByRole('textbox', { name: 'Password' }).fill('secret');
+    await page.getByRole('button', { name: 'Login' }).click();
+
+    await expect(page).toHaveURL(/\/app\/tabs\/schedule$/);
+    await expect(page.locator('page-account')).toBeHidden();
+    await expect(visibleTitle(page)).toHaveText('Schedule');
+  });
+
   test('signing up logs the user in', async ({ page }) => {
     await page.goto('/login');
     await page.getByRole('button', { name: 'Signup' }).click();
@@ -160,6 +187,19 @@ test.describe('Account', () => {
     { name: 'Login', path: '/login', selector: 'page-login', button: 'Login' },
     { name: 'Signup', path: '/signup', selector: 'page-signup', button: 'Create' },
   ]) {
+    test(`the ${form.name} page shows the required messages when submitted empty`, async ({ page }) => {
+      await page.goto(form.path);
+      const formPage = page.locator(form.selector);
+      await expect(formPage.getByText('Username is required')).toBeHidden();
+      await expect(formPage.getByText('Password is required')).toBeHidden();
+
+      await formPage.getByRole('button', { name: form.button }).click();
+
+      await expect(formPage.getByText('Username is required')).toBeVisible();
+      await expect(formPage.getByText('Password is required')).toBeVisible();
+      await expect(page).toHaveURL(new RegExp(`${form.path}$`));
+    });
+
     test(`the ${form.name} page shows a required message when an empty field is left`, async ({ page }) => {
       await page.goto(form.path);
       const formPage = page.locator(form.selector);

@@ -4,12 +4,10 @@ import { expect } from '@playwright/test';
 // Ionic keeps the pages it has shown in the DOM (hidden), so only look at visible elements.
 export const visibleTitle = (page: Page): Locator => page.locator('ion-title').filter({ visible: true }).first();
 
-// Several toolbar buttons only hold an icon and have no accessible name, so find them by icon.
-export const iconButton = (page: Page, icon: string): Locator =>
-  page
-    .locator('ion-button')
-    .filter({ visible: true, has: page.locator(`ion-icon[name="${icon}"]`) })
-    .first();
+// A button shown on the current page, found by its accessible name. Ionic keeps the pages it
+// has shown in the DOM (hidden), so only look at visible buttons.
+export const visibleButton = (page: Page, name: string): Locator =>
+  page.getByRole('button', { name, exact: true }).filter({ visible: true });
 
 // A session in the schedule list, matched by its name.
 export const sessionItem = (page: Page, name: string): Locator =>

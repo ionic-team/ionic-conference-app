@@ -75,12 +75,5 @@
     "typescript-eslint": "^8.72.0",
     "vitest": "^5.0.5"
   },
-  "browserslist": [
-    "Chrome >=111",
-    "Firefox >=112",
-    "Edge >=111",
-    "Safari >=16.4",
-    "iOS >=16.4"
-  ],
   "prettier": "@ionic/prettier-config"
 }

@@ -7,10 +7,10 @@
 
       @if (speaker(); as speaker) {
       <ion-buttons slot="end">
-        <ion-button (click)="openContact(speaker)">
+        <ion-button (click)="openContact(speaker)" aria-label="Contact">
           <ion-icon slot="icon-only" [ios]="'call-outline'" [md]="'call-sharp'"></ion-icon>
         </ion-button>
-        <ion-button (click)="openSpeakerShare(speaker)">
+        <ion-button (click)="openSpeakerShare(speaker)" aria-label="Share">
           <ion-icon slot="icon-only" [ios]="'share-outline'" [md]="'share-sharp'"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -49,7 +49,7 @@
       <ion-chip
         color="dark"
         button
-        (click)="openExternalUrl('https://github.com/ionic-team/ionic')"
+        (click)="openExternalUrl('https://github.com/ionic-team/ionic-framework')"
         aria-label="Visit GitHub profile"
       >
         <ion-icon name="logo-github"></ion-icon>
@@ -59,7 +59,7 @@
       <ion-chip
         color="instagram"
         button
-        (click)="openExternalUrl('https://instagram.com/ionicframework')"
+        (click)="openExternalUrl('https://instagram.com/' + speaker.instagram)"
         aria-label="Visit Instagram profile"
       >
         <ion-icon name="logo-instagram"></ion-icon>
