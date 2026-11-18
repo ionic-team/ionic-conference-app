@@ -4,7 +4,7 @@
     "config:recommended",
     ":semanticCommitTypeAll(chore)"
   ],
-  "description": "Renovate may only open or update PRs on Mondays, 6-10am ET.",
+  "description": "Renovate may only open or update PRs on Mondays, 6-10am ET. Lockfile maintenance runs earlier, before 4am on Mondays, so it lands before the other updates.",
   "timezone": "America/New_York",
   "minimumReleaseAge": "3 days",
   "schedule": ["* 6-10 * * 1"],
@@ -14,7 +14,8 @@
   "platformAutomerge": false,
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true
+    "automerge": true,
+    "schedule": ["before 4am on monday"]
   },
   "packageRules": [
     {
