@@ -20,7 +20,6 @@
   "packageRules": [
     {
       "matchPackageNames": ["@ionic/**", "!@ionic/eslint-config", "!@ionic/prettier-config"],
-      "minimumReleaseAge": "0 days",
       "groupName": "ionic"
     },
     {
